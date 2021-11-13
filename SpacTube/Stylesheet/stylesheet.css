@@ -1,0 +1,87 @@
+*{
+    text-decoration: none;
+    padding: 3px;
+}
+.heading{
+    padding: 10px 0px;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 10px;
+    color: rgb(243, 240, 232);
+    text-shadow: 0px white;
+}
+
+.ins-box{
+    
+    width: 100%;
+    height: auto;
+    margin: 15px auto;
+    padding: 30px 10px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    text-align: center;
+    background-image: url('background.png');
+    box-shadow: 0px 0px 2px 1px gray;
+}
+.v-set td, th{
+    vertical-align: middle !important;
+    text-align: center;
+}
+.youtube-video-r{
+    width: 100%;
+    height: 0;
+    padding-bottom: 56%;
+    position: relative;
+}
+.youtube-video-r iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+.button {
+    background-color: #ffaa01; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer; 
+    
+  }
+.all-v-btn{
+    padding: 8px;
+    text-align: center;
+    background-color: rgb(199, 194, 194);
+    position: fixed;
+    bottom: 25px;
+    right: 25px;   
+}
+.all-v-btn a{
+    color: black !important;
+    transition: all 1s ease-in-out;
+}
+.all-v-btn:hover a{
+    color: white !important;
+}
+
+.g-signin2{
+    width: 100%;
+    margin: 0 auto;
+}
+.topright {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 18px;
+    
+      }
+
+
+  
+   
+    
+    
+   

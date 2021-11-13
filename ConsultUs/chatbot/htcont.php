@@ -1,0 +1,34 @@
+<?php
+$room = $_POST['room'];
+  session_start();
+  define("SITEURL",'http://3.109.14.4//consult/');  
+  $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "consultant_app";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error)
+    {
+        die("Connection failed: " . $conn->connect_error);
+    }
+$sql= "SELECT * FROM `msg` WHERE `room`='$room'";
+$res= "";
+$result =mysqli_query($conn,$sql);
+if(mysqli_num_rows($result)>0)
+{
+    while($row= mysqli_fetch_assoc($result))
+    {
+           echo $res = "<div class='container'>";
+          echo  $res = $row['ip'];
+           echo $res = " says <p>".$row['msg'];
+          echo  $res = "</p> <span class='time-right'>".$row['rtime']."</span></div>";
+    }
+ 
+}
+else{
+    $res = $res."sorry";
+}
+
+?>
