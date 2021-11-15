@@ -33,7 +33,7 @@ if (isset($_SESSION["uid"])) {
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="/Khanstore" class="navbar-brand">Khan Store</a>
+				<a href="./" class="navbar-brand">Khan Store</a>
 			</div>
 			<div class="collapse navbar-collapse" id="collapse">
 				<ul class="nav navbar-nav">
@@ -93,7 +93,7 @@ if (isset($_SESSION["uid"])) {
 						</ul>
 					</li>
 					<li>
-						<a href="/Khanstore/customer_registration.php?register=1">
+						<a href="customer_registration.php?register=1">
 							<span class="glyphicon glyphicon-user"></span>SignUp
 						</a>
 					</li>

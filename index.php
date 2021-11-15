@@ -74,17 +74,17 @@
               <i class="fa fa-bars"></i>
             </div>
             <ul class="main-menu" style="margin-left: 60px">
-              <a href="http://educationfoundation.space/spacece/c_index.html" style="color: black">
+              <a href="index.php" style="color: black">
                 <img src="img/space.jpg" alt="" style="width: 6%" />
               </a>
               <li>
-                <a href="http://educationfoundation.space/spacece/c_index.html" style="color: black"><i class="fa fa-home"></i>HOME</a>
+                <a href="index.php" style="color: black"><i class="fa fa-home"></i>HOME</a>
               </li>
               <li>
-                <a href="http://educationfoundation.space/ConsultUs/about.html" style="color: black"><i class="fa fa-users"></i> ABOUT US</a>
+                <a href="ConsultUs/about.html" style="color: black"><i class="fa fa-users"></i> ABOUT US</a>
               </li>
               <li>
-                <a href="http://educationfoundation.space/ConsultUs/contact.html" style="color: black"><i class="fa fa-envelope" style="color: black"></i>
+                <a href="ConsultUs/contact.html" style="color: black"><i class="fa fa-envelope" style="color: black"></i>
                   FEEDBACK</a>
               </li>
             </ul>

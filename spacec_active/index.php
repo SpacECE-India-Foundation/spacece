@@ -198,13 +198,11 @@ include_once('includes/footer.php');
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js."></script>
 <script type="text/javascript">
-    var base_url = '<?php echo BASE_URL; ?>';
-
     $(document).ready(function() {
         $('#progress').hide();
         $.ajax({
             type: 'POST',
-            url: base_url + 'fetch',
+            url: 'fetch.php',
             data: {
                 'getDetails': 1
             },
@@ -236,7 +234,7 @@ include_once('includes/footer.php');
                 'getDetails': 1,
                 'id': id
             },
-            url: base_url + 'fetch',
+            url: 'fetch.php',
             success: function(data1) {
                 // alert(data1);
                 var data2 = JSON.parse(data1);

@@ -6,7 +6,7 @@ $(document).ready(function () {
   getItem();
   function loadProduct() {
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { userSelectProduct: 1 },
       success: function (data) {
@@ -18,7 +18,7 @@ $(document).ready(function () {
   //cat() is a funtion fetching category record from database whenever page is load
   function cat() {
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { category: 1 },
       success: function (data) {
@@ -29,7 +29,7 @@ $(document).ready(function () {
   //brand() is a funtion fetching brand record from database whenever page is load
   function brand() {
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { brand: 1 },
       success: function (data) {
@@ -40,7 +40,7 @@ $(document).ready(function () {
   //product() is a funtion fetching product record from database whenever page is load
   function product() {
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { getProduct: 1 },
       success: function (data) {
@@ -51,7 +51,7 @@ $(document).ready(function () {
   /*function user_product()
     {
         $.ajax({
-            url : "/spacece/Khanstore/action",
+            url : "action",
             method: "POST",
             data  : {getUserProduct:1},
             success : function(data){
@@ -71,7 +71,7 @@ $(document).ready(function () {
 
     $("#search_items").empty();
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { get_seleted_data: 1, text: text },
 
@@ -87,7 +87,7 @@ $(document).ready(function () {
     //alert(text);
     //alert("Changed");
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { get_seleted_Filter: 1, text: text },
 
@@ -108,7 +108,7 @@ $(document).ready(function () {
     var cid = $(this).attr("cid");
 
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { get_seleted_Category: 1, cat_id: cid },
       success: function (data) {
@@ -129,7 +129,7 @@ $(document).ready(function () {
     var bid = $(this).attr("bid");
 
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { selectBrand: 1, brand_id: bid },
       success: function (data) {
@@ -151,7 +151,7 @@ $(document).ready(function () {
     var text = $("#search").val();
     if (text != "") {
       $.ajax({
-        url: "/spacece/Khanstore/action.php",
+        url: "action.php",
         method: "POST",
         data: { search: 1, text: text },
         success: function (data) {
@@ -183,7 +183,7 @@ $(document).ready(function () {
         if (data == "login_success") {
           window.location.href = "profile.php";
         } else if (data == "cart_login") {
-          window.location.href = "/spacece/Khanstore/cart.php";
+          window.location.href = "cart.php";
         } else {
           $("#e_msg").html(data);
           $(".overlay").hide();
@@ -204,7 +204,7 @@ $(document).ready(function () {
       success: function (data) {
         $(".overlay").hide();
         if (data == "register_success") {
-          window.location.href = "/spacece/Khanstore/index.php";
+          window.location.href = "index.php";
         } else {
           $("#signup_msg").html(data);
         }
@@ -296,7 +296,7 @@ $(document).ready(function () {
     var status = row.find(".status").val();
 
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { addToCart: 1, proId: pid, status: status, end_date: end_date },
       success: function (data) {
@@ -313,7 +313,7 @@ $(document).ready(function () {
   count_item();
   function count_item() {
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { count_item: 1 },
       success: function (data) {
@@ -327,7 +327,7 @@ $(document).ready(function () {
   getCartItem();
   function getCartItem() {
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { Common: 1, getCartItem: 1 },
       success: function (data) {
@@ -343,7 +343,7 @@ $(document).ready(function () {
 
       e.preventDefault();
       $.ajax({
-        url: "/spacece/Khanstore/action.php",
+        url: "action.php",
         method: "POST",
         data: { getItem: 1, item: item },
         success: function (data) {
@@ -392,13 +392,13 @@ $(document).ready(function () {
 
   /*
         whenever user click on .remove class we will take product id of that row 
-        and send it to /spacece/Khanstore/action to perform product removal operation
+        and send it to action to perform product removal operation
     */
   $("body").delegate(".remove", "click", function (event) {
     var remove = $(this).parent().parent().parent();
     var remove_id = remove.find(".remove").attr("remove_id");
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { removeItemFromCart: 1, rid: remove_id },
       success: function (data) {
@@ -409,7 +409,7 @@ $(document).ready(function () {
   });
   /*
         whenever user click on .update class we will take product id of that row 
-        and send it to /spacece/Khanstore/action to perform product qty updation operation
+        and send it to action to perform product qty updation operation
 
 
 
@@ -433,7 +433,7 @@ $(document).ready(function () {
     var selectItem = update.find("#selectItemPrice").val();
 
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: {
         updateCartItem: 1,
@@ -455,7 +455,7 @@ $(document).ready(function () {
   net_total();
   /*
         checkOutDetails() function work for two purposes
-        First it will enable php isset($_POST["Common"]) in /spacece/Khanstore/action page and inside that
+        First it will enable php isset($_POST["Common"]) in action page and inside that
         there is two isset funtion which is isset($_POST["getCartItem"]) and another one is isset($_POST["checkOutDetials"])
         getCartItem is used to show the cart item into dropdown menu 
         checkOutDetails is used to show cart item into Khanstore/Cart page
@@ -463,7 +463,7 @@ $(document).ready(function () {
   function checkOutDetails() {
     $(".overlay").show();
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { Common: 1, checkOutDetails: 1 },
       success: function (data) {
@@ -745,7 +745,7 @@ $(document).ready(function () {
   page();
   function page() {
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { page: 1 },
       success: function (data) {
@@ -756,7 +756,7 @@ $(document).ready(function () {
   $("body").delegate("#page", "click", function () {
     var pn = $(this).attr("page");
     $.ajax({
-      url: "/spacece/Khanstore/action.php",
+      url: "action.php",
       method: "POST",
       data: { getProduct: 1, setPage: 1, pageNumber: pn },
       success: function (data) {

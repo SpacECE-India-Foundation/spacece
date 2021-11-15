@@ -352,7 +352,7 @@ if (isset($_POST["Common"])) {
 					</div>';
 			}
 ?>
-			<a style="float:right;" href="/spacece/Khanstore/cart.php" class="btn btn-warning">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
+			<a style="float:right;" href="cart.php" class="btn btn-warning">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
 <?php
 			exit();
 		}
@@ -361,7 +361,7 @@ if (isset($_POST["Common"])) {
 		if (mysqli_num_rows($query) > 0) {
 			//display user cart item with "Ready to checkout" button if user is not login
 
-			echo "<form method='post' action='/spacece/Khanstore/login_form.php'>";
+			echo "<form method='post' action='login_form.php'>";
 			$n = 0;
 			while ($row = mysqli_fetch_array($query)) {
 				$n++;
@@ -534,9 +534,9 @@ if (isset($_POST["Common"])) {
 								     <input type="hidden" name="quantity_' . $x . '" value="' . $row["qty"] . '">';
 				}
 				echo
-				'<input type="hidden" name="return" value="http://localhost/Khanstore/payment_success.php"/>
-					                <input type="hidden" name="notify_url" value="http://localhost/Khanstore/payment_success.php">
-									<input type="hidden" name="cancel_return" value="http://localhost/Khanstore/cancel.php"/>
+				'<input type="hidden" name="return" value="payment_success.php"/>
+					                <input type="hidden" name="notify_url" value="payment_success.php">
+									<input type="hidden" name="cancel_return" value="cancel.php"/>
 									<input type="hidden" name="custom" value="' . $_SESSION["uid"] . '"/>
 									<input style="float:right;margin-right:80px;" type="image" name="submit" id="paymentInit"
 									data-name="' . $_SESSION['name'] . '"
