@@ -180,7 +180,7 @@
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="/SpacECE/SpacTube/view.php?cat=spacetube">
+          <a href="SpacTube/view.php?cat=spacetube">
             <img src="img/icon_spacetube.jpeg" alt="SPACTUBE" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -200,7 +200,7 @@
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="/SpacECE/Khanstore">
+          <a href="Khanstore">
             <img src="img/icon_libforsmalls.jpeg" alt="" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
