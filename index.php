@@ -170,7 +170,7 @@
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="http://localhost/spacece/ConsultUs/index.html?cat=consult">
+          <a href="ConsultUs/index.html?cat=consult">
             <img src="img/icon_consultus.jpeg" alt="CONSULT US" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -210,7 +210,7 @@
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="http://localhost/spacece/spacec_active">
+          <a href="spacec_active">
             <img src="img/icon_spaceactive.jpeg" alt="TOY LIBRARY" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
