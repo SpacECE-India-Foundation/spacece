@@ -18,7 +18,7 @@ if (isset($_SESSION['current_user_id'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>LearnOn</title>
 </head>
 
@@ -26,15 +26,15 @@ if (isset($_SESSION['current_user_id'])) {
     <div class="container-fluid">
         <div class="header">
             <div class="logo">
-                <a href="<?= BASE_URL; ?>">LearnOn</a>
+                <a href="./">LearnOn</a>
             </div>
             <div class="menu_wrapper">
                 <ul>
                     <li>
-                        <a href="<?= BASE_URL; ?>">Home</a>
+                        <a href="./">Home</a>
                     </li>
                     <li>
-                        <a href="<?= BASE_URL; ?>courses">Courses</a>
+                        <a href="./courses">Courses</a>
                     </li>
                     <li>
                         <a href="#">About Us</a>
@@ -50,16 +50,16 @@ if (isset($_SESSION['current_user_id'])) {
                             <p>Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></p>
                         </li>
                         <li>
-                            <a href='<?= AUTH_URL; ?>logout.php'>Logout</a>
+                            <a href='../spacece_auth/logout.php'>Logout</a>
                         </li>
                     <?php
                     } else {
                     ?>
                         <li>
-                            <a href='<?= AUTH_URL; ?>login.php'>Login</a>
+                            <a href='../spacece_auth/login.php'>Login</a>
                         </li>
                         <li>
-                            <a href="<?= AUTH_URL; ?>register.php">Register</a>
+                            <a href="../spacece_auth/register.php">Register</a>
                         </li>
                     <?php
                     }

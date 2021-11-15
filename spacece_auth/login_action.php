@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['current_user_image'] = $row['u_image'];
     $_SESSION['current_user_type'] = $row['u_type'];
 
-    $redirect_url = BASE_URL . "index.php";
+    $redirect_url = "index.php";
 
     if (isset($_SESSION['redirect_url'])) {
         $redirect_url = $_SESSION['redirect_url'];

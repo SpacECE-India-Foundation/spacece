@@ -1,5 +1,3 @@
-var BASE_URL = "http://localhost/spacece/spacece_auth/";
-
 $(document).ready(function () {
   // Registration form validation name, email, password, cpassword, indian phone number, image with regex
   $(".register-form").validate({
@@ -102,7 +100,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: BASE_URL + "register_action",
+      url: "./register_action.php",
       data: formData,
       cache: false,
       contentType: false,
@@ -110,7 +108,7 @@ $(document).ready(function () {
       success: function (response) {
         const data = JSON.parse(response);
         if (data.status === "success") {
-          window.location.href = BASE_URL + "login";
+          window.location.href = "./login.php";
         }
         if (data.status === "error") {
           Toastify({
@@ -136,7 +134,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: BASE_URL + "login_action",
+      url: "./login_action.php",
       data: formData,
       cache: false,
       contentType: false,
