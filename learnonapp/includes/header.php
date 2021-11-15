@@ -34,7 +34,7 @@ if (isset($_SESSION['current_user_id'])) {
                         <a href="./">Home</a>
                     </li>
                     <li>
-                        <a href="./courses">Courses</a>
+                        <a href="./courses.php">Courses</a>
                     </li>
                     <li>
                         <a href="#">About Us</a>
