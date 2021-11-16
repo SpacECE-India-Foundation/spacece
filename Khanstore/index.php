@@ -1,5 +1,5 @@
 <?php
-require "config/constants.php";
+//require "config/constants.php";
 //session_start();
 include_once 'includes/header1.php';
 
