@@ -1,7 +1,7 @@
 <?php
 //include('constants.php');
 
-$mysqli = new mysqli('localhost', 'gamention', 'aa123456', 'spaceece');
+$mysqli = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'spaceece');
 
 // Check connection
 if ($mysqli->connect_errno) {
