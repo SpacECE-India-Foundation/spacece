@@ -172,9 +172,11 @@ a {
     <label for="userid"><b>Booking Id</b></label>
     <input type="text" value="<?php echo $uid?>" name="userid" id="userid" required>
     <label for="adate"><b>Date Of Appointment:</b></label>
-   <input type="date" id="adate" name="adate"><br><br>
+        <!-- bug id=0000014 -->
+   <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>"><br><br>
+    <!-- bug id-0000045 -->
  <label for="atime"><b>Select A Time:</b></label>
-  <input type="time" id="atime" name="atime" min="<?php echo $ctime ?>" max="<?php echo $stime?>">
+  <input type="time" id="atime" name="atime" min="16:00" max="22:00" >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
     <input type="text" value="<?php echo $user_name ?>" name="fullname" id="fullname" required>
