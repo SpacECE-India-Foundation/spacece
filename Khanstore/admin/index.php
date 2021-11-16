@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['admin_id'])) {
   header("location:login.php");
 }
-
+include_once './includes/header1.php';
 include "./templates/top.php"; 
 
 ?>
@@ -44,6 +44,7 @@ include "./templates/top.php";
   </div>
 </div>
 
-<?php include "./templates/footer.php"; ?>
+<?php include "./templates/footer.php";
+include_once './includes/footer1.php'; ?>
 
 <script type="text/javascript" src="./js/admin.js"></script>
