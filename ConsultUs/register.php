@@ -337,7 +337,8 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
             <td>
                 <font size=5>PASSWORD<span style="color:red;font-weight:bold">*</span></font>
             </td>
-            <td><input type="password" name="user_password" size="30" id="regPassword" onblur="validatePassword()" maxlength="20" placeholder="Password" autocomplete="off">
+            <!-- 0000074 -->
+            <td><input type="password" name="user_password" size="30" id="regPassword" onblur="validatePassword()" maxlength="6" placeholder="Password" autocomplete="off">
                 <br><br>
                 <div class="messageBox"></div>
             </td>
@@ -370,7 +371,8 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
                 </td>
             </tr>
             <tr>
-                <td><a href="loginuser.php">Already have an account?</a></td>
+            <!-- 0000043 -->
+                <td><a href="login2.php">Already have an account?</a></td>
             </tr>
         </table>
         <br><br><br><br><br><br><br><br><br><br>

@@ -123,8 +123,6 @@ a {
     <input type="text" placeholder="<?php echo $email ?>" name="email" id="email" required><br><br>
 <label for="mobile"><b>Phone</b></label>
     <input type="text" placeholder="<?php echo $mob ?>" name="mobile" id="mobile" required><br><br>
-    <input type="text" placeholder="<?php echo $pass ?>" name="pass" id="pass" required><br><br>
-
     <hr>
     <input type="hidden" name="id" value="<?php echo $id ?>">
      <input type="submit" name="submit" class="registerbtn" value="update">

@@ -219,8 +219,9 @@ function validatePassword() {
     var password = $('#regPassword').val();
 	var regix = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})");
 	if(regix.test(password) == false ) {
+		// alert('hh');
 		$('.messageBox').html(`<span style="color:red;">
-		  Password must be a minimum of 10 characters including number, Upper, Lower And 
+		  Password must be a minimum of 6 characters including number, Upper, Lower And 
 		  one special character.
 		</span>`);
 		return false;
@@ -229,32 +230,4 @@ function validatePassword() {
    return true;
 }
 
-//bug Id-0000075
-function validatecPassword() {
-    var password = $('#regPassword').val();
-	var regix = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})");
-	if(regix.test(password) == false ) {
-		$('.messageBox1').html(`<span style="color:red;">
-		  Password must be a minimum of 10 characters including number, Upper, Lower And 
-		  one special character.
-		</span>`);
-		return false;
-   }
-   $('.messageBox1').html('');
-   return true;
-}
-
-
-function validateNumber() {
-	var mob = /^[1-9]{1}[0-9]{9}$/;
-    var txtMobile = document.getElementById('txtMobId');
-	console.log('txtMobile');
-    if (mob.test(txtMobile.value) == false) {
-        // alert("Please enter valid mobile number.");
-        txtMobile.focus();
-		document.getElementById('txtMobId').value= '';
-        return false;
-    }
-    return true;
-}
 

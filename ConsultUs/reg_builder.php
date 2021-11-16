@@ -251,8 +251,8 @@ top: 120px; left:calc(49% - 50px);"></img></center>
 </tr>
 <tr>
 <td><font size=5>PHONE NO<span style="color:red;font-weight:bold">*</span></font></td>
-<td><input type="text" name="phone"  size="30" placeholder="Phone no">
-  <br><br>
+<td><input type="text" name="phone"  size="30" max="11" id="mobile" onBlur="validPhone(this)" placeholder="Phone no">
+<span id="message"><br><br>
 </td>
 </tr>
 <td><font size=5>EMAIL<span style="color:red;font-weight:bold">*</span></font></td>
@@ -297,27 +297,29 @@ mysqli_select_db($link,"consultant_app");
 <td><input type="time" name="stime"   placeholder="enter time">
 </td>
 </tr>
-// bug Id-0000073
+<!-- // bug Id-0000073 -->
 <tr>
 <td><font size=5>Consultation fee<span style="color:red;font-weight:bold">*</span></font></td>
 <td><input type="text" name="fee"   placeholder="enter fee">
 </td>
 </tr>
 
-//bug Id-0000075
+<!-- //bug Id-0000075 -->
 
 <tr>
 <td><font size=5><b>PASSWORD(lenght<10)<span style="color:red;font-weight:bold">*</span></b></font></td>
-<td><input type="password" name="password" onblur="validatecPassword()" maxlength="20"   placeholder="Password">
-<div class="messageBox1">
+<td><input type="password" name="password" id="regPassword" onblur="validatePassword()" maxlength="6"   placeholder="Password">
+<div class="messageBox">
   <br><br>
 </td>
 </tr>
 
 <tr>
+
+	<!-- //bug Id-0000075 -->
 <td><font size=5><b>CONFIRM PASSWORD<span style="color:red;font-weight:bold">*</span></b></font></td>
-<td><input type="password" name="confirm" size="30" placeholder="Confirm password">
-  <br><br>
+<td><input type="password" name="confirm" size="30"  onblur="validatePassword()" maxlength="6" placeholder="Confirm password">
+<div class="messageBox"> <br><br>
 </td>
 </tr>
 <tr>
@@ -330,6 +332,7 @@ mysqli_select_db($link,"consultant_app");
 <div style = "font-size:20px; color:#cc0000; margin-top:10px"></div>
 </td>
 </tr>
+<!-- 0000042 -->
 <tr><td><a href="loginuser.php" >Already have an account?</a></td></tr>
 </table>
 <br><br><br><br><br><br><br><br><br><br>
