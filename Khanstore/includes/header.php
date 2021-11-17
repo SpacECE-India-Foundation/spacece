@@ -18,7 +18,6 @@ if(isset($_SESSION['u_id'])){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-   <!--  <link rel="stylesheet" href="<?= //BASE_URL; ?>/spacec_ative/assets/css/style.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>LearnOn</title>
 </head>
@@ -27,15 +26,15 @@ if(isset($_SESSION['u_id'])){
     <div class="">
         <div class="header">
             <div class="logo">
-                <a href="<?= BASE_URL; ?>">LearnOn</a>
+                <a href="./index.php">LearnOn</a>
             </div>
             <div class="menu_wrapper">
                 <ul>
                     <li>
-                        <a href="<?= BASE_URL; ?>">Home</a>
+                        <a href="..index.php">Home</a>
                     </li>
                     <li>
-                        <a href="<?= BASE_URL; ?>courses">Courses</a>
+                        <a href="./courses">Courses</a>
                     </li>
                     <li>
                         <a href="#">About Us</a>
@@ -49,11 +48,11 @@ if(isset($_SESSION['u_id'])){
                         if(isset($_SESSION['u_id'])){
                              $url = BASE_URL; 
                               ?>
-                                <a href='<?= BASE_URL; ?>logout.php'>Logout</a>
+                                <a href='./logout.php'>Logout</a>
                                 <?php
                             }else{
                                 ?>
-                                <a href='<?=BASE_URL; ?>login.php'>Login</a>
+                                <a href='./login.php'>Login</a>
                            <?php
                             }
                         ?>

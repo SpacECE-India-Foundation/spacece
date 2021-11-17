@@ -20,7 +20,7 @@ if (isset($_SESSION["uid"])) {
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css"> 
+
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     
 
@@ -61,7 +61,7 @@ if (isset($_SESSION["uid"])) {
     </div>
   <nav class="Navbar__Items mt-3">
     <div class="Navbar__Link ">
-            <strong><a href="index.php" style="color: black"><i class="fa fa-home"></i>HOME</a></strong>
+            <strong><a href="./index.php" style="color: black"><i class="fa fa-home"></i>HOME</a></strong>
                
     </div>
     <div class="Navbar__Link">
@@ -146,7 +146,7 @@ if (isset($_SESSION["uid"])) {
                         if(isset($_SESSION['u_id'])){
                             // $url = BASE_URL; 
                               ?>
-                                 <a href='logout.php' class="btn text-dark  "  style="color: black;"> <i class="fa fa-user" style="color: black"></i> Log-Out</a>
+                                 <a href='./logout.php' class="btn text-dark  "  style="color: black;"> <i class="fa fa-user" style="color: black"></i> Log-Out</a>
                                               </
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo "Hi," . $_SESSION["name"]; ?></a>
             <ul class="dropdown-menu">
