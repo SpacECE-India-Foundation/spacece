@@ -14,7 +14,7 @@ if (isset($_SESSION["uid"])) {
 	<meta charset="UTF-8">
 	
 	
-	<script src="js/jquery2.js"></script>
+<!-- <script src="js/jquery2.js"><	/script> -->
 	
 	<!-- <script src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css"> -->

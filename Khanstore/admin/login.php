@@ -1,10 +1,10 @@
 <?php
 require "constants.php";
-//session_start();
+session_start();
 
-// if (isset($_SESSION["uid"])) {
-//   //header("location:profile.php");
-// }
+ if (isset($_SESSION["uid"])) {
+   //header("location:profile.php");
+ }
 ?>
 
 <!DOCTYPE html>

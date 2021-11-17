@@ -36,6 +36,7 @@
 
 
 
-<?php include "./templates/footer.php"; ?>
+<?php include "./templates/footer.php";
+include '../includes/footer1.php';?>
 
 <script type="text/javascript" src="./js/main.js"></script>
