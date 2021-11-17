@@ -43,7 +43,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/jquery.convform.css" /> -->
    
     <!-- <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
   <!-- <link rel="stylesheet" type="text/css" href="css/style1.css" /> -->
     <title> Lib for smalls</title>
     <style type="text/css">
@@ -70,7 +70,7 @@
         </button>
         <div class="navbar-brand">
           <a href='./index.php'>
-        <img src="../img/logo/LearnOnApp.jpeg" class=" img img-thumbnail img-circle" style="width:80px;" >
+        <img src="../img/logo/ConsultUs.jpeg" class=" img img-thumbnail img-circle" style="width:80px;" >
     </a>
         </div>
         <a href="./index.php" class="navbar-brand" >Learn on App</a>
@@ -107,37 +107,36 @@
                                 <?php
                             }else{
                                 ?>
+   <div class="row">
+<div class="col col-sm-3">
+<a href="/Khanstore/customer_registration.php?register=1">
+              <span class="glyphicon glyphicon-user"></span>SignUp
+            </a>
+</div>
+<div class="col col-sm-4"> <a href="login2.php" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a></div>
+<div class="col col-sm-3">	<a href="loginuser.php" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login USER</b></a></div>
+                          </div>
 
-                                <a href='login.php' class="text-dark" > <i class="fa fa-user-circle-o" ></i> Login</a>
+                          <div class="row">
+<div class="col col-sm-3">
+<a href="register.php" style="color:orange;"><i class="fa fa-user-circle-o" style="color:black;"></i><b>User</b></a>
+                            </div>
+                            <div class="col col-sm-4">
+							<a href="reg_builder.php" style="color:orange;"><i class="fa fa-user-circle-o" style="color:black;"></i><b>Consultant</b></a><br>
+						
+                            </div>
                                 <?php
                             }
                         ?>
-               </i> </a>  <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>SignIn</a>
-            <ul class="dropdown-menu">
-              <div style="width:300px;">
-                <div class="panel panel-primary">
-                  <div class="panel-heading">Login</div>
-                  <div class="panel-heading">
-                    <form onsubmit="return false" id="login">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" name="email" id="email" required />
-                      <label for="email">Password</label>
-                      <input type="password" class="form-control" name="password" id="password" required />
-                      <p><br /></p>
-                      <a href="#" style="color:white; list-style:none;">Forgotten Password</a><input type="submit" class="btn btn-success" style="float:right;">
-                    </form>
-                  </div>
-                  <div class="panel-footer" id="e_msg"></div>
-                </div>
-              </div>
-            </ul>
-          </li> -->
-          <li>
-            <a href="/Khanstore/customer_registration.php?register=1">
-              <span class="glyphicon glyphicon-user"></span>SignUp
-            </a>
-          </li>
-        </ul>
+               </i> </a>  
+         
+             
+                 
+       
+           
+           
+          
+        
       </div>
     </div> 
   </div>

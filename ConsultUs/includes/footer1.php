@@ -4,8 +4,8 @@
    <link rel="stylesheet" href="css/style.css" /> 
    <style>
        .vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
- margin-top:15%;
+ /* Fallback for browsers do NOT support vh unit */
+
   /* These two lines are counted as one :-)       */
 
   display: flex;
@@ -75,7 +75,7 @@
          
         <div class="row align-bottom ">
           <div class="col-lg-3 footer-widget ">
-            <img src="../img/logo/LearnOnApp.jpeg" class="img img-fluid img-thumbnail img-circle" alt=""  style="width: 150px" />
+            <img src="../img/logo/ConsultUs.jpeg" class="img img-fluid img-thumbnail img-circle" alt=""  style="width: 150px" />
 
             <div class="social">
               <a href="https://www.facebook.com/SpacECEIn"
