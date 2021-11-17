@@ -114,7 +114,7 @@ a {
     <center><h1>UPDATE CONSULTATION TIME</h1></center>
     <p>Please fill in this form to update an account.</p>
     <hr>
-
+    
     <label for="fullname"><b>Fullname</b></label>
     <input type="text" placeholder="<?php echo $full_name ?>" name="fullname" id="fullname" required><br><br>
         <label for="username"><b>Username</b></label>

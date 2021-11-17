@@ -230,4 +230,68 @@ function validatePassword() {
    return true;
 }
 
+// big id-0000026
+function validate()
+{
+  var text = document.getElementById("pno").value;
+  var regx = /^[6-9]\d{9}$/ ;
+	if(regx.test(text)){
+		$('.message').html(`<span style="color:red;"> 
+		phone number should be of 10 digits.</span>`); 
+		return false;
+	}
+$('.message').html('');
+return true;
+}
 
+// <!-- bug id-0000013 -->
+function validatereg()
+		{
+			var uname = document.getElementById("uname");
+			// alert('hh');
+			if(uname.value.trim() === "")
+			{
+				alert("Enter User Name");
+				return false;
+			}
+			var fname = document.getElementById("fname");
+			// alert('hh');
+			if(fname.value.trim() === "")
+			{
+				alert("Enter full Name");
+				return false;
+			}
+			var email = document.getElementById("email");
+			// alert('hh');
+			if(email.value.trim() === "")
+			{
+				alert("Enter email Name");
+				return false;
+			}
+		}
+
+		// <!-- bug id-0000013 -->
+		function validateEmail(email) {
+			const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(email);
+		  }
+		  
+		  function validate() {
+			const $result = $("#result");
+			const email = $("#email").val();
+			$result.text("");
+		  
+			if (validateEmail(email)) {
+			  $result.text(email + " is valid:");
+			  $result.css("color", "green");
+			} else {
+			  $result.text(email + " is not valid:");
+			  $result.css("color", "red");
+			}
+			return false;
+		  }
+		  
+		  $("#email").on("input", validate);
+
+		  
+ 

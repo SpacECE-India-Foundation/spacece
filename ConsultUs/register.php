@@ -181,7 +181,7 @@ else{
         </div>
     </header>
     <!-- Header section end -->
-
+    
     <style type="text/css">
         body {
             background-repeat: no-repeat;
@@ -276,11 +276,11 @@ else{
         }
     </style>
     </head>
-
+    <!-- 0000027: Remove LOGOUT in REGISTRATION FORM -->
 
     <br><br><br><br><br><br><br><br><br><br><br>
 
-    <form id="form" method="post" action="register.php" enctype="multipart/form-data">
+    <form id="form" method="post" action="register.php" onsubmit="return validatereg()" enctype="multipart/form-data">
 
         <table cellpadding="7" width="50%" border="0" align="center" cellspacing="2" color="white">
 
@@ -306,7 +306,7 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
                 <td>
                     <font size=5><b>USERNAME<span style="color:red;font-weight:bold">*</span></b></font>
                 </td>
-                <td><input type="text" name="user_name" size="300" placeholder="Enter Unique Username">
+                <td><input type="text" name="user_name" size="300" id="uname" placeholder="Enter Unique Username">
                     <br><br>
                 </td>
             </tr>
@@ -314,24 +314,26 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
                 <td>
                     <font size=5><b>FULLNAME<span style="color:red;font-weight:bold">*</span></b></font>
                 </td>
-                <td><input type="text" name="fullname" size="30" placeholder="enter name">
+                <td><input type="text" name="fullname" id="fname" size="30" placeholder="enter name">
                     <br><br>
                 </td>
             </tr>
             <tr>
                 <td>
+                     <!-- bug id-0000013 -->
                     <font size=5>EMAIL<span style="color:red;font-weight:bold">*</span></font>
                 </td>
-                <td><input type="text" name="user_email" size="300" placeholder="enter email">
-                    <br><br>
+                <td><input type="text" name="user_email" size="300" id="email" onblur="validateEmail(email)" placeholder="enter email">
+                   <h2 id="result"></h2 <br><br>
                 </td>
             </tr>
             <tr>
                 <td>
                     <font size=5>PHONE NO<span style="color:red;font-weight:bold">*</span></font>
                 </td>
-                <td><input type="text" name="user_phone" size="30" id="txtMobId" minlength="10" maxlength="10" onkeyup="this.value=this.value.replace(/[^\d]/,'')" placeholder="Phone no">
-                    <br><br>
+                <!-- bug id-0000013 -->
+                <td><input type="text" name="user_phone"  size="11" id="pno" onclick="validate()" minlength="10" maxlength="10" onkeyup="this.value=this.value.replace(/[^\d]/,'')" placeholder="Phone no">
+                <div class="message">  <br><br>
                 </td>
             </tr>
             <td>
@@ -360,7 +362,7 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
                 <td>
                     <font size=5>UPLOAD IMAGE<span style="color:red;font-weight:bold">*</span></font>
                 </td>
-                <td><input type="file" name="img" id="img">
+                <td><input type="file" name="img" id="img" onchange="validateImage()">
 
                 </td>
             </tr>
