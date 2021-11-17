@@ -1,6 +1,6 @@
-<?php include "./templates/top.php"; ?>
+<!-- / //include "./templates/top.php";  -->
 
-<?php include "./templates/navbar.php"; ?>
+<?php include '../includes/header1.php';  //include "./templates/navbar.php"; ?> 
 
 <div class="container">
 	<div class="row justify-content-center" style="margin:100px 0;">
@@ -28,6 +28,6 @@
 
 
 
-<?php include "./templates/footer.php"; ?>
+<?php include include '../includes/footer1.php'; // "./templates/footer.php"; ?>
 
 <script type="text/javascript" src="./js/main.js"></script>
