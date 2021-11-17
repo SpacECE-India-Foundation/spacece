@@ -1,5 +1,5 @@
 <?php
-include_once('includes/header.php');
+include_once('includes/header1.php');
 
 ?>
 
@@ -16,7 +16,7 @@ include_once('includes/header.php');
     <link href="img/Favicon.ico" rel="shortcut icon" />
 
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
 
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -24,32 +24,33 @@ include_once('includes/header.php');
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 
-    <!--   <script type="text/javascript" src="js/scriptcall.js"></script> -->
+   <script type="text/javascript" src="js/scriptcall.js"></script> 
 
 
 </head>
 
 <body>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Upload Youtube video
-    </button>
+    </button> -->
 
     <!-- Modal -->
+    <div class="container" style="margin-top:5%;">
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"> Upload Youtube video</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button> -->
                 </div>
                 <div class="modal-body">
                     <form id="uploadVideo" method="post" enctype="multipart/form-data">
@@ -95,8 +96,8 @@ include_once('includes/header.php');
         </div>
     </div>
 
-
-    <div class="container">
+    </div>
+    <div class="container" style="margin-top=10%">
         <div class="card mt-5">
             <table class="table table-active table-hover table-striped table-bordered">
                 <tr>
@@ -193,7 +194,7 @@ include_once('includes/header.php');
 
 </html>
 <?php
-include_once('includes/footer.php');
+include_once('includes/footer1.php');
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js."></script>

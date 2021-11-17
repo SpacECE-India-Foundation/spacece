@@ -1,11 +1,11 @@
 <?php
-session_start();
-include('constants.php');
+//session_start();
+//include('constants.php');
 
-if (isset($_SESSION['current_user_id'])) {
+//if (isset($_SESSION['current_user_id'])) {
     // echo"Hello";
 
-}
+//}
 ?>
 
 <!DOCTYPE html>
