@@ -1,6 +1,6 @@
 <?php
-//require "config/constants.php";
-//session_start();
+require "config/constants.php";
+session_start();
 include_once 'includes/header1.php';
 
 if (isset($_SESSION["uid"])) {
@@ -12,12 +12,12 @@ if (isset($_SESSION["uid"])) {
 
 <head>
 	<meta charset="UTF-8">
-	<title>Khan Store</title>
-	<!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+	
+	
 	<script src="js/jquery2.js"></script>
-	<!-- <script src="js/bootstrap.min.js"></script> -->
-	<script src="main.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<!-- <script src="main.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css"> -->
 	<style></style>
 </head>
 
