@@ -1,6 +1,7 @@
 <?php
+include './includes/header1.php';
 require "config/constants.php";
-session_start();
+//session_start();
 if (!isset($_SESSION["uid"])) {
 	header("location:index.php");
 }
@@ -143,7 +144,7 @@ if (!isset($_SESSION["uid"])) {
 							</div>
 						</div> -->
 					</div>
-					<div class="panel-footer">&copy; 2016</div>
+					<!-- <div class="panel-footer">&copy; 2016</div> -->
 				</div>
 			</div>
 			<div class="col-md-1"></div>
@@ -158,6 +159,9 @@ if (!isset($_SESSION["uid"])) {
 			</div>
 		</div>
 	</div>
+	<?php
+	include './includes/footer1.php';
+	?>
 </body>
 
 </html>

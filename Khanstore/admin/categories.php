@@ -110,6 +110,7 @@
 <!-- Modal -->
 
 <?php include_once("./templates/footer.php"); ?>
+<?php include_once("../includes/footer1.php"); ?>
 
 
 

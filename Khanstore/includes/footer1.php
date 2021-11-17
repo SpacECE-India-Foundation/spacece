@@ -45,7 +45,7 @@
         </div>
 </div>
 </footer> -->
-<footer
+ <footer
       class="footer-section set-bg"
       style="
         background-color: orange;
@@ -53,10 +53,18 @@
         border: 2px solid navy;
         opacity: 0.7;
         padding: 30px 30px;
-      ">   
+      ">
+   
+
+    
+
+
+
+     
+         
         <div class="row">
           <div class="col-lg-3 footer-widget ">
-            <img src="img/logo/ConsultUs.jpeg" class="img img-fluid img-thumbnail" alt=""  style="width: 150px" />
+            <img src="../img/logo/ConsultUs.jpeg" class="img img-fluid img-thumbnail" alt=""  style="width: 150px" />
 
             <div class="social">
               <a href="https://www.facebook.com/SpacECEIn"

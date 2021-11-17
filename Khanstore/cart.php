@@ -1,5 +1,6 @@
 <?php
-session_start();
+include_once './includes/header1.php';
+//session_start();
 require "config/constants.php";
 
 ?>
@@ -90,14 +91,16 @@ require "config/constants.php";
 							</div> -->
 
 					</div>
-					<div class="panel-footer"></div>
+					<!-- <div class="panel-footer"></div> -->
 				</div>
 			</div>
 			<div class="col-md-2"></div>
 
 		</div>
 
-
+<?php
+include_once './includes/footer1.php';
+?>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 <?php
+include 'includes/header1.php';
 #this is Login form page , if user is already logged in then we will not allow user to access this page by executing isset($_SESSION["uid"])
 #if below statment return true then we will send user to their profile.php page
 if (isset($_SESSION["uid"])) {
@@ -30,7 +31,7 @@ if (isset($_POST["login_user_with_product"])) {
 <div class="wait overlay">
 	<div class="loader"></div>
 </div>
-	<div class="navbar navbar-inverse navbar-fixed-top">
+	<!-- <div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">	
 			<div class="navbar-header">
 				<a href="#" class="navbar-brand">Khan Store</a>
@@ -40,7 +41,7 @@ if (isset($_POST["login_user_with_product"])) {
 				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 	<p><br/></p>
 	<p><br/></p>
 	<p><br/></p>
@@ -73,8 +74,11 @@ if (isset($_POST["login_user_with_product"])) {
 				<div class="panel-footer"><div id="e_msg"></div></div>
 			</div>
 		</div>
-		<div class="col-md-4"></div>
+		<!-- <div class="col-md-4"></div> -->
 	</div>
+	<?php
+	include 'includes/footer1.php';
+	?>
 </body>
 </html>
 
