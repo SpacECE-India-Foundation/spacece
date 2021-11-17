@@ -84,7 +84,7 @@ require "constants.php";
                     <div class="col-md-3">Sl.No</div>
                     <div class="col-md-3">Product Image</div>
                     <div class="col-md-3">Product Name</div>
-                    <div class="col-md-3">Price in <?php // echo ////CURRENCY; ?></div>
+                    <div class="col-md-3">Price in <?php  echo CURRENCY; ?></div>
                   </div>
                 </div>
                 <div class="panel-body">

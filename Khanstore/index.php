@@ -18,7 +18,7 @@ if (isset($_SESSION["uid"])) {
 	
 	<!-- <script src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css"> -->
-	<style></style>
+	<!-- <style></style> -->
 </head>
 
 <body>
