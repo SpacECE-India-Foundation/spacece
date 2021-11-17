@@ -25,7 +25,7 @@ if (isset($_SESSION["uid"])) {
 	<div class="wait overlay">
 		<div class="loader"></div>
 	</div>
-	 <div class="navbar navbar-inverse navbar-fixed-top">
+	 <!-- <div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
@@ -101,7 +101,7 @@ if (isset($_SESSION["uid"])) {
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<p><br /></p>
 	<p><br /></p>
 	<p><br /></p>
