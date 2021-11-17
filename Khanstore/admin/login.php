@@ -1,6 +1,6 @@
-<!-- / //include "./templates/top.php";  -->
 
-<?php include '../includes/header1.php';  //include "./templates/navbar.php"; ?> 
+
+<?php include '../includes/header1.php'; ?> 
 
 <div class="container">
 	<div class="row justify-content-center" style="margin:100px 0;">
