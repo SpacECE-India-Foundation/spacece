@@ -1,4 +1,5 @@
 <?php
+include './includes/header1.php';
 if (isset($_GET["register"])) {
 
 ?>
@@ -20,7 +21,7 @@ if (isset($_GET["register"])) {
 		<div class="wait overlay">
 			<div class="loader"></div>
 		</div>
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<!-- <div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a href="#" class="navbar-brand">Khan Store</a>
@@ -30,7 +31,7 @@ if (isset($_GET["register"])) {
 					<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
 				</ul>
 			</div>
-		</div>
+		</div> -->
 		<p><br /></p>
 		<p><br /></p>
 		<p><br /></p>
@@ -111,6 +112,9 @@ if (isset($_GET["register"])) {
 				<div class="col-md-2"></div>
 			</div>
 		</div>
+		<?php
+		include './includes/footer1.php';
+		?>
 	</body>
 
 	</html>

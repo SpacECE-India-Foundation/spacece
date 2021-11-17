@@ -48,7 +48,7 @@ if (isset($_SESSION["uid"])) {
 
    <div class="Navbar__Link Navbar__Link-brand">
     
-     <a href="./index.php" class="col-sm-1" > <img src="img/logo/libForSmalls.jpeg " class=" d-flex img-fluid" style=""  alt=""  /></a> 
+     <a href="./index.php" class="col-sm-1 rounded-circle" > <img src="../img/logo/libForSmalls.jpeg " class=" d-flex img-fluid" style=""  alt=""  /></a> 
        
    
     </div>

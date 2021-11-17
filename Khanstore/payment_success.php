@@ -1,6 +1,6 @@
 <?php
-
-session_start();
+include './includes/header1.php';
+//session_start();
 if(!isset($_SESSION["uid"])){
 	header("location:index.php");
 }
@@ -50,7 +50,7 @@ if (isset($_GET["st"])) {
 							</style>
 						</head>
 					<body>
-						<div class="navbar navbar-inverse navbar-fixed-top">
+						<!-- <div class="navbar navbar-inverse navbar-fixed-top">
 							<div class="container-fluid">	
 								<div class="navbar-header">
 									<a href="#" class="navbar-brand">Khan Store</a>
@@ -60,7 +60,7 @@ if (isset($_GET["st"])) {
 									<li><a href="profile.php"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 						<p><br/></p>
 						<p><br/></p>
 						<p><br/></p>
@@ -85,6 +85,9 @@ if (isset($_GET["st"])) {
 								<div class="col-md-2"></div>
 							</div>
 						</div>
+						<?php
+						include './includes/footer1.php';
+						?>
 					</body>
 					</html>
 
