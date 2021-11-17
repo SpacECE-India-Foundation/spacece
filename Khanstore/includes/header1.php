@@ -61,7 +61,7 @@ require "constants.php";
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <img src="../img/logo/LibForSmalls.jpeg" class="img img-thumbnail img-circle" style="width:120px;" >
+        <img src="../img/logo/LibForSmalls.jpeg" class=" navbar-brand img img-thumbnail img-circle" style="width:80px;" >
         <a href="/Khanstore" class="navbar-brand" >Lib for smalls</a>
       </div>
       <div class="collapse navbar-collapse" id="collapse">
