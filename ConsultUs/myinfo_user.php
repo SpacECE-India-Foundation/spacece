@@ -1,4 +1,5 @@
-<?php include('indexDB.php') ?>
+<?php include_once './includes/header1.php';
+include('indexDB.php'); ?>
 <?php //error_reporting(0); 
  $ref = $_GET['user']; 
 //$nid = $_GET['id'];?>
@@ -127,14 +128,18 @@
                 </table>     
             </div>
         </div>
-        <!... main section ends....>
+        <?php
+    include_once './includes/footer1.php';
+
+?>
+        <!-- <!... main section ends....>
         <! ... end section starts...>
          <div class="footer text-centre">
             <div class="wrapper">
                  <p class="text-center">DEVELOPED BY:<a href="#">yashasvi pundeer</a></p>
             </div>
-         </div>
-        <!... end section ends....>
+         </div> -->
+       
     </body>
 
 

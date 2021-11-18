@@ -1,4 +1,6 @@
-<?php include('indexDB.php') ?>
+<?php
+include_once './includes/header1.php';
+ include('indexDB.php') ?>
 <?php //error_reporting(0); 
 $ref = $_GET['user']; ?>
 <html>
@@ -8,7 +10,7 @@ $ref = $_GET['user']; ?>
     </head>
     <body>
         <! ... menu section starts...>
-        <div class="menu text-center" style="background-color:orange;">
+        <!-- <div class="menu text-center" style="background-color:orange;">
 <img src="img/space.jpg" alt="" style="width:6%; ">
             <div class="wrapper">
 
@@ -18,7 +20,7 @@ $ref = $_GET['user']; ?>
                     <li><a href="appoint2.php?user=<?php echo $ref ?>">SHOW APPOINTMENTS TAKEN</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <!... menu section ends....>
 
         
@@ -157,13 +159,15 @@ $ref = $_GET['user']; ?>
                 </table>     
             </div>
         </div>
-        <!... main section ends....>
-        <! ... end section starts...>
-         <div class="footer text-centre" style="background-color:orange;">
+        <?php
+    include_once './includes/footer1.php';
+        ?>
+        
+         <!-- <div class="footer text-centre" style="background-color:orange;">
             <div class="wrapper" >
                  <p class="text-center"><a href="#"></a></p>
             </div>
-         </div>
+         </div> -->
         <!... end section ends....>
     </body>
 

@@ -1,4 +1,5 @@
-<?php include('indexDB.php') ?>
+<?php include('indexDB.php');
+include_once './includes/header1.php'; ?>
 <?php $nid=$_GET['user'];
  ?>
 <html>
@@ -8,14 +9,14 @@
     </head>
     <body>
         <! ... menu section starts...>
-        <div class="menu text-center">
+        <!-- <div class="menu text-center">
             <div class="wrapper">
                 <ul>
-                    <li><a href="index3.php?user=<?php echo $nid ?>">HOME</a></li>
-                    <li><a href="myinfo.php?user=<?php echo $nid ?>">MY DETAILS</a></li>
+                    <li><a href="index3.php?user=<?php// echo $nid ?>">HOME</a></li>
+                    <li><a href="myinfo.php?user=<?php// echo $nid ?>">MY DETAILS</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
 
                 <table class="tb-full">
                     <tr>
@@ -102,7 +103,9 @@
             <div class="wrapper">
                              </div>
          </div>
-        <!... end section ends....>
+        <?php
+        include_once './includes/header1.php';
+        ?>
     </body>
 
 

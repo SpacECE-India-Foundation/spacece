@@ -1,4 +1,6 @@
-<?php include('indexDB.php') ?>
+<?php
+include_once './includes/header1.php';
+include('indexDB.php'); ?>
 <?php $user=$_GET['user'];
  ?>
 <html>
@@ -8,14 +10,14 @@
     </head>
     <body style="background: linear-gradient(to bottom right, #ffcc99 0%, #ffffff 100%);">
         <! ... menu section starts...>
-        <div class="menu text-center" style="background-color:orange;"><img src="img/space.jpg" alt="" style="width:6%; ">
+        <!-- <div class="menu text-center" style="background-color:orange;"><img src="img/space.jpg" alt="" style="width:6%; ">
             <div class="wrapper">
                 <ul>
                     <li><a href="index3.php?user=<?php echo $user ?>">HOME</a></li>
                     <li><a href="appoint_consultant.php?user=<?php echo $user ?>">CONSULTANT PAGE</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
 
                 <table class="tb-full">
                     <tr>
@@ -96,6 +98,9 @@
                 </table>     
             </div>
         </div>
+        <?php
+        include_once './includes/footer1.php';
+        ?>
         <!... main section ends....>
         <! ... end section starts...>
                  <!... end section ends....>

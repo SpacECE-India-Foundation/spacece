@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once './includes/header1.php';
 include('indexDB.php');
 
 if(isset($_POST['submit']))
@@ -47,7 +48,7 @@ if($res){
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
@@ -58,7 +59,7 @@ if($res){
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="Styles.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 
 	<!--[if lt IE 9]>
@@ -72,7 +73,7 @@ if($res){
 
 	
 	<!-- Header section -->
-	<header class="header-section">
+	<!-- <header class="header-section">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
 			<div class="container">
 				<div class="row">
@@ -118,7 +119,7 @@ if($res){
 				</div>
 			</div>
 		</div>
-	</header>
+	</header> -->
 	<!-- Header section end -->
 
 	<style type="text/css">
@@ -337,9 +338,12 @@ mysqli_select_db($link,"consultant_app");
 </table>
 <br><br><br><br><br><br><br><br><br><br>
 </form>
+<?php
+include_once './includes/footer1.php';
 
+?>
 
-<!--footer section-->
+<!-- footer section
 <footer class="footer-section set-bg" style="background-color:black;border-collapse: collapse; border: 2px solid navy;opacity:0.7; padding:30px 30px;">
 		<div class="container">
 			<div class="row">
@@ -384,9 +388,9 @@ mysqli_select_db($link,"consultant_app");
 			
 		</div>
      
-     </footer>
+     </footer> -->
 <!--footer end-->
-     <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p> 
+     <!-- <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>  -->
 
 	<!-- Footer section end -->
     <!--====== Javascripts & Jquery ======-->

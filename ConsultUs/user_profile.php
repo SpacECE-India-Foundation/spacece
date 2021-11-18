@@ -1,4 +1,6 @@
-<?php include("indexDB.php")?>
+<?php include("indexDB.php");
+include_once './includes/header1.php';?>
+
 <div class="main-content">
     <div class="wrapper">
         <center><h2>UPDATE PROFILE</h2></center>
@@ -168,7 +170,7 @@ a {
     
 }
 
-    
+include_once './includes/footer1.php';
 
 ?>
 

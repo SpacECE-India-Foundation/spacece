@@ -1,24 +1,26 @@
-<?php include('indexDB.php') ?>
+<?php
+include_once './includes/header1.php';
+ include('indexDB.php'); ?>
 <?php error_reporting(0); 
 $ref = $_GET['user']; 
 $cat = $_GET['category']; ?>
 <html>
     <head>
         <title>Appointment-HOME PAGE</title>
-        <link rel="stylesheet"  href="css/admin.css">
+        <!-- <link rel="stylesheet"  href="css/admin.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="Styles.css">
+	<link rel="stylesheet" type="text/css" href="Styles.css"> -->
 
     </head>
     <body>
 
 	<!-- Header section -->
-	<header class="header-section" style="background-color:orange;">
+	<!-- <header class="header-section" style="background-color:orange;">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
 			<div class="container">
 				<div class="row">
@@ -58,7 +60,7 @@ $cat = $_GET['category']; ?>
 				</div>
 			</div>
 		</div>
-	</header>
+	</header> -->
 
                 
         <! ... main section starts...>
@@ -197,14 +199,10 @@ $cat = $_GET['category']; ?>
                 </table>     
             </div>
         </div>
-        <!... main section ends....>
-        <! ... end section starts...>
-         <div class="footer text-centre" style="background-color:orange;">
-            <div class="wrapper">
-                 <p class="text-center">DEVELOPED BY:<a href="#">&nbspyashasvi pundeer</a></p>
-            </div>
-         </div>
-        <!... end section ends....>
+       <?php
+
+include_once './includes/footer1.php';
+?>
     </body>
 
 

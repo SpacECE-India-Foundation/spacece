@@ -1,4 +1,6 @@
-<?php include('indexDB.php') ?>
+<?php
+include_once './includes/header1.php';
+include('indexDB.php'); ?>
 <?php
  echo $cid = $_GET['id'];
  echo $category = $_GET['category'];
@@ -22,15 +24,16 @@ $stime = $_GET['stime'];
         <link rel="stylesheet"  href="css/admin.css">
     </head>
     <body>
+
         <! ... menu section starts...>
-        <div class="menu text-center">
+        <!-- <div class="menu text-center">
             <div class="wrapper">
                 <ul>
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="alldoc.php?user=<?php echo $user_name?>">CONSULTANT</a></li>
+                    <li><a href="alldoc.php?user=<?php //echo $user_name?>">CONSULTANT</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
 <div class="main-content">
     <div class="wrapper">
     </div>
@@ -203,14 +206,17 @@ a {
 </html>
 
 <! ... end section starts...>
-         <div class="footer text-centre">
+         <!-- <div class="footer text-centre">
             <div class="wrapper">
                  <p class="text-center">DEVELOPED BY:<a href="#">yashasvi pundeer</a></p>
             </div>
          </div>
-        <!... end section ends....>
+        <!... end section ends....> -->
     </body>
 
+<?php
+include_once './includes/footer1.php';
 
+?>
 </html>
 

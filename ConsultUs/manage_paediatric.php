@@ -1,4 +1,6 @@
-<?php include('indexDB.php') ?>
+<?php 
+include_once './includes/header1.php';
+include('indexDB.php'); ?>
 <?php error_reporting(0); 
 $ref = $_GET['user']; 
 $cat = $_GET['category']; ?>
@@ -173,13 +175,10 @@ $cat = $_GET['category']; ?>
                 </table>     
             </div>
         </div>
-        <!... main section ends....>
-        <! ... end section starts...>
-         <div class="footer text-centre">
-            <div class="wrapper">
-                 <p class="text-center">DEVELOPED BY:<a href="#">yashasvi pundeer</a></p>
-            </div>
-         </div>
+       
+        <?php
+include_once './includes/footer1.php';
+        ?>
         <!... end section ends....>
     </body>
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
