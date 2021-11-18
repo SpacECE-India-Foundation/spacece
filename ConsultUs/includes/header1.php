@@ -1,11 +1,3 @@
-<?php
-//require "constants.php";
-//session_start();
-
-// if (isset($_SESSION["uid"])) {
-//   //header("location:profile.php");
-// }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,12 +20,19 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
 
+<<<<<<< HEAD
   <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
+=======
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> 
+    
+>>>>>>> a1f58fea4960ab2364076ed88c979611869475ed
 
 
 
   <link rel="stylesheet" href="css/style.css" />
 
+<<<<<<< HEAD
   <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -44,6 +43,14 @@
 
   <!-- <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
   <!-- <script src="main.js"></script> -->
+=======
+  
+  
+    <link rel="stylesheet" type="text/css" href="css/jquery.convform.css" /> 
+   
+    <!-- <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
+    <!-- <script src="main.js"></script> -->
+>>>>>>> a1f58fea4960ab2364076ed88c979611869475ed
   <!-- <link rel="stylesheet" type="text/css" href="css/style1.css" /> -->
   <title> Lib for smalls</title>
   <style type="text/css">
@@ -60,6 +67,7 @@
   </style>
 </head>
 
+<<<<<<< HEAD
 <div class="navbar navbar-inverse navbar-fixed-top " style="background-color: orange">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -90,6 +98,39 @@
       <ul class="nav navbar-nav navbar-right">
 
         <li>
+=======
+   <div class="navbar navbar-inverse navbar-fixed-top "  style="background-color: orange" >
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+          <span class="sr-only">navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand">
+          <a href='./index.php'>
+        <img src="../img/logo/ConsultUs.jpeg" class=" img img-thumbnail img-circle" style="width:80px;" >
+    </a>
+        </div>
+        <a href="./index.php" class="navbar-brand" >Consult Us</a>
+      </div>
+      <div class="collapse navbar-collapse" id="collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+          <li><a href="./about.html"><i class="fa fa-users"></i></span>About Us</a></li>
+          <li><a href="./contact.html"><i class="fa fa-envelope" style="color: black"></i>Feedback</a></li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" id="search">
+          </div>
+          <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+         
+          <li>
+>>>>>>> a1f58fea4960ab2364076ed88c979611869475ed
           <?php
           if (isset($_SESSION['u_id'])) {
 
@@ -104,6 +145,7 @@
               <li class="divider"></li>
               <li><a href="logout.php">Logout</a></li>
             </ul>
+<<<<<<< HEAD
 
           <?php
           } else {
@@ -140,6 +182,45 @@
 
             </div>
     </div>
+=======
+          
+                                <?php
+                            }else{
+                                ?>
+   <div class="row">
+<div class="col col-sm-3">
+<a href="/Khanstore/customer_registration.php?register=1">
+              <span class="glyphicon glyphicon-user"></span>SignUp
+            </a>
+</div>
+<div class="col col-sm-4"> <a href="login2.php" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a></div>
+<div class="col col-sm-4">	<a href="loginuser.php" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login USER</b></a></div>
+                          </div>
+
+                          <div class="row">
+<div class="col col-sm-3">
+<a href="register.php" style="color:orange;"><i class="fa fa-user-circle-o" style="color:black;"></i><b>User</b></a>
+                            </div>
+                            <div class="col-sm-4"><input type="hidden"></div>
+                            <div class="col col-sm-4">
+							<a href="reg_builder.php" style="color:orange;"><i class="fa fa-user-circle-o" style="color:black;"></i><b>Consultant</b></a><br>
+						
+                            </div>
+                                <?php
+                            }
+                        ?>
+               </i> </a>  
+         
+             
+                 
+       
+           
+           
+          
+        
+      </div>
+    </div> 
+>>>>>>> a1f58fea4960ab2364076ed88c979611869475ed
   </div>
 
 

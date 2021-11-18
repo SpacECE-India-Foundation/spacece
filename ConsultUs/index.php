@@ -4,44 +4,43 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<!-- <head>
 	<title>SPAC-ECE</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="SPAC-ECE">
 	<meta name="keywords" content="LERAMIZ, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=10.0">
-	<!-- Favicon -->   
+
 	<link href="img/Favicon.ico" rel="shortcut icon"/>
 
-	<!-- Google Fonts -->
+	
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
-	<!-- Stylesheets --> -->
-	 <!-- <link rel="stylesheet" href="css/bootstrap.min.css"/> -->
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+ <link rel="stylesheet" href="css/bootstrap.min.css"/> -->
+	<!-- <link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
-		 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
 	
-	<!-- <link rel="stylesheet" type="text/css" href="Styles.css"> -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/jquery.convform.css">
+	 <link rel="stylesheet" type="text/css" href="Styles.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/jquery.convform.css">
 	<link rel="stylesheet" type="text/css" href="css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-     
+      -->
 	
 
 
-[if lt IE 9]>
+<!-- [if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]
+	<![endif] -->
 
-</head>
+</head> -->
 
 <body>	<!-- Page Preloder -->
 	<div id="preloder">
@@ -105,14 +104,14 @@
 
 
 	<!-- Hero section -->
-	<section class="hero-section set-bg" data-setbg="" style="width: 100%; height: 60%; ">
+	<div class=" set-bg" data-setbg="" style="width:auto; border-radius: 1%; ">
 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" >
-      <img class="d-block w-100" src="../img/d7.jpg" alt="First slide" style="width: 100%; height: 30%;">
+      <img class=" " src="../img/d7.jpg" alt="First slide" style="">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="../img/d8.jpg" alt="Second slide">
+      <img class="d-block" src="../img/d8.jpg" alt="Second slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -125,7 +124,7 @@
   </a>
 </div>
 
-		</section>
+</div>
 		<br><br><br>
 
 
@@ -416,7 +415,7 @@
 
 
 <?php
-include_once 'includes/footer1.php';
+//include_once 'includes/footer1.php';
 
 ?>
 
