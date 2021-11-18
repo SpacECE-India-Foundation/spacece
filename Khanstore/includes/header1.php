@@ -117,8 +117,6 @@ session_start();
         if (isset($_SESSION['current_user_id'])) {
         ?>
           <li>
-            <a href='logout.php' class="btn text-dark  "> <i class="fa fa-user"></i> Log-Out</a>
-
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></a>
             <ul class="dropdown-menu">
               <li><a href="./customer_profile/index.php"><span class="glyphicon glyphicon-user">Profile</a></li>
