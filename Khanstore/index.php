@@ -1,10 +1,10 @@
 <?php
 require "config/constants.php";
 
-include_once 'includes/header1.php';
+include_once './includes/header1.php';
 session_start();
 
-if (isset($_SESSION["uid"])) {
+if (isset($_SESSION["current_user_name"])) {
 	header("location:profile.php");
 }
 ?>

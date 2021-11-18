@@ -2,7 +2,7 @@
 include './includes/header1.php';
 require "config/constants.php";
 //session_start();
-if (!isset($_SESSION["uid"])) {
+if (!isset($_SESSION["current_user_name"])) {
 	header("location:index.php");
 }
 ?>
