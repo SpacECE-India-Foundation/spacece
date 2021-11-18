@@ -13,10 +13,10 @@ if (isset($_SESSION["uid"])) {
 
 <head>
 	<meta charset="UTF-8">
-	
-	
-<!-- <script src="js/jquery2.js"><	/script> -->
-	
+
+
+	<!-- <script src="js/jquery2.js"><	/script> -->
+
 	<!-- <script src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css"> -->
 	<!-- <style></style> -->
@@ -26,7 +26,7 @@ if (isset($_SESSION["uid"])) {
 	<div class="wait overlay">
 		<div class="loader"></div>
 	</div>
-	 <!-- <div class="navbar navbar-inverse navbar-fixed-top">
+	<!-- <div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
@@ -57,7 +57,7 @@ if (isset($_SESSION["uid"])) {
 										<div class="col-md-3">Sl.No</div>
 										<div class="col-md-3">Product Image</div>
 										<div class="col-md-3">Product Name</div>
-										<div class="col-md-3">Price in <?php// echo CURRENCY; ?></div>
+										<div class="col-md-3">Price in // echo CURRENCY; ?></div>
 									</div>
 								</div>
 								<div class="panel-body">
