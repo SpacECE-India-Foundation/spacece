@@ -30,7 +30,7 @@ include_once('includes/header1.php');
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 
-   <script type="text/javascript" src="js/scriptcall.js"></script> 
+    <script type="text/javascript" src="js/scriptcall.js"></script>
 
 
 </head>
@@ -43,61 +43,61 @@ include_once('includes/header1.php');
 
     <!-- Modal -->
     <div class="container" style="margin-top:5%;">
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Upload Youtube video</h5>
-                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Upload Youtube video</h5>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button> -->
-                </div>
-                <div class="modal-body">
-                    <form id="uploadVideo" method="post" enctype="multipart/form-data">
-                        <div class="row mb-3">
-                            <div class="col">
-                                <input class="form-control" type="text" name="title" id="title" placeholder="Enter Video Title">
+                    </div>
+                    <div class="modal-body">
+                        <form id="uploadVideo" method="post" enctype="multipart/form-data">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input class="form-control" type="text" name="title" id="title" placeholder="Enter Video Title">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <textarea id="summary" class="form-control" name="summary" cols="30" rows="10" placeholder="Enter video description"></textarea>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <textarea id="summary" class="form-control" name="summary" cols="30" rows="10" placeholder="Enter video description"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <input type="file" name="file" class="form-control" />
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="file" name="file" class="form-control" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <input type="submit" name="submit" id="uploadVideo1" class="btn btn-primary" value="Submit" />
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="submit" name="submit" id="uploadVideo1" class="btn btn-primary" value="Submit" />
+                                </div>
                             </div>
-                        </div>
 
-                    </form>
-                    <!-- <div class="progress">
+                        </form>
+                        <!-- <div class="progress">
   <div class="progress-bar progress-bar-striped"  id="progress" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
     <span class="prograss-bar-text">0%</span>
   </div>
 
 </div> -->
-                    <div class="progress">
-                        <div class="uploadProgressBar" id="uploadProgressBar"></div>
+                        <div class="progress">
+                            <div class="uploadProgressBar" id="uploadProgressBar"></div>
 
+                        </div>
+                        <div class="loaded_n_total" id="loaded_n_total">0%</div>
                     </div>
-                    <div class="loaded_n_total" id="loaded_n_total">0%</div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     </div>
-    <div class="container" style="margin-top=10%">
+    <div class="container" style="margin-top:10%">
         <div class="card mt-5">
             <table class="table table-active table-hover table-striped table-bordered">
                 <tr>
