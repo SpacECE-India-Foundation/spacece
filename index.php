@@ -361,8 +361,8 @@ include_once 'includes/header1.php';
   <!---offers close-->
 
   <!-- ChatBot -->
-  <div class="chat_icon">
-    <i class="fa fa-comments" aria-hidden="true" style="color: black; border: 2px solid black"></i>
+  <div class="chat_icon pull-right ">
+    <i class="fa fa-comments fa-5x" aria-hidden="true" style="color: black; border: 2px solid black;border-radius:15px;" ></i>
   </div>
 
   <div class="chat_box">
@@ -394,7 +394,7 @@ include_once 'includes/header1.php';
       </form>
     </div>
   </div>
-
+<br>
   <!--session close-->
 
   <!-- Footer section -->
