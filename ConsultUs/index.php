@@ -415,7 +415,7 @@
 
 
 <?php
-//include_once 'includes/footer1.php';
+include_once 'includes/footer1.php';
 
 ?>
 
