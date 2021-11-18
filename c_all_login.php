@@ -1,4 +1,5 @@
-<?php error_reporting(0);
+<?php include_once './includes/header1.php';
+ error_reporting(0);
 $msg = $_GET['msg'];
 $cat= $_GET['cat'];
 $_SESSION['cat'] = $cat;
@@ -150,7 +151,7 @@ else{
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
@@ -162,7 +163,7 @@ else{
 	
 	<link rel="stylesheet" type="text/css" href="Styles.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+ -->
 
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -175,7 +176,7 @@ else{
 
 	
 	<!-- Header section -->
-	<header class="header-section">
+	<!-- <header class="header-section">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
 			<div class="container">
 				<div class="row">
@@ -215,7 +216,7 @@ else{
 				</div>
 			</div>
 		</div>
-	</header>
+	</header> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -311,7 +312,7 @@ span.psw {
     <button type="button" class="cancelbtn">Cancel</button>
   </div>
 </form>
-<footer class="footer-section set-bg" style="background-color:black;border-collapse: collapse; border: 2px solid navy;opacity:0.7; padding:30px 30px;">
+<!-- <footer class="footer-section set-bg" style="background-color:black;border-collapse: collapse; border: 2px solid navy;opacity:0.7; padding:30px 30px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 footer-widget">
@@ -355,8 +356,10 @@ span.psw {
 			
 		</div>
      
-     </footer>
+     </footer> -->
 
-
+<?php
+include_once './includes/footer1.php';
+?>
 </body>
 </html>

@@ -1,5 +1,8 @@
 <?php
-session_start();
+//  
+include_once 'includes/header1.php';
+
+//session_start();
 ?>
 <!DOCTYPE html>
 <!-- Version SpacECE-51-->
@@ -18,7 +21,7 @@ session_start();
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/animate.css" />
   <link rel="stylesheet" href="css/owl.carousel.css" />
@@ -28,11 +31,11 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-  <!-- <link rel="stylesheet" type="text/css" href="Styles.css" /> -->
+ <link rel="stylesheet" type="text/css" href="Styles.css" /> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/jquery.convform.css" />
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
 
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -47,7 +50,7 @@ session_start();
   </div>
 
   <!-- Header section -->
-  <header class="header-section" style="background-color: orange">
+  <!-- <header class="header-section" style="background-color: orange">
     <div class="header-top" style="position: absolute; top: 15px; left: 80%">
       <div class="container">
         <div class="row">
@@ -114,7 +117,7 @@ session_start();
         </div>
       </div>
     </div>
-  </header>
+  </header> -->
   <!-- Header section end -->
 
   <!-- Hero section -->
@@ -395,7 +398,7 @@ session_start();
   <!--session close-->
 
   <!-- Footer section -->
-  <footer class="footer-section set-bg" style="
+  <!-- <footer class="footer-section set-bg" style="
         background-color: orange;
         border-collapse: collapse;
         border: 2px solid navy;
@@ -473,7 +476,6 @@ session_start();
   <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px">
     <span style="font-size: 20px"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span>
   </p>
-  <!--====== Javascripts & Jquery ======-->
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
@@ -487,6 +489,11 @@ session_start();
   <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
   <script type="text/javascript" src="js/jquery-ui.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-</body>
+</body> -->
 
+<?php
+include_once './includes/footer1.php';
+?>
+
+</body>
 </html>
