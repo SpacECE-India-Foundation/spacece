@@ -88,40 +88,36 @@
         <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-
-        <li>
-          <?php
-          if (isset($_SESSION['current_user_id'])) {
-
-          ?>
-            <a href='logout.php' class="btn text-dark  "> <i class="fa fa-user"></i> Log-Out</a>
-
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo "Hi," . isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></a>
-            <ul class="dropdown-menu">
-              <li><a href="./customer_profile/index.php"><span class="glyphicon glyphicon-user">Profile</a></li>
-              <li class="divider"></li>
-              <li><a href="">Change Password</a></li>
-              <li class="divider"></li>
-              <li><a href='../spacece_auth/logout.php'>Logout</a></li>
-            </ul>
-
-          <?php
-          } else {
-          ?>
-
-        <li>
-          <a href='../spacece_auth/login.php'>
-            <span class="glyphicon glyphicon-log-in"></span>Login
-          </a>
-        </li>
-        <li>
-          <a href='../spacece_auth/register.php'>
-            <span class="glyphicon glyphicon-user"></span>SignUp
-          </a>
-        </li>
-      <?php
-          }
-      ?>
+        <?php
+        if (isset($_SESSION['current_user_id'])) {
+        ?>
+          <li>
+            <p>Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></p>
+          </li>
+          <li>
+            <a href='../spacece_auth/logout.php'>
+              <span class="glyphicon glyphicon-log-out"></span>
+              Logout
+            </a>
+          </li>
+        <?php
+        } else {
+        ?>
+          <li>
+            <a href='../spacece_auth/login.php'>
+              <span class="glyphicon glyphicon-log-in"></span>
+              Login
+            </a>
+          </li>
+          <li>
+            <a href="../spacece_auth/register.php">
+              <span class="glyphicon glyphicon-user"></span>
+              Register
+            </a>
+          </li>
+        <?php
+        }
+        ?>
       </ul>
     </div>
   </div>
