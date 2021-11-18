@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!-- Version SpacECE-51-->
 <html lang="en">
@@ -58,9 +61,27 @@
             <br /><br />
 
             <div class="user-panel">
-              <a href="c_signup.php" style="color: black"><i class="fa fa-user-circle-o" style="color: black"></i>
-                <span>Sign Up</span>
-              </a>
+              <?php
+              if (isset($_SESSION['current_user_id'])) {
+              ?>
+
+                <p>Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></p>
+
+                <a href='./spacece_auth/logout.php' style="color: black">
+                  <span>Logout</span>
+                </a>
+              <?php
+              } else {
+              ?>
+                <a href='./spacece_auth/login.php' style="color: black">
+                  <span>Login</span>
+                </a>
+                <a href='./spacece_auth/register.php' style="color: black">
+                  <span>Register</span>
+                </a>
+              <?php
+              }
+              ?>
             </div>
           </div>
         </div>
@@ -76,7 +97,7 @@
             <ul class="main-menu" style="margin-left: 60px">
               <a href="index.php" style="color: black">
                 <img src="img/space.jpg" alt="" style="width: 6%" />
-		      <h>Build-Y.Y.Y</h>
+                <h>Build-Y.Y.Y</h>
               </a>
               <li>
                 <a href="index.php" style="color: black"><i class="fa fa-home"></i>HOME</a>
