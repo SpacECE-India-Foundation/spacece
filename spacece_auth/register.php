@@ -22,7 +22,7 @@ if (isset($_SESSION['current_user_id'])) {
 <body>
     <div class="register-page">
         <h2>Register</h2>
-        <form class="register-form" method="post">
+        <form class="register-form" method="post" autocomplete="off">
             <input type="text" placeholder="Enter Name" id="name" name="name" />
             <input type="email" placeholder="Enter Email" id="email" name="email" />
             <input type="text" placeholder="Enter Mobile No." id="phone" name="phone" />

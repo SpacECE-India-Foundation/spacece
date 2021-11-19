@@ -23,7 +23,7 @@ if (isset($_SESSION['current_user_id'])) {
 <body>
     <div class="login-page">
         <h2>Login</h2>
-        <form class="login-form" method="post">
+        <form class="login-form" method="post" autocomplete="off">
             <input type="email" placeholder="Enter Email" name="email" />
             <input type="password" placeholder="Enter Password" name="password" />
             <button type="submit" name="login">Login</button>
