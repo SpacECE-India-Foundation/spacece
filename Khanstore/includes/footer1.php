@@ -51,7 +51,7 @@
         background-color: orange;
         border-collapse: collapse;
         border: 2px solid navy;
-        opacity: 0.7;
+        opacity: 0.9;
         padding: 30px 30px;
       ">
    

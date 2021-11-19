@@ -1,5 +1,5 @@
 <?php
-include_once('includes/header1.php');
+//include_once('includes/header1.php');
 
 ?>
 
@@ -36,12 +36,39 @@ include_once('includes/header1.php');
 </head>
 
 <body>
+<?php
+include_once('includes/header1.php');
+
+?>
     <!-- Button trigger modal -->
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Upload Youtube video
     </button> -->
 
     <!-- Modal -->
+    <style>
+        .table {
+    
+   
+    margin: 0 auto;
+   
+    
+}
+@media (min-width: 1090px){
+#tablediv{
+    display: flex;
+  justify-content: center;
+}
+
+.table {
+    
+    align-self: center;
+    margin: 0 auto;
+    min-width: 980px;
+    
+}
+}
+    </style>
     <div class="container" style="margin-top:5%;">
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -97,9 +124,9 @@ include_once('includes/header1.php');
         </div>
 
     </div>
-    <div class="container" style="margin-top:10%">
-        <div class="card mt-5">
-            <table class="table table-active table-hover table-striped table-bordered">
+    <div class="container" style="margin-top:10%;">
+        <div class=" col-sm-12 " id="tablediv">
+            <table class="table table-active table-hover table-striped table-bordered ">
                 <tr>
                     <th>Activity Id</th>
                     <th>Activity Name</th>
@@ -183,12 +210,12 @@ include_once('includes/header1.php');
                 </div>
             </div>
         </div>
-        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&width=98&height=20&appId" width="98" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        <!-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&width=98&height=20&appId" width="98" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
     </div>
 
 
-    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-    <div class="elfsight-app-0a2b4f6c-d665-4279-8b36-d0cf353f754d"></div>
+    <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-0a2b4f6c-d665-4279-8b36-d0cf353f754d"></div> -->
 
 </body>
 

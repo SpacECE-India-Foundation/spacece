@@ -1,6 +1,6 @@
 <?php
 //require "constants.php";
-session_start();
+//session_start();
 
 // if (isset($_SESSION["uid"])) {
 //   //header("location:profile.php");
@@ -62,6 +62,79 @@ session_start();
 
 <div class="navbar navbar-inverse navbar-fixed-top " style="background-color: orange">
   <div class="container-fluid">
+  <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false">
+        <span class="sr-only">navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div class="navbar-brand">
+     
+     <a href='../index.php'>
+       <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
+     </a>
+   </div>
+   <a href="/Khanstore" class="navbar-brand">Space Active</a>
+ </div>
+ 
+ <div class="collapse navbar-collapse" id="collapse1">
+ <ul class="nav navbar-nav">
+     <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+     <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
+     <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" id="search">
+        </div>
+        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
+      </form>
+   </ul>
+   <ul class="nav navbar-nav navbar-right">
+  <?php
+        if (isset($_SESSION['current_user_id'])) {
+        ?>
+        <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></a>
+            <ul class="dropdown-menu">
+              <li><a href="./customer_profile/index.php"><span class="glyphicon glyphicon-user">Profile</a></li>
+              <li class="divider"></li>
+              <!-- <li><a href="customer_order.php">Orders</a></li> -->
+              <!-- <li class="divider"></li> -->
+              <li><a href="">Change Password</a></li>
+              <li class="divider"></li>
+              <li>
+                <a href='../spacece_auth/logout.php'>
+                  <span class="glyphicon glyphicon-log-out"></span>
+                  Logout
+                </a>
+              </li>
+<?php
+        }
+else{
+  ?>
+  <li>
+            <a href='../spacece_auth/login.php'>
+              <span class="glyphicon glyphicon-log-in"></span>
+              Login
+            </a>
+          </li>
+          <li>
+            <a href="../spacece_auth/register.php">
+              <span class="glyphicon glyphicon-user"></span>
+              Register
+            </a>
+          </li>
+          <?php
+
+}
+        ?>
+
+  </ul>
+  </div>
+  
+  <br>
+  <br>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
         <span class="sr-only">navigation</span>
@@ -81,44 +154,7 @@ session_start();
         <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
         <!-- <li><a href="./course.php"><span class="glyphicon glyphicon-modal-window"></span>Course</a></li> -->
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" id="search">
-        </div>
-        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <?php
-        if (isset($_SESSION['current_user_id'])) {
-        ?>
-          <li>
-            <p>Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></p>
-          </li>
-          <li>
-            <a href='../spacece_auth/logout.php'>
-              <span class="glyphicon glyphicon-log-out"></span>
-              Logout
-            </a>
-          </li>
-        <?php
-        } else {
-        ?>
-          <li>
-            <a href='../spacece_auth/login.php'>
-              <span class="glyphicon glyphicon-log-in"></span>
-              Login
-            </a>
-          </li>
-          <li>
-            <a href="../spacece_auth/register.php">
-              <span class="glyphicon glyphicon-user"></span>
-              Register
-            </a>
-          </li>
-        <?php
-        }
-        ?>
-      </ul>
+     
     </div>
   </div>
 </div>
