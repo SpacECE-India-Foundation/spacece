@@ -1,7 +1,7 @@
 <?php
 include('constants.php');
 //include_once('includes/header.php');
-session_start();
+//session_start();
 
 error_reporting(0);
 ///var_dump($_SESSION);
@@ -105,7 +105,94 @@ if (isset($_SESSION['u_id'])) {
 
 <div class="navbar navbar-inverse navbar-fixed-top " style="background-color: orange">
   <div class="container-fluid">
-    <div class="navbar-header">
+   
+  <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false">
+        <span class="sr-only">navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div class="navbar-brand">
+     
+     <a href='../index.php'>
+       <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
+     </a>
+   </div>
+   <a href="/Khanstore" class="navbar-brand">Space Active</a>
+ </div>
+ 
+ <div class="collapse navbar-collapse" id="collapse1">
+ <ul class="nav navbar-nav">
+     <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+     <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
+     <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" id="search">
+        </div>
+        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
+      </form>
+   </ul>
+   <ul class="nav navbar-nav navbar-right">
+  <?php
+        if (isset($_SESSION['current_user_id'])) {
+        ?>
+        <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></a>
+            <ul class="dropdown-menu">
+              <li><a href="./customer_profile/index.php"><span class="glyphicon glyphicon-user">Profile</a></li>
+              <li class="divider"></li>
+              <!-- <li><a href="customer_order.php">Orders</a></li> -->
+              <!-- <li class="divider"></li> -->
+              <li><a href="">Change Password</a></li>
+              <li class="divider"></li>
+              <li>
+                <a href='../spacece_auth/logout.php'>
+                  <span class="glyphicon glyphicon-log-out"></span>
+                  Logout
+                </a>
+              </li>
+<?php
+        }
+else{
+  ?>
+  <li>
+            <a href='../spacece_auth/login.php'>
+              <span class="glyphicon glyphicon-log-in"></span>
+              Login
+            </a>
+          </li>
+          <li>
+            <a href="../spacece_auth/register.php">
+              <span class="glyphicon glyphicon-user"></span>
+              Register
+            </a>
+          </li>
+          <?php
+
+}
+        ?>
+
+  </ul>
+  </div>
+  
+  <br>
+  <br>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
         <span class="sr-only">navigation</span>
         <span class="icon-bar"></span>
@@ -117,7 +204,7 @@ if (isset($_SESSION['u_id'])) {
           <img src="../img/logo/ConsultUs.jpeg" class=" img img-thumbnail img-circle" style="width:80px;">
         </a>
       </div>
-      <a href="/index.php" class="navbar-brand">Consult Us</a>
+      <a href="/index.php" class="navbar-brand">Spacece Tube</a>
     </div>
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">
@@ -126,63 +213,8 @@ if (isset($_SESSION['u_id'])) {
         <li><a href="./feedback.html"><i class="fa fa-envelope" style="color: black"></i></span>Feedback </a></li>
 
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" id="search">
-        </div>
-        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-
-        <?php
-        if (isset($_SESSION['current_user_id'])) {
-        ?>
-          <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></a>
-            <ul class="dropdown-menu">
-              <li><a href="./customer_profile/index.php"><span class="glyphicon glyphicon-user">Profile</a></li>
-              <li class="divider"></li>
-              <div class="bottom" style="color: black;" style="font-weight:200;"><b> MY INFO </b></div></a></button>
-              <li class="divider"></li>
-              <li><a href="">Change Password</a></li>
-              <li class="divider"></li>
-              <li>
-                <a href='../spacece_auth/logout.php'>
-                  <span class="glyphicon glyphicon-log-out"></span>
-                  Logout
-                </a>
-              </li>
-            </ul>
-          </li>
-
-        <?php
-        } else {
-        ?>
-
-          <div class="row">
-            <div class="col-sm-6"><a href="reg_builder.php"><i class="fa fa-user-circle-o" style="color:black;"></i><b>Consultant</b></a><br>
-            </div>
-            <div class="col-sm-6">
-
-              <a href="loginuser.php"><i class="fa fa-sign-in" style="color:black;"></i><b>Login USER</b></a>
-
-            </div>
-            <div class="col-sm-2"> <a></a>
-            </div>
-          </div><br>
-
-          <div class="row">
-            <div class="col-sm-4">
-              <a href="register.php"><i class="fa fa-user-circle-o" style="color:black;"></i><b>User</b>
-            </div>
-
-            <div class="col-sm-8"><a href="login2.php" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a>
-            </div>
-
-          <?php
-        }
-          ?>
-      </ul>
+      
+      
     </div>
   </div>
 </div>
