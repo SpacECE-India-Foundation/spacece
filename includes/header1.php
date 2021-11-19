@@ -1,6 +1,6 @@
 <?php
 //require "constants.php";
-session_start();
+//session_start();
 
 // if (isset($_SESSION["uid"])) {
 //   //header("location:profile.php");
@@ -76,7 +76,7 @@ session_start();
       </button>
       <div class="navbar-brand">
         <a href='./index.php'>
-          <img src="./img/space.jpg" class=" img img-thumbnail img-circle" style="width:80px;">
+          <img src="./img/space.jpg" class=" img img-thumbnail img-circle" style="width:90px;">
         </a>
       </div>
       <a href="./index.php" class="navbar-brand">Spacece Active</a>
