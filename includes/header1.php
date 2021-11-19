@@ -76,7 +76,7 @@
       </button>
       <div class="navbar-brand">
         <a href='./index.php'>
-          <img src="./img/logo/SpaceCELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px;">
+          <img src="./img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px;">
         </a>
       </div>
       <a href="./index.php" class="navbar-brand">Spacece Active</a>
