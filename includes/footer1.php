@@ -75,7 +75,7 @@
          
         <div class="row align-bottom ">
           <div class="col-lg-3 footer-widget ">
-            <img src="./img/space.jpg" class="img img-fluid img-thumbnail img-circle" alt=""  style="width: 150px" />
+            <img src="./img/logo/SpaceCELogo.jpg" class="img img-fluid img-thumbnail img-circle" alt=""  style="width: 150px" />
 
             <div class="social">
               <a href="https://www.facebook.com/SpacECEIn"
