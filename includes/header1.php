@@ -1,6 +1,6 @@
 <?php
 //require "constants.php";
-//session_start();
+session_start();
 
 // if (isset($_SESSION["uid"])) {
 //   //header("location:profile.php");
@@ -22,12 +22,12 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
- 
+
   <link rel="stylesheet" href="css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/animate.css" />
   <link rel="stylesheet" href="css/owl.carousel.css" />
- 
+
   <!-- <link rel="stylesheet" href="css/style.css" /> -->
   <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">  -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -36,7 +36,7 @@
   <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
 
 
- 
+
   <!-- <link rel="stylesheet" href="css/style.css" />  -->
 
   <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  -->
@@ -83,16 +83,16 @@
     </div>
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">
-      <li>
-                <a href="index.php" style="color: black"><i class="fa fa-home"></i>HOME</a>
-              </li>
-              <li>
-                <a href="ConsultUs/about.html" style="color: black"><i class="fa fa-users"></i> ABOUT US</a>
-              </li>
-              <li>
-                <a href="ConsultUs/contact.html" style="color: black"><i class="fa fa-envelope" style="color: black"></i>
-                  FEEDBACK</a>
-              </li>
+        <li>
+          <a href="index.php" style="color: black"><i class="fa fa-home"></i>HOME</a>
+        </li>
+        <li>
+          <a href="ConsultUs/about.html" style="color: black"><i class="fa fa-users"></i> ABOUT US</a>
+        </li>
+        <li>
+          <a href="ConsultUs/contact.html" style="color: black"><i class="fa fa-envelope" style="color: black"></i>
+            FEEDBACK</a>
+        </li>
         <!-- <li><a href="./course.php"><span class="glyphicon glyphicon-modal-window"></span>Course</a></li> -->
       </ul>
       <form class="navbar-form navbar-left">
@@ -109,7 +109,7 @@
             <p>Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></p>
           </li>
           <li>
-            <a href='../spacece_auth/logout.php'>
+            <a href='./spacece_auth/logout.php'>
               <span class="glyphicon glyphicon-log-out"></span>
               Logout
             </a>
@@ -118,25 +118,25 @@
         } else {
         ?>
           <li>
-            <a href='../spacece_auth/login.php'>
+            <a href='./spacece_auth/login.php'>
               <span class="glyphicon glyphicon-log-in"></span>
               Login
             </a>
           </li>
           <li>
-            <a href="../spacece_auth/register.php">
+            <a href="./spacece_auth/register.php">
               <span class="glyphicon glyphicon-user"></span>
               Register
             </a>
-            
+
           </li>
-          
+
         <?php
         }
         ?>
-       
+
       </ul>
-    
+
     </div>
   </div>
 </div>
