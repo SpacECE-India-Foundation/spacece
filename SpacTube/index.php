@@ -1,22 +1,12 @@
-<?php
-session_start();
-include 'connection.php';
+    <?php
+    require_once 'Config/Functions.php';
+    $Fun_call = new Functions();
+    include_once 'includes/header1.php';
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
 
-require_once 'Config/Functions.php';
-$Fun_call = new Functions();
-
-$fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
-$get_video = $Fun_call->selected_order('videos', 'filter');
-// include 'Stylesheet/stylesheet.css';
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-signin-client_id" content="144318608772-lnmrm3l9acninha12ultd7gjslrq0tdm.apps.googleusercontent.com">
-        <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -24,112 +14,87 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script defer src="https://friconix.com/cdn/friconix.js"> </script>
         <link rel="stylesheet" href="Stylesheet/stylesheet.css">
-        <center>
-                <img align="left" src="Space_ECE_logo.png" style="width: 60px; height: auto ">
-        </center>
-        <h5 style="padding:12px;">&nbspSPACE For ECE</h5>
-        <!-- <br> -->
         <style>
-                <?php
-                include 'Stylesheet/stylesheet.css';
-                ?>.left {
-                        left: 0px;
-                }
-
-                .box {
-                        overflow-x: scroll;
-                }
+            /* <?php
+                //include 'Stylesheet/stylesheet.css';
+                ?> */
+            .topright {
+                position: absolute;
+                top: 8px;
+                right: 16px;
+                font-size: 18px;
+            }
         </style>
-</head>
-<script>
-        function logout() {
-                var auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut();
-                jQuery.ajax({
-                        url: 'logout.php',
-                        success: function(result) {
-                                window.location.href = "index.php";
-                        }
-                });
+    </head>
 
-        }
+    <body style="background-color:#ffffff;">
 
-        function onLoad() {
-                gapi.load('auth2', function() {
-                        gapi.auth2.init();
-                });
-        }
+        <div class="container" style="background-color: white">
 
-        function gmailLogIn(userInfo) {
-                var userProfile = userInfo.getBasicProfile();
+            <div class="container">
+                <?php include 'menu.php'; ?>
+                <button onclick="window.open('user.php', '_self')" name="upload" class="btn-btn" style="background-color:orange;">
+                    <h6>Upload Video</h6>
+                </button>
 
+                <button onclick="window.open('user1.php', '_self')" name="remove" class="btn-btn" style="background-color:orange;">
+                    <h6>Remove Video</h6>
+                </button>
 
-                jQuery.ajax({
-                        url: 'login_check.php',
-                        type: 'post',
-                        data: 'user_id=' + userProfile.getId() + '&name=' + userProfile.getName() + '&image=' + userProfile.getImageUrl() + '&email=' + userProfile.getEmail(),
-                        success: function(result) {
-                                window.location.href = "view.php";
-                        }
-                });
-        }
-</script>
+            </div>
 
-<body style="background-color:#ffffff" ;>
-
-
-        <div class="container-fluid">
-
-                <div class="container"><br>
-                        <ul class="nav justify-content-center bg-dark">
-                                <li class="nav-item">
-                                        <div class="nav-link heading" style="color:white;">SpacTube</div>
-                                </li>
-                        </ul><br>
-                        <img src="parentsimg2.jpeg" style="background-image: center; padding-left: 25%; height: 300px; width: 800px"><br>
-
-                        <div class="g-signin2" data-onsuccess="gmailLogIn" style="display: flex; justify-content: center; align-items: center; top: 30%;  padding-top: 5%; padding-left: 2%"></div>
-                        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <div class="container">
+                <div class="ins-box" id="load_videos">
                 </div>
-
-                <br><br><br>
-
-
-
-                <!-- <div class="all-v-btn btn btn-outline-dark">
-    <a href="home.php"><i class="fi-xwluxl-gear-wide fi-2x fi-flip-h"></i></a>
-</div> -->
+            </div>
+        </div>
 
 
-                <?php include 'footer.php' ?>
-
-                <!--End - Delete - Modal -->
-
-
-</body>
-
-</html>
-<!-- 
-<html>
-        <head>
-            
-        </head>
-        
-        <body style="background-color:white">
-                <?php
-                // if(isset($_SESSION['USER_ID'])){
-                ?>
-                        <a href="logout.php" onclick="logout()">Logout</a> -->
-<?php
-// }else{
-?>
-
-<?php
-// }
-?>
+        <div class="all-v-btn btn btn-outline-dark">
+            <a href="view.php"><i class="fi-xwluxl-table-wide fi-2x"></i></a>
+        </div>
 
 
-<!--                
-        </body>
-</html>
- -->
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#load_videos').load('Ajax/Load_gallery.php');
+
+                $('#video-ins').on('submit', function(e) {
+                    e.preventDefault();
+                    $video_url = $('#video_code').val().trim();
+                    $('#ins_status').text('');
+                    if ($video_url != '') {
+                        $.ajax({
+                            type: "POST",
+                            url: "Ajax/Video_process.php",
+                            data: {
+                                'video_url': encodeURIComponent($video_url)
+                            },
+                            success: function(response) {
+                                $json_res = JSON.parse(response);
+                                if ($json_res.status == 101) {
+                                    $('#load_videos').load('Ajax/Load_gallery.php');
+                                    $('#ins_status').text('Successfully Video Added');
+                                    $("#video-ins").trigger("reset");
+                                } else {
+                                    console.log($json_res.msg);
+                                }
+                            }
+                        });
+                    } else {
+                        $('#ins_status').text('Please Enter Video Code');
+                    }
+                });
+            });
+        </script>
+
+        <?php include 'footer.php' ?>
+
+    </body>
+
+    </html>
