@@ -61,7 +61,7 @@
         background-color: orange;
         border-collapse: collapse;
         border: 2px solid navy;
-        opacity: 0.7;
+        opacity: 0.9;
         padding: 30px 30px;
         bottom: 5px;
       ">
@@ -75,7 +75,7 @@
          
         <div class="row align-bottom ">
           <div class="col-lg-3 footer-widget ">
-            <img src="./img/logo/Space_Active.jpeg" class="img img-fluid img-thumbnail img-circle" alt=""  style="width: 150px" />
+            <img src="./img/logo/SpacECELogo.jpg" class="img img-fluid img-thumbnail img-circle" alt=""  style="width: 150px" />
 
             <div class="social">
               <a href="https://www.facebook.com/SpacECEIn"
