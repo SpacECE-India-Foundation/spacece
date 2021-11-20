@@ -1,7 +1,7 @@
 <?php
 include('constants.php');
 //include_once('includes/header.php');
-//session_start();
+session_start();
 
 error_reporting(0);
 ///var_dump($_SESSION);
@@ -125,8 +125,8 @@ if (isset($_SESSION['u_id'])) {
  
  <div class="collapse navbar-collapse" id="collapse1">
  <ul class="nav navbar-nav">
-     <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-     <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
+     <li><a href="../index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+     <li><a href="../about.html"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
      <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" id="search">
@@ -209,7 +209,7 @@ else{
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">
         <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-        <li><a href="../contact.html"><i class="fa fa-users"></i></span>About Us</a></li>
+        <li><a href="../about.html"><i class="fa fa-users"></i></span>About Us</a></li>
         <li><a href="../feedback.html"><i class="fa fa-envelope" style="color: black"></i></span>Feedback </a></li>
         <li><a href="./view.php"><i class="fa fa-envelope" style="color: black"></i></span>Free </a></li>
         <li><a href="./view1.php"><i class="fa fa-envelope" style="color: black"></i></span>Paid </a></li>

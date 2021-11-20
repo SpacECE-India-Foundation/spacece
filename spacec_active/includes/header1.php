@@ -1,6 +1,6 @@
 <?php
 //require "constants.php";
-//session_start();
+session_start();
 
 // if (isset($_SESSION["uid"])) {
 //   //header("location:profile.php");
@@ -81,8 +81,8 @@
  
  <div class="collapse navbar-collapse" id="collapse1">
  <ul class="nav navbar-nav">
-     <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-     <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
+     <li><a href="../index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+     <li><a href="../about.html"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
      <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" id="search">

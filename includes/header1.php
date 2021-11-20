@@ -87,10 +87,10 @@ session_start();
           <a href="index.php" style="color: black"><i class="fa fa-home"></i>HOME</a>
         </li>
         <li>
-          <a href="ConsultUs/about.html" style="color: black"><i class="fa fa-users"></i> ABOUT US</a>
+          <a href="./about.html" style="color: black"><i class="fa fa-users"></i> ABOUT US</a>
         </li>
         <li>
-          <a href="ConsultUs/contact.html" style="color: black"><i class="fa fa-envelope" style="color: black"></i>
+          <a href="./contact.html" style="color: black"><i class="fa fa-envelope" style="color: black"></i>
             FEEDBACK</a>
         </li>
         <!-- <li><a href="./course.php"><span class="glyphicon glyphicon-modal-window"></span>Course</a></li> -->
