@@ -81,7 +81,7 @@ include_once('includes/header1.php');
                     </button> -->
                     </div>
                     <div class="modal-body">
-                        <form id="uploadVideo" method="post" enctype="multipart/form-data">
+                        <form id="uploadVideo" method="post" enctype="multipart/form-data" action="Youtube/upload.php">
                             <div class="row mb-3">
                                 <div class="col">
                                     <input class="form-control" type="text" name="title" id="title" placeholder="Enter Video Title">
@@ -246,11 +246,11 @@ include_once('includes/footer1.php');
         });
 
         $("#file").change(function(){
-        var allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.ms-office', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg', 'image/gif','video/mp4','video/AVI'];
+        var allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif','video/mp4','video/AVI','audio/mp3'];
         var file = this.files[0];
         var fileType = file.type;
         if(!allowedTypes.includes(fileType)){
-            alert('Please select a valid file (PDF/DOC/DOCX/JPEG/JPG/PNG/GIF).');
+            alert('Please select a valid file (JPEG/JPG/PNG/GIF/MP4/AVI/MP3).');
             $("#file").val('');
             return false;
         }
@@ -330,7 +330,7 @@ include_once('includes/footer1.php');
                 return xhr;
             },
             type: 'POST',
-            url: 'upload.php',
+            url: 'Youtube/upload.php',
             data: fd,
             contentType: false,
             cache: false,
