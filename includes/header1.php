@@ -79,7 +79,7 @@
           <img src="./img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px;">
         </a>
       </div>
-      <a href="./index.php" class="navbar-brand">SpaceCE</a>
+      <a href="./index.php" class="navbar-brand">SPAC-ECE</a>
     </div>
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">

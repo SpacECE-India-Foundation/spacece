@@ -120,7 +120,7 @@ if (isset($_SESSION['u_id'])) {
        <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
      </a>
    </div>
-   <a href="/Khanstore" class="navbar-brand">Space Active</a>
+   <a href="/Khanstore" class="navbar-brand">SPAC-ECE</a>
  </div>
  
  <div class="collapse navbar-collapse" id="collapse1">

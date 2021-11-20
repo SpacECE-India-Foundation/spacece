@@ -1,7 +1,7 @@
 <?php
 //include('constants.php');
 //include_once('includes/header.php');
-//session_start();
+session_start();
 
 // error_reporting(0);
 // ///var_dump($_SESSION);
@@ -119,7 +119,7 @@
        <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
      </a>
    </div>
-   <a href="/Khanstore" class="navbar-brand">Space Active</a>
+   <a href="/Khanstore" class="navbar-brand">SPAC-ECE</a>
  </div>
  
  <div class="collapse navbar-collapse" id="collapse1">
