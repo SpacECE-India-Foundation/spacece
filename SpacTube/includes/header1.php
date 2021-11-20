@@ -209,9 +209,11 @@ else{
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">
         <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-        <li><a href="./contact.html"><i class="fa fa-users"></i></span>About Us</a></li>
-        <li><a href="./feedback.html"><i class="fa fa-envelope" style="color: black"></i></span>Feedback </a></li>
-
+        <li><a href="../contact.html"><i class="fa fa-users"></i></span>About Us</a></li>
+        <li><a href="../feedback.html"><i class="fa fa-envelope" style="color: black"></i></span>Feedback </a></li>
+        <li><a href="./view.php"><i class="fa fa-envelope" style="color: black"></i></span>Free </a></li>
+        <li><a href="./view1.php"><i class="fa fa-envelope" style="color: black"></i></span>Paid </a></li>
+        <li><a href="./trending.php"><i class="fa fa-envelope" style="color: black"></i></span>Freee </a></li>
       </ul>
       
       
