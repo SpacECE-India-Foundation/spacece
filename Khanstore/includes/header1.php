@@ -71,30 +71,30 @@
       </button>
 
       <div class="navbar-brand">
-     
-     <a href='../index.php'>
-       <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
-     </a>
-   </div>
-   <a href="/Khanstore" class="navbar-brand">Space Active</a>
- </div>
- 
- <div class="collapse navbar-collapse" id="collapse1">
- <ul class="nav navbar-nav">
-     <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-     <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
-     <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" id="search">
-        </div>
-        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
-      </form>
-   </ul>
-   <ul class="nav navbar-nav navbar-right">
-  <?php
+
+        <a href='../index.php'>
+          <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
+        </a>
+      </div>
+      <a href="/Khanstore" class="navbar-brand">Space Active</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="collapse1">
+      <ul class="nav navbar-nav">
+        <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+        <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" id="search">
+          </div>
+          <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <?php
         if (isset($_SESSION['current_user_id'])) {
         ?>
-        <li>
+          <li>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></a>
             <ul class="dropdown-menu">
               <li><a href="./customer_profile/index.php"><span class="glyphicon glyphicon-user">Profile</a></li>
@@ -109,41 +109,40 @@
                   Logout
                 </a>
               </li>
-<?php
-        }
-else{
-  ?>
-  <li>
-            <a href='../spacece_auth/login.php'>
-              <span class="glyphicon glyphicon-log-in"></span>
-              Login
-            </a>
-          </li>
-          <li>
-            <a href="../spacece_auth/register.php">
-              <span class="glyphicon glyphicon-user"></span>
-              Register
-            </a>
-          </li>
-          <?php
+            <?php
+          } else {
+            ?>
+              <li>
+                <a href='../spacece_auth/login.php?type=customer'>
+                  <span class="glyphicon glyphicon-log-in"></span>
+                  Login
+                </a>
+              </li>
+              <li>
+                <a href="../spacece_auth/register.php?type=customer">
+                  <span class="glyphicon glyphicon-user"></span>
+                  Register
+                </a>
+              </li>
+            <?php
 
-}
-        ?>
+          }
+            ?>
 
-  </ul>
-  </div>
-  
-  <br>
-  <br>
-   <div class="navbar-header">
-   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+            </ul>
+    </div>
+
+    <br>
+    <br>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
         <span class="sr-only">navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <div class="navbar-brand">
-     
+
         <a href='./index.php'>
           <img src="../img/logo/LibForSmalls.jpeg" class=" img img-thumbnail img-circle" style="width:80px;">
         </a>
@@ -151,12 +150,12 @@ else{
       <a href="/Khanstore" class="navbar-brand">Lib for smalls</a>
     </div>
     <div class="collapse navbar-collapse" id="collapse">
-    
+
       <ul class="nav navbar-nav">
         <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
         <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
       </ul>
-      
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
           <div class="dropdown-menu" style="width:400px;">
@@ -205,11 +204,11 @@ else{
               </li>
             </ul>
           </li>
-<?php
+        <?php
 
         }
         ?>
-        
+
       </ul>
     </div>
   </div>
