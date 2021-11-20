@@ -94,7 +94,7 @@ include_once('includes/header1.php');
                             </div>
                             <div class="row mb-3">
                                 <div class="col">
-                                    <input type="file" name="file" class="form-control" />
+                                    <input type="file" name="file" id="file" class="form-control" />
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -218,6 +218,9 @@ include_once('includes/header1.php');
     <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <div class="elfsight-app-0a2b4f6c-d665-4279-8b36-d0cf353f754d"></div> -->
 
+    <div class="progress">
+  <div id="progress-bar" class="progress-bar" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+</div>
 </body>
 
 </html>
@@ -228,7 +231,8 @@ include_once('includes/footer1.php');
 <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js."></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#progress').hide();
+        $('.progress').hide();
+       // $('#progress').hide();
         $.ajax({
             type: 'POST',
             url: 'fetch.php',
@@ -240,6 +244,17 @@ include_once('includes/footer1.php');
             }
 
         });
+
+        $("#file").change(function(){
+        var allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.ms-office', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg', 'image/gif','video/mp4','video/AVI'];
+        var file = this.files[0];
+        var fileType = file.type;
+        if(!allowedTypes.includes(fileType)){
+            alert('Please select a valid file (PDF/DOC/DOCX/JPEG/JPG/PNG/GIF).');
+            $("#file").val('');
+            return false;
+        }
+    });
     });
 
     $(document).on("click", "#edit", function() {
@@ -305,52 +320,46 @@ include_once('includes/footer1.php');
         $.ajax({
             xhr: function() {
                 var xhr = new window.XMLHttpRequest();
-
                 xhr.upload.addEventListener("progress", function(evt) {
                     if (evt.lengthComputable) {
-                        var percentComplete = evt.loaded / evt.total;
-                        percentComplete = parseInt(percentComplete * 100);
-                        var $link = $('.' + ids);
-                        var $img = $link.find('i');
-                        $link.html('Uploading..(' + percentComplete + '%)');
-                        $link.append($img);
+                        var percentComplete = parseInt(((evt.loaded / evt.total) * 100));
+                        $("#progress-bar").width(percentComplete + '%');
+                        $("#progress-bar").html(percentComplete+'%');
                     }
                 }, false);
-
                 return xhr;
             },
             type: 'POST',
+            url: 'upload.php',
             data: fd,
-            url: 'Youtube/index.php',
-            async: false,
-            cache: false,
             contentType: false,
-            enctype: 'multipart/form-data',
-            processData: false,
-            success: function(result) {
-                console.log(result);
+            cache: false,
+            processData:false,
+            beforeSend: function(){
+                $("#progress-bar").width('0%');
+                $('#loader-icon').show();
+                $('#exampleModal').modal('toggle');
+            },
+            error:function(){
+                $('#loader-icon').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
+            },
+            success: function(resp){
+              alert(resp);
+               $('.progress').hide();
+                if(resp == 'ok'){
+                   // $('#uploadForm')[0].reset();
+                   // $('#loader-icon').html('<p style="color:#28A74B;">File has uploaded successfully!</p>');
+                    
+                }else if(resp == 'err'){
+                  //  $('#loader-icon').html('<p style="color:#EA4335;">Please select a valid file to upload.</p>');
+                }
             }
-
-            //    beforeSend: function() {
-            //    // $('#progress').hide();
-            //  $('.progress-bar').width('10%');
-            // },
-            // uploadProgress: function(event, position, total, percentageComplete)
-            // {
-            //  $('.progress-bar').animate({
-            //   width: percentageComplete + '%'
-            //  }, {
-            //   duration: 1000
-            //  });
-            // },
-            //  success: function(data){
-
-            //   alert(data);
-
-            // }
         });
-
-
-
     });
+
+          
+
+
+
+   
 </script>
