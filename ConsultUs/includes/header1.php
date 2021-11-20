@@ -17,6 +17,7 @@ session_start();
 
 <head>
   <meta charset="UTF-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,18 +36,11 @@ session_start();
 
   <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
 
-
-
   <link rel="stylesheet" href="css/style.css" />
 
   <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-
-
-
-  <!-- <link rel="stylesheet" type="text/css" href="css/jquery.convform.css" /> -->
-
   <!-- <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
   <script src="js/main.js"></script>
   <!-- <link rel="stylesheet" type="text/css" href="css/style1.css" /> -->
@@ -63,42 +57,11 @@ session_start();
 
     }
   </style>
-  <link rel="stylesheet" type="text/css" href="../assets/css/owl.carousel.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ 
   <!-- <link rel="stylesheet" /assets/css/style.css"> -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-  <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css" />
-  <link rel="stylesheet" href="css/animate.css" />
-  <link rel="stylesheet" href="css/owl.carousel.css" />
-  <link rel="stylesheet" href="css/style.css" />
 
-
-  <link rel="stylesheet" href="../assets/css/animate.css" />
-  <link rel="stylesheet" href="../assets/css/owl.carousel.css" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/jquery.convform.css" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/jquery-ui.css" />
-
-
-  <!--    <link rel="stylesheet" href="../../css/bootstrap.min.css" /> -->
-
-
-  <link rel="stylesheet" href="css/style.css" />
-  <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" /> -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
-
-  <!-- <link rel="stylesheet" type="text/css" href="../../Styles.css" /> -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-  <link rel="stylesheet" type="text/css" href="css/jquery.convform.css" />
-  <!-- <link rel="stylesheet" type="text/css" href="../../css/responsive.css" /> -->
-  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
-  <link rel="stylesheet" type="text/css" href="css/style1.css" />
-  <title>LearnOn</title>
+  <title>Consult Us</title>
 </head>
 
 
@@ -227,11 +190,12 @@ session_start();
         ?>
 
           <div class="row">
-            <div class="col-sm-5"><a href="../spacece_auth/register.php?type=consultant"><i class="fa fa-user-circle-o" style="color:black;"></i><b>Consultant</b></a><br>
-            </div>
+            <div class="col-sm-5"><li><a href="../spacece_auth/register.php?type=consultant"><i class="fa fa-user-circle-o" style="color:black;"></i><b>Consultant</b></a><br>
+        </li> </div>
+        
             <div class="col-sm-7">
 
-              <a href="../spacece_auth/login.php?type=consultant" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a>
+              <li><a href="../spacece_auth/login.php?type=consultant" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a></li>
 
             </div>
             <div class="col-sm-2"><a></a>
@@ -244,19 +208,6 @@ session_start();
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </nav>

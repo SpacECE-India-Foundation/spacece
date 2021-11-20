@@ -467,14 +467,14 @@ include_once 'includes/footer1.php';
      </footer> -->
      <!-- <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>                                     -->
 	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
+	<!-- <script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script> -->
+	<!-- <script src="js/owl.carousel.min.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/magnific-popup.min.js"></script>
-	<script src="js/main.js"></script>
-	<script type="js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery-3.1.1.min.js">
+	<script src="js/main.js"></script> -->
+	<!-- <script type="js/jquery.js"></script> -->
+	<!-- <script type="text/javascript" src="js/jquery-3.1.1.min.js"> -->
 	</script>
 <script type="text/javascript" src="js/jquery.convform.js">
 		
@@ -482,9 +482,9 @@ include_once 'includes/footer1.php';
 <script type="text/javascript" src="js/custom.js">
 
 </script>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript"src="js/bootstrap.min.js"></script>
+<script type="text/javascript"src="js/bootstrap.min.js"></script> -->
 
 </body>
 </html>
