@@ -71,7 +71,7 @@ session_start();
       </button>
 
       <div class="navbar-brand">
-<<<<<<< HEAD
+
      
      <a href='../index.php'>
        <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
@@ -93,29 +93,29 @@ session_start();
    </ul>
    <ul class="nav navbar-nav navbar-right">
   <?php
-=======
 
-        <a href='../index.php'>
-          <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
-        </a>
-      </div>
-      <a href="/Khanstore" class="navbar-brand">SPAC-ECE</a>
-    </div>
 
-    <div class="collapse navbar-collapse" id="collapse1">
-      <ul class="nav navbar-nav">
-        <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-        <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" id="search">
-          </div>
-          <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
-        </form>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <?php
->>>>>>> 18bdb85e4c814aee969741675a986abe66b502e9
+//         <a href='../index.php'>
+//           <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
+//         </a>
+//       </div>
+//       <a href="/Khanstore" class="navbar-brand">SPAC-ECE</a>
+//     </div>
+
+//     <div class="collapse navbar-collapse" id="collapse1">
+//       <ul class="nav navbar-nav">
+//         <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+//         <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
+//         <form class="navbar-form navbar-left">
+//           <div class="form-group">
+//             <input type="text" class="form-control" placeholder="Search" id="search">
+//           </div>
+//           <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
+//         </form>
+//       </ul>
+//       <ul class="nav navbar-nav navbar-right">
+//         <?php
+//
         if (isset($_SESSION['current_user_id'])) {
         ?>
           <li>

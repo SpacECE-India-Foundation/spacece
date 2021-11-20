@@ -30,7 +30,7 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 
-    <script type="text/javascript" src="js/scriptcall.js"></script>
+   
 
 
 </head>
@@ -46,6 +46,7 @@ include_once('includes/header1.php');
     </button> -->
 
     <!-- Modal -->
+    <script type="text/javascript" src="js/scriptcall.js"></script>
     <style>
         .table {
     
