@@ -118,13 +118,13 @@ session_start();
         } else {
         ?>
           <li>
-            <a href='./spacece_auth/login.php'>
+            <a href='./spacece_auth/login.php?type=customer'>
               <span class="glyphicon glyphicon-log-in"></span>
               Login
             </a>
           </li>
           <li>
-            <a href="./spacece_auth/register.php">
+            <a href="./spacece_auth/register.php?type=customer">
               <span class="glyphicon glyphicon-user"></span>
               Register
             </a>

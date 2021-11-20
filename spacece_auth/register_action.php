@@ -8,6 +8,7 @@ $email = trim($_POST['email']);
 $password = trim($_POST['password']);
 $phone = trim($_POST['phone']);
 $image = $_FILES['image']['name'];
+$type = $_POST['type'];
 
 $hashed_password = md5($password);
 
@@ -25,8 +26,11 @@ if (mysqli_num_rows($run) > 0) {
     echo json_encode(array('status' => 'error', "message" => "Email already exists!"));
     die();
 } else {
-    $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image')";
-
+    if ($type == 'consultant') {
+        $sql = "INSERT INTO users (u_name, u_email, u_password, u_phone, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
+    } else {
+        $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image')";
+    }
     $result = mysqli_query($conn, $query);
 
     if ($result) {
