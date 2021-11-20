@@ -1,6 +1,6 @@
 <?php
 //require "constants.php";
-//session_start();
+session_start();
 
 // if (isset($_SESSION["uid"])) {
 //   //header("location:profile.php");
@@ -50,7 +50,7 @@
   <!-- <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
   <!-- <script src="main.js"></script> -->
   <!-- <link rel="stylesheet" type="text/css" href="css/style1.css" /> -->
-  <title> Spacece Active</title>
+  <title>SPAC-ECE</title>
   <style type="text/css">
     a {
       color: black !important;

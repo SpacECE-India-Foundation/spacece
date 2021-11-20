@@ -45,7 +45,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
     <script src="main.js"></script>
   <!-- <link rel="stylesheet" type="text/css" href="css/style1.css" /> -->
-    <title> Lib for smalls</title>
+    <title> Learn On App</title>
     <style type="text/css">
       a{
         color: black !important;
