@@ -83,7 +83,7 @@ session_start();
  <div class="collapse navbar-collapse" id="collapse1">
  <ul class="nav navbar-nav">
      <li><a href="../index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-     <li><a href="../about.html"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
+     <li><a href="../about.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
      <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" id="search">
@@ -174,7 +174,7 @@ session_start();
     </div>
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">
-        <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+        <!-- <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li> -->
         <!-- <li><a href="./course.php"><span class="glyphicon glyphicon-modal-window"></span>Course</a></li> -->
       </ul>
 

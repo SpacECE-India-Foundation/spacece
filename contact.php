@@ -1,3 +1,8 @@
+
+<?php
+
+include_once 'includes/header1.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,9 +150,12 @@
 												" allowfullscreen></iframe>
 			</div>			</div> 
 
+            <?php
 
+include_once 'includes/footer1.php';
+?>
 	<!-- Footer section -->
-	<footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
+	<!-- <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 footer-widget">
@@ -191,15 +199,15 @@
 		</div>
 	</footer>
 
-	<!-- Footer section end -->
+ Footer section end 
        <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></p>                               
-	<!--====== Javascripts & Jquery ======-->
+
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/magnific-popup.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/main.js"></script> -->
 
 	<!-- load for map -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>

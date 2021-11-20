@@ -195,7 +195,7 @@ include_once 'includes/header1.php';
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="ConsultUs/index.html?cat=consult">
+          <a href="./ConsultUs/index.php?cat=consult">
             <img src="img/icon_consultus.jpeg" alt="CONSULT US" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -205,7 +205,7 @@ include_once 'includes/header1.php';
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="SpacTube/view.php?cat=spacetube">
+          <a href="./SpacTube/view.php?cat=spacetube">
             <img src="img/icon_spacetube.jpeg" alt="SPACTUBE" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -215,7 +215,7 @@ include_once 'includes/header1.php';
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="http://educationfoundation.space/moodle/login/index.php?cat=moodle">
+          <a href="./learnonapp/index.php">
             <img src="img/icon_learnonapp.jpeg" alt="" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -225,7 +225,7 @@ include_once 'includes/header1.php';
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="Khanstore">
+          <a href="./Khanstore/index.php">
             <img src="img/icon_libforsmalls.jpeg" alt="" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -235,7 +235,7 @@ include_once 'includes/header1.php';
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="spacec_active">
+          <a href="./spacec_active/index.php">
             <img src="img/icon_spaceactive.jpeg" alt="TOY LIBRARY" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">

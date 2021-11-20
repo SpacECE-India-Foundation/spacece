@@ -115,7 +115,7 @@ if (isset($_SESSION['u_id'])) {
       </button>
 
       <div class="navbar-brand">
-<<<<<<< HEAD
+
      
      <a href='../index.php'>
        <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
@@ -127,7 +127,7 @@ if (isset($_SESSION['u_id'])) {
  <div class="collapse navbar-collapse" id="collapse1">
  <ul class="nav navbar-nav">
      <li><a href="../index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-     <li><a href="../about.html"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
+     <li><a href="../about.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
      <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" id="search">
@@ -137,29 +137,7 @@ if (isset($_SESSION['u_id'])) {
    </ul>
    <ul class="nav navbar-nav navbar-right">
   <?php
-=======
 
-        <a href='../index.php'>
-          <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
-        </a>
-      </div>
-      <a href="/Khanstore" class="navbar-brand">SPAC-ECE</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="collapse1">
-      <ul class="nav navbar-nav">
-        <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-        <li><a href="./index.php"><span class="glyphicon glyphicon-modal-window"></span>About Us</a></li>
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" id="search">
-          </div>
-          <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
-        </form>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <?php
->>>>>>> 18bdb85e4c814aee969741675a986abe66b502e9
         if (isset($_SESSION['current_user_id'])) {
         ?>
           <li>
@@ -232,8 +210,8 @@ if (isset($_SESSION['u_id'])) {
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">
         <li><a href="./index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-        <li><a href="../about.html"><i class="fa fa-users"></i></span>About Us</a></li>
-        <li><a href="../feedback.html"><i class="fa fa-envelope" style="color: black"></i></span>Feedback </a></li>
+        <li><a href="../about.php"><i class="fa fa-users"></i></span>About Us</a></li>
+        <!-- <li><a href="../feedback.html"><i class="fa fa-envelope" style="color: black"></i></span>Feedback </a></li> -->
         <li><a href="./view.php"><i class="fa fa-envelope" style="color: black"></i></span>Free </a></li>
         <li><a href="./view1.php"><i class="fa fa-envelope" style="color: black"></i></span>Paid </a></li>
         <li><a href="./trending.php"><i class="fa fa-envelope" style="color: black"></i></span>Freee </a></li>

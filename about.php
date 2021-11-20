@@ -1,9 +1,15 @@
+<?php
+include_once 'includes/header1.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>SPAC-ECE</title>
 	<meta charset="UTF-8">
-	<meta name="description" content="SPACE-ECE">
+	<meta name="description" content="SPAC-ECE">
 	<meta name="keywords" content="LERAMIZ, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->   
@@ -11,6 +17,7 @@
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
 	<!-- Stylesheets -->
 	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
@@ -26,6 +33,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 
+
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -38,8 +46,8 @@
 		<div class="loader"></div>
 	</div>
 	
-	<!-- Header section -->
-	<!-- <header class="header-section">
+	<!-- Header section
+	<header class="header-section">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
 			<div class="container">
 				<div class="row">
@@ -54,6 +62,7 @@
 						
 							
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -73,7 +82,7 @@
 							<img src="img/space.jpg" alt="" style="width:6%; ">
 							<li><a href="index.html" style="color:orange"><i class="fa fa-home"></i>HOME</a></li>
 							<li><a href="about.html" style="color:orange"><i class="fa fa-users"></i> ABOUT US</a></li>
-							<li><a href="contact.html" style="color:orange"><i class="fa fa-envelope" style="color:orange;"></i>FEEDBACK</a></li>
+							<li><a href="contact.html" style="color:orange"><i class="fa fa-envelope" style="color:orange;"></i> FEEDBACK</a></li>
 						</ul>
 					</div>
 				</div>
@@ -84,74 +93,59 @@
 
 
 	<!-- Page top section -->
-	<section class="page-top-section set-bg" data-setbg="img/about.jpg" style="width: 100%; height: 45%;">
+	<section class="page-top-section set-bg" data-setbg="img/about.jpg" style="width: 100%; height: 80%;">
 		<div class="container text-black">
-			<h3>PLEASE GIVE YOUR FEEDBACK</h3>
+			<h3>Our aim is to encourage children in communicating with the world using all of their ability, capabilities, and language, and to overcome any barriers.</h3>
 		</div>
 	</section>
+	<!--  Page top end -->
+
 	<!-- Breadcrumb 
 	<div class="site-breadcrumb">
 		<div class="container">
 			<a href=""><i class="fa fa-home"></i>Home</a>
-			<span><i class="fa fa-angle-right"></i>Contact us</span>
+			<span><i class="fa fa-angle-right"></i>About us</span>
 		</div>
-	</div>
+	</div> -->
 
-	page --> 
-	<section class="page-section blog-page" style="margin-top: 100px;">
+	<!-- page -->
+	<section class="page-section">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<img src="img/contact.jpg" alt="">
-				</div>
-				<div class="col-lg-6">
-					<div class="contact-right">
-						<div class="section-title">
-							<h3>FEEDBACK FORM</h3>
-						</div>
-						<form class="contact-form" method="get" action="feedback.php">
-							<div class="row">
-								<div class="col-md-6">
-									<input type="text" name= "fullname" placeholder="Your name" >
-								</div>
-								<div class="col-md-6">
-									<input type="text" placeholder="Your email" name="email">
-								</div>
-								<div class="col-md-12">
-									<textarea  placeholder="Your message"  name= "feedback"></textarea>
-									<button class="site-btn">SUBMIT NOW</button>
-								</div>
-							</div>
-						</form>
-					</div>
+			<!--<img class="page-top-section set-bg" src="img/about.jpg" alt=""> --> 
+			<div class="container text-black" style=" height: 500px;">
+
+					<h3 style="text-align: center;">ABOUT US</h3>
+					<p>SPACE is the acronym of Social, Physical, Aesthetic, Cognitive and Emotional, which are various crucial child development aspect. Additionally, to communicate our focus on educational component and children between the 0-8years, we use suffix Early Childhood Education.
+					SPACE is based on the foundational thoughts of Samidha, a Non-profit organization. Samidha has established learning-centers in urban slums and remote rural locations, focused on the overall development of the children. Samidha learning centers contributed as an after-school support facility for children who lacked an educational environment at home.
+					Both the proprietors have worked extensively with the Jean Piaget or Maria Montessori of this century, Dr Sugata Mitra, Professor of Emirate, University of Newcastle, UK. His brainchild the Hole-in-the-Wall experiment and TED winning idea Self-Organized Learning Environment (SOLE) has shaped our thoughts. Samidha SOLE centers established computer labs for the children and youths coming from the slums, which got an encouraging response. It also experimented with the sustainability of such learning centers, which included recruiting and training the local facilitators.
+
+</p>
+					
 				</div>
 			</div>
-		</div>
+		
+		
+		<!-- Review section -->
+		<section class="page-top-section set-bg" data-setbg="img/about.jpg" style="width: 100%; height: 80%;">
+		<!-- Review section end-->
+
+
+		
 	</section>
 	<!-- page end -->
-			  <div class="container-fluid">
-			    	    <div class="map-responsive" style=" 
-										    overflow:hidden;
-										    padding-bottom:50%;
-										    position:relative;
-										    height:0;
-										">
-			    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3784.7339915220646!2d73.80759426484163!3d18.45038313744994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sC1%20Chandralok%20Nagari%2C%20Sitaee%20Nagar%2C%20Dhayari%20Phata%2C%20Pune%2C%20Maharashtra%20411041%2C%20India!5e0!3m2!1sen!2sin!4v1628857382605!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;
-												    left:0;
-												    top:0;
-												    height:100%;
-												    width:100%;
-												    position:absolute;
-												" allowfullscreen></iframe>
-			</div>			</div> 
+
+<?php
+
+include_once 'includes/footer1.php';
+?>
 
 
 	<!-- Footer section -->
-	<footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
+	<!-- <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 footer-widget">
-					<img src="img/logo1.png" alt="" >
+					<img src="img/logo1.png" alt="">
 					
 					<div class="social">
 						
@@ -159,9 +153,8 @@
 							<a href="https://www.instagram.com/spacece.in/"><i class="fa fa-instagram"></i></a>
 							<a href="https://t.me/joinchat/EtMJq_3BKL4zNGE1"><i class="fa fa-telegram" aria-hidden="true"></i></a>
 							<a href="https://www.linkedin.com/company/spacece-co/"><i class="fa fa-linkedin"></i></a>
-
+							
 					</div>
-					
 				</div>
 				<div class="col-lg-3 col-md-6 footer-widget">
 					<p>We provide you with the best services which is best for your family and which suits your pocket.</p>
@@ -171,7 +164,7 @@
 						<h5 class="fw-title">CONTACT US</h5>
 						<p><i class="fa fa-map-marker"><a href="http://www.spacece.in/"> SPACE-ECE</a></i></p>
 						<p><i class="fa fa-phone"></i>+91 90963 05648</p>
-						<p><i class="fa fa-envelope"></i><a href="mailto:events@spacece.co" target="_blank" rel="noopener">contactus@spacece.co</a></p>
+						<p><i class="fa fa-envelope"></i><a href="mailto:events@spacece.co" target="_blank" rel="noopener">contactus@spacece.co</a> </p>
 						<p><i class="fa fa-clock-o"></i>Mon - Sat, 08 AM - 06 PM</p>
 					</div>
 				</div>
@@ -189,20 +182,14 @@
 			</div>
 			
 		</div>
-	</footer>
+	</footer class="container-fluid text-center" style="background-color: #484848; color: white;">
+	<p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>
 
-	<!-- Footer section end -->
-       <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></p>                               
-	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/magnific-popup.min.js"></script>
-	<script src="js/main.js"></script>
-
-	<!-- load for map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
-	<script src="js/map.js"></script>
+	<script src="js/main.js"></script> -->
 </body>
 </html>
