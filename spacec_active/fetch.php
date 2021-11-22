@@ -24,7 +24,10 @@ if (isset($_POST['getDetails'])) {
        <td>' . ucfirst($result['status']) . '</td>
         <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
         data-toggle="modal" data-target="#editModal" >
-        View <i class="fas fa-expand"></i></button></td>
+        View <i class="fas fa-expand"></i></button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
+        Upload Youtube video
+    </button></td>
         </tr>';
                 }
             }
@@ -41,7 +44,10 @@ if (isset($_POST['getDetails'])) {
        <td>' . ucfirst($result['status']) . '</td>
         <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
         data-toggle="modal" data-target="#editModal" >
-        View <i class="fas fa-expand"></i></button></td>
+        View <i class="fas fa-expand"></i></button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
+        Upload Youtube video
+    </button></td>
         </tr>';
                 }
             }
