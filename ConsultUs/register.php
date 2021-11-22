@@ -192,6 +192,7 @@ else{
         }
 
         input[type=text],
+        input[type=email],
         input[type=date],
         input[type=password] {
             border: none;
@@ -306,7 +307,7 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
                 <td>
                     <font size=5><b>USERNAME<span style="color:red;font-weight:bold">*</span></b></font>
                 </td>
-                <td><input type="text" name="user_name" size="300" id="uname" placeholder="Enter Unique Username">
+                <td><input type="text" name="user_name" size="300" id="uname" onkeyup="Uvalidation()" placeholder="Enter Unique Username">
                     <br><br>
                 </td>
             </tr>
@@ -323,7 +324,7 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
                      <!-- bug id-0000013 -->
                     <font size=5>EMAIL<span style="color:red;font-weight:bold">*</span></font>
                 </td>
-                <td><input type="text" name="user_email" size="300" id="email" onblur="validateEmail(email)" placeholder="enter email">
+                <td><input type="email" name="user_email" size="300" id="email" onblur="validateEmail(email)" placeholder="enter email">
                    <h2 id="result"></h2 <br><br>
                 </td>
             </tr>
@@ -332,7 +333,7 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
                     <font size=5>PHONE NO<span style="color:red;font-weight:bold">*</span></font>
                 </td>
                 <!-- bug id-0000013 -->
-                <td><input type="text" name="user_phone"  size="11" id="pno" onclick="validate()" minlength="10" maxlength="10" onkeyup="this.value=this.value.replace(/[^\d]/,'')" placeholder="Phone no">
+                <td><input type="text" name="user_phone"  size="11" id="pno" onclick="validate()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"  minlength="10" maxlength="10" onkeyup="this.value=this.value.replace(/[^\d]/,'')" placeholder="Phone no">
                 <div class="message">  <br><br>
                 </td>
             </tr>

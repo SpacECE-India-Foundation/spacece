@@ -116,6 +116,7 @@ background-image: linear-gradient(90deg,  white,orange,white);
 
 <script type="text/javascript">
 // new msg in 1s check
+// bug id=0000017
 setInterval(runFunction, 1000);
 function runFunction()
 {
@@ -143,6 +144,11 @@ $("#submit").click(function(){
   });
   $("#usermsg").val("");
   return false;
+});
+$("#submit").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#elementtoScrollToID").offset().top
+    }, 2000);
 });
 
 </script>

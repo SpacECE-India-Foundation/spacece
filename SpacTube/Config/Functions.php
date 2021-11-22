@@ -4,9 +4,9 @@ class Functions
 {
 
     private $DBHOST = 'localhost';
-    private $DBUSER = 'gamention';
-    private $DBPASS = 'aa123456';
-    private $DBNAME = 'gallery2';
+    private $DBUSER = 'root';
+    private $DBPASS = '';
+    private $DBNAME = 'gallery';
     public $conn;
 
     public function __construct()

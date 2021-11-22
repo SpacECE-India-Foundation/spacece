@@ -13,7 +13,8 @@ $room = $_POST['room'];
     {
         die("Connection failed: " . $conn->connect_error);
     }
-$sql= "SELECT * FROM `msg` WHERE `room`='$room'";
+$sql= "SELECT * FROM `msg` WHERE `room`='$room' ";
+// $sql="select * from msg where LIKE '%$getMesg%' ";
 $res= "";
 $result =mysqli_query($conn,$sql);
 if(mysqli_num_rows($result)>0)

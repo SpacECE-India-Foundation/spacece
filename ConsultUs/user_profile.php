@@ -1,4 +1,5 @@
 <?php include("indexDB.php")?>
+
 <div class="main-content">
     <div class="wrapper">
         <center><h2>UPDATE PROFILE</h2></center>
@@ -60,7 +61,7 @@ body {
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text],input[type=email],input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -69,7 +70,7 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus,input[type=email]:focus,input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -116,13 +117,16 @@ a {
     <hr>
     
     <label for="fullname"><b>Fullname</b></label>
-    <input type="text" placeholder="<?php echo $full_name ?>" name="fullname" id="fullname" required><br><br>
+    <input type="text"  placeholder="<?php echo $full_name ?>" pattern="[A-Za-z]{1,32}"  onclick="fvalidate()" name="fullname" id="fullname" required>
+    <div class="fmessage"><br><br>
         <label for="username"><b>Username</b></label>
     <input type="text" placeholder="<?php echo $user_name ?>" name="username" id="username" required><br><br>
+    <!-- bug id-0000016 -->
    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="<?php echo $email ?>" name="email" id="email" required><br><br>
+    <input type="email" placeholder="<?php echo $email ?>" name="email" id="email" required><br><br>
+ <!-- bug id-0000016 -->
 <label for="mobile"><b>Phone</b></label>
-    <input type="text" placeholder="<?php echo $mob ?>" name="mobile" id="mobile" required><br><br>
+    <input type="text"  size="11" onclick="validate()" minlength="10" maxlength="10"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="<?php echo $mob ?>" name="mobile" id="mobile" required><br><br>
     <hr>
     <input type="hidden" name="id" value="<?php echo $id ?>">
      <input type="submit" name="submit" class="registerbtn" value="update">
@@ -171,6 +175,7 @@ a {
     
 
 ?>
+<script src="js/main.js"></script>
 
 </body>
 </html>

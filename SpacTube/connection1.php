@@ -1,8 +1,8 @@
 <?php
 
 $DBHOST = 'localhost';
-$DBUSER = 'gamention';
-$DBPASS = 'aa123456';
+$DBUSER = 'root';
+$DBPASS = '';
 $DBNAME = 'user';
 $conn;
 

@@ -10,6 +10,7 @@ if (isset($_COOKIE['error_msg'])) {
     ";
 }
 include('indexDB.php');
+include("main.php");
 $name = $_GET['fullname'];
 $email = $_GET['email'];
 $feed = $_GET['feedback'];

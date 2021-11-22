@@ -243,33 +243,6 @@ function validate()
 $('.message').html('');
 return true;
 }
-
-// <!-- bug id-0000013 -->
-function validatereg()
-		{
-			var uname = document.getElementById("uname");
-			// alert('hh');
-			if(uname.value.trim() === "")
-			{
-				alert("Enter User Name");
-				return false;
-			}
-			var fname = document.getElementById("fname");
-			// alert('hh');
-			if(fname.value.trim() === "")
-			{
-				alert("Enter full Name");
-				return false;
-			}
-			var email = document.getElementById("email");
-			// alert('hh');
-			if(email.value.trim() === "")
-			{
-				alert("Enter email Name");
-				return false;
-			}
-		}
-
 		// <!-- bug id-0000013 -->
 		function validateEmail(email) {
 			const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -294,4 +267,29 @@ function validatereg()
 		  $("#email").on("input", validate);
 
 		  
- 
+		  function fvalidate(){
+			var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+			var fullname = document.getElementById('fullname').value;
+			if(!regName.test(fullname)){
+				alert('Please enter your full name (first & last name).');
+				document.getElementById('fullname').focus();
+				return false;
+			}else{
+				alert('Valid name given.');
+				return true;
+			}
+		}
+		
+		function Uvalidation(){
+			var username=document.getElementById("uname").value;///get id with value 
+			var usernamepattern=/^[A-Za-z .]{3,15}$/;////Regular expression
+			if(usernamepattern.test(username))
+			{
+				document.getElementById("uname").style.backgroundColor='yellow';
+			}
+			else
+			{
+				document.getElementById("uname").style.backgroundColor='red'; }
+			}
+
+			

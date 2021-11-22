@@ -75,7 +75,6 @@ $ref = $_GET['user']; ?>
                     $sql = "SELECT * FROM `login` WHERE `username`= '$ref'";
                     $res2 = mysqli_query($conn,$sql);
 
-
                     //checking whether query is excuted or not
                     if($res2){
                         // count that data is there or not in database
