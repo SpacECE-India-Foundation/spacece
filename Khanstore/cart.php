@@ -1,13 +1,15 @@
 <?php
-include_once './includes/header1.php';
-//session_start();
+$module_name = "Lib for smalls";
+
+include_once '../common/header_module.php';
+session_start();
 require "config/constants.php";
 
 ?>
 <!DOCTYPE html>
 <html>
 
-<head>
+<!-- <head>
 	<meta charset="UTF-8">
 	<title>Khan Store</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -39,25 +41,25 @@ require "config/constants.php";
 				</ul>
 			</div>
 		</div>
-	</div>
-	<p><br /></p>
-	<p><br /></p>
-	<p><br /></p>
-	<div class="container">
-		<div class="row">
+	</div> -->
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<div class="container">
+	<div class="row">
 
-			<div class="col-md-12" id="cart_msg">
-				<!--Cart Message-->
-			</div>
-			<div class="col-md-2"></div>
+		<div class="col-md-12" id="cart_msg">
+			<!--Cart Message-->
 		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">Cart Checkout</div>
-					<div class="panel-body">
-						<div class="row">
-							<!--<div class="col-md-2 col-xs-2"><b>Action</b></div>
+		<div class="col-md-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Cart Checkout</div>
+				<div class="panel-body">
+					<div class="row">
+						<!--<div class="col-md-2 col-xs-2"><b>Action</b></div>
 							<div class="col-md-1 col-xs-2"><b>Product Image</b></div>
 							<div class="col-md-1 col-xs-2"><b>Product Name</b></div>
 							<div class="col-md-2 col-xs-1"><b>Start Date</b></div>
@@ -66,9 +68,9 @@ require "config/constants.php";
 							
 							<div class="col-md-1 col-xs-2"><b>Product Price</b></div>
 							<div class="col-md-2 col-xs-2"><b>Exchange</b></div>-->
-						</div>
-						<div id="cart_checkout"></div>
-						<!--<div class="row">
+					</div>
+					<div id="cart_checkout"></div>
+					<!--<div class="row">
 							<div class="col-md-2">
 								<div class="btn-group">
 									<a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
@@ -84,23 +86,23 @@ require "config/constants.php";
 							<div class="col-md-2"><input type='text' class='form-control' value='5000' disabled></div>
 							<div class="col-md-2">Product Name</div>
 						</div> -->
-						<!--<div class="row">
+					<!--<div class="row">
 							<div class="col-md-8"></div>
 							<div class="col-md-4">
 								<b>Total $500000</b>
 							</div> -->
 
-					</div>
-					<!-- <div class="panel-footer"></div> -->
 				</div>
+				<!-- <div class="panel-footer"></div> -->
 			</div>
-			<div class="col-md-2"></div>
-
 		</div>
 
-<?php
-include_once './includes/footer1.php';
-?>
-</body>
+
+	</div>
+
+	<?php
+	include_once '../common/footer_module.php';
+	?>
+	</body>
 
 </html>

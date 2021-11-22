@@ -1,3 +1,7 @@
+<?php
+include_once './includes/header1.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -133,4 +137,10 @@ else{
     echo "failed to send";
 }
 }
+
+
+?>
+<?php
+
+include_once './includes/footer1.php';
 ?>

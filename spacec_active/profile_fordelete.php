@@ -1,8 +1,9 @@
 <?php
+include_once('includes/header1.php');
+
 include('includes/db.php');
 include('db.php');
 session_start();
-include_once('includes/header.php');
 
 ?>
 
@@ -34,7 +35,7 @@ include_once('includes/header.php');
 </table>
 </div>
 <?php
-include_once('includes/footer.php');
+include_once('includes/footer1.php');
 ?>
 <script type="text/javascript" src="profile.js"></script>
 </body>

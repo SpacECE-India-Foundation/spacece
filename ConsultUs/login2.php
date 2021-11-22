@@ -1,4 +1,7 @@
-<?php error_reporting(0);
+<?php
+   include_once './includes/header1.php';
+
+ error_reporting(0);
 $msg = $_GET['msg'];
 echo $msg;?>
 
@@ -58,7 +61,7 @@ echo $msg;?>
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
@@ -69,7 +72,7 @@ echo $msg;?>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="Styles.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 
 	<!--[if lt IE 9]>
@@ -83,7 +86,7 @@ echo $msg;?>
 
 	
 	<!-- Header section -->
-	<header class="header-section">
+	<!-- <header class="header-section">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
 			<div class="container">
 				<div class="row">
@@ -123,7 +126,7 @@ echo $msg;?>
 				</div>
 			</div>
 		</div>
-	</header>
+	</header> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -192,8 +195,10 @@ span.psw {
 </style>
 </head>
 <body>
-
-<form action="login2.php" method="post">
+	<?php
+include_once './includes/footer1.php';
+?>
+<!-- <form action="login2.php" method="post">
   <div class="imgcontainer">
     <img src="https://doctoryouneed.org/wp-content/uploads/2020/05/dr-new-demo-image-57.png" alt="Avatar" class="avatar">
   </div>
@@ -247,16 +252,16 @@ span.psw {
 					<div class="newslatter-widget">
 						<h5 class="fw-title"><center>NEWSLETTER</center></h5>
 						<p>Subscribe your email to get the latest news and new offer also discount</p>
-						<form class="footer-newslatter-form">
-							<input type="text" placeholder="Email address"><button><i class="fa fa-send"></i></button>
-						</form>
+					</form>
 					</div>
 				</div>
 			</div>
 			
 		</div>
      
-     </footer>
+     </footer>					<form class="footer-newslatter-form">
+							<input type="text" placeholder="Email address"><button><i class="fa fa-send"></i></button>
+		 -->
 
 
 </body>

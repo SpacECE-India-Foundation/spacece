@@ -1,5 +1,5 @@
 <?php
-include_once('includes/header.php');
+//include_once('includes/header1.php');
 
 ?>
 
@@ -16,7 +16,7 @@ include_once('includes/header.php');
     <link href="img/Favicon.ico" rel="shortcut icon" />
 
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
 
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -24,81 +24,110 @@ include_once('includes/header.php');
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 
-    <!--   <script type="text/javascript" src="js/scriptcall.js"></script> -->
+   
 
 
 </head>
 
 <body>
+<?php
+include_once('includes/header1.php');
+
+?>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Upload Youtube video
-    </button>
+    </button> -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Upload Youtube video</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="uploadVideo" method="post" enctype="multipart/form-data">
-                        <div class="row mb-3">
-                            <div class="col">
-                                <input class="form-control" type="text" name="title" id="title" placeholder="Enter Video Title">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <textarea id="summary" class="form-control" name="summary" cols="30" rows="10" placeholder="Enter video description"></textarea>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <input type="file" name="file" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <input type="submit" name="submit" id="uploadVideo1" class="btn btn-primary" value="Submit" />
-                            </div>
-                        </div>
+    <script type="text/javascript" src="js/scriptcall.js"></script>
+    <style>
+        .table {
+    
+   
+    margin: 0 auto;
+   
+    
+}
+@media (min-width: 1090px){
+#tablediv{
+    display: flex;
+  justify-content: center;
+}
 
-                    </form>
-                    <!-- <div class="progress">
+.table {
+    
+    align-self: center;
+    margin: 0 auto;
+    min-width: 980px;
+    
+}
+}
+    </style>
+    <div class="container" style="margin-top:5%;">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Upload Youtube video</h5>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <form id="uploadVideo" method="post" enctype="multipart/form-data" action="Youtube/upload.php">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input class="form-control" type="text" name="title" id="title" placeholder="Enter Video Title">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <textarea id="summary" class="form-control" name="summary" cols="30" rows="10" placeholder="Enter video description"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="file" name="file" id="file" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="submit" name="submit" id="uploadVideo1" class="btn btn-primary" value="Submit" />
+                                </div>
+                            </div>
+
+                        </form>
+                        <!-- <div class="progress">
   <div class="progress-bar progress-bar-striped"  id="progress" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
     <span class="prograss-bar-text">0%</span>
   </div>
 
 </div> -->
-                    <div class="progress">
-                        <div class="uploadProgressBar" id="uploadProgressBar"></div>
+                        <div class="progress">
+                            <div class="uploadProgressBar" id="uploadProgressBar"></div>
 
+                        </div>
+                        <div class="loaded_n_total" id="loaded_n_total">0%</div>
                     </div>
-                    <div class="loaded_n_total" id="loaded_n_total">0%</div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
-
-
-    <div class="container">
-        <div class="card mt-5">
-            <table class="table table-active table-hover table-striped table-bordered">
+    <div class="container" style="margin-top:10%;">
+        <div class=" col-sm-12 " id="tablediv">
+            <table class="table table-active table-hover table-striped table-bordered ">
                 <tr>
                     <th>Activity Id</th>
                     <th>Activity Name</th>
@@ -182,24 +211,28 @@ include_once('includes/header.php');
                 </div>
             </div>
         </div>
-        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&width=98&height=20&appId" width="98" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        <!-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&width=98&height=20&appId" width="98" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
     </div>
 
 
-    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-    <div class="elfsight-app-0a2b4f6c-d665-4279-8b36-d0cf353f754d"></div>
+    <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-0a2b4f6c-d665-4279-8b36-d0cf353f754d"></div> -->
 
+    <div class="progress">
+  <div id="progress-bar" class="progress-bar" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+</div>
 </body>
 
 </html>
 <?php
-include_once('includes/footer.php');
+include_once('includes/footer1.php');
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js."></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#progress').hide();
+        $('.progress').hide();
+       // $('#progress').hide();
         $.ajax({
             type: 'POST',
             url: 'fetch.php',
@@ -211,6 +244,17 @@ include_once('includes/footer.php');
             }
 
         });
+
+        $("#file").change(function(){
+        var allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif','video/mp4','video/AVI','audio/mp3'];
+        var file = this.files[0];
+        var fileType = file.type;
+        if(!allowedTypes.includes(fileType)){
+            alert('Please select a valid file (JPEG/JPG/PNG/GIF/MP4/AVI/MP3).');
+            $("#file").val('');
+            return false;
+        }
+    });
     });
 
     $(document).on("click", "#edit", function() {
@@ -276,52 +320,46 @@ include_once('includes/footer.php');
         $.ajax({
             xhr: function() {
                 var xhr = new window.XMLHttpRequest();
-
                 xhr.upload.addEventListener("progress", function(evt) {
                     if (evt.lengthComputable) {
-                        var percentComplete = evt.loaded / evt.total;
-                        percentComplete = parseInt(percentComplete * 100);
-                        var $link = $('.' + ids);
-                        var $img = $link.find('i');
-                        $link.html('Uploading..(' + percentComplete + '%)');
-                        $link.append($img);
+                        var percentComplete = parseInt(((evt.loaded / evt.total) * 100));
+                        $("#progress-bar").width(percentComplete + '%');
+                        $("#progress-bar").html(percentComplete+'%');
                     }
                 }, false);
-
                 return xhr;
             },
             type: 'POST',
+            url: 'Youtube/upload.php',
             data: fd,
-            url: 'Youtube/index.php',
-            async: false,
-            cache: false,
             contentType: false,
-            enctype: 'multipart/form-data',
-            processData: false,
-            success: function(result) {
-                console.log(result);
+            cache: false,
+            processData:false,
+            beforeSend: function(){
+                $("#progress-bar").width('0%');
+                $('#loader-icon').show();
+                $('#exampleModal').modal('toggle');
+            },
+            error:function(){
+                $('#loader-icon').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
+            },
+            success: function(resp){
+              alert(resp);
+               $('.progress').hide();
+                if(resp == 'ok'){
+                   // $('#uploadForm')[0].reset();
+                   // $('#loader-icon').html('<p style="color:#28A74B;">File has uploaded successfully!</p>');
+                    
+                }else if(resp == 'err'){
+                  //  $('#loader-icon').html('<p style="color:#EA4335;">Please select a valid file to upload.</p>');
+                }
             }
-
-            //    beforeSend: function() {
-            //    // $('#progress').hide();
-            //  $('.progress-bar').width('10%');
-            // },
-            // uploadProgress: function(event, position, total, percentageComplete)
-            // {
-            //  $('.progress-bar').animate({
-            //   width: percentageComplete + '%'
-            //  }, {
-            //   duration: 1000
-            //  });
-            // },
-            //  success: function(data){
-
-            //   alert(data);
-
-            // }
         });
-
-
-
     });
+
+          
+
+
+
+   
 </script>

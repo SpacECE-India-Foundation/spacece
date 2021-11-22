@@ -1,9 +1,11 @@
 <?php
 require "config/constants.php";
-session_start();
-include_once 'includes/header1.php';
 
-if (isset($_SESSION["uid"])) {
+$module_name = "Lib for smalls";
+
+include_once '../common/header_module.php';
+session_start();
+if (isset($_SESSION["current_user_name"])) {
 	header("location:profile.php");
 }
 ?>
@@ -12,10 +14,10 @@ if (isset($_SESSION["uid"])) {
 
 <head>
 	<meta charset="UTF-8">
-	
-	
-<!-- <script src="js/jquery2.js"><	/script> -->
-	
+
+
+	<!-- <script src="js/jquery2.js"><	/script> -->
+
 	<!-- <script src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css"> -->
 	<!-- <style></style> -->
@@ -25,7 +27,7 @@ if (isset($_SESSION["uid"])) {
 	<div class="wait overlay">
 		<div class="loader"></div>
 	</div>
-	 <!-- <div class="navbar navbar-inverse navbar-fixed-top">
+	<!-- <div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
@@ -56,7 +58,7 @@ if (isset($_SESSION["uid"])) {
 										<div class="col-md-3">Sl.No</div>
 										<div class="col-md-3">Product Image</div>
 										<div class="col-md-3">Product Name</div>
-										<div class="col-md-3">Price in <?php// echo CURRENCY; ?></div>
+										<div class="col-md-3">Price in // echo CURRENCY; ?></div>
 									</div>
 								</div>
 								<div class="panel-body">
@@ -157,12 +159,15 @@ if (isset($_SESSION["uid"])) {
 							</div>
 						</div> -->
 					</div>
-					<div class="panel-footer">&copy; 2016</div>
+					<!-- <div class="panel-footer">&copy; 2016</div> -->
 				</div>
 			</div>
-			<div class="col-md-1"></div>
+			<!-- <div class="col-md-1"></div> -->
 		</div>
 	</div>
+	<?php
+	include_once '../common/footer_module.php';
+	?>
 </body>
 
 </html>

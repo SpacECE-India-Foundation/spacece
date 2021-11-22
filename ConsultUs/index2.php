@@ -1,4 +1,6 @@
-<?php include('indexDB.php') ?>
+<?php 
+   include_once './includes/header1.php';
+   include('indexDB.php'); ?>
 <?php error_reporting(0); 
 $ref = $_GET['user']; ?>
 <!DOCTYPE html>
@@ -15,7 +17,7 @@ $ref = $_GET['user']; ?>
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
-	<!-- Stylesheets -->
+	<!-- Stylesheets
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
@@ -30,7 +32,7 @@ $ref = $_GET['user']; ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/jquery.convform.css">
 	<link rel="stylesheet" type="text/css" href="css/responsive.css">
-	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css"> -->
      
 	
 
@@ -48,7 +50,7 @@ $ref = $_GET['user']; ?>
 	</div>
 	
 	<!-- Header section -->
-	<header class="header-section" style="background-color:orange; height:130px;">
+	<!-- <header class="header-section" style="background-color:orange; height:130px;">
 		<div class="header-top" style = "position:absolute; left:950px; top:15px;">
 			<div class="container">
 				<div class="row">
@@ -67,7 +69,7 @@ $ref = $_GET['user']; ?>
 							<a href="index.html" style="color:black;"><i class="fa fa-user-circle-o" style="color:black;"></i><b>LOGOUT</b></a>
 							</div>
 			<img align="top-right " src="https://doctoryouneed.org/wp-content/uploads/2020/05/dr-new-demo-image-57.png" alt="ALL DOCTOR DETAILS" width="80" height="80"><br>
- 				       <a href="myinfo_user.php?user=<?php echo $ref ?>"> 
+ 				       <a href="myinfo_user.php?user=<?php //echo $ref ?>"> 
                                         <div class="bottom" style="color: black;" style="font-weight:200;">MY INFO</div></a>
 					<h5><a href="#">  </a></h5>
 					</div>
@@ -95,7 +97,7 @@ $ref = $_GET['user']; ?>
 				</div>
 			</div>
 		</div>
-	</header>
+	</header> -->
 	<!-- Header section end -->
 
 
@@ -408,7 +410,11 @@ $ref = $_GET['user']; ?>
 
 
 
+<?php
+   include_once './includes/footer1.php';
 
+
+?>
 
 
 
@@ -417,7 +423,7 @@ $ref = $_GET['user']; ?>
 
 
 	<!-- Footer section -->
-	<footer class="footer-section set-bg" style="background-color:orange;border-collapse: collapse; border: 2px solid navy;opacity:0.7; padding:30px 30px;">
+	<!-- <footer class="footer-section set-bg" style="background-color:orange;border-collapse: collapse; border: 2px solid navy;opacity:0.7; padding:30px 30px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 footer-widget">
@@ -463,7 +469,7 @@ $ref = $_GET['user']; ?>
      
      </footer>
      <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>                                    
-	<!--====== Javascripts & Jquery ======-->
+	
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
@@ -481,7 +487,7 @@ $ref = $_GET['user']; ?>
 </script>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript"src="js/bootstrap.min.js"></script>
+<script type="text/javascript"src="js/bootstrap.min.js"></script> -->
 
 </body>
 </html>

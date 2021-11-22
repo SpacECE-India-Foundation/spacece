@@ -22,13 +22,17 @@ if (isset($_SESSION['current_user_id'])) {
 <body>
     <div class="register-page">
         <h2>Register</h2>
-        <form class="register-form" method="post">
+        <form class="register-form" method="post" autocomplete="off">
             <input type="text" placeholder="Enter Name" id="name" name="name" />
             <input type="email" placeholder="Enter Email" id="email" name="email" />
             <input type="text" placeholder="Enter Mobile No." id="phone" name="phone" />
             <input type="password" placeholder="Enter Password" id="password" name="password" />
             <input type="password" placeholder="Confirm Password" id="cpassword" name="cpassword" />
             <input type="file" placeholder="Upload Image" id="image" name="image" />
+            <select name="type" id="user_type">
+                <option value="customer">Customer</option>
+                <option value="consultant">Consultant</option>
+            </select>
             <button type="submit" id="register" name="register">Register</button>
             <p class="message">Already registered? <a href="login.php">Login</a></p>
         </form>

@@ -1,3 +1,9 @@
+<?php
+//  
+include_once './common/header_main.php';
+
+//session_start();
+?>
 <!DOCTYPE html>
 <!-- Version SpacECE-51-->
 <html lang="en">
@@ -15,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/animate.css" />
   <link rel="stylesheet" href="css/owl.carousel.css" />
@@ -25,11 +31,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-  <!-- <link rel="stylesheet" type="text/css" href="Styles.css" /> -->
+ <link rel="stylesheet" type="text/css" href="Styles.css" /> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/jquery.convform.css" />
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
 
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -44,7 +50,7 @@
   </div>
 
   <!-- Header section -->
-  <header class="header-section" style="background-color: orange">
+  <!-- <header class="header-section" style="background-color: orange">
     <div class="header-top" style="position: absolute; top: 15px; left: 80%">
       <div class="container">
         <div class="row">
@@ -58,9 +64,27 @@
             <br /><br />
 
             <div class="user-panel">
-              <a href="c_signup.php" style="color: black"><i class="fa fa-user-circle-o" style="color: black"></i>
-                <span>Sign Up</span>
-              </a>
+              <?php
+              if (isset($_SESSION['current_user_id'])) {
+              ?>
+
+                <p>Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : "User" ?></p>
+
+                <a href='./spacece_auth/logout.php' style="color: black">
+                  <span>Logout</span>
+                </a>
+              <?php
+              } else {
+              ?>
+                <a href='./spacece_auth/login.php' style="color: black">
+                  <span>Login</span>
+                </a>
+                <a href='./spacece_auth/register.php' style="color: black">
+                  <span>Register</span>
+                </a>
+              <?php
+              }
+              ?>
             </div>
           </div>
         </div>
@@ -76,7 +100,7 @@
             <ul class="main-menu" style="margin-left: 60px">
               <a href="index.php" style="color: black">
                 <img src="img/space.jpg" alt="" style="width: 6%" />
-		      <h>Build-Y.Y.Y</h>
+                <h>Build-Y.Y.Y</h>
               </a>
               <li>
                 <a href="index.php" style="color: black"><i class="fa fa-home"></i>HOME</a>
@@ -93,7 +117,7 @@
         </div>
       </div>
     </div>
-  </header>
+  </header> -->
   <!-- Header section end -->
 
   <!-- Hero section -->
@@ -171,7 +195,7 @@
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="ConsultUs/index.html?cat=consult">
+          <a href="./ConsultUs/index.php?cat=consult">
             <img src="img/icon_consultus.jpeg" alt="CONSULT US" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -181,7 +205,7 @@
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="SpacTube/view.php?cat=spacetube">
+          <a href="./SpacTube/view.php?cat=spacetube">
             <img src="img/icon_spacetube.jpeg" alt="SPACTUBE" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -191,7 +215,7 @@
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="http://educationfoundation.space/moodle/login/index.php?cat=moodle">
+          <a href="./learnonapp/index.php">
             <img src="img/icon_learnonapp.jpeg" alt="" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -201,7 +225,7 @@
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="Khanstore">
+          <a href="./Khanstore/index.php">
             <img src="img/icon_libforsmalls.jpeg" alt="" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -211,7 +235,7 @@
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="spacec_active">
+          <a href="./spacec_active/index.php">
             <img src="img/icon_spaceactive.jpeg" alt="TOY LIBRARY" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
@@ -337,8 +361,8 @@
   <!---offers close-->
 
   <!-- ChatBot -->
-  <div class="chat_icon">
-    <i class="fa fa-comments" aria-hidden="true" style="color: black; border: 2px solid black"></i>
+  <div class="chat_icon pull-right ">
+    <i class="fa fa-comments fa-5x" aria-hidden="true" style="color: black; border: 2px solid black;border-radius:15px;"></i>
   </div>
 
   <div class="chat_box">
@@ -370,11 +394,11 @@
       </form>
     </div>
   </div>
-
+  <br>
   <!--session close-->
 
   <!-- Footer section -->
-  <footer class="footer-section set-bg" style="
+  <!-- <footer class="footer-section set-bg" style="
         background-color: orange;
         border-collapse: collapse;
         border: 2px solid navy;
@@ -452,7 +476,6 @@
   <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px">
     <span style="font-size: 20px"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span>
   </p>
-  <!--====== Javascripts & Jquery ======-->
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
@@ -466,6 +489,12 @@
   <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
   <script type="text/javascript" src="js/jquery-ui.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body> -->
+
+  <?php
+  include_once './common/footer_main.php';
+  ?>
+
 </body>
 
 </html>

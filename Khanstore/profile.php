@@ -1,8 +1,10 @@
 <?php
-include './includes/header1.php';
+$module_name = "Lib for smalls";
+
+include_once '../common/header_module.php';
 require "config/constants.php";
 //session_start();
-if (!isset($_SESSION["uid"])) {
+if (!isset($_SESSION["current_user_name"])) {
 	header("location:index.php");
 }
 ?>
@@ -160,7 +162,7 @@ if (!isset($_SESSION["uid"])) {
 		</div>
 	</div>
 	<?php
-	include './includes/footer1.php';
+	include_once '../common/footer_module.php';
 	?>
 </body>
 

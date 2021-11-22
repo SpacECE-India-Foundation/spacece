@@ -1,6 +1,6 @@
 
 <?php
-
+include_once './includes/header1.php';
 //index.php
 
 //Include Configuration File
@@ -74,13 +74,13 @@ if(!isset($_SESSION['access_token']))
   <title> Login using Google Account</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
  
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
  
  </head>
  <body>
@@ -137,12 +137,14 @@ if(!isset($_SESSION['access_token']))
   </div>
  </body>
 </html>
+<!-- 
 
-
-
-    </footer>
+<?php
+ include_once './includes/footer1.php';
+?>
+    </footer> -->
     <!--footer end-->
-    <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>
+    <!-- <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p> -->
 
     <!-- Footer section end -->
     <!--====== Javascripts & Jquery ======-->

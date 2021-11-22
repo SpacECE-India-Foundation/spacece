@@ -6,8 +6,14 @@ include('db.php');
 // Email login and md5 hashed password login
 $email = trim($_POST['email']);
 $password = md5(trim($_POST['password']));
+$type = $_POST['type'];
 
-$query = "SELECT * FROM users WHERE u_email = '$email' AND u_password = '$password'";
+if ($type) {
+    $query = "SELECT * FROM users WHERE u_email = '$email' AND u_password = '$password' AND u_type = '$type'";
+} else {
+    echo json_encode(array('status' => 'error', 'message' => "Invalid user type!"));
+    die();
+}
 
 $result = mysqli_query($conn, $query);
 

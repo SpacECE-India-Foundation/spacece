@@ -4,7 +4,7 @@ if (!isset($_SESSION['admin_id'])) {
   header("location:login.php");
 }
 include_once './includes/header1.php';
-include "./templates/top.php"; 
+// include "./templates/top.php"; 
 
 ?>
  

@@ -1,5 +1,7 @@
 
 <?php
+include_once 'includes/header1.php';
+
 include('c_connect.php');
 // img upload
 $f= $_GET['user'];
@@ -99,9 +101,9 @@ if (isset($_POST['submit'])) {
     <link href="img/favicon.ico" rel="shortcut icon" />
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
-    <!-- Stylesheets -->
+   
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/animate.css" />
@@ -113,7 +115,7 @@ if (isset($_POST['submit'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="Styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 
     <!--[if lt IE 9]>
@@ -128,7 +130,7 @@ if (isset($_POST['submit'])) {
 
 
     <!-- Header section -->
-    <header class="header-section">
+    <!-- <header class="header-section">
         <div class="header-top" style="position:absolute; left:80%; top:15px;">
             <div class="container">
                 <div class="row">
@@ -170,7 +172,7 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
     <!-- Header section end -->
 
     <style type="text/css">
@@ -375,9 +377,12 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br>
     </form>
 
+<?php
+include_once './includes/footer1.php';
 
+?>
     <!--footer section-->
-    <footer class="footer-section set-bg" style="background-color:black;border-collapse: collapse; border: 2px solid navy;opacity:0.7; padding:30px 30px;">
+    <!-- <footer class="footer-section set-bg" style="background-color:black;border-collapse: collapse; border: 2px solid navy;opacity:0.7; padding:30px 30px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 footer-widget">
@@ -425,9 +430,9 @@ top: 120px; left:calc(49% - 50px);"></img></center><br><br><br><br>
 
         </div>
 
-    </footer>
+    </footer> -->
     <!--footer end-->
-    <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>
+    <!-- <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p> -->
 
     <!-- Footer section end -->
     <!--====== Javascripts & Jquery ======-->

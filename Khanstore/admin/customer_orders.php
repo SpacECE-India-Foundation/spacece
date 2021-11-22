@@ -1,6 +1,8 @@
-<?php session_start(); ?>
+
 <?php include_once("./templates/top.php"); ?>
 <?php include_once("./templates/navbar.php"); ?>
+<?php session_start(); ?>
+
 <div class="container-fluid">
   <div class="row">
     

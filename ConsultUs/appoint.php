@@ -1,4 +1,6 @@
-<?php include('indexDB.php') ?>
+<?php 
+include_once './includes/header1.php';
+include('indexDB.php'); ?>
 <?php
  echo $cid = $_GET['id'];
  echo $category = $_GET['category'];
@@ -208,7 +210,11 @@ a {
                  <p class="text-center" ><a href="#"></a></p>
             </div>
          </div>
-        <!... end section ends....>
+       <?php
+include_once './includes/footer1.php';
+
+
+?>
     </body>
 
 
