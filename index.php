@@ -1,6 +1,6 @@
 <?php
 //  
-include_once 'includes/header1.php';
+include_once './common/header_main.php';
 
 //session_start();
 ?>
@@ -362,7 +362,7 @@ include_once 'includes/header1.php';
 
   <!-- ChatBot -->
   <div class="chat_icon pull-right ">
-    <i class="fa fa-comments fa-5x" aria-hidden="true" style="color: black; border: 2px solid black;border-radius:15px;" ></i>
+    <i class="fa fa-comments fa-5x" aria-hidden="true" style="color: black; border: 2px solid black;border-radius:15px;"></i>
   </div>
 
   <div class="chat_box">
@@ -394,7 +394,7 @@ include_once 'includes/header1.php';
       </form>
     </div>
   </div>
-<br>
+  <br>
   <!--session close-->
 
   <!-- Footer section -->
@@ -491,9 +491,10 @@ include_once 'includes/header1.php';
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body> -->
 
-<?php
-include_once './includes/footer1.php';
-?>
+  <?php
+  include_once './common/footer_main.php';
+  ?>
 
 </body>
+
 </html>

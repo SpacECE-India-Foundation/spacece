@@ -29,8 +29,10 @@ if (isset($_SESSION['current_user_id'])) {
             <input type="password" placeholder="Enter Password" id="password" name="password" />
             <input type="password" placeholder="Confirm Password" id="cpassword" name="cpassword" />
             <input type="file" placeholder="Upload Image" id="image" name="image" />
-            <input type="hidden" name="type" value="<?= isset($_GET['type']) ? $_GET['type'] : 'customer' ?>" />
-            <p id="user_type">User Type: <span><?= isset($_GET['type']) ? $_GET['type'] : 'customer' ?></span></p>
+            <select name="type" id="user_type">
+                <option value="customer">Customer</option>
+                <option value="consultant">Consultant</option>
+            </select>
             <button type="submit" id="register" name="register">Register</button>
             <p class="message">Already registered? <a href="login.php">Login</a></p>
         </form>

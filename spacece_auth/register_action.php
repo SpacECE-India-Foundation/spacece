@@ -28,9 +28,13 @@ if (mysqli_num_rows($run) > 0) {
 } else {
     if ($type == 'consultant') {
         $sql = "INSERT INTO users (u_name, u_email, u_password, u_phone, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
-    } else {
+    } else if ($type == 'customer') {
         $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image')";
+    } else {
+        echo json_encode(array('status' => 'error', 'message' => "Invalid user type!"));
+        die();
     }
+
     $result = mysqli_query($conn, $query);
 
     if ($result) {

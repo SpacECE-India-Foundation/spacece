@@ -22,11 +22,14 @@ if (isset($_SESSION['current_user_id'])) {
 
 <body>
     <div class="login-page">
-        <h2><span><?= isset($_GET['type']) ? $_GET['type'] : 'customer' ?></span> Login</h2>
+        <h2>Login</h2>
         <form class="login-form" method="post" autocomplete="off">
             <input type="email" placeholder="Enter Email" name="email" />
             <input type="password" placeholder="Enter Password" name="password" />
-            <input type="hidden" name="type" value="<?= isset($_GET['type']) ? $_GET['type'] : 'customer' ?>" />
+            <select name="type" id="user_type">
+                <option value="customer">Customer</option>
+                <option value="consultant">Consultant</option>
+            </select>
             <button type="submit" name="login">Login</button>
             <p class="message">Not registered? <a href="register.php">Create an account</a></p>
         </form>

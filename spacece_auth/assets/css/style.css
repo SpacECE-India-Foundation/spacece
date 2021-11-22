@@ -41,7 +41,9 @@ input.error {
 }
 
 .login-form input,
-.register-form input {
+.register-form input,
+.register-form select,
+.login-form select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -73,17 +75,4 @@ input.error {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 14px;
-}
-
-.register-page #user_type {
-  margin: 10px 0 20px;
-}
-
-.register-page #user_type span {
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-.login-page h2 span {
-  text-transform: capitalize;
 }

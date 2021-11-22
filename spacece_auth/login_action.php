@@ -11,7 +11,8 @@ $type = $_POST['type'];
 if ($type) {
     $query = "SELECT * FROM users WHERE u_email = '$email' AND u_password = '$password' AND u_type = '$type'";
 } else {
-    $query = "SELECT * FROM users WHERE u_email = '$email' AND u_password = '$password' AND u_type = 'customer'";
+    echo json_encode(array('status' => 'error', 'message' => "Invalid user type!"));
+    die();
 }
 
 $result = mysqli_query($conn, $query);

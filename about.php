@@ -1,19 +1,20 @@
 <?php
-include_once 'includes/header1.php';
+include_once './common/header_main.php';
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>SPAC-ECE</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="SPAC-ECE">
 	<meta name="keywords" content="LERAMIZ, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon -->   
-	<link href="img/Favicon.ico" rel="shortcut icon"/>
+	<!-- Favicon -->
+	<link href="img/Favicon.ico" rel="shortcut icon" />
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -40,12 +41,13 @@ include_once 'includes/header1.php';
 	<![endif]-->
 
 </head>
+
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
-	
+
 	<!-- Header section
 	<header class="header-section">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
@@ -111,37 +113,36 @@ include_once 'includes/header1.php';
 	<!-- page -->
 	<section class="page-section">
 		<div class="container">
-			<!--<img class="page-top-section set-bg" src="img/about.jpg" alt=""> --> 
+			<!--<img class="page-top-section set-bg" src="img/about.jpg" alt=""> -->
 			<div class="container text-black" style=" height: 500px;">
 
-					<h3 style="text-align: center;">ABOUT US</h3>
-					<p>SPACE is the acronym of Social, Physical, Aesthetic, Cognitive and Emotional, which are various crucial child development aspect. Additionally, to communicate our focus on educational component and children between the 0-8years, we use suffix Early Childhood Education.
+				<h3 style="text-align: center;">ABOUT US</h3>
+				<p>SPACE is the acronym of Social, Physical, Aesthetic, Cognitive and Emotional, which are various crucial child development aspect. Additionally, to communicate our focus on educational component and children between the 0-8years, we use suffix Early Childhood Education.
 					SPACE is based on the foundational thoughts of Samidha, a Non-profit organization. Samidha has established learning-centers in urban slums and remote rural locations, focused on the overall development of the children. Samidha learning centers contributed as an after-school support facility for children who lacked an educational environment at home.
 					Both the proprietors have worked extensively with the Jean Piaget or Maria Montessori of this century, Dr Sugata Mitra, Professor of Emirate, University of Newcastle, UK. His brainchild the Hole-in-the-Wall experiment and TED winning idea Self-Organized Learning Environment (SOLE) has shaped our thoughts. Samidha SOLE centers established computer labs for the children and youths coming from the slums, which got an encouraging response. It also experimented with the sustainability of such learning centers, which included recruiting and training the local facilitators.
 
-</p>
-					
-				</div>
+				</p>
+
 			</div>
-		
-		
+		</div>
+
+
 		<!-- Review section -->
 		<section class="page-top-section set-bg" data-setbg="img/about.jpg" style="width: 100%; height: 80%;">
-		<!-- Review section end-->
+			<!-- Review section end-->
 
 
-		
-	</section>
-	<!-- page end -->
 
-<?php
+		</section>
+		<!-- page end -->
 
-include_once 'includes/footer1.php';
-?>
+		<?php
+		include_once './common/footer_main.php';
+		?>
 
 
-	<!-- Footer section -->
-	<!-- <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
+		<!-- Footer section -->
+		<!-- <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 footer-widget">
@@ -192,4 +193,5 @@ include_once 'includes/footer1.php';
 	<script src="js/magnific-popup.min.js"></script>
 	<script src="js/main.js"></script> -->
 </body>
+
 </html>

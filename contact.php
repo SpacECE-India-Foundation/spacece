@@ -1,18 +1,18 @@
-
 <?php
 
-include_once 'includes/header1.php';
+include_once './common/header_main.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>SPAC-ECE</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="SPACE-ECE">
 	<meta name="keywords" content="LERAMIZ, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon -->   
-	<link href="img/Favicon.ico" rel="shortcut icon"/>
+	<!-- Favicon -->
+	<link href="img/Favicon.ico" rel="shortcut icon" />
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -37,12 +37,13 @@ include_once 'includes/header1.php';
 	<![endif]-->
 
 </head>
+
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
-	
+
 	<!-- Header section -->
 	<!-- <header class="header-section">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
@@ -102,7 +103,7 @@ include_once 'includes/header1.php';
 		</div>
 	</div>
 
-	page --> 
+	page -->
 	<section class="page-section blog-page" style="margin-top: 100px;">
 		<div class="container">
 			<div class="row">
@@ -117,13 +118,13 @@ include_once 'includes/header1.php';
 						<form class="contact-form" method="get" action="feedback.php">
 							<div class="row">
 								<div class="col-md-6">
-									<input type="text" name= "fullname" placeholder="Your name" >
+									<input type="text" name="fullname" placeholder="Your name">
 								</div>
 								<div class="col-md-6">
 									<input type="text" placeholder="Your email" name="email">
 								</div>
 								<div class="col-md-12">
-									<textarea  placeholder="Your message"  name= "feedback"></textarea>
+									<textarea placeholder="Your message" name="feedback"></textarea>
 									<button class="site-btn">SUBMIT NOW</button>
 								</div>
 							</div>
@@ -134,26 +135,27 @@ include_once 'includes/header1.php';
 		</div>
 	</section>
 	<!-- page end -->
-			  <div class="container-fluid">
-			    	    <div class="map-responsive" style=" 
+	<div class="container-fluid">
+		<div class="map-responsive" style=" 
 										    overflow:hidden;
 										    padding-bottom:50%;
 										    position:relative;
 										    height:0;
 										">
-			    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3784.7339915220646!2d73.80759426484163!3d18.45038313744994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sC1%20Chandralok%20Nagari%2C%20Sitaee%20Nagar%2C%20Dhayari%20Phata%2C%20Pune%2C%20Maharashtra%20411041%2C%20India!5e0!3m2!1sen!2sin!4v1628857382605!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;
+			<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3784.7339915220646!2d73.80759426484163!3d18.45038313744994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sC1%20Chandralok%20Nagari%2C%20Sitaee%20Nagar%2C%20Dhayari%20Phata%2C%20Pune%2C%20Maharashtra%20411041%2C%20India!5e0!3m2!1sen!2sin!4v1628857382605!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;
 												    left:0;
 												    top:0;
 												    height:100%;
 												    width:100%;
 												    position:absolute;
 												" allowfullscreen></iframe>
-			</div>			</div> 
+		</div>
+	</div>
 
-            <?php
+	<?php
 
-include_once 'includes/footer1.php';
-?>
+	include_once './common/footer_main.php';
+	?>
 	<!-- Footer section -->
 	<!-- <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
 		<div class="container">
@@ -213,4 +215,5 @@ include_once 'includes/footer1.php';
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
 	<script src="js/map.js"></script>
 </body>
+
 </html>
