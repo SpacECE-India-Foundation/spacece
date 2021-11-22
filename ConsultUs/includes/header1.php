@@ -152,7 +152,7 @@ session_start();
           <img src="../img/logo/ConsultUs.jpeg" class=" img img-thumbnail img-circle" style="width:80px;">
         </a>
       </div>
-      <a href="/index.php" class="navbar-brand">Consult Us</a>
+      <a href="./index.php" class="navbar-brand">Consult Us</a>
     </div>
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">
