@@ -57,7 +57,7 @@ session_start();
 
     }
   </style>
- 
+
   <!-- <link rel="stylesheet" /assets/css/style.css"> -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
@@ -190,9 +190,11 @@ session_start();
         ?>
 
           <div class="row">
-            <div class="col-sm-5"><li><a href="../spacece_auth/register.php?type=consultant"><i class="fa fa-user-circle-o" style="color:black;"></i><b>Consultant</b></a><br>
-        </li> </div>
-        
+            <div class="col-sm-5">
+              <li><a href="../spacece_auth/register.php?type=consultant"><i class="fa fa-user-circle-o" style="color:black;"></i><b>Consultant</b></a><br>
+              </li>
+            </div>
+
             <div class="col-sm-7">
 
               <li><a href="../spacece_auth/login.php?type=consultant" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a></li>
