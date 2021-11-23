@@ -60,7 +60,7 @@ session_start();
             <div class="org_logo">
                 <a href="../index.php">
                     <img src="https://spacefoundation.in/test/SpacECE-1710/img/logo/SpacECELogo.jpg" alt="Spacece">
-                    <span>Spacece</span>
+                    <span>SpaceECE</span>
                 </a>
             </div>
             <?php

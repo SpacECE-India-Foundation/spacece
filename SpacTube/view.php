@@ -3,7 +3,10 @@
 require_once 'Config/Functions.php';
 $Fun_call = new Functions();
 
-include_once 'includes/header1.php';
+$module_logo = "https://spacefoundation.in/test/SpacECE-1710/img/logo/Space_Tube.jpeg";
+$module_name = "Space Tube";
+
+include_once '../common/header_module.php';
 
 $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
 $get_video = $Fun_call->selected_order('videos', 'filter');
@@ -151,11 +154,6 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
     </div>
 
 
-    <?php include 'footer.php' ?>
+    <?php include_once '../common/footer_module.php'; ?>
 
     <!--End - Delete - Modal -->
-
-
-</body>
-
-</html>
