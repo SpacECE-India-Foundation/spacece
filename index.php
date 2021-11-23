@@ -1,6 +1,9 @@
 <?php
 //  
-include_once './common/header_main.php';
+$module_logo = null;
+$module_name = null;
+
+include_once './common/header_module.php';
 
 //session_start();
 ?>
@@ -492,7 +495,7 @@ include_once './common/header_main.php';
 </body> -->
 
   <?php
-  include_once './common/footer_main.php';
+  include_once './common/footer_module.php';
   ?>
 
 </body>
