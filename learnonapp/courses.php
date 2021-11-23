@@ -1,5 +1,8 @@
 <?php
-include_once('includes/header1.php');
+$module_logo = "https://spacefoundation.in/test/SpacECE-1710/img/logo/LearnOnApp.jpeg";
+$module_name = "Learn On App";
+
+include_once '../common/header_module.php';
 ?>
 <div class="course_container">
     <div class="courses_filter">
@@ -47,5 +50,5 @@ include_once('includes/header1.php');
     </div>
 </div>
 <?php
-include_once('includes/footer1.php');
+include_once '../common/footer_module.php';
 ?>

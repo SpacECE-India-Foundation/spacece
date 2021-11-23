@@ -1,4 +1,5 @@
 <?php
+$module_logo = "https://spacefoundation.in/test/SpacECE-1710/img/logo/LibForSmalls.jpeg";
 $module_name = "Lib for smalls";
 
 include_once '../common/header_module.php';

@@ -6,6 +6,11 @@ if (!isset($_SESSION['redirect_url']))
 if (isset($_SESSION['current_user_id'])) {
     header("Location: index.php");
 }
+
+$module_logo = null;
+$module_name = null;
+
+include_once '../common/header_module.php';
 ?>
 
 <!DOCTYPE html>
