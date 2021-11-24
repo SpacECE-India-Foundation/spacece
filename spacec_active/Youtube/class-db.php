@@ -3,7 +3,7 @@ class DB {
     private $dbHost     = "localhost";
     private $dbUsername = "root";
     private $dbPassword = "";
-    private $dbName     = "spaceece";
+    private $dbName     = "space_active";
   
     public function __construct(){
         if(!isset($this->db)){
@@ -19,6 +19,7 @@ class DB {
   
     public function is_table_empty() {
         $result = $this->db->query("SELECT id FROM youtube_oauth WHERE provider = 'youtube'");
+        //$result->num_rows > 0 ||
         if($result->num_rows) {
             return false;
         }
@@ -27,17 +28,35 @@ class DB {
     }
   
     public function get_access_token() {
+       
         $sql = $this->db->query("SELECT provider_value FROM youtube_oauth WHERE provider = 'youtube'");
+       
         $result = $sql->fetch_assoc();
+     //var_dump( json_($result['provider_value']));
         return json_decode($result['provider_value']);
     }
-  
+    public function upload_video_to_db($video_id, $title, $summary,$category,$user){
+        $this->db->query("INSERT INTO youtube_videos(user_id,video_id,title,description,category_id) VALUES('$user', '$video_id','$title','$summary','$category')");
+    }
+
+
+    public function get_Videos($user){
+        $sql= $this->db->query("SELECT * from youtube_videos where user_id='$user' ");
+       return $result = $sql->fetch_assoc();
+    }
+
+    public function get_all_Videos(){
+        $sql= $this->db->query("SELECT * from youtube_videos  ");
+       return $result = $sql->fetch_assoc();
+    }
+
     public function get_refersh_token() {
         $result = $this->get_access_token();
         return $result->refresh_token;
     }
   
     public function update_access_token($token) {
+        //var_dump($token);
         if($this->is_table_empty()) {
             $this->db->query("INSERT INTO youtube_oauth(provider, provider_value) VALUES('youtube', '$token')");
         } else {
