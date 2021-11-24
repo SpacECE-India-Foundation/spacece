@@ -27,7 +27,15 @@ if (isset($_POST['getDetails'])) {
         View <i class="fas fa-expand"></i></button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
         Upload Youtube video
-    </button></td>
+    </button><div class="col-sm-1>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
+    Upload video
+</button></div><div class="col-sm-1> <button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+My Videos
+</button></div><div class="col-sm-1>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+View All videos
+</button></div></td></td>
         </tr>';
                 }
             }
@@ -47,7 +55,16 @@ if (isset($_POST['getDetails'])) {
         View <i class="fas fa-expand"></i></button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
         Upload Youtube video
-    </button></td>
+    </button>
+    <div class="col-sm-1>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
+        Upload video
+    </button></div><div class="col-sm-1> <button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+    My Videos
+ </button></div><div class="col-sm-1>
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+ View All videos
+ </button></div></td></td>
         </tr>';
                 }
             }
