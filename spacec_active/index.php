@@ -189,6 +189,114 @@ include_once '../common/header_module.php';
 <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <div class="elfsight-app-0a2b4f6c-d665-4279-8b36-d0cf353f754d"></div> -->
 
+    <div class="modal fade  " id="playlistModel" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModal">View Activity</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <form id="AddDescription" method="post">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <input class="form-control col-sm-3" type="text" name="title" id="title" placeholder="Enter Playlist name ">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row mb-3">
+                                <div class="col-sm-10">
+                                    <textarea id="summary" class="form-control col-sm-3" name="summary" cols="30" rows="10" placeholder="Enter playlist description"></textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row mb-3">
+                                <div class="col-sm-8">
+                                    <input type="submit" name="submit" id="addPlaylist" class="btn btn-primary col-sm-3" value="Submit" />
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+        </form>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+
+         <div class="modal fade modal-xl  " id="myVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog  modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModal">My Videos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <?php
+                        include_once 'Youtube/class-db.php';
+                        $user=$_SESSION['user'];
+                        echo "<div class='row'>";
+                        $videos=  get_Videos($user);
+                           foreach( $videos as $video){
+                            echo "<div class='col-md-6'>";
+                               echo'<iframe width="180" height="120"
+                               src="https://www.youtube.com/embed/'.$video['video_id'].'"
+                               frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
+                               </iframe>';
+                               echo "</div>";
+                           }
+                           echo "</div>";
+                        ?>
+                 
+                    </div>
+                </div>
+            </div>
+         </div>
+
+         <div class="modal fade  " id="AllVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModal">View all Videos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                   
+                           
+                        <?php
+                        include_once 'Youtube/class-db.php';
+                       // $user=$_SESSION['user'];
+                        echo "<div class='row'>";
+                        $videos=  get_all_Videos();
+                           foreach( $videos as $video){
+                            echo "<div class='col-md-6'>";
+                               echo'<iframe width="180" height="120"
+                               src="https://www.youtube.com/embed/'.$video['video_id'].'"
+                               frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
+                               </iframe>';
+                               echo "</div>";
+                           }
+                           echo "</div>";
+                        ?>
+                            <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+        </form>
+                    </div>
+                </div>
+            </div>
+         </div>
 <div class="progress">
     <div id="progress-bar" class="progress-bar" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
 </div>
@@ -327,4 +435,33 @@ include_once '../common/footer_module.php';
             }
         });
     });
+
+
+
+             
+$('#playlist').on('click',function(){
+  
+    $('#exampleModal').modal('toggle');
+});
+
+
+$('#AddDescription').on('submit',function(event){
+
+event.preventDefault();
+var title = $('#title').val();
+var summary = $('#summary').val();
+$.ajax({
+    type: 'POST',
+        url: 'Youtube/data.php',
+        data:{
+            title:title,
+            summary:summary
+
+        },success:function(data){
+            alert(data);
+        }
+
+});
+
+});
 </script>
