@@ -2,6 +2,8 @@
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/LibForSmalls.jpeg";
 $module_name = "Lib for smalls";
+$extra_styles = "<link rel='stylesheet' type='text/css' href='./style.css'>";
+$extra_scripts = "<script src='./main.js'></script>";
 
 include_once '../common/header_module.php';
 require "config/constants.php";
