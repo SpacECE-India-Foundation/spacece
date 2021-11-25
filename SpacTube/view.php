@@ -3,7 +3,8 @@
 require_once 'Config/Functions.php';
 $Fun_call = new Functions();
 
-$module_logo = "https://spacefoundation.in/test/SpacECE-1710/img/logo/Space_Tube.jpeg";
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/Space_Tube.jpeg";
 $module_name = "Space Tube";
 
 include_once '../common/header_module.php';

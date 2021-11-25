@@ -1,7 +1,8 @@
 <?php
 require "config/constants.php";
 
-$module_logo = "https://spacefoundation.in/test/SpacECE-1710/img/logo/LibForSmalls.jpeg";
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/LibForSmalls.jpeg";
 $module_name = "Lib for smalls";
 
 include_once '../common/header_module.php';

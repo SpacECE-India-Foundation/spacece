@@ -1,5 +1,9 @@
 <?php
-include'./includes/header1.php';
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/LibForSmalls.jpeg";
+$module_name = "Lib for smalls";
+
+include_once '../common/header_module.php';
 //session_start();
 
 if (!isset($_SESSION["uid"])) {
@@ -97,9 +101,9 @@ if (!isset($_SESSION["uid"])) {
 		</div>
 	</div>
 	<?php
-include './includes/footer.php';
+	include_once '../common/footer_module.php';
 
-?>
+	?>
 </body>
 
 </html>
