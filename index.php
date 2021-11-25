@@ -3,6 +3,8 @@
 $main_logo = "./img/logo/SpacECELogo.jpg";
 $module_logo = null;
 $module_name = null;
+$main_page = true;
+
 $extra_styles = "<link rel='stylesheet' href='./css/bootstrap.min.css' />
 <link rel='stylesheet' href='./css/font-awesome.min.css' />
 <link rel='stylesheet' href='./css/animate.css' />
