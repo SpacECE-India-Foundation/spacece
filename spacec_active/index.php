@@ -59,6 +59,39 @@ include_once '../common/header_module.php';
                                 <input class="form-control" type="text" name="title" id="title" placeholder="Enter Video Title">
                             </div>
                         </div>
+                                            <?php
+
+                    $key = "AIzaSyDn5f6MqVpdcpbw3rj-ixCvRRgNrP7LjE0";
+                    $base_url = "https://www.googleapis.com/youtube/v3/";
+                    $channelId = "UCSFXd8_Kp1a5ZHAaOejPiHA";
+                    $max = 20;
+
+                    $API_URL = $base_url . "playlists?part=snippet&channelId=" . $channelId . "&maxResults=" . $max . "&key=" . $key;
+                    var_dump($API_URL);
+                    $file1 = file_get_contents($API_URL);
+                    $file1 = json_decode($file1, true);
+                    //echo "<pre>";
+                    //var_dump($file1['items'][0]['id']);
+
+                    //echo "<pre>";
+                    ?>
+                        <br>
+                        <div class="row mb-3">
+                   <div class="col-sm-10">
+                    <select id="category" name="category" class="form-control col-sm-3">
+                    <?php
+                    foreach ($file1['items'] as $playlist) {
+                        echo "<option value=" . $playlist['id'] . ">" . $playlist['snippet']['title'] . "</option>";
+                    }
+                    ?>
+                    </select>
+                     </div>
+                            </div>
+                        <?php
+
+                    $API_URL1 = $base_url . "part=snippet%2Cstatus&key=" . $key . " HTTP/1.1";
+                    ?>
+                     <br>
                         <div class="row mb-3">
                             <div class="col">
                                 <textarea id="summary" class="form-control" name="summary" cols="30" rows="10" placeholder="Enter video description"></textarea>
@@ -242,20 +275,22 @@ include_once '../common/header_module.php';
             <div class="modal-body">
 
                 <?php
-                include_once 'Youtube/class-db.php';
-                $user = $_SESSION['user'];
-                echo "<div class='row'>";
-                $videos =  get_Videos($user);
-                foreach ($videos as $video) {
-                    echo "<div class='col-md-6'>";
-                    echo '<iframe width="180" height="120"
+include_once 'Youtube/class-db.php';
+$user = $_SESSION['current_user_email'];
+echo "<div class='row'>";
+$db = new DB();
+$videos = $db->get_Videos($user);
+
+foreach ($videos as $video) {
+    echo "<div class='col-md-6'>";
+    echo '<iframe width="180" height="120"
                                src="https://www.youtube.com/embed/' . $video['video_id'] . '"
                                frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                                </iframe>';
-                    echo "</div>";
-                }
-                echo "</div>";
-                ?>
+    echo "</div>";
+}
+echo "</div>";
+?>
 
             </div>
         </div>
@@ -275,20 +310,21 @@ include_once '../common/header_module.php';
 
 
                 <?php
-                include_once 'Youtube/class-db.php';
-                // $user=$_SESSION['user'];
-                echo "<div class='row'>";
-                $videos =  get_all_Videos();
-                foreach ($videos as $video) {
-                    echo "<div class='col-md-6'>";
-                    echo '<iframe width="180" height="120"
+include_once 'Youtube/class-db.php';
+$user = $_SESSION['current_user_email'];
+echo "<div class='row'>";
+$db = new DB();
+$videos = $db->get_all_Videos();
+foreach ($videos as $video) {
+    echo "<div class='col-md-6'>";
+    echo '<iframe width="180" height="120"
                                src="https://www.youtube.com/embed/' . $video['video_id'] . '"
                                frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                                </iframe>';
-                    echo "</div>";
-                }
-                echo "</div>";
-                ?>
+    echo "</div>";
+}
+echo "</div>";
+?>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 

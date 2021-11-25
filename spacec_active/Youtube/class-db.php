@@ -36,19 +36,35 @@ class DB {
         return json_decode($result['provider_value']);
     }
     public function upload_video_to_db($video_id, $title, $summary,$category,$user){
-        $this->db->query("INSERT INTO youtube_videos(user_id,video_id,title,description,category_id) VALUES('$user', '$video_id','$title','$summary','$category')");
-    }
-
-
-    public function get_Videos($user){
-        $sql= $this->db->query("SELECT * from youtube_videos where user_id='$user' ");
-       return $result = $sql->fetch_assoc();
-    }
-
-    public function get_all_Videos(){
-        $sql= $this->db->query("SELECT * from youtube_videos  ");
-       return $result = $sql->fetch_assoc();
-    }
+        if( $this->db->query("INSERT INTO youtube_videos(user_id,video_id,title,description,category_id) VALUES('$user', '$video_id','$title','$summary','$category')")){
+            echo "Success";
+        }
+        else{
+            echo "Error";
+        }
+     }
+ 
+ 
+     public function get_Videos($user){
+         $sql= $this->db->query("SELECT * from youtube_videos where user_id='$user' ");
+         //$data[]=array();
+       while($result = $sql->fetch_assoc()){
+         $data[]= $result;
+       }
+       return $data;
+     }
+ 
+     public function get_all_Videos(){
+         //$data[]=array();
+         $sql= $this->db->query("SELECT * from youtube_videos  ");
+         while($result = $sql->fetch_assoc()){
+            $data[]= $result;
+          
+          
+           }
+           
+           return $data;
+     }
     
 
     public function get_refersh_token() {
