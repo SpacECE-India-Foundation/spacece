@@ -5,14 +5,6 @@
         opacity: 0.9;
         padding: 30px 30px;
       ">
-
-
-
-
-
-
-
-
     <div class="row">
         <div class="col-lg-3 footer-widget ">
             <img src="../img/logo/LibForSmalls.jpeg" class="img img-fluid img-thumbnail img-circle" alt="" style="width: 150px" />

@@ -53,6 +53,55 @@ session_start();
             text-decoration: none;
             color: #000;
         }
+
+        .dropbtn {
+            background-color: #FFA500;
+            color: #000;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            right: 10px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropbtn:focus {
+            outline: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .user_avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
     </style>
     <title><?= isset($module_name) ? $module_name : 'Spacece' ?></title>
 </head>
@@ -87,8 +136,16 @@ session_start();
             <?php
             if (isset($_SESSION['current_user_id'])) {
             ?>
-                <a href="./profile.php"><i class="fas fa-user"></i><span>Profile</span></a>
-                <a href="../spacece_auth/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <img class="user_avatar" src="<?= isset($_SESSION['current_user_image']) ? $_SESSION['current_user_image'] : 'https://www.w3schools.com/howto/img_avatar.png' ?>" alt="User" />
+                        <span>Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#"><i class="fas fa-user"></i><span>Profile</span></a>
+                        <a href="../spacece_auth/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+                    </div>
+                </div>
             <?php
             } else {
             ?>
