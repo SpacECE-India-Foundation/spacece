@@ -92,8 +92,8 @@ session_start();
             <?php
             } else {
             ?>
-                <a href="../spacece_auth/login.php"><i class="fas fa-user-plus"></i><span>Register</span></a>
-                <a href="../spacece_auth/register.php"><i class="fas fa-sign-in-alt"></i><span>Login</span></a>
+                <a href="../spacece_auth/register.php"><i class="fas fa-user-plus"></i><span>Register</span></a>
+                <a href="../spacece_auth/login.php"><i class="fas fa-sign-in-alt"></i><span>Login</span></a>
             <?php
             }
             ?>
