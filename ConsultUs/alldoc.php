@@ -147,7 +147,7 @@ $ref = $_GET['user']; ?>
                             <br><br>
 
  <a href="<?php echo SITEURL;?>instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br>
-  <?php  $sql = "SELECT * FROM `webhook` WHERE `buyer_name`= '$ref'";
+  <?php  $sql = "SELECT * FROM `webhook` WHERE purpose='CONSULTANT FEE' AND email='".$_SESSION['current_user_email']."' ";
 
                    $res2  = mysqli_query($conn,$sql);
                    $row=mysqli_fetch_assoc($res2);
