@@ -85,13 +85,15 @@ session_start();
             <?php
             if (isset($_SESSION['current_user_id'])) {
             ?>
+            
                 <a href="./profile.php"><i class="fas fa-user"></i><span>Profile</span></a>
                 <a href="../spacece_auth/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
             <?php
             } else {
             ?>
-                <a href="../spacece_auth/login.php"><i class="fas fa-user-plus"></i><span>Register</span></a>
-                <a href="../spacece_auth/register.php"><i class="fas fa-sign-in-alt"></i><span>Login</span></a>
+            <!-- bug id= 000108 -->
+                <a href="../spacece_auth/register.php"><i class="fas fa-user-plus"></i><span>Register</span></a>
+                <a href="../spacece_auth/login.php"><i class="fas fa-sign-in-alt"></i><span>Login</span></a>
             <?php
             }
             ?>

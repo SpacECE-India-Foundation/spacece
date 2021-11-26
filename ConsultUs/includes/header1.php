@@ -107,7 +107,7 @@ session_start();
               <li class="divider"></li>
               <!-- <li><a href="customer_order.php">Orders</a></li> -->
               <!-- <li class="divider"></li> -->
-              <li><a href="">Change Password</a></li>
+              <li><a href="includes/changepwd.php">Change Password</a></li>
               <li class="divider"></li>
               <li>
                 <a href='../spacece_auth/logout.php'>

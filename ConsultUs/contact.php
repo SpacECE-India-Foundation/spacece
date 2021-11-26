@@ -127,13 +127,16 @@ include_once './includes/header1.php';
 						</div>
 						<form class="contact-form" method="get" action="feedback.php">
 							<div class="row">
-								<div class="col-md-6">
-									<input type="text" name= "fullname" placeholder="Your name" >
+								<div class="col-md-5">
+									<span>fullname</span>
+									<input type="text"class="form-control" name= "fullname" placeholder="Your name" >
 								</div>
 								<div class="col-md-6">
+								<span>Your email</span>
 									<input type="text" placeholder="Your email" name="email">
 								</div>
 								<div class="col-md-12">
+								<span>Your message</span>
 									<textarea  placeholder="Your message"  name= "feedback"></textarea>
 									<button class="site-btn">SUBMIT NOW</button>
 								</div>
