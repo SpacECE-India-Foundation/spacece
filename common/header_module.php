@@ -138,7 +138,7 @@ session_start();
             ?>
                 <div class="dropdown">
                     <button class="dropbtn">
-                        <img class="user_avatar" src="<?= isset($_SESSION['current_user_image']) ? $_SESSION['current_user_image'] : 'https://www.w3schools.com/howto/img_avatar.png' ?>" alt="User" />
+                        <img class="user_avatar" src="<?= "./images/" . isset($_SESSION['current_user_image']) ? $_SESSION['current_user_image'] : 'https://www.w3schools.com/howto/img_avatar.png' ?>" alt="User" />
                         <span>Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
                     </button>
                     <div class="dropdown-content">
@@ -150,9 +150,9 @@ session_start();
             } else {
             ?>
                 <a href=<?= isset($main_page) ? "./spacece_auth/register.php" : "../spacece_auth/register.php" ?>>
-                    ><i class="fas fa-user-plus"></i><span>Register</span></a>
+                    <i class="fas fa-user-plus"></i><span>Register</span></a>
                 <a href=<?= isset($main_page) ? "./spacece_auth/login.php" : "../spacece_auth/login.php" ?>>
-                    ><i class="fas fa-sign-in-alt"></i><span>Login</span></a>
+                    <i class="fas fa-sign-in-alt"></i><span>Login</span></a>
             <?php
             }
             ?>
