@@ -92,7 +92,7 @@ include_once '../common/header_module.php';
          <script>
       $('#google-button').on('click', function() {
         // Initialize with your OAuth.io app public key
-        OAuth.initialize('YOUR_OAUTH_KEY');
+        OAuth.initialize('ikXj_8BxUB5IsVBnRuTxWCDqKc4');
         // Use popup for OAuth
         OAuth.popup('google').then(google => {
           console.log('google:',google);
