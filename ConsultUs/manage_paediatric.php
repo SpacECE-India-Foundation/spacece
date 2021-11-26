@@ -146,7 +146,7 @@ $cat = $_GET['category']; ?>
                             <br><br><br>
  <a href="<?php echo SITEURL;?>instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;"> Confirm Appointment </a><br>
  <?php  $sql = "SELECT * FROM `webhook` WHERE `buyer_name`= '$ref'";
-                   $res2  = mysqli_query($conn,$sql);
+                   $res2= mysqli_query($conn,$sql);
                    $row=mysqli_fetch_assoc($res2);
                    if(mysqli_num_rows($row)>0){
                     ?>

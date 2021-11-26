@@ -488,6 +488,35 @@ $ref = $_GET['user']; ?>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript"src="js/bootstrap.min.js"></script> -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<script type="text/javascript">
 
+	$(document).ready(function(){
+
+
+ setInterval(function(){ 
+ 	let user ="<?php echo $_GET['user'];?>";
+//alert(user);
+ //$('#call').replaceWith("");
+$.ajax({
+url:'./video.php',
+type: 'POST',
+data:{
+	user:user,
+	getCall:1
+},
+success:function(data){
+       // console.log(data);
+        alert(data);
+        //$('#call').html(data);
+    }
+});
+
+ }, 5800);
+
+})
+
+</script>
 </body>
 </html>

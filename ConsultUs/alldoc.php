@@ -157,7 +157,7 @@ $ref = $_GET['user']; ?>
 //echo $_SESSION['user_id'];
                    //    echo $id;
                     ?>
-                    <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow">Chat With Counsultants</a>
+                    <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
                     <?php
                    }
   ?>
