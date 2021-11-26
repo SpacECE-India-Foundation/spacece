@@ -1,7 +1,7 @@
 $(document).ready(function () {
   //Fetching Courses Function Start
   $.ajax({
-    url: "../../../api/learnonapp_courses.php",
+    url: "../api/learnonapp_courses.php",
     type: "GET",
     success: function (d) {
       if (d.status == "success") {
@@ -33,7 +33,7 @@ $(document).ready(function () {
   let id = params.get("id");
   if (id) {
     $.ajax({
-      url: `../../../api/learnonapp_courses.php?cid=${id}`,
+      url: `../api/learnonapp_courses.php?cid=${id}`,
       type: "GET",
       success: function (d) {
         if (d.status == "success") {
