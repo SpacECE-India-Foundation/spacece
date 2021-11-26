@@ -1,6 +1,7 @@
 
 <?php include('indexDB.php') ?>
 <?php error_reporting(0); 
+session_start();
 $ref = $_GET['user']; ?>
 <html>
     <head>
@@ -71,12 +72,14 @@ $ref = $_GET['user']; ?>
                         <th>ACTION:</th>
                     </tr>
                     <?php
+                    $user_id;
                     // schanges
                     $sql = "SELECT * FROM `login` WHERE `username`= '$ref'";
                     $res2 = mysqli_query($conn,$sql);
 
                     //checking whether query is excuted or not
                     if($res2){
+                       
                         // count that data is there or not in database
                         $count= mysqli_num_rows($res2);
                         $sno2 =1;
@@ -85,7 +88,8 @@ $ref = $_GET['user']; ?>
                             while($row2 = mysqli_fetch_assoc($res2))
                             {
                                 // extracting values from dATABASE
-
+//var_dump($row2);
+                                $_SESSION['user_id']=$row2['UID'];
                                 $user_id=$row2['UID'];
                                 $user_name=$row2['username'];
                                 $user_email=$row2['email'];
@@ -148,16 +152,12 @@ $ref = $_GET['user']; ?>
                    $res2  = mysqli_query($conn,$sql);
                    $row=mysqli_fetch_assoc($res2);
                    $count=mysqli_num_rows($res2);
-                   echo $count;
+                  
                    if($count >0){
-
+//echo $_SESSION['user_id'];
+                   //    echo $id;
                     ?>
-                    <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo();" class="btn-second" style="color:black;background-color:yellow">Chat With Counsultants</a>
-                    <?php
-                   }else{
-                    ?><br>
-
-                    <a href="<?php echo SITEURL;?>instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;"> Pay Now for Video Call </a><br>
+                    <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow">Chat With Counsultants</a>
                     <?php
                    }
   ?>
@@ -191,18 +191,18 @@ $ref = $_GET['user']; ?>
     <script src="https://cdn.jsdelivr.net/npm/agora-rtc-sdk@3.5.1/AgoraRTCSDK.min.js"></script>
     <script src="Agora_Web_SDK_FULL/index.js"></script> 
 <script type="text/javascript">
+ 
     
-function redirectTo(){
-   
-var id=generateToken();
+function redirectTo(id,user_id){
+var id1=generateToken();
   //  alert(encodeURIComponent(uriComponent);(id));
    appid="0485c1232ca7491e9ada47ae96da3160";
  channel ="testing";
  //token="0060485c1232ca7491e9ada47ae96da3160IAAw2qjO8uvCZCP9l4Qpz22rUHon7W13zhOb7OnlZc3ww/tD/hgAAAAAEACkCrtyPxSKYQEAAQA+FIph";
-//alert(id);
+//alert(user_id);
 var c_id=$('#link').data('id');
 
-
+//var id='<?php echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
@@ -210,7 +210,7 @@ var d = new Date(); //without params it defaults to "now"
 
 var time=+d;
 
- var link=linkfull+"Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id)+"&appId="+appid+"&channel="+channel;
+ var link=linkfull+"Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;
  $.ajax({
     url:"video.php",method:"POST",
     data:{
@@ -225,7 +225,7 @@ var time=+d;
     }
  })
 
-    window.location.href="Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id)+"&appId="+appid+"&channel="+channel;  
+ window.location.href="Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;  
 }   
 
 </script>
