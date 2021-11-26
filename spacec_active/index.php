@@ -67,7 +67,7 @@ include_once '../common/header_module.php';
                     $max = 20;
 
                     $API_URL = $base_url . "playlists?part=snippet&channelId=" . $channelId . "&maxResults=" . $max . "&key=" . $key;
-                    var_dump($API_URL);
+                    //var_dump($API_URL);
                     $file1 = file_get_contents($API_URL);
                     $file1 = json_decode($file1, true);
                     //echo "<pre>";
@@ -275,11 +275,15 @@ include_once '../common/header_module.php';
             <div class="modal-body">
 
                 <?php
-include_once 'Youtube/class-db.php';
-$user = $_SESSION['current_user_email'];
-echo "<div class='row'>";
+
+if(isset($_SESSION['current_user_email'])){
+    $user = $_SESSION['current_user_email'];
+    include_once 'Youtube/class-db.php';
+    echo "<div class='row'>";
 $db = new DB();
 $videos = $db->get_Videos($user);
+
+
 
 foreach ($videos as $video) {
     echo "<div class='col-md-6'>";
@@ -290,6 +294,7 @@ foreach ($videos as $video) {
     echo "</div>";
 }
 echo "</div>";
+}
 ?>
 
             </div>
@@ -310,6 +315,7 @@ echo "</div>";
 
 
                 <?php
+                if(isset($_SESSION['current_user_email'])){
 include_once 'Youtube/class-db.php';
 $user = $_SESSION['current_user_email'];
 echo "<div class='row'>";
@@ -324,6 +330,7 @@ foreach ($videos as $video) {
     echo "</div>";
 }
 echo "</div>";
+    }
 ?>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -338,7 +345,8 @@ echo "</div>";
     <div id="progress-bar" class="progress-bar" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
 </div>
 </body>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </html>
 <?php
 include_once '../common/footer_module.php';
