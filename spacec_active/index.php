@@ -17,7 +17,7 @@ include_once '../common/header_module.php';
     </button> -->
 
 <!-- Modal -->
-<script type="text/javascript" src="js/scriptcall.js"></script>
+
 <style>
     .table {
 
@@ -351,6 +351,7 @@ echo "</div>";
 <?php
 include_once '../common/footer_module.php';
 ?>
+<script type="text/javascript" src="js/scriptcall.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js."></script>
 <script type="text/javascript">
