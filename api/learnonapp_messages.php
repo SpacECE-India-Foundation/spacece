@@ -7,7 +7,7 @@ header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 //site url
 define("SITEURL", 'http://3.109.14.4/spac/');
-$servername = "localhost";
+$servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
 $dbname = "api_learnonapp";
