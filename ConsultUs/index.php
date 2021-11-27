@@ -1,5 +1,5 @@
 <?php
- include_once 'includes/header1.php';
+include_once 'includes/header1.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
  <link rel="stylesheet" href="css/bootstrap.min.css"/> -->
-	<!-- <link rel="stylesheet" href="css/font-awesome.min.css"/>
+<!-- <link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
@@ -27,12 +27,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
 	
 	 <link rel="stylesheet" type="text/css" href="Styles.css"> -->
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-	<!-- <link rel="stylesheet" type="text/css" href="css/jquery.convform.css">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/jquery.convform.css">
 	<link rel="stylesheet" type="text/css" href="css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
       -->
-	
+
 
 
 <!-- [if lt IE 9]>
@@ -42,11 +42,12 @@
 
 </head> -->
 
-<body>	<!-- Page Preloder -->
+<body>
+	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
-	
+
 	<!-- Header section -->
 	<!-- <header class="header-section">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
@@ -100,32 +101,32 @@
 
 
 
-    
+
 
 
 	<!-- Hero section -->
 	<div class=" set-bg" data-setbg="" style="width:auto; border-radius: 1%; ">
 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" >
-      <img class=" " src="../img/d7.jpg" alt="First slide" style="">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block" src="../img/d8.jpg" alt="Second slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class=" " src="../img/d7.jpg" alt="First slide" style="">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block" src="../img/d8.jpg" alt="Second slide">
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
 
-</div>
-		<br><br><br>
+	</div>
+	<br><br><br>
 
 
 
@@ -172,7 +173,7 @@
 	</section>-->
 	<!-- Services section end -->
 	<!-- Blog section --><br><br>
-	<section class="blog-section spad" >
+	<section class="blog-section spad">
 		<div class="container">
 			<div class="section-title text-center">
 				<h3>TOP SPECIALTIES</h3>
@@ -181,68 +182,68 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6 blog-item">
 					<!-- //bug id-0000076 -->
-                <a href="cdetails.php?category=Pediatrics">  
-					<img src="../img/d1.jpg" alt=""></a>
-					<h5><a href="#">  </a></h5>
+					<a href="cdetails.php?category=Pediatrics">
+						<img src="../img/d1.jpg" alt=""></a>
+					<h5><a href="#"> </a></h5>
 					<div class="blog-meta">
 						<!--<span><i class="fa fa-user"></i>Manas Sinkar</span>
 						<span><i class="fa fa-clock-o"></i>25 Jan 2019</span>-->
 					</div>
-					<p>   </p>
+					<p> </p>
 				</div>
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="cdetails.php?category=psychiatrist"> 
-					<img src="../img/d3.jpg" alt=""></a>
-					<h5><a href="#">  </a></h5>
+					<a href="cdetails.php?category=psychiatrist">
+						<img src="../img/d3.jpg" alt=""></a>
+					<h5><a href="#"> </a></h5>
 					<div class="blog-meta">
 						<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
 						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
 					</div>
-					<p>  </p>
+					<p> </p>
 				</div>
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="cdetails.php?category=physical health"> 
-					<img src="../img/d4.jpg" alt=""></a>
-					<h5><a href="#">  </a></h5>
+					<a href="cdetails.php?category=physical health">
+						<img src="../img/d4.jpg" alt=""></a>
+					<h5><a href="#"> </a></h5>
 					<div class="blog-meta">
 						<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
 						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
 					</div>
-					<p>  </p>
+					<p> </p>
 				</div>
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="cdetails.php?category=mental health"> 
-					<img src="../img/d5.jpg" alt=""></a>
-					<h5><a href="#">  </a></h5>
+					<a href="cdetails.php?category=mental health">
+						<img src="../img/d5.jpg" alt=""></a>
+					<h5><a href="#"> </a></h5>
 					<div class="blog-meta">
 						<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
 						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
 					</div>
-					<p>  </p>
+					<p> </p>
 				</div>
 
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="cdetails.php?category=nutrition"> 
-					<img src="../img/d6.jpg" alt=""></a>
-					<h5><a href="#">  </a></h5>
+					<a href="cdetails.php?category=nutrition">
+						<img src="../img/d6.jpg" alt=""></a>
+					<h5><a href="#"> </a></h5>
 					<div class="blog-meta">
 						<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
 						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
 					</div>
-					<p>  </p>
+					<p> </p>
 				</div>
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="cdetails.php?category=all"> 
-					<img src="https://www.jupiterhospital.com/uploadedfiles/gallery/1584610523_male-dummy.jpg" alt="" width="500" height="200"></a>
-					<h5><a href="#">  </a></h5>
+					<a href="cdetails.php?category=all">
+						<img src="https://www.jupiterhospital.com/uploadedfiles/gallery/1584610523_male-dummy.jpg" alt="" width="500" height="200"></a>
+					<h5><a href="#"> </a></h5>
 					<div class="blog-meta">
 						<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
 						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
 					</div>
-					<p>  </p>
+					<p> </p>
 				</div>
-				
-				
+
+
 			</div>
 		</div>
 	</section>
@@ -273,138 +274,81 @@
 	<!-- Clients section end -->
 
 
-<!--Benefits-->
-	
-		<div class="section col" style="width: 100%; ">
-			<div class=" text-center">
-				<h3>BENEFITS OF ONLINE CONSULTATION</h3>
-				<p></p>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6 blog-item" >
-					
-					<p><i class="fa fa-check-circle" style="color:black;"></i>Get a second opinion</p>
-				</div>
-				
+	<!--Benefits-->
 
-				<div class="col-lg-4 col-md-6 blog-item">
-					
-					<p><i class="fa fa-check-circle" style="color:black;"></i>Access to specialists</p>
-				</div>
-
-				<div class="col-lg-4 col-md-6 blog-item">
-					
-					<p><i class="fa fa-check-circle" style="color:black;"></i>Privacy & availability</p>
-				</div>
-
-				<div class="col-lg-4 col-md-6 blog-item">
-					
-					<p><i class="fa fa-check-circle" style="color:black;"></i>Comfort and convenience</p>
-				</div>
-				<div class="col-lg-4 col-md-6 blog-item">
-					<p><i class="fa fa-check-circle" style="color:black;"></i>Cost-effective and time-saving</p>
-				</div>
-
-				<div class="col-lg-4 col-md-6 blog-item">
-					<p><i class="fa fa-check-circle" style="color:black;"></i>No need to save all the medical reports</p>
-				</div>
-				
-				
-			</div>
+	<div class="section col" style="width: 100%; ">
+		<div class=" text-center">
+			<h3>BENEFITS OF ONLINE CONSULTATION</h3>
+			<p></p>
 		</div>
-	
+		<div class="row">
+			<div class="col-lg-4 col-md-6 blog-item">
 
-<!---benefits section close-->
+				<p><i class="fa fa-check-circle" style="color:black;"></i>Get a second opinion</p>
+			</div>
 
 
-<!---offers section-->
-<div class="section col"style="width: 100%; height: 90%; ">
+			<div class="col-lg-4 col-md-6 blog-item">
+
+				<p><i class="fa fa-check-circle" style="color:black;"></i>Access to specialists</p>
+			</div>
+
+			<div class="col-lg-4 col-md-6 blog-item">
+
+				<p><i class="fa fa-check-circle" style="color:black;"></i>Privacy & availability</p>
+			</div>
+
+			<div class="col-lg-4 col-md-6 blog-item">
+
+				<p><i class="fa fa-check-circle" style="color:black;"></i>Comfort and convenience</p>
+			</div>
+			<div class="col-lg-4 col-md-6 blog-item">
+				<p><i class="fa fa-check-circle" style="color:black;"></i>Cost-effective and time-saving</p>
+			</div>
+
+			<div class="col-lg-4 col-md-6 blog-item">
+				<p><i class="fa fa-check-circle" style="color:black;"></i>No need to save all the medical reports</p>
+			</div>
+
+
+		</div>
+	</div>
+
+
+	<!---benefits section close-->
+
+
+	<!---offers section-->
+	<div class="section col" style="width: 100%; height: 90%; ">
 		<div class="text-center">
 			<div class="section-title text-center">
 				<h3>GET THE BEST OFFERS HERE</h3>
 				<p></p>
 			</div>
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" >
-      <img class="d-block w-100" src="../img/o1.jpg" alt="First slide" style="width: 10%; height: 10%;">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="../img/o2.jpg" alt="Second slide" style="width: 100%; height: 30%;">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</div>
-</div>
-		<br><br>
-
-
-<!---offers close-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ChatBot -->
-<div class="chat_icon">
-	<i class="fa fa-comments" aria-hidden="true" style="color:black ;border:2px solid black	;"></i>
-</div>
-
-<div class="chat_box">
-	<div class="my-conv-form-wrapper">
-		<form action="" method="GET" class="hidden">
-
-      <select data-conv-question="Hello! How can I help you" name="category">
-        <option value="WebDevelopment">Website Development ?</option>
-        <option value="DigitalMarketing">Digital Marketing ?</option>
-      </select>
-
-      <div data-conv-fork="category">
-        <div data-conv-case="WebDevelopment">
-          <input type="text" name="domainName" data-conv-question="Please, tell me your domain name">    
-        </div>
-        <div data-conv-case="DigitalMarketing" data-conv-fork="first-question2">
-          <input type="text" name="companyName" data-conv-question="Please, enter your company name"> 
-        </div>
-      </div>
-
-      <input type="text" name="name" data-conv-question="Please, Enter your name">
-
-      <input type="text" data-conv-question="Hi {name}, <br> It's a pleasure to meet you." data-no-answer="true">
-
-      <input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?">
-
-      <select data-conv-question="Please Conform">
-        <option value="Yes">Conform</option>
-      </select>
-
-  	</form>
+			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="../img/o1.jpg" alt="First slide" style="width: 10%; height: 10%;">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="../img/o2.jpg" alt="Second slide" style="width: 100%; height: 30%;">
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
 	</div>
-</div>
+	<br><br>
 
 
-
-<!--session close-->
-
-
-
+	<!---offers close-->
 
 
 
@@ -414,10 +358,67 @@
 
 
 
-<?php
-include_once 'includes/footer1.php';
 
-?>
+
+
+
+
+	<!-- ChatBot -->
+	<div class="chat_icon">
+		<i class="fa fa-comments" aria-hidden="true" style="color:black ;border:2px solid black	;"></i>
+	</div>
+
+	<div class="chat_box">
+		<div class="my-conv-form-wrapper">
+			<form action="" method="GET" class="hidden">
+
+				<select data-conv-question="Hello! How can I help you" name="category">
+					<option value="WebDevelopment">Website Development ?</option>
+					<option value="DigitalMarketing">Digital Marketing ?</option>
+				</select>
+
+				<div data-conv-fork="category">
+					<div data-conv-case="WebDevelopment">
+						<input type="text" name="domainName" data-conv-question="Please, tell me your domain name">
+					</div>
+					<div data-conv-case="DigitalMarketing" data-conv-fork="first-question2">
+						<input type="text" name="companyName" data-conv-question="Please, enter your company name">
+					</div>
+				</div>
+
+				<input type="text" name="name" data-conv-question="Please, Enter your name">
+
+				<input type="text" data-conv-question="Hi {name}, <br> It's a pleasure to meet you." data-no-answer="true">
+
+				<input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?">
+
+				<select data-conv-question="Please Conform">
+					<option value="Yes">Conform</option>
+				</select>
+
+			</form>
+		</div>
+	</div>
+
+
+
+	<!--session close-->
+
+
+
+
+
+
+
+
+
+
+
+
+	<?php
+	include_once 'includes/footer1.php';
+
+	?>
 
 	<!-- Footer section -->
 	<!-- <footer class="footer-section set-bg" style="background-color:orange;border-collapse: collapse; border: 2px solid navy;opacity:0.7; padding:30px 30px;">
@@ -465,7 +466,7 @@ include_once 'includes/footer1.php';
 		</div>
      
      </footer> -->
-     <!-- <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>                                     -->
+	<!-- <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>                                     -->
 	<!--====== Javascripts & Jquery ======-->
 	<!-- <script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script> -->
@@ -476,44 +477,42 @@ include_once 'includes/footer1.php';
 	<!-- <script type="js/jquery.js"></script> -->
 	<!-- <script type="text/javascript" src="js/jquery-3.1.1.min.js"> -->
 	</script>
-<script type="text/javascript" src="js/jquery.convform.js">
-		
-</script>
-<script type="text/javascript" src="js/custom.js">
+	<script type="text/javascript" src="js/jquery.convform.js">
 
-</script>
-<!-- <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	</script>
+	<script type="text/javascript" src="js/custom.js">
+
+	</script>
+	<!-- <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript"src="js/bootstrap.min.js"></script> -->
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
-integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-<script type="text/javascript">
-
-	$(document).ready(function(){
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<script type="text/javascript">
+		$(document).ready(function() {
 
 
- setInterval(function(){ 
- 	let user ="<?php echo $_GET['user'];?>";
-//alert(user);
- //$('#call').replaceWith("");
-$.ajax({
-url:'./video.php',
-type: 'POST',
-data:{
-	user:user,
-	getCall:1
-},
-success:function(data){
-       // console.log(data);
-        alert(data);
-        //$('#call').html(data);
-    }
-});
+			setInterval(function() {
+				let user = "<?php echo $_GET['user']; ?>";
+				//alert(user);
+				//$('#call').replaceWith("");
+				$.ajax({
+					url: './video.php',
+					type: 'POST',
+					data: {
+						user: user,
+						getCall: 1
+					},
+					success: function(data) {
+						// console.log(data);
+						// alert(data);
+						//$('#call').html(data);
+					}
+				});
 
- }, 5800);
+			}, 5800);
 
-})
-
-</script>
+		})
+	</script>
 </body>
+
 </html>
