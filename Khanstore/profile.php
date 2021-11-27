@@ -1,15 +1,5 @@
 <?php
-$main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = "../img/logo/LibForSmalls.jpeg";
-$module_name = "Lib for smalls";
-$extra_styles = "
-<link rel='stylesheet' href='./css/bootstrap.min.css' />
-<link rel='stylesheet' type='text/css' href='./style.css'>";
-$extra_scripts = "
-<script src='./js/jquery2.js'></script>
-<script src='./js/bootstrap.min.js'></script>
-<script src='./main.js'></script>";
-
+include_once './header_local.php';
 include_once '../common/header_module.php';
 require "config/constants.php";
 //session_start();
