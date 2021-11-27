@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+ body {
+     min-height: 81vh;
+     background: linear-gradient(0deg, #fff, 50%, #DEEEFE);
+     font-family: 'Rubik', sans-serif
+ }
+
+ .container {
+     margin-top: 180px !important
+ }
+
+ p {
+     font-size: 14px !important
+ }
+
+ .card {
+     border-radius: 0px !important
+ }
+
+ .card-body {
+     border-radius: 9px !important
+ }
+
+ small {
+     font-size: 15px !important;
+     display: flex;
+     justify-content: center !important
+ }
+
+ button {
+     font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+     ;
+     padding: calc(6px + 5 * ((100vw - 320px) / 780)) !important;
+     color: #000 !important
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0
+ }
+
+ .btn-icon {
+     border: 1px solid #ccc;
+     background-color: transparent;
+     border-radius: 0;
+     letter-spacing: 1px
+ }
+
+ .btn-icon:hover {
+     background-color: #52B4DB;
+     color: #fff !important;
+     border: 1px solid #ccc
+ }
+
+ label {
+     font-size: 11px !important;
+     vertical-align: middle !important
+ }
+
+ #my-input {
+     vertical-align: middle !important
+ }
+
+ .custom-control {
+     padding: auto !important
+ }
+
+ .signin {
+     color: #52B4DB;
+     cursor: pointer
+ }
+
+ .custom-control-label span {
+     position: relative;
+     top: 4px
+ }
+
+ .modal-content {
+     width: calc(400px + 10 * ((100vw - 320px) / 680))
+ }
+
+ .cross {
+     cursor: pointer
+ }
+
+ .modal {
+     background-image: radial-gradient(circle 919px at 1.7% 6.1%, rgb(111, 151, 194) 0%, rgba(40, 171, 226, 1) 100.2%)
+ }
+
+ .modal-content {
+     background: transparent !important
+ }
