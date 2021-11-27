@@ -55,7 +55,7 @@ View All videos
 </button> <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
 My Videos
 </button>
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#AllVideos">
 View All videos
 </button></td></td>
         </tr>';
