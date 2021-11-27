@@ -1,16 +1,13 @@
 <?php
 session_start();
 if (!isset($_SESSION['redirect_url']))
-    $_SESSION['redirect_url'] = $_SERVER['HTTP_REFERER'];
+  $_SESSION['redirect_url'] = $_SERVER['HTTP_REFERER'];
 
 if (isset($_SESSION['current_user_id'])) {
-    header("Location: index.php");
+  header("Location: index.php");
 }
 
-$main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = null;
-$module_name = null;
-
+include_once './header_local.php';
 include_once '../common/header_module.php';
 ?>
 
@@ -18,100 +15,98 @@ include_once '../common/header_module.php';
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.12.0/bootstrap-social.min.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Login</title>
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.12.0/bootstrap-social.min.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Login</title>
+
 </head>
 
 <body>
-    <div class="login-page">
-        <h2>Login</h2>
-        <form class="login-form" method="post" autocomplete="off">
-            <input type="email" placeholder="Enter Email" name="email" />
-            <input type="password" placeholder="Enter Password" name="password" />
-            <select name="type" id="user_type">
-                <option value="customer">Customer</option>
-                <option value="consultant">Consultant</option>
-            </select>
-            <button type="submit" name="login">Login</button>
-          <br>
-            <a id="google-button" class="btn btn-block btn-social btn-google">
-                <i class="fa fa-google"></i> Sign in with Google
-                </a>
-                <a id="facebook-button" class="btn btn-block btn-social btn-facebook">
-                    <i class="fa fa-facebook"></i> Sign in with Facebook
-                    </a>
+  <div class="login-page">
+    <h2>Login</h2>
+    <form class="login-form" method="post" autocomplete="off">
+      <input type="email" placeholder="Enter Email" name="email" />
+      <input type="password" placeholder="Enter Password" name="password" />
+      <select name="type" id="user_type">
+        <option value="customer">Customer</option>
+        <option value="consultant">Consultant</option>
+      </select>
+      <button type="submit" name="login">Login</button>
+      <br>
+      <a id="google-button" class="btn btn-block btn-social btn-google">
+        <i class="fa fa-google"></i> Sign in with Google
+      </a>
+      <a id="facebook-button" class="btn btn-block btn-social btn-facebook">
+        <i class="fa fa-facebook"></i> Sign in with Facebook
+      </a>
 
-            <p class="message">Not registered? <a href="register.php">Create an account</a></p>
-            
-        </form>
-       
+      <p class="message">Not registered? <a href="register.php">Create an account</a></p>
 
-
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
-    <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script type="text/javascript" src="main.js"></script>
-
-    <script>
-        $('#facebook-button').on('click', function() {
-	// Initialize with your OAuth.io app public key
-	OAuth.initialize('HwAr2OtSxRgEEnO2-JnYjsuA3tc');
-  // Use popup for oauth
-  OAuth.popup('facebook').then(facebook => {
-    console.log('facebook:',facebook);
-    // Prompts 'welcome' message with User's email on successful login
-    // #me() is a convenient method to retrieve user data without requiring you
-    // to know which OAuth provider url to call
-    facebook.me().then(data => {
-      console.log('me data:', data);
-      alert('Facebook says your email is:' + data.email + ".\nView browser 'Console Log' for more details");
-	  })
-    // Retrieves user data from OAuth provider by using #get() and
-    // OAuth provider url
-    facebook.get('/v2.5/me?fields=name,first_name,last_name,email,gender,location,locale,work,languages,birthday,relationship_status,hometown,picture').then(data => {
-      console.log('self data:', data);
-      })
-  });
-})
+    </form>
 
 
-        </script>
-         <script>
-      $('#google-button').on('click', function() {
-        // Initialize with your OAuth.io app public key
-        OAuth.initialize('ikXj_8BxUB5IsVBnRuTxWCDqKc4');
-        // Use popup for OAuth
-        OAuth.popup('google').then(google => {
-          console.log('google:',google);
-          // Retrieves user data from oauth provider
-          // Prompts 'welcome' message with User's email on successful login
-          // #me() is a convenient method to retrieve user data without requiring you
-          // to know which OAuth provider url to call
-          google.me().then(data => {
-            console.log('me data:', data);
-            alert('Google says your email is:' + data.email + ".\nView browser 'Console Log' for more details");
-          });
-          // Retrieves user data from OAuth provider by using #get() and
-          // OAuth provider url
-          google.get('/plus/v1/people/me').then(data => {
-            console.log('self data:', data);
-          })
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
+  <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script type="text/javascript" src="main.js"></script>
+
+  <script>
+    $('#facebook-button').on('click', function() {
+      // Initialize with your OAuth.io app public key
+      OAuth.initialize('HwAr2OtSxRgEEnO2-JnYjsuA3tc');
+      // Use popup for oauth
+      OAuth.popup('facebook').then(facebook => {
+        console.log('facebook:', facebook);
+        // Prompts 'welcome' message with User's email on successful login
+        // #me() is a convenient method to retrieve user data without requiring you
+        // to know which OAuth provider url to call
+        facebook.me().then(data => {
+          console.log('me data:', data);
+          alert('Facebook says your email is:' + data.email + ".\nView browser 'Console Log' for more details");
+        })
+        // Retrieves user data from OAuth provider by using #get() and
+        // OAuth provider url
+        facebook.get('/v2.5/me?fields=name,first_name,last_name,email,gender,location,locale,work,languages,birthday,relationship_status,hometown,picture').then(data => {
+          console.log('self data:', data);
+        })
+      });
+    })
+  </script>
+  <script>
+    $('#google-button').on('click', function() {
+      // Initialize with your OAuth.io app public key
+      OAuth.initialize('ikXj_8BxUB5IsVBnRuTxWCDqKc4');
+      // Use popup for OAuth
+      OAuth.popup('google').then(google => {
+        console.log('google:', google);
+        // Retrieves user data from oauth provider
+        // Prompts 'welcome' message with User's email on successful login
+        // #me() is a convenient method to retrieve user data without requiring you
+        // to know which OAuth provider url to call
+        google.me().then(data => {
+          console.log('me data:', data);
+          alert('Google says your email is:' + data.email + ".\nView browser 'Console Log' for more details");
         });
-      })
-    </script>
+        // Retrieves user data from OAuth provider by using #get() and
+        // OAuth provider url
+        google.get('/plus/v1/people/me').then(data => {
+          console.log('self data:', data);
+        })
+      });
+    })
+  </script>
 </body>
 
 </html>

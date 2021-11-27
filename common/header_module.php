@@ -130,6 +130,7 @@ session_start();
         </div>
         <div class="main_nav">
             <a href="./index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
+            <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
             <a href="./about.php"><i class="fas fa-address-card"></i><span>About</span></a>
         </div>
         <div class="user">
@@ -143,6 +144,7 @@ session_start();
                     </button>
                     <div class="dropdown-content">
                         <a href="#"><i class="fas fa-user"></i><span>Profile</span></a>
+                        <?= isset($extra_profile_links) ? $extra_profile_links : null ?>
                         <a href=<?= isset($main_page) ? "./spacece_auth/logout.php" : "../spacece_auth/logout.php" ?>><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
                     </div>
                 </div>

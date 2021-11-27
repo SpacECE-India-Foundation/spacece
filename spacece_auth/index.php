@@ -1,8 +1,5 @@
 <?php
-$main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = null;
-$module_name = null;
-
+include_once './header_local.php';
 include_once '../common/header_module.php';
 ?>
 
