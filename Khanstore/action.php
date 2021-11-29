@@ -4,7 +4,7 @@ $ip_add = getenv("REMOTE_ADDR");
 include "db.php";
 
 if (isset($_POST["userSelectProduct"])) {
-	$user = $_SESSION['uid'];
+	$user = $_SESSION['current_user_id'];
 	$cust_product = "select * from products where user_id='$user'";
 	$run_query = mysqli_query($con, $cust_product);
 	if (mysqli_num_rows($run_query) > 0) {
@@ -17,7 +17,7 @@ if (isset($_POST["userSelectProduct"])) {
 }
 if (isset($_POST["getItem"])) {
 	$item = $_POST["item"];
-	$user = $_SESSION['uid'];
+	$user = $_SESSION['current_user_id'];
 	$cust_product = "select * from products where user_id='$user' AND product_id='$item'";
 	$run_query = mysqli_query($con, $cust_product);
 	if (mysqli_num_rows($run_query) > 0) {
@@ -215,9 +215,9 @@ if (isset($_POST["addToCart"])) {
 
 	$status = $_POST["status"];
 
-	if (isset($_SESSION["uid"])) {
+	if (isset($_SESSION["current_user_id"])) {
 
-		$user_id = $_SESSION["uid"];
+		$user_id = $_SESSION["current_user_id"];
 
 		$sql = "SELECT * FROM cart WHERE p_id = '$p_id' AND user_id = '$user_id'";
 		$run_query = mysqli_query($con, $sql);
@@ -306,8 +306,8 @@ if (isset($_POST["getUserProduct"])) {
 //Count User cart item
 if (isset($_POST["count_item"])) {
 	//When user is logged in then we will count number of item in cart by using user session id
-	if (isset($_SESSION["uid"])) {
-		$sql = "SELECT COUNT(*) AS count_item FROM cart WHERE user_id = $_SESSION[uid]";
+	if (isset($_SESSION["current_user_id"])) {
+		$sql = "SELECT COUNT(*) AS count_item FROM cart WHERE user_id = $_SESSION[current_user_id]";
 	} else {
 		//When user is not logged in then we will count number of item in cart by using users unique ip address
 		$sql = "SELECT COUNT(*) AS count_item FROM cart WHERE ip_add = '$ip_add' AND user_id < 0";
@@ -323,9 +323,9 @@ if (isset($_POST["count_item"])) {
 //Get Cart Item From Database to Dropdown menu
 if (isset($_POST["Common"])) {
 
-	if (isset($_SESSION["uid"])) {
+	if (isset($_SESSION["current_user_id"])) {
 		//When user is logged in this query will execute
-		$sql = "SELECT a.product_id,a.product_title,a.product_price,a.product_cat,a.product_image,a.deposit,a.rent_price,b.id,b.qty,b.total_duration,b.status ,b.start_date,b.end_date ,b.exchange_price FROM products a,cart b WHERE a.product_id=b.p_id AND b.user_id='$_SESSION[uid]'";
+		$sql = "SELECT a.product_id,a.product_title,a.product_price,a.product_cat,a.product_image,a.deposit,a.rent_price,b.id,b.qty,b.total_duration,b.status ,b.start_date,b.end_date ,b.exchange_price FROM products a,cart b WHERE a.product_id=b.p_id AND b.user_id='$_SESSION[current_user_id]'";
 	} else {
 		//When user is not logged in this query will execute
 		$sql = "SELECT a.product_id,a.product_title,a.product_price,a.product_cat,a.product_image,a.deposit,a.rent_price,b.id,b.qty,b.total_duration,b.status, b.start_date,b.end_date ,b.exchange_price FROM products a,cart b WHERE a.product_id=b.p_id AND b.ip_add='$ip_add' AND b.user_id < 0";
@@ -523,7 +523,7 @@ if (isset($_POST["Common"])) {
 							<input type="hidden" name="upload" value="1">';
 
 				$x = 0;
-				$sql = "SELECT a.product_id,a.product_title,a.product_price,a.product_image,b.id,b.qty FROM products a,cart b WHERE a.product_id=b.p_id AND b.user_id='$_SESSION[uid]'";
+				$sql = "SELECT a.product_id,a.product_title,a.product_price,a.product_image,b.id,b.qty FROM products a,cart b WHERE a.product_id=b.p_id AND b.user_id='$_SESSION[current_user_id]'";
 				$query = mysqli_query($con, $sql);
 				while ($row = mysqli_fetch_array($query)) {
 					$x++;
@@ -537,11 +537,11 @@ if (isset($_POST["Common"])) {
 				'<input type="hidden" name="return" value="payment_success.php"/>
 					                <input type="hidden" name="notify_url" value="payment_success.php">
 									<input type="hidden" name="cancel_return" value="cancel.php"/>
-									<input type="hidden" name="custom" value="' . $_SESSION["uid"] . '"/>
+									<input type="hidden" name="custom" value="' . $_SESSION["current_user_id"] . '"/>
 									<input style="float:right;margin-right:80px;" type="image" name="submit" id="paymentInit"
-									data-name="' . $_SESSION['name'] . '"
-									data-email="' . $_SESSION['email'] . '"
-									data-mobile="' . $_SESSION['mobile'] . '"
+									data-name="' . $_SESSION['current_user_name'] . '"
+									data-email="' . $_SESSION['current_user_email'] . '"
+									data-mobile="' . $_SESSION['current_user_mob'] . '"
 										src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-60px.png" alt="PayPal Checkout"
 										alt="PayPal - The safer, easier way to pay online">
 
@@ -554,8 +554,8 @@ if (isset($_POST["Common"])) {
 //Remove Item From cart
 if (isset($_POST["removeItemFromCart"])) {
 	$remove_id = $_POST["rid"];
-	if (isset($_SESSION["uid"])) {
-		$sql = "DELETE FROM cart WHERE p_id = '$remove_id' AND user_id = '$_SESSION[uid]'";
+	if (isset($_SESSION["current_user_id"])) {
+		$sql = "DELETE FROM cart WHERE p_id = '$remove_id' AND user_id = '$_SESSION[current_user_id]'";
 	} else {
 		$sql = "DELETE FROM cart WHERE p_id = '$remove_id' AND ip_add = '$ip_add'";
 	}
@@ -596,8 +596,8 @@ if (isset($_POST["updateCartItem"])) {
 							<b>End date is missing </b>
 					</div>";
 		} else {
-			if (isset($_SESSION["uid"])) {
-				$sql = "UPDATE cart SET qty='$qty',start_date='$start_date', end_date='$end_date',total_duration='$days_between',exchange_price='$selectItem',exchange_product='$item' WHERE p_id = '$update_id' AND user_id = '$_SESSION[uid]'";
+			if (isset($_SESSION["current_user_id"])) {
+				$sql = "UPDATE cart SET qty='$qty',start_date='$start_date', end_date='$end_date',total_duration='$days_between',exchange_price='$selectItem',exchange_product='$item' WHERE p_id = '$update_id' AND user_id = '$_SESSION[current_user_id]'";
 			} else {
 				$sql = "UPDATE cart SET qty='$qty',start_date='$start', end_date='$end',total_duration='$days_between',exchange_price='$selectItem',exchange_product='$item' WHERE p_id = '$update_id' AND ip_add = '$ip_add'";
 			}
@@ -610,8 +610,8 @@ if (isset($_POST["updateCartItem"])) {
 			}
 		}
 	} else {
-		if (isset($_SESSION["uid"])) {
-			$sql = "UPDATE cart SET qty='$qty',exchange_price='$selectItem' WHERE p_id = '$update_id' AND user_id = '$_SESSION[uid]'";
+		if (isset($_SESSION["current_user_id"])) {
+			$sql = "UPDATE cart SET qty='$qty',exchange_price='$selectItem' WHERE p_id = '$update_id' AND user_id = '$_SESSION[current_user_id]'";
 		} else {
 			$sql = "UPDATE cart SET qty='$qty',exchange_price='$selectItem' WHERE p_id = '$update_id' AND ip_add = '$ip_add'";
 		}

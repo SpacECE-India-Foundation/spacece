@@ -11,7 +11,6 @@ $extra_scripts = "
 <script src='./main.js'></script>";
 
 $extra_profile_links = "
-<li><a href=''></a></li>
 <a href='./customer_order.php'><i class='fas fa-truck'></i><span>Orders</span></a>
 ";
 
