@@ -86,6 +86,13 @@ include_once '../common/header_module.php';
   </script>
   <script>
     $('#google-button').on('click', function() {
+      $.ajax({
+        'url':'gmail/login.php',
+        'method':'post',
+        success:function(result){
+          alert(result);
+        }
+      })
       // Initialize with your OAuth.io app public key
       // OAuth.initialize('ikXj_8BxUB5IsVBnRuTxWCDqKc4');
       // // Use popup for OAuth
