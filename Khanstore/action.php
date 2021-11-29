@@ -508,12 +508,12 @@ if (isset($_POST["Common"])) {
 					<div class="col-md-3">
 					<b class="net_total" style="font-size:20px; margin-top:200px;"></b></div>';
 
-			if (!isset($_SESSION["uid"])) {
+			if (!isset($_SESSION["current_user_id"])) {
 				echo '<div class="row">
 							<br><div class="col-md-8"></div>
 							<div class="col-md-2"><input type="submit" style="float:right;" name="login_user_with_product" class="btn btn-info btn-lg " value="Ready to Checkout" >
 							</form></div>';
-			} else if (isset($_SESSION["uid"])) {
+			} else if (isset($_SESSION["current_user_id"])) {
 				//Paypal checkout form
 				echo '
 						</form>
