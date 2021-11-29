@@ -176,14 +176,16 @@ $(document).ready(function () {
     event.preventDefault();
     $(".overlay").show();
     $.ajax({
-      url: "login.php",
+      url: "../spacece_auth/login.php",
       method: "POST",
       data: $("#login").serialize(),
       success: function (data) {
-        if (data == "login_success") {
+        console.log(data);
+        exit();
+        if (data.status == "success") {
           window.location.href = "profile.php";
         } else if (data == "cart_login") {
-          window.location.href = "cart.php";
+          window.location.href = "./cart.php";
         } else {
           $("#e_msg").html(data);
           $(".overlay").hide();
@@ -198,7 +200,7 @@ $(document).ready(function () {
     event.preventDefault();
     $(".overlay").show();
     $.ajax({
-      url: "register.php",
+      url: "../spacece_auth/register.php",
       method: "POST",
       data: $("#signup_form").serialize(),
       success: function (data) {
