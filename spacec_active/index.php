@@ -115,7 +115,7 @@ include_once '../common/header_module.php';
   </div>
 
 </div> -->
-                    <div class="progress">
+           <div class="progress">
                         <div class="uploadProgressBar" id="uploadProgressBar"></div>
 
                     </div>
@@ -130,6 +130,8 @@ include_once '../common/header_module.php';
     </div>
 
 </div>
+
+
 <div class="container" style="margin-top:10%;">
     <div class=" col-sm-12 " id="tablediv">
         <table class="table table-active table-hover table-striped table-bordered ">
@@ -218,6 +220,12 @@ include_once '../common/header_module.php';
     </div>
     <!-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&width=98&height=20&appId" width="98" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
 </div>
+</div>
+    </div>
+<!-- <div class="progress mt-5" >
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+</div> -->
+         
 
 
 <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
@@ -342,7 +350,11 @@ echo "</div>";
     </div>
 </div>
 <div class="progress">
-    <div id="progress-bar" class="progress-bar" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+    <div id="progress-bar" class="progress-bar progress-bar-striped" role="progressbar" style="width:10px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+</div>
+
+<div class="row">
+    
 </div>
 </body>
 
@@ -448,7 +460,7 @@ integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCm
         fd.append("file", file_data);
         fd.append("title", title);
         fd.append("summary", summary);
-
+        $('.progress').show();
 
         $.ajax({
             xhr: function() {
@@ -463,7 +475,7 @@ integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCm
                 return xhr;
             },
             type: 'POST',
-            url: 'Youtube/upload.php',
+            url: 'Youtube/index.php',
             data: fd,
             contentType: false,
             cache: false,
@@ -477,7 +489,7 @@ integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCm
                 $('#loader-icon').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
             },
             success: function(resp) {
-               /// alert(resp);
+                alert(resp);
                 $('.progress').hide();
                 if (resp == 'ok') {
                     // $('#uploadForm')[0].reset();
