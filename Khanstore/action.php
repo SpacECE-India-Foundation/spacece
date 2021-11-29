@@ -361,7 +361,7 @@ if (isset($_POST["Common"])) {
 		if (mysqli_num_rows($query) > 0) {
 			//display user cart item with "Ready to checkout" button if user is not login
 
-			echo "<form method='post' action='login_form.php'>";
+			echo "<form method='post' action='../spacece_auth/login.php'>";
 			$n = 0;
 			while ($row = mysqli_fetch_array($query)) {
 				$n++;
