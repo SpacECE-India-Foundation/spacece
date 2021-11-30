@@ -42,7 +42,14 @@ include_once '../common/header_module.php';
       <br>
      
 
-    
+    <?php
+      include './gmail/login.php';
+     
+    ?>
+      
+      <?php
+     // include './facebook/index.php';
+    ?>
     <a id="google-button" class="btn btn-block btn-social btn-google">
         <i class="fa fa-google"></i> Sign in with Google
       </a> 
