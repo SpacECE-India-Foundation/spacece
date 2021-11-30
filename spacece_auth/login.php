@@ -50,9 +50,9 @@ include_once '../common/header_module.php';
     <a id="google-button" class="btn btn-block btn-social btn-google">
         <i class="fa fa-google"></i> Sign in with Google
       </a> 
-    <a id="facebook-button" class="btn btn-block btn-social btn-facebook">
+    <!-- <a id="facebook-button" class="btn btn-block btn-social btn-facebook">
         <i class="fa fa-facebook"></i> Sign in with Facebook
-      </a> 
+      </a>  -->
 
       <p class="message">Not registered? <a href="register.php">Create an account</a></p>
 
