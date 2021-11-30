@@ -29,7 +29,7 @@ if(isset($_GET["code"]))
   $data = $google_service->userinfo->get();
 
   //Below you can find Get profile data and store into $_SESSION variable
-  $sql="Insert into social_login (email,name) VALUES('".$data['given_name']."','" .$data['email']."')";
+ // $sql="Insert into social_login (email,name) VALUES('".$data['given_name']."','" .$data['email']."')";
 //   if(!empty($data['given_name']))
 //   {
 //    $_SESSION['user_first_name'] = $data['given_name'];
