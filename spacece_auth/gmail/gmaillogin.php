@@ -64,8 +64,7 @@ if(!isset($_SESSION['access_token']))
 echo '<a id="google-button" href="'.$google_client->createAuthUrl().'" class="btn btn-block btn-social btn-google
 "><i class="fa fa-google"></i> Sign in with Google</a>';
 }
-echo '<a id="google-button" href="#" class="btn btn-block btn-social btn-google
-// "><i class="fa fa-google"></i> Sign in with Google</a>';
+echo '<a id="google-button" href="#" class="btn btn-block btn-social btn-google "><i class="fa fa-google"></i> Sign in with Google</a>';
 
 ?>
 <!-- <html>
