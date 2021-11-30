@@ -4,7 +4,7 @@
 //index.php
 //Include Configuration File
 include('./config.php');
-include '../db.php';
+include './db.php';
 $login_button = '';
 
 //This $_GET["code"] variable value received after user has login into their Google Account redirct to PHP script then this variable value has been received
@@ -62,8 +62,7 @@ if(!isset($_SESSION['access_token']))
 {
   $login_button=$google_client->createAuthUrl();
  //Create a URL to obtain user authorization
-echo '<a id="google-button" href="'.$login_button.'" class="btn btn-block btn-social btn-google
-"><i class="fa fa-google"></i> Sign in with Google</a>';
+echo '<a href="'.$google_client->createAuthUrl().'" id="google-button" class="btn btn-block btn-social btn-google"><i class="fa fa-google"></i> Sign in with Google</a>';
 
 //echo '<div align="center">'.$login_button . '</div>';
 }
