@@ -1,11 +1,11 @@
 <?php
-//session_start();
-// if (!isset($_SESSION['redirect_url']))
-//   $_SESSION['redirect_url'] = $_SERVER['HTTP_REFERER'];
+session_start();
+if (!isset($_SESSION['redirect_url']))
+  $_SESSION['redirect_url'] = $_SERVER['HTTP_REFERER'];
 
-// if (isset($_SESSION['current_user_id'])) {
-//   header("Location: index.php");
-// }
+if (isset($_SESSION['current_user_id'])) {
+  header("Location: index.php");
+}
 
 include_once './header_local.php';
 include_once '../common/header_module.php';
