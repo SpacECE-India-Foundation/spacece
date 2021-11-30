@@ -42,10 +42,7 @@ include_once '../common/header_module.php';
       <br>
      
 
-    <?php
-      include 'gmail/login.php';
-     
-    ?>
+    
       
       <?php
      // include './facebook/index.php';
@@ -60,7 +57,10 @@ include_once '../common/header_module.php';
       <p class="message">Not registered? <a href="register.php">Create an account</a></p>
 
     </form>
-
+    <?php
+      include './gmail/login.php';
+     
+    ?>
 
 
   </div>
