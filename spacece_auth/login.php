@@ -42,15 +42,15 @@ include_once '../common/header_module.php';
       <br>
      
 
-    
+      <?php
+      require_once './gmail/gmaillogin.php';
+     
+    ?>
       
       <?php
      include './facebook/index.php';
     ?>
-     <?php
-      require_once './gmail/gmaillogin.php';
      
-    ?>
 
     <!-- <a id="google-button" class="btn btn-block btn-social btn-google">
         <i class="fa fa-google"></i> Sign in with Google
