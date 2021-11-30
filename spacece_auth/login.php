@@ -47,9 +47,14 @@ include_once '../common/header_module.php';
       <?php
      include './facebook/index.php';
     ?>
-    <a id="google-button" class="btn btn-block btn-social btn-google">
+     <?php
+      require_once './gmail/login.php';
+     
+    ?>
+
+    <!-- <a id="google-button" class="btn btn-block btn-social btn-google">
         <i class="fa fa-google"></i> Sign in with Google
-      </a> 
+      </a>  -->
     <!-- <a id="facebook-button" class="btn btn-block btn-social btn-facebook">
         <i class="fa fa-facebook"></i> Sign in with Facebook
       </a>  -->
@@ -57,11 +62,7 @@ include_once '../common/header_module.php';
       <p class="message">Not registered? <a href="register.php">Create an account</a></p>
 
     </form>
-    <?php
-      include './gmail/login.php';
-     
-    ?>
-
+   
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
