@@ -196,7 +196,7 @@ $ref = $_GET['user']; ?>
 function redirectTo(id,user_id){
 var id1=generateToken();
   //  alert(encodeURIComponent(uriComponent);(id));
-   appid="0485c1232ca7491e9ada47ae96da3160";
+   appid=agoraAppId;
  channel ="testing";
  //token="0060485c1232ca7491e9ada47ae96da3160IAAw2qjO8uvCZCP9l4Qpz22rUHon7W13zhOb7OnlZc3ww/tD/hgAAAAAEACkCrtyPxSKYQEAAQA+FIph";
 //alert(user_id);

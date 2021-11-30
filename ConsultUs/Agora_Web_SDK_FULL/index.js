@@ -2,6 +2,7 @@ let params = (new URL(document.location)).searchParams;
 let channel1 = params.get('channel'); // is the string "cha123".
 let appid1 = params.get('appId'); // is the string "183432424242"
 let id1 = params.get('id'); 
+var agoraAppId = "0485c1232ca7491e9ada47ae96da3160";
 if(channel1){
 
 
@@ -10,7 +11,7 @@ if(channel1){
 //alert(id1);
  var token1 =generateToken();
 
- var agoraAppId = "0485c1232ca7491e9ada47ae96da3160";
+ ///var agoraAppId = "0485c1232ca7491e9ada47ae96da3160";
  console.log(agoraAppId) // Set your Agora App ID
 var channelName ="testing";
 var uid="43456";
