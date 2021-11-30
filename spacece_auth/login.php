@@ -50,12 +50,12 @@ include_once '../common/header_module.php';
       <?php
       include './facebook/index.php';
     ?>
-      <!-- <a id="google-button" class="btn btn-block btn-social btn-google">
+    <a id="google-button" class="btn btn-block btn-social btn-google">
         <i class="fa fa-google"></i> Sign in with Google
       </a> -->
-      <!-- <a id="facebook-button" class="btn btn-block btn-social btn-facebook">
+    <a id="facebook-button" class="btn btn-block btn-social btn-facebook">
         <i class="fa fa-facebook"></i> Sign in with Facebook
-      </a> -->
+      </a> 
 
       <p class="message">Not registered? <a href="register.php">Create an account</a></p>
 
@@ -65,8 +65,6 @@ include_once '../common/header_module.php';
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
-  <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
