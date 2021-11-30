@@ -2,7 +2,7 @@
 
 
 include 'config.php';
-include './db.php';
+//include './db.php';
 $facebook_output='';
 $facebook_helper=$facebook->getRedirectLoginHelper();
 if(isset($_GET['code'])){
