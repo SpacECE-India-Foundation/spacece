@@ -11,4 +11,4 @@ $google_client->setRedirectUri('https://spacefoundation.in/');
 $google_client->addScope('email');
 $google_client->addScope('profile');
 
- //session_start();
+ session_start();
