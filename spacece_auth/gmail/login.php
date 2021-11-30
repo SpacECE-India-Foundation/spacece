@@ -62,9 +62,7 @@ if(!isset($_SESSION['access_token']))
 {
  //Create a URL to obtain user authorization
 echo '<a id="google-button" href="'.$google_client->createAuthUrl().'" class="btn btn-block btn-social btn-google
-">
- <i class="fa fa-google"></i> Sign in with Google
-</a>';
+"><i class="fa fa-google"></i> Sign in with Google</a>';
 
 //echo '<div align="center">'.$login_button . '</div>';
 }
@@ -87,20 +85,7 @@ echo '<a id="google-button" href="'.$google_client->createAuthUrl().'" class="bt
    <h2 align="center">PHP Login using Google Account</h2>
    <br />
    <div class="panel panel-default">
-   <?php
-//    if($login_button == '')
-//    {
-//     echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
-//     echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
-//     echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
-//     echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
-//     echo '<h3><a href="logout.php">Logout</h3></div>';
-//    }
-//    else
-//    {
-//     echo '<div align="center">'.$login_button . '</div>';
-//    }
-   ?>
+  
    </div>
   </div>
  </body>
