@@ -2,6 +2,7 @@
 require "config/constants.php";
 include_once './header_local.php';
 include_once '../common/header_module.php';
+include_once '../common/banner.php';
 session_start();
 if (isset($_SESSION["current_user_name"])) {
 	header("location:profile.php");

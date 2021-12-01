@@ -102,6 +102,17 @@ session_start();
             border-radius: 50%;
             margin-right: 10px;
         }
+
+        .banner {
+            width: 100%;
+            height: 50vh;
+        }
+
+
+        .banner img {
+            height: 100%;
+            width: 100%;
+        }
     </style>
     <title><?= isset($module_name) ? $module_name : 'Spacece' ?></title>
 </head>
