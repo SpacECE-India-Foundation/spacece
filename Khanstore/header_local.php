@@ -2,7 +2,7 @@
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/LibForSmalls.jpeg";
 $module_name = "Lib for smalls";
-$banner_img = "../img/banner/LibForSmalls.png";
+$banner_img = "../img/banner/LibForSmalls.jpeg";
 
 $extra_styles = "
 <link rel='stylesheet' href='./css/bootstrap.min.css' />
