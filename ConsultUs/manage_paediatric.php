@@ -14,9 +14,9 @@ $cat = $_GET['category']; ?>
         <div class="menu text-center" style="background-color:orange;text-align:right;height:50px;">
             <div class="wrapper">
                 <ul>
-                    <li><a href="index2.php?user=<?php echo $ref ?>">HOME</a></li>
-                    <li><a href="manage_paediatric.php?user=<?php echo $ref ?>">CONSULTANT PAGE</a></li>
-                    <li><a href="showmyappointment.php?user=<?php echo $ref ?>">SHOW MY APPOINTMENT</a></li>
+                    <li><a href="index2.php">HOME</a></li>
+                    <li><a href="manage_paediatric.php">CONSULTANT PAGE</a></li>
+                    <li><a href="showmyappointment.php">SHOW MY APPOINTMENT</a></li>
                 </ul>
             </div>
         </div>

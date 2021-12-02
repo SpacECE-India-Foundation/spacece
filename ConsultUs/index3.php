@@ -3,7 +3,15 @@
 
  include('indexDB.php'); ?>
 <?php error_reporting(0); 
-$ref = $_GET['user']; ?>
+$ref = '';
+if(isset($_SESSION['current_user_email'])){
+    $email = $_GET['current_user_email'];
+    $ref= $_SESSION['current_user_name'];
+} else{
+	header('location:../spacecce_auth/login.php');
+	exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,7 +149,7 @@ $ref = $_GET['user']; ?>
 				<p>Connect with India's top doctor consultant for your child</p>
 			</div>
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="appoint_consultant.php?user=<?php echo $ref ?>"> 
+                <a href="appoint_consultant.php"> 
                                         <img align= "centered" src="https://doctoryouneed.org/wp-content/uploads/2020/05/dr-new-demo-image-57.png" alt="ALL DOCTOR DETAILS" width="150" height="150">
                                     <div class="bottom" style="color: black;" style="font-weight:200;"> BOOK APPOINTMENT </div></a>
 					<h5><a href="#">  </a></h5>
@@ -487,7 +495,9 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 
 
  setInterval(function(){ 
- 	let user ="<?php echo $_GET['user'];?>";
+ 	let user ="<?php if(isset($_SESSION['current_user_email'])){
+    echo $_SESSION['current_user_email'];
+}?>";
 //alert(user);
  //$('#call').replaceWith("");
 $.ajax({

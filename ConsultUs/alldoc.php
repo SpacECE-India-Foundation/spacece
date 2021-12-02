@@ -1,9 +1,10 @@
 
 <?php include('indexDB.php') ?>
 <?php error_reporting(0); 
+$ref='';
 if(isset($_SESSION['current_user_email'])){
     $email = $_GET['current_user_email'];
-    $ref1= $_SESSION['current_user_name'];
+    $ref= $_SESSION['current_user_name'];
 }
 //session_start();
  ?>
@@ -19,9 +20,9 @@ if(isset($_SESSION['current_user_email'])){
 <img src="img/space.jpg" alt="" style="width:6%; ">
             <div class="wrapper" >
                 <ul>
-                    <li><a href="index2.php?user=<?php echo $ref ?>">HOME</a></li>
-                    <li><a href="alldoc.php?user=<?php echo $ref ?>">CONSULTANT PAGE</a></li>
-                    <li><a href="showmyappointment.php?user=<?php echo $ref ?>">SHOW MY APPOINTMENT</a></li>
+                    <li><a href="index2.php">HOME</a></li>
+                    <li><a href="alldoc.php">CONSULTANT PAGE</a></li>
+                    <li><a href="showmyappointment.php">SHOW MY APPOINTMENT</a></li>
                 </ul>
             </div>
         </div>
