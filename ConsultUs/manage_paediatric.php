@@ -2,7 +2,15 @@
 include_once './includes/header1.php';
 include('indexDB.php'); ?>
 <?php error_reporting(0); 
-$ref = $_GET['user']; 
+
+ $ref = '';
+if(isset($_SESSION['current_user_email'])){
+    $email = $_GET['current_user_email'];
+    $ref= $_SESSION['current_user_name'];
+} else{
+	header('location:../spacecce_auth/login.php');
+	exit();
+}
 $cat = $_GET['category']; ?>
 <html>
     <head>
@@ -145,19 +153,16 @@ $cat = $_GET['category']; ?>
                             <a href="<?php echo SITEURL;?>appoint.php?id=<?php echo $id;?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>&name=<?php echo $full_name;?>&category=<?php echo $category;?>&conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>&user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" class="btn-second" style="color:black;">Book Appointment </a>
                             <br><br><br>
  <a href="<?php echo SITEURL;?>instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;"> Confirm Appointment </a><br>
- <?php  $sql = "SELECT * FROM `webhook` WHERE `buyer_name`= '$ref'";
+ <?php  $sql = "SELECT * FROM `webhook` WHERE `email`= '$ref'";
                    $res2= mysqli_query($conn,$sql);
-                   $row=mysqli_fetch_assoc($res2);
-                   if(mysqli_num_rows($row)>0){
-                    ?>
-                    <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo();" class="btn-second" style="color:black;background-color:yellow">Chat With Counsultants</a>
-                    <?php
-                   }else{
-                    ?><br>
-                    <a href="<?php echo SITEURL;?>instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;"> Pay Now for Video Call </a><br>
-                    <?php
-                   }
-  ?>
+                   while($row=mysqli_fetch_assoc($res2)){
+                       ?>
+                    <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" onclick="redirectTo();" class="btn-second" style="color:black;background-color:yellow">Chat With Counsultants</a>
+              <?php     }
+                  
+                  
+                 ?>
+                   
  
                             <br><br><br>
 
@@ -186,29 +191,29 @@ include_once './includes/footer1.php';
     <script src="Agora_Web_SDK_FULL/index.js"></script> 
 <script type="text/javascript">
     
-function redirectTo(){
-   
-var id=generateToken();
-  //  alert(encodeURIComponent(uriComponent);(id));
-   appid="dd042c63e1bc4a64b3ee20ff20edd367";
- channel ="hgrtyrt";
- //token="0060485c1232ca7491e9ada47ae96da3160IAAw2qjO8uvCZCP9l4Qpz22rUHon7W13zhOb7OnlZc3ww/tD/hgAAAAAEACkCrtyPxSKYQEAAQA+FIph";
-//alert(id);
+    function redirectTo(id,user_id){
+var id1=generateToken();
+   appid=agoraAppId;
+ channel ="testing";
+ 
 var c_id=$('#link').data('id');
 
-
+//var id='<?php echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
+var d = new Date(); //without params it defaults to "now"
 
+var time=+d;
 
- var link=linkfull+"Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id)+"&appId="+appid+"&channel="+channel;
+ var link=linkfull+"Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;
  $.ajax({
     url:"video.php",method:"POST",
     data:{
         link:link,
         c_id:c_id,
-        video:1
+        video:1,
+        time:time 
     },
     success:function(data){
         console.log(data);
@@ -216,7 +221,7 @@ var linkfull=url.replace(regex, '/');
     }
  })
 
-    window.location.href="Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id)+"&appId="+appid+"&channel="+channel;  
+ window.location.href="Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;  
 }   
 
 </script>
