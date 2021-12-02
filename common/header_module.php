@@ -106,6 +106,7 @@ session_start();
         .banner {
             width: 100%;
             height: 50vh;
+            margin: 20px 0;
         }
 
 
