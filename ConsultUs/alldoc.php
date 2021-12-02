@@ -1,8 +1,12 @@
 
 <?php include('indexDB.php') ?>
 <?php error_reporting(0); 
-session_start();
-$ref = $_GET['user']; ?>
+if(isset($_SESSION['current_user_email'])){
+    $email = $_GET['current_user_email'];
+    $ref1= $_SESSION['current_user_name'];
+}
+//session_start();
+ ?>
 <html>
     <head>
         <title>appointment-HOME PAGE</title>
@@ -72,7 +76,7 @@ $ref = $_GET['user']; ?>
                         <th>ACTION:</th>
                     </tr>
                     <?php
-                    $user_id;
+                    $user_id; 
                     // schanges
                     $sql = "SELECT * FROM `login` WHERE `username`= '$ref'";
                     $res2 = mysqli_query($conn,$sql);

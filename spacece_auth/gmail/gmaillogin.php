@@ -3,7 +3,7 @@
 
 //index.php
 //Include Configuration File
-include('./config.php');
+include './config.php';
 include './db.php';
 $login_button = '';
 
