@@ -75,7 +75,7 @@ if(isset($_SESSION['current_user_email'])){
 							<a href="index.html" style="color:black;"><i class="fa fa-user-circle-o" style="color:black;"></i><b>LOGOUT</b></a>
 							</div>
 			<img align="top-right " src="https://doctoryouneed.org/wp-content/uploads/2020/05/dr-new-demo-image-57.png" alt="ALL DOCTOR DETAILS" width="80" height="80"><br>
- 				       <a href="myinfo_user.php?user=<?php //echo $ref ?>"> 
+ 				      
                                         <div class="bottom" style="color: black;" style="font-weight:200;">MY INFO</div></a>
 					<h5><a href="#">  </a></h5>
 					</div>

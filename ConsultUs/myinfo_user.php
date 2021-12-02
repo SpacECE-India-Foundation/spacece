@@ -1,7 +1,14 @@
 <?php include_once './includes/header1.php';
 include('indexDB.php'); ?>
-<?php //error_reporting(0); 
- $ref = $_GET['user']; 
+<?php //error_reporting(0);  $_GET['user']; 
+ $ref = '';
+ if(isset($_SESSION['current_user_email'])){
+     $email = $_GET['current_user_email'];
+     $ref= $_SESSION['current_user_name'];
+ } else{
+     header('location:../spacecce_auth/login.php');
+     exit();
+ }
 //$nid = $_GET['id'];?>
 <html>
     <head>

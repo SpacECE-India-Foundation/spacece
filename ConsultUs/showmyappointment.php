@@ -1,6 +1,16 @@
 <?php include('indexDB.php');
 include_once './includes/header1.php'; ?>
-<?php $user=$_GET['user'];
+<?php
+$user = '';
+if(isset($_SESSION['current_user_email'])){
+    $email = $_GET['current_user_email'];
+    $user= $_SESSION['current_user_name'];
+} else{
+    header('location:../spacecce_auth/login.php');
+    exit();
+}
+
+
  ?>
 <html>
     <head>
