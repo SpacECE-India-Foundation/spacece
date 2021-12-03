@@ -422,6 +422,8 @@ include_once '../common/header_module.php';
 <!-- <script type="js/jquery.js"></script> -->
 <!-- <script type="text/javascript" src="js/jquery-3.1.1.min.js"> -->
 </script>
+<script src="js/jquery-3.2.1.min.js"></script>
+
 <script type="text/javascript" src="js/jquery.convform.js">
 
 </script>
