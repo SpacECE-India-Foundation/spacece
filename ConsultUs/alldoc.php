@@ -2,9 +2,14 @@
 <?php include('indexDB.php') ?>
 <?php error_reporting(0); 
 $ref='';
+///$_SESSION['current_user_email']='krishnathorat007@gmail.com';
+//$_SESSION['current_user_name']='Krishna Thorat';
 if(isset($_SESSION['current_user_email'])){
-    $email = $_GET['current_user_email'];
+    $email = $_SESSION['current_user_email'];
     $ref= $_SESSION['current_user_name'];
+}else{
+    header('location:../spacece_auth/login.php');
+    exit();
 }
 //session_start();
  ?>
@@ -152,7 +157,7 @@ if(isset($_SESSION['current_user_email'])){
                             <br><br>
 
  <a href="<?php echo SITEURL;?>instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br>
-  <?php  $sql = "SELECT * FROM `webhook` WHERE purpose='CONSULTANT FEE' AND email='".$_SESSION['current_user_email']."' ";
+  <?php  $sql = "SELECT * FROM `webhook` WHERE purpose='Consultant App' AND email='".$_SESSION['current_user_email']."' ";
 
                    $res2  = mysqli_query($conn,$sql);
                    $row=mysqli_fetch_assoc($res2);

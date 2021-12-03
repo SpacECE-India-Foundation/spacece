@@ -4,7 +4,7 @@
 <?php error_reporting(0); 
 $ref = '';
 if(isset($_SESSION['current_user_email'])){
-    $email = $_GET['current_user_email'];
+    $email = $_SESSION['current_user_email'];
     $ref= $_SESSION['current_user_name'];
 }
 
