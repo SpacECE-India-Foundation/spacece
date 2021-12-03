@@ -159,6 +159,7 @@ include_once './common/header_module.php';
   <!-- Header section end -->
 
   <!-- Hero section -->
+  <br /><br />
   <section class="hero-section set-bg" data-setbg="" style="width: 100%; height: 40%">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -229,8 +230,7 @@ include_once './common/header_module.php';
 	</section>-->
   <!-- Services section end -->
   <!-- Blog section -->
-  <br /><br /><br /><br /><br /><br />
-  <hr />
+  <br /><br /><br /><br />
   <section class="blog-section spad">
     <div class="container">
       <div class="section-title text-center">
