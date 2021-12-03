@@ -537,7 +537,7 @@ include_once './common/header_module.php';
   <?php
   include_once './common/footer_module.php';
   ?>
-
+<script type="text/javascript" src="js/jquery.convform.js"></script>
 </body>
 
 </html>
