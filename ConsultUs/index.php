@@ -277,7 +277,7 @@ include_once '../common/header_module.php';
 
 <!---benefits section close-->
 
-
+<!-- fixed bug id 0000100 -->
 <!---offers section-->
 <div class="section col" style="width: 100%; height: 90%; ">
 	<div class="text-center">
@@ -288,7 +288,7 @@ include_once '../common/header_module.php';
 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img class="d-block w-100" src="../img/o1.jpg" alt="First slide" style="width: 10%; height: 10%;">
+					<img class="d-block w-100" src="../img/o1.jpg" alt="First slide" style="width: 100%; height: 10%;">
 				</div>
 				<div class="carousel-item">
 					<img class="d-block w-100" src="../img/o2.jpg" alt="Second slide" style="width: 100%; height: 30%;">
