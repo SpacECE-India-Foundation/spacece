@@ -48,10 +48,16 @@ class DB {
      public function get_Videos($user){
          $sql= $this->db->query("SELECT * from youtube_videos where user_id='$user' ");
          //$data[]=array();
+        
        while($result = $sql->fetch_assoc()){
          $data[]= $result;
        }
-       return $data;
+       if(count($data)>0){
+        return $data;
+       }else{
+        return "No Video found";
+       }
+      
      }
  
      public function get_all_Videos(){
@@ -59,11 +65,12 @@ class DB {
          $sql= $this->db->query("SELECT * from youtube_videos  ");
          while($result = $sql->fetch_assoc()){
             $data[]= $result;
-          
-          
+         }
+           if(count($data)>0){
+            return $data;
+           }else{
+            return "No Video found";
            }
-           
-           return $data;
      }
     
 
