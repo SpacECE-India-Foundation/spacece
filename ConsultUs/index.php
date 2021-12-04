@@ -175,6 +175,8 @@
 	<section class="blog-section spad" >
 		<div class="container">
 			<div class="section-title text-center">
+				<a href="cdetails.php?category=all"></a>
+				<img src="https://www.jupiterhospital.com/uploadedfiles/gallery/1584610523_male-dummy.jpg" width="500" height="200">
 				<h3>TOP SPECIALTIES</h3>
 				<p>Connect with India's top doctor consultant for your child</p>
 			</div>

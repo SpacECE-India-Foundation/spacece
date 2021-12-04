@@ -44,7 +44,8 @@ session_start();
   <!-- <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
   <script src="js/main.js"></script>
   <!-- <link rel="stylesheet" type="text/css" href="css/style1.css" /> -->
-  <title> Lib for smalls</title>
+  <!-- bug id-0000104 -->
+  <title>Consult Us</title>
   <style type="text/css">
     a {
       color: black !important;
@@ -107,7 +108,7 @@ session_start();
               <li class="divider"></li>
               <!-- <li><a href="customer_order.php">Orders</a></li> -->
               <!-- <li class="divider"></li> -->
-              <li><a href="includes/changepwd.php">Change Password</a></li>
+              <li><a href="includes/change-password.php">Change Password</a></li>
               <li class="divider"></li>
               <li>
                 <a href='../spacece_auth/logout.php'>
@@ -197,7 +198,7 @@ session_start();
 
             <div class="col-sm-7">
 
-              <li><a href="../spacece_auth/login.php?type=consultant" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a></li>
+              <li><a href="../spacece_auth/login.php?type=consultant" style="color:black;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a></li>
 
             </div>
             <div class="col-sm-2"><a></a>

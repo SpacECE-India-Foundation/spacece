@@ -13,16 +13,25 @@ include_once './common/header_module.php';
 <html lang="en">
 
 <head>
-  <title>SPAC-ECE</title>
+  <title>SpaceECE</title>
   <meta charset="UTF-8" />
-  <meta name="description" content="SPAC-ECE" />
+  <meta name="description" content="SpaceEcE" />
   <meta name="keywords" content="LERAMIZ, unica, creative, html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Favicon -->
   <link href="img/Favicon.ico" rel="shortcut icon" />
 
   <!-- Google Fonts -->
+  
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
+
+<!-- bug id-0000115 -->
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- Stylesheets -->
   <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -132,7 +141,8 @@ include_once './common/header_module.php';
           <img class="d-block w-100" src="img/d7.jpg" alt="First slide" style="width: 100%; height: 30%" />
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="img/d8.jpg" alt="Second slide" />
+          <!-- 0000094 -->
+          <img class="d-block w-100" src="img/d8.jpg" alt="Second slide"  style="width: 100%; height: 30%"/>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -360,7 +370,7 @@ include_once './common/header_module.php';
       </div>
     </div>
   </section>
-  <br /><br />
+  <br /><br /> 
 
   <!---offers close-->
 

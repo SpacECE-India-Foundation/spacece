@@ -21,11 +21,32 @@ include_once '../common/header_module.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
     <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login</title>
 </head>
+<style>
+.fa {
+  padding: 5px;
+  font-size: 30px;
+  width: 58px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+} 
 
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+</style>
 <body>
     <div class="login-page">
         <h2>Login</h2>
@@ -37,6 +58,16 @@ include_once '../common/header_module.php';
                 <option value="consultant">Consultant</option>
             </select>
             <button type="submit" name="login">Login</button>
+            <br>
+            <!-- bug id -0000114 -->
+      <a id="google-button" href="https://www.google.com/account/about/" class="btn btn-block btn-social btn-google ">
+        <i class="fa fa-google"></i> Sign in with Google
+      </a>
+      <a id="facebook-button"  href="https://www.facebook.com/" class="btn btn-block btn-social btn-facebook">
+        <i class="fa fa-facebook"></i> Sign in with Facebook
+      </a>
+
+
             <p class="message">Not registered? <a href="register.php">Create an account</a></p>
         </form>
     </div>

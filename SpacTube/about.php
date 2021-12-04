@@ -2,21 +2,24 @@
 
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/LibForSmalls.jpeg";
-$module_name = "ConsultUs";
+$module_name = "spaceTube";
 
-include_once 'includes/header1.php';
+include_once '../common/header_module.php';
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>SPAC-ECE</title>
+	<title>SpaceECE</title>
 	<meta charset="UTF-8">
-	<meta name="description" content="SPAC-ECE">
+	<meta name="description" content="SpaceECE">
 	<meta name="keywords" content="LERAMIZ, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon -->   
-	<link href="img/Favicon.ico" rel="shortcut icon"/>
+	<!-- Favicon -->
+	<link href="img/Favicon.ico" rel="shortcut icon" />
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -43,15 +46,16 @@ include_once 'includes/header1.php';
 	<![endif]-->
 
 </head>
+
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
-	
-	<!-- Header section -->
-	<!-- <header class="header-section" style="background-color:orange; height:150px;">
-		<div class="header-top" style = "position:absolute; left:850px; top:30px;">
+
+	<!-- Header section
+	<header class="header-section">
+		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
 			<div class="container">
 				<div class="row">
 					
@@ -83,9 +87,9 @@ include_once 'includes/header1.php';
 						</div>
 						<ul class="main-menu" style="margin-left: 60px;">
 							<img src="img/space.jpg" alt="" style="width:6%; ">
-							<li><a href="index.html" style="color:white"><i class="fa fa-home"></i>HOME</a></li>
-							<li><a href="about.html" style="color:white"><i class="fa fa-users"></i> ABOUT US</a></li>
-							<li><a href="contact.html" style="color:white"><i class="fa fa-envelope" style="color:white;"></i> FEEDBACK</a></li>
+							<li><a href="index.html" style="color:orange"><i class="fa fa-home"></i>HOME</a></li>
+							<li><a href="about.html" style="color:orange"><i class="fa fa-users"></i> ABOUT US</a></li>
+							<li><a href="contact.html" style="color:orange"><i class="fa fa-envelope" style="color:orange;"></i> FEEDBACK</a></li>
 						</ul>
 					</div>
 				</div>
@@ -98,7 +102,8 @@ include_once 'includes/header1.php';
 	<!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="img/about.jpg" style="width: 100%; height: 80%;">
 		<div class="container text-black">
-			<h3 style=" background: linear-gradient(to bottom, #ff6699 0%, #ff9900 100%);">We aim to encourage children in communicating with the world using all of their abilities, capabilities, and language, and overcome any barriers</h3>
+		<h3 style= background: linear-gradient(to bottom, #ff6699 0%, #ff9900 100%);">
+			<h3>Our aim is to encourage children in communicating with the world using all of their ability, capabilities, and language, and to overcome any barriers.</h3>
 		</div>
 	</section>
 	<!--  Page top end -->
@@ -114,37 +119,36 @@ include_once 'includes/header1.php';
 	<!-- page -->
 	<section class="page-section">
 		<div class="container">
-			<!--<img class="page-top-section set-bg" src="img/about.jpg" alt=""> --> 
+			<!--<img class="page-top-section set-bg" src="img/about.jpg" alt=""> -->
 			<div class="container text-black" style=" height: 500px;">
 
-					<h3 style="text-align: center;">ABOUT US</h3>
-					<p>SPACE is the acronym of Social, Physical, Aesthetic, Cognitive and Emotional, which are various crucial child development aspect. Additionally, to communicate our focus on educational component and children between the 0-8years, we use suffix Early Childhood Education.
+				<h3 style="text-align: center;">ABOUT US</h3>
+				<p>SPACE is the acronym of Social, Physical, Aesthetic, Cognitive and Emotional, which are various crucial child development aspect. Additionally, to communicate our focus on educational component and children between the 0-8years, we use suffix Early Childhood Education.
 					SPACE is based on the foundational thoughts of Samidha, a Non-profit organization. Samidha has established learning-centers in urban slums and remote rural locations, focused on the overall development of the children. Samidha learning centers contributed as an after-school support facility for children who lacked an educational environment at home.
 					Both the proprietors have worked extensively with the Jean Piaget or Maria Montessori of this century, Dr Sugata Mitra, Professor of Emirate, University of Newcastle, UK. His brainchild the Hole-in-the-Wall experiment and TED winning idea Self-Organized Learning Environment (SOLE) has shaped our thoughts. Samidha SOLE centers established computer labs for the children and youths coming from the slums, which got an encouraging response. It also experimented with the sustainability of such learning centers, which included recruiting and training the local facilitators.
 
-</p>
-					
-				</div>
+				</p>
+
 			</div>
-		
-		
+		</div>
+
+
 		<!-- Review section -->
 		<section class="page-top-section set-bg" data-setbg="img/about.jpg" style="width: 100%; height: 80%;">
-		<!-- Review section end-->
+			<!-- Review section end-->
 
 
-		
-	</section>
-	<!-- page end -->
-    <?php
 
+		</section>
+		<!-- page end -->
+
+		<?php
 include_once 'includes/footer1.php';
 ?>
 
 
-
-	<!-- Footer section -->
-	<!-- <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
+		<!-- Footer section -->
+		<!-- <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 footer-widget">
@@ -186,17 +190,14 @@ include_once 'includes/footer1.php';
 			
 		</div>
 	</footer class="container-fluid text-center" style="background-color: #484848; color: white;">
-	<p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p> -->
+	<p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>
 
-
-	<!-- Footer section end -->
-                                        
-	<!--====== Javascripts & Jquery ======-->
-	<!-- <script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/magnific-popup.min.js"></script>
-	<script src="js/main.js"></script>
-</body> -->
+	<script src="js/main.js"></script> -->
+</body>
+
 </html>

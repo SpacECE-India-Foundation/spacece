@@ -21,14 +21,14 @@ $res = mysqli_query($conn,$sql);
 $feedback=mysqli_fetch_assoc($res);
 if (!mysqli_error($conn)){
   //  bug Id-0000030-0000031  
-    setcookie('success_msg', 'Your feedback is successfully submitted', time() + 30, "/");
+    setcookie('success_msg', 'Your feedback is successfully submitted', time()+3, "/");
 
     header('Location:contact.php' );
 }
 else{
       //bug Id-0000030-0000031  
 
-    setcookie('success_msg', 'YOUR FEEDBACK WAS NOT SENT', time() + 30, "/");
+    setcookie('success_msg', 'YOUR FEEDBACK WAS NOT SENT', time() + 3, "/");
 
     header('Location:contact.php' );
 }

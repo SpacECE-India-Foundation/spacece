@@ -65,14 +65,6 @@
         padding: 30px 30px;
         bottom: 5px;
       ">
-   
-
-    
-
-
-
-     
-         
         <div class="row align-bottom ">
           <div class="col-lg-3 footer-widget ">
             <img src="../img/logo/ConsultUs.jpeg" class="img img-fluid img-thumbnail img-circle" alt=""  style="width: 150px" />
