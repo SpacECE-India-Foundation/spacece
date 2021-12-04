@@ -39,7 +39,7 @@ function upload_video_on_youtube($arr_data) {
     //var_dump($videoSnippet);
     $video->setSnippet($videoSnippet);
   
-    $videoStatus = new Google_Service_YouTube_VideoStatus();
+    $videoStatus = new  Google_Service_YouTube_VideoStatus();
     $videoStatus->setPrivacyStatus('public');
     $video->setStatus($videoStatus);
    // var_dump( $video);
@@ -53,29 +53,40 @@ function upload_video_on_youtube($arr_data) {
                 'uploadType' => 'multipart'
             )
         );
-$video_id=$response->id;
-        $playlistItem = new Google_Service_YouTube_PlaylistItem();
-
-    // Add 'snippet' object to the $playlistItem object.
-    $playlistItemSnippet = new Google_Service_YouTube_PlaylistItemSnippet();
-    $playlistItemSnippet->setDescription($arr_data['summary']);
-    $playlistItemSnippet->setPlaylistId($arr_data['category']);
-    $playlistItemSnippet->setPosition(0);
-    $resourceId = new Google_Service_YouTube_ResourceId();
-    $resourceId->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
-    $resourceId->setKind('youtube#video');
-    $resourceId->setVideoId( $response->id);
-    $playlistItemSnippet->setResourceId($resourceId);
-    $playlistItemSnippet->setTitle($arr_data['title']);
-    $playlistItem->setSnippet($playlistItemSnippet);
-    
-    // Add 'status' object to the $playlistItem object.
-    $playlistItemStatus = new Google_Service_YouTube_PlaylistItemStatus();
-    $playlistItemStatus->setPrivacyStatus('public');
-   $playlistItem->setStatus($playlistItemStatus);
-   $db->UploadVideos();
-  
-    $response = $service->playlistItems->insert('snippet', $playlistItem);
+        $video_id=$response->id;
+        $user = $_SESSION['current_user_email'];
+        $title=$_POST['title'];
+        $summary=$_POST['summary'];
+        $category=$_POST['category'];
+        $db->upload_video_to_db($video_id, $title, $summary,$category,$user);
+                   
+                        $playlistItem = new Google_Service_YouTube_PlaylistItem();
+                
+                        // Add 'snippet' object to the $playlistItem object.
+                        $playlistItemSnippet = new Google_Service_YouTube_PlaylistItemSnippet();
+                        $playlistItemSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA/playlists');
+                        $playlistItemSnippet->setDescription('Hello');
+                        $playlistItemSnippet->setPlaylistId($category);
+                        $playlistItemSnippet->setPosition(0);
+                        $resourceId = new Google_Service_YouTube_ResourceId();
+                        $resourceId->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
+                        $resourceId->setKind('youtube#video');
+                        $resourceId->setPlaylistId('PLm0GU5IUgzTB9g59TrgjgkM5htTsgqUxt');
+                        $resourceId->setVideoId($video_id);
+                        $playlistItemSnippet->setResourceId($resourceId);
+                        $playlistItemSnippet->setTitle('hello5');
+                        $playlistItem->setSnippet($playlistItemSnippet);
+                        
+                        // Add 'status' object to the $playlistItem object.
+                       // $playlistItemStatus = new Google_Service_YouTube_PlaylistItemStatus();
+                      // $playlistItemStatus->setPrivacyStatus('public');
+                      //  $playlistItem->setStatus($playlistItemStatus);
+                        
+                        $response = $service->playlistItems->insert('snippet', $playlistItem);
+                        print_r($response);
+                    
+        
+                echo "Video uploaded successfully. Video ID is ". $response->id;
     print_r($response);
         echo "Video uploaded successfully. Video ID is ". $response->id;
     } catch(Exception $e) {
@@ -108,9 +119,3 @@ $video_id=$response->id;
     }
 }
 ?>
- <!-- <form method="post" enctype="multipart/form-data">
-    <p><input type="text" name="title" placeholder="Enter Video Title" /></p>
-    <p><textarea name="summary" cols="30" rows="10" placeholder="Video description"></textarea></p>
-    <p><input type="file" name="file" /></p>
-    <input type="submit" name="submit" value="Submit" />
-</form>  -->

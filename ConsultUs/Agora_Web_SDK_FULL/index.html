@@ -18,12 +18,12 @@
     
   </div>
 
-  <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+  <!-- <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Congratulations!</strong><span> You can invite others join this channel by click </span><a href="" target="_blank">here</a>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
+  </div> -->
   <div id="success-alert-with-token" class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Congratulations!</strong><span> Joined call successfully. </span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -211,6 +211,11 @@ function toggleVideo(localStream) {
     toggleVisibility("#no-local-video", true); // show the user icon when video is disabled
   }
 }
+ </script>
+ <script>
+   setTimeout(function() {
+  $('#success-alert-with-token').fadeOut('slow');
+}, 30000); // <-- time in milliseconds
  </script>
  
 </body>

@@ -210,7 +210,7 @@
     <span style="font-size: 20px"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span>
 </p>
 
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <?= isset($extra_scripts) ? $extra_scripts : null ?>
 

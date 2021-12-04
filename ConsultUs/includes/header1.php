@@ -83,7 +83,7 @@ session_start();
           <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
         </a>
       </div>
-      <a href="/Khanstore" class="navbar-brand">SPAC-ECE</a>
+      <a href="../index.php" class="navbar-brand">SPAC-ECE</a>
     </div>
 
     <div class="collapse navbar-collapse" id="collapse1">
@@ -197,9 +197,7 @@ session_start();
             </div>
 
             <div class="col-sm-7">
-
-              <li><a href="../spacece_auth/login.php?type=consultant" style="color:black;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a></li>
-
+              <li><a href="../spacece_auth/login.php?type=consultant" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a></li>
             </div>
             <div class="col-sm-2"><a></a>
             </div>

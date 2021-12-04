@@ -1,6 +1,14 @@
 <?php include('indexDB.php');
 include_once './includes/header1.php'; ?>
-<?php $nid=$_GET['user'];
+<?php 
+ $nid = '';
+ if(isset($_SESSION['current_user_email'])){
+     $email = $_GET['current_user_email'];
+     $nid= $_SESSION['current_user_name'];
+ } else{
+     header('location:../spacecce_auth/login.php');
+     exit();
+ }
  ?>
 <html>
     <head>
@@ -9,14 +17,7 @@ include_once './includes/header1.php'; ?>
     </head>
     <body>
         <! ... menu section starts...>
-        <!-- <div class="menu text-center">
-            <div class="wrapper">
-                <ul>
-                    <li><a href="index3.php?user=<?php// echo $nid ?>">HOME</a></li>
-                    <li><a href="myinfo.php?user=<?php// echo $nid ?>">MY DETAILS</a></li>
-                </ul>
-            </div>
-        </div> -->
+        
 
                 <table class="tb-full">
                     <tr>
@@ -97,8 +98,7 @@ include_once './includes/header1.php'; ?>
                 </table>     
             </div>
         </div>
-        <!... main section ends....>
-        <! ... end section starts...>
+     
          <div class="footer text-centre">
             <div class="wrapper">
                              </div>

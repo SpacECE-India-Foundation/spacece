@@ -3,6 +3,40 @@
 $main_logo = "./img/logo/SpacECELogo.jpg";
 $module_logo = null;
 $module_name = null;
+$main_page = true;
+
+$extra_styles = "<link rel='stylesheet' href='./css/bootstrap.min.css' />
+<link rel='stylesheet' href='./css/font-awesome.min.css' />
+<link rel='stylesheet' href='./css/animate.css' />
+<link rel='stylesheet' href='./css/owl.carousel.css' />
+<link rel='stylesheet' href='./css/style.css' />
+<link
+  rel='stylesheet'
+  href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
+/>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+
+<link rel='stylesheet' type='text/css' href='./Styles.css' />
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<link rel='stylesheet' type='text/css' href='./css/jquery.convform.css' />
+<link rel='stylesheet' type='text/css' href='./css/responsive.css' />
+<link rel='stylesheet' type='text/css' href='./css/jquery-ui.css' />";
+
+$extra_scripts = "<script src='./js/jquery-3.2.1.min.js'></script>
+<script src='./js/bootstrap.min.js'></script>
+<script src='./js/owl.carousel.min.js'></script>
+<script src='./js/masonry.pkgd.min.js'></script>
+<script src='./js/magnific-popup.min.js'></script>
+<script src='./js/main.js'></script>
+<script type='js/jquery.js'></script>
+<script type='text/javascript' src='./js/jquery-3.1.1.min.js'></script>
+<script type='text/javascript' src='./js/jquery.convform.js'></script>
+<script type='text/javascript' src='./js/custom.js'></script>
+<script type='text/javascript' src='./js/jquery-1.12.4.js'></script>
+<script type='text/javascript' src='./js/jquery-ui.js'></script>
+<script type='text/javascript' src='./js/bootstrap.min.js'></script>";
 
 include_once './common/header_module.php';
 
@@ -134,15 +168,21 @@ include_once './common/header_module.php';
   <!-- Header section end -->
 
   <!-- Hero section -->
+  <br /><br />
   <section class="hero-section set-bg" data-setbg="" style="width: 100%; height: 40%">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="img/d7.jpg" alt="First slide" style="width: 100%; height: 30%" />
+          <img class="d-block w-100" src="./img/banner/LearnOnApp.png" alt="First slide" style="width: 100%; height: 30%" />
         </div>
         <div class="carousel-item">
-          <!-- 0000094 -->
-          <img class="d-block w-100" src="img/d8.jpg" alt="Second slide"  style="width: 100%; height: 30%"/>
+          <img class="d-block w-100" src="./img/banner/LibForSmalls.jpeg" alt="Second slide" />
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="./img/banner/SpacActive.jpeg" alt="Third slide" />
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="./img/banner/SpacTube.jpeg" alt="Fourth slide" />
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -155,7 +195,7 @@ include_once './common/header_module.php';
       </a>
     </div>
   </section>
-  <br /><br /><br />
+
 
   <!-- Hero section end -->
   <!-- Services section -->
@@ -198,10 +238,8 @@ include_once './common/header_module.php';
 		</div>
 	</section>-->
   <!-- Services section end -->
-  <!-- Blog section --><br /><br /><br /><br /><br /><br /><br />
-  <hr />
-  <br /><br /><br /><br /><br /><br />
-  <hr />
+  <!-- Blog section -->
+  <br /><br /><br /><br />
   <section class="blog-section spad">
     <div class="container">
       <div class="section-title text-center">
@@ -375,8 +413,8 @@ include_once './common/header_module.php';
   <!---offers close-->
 
   <!-- ChatBot -->
-  <div class="chat_icon pull-right ">
-    <i class="fa fa-comments fa-5x" aria-hidden="true" style="color: black; border: 2px solid black;border-radius:15px;"></i>
+  <div class="chat_icon">
+    <i class="fa fa-comments" aria-hidden="true" style="color: black; border: 2px solid black;border-radius:15px;"></i>
   </div>
 
   <div class="chat_box">
@@ -508,7 +546,7 @@ include_once './common/header_module.php';
   <?php
   include_once './common/footer_module.php';
   ?>
-
+<script type="text/javascript" src="js/jquery.convform.js"></script>
 </body>
 
 </html>

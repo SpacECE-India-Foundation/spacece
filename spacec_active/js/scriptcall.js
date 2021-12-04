@@ -9,7 +9,7 @@ $.ajax({
 });
 });
 $(document).on("click","#edit",function() {
-   //alert($(this).data('text'));
+  // alert($(this).data('text'));
 		$('#act_id').empty();
 		$('#act_lvl').empty();
 		$('#act_domain').empty();
@@ -25,10 +25,11 @@ $(document).on("click","#edit",function() {
    /// alert(id);
     $.ajax({
 	'method':'post',
-	'data':{id:id},
+	'data':{id:id,
+		getDetails:1},
 	'url':'fetch.php?getDetails',
 	success:function(data1){
-		
+		//alert(data1);
 		var data2=JSON.parse(data1);
 		//alert(data2.activity_no);
 		$('#act_id').append(data2.activity_no);

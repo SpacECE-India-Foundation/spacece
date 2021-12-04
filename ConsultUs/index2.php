@@ -2,7 +2,13 @@
    include_once './includes/header1.php';
    include('indexDB.php'); ?>
 <?php error_reporting(0); 
-$ref = $_GET['user']; ?>
+$ref = '';
+if(isset($_SESSION['current_user_email'])){
+    $email = $_SESSION['current_user_email'];
+    $ref= $_SESSION['current_user_name'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +75,7 @@ $ref = $_GET['user']; ?>
 							<a href="index.html" style="color:black;"><i class="fa fa-user-circle-o" style="color:black;"></i><b>LOGOUT</b></a>
 							</div>
 			<img align="top-right " src="https://doctoryouneed.org/wp-content/uploads/2020/05/dr-new-demo-image-57.png" alt="ALL DOCTOR DETAILS" width="80" height="80"><br>
- 				       <a href="myinfo_user.php?user=<?php //echo $ref ?>"> 
+ 				      
                                         <div class="bottom" style="color: black;" style="font-weight:200;">MY INFO</div></a>
 					<h5><a href="#">  </a></h5>
 					</div>
@@ -182,7 +188,7 @@ $ref = $_GET['user']; ?>
 			</div>
 			<div class="row">
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="manage_paediatric.php?user=<?php echo $ref ?>&category=paediatrition">  
+                <a href="manage_paediatric.php?category=paediatrition">  
 					<img src="img/d1.jpg" alt=""></a>
 					<h5><a href="#">  </a></h5>
 					<div class="blog-meta">
@@ -192,7 +198,7 @@ $ref = $_GET['user']; ?>
 					<p>   </p>
 				</div>
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="alldoc.php?user=<?php echo $ref ?>"> 
+                <a href="alldoc.php"> 
                                         <img src="https://doctoryouneed.org/wp-content/uploads/2020/05/dr-new-demo-image-57.png" alt="ALL DOCTOR DETAILS">
                                     <div class="bottom" style="color: black;" style="font-weight:200;" style="text-align: center;"> ALL CONSULTANT DETAILS</div></a>
 					<h5><a href="#">  </a></h5>
@@ -203,7 +209,7 @@ $ref = $_GET['user']; ?>
 					<p>  </p>
 				</div>
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="manage_paediatric.php?user=<?php echo $ref ?>&category=psychiatrist"> 
+                <a href="manage_paediatric.php?category=psychiatrist"> 
 					<img src="img/d3.jpg" alt=""></a>
 					<h5><a href="#">  </a></h5>
 					<div class="blog-meta">
@@ -213,7 +219,7 @@ $ref = $_GET['user']; ?>
 					<p>  </p>
 				</div>
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="manage_paediatric.php?user=<?php echo $ref ?>&category=physical health"> 
+                <a href="manage_paediatric.php?category=physical health"> 
 					<img src="img/d4.jpg" alt=""></a>
 					<h5><a href="#">  </a></h5>
 					<div class="blog-meta">
@@ -223,7 +229,7 @@ $ref = $_GET['user']; ?>
 					<p>  </p>
 				</div>
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="manage_paediatric.php?user=<?php echo $ref ?>&category=mental health"> 
+                <a href="manage_paediatric.php?category=mental health"> 
 					<img src="img/d5.jpg" alt=""></a>
 					<h5><a href="#">  </a></h5>
 					<div class="blog-meta">
@@ -234,7 +240,7 @@ $ref = $_GET['user']; ?>
 				</div>
 
 				<div class="col-lg-4 col-md-6 blog-item">
-                <a href="manage_paediatric.php?user=<?php echo $ref ?>&category=nutrition"> 
+                <a href="manage_paediatric.php?category=nutrition"> 
 					<img src="img/d6.jpg" alt=""></a>
 					<h5><a href="#">  </a></h5>
 					<div class="blog-meta">
@@ -488,6 +494,35 @@ $ref = $_GET['user']; ?>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript"src="js/bootstrap.min.js"></script> -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<script type="text/javascript">
 
+	$(document).ready(function(){
+
+
+ setInterval(function(){ 
+ 	let user ="<?php if(isset($_SESSION['current_user_email'])){
+    echo $_SESSION['current_user_name'];}?>";
+
+$.ajax({
+url:'./video.php',
+type: 'POST',
+data:{
+	user:user,
+	getCall:1
+},
+success:function(data){
+       // console.log(data);
+        alert(data);
+        //$('#call').html(data);
+    }
+});
+
+ }, 5800);
+
+})
+
+</script>
 </body>
 </html>

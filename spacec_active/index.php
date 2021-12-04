@@ -1,14 +1,7 @@
 <?php
-//include_once('includes/header1.php');
-
-?>
-
-<?php
-$main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = "../img/logo/Space_Active.jpeg";
-$module_name = "Space Active";
-
+include_once './header_local.php';
 include_once '../common/header_module.php';
+include_once '../common/banner.php';
 
 ?>
 <!-- Button trigger modal -->
@@ -17,7 +10,7 @@ include_once '../common/header_module.php';
     </button> -->
 
 <!-- Modal -->
-<script type="text/javascript" src="js/scriptcall.js"></script>
+
 <style>
     .table {
 
@@ -26,7 +19,16 @@ include_once '../common/header_module.php';
 
 
     }
-
+   .youtube {
+    
+         background: transparent; 
+          display: inline-block;
+           
+             margin-left:50%;
+             position: relative;
+ 
+    bottom: 25px;
+    }
     @media (min-width: 1090px) {
         #tablediv {
             display: flex;
@@ -42,7 +44,20 @@ include_once '../common/header_module.php';
         }
     }
 </style>
+<script src="https://apis.google.com/js/platform.js"></script>
+<div class="youtube">
+    
+<div class="g-ytsubscribe" id="ytsubscribe_0" data-channel="GoogleDevelopers" data-layout="default" data-count="hidden"  ></div>
+</div>
+
 <div class="container" style="margin-top:5%;">
+
+
+
+
+
+
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -59,6 +74,39 @@ include_once '../common/header_module.php';
                                 <input class="form-control" type="text" name="title" id="title" placeholder="Enter Video Title">
                             </div>
                         </div>
+                        <?php
+
+                        $key = "AIzaSyDn5f6MqVpdcpbw3rj-ixCvRRgNrP7LjE0";
+                        $base_url = "https://www.googleapis.com/youtube/v3/";
+                        $channelId = "UCSFXd8_Kp1a5ZHAaOejPiHA";
+                        $max = 20;
+
+                        $API_URL = $base_url . "playlists?part=snippet&channelId=" . $channelId . "&maxResults=" . $max . "&key=" . $key;
+                        //var_dump($API_URL);
+                        $file1 = file_get_contents($API_URL);
+                        $file1 = json_decode($file1, true);
+                        //echo "<pre>";
+                        //var_dump($file1['items'][0]['id']);
+
+                        //echo "<pre>";
+                        ?>
+                        <br>
+                        <div class="row mb-3">
+                            <div class="col-sm-10">
+                                <select id="category" name="category" class="form-control col-sm-3">
+                                    <?php
+                                    foreach ($file1['items'] as $playlist) {
+                                        echo "<option value=" . $playlist['id'] . ">" . $playlist['snippet']['title'] . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <?php
+
+                        $API_URL1 = $base_url . "part=snippet%2Cstatus&key=" . $key . " HTTP/1.1";
+                        ?>
+                        <br>
                         <div class="row mb-3">
                             <div class="col">
                                 <textarea id="summary" class="form-control" name="summary" cols="30" rows="10" placeholder="Enter video description"></textarea>
@@ -82,21 +130,18 @@ include_once '../common/header_module.php';
   </div>
 
 </div> -->
-                    <div class="progress">
-                        <div class="uploadProgressBar" id="uploadProgressBar"></div>
-
-                    </div>
-                    <div class="loaded_n_total" id="loaded_n_total">0%</div>
-                </div>
+                   
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                   
                 </div>
             </div>
         </div>
     </div>
 
 </div>
+
+
 <div class="container" style="margin-top:10%;">
     <div class=" col-sm-12 " id="tablediv">
         <table class="table table-active table-hover table-striped table-bordered ">
@@ -113,7 +158,7 @@ include_once '../common/header_module.php';
         </table>
     </div>
     <div class="modal fade  " id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog modal-xl" role="document">
+        <div class="modal-dialog modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModal">View Activity</h5>
@@ -185,6 +230,12 @@ include_once '../common/header_module.php';
     </div>
     <!-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&width=98&height=20&appId" width="98" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
 </div>
+</div>
+</div>
+<!-- <div class="progress mt-5" >
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+</div> -->
+
 
 
 <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
@@ -242,19 +293,26 @@ include_once '../common/header_module.php';
             <div class="modal-body">
 
                 <?php
-                include_once 'Youtube/class-db.php';
-                $user = $_SESSION['user'];
-                echo "<div class='row'>";
-                $videos =  get_Videos($user);
-                foreach ($videos as $video) {
-                    echo "<div class='col-md-6'>";
-                    echo '<iframe width="180" height="120"
+
+                if (isset($_SESSION['current_user_email'])) {
+                    $user = $_SESSION['current_user_email'];
+                    include_once 'Youtube/class-db.php';
+                    echo "<div class='row'>";
+                    $db = new DB();
+                    $videos = $db->get_Videos($user);
+
+
+
+                    foreach ($videos as $video) {
+                        echo "<div class='col-md-6'>";
+                        echo '<iframe width="180" height="120"
                                src="https://www.youtube.com/embed/' . $video['video_id'] . '"
                                frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                                </iframe>';
+                        echo "</div>";
+                    }
                     echo "</div>";
                 }
-                echo "</div>";
                 ?>
 
             </div>
@@ -275,19 +333,22 @@ include_once '../common/header_module.php';
 
 
                 <?php
-                include_once 'Youtube/class-db.php';
-                // $user=$_SESSION['user'];
-                echo "<div class='row'>";
-                $videos =  get_all_Videos();
-                foreach ($videos as $video) {
-                    echo "<div class='col-md-6'>";
-                    echo '<iframe width="180" height="120"
+                if (isset($_SESSION['current_user_email'])) {
+                    include_once 'Youtube/class-db.php';
+                    $user = $_SESSION['current_user_email'];
+                    echo "<div class='row'>";
+                    $db = new DB();
+                    $videos = $db->get_all_Videos();
+                    foreach ($videos as $video) {
+                        echo "<div class='col-md-6'>";
+                        echo '<iframe width="180" height="120"
                                src="https://www.youtube.com/embed/' . $video['video_id'] . '"
                                frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                                </iframe>';
+                        echo "</div>";
+                    }
                     echo "</div>";
                 }
-                echo "</div>";
                 ?>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -299,7 +360,11 @@ include_once '../common/header_module.php';
     </div>
 </div>
 <div class="progress">
-    <div id="progress-bar" class="progress-bar" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+    <div id="progress-bar" class="progress-bar progress-bar-striped" role="progressbar" style="width:10px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+</div>
+
+<div class="row">
+
 </div>
 </body>
 
@@ -307,8 +372,14 @@ include_once '../common/header_module.php';
 <?php
 include_once '../common/footer_module.php';
 ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js."></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" src="js/scriptcall.js"></script> -->
+
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('.progress').hide();
@@ -339,6 +410,7 @@ include_once '../common/footer_module.php';
 
     $(document).on("click", "#edit", function() {
         // alert("Yes");
+        $('#editModal').modal('toggle');
         $('#act_id').empty();
         $('#act_lvl').empty();
         $('#act_domain').empty();
@@ -395,7 +467,7 @@ include_once '../common/footer_module.php';
         fd.append("file", file_data);
         fd.append("title", title);
         fd.append("summary", summary);
-
+        $('.progress').show();
 
         $.ajax({
             xhr: function() {
@@ -410,7 +482,7 @@ include_once '../common/footer_module.php';
                 return xhr;
             },
             type: 'POST',
-            url: 'Youtube/upload.php',
+            url: 'Youtube/index.php',
             data: fd,
             contentType: false,
             cache: false,

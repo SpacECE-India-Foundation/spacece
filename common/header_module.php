@@ -102,6 +102,18 @@ session_start();
             border-radius: 50%;
             margin-right: 10px;
         }
+
+        .banner {
+            width: 100%;
+            height: 50vh;
+            margin: 20px 0;
+        }
+
+
+        .banner img {
+            height: 100%;
+            width: 100%;
+        }
     </style>
     <!-- BUG ID-0000067 -->
     <title><?= isset($module_name) ? $module_name : 'SpaceECE' ?></title>
@@ -131,8 +143,7 @@ session_start();
         </div>
         <div class="main_nav">
             <a href="./index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
-            <!-- bug id- 0000110 -->
-            <a href="./cart.php" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-shopping-bag"></i>Cart<span class="badge"></span></a>
+            <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
             <a href="./about.php"><i class="fas fa-address-card"></i><span>About</span></a>
         </div>
         <div class="user">
@@ -142,10 +153,11 @@ session_start();
                 <div class="dropdown">
                     <button class="dropbtn">
                         <img class="user_avatar" src=<?= "./images/" . isset($_SESSION['current_user_image']) ? $_SESSION['current_user_image'] : 'https://www.w3schools.com/howto/img_avatar.png' ?> alt="User" />
-                        <span>Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
+                        <span style="cursor: pointer;">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
                     </button>
                     <div class="dropdown-content">
                         <a href="#"><i class="fas fa-user"></i><span>Profile</span></a>
+                        <?= isset($extra_profile_links) ? $extra_profile_links : null ?>
                         <a href=<?= isset($main_page) ? "./spacece_auth/logout.php" : "../spacece_auth/logout.php" ?>><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
                     </div>
                 </div>

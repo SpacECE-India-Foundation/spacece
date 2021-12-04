@@ -47,7 +47,7 @@ $description=$_POST['summary'];
 
   //  $video->setStatus($videoStatus);
  
-   
+  $playlistSnippet = new Google_Service_YouTube_PlaylistSnippet();
    $playlist = new Google_Service_YouTube_Playlist();
 //echo "<pre>";
    // Add 'snippet' object to the $playlist object.
@@ -57,9 +57,9 @@ $description=$_POST['summary'];
    $playlist->setSnippet($playlistSnippet);
    
    // Add 'status' object to the $playlist object.
-   $playlistStatus = new Google_Service_YouTube_PlaylistStatus();
-   $playlistStatus->setPrivacyStatus('public');
-   $playlist->setStatus($playlistStatus);
+    $playlistStatus = new Google_Service_YouTube_PlaylistStatus();
+    $playlistStatus->setPrivacyStatus('public');
+    $playlist->setStatus($playlistStatus);
    
    //$response = $service->playlists->insert('snippet,status', $playlist);
   // echo"$response";

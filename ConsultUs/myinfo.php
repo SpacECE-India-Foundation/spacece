@@ -2,15 +2,22 @@
 include_once './includes/header1.php';
 include('indexDB.php'); ?>
 <?php //error_reporting(0); 
- $ref = $_GET['user']; 
-//$nid = $_GET['id'];?>
+  $ref = '';
+  if(isset($_SESSION['current_user_email'])){
+      $email = $_GET['current_user_email'];
+      $ref= $_SESSION['current_user_name'];
+  } else{
+      header('location:../spacecce_auth/login.php');
+      exit();
+  }
+  ?>
 <html>
     <head>
         <title>appointment-HOME PAGE</title>
         <link rel="stylesheet"  href="css/admin.css">
     </head>
     <body style="background: linear-gradient(to bottom right, #ffcc99 0%, #ffffff 100%);">
-        <! ... menu section starts...>
+
         <div class="menu text-center" style="background-color:orange;">
             <div class="wrapper">
 <img src="img/space.jpg" alt="" style="width:6%; ">
@@ -19,12 +26,9 @@ include('indexDB.php'); ?>
                              </ul>
             </div>
         </div>
-        <!... menu section ends....>
-
-        
-        <! ... main section starts...>
-        <div class="main-content text-centre" style="background: linear-gradient(to bottom right, #ffcc99 0%, #ffffff 100%);>
-            <div class="wrapper "><br>
+       
+        <div class="main-content text-centre" style="background: linear-gradient(to bottom right, #ffcc99 0%, #ffffff 100%);">
+            <div class="wrapper"><br>
                 <u><center><h2 >CONSULTANT_DETAIL</h2></center></u>
                 <br><br>
                 <?php
@@ -58,8 +62,6 @@ include('indexDB.php'); ?>
 
                 ?>
 
-
-                 <!.... BUTTON TO ADD consultant...>
                  <a href="<?php echo SITEURL;?>chatbot/room.php?roomname=global1" class="btn-primary" style="color:black;background-color:orange;float:right;">CHAT_GLOBAL</a><br><br>
                  <br>
                  <br>
