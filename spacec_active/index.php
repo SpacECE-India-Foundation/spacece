@@ -19,7 +19,16 @@ include_once '../common/banner.php';
 
 
     }
-
+   .youtube {
+    
+         background: transparent; 
+          display: inline-block;
+           
+             margin-left:50%;
+             position: relative;
+ 
+    bottom: 25px;
+    }
     @media (min-width: 1090px) {
         #tablediv {
             display: flex;
@@ -35,13 +44,20 @@ include_once '../common/banner.php';
         }
     }
 </style>
+<script src="https://apis.google.com/js/platform.js"></script>
+<div class="youtube">
+    
+<div class="g-ytsubscribe" id="ytsubscribe_0" data-channel="GoogleDevelopers" data-layout="default" data-count="hidden"  ></div>
+</div>
+
 <div class="container" style="margin-top:5%;">
 
-<script src="https://apis.google.com/js/platform.js"></script>
 
-<div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="default" data-count="default"></div>
 
-<div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="default" data-count="default"></div>
+
+
+
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -114,15 +130,10 @@ include_once '../common/banner.php';
   </div>
 
 </div> -->
-                    <div class="progress">
-                        <div class="uploadProgressBar" id="uploadProgressBar"></div>
-
-                    </div>
-                    <div class="loaded_n_total" id="loaded_n_total">0%</div>
-                </div>
+                   
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                   
                 </div>
             </div>
         </div>
