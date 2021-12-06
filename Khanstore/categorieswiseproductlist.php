@@ -5,9 +5,9 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "3.109.14.4";
+$username = "ostechnix";
+$password = "Password123#@!";
 $dbname = "khanstore";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -18,17 +18,17 @@ if ($conn->connect_error) {
 
 ?>
 <?php
-// $cid = $_GET['product_id'];
+	$cid = isset($_GET["cat_id"])? $_GET['cat_id'] : Null;
 
 error_reporting();
 
 if (isset($cid)) {
-    $sql = "SELECT cat.*, p.* FROM `products` p INNER JOIN categories cat ON p.product_cat = cat.cat_id";
-    $res = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM `categories` WHERE cat_id=" . $cid;
+    $res = mysqli_query($conn,$sql);
     header('Content-Type:application/json');
 }
 else {
-    $sql = "SELECT * FROM `products` LIMIT 35";
+    $sql = "SELECT * FROM `categories` LIMIT 35";
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 }
