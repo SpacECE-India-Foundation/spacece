@@ -18,12 +18,13 @@ if ($conn->connect_error) {
 
 ?>
 <?php
-// $cid = $_GET['product_id'];
+$pid = isset($_GET['product_id']) ? $_GET['product_id']: null;
+
 
 error_reporting();
 
-if (isset($cid)) {
-    $sql = "SELECT cat.*, p.* FROM `products` p INNER JOIN categories cat ON p.product_cat = cat.cat_id";
+if (isset($pid)) {
+    $sql = "SELECT * FROM `products` where product_id=" .$pid;
     $res = mysqli_query($conn,$sql);
     header('Content-Type:application/json');
 }
