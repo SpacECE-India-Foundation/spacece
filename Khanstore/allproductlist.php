@@ -24,12 +24,15 @@ $pid = isset($_GET['product_id']) ? $_GET['product_id']: null;
 error_reporting();
 
 if (isset($pid)) {
-    $sql = "SELECT * FROM `products` where product_id=" .$pid;
+    $sql = "SELECT product_id, product_brand, product_title, product_price, product_qty
+    product_desc, product_image, product_keywords, exchange_price, rent_price, deposit 
+    FROM `products` where product_id=" .$pid;
     $res = mysqli_query($conn,$sql);
     header('Content-Type:application/json');
 }
 else {
-    $sql = "SELECT * FROM `products` LIMIT 35";
+    $sql = "SELECT product_id, product_brand, product_title, product_price, product_qty
+    product_desc, product_image, product_keywords, exchange_price, rent_price, deposit FROM `products` LIMIT 35";
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 }
