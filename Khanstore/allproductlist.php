@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting();
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
@@ -18,21 +19,31 @@ if ($conn->connect_error) {
 
 ?>
 <?php
-$pid = isset($_GET['product_id']) ? $_GET['product_id']: null;
 
+    $whereClause = '';
+    if( isset( $_GET["product_id"] ) ) {
+        $whereClause .= 'product_id=' . $_GET["product_id"] ;
+    }
 
-error_reporting();
+    if( isset( $_GET["product_brand"] ) ) {
+        $whereClause .= !empty($whereClause) ? ' AND ' : ' ' ;
+        $whereClause .= 'product_brand=' . $_GET["product_brand"];
+    }
+    
+    $sql = "SELECT 
+        product_id, product_brand, product_title, product_price, product_qty
+        product_desc, product_image, product_keywords, exchange_price, rent_price, deposit 
+    FROM 
+        products";
 
-if (isset($pid)) {
-    $sql = "SELECT * FROM `products` where product_id=" .$pid;
-    $res = mysqli_query($conn,$sql);
+    if(!empty($whereClause)){
+        $sql .= ' WHERE ' . $whereClause;
+    } else{
+        $sql .= ' LIMIT 35';
+    }
+
+    $res = mysqli_query( $conn, $sql );
     header('Content-Type:application/json');
-}
-else {
-    $sql = "SELECT * FROM `products` LIMIT 35";
-    $res = mysqli_query($conn, $sql);
-    header('Content-Type:application/json');
-}
 
 //checking whether query is excuted or not
 if ($res) {
