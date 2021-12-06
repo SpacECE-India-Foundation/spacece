@@ -1,5 +1,5 @@
 <?php
-include_once('../db.php');
+include_once('./db.php');
 require_once('geoplugin.class.php');
 
 $geoplugin = new geoPlugin();
@@ -10,12 +10,13 @@ $geoplugin = new geoPlugin();
  $lat=$geoplugin->latitude;
  $lan= $geoplugin->longitude;
  $geoplugin->regionName;
- $user_id=$_SESSION['current_user_id'];
- $delivery_id=$_GET['id'];
-    $tracking_id=$_GET['tracking_id'];
-$sql="SELECT * from tracking Where user_id=$user_id,delivery_boy_id=$delivery_id and is_Active='1' ";
+$user_id=$_SESSION['current_user_id'];
+$delivery_id=$_GET['id'];
+$tracking_id=$_GET['tracking_id'];
+$sql="SELECT * from tracking Where user_id=$user_id and is_Active='1' ";
 $res=mysqli_fetch_assoc($conn,$sql);
 $lat1=$res['user_lat'];
+$tracking_id=$res['tracking_id'];
 $lang1=$res['user_lang'];
 $lat2=$res['delivery_lat'];
 $lang2=$res['delivery_lang'];
@@ -43,34 +44,29 @@ $lang2=$res['delivery_lang'];
         <div id="panel"></div>
       </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly&channel=2"
       async
     ></script>
     <script>
- setTimeout(function() {
-        var user=<?php  echo $_SESSION['usr_email'] ?>;
-        var track_id=<?php  echo $_GET['track_id'] ?>;
-        var lat1=null;
-        var lang1=null;
-        $.ajax({
-            'method':'post',
-            'data':{
-                user:user,
-                track_id:track_id
-            },'url':'get_data.php',
-            success:function(data){
-                lat1=data.delivery_lat;
-                lang1=delivery_lang;	
-            }
-        });
-    }, 1800);
+       $(document).ready(function() {
+        // Call refresh page function after 5000 milliseconds (or 5 seconds).
+        setInterval('refreshPage()',(2000*15));
+    });
+   
+        // var lat1=null;
+       // var lang1=null;
+
+       // var user=<?php  // $_SESSION['usr_email'] ?>;
+        //var track_id=<?php  //echo $_GET['track_id'] ?>;
+        
+   
         function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 6,
-      center: {  lat:<?php echo $lat ?>, lng: <?php  echo $lan ?> }, // Australia.
+      center: {  lat:<?php  echo $lat ?>, lng: <?php  echo $lan ?> },
     });
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer({
@@ -86,12 +82,32 @@ $lang2=$res['delivery_lang'];
         computeTotalDistance(directions);
       }
     });
+function refreshPage() {
+        var user=<?php echo $_SESSION['current_user_email']?>;
+        var track_id=<?php echo $tracking_id  ?>;
+       
+        $.ajax({
+            'method':'post',
+            'data':{
+                user:user,
+                track_id:track_id
+            },'url':'get_data.php',
+            success:function(data){
+var data1=JSON.parse(data);
+                lat1=data1.delivery_lat;
+                lang1=data1.delivery_lang;
+
     displayRoute(
         {  lat:<?php echo $lat1 ?>, lng: <?php  echo $lan1 ?> },
         {  lat:lat1, lng: lang1 },
       directionsService,
       directionsRenderer
     );
+}
+        });
+
+        
+    }
   }
   
   function displayRoute(origin, destination, service, display) {
