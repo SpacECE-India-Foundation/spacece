@@ -6,7 +6,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 
-$servername = "localhost";
+$servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
 $dbname = "khanstore";
