@@ -16,8 +16,8 @@ $geoplugin = new geoPlugin();
 $sql="SELECT * from tracking Where user_id=$user_id,delivery_boy_id=$delivery_id and is_Active='1' ";
 $res=mysqli_fetch_assoc($conn,$sql);
 $lat1=$res['user_lat'];
-$lat2=$res['user_lang'];
-$lang1=$res['delivery_lat'];
+$lang1=$res['user_lang'];
+$lat2=$res['delivery_lat'];
 $lang2=$res['delivery_lang'];
 
 
@@ -30,6 +30,9 @@ $lang2=$res['delivery_lang'];
   <head>
     <title> Directions</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jsFiddle will insert css and js -->
   </head>
   <body>
@@ -47,6 +50,23 @@ $lang2=$res['delivery_lang'];
       async
     ></script>
     <script>
+ setTimeout(function() {
+        var user=<?php  echo $_SESSION['usr_email'] ?>;
+        var track_id=<?php  echo $_GET['track_id'] ?>;
+        var lat1=null;
+        var lang1=null;
+        $.ajax({
+            'method':'post',
+            'data':{
+                user:user,
+                track_id:track_id
+            },'url':'get_data.php',
+            success:function(data){
+                lat1=data.delivery_lat;
+                lang1=delivery_lang;	
+            }
+        });
+    }, 1800);
         function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 6,
@@ -68,7 +88,7 @@ $lang2=$res['delivery_lang'];
     });
     displayRoute(
         {  lat:<?php echo $lat1 ?>, lng: <?php  echo $lan1 ?> },
-        {  lat:<?php echo $lat2 ?>, lng: <?php  echo $lan2 ?> },
+        {  lat:lat1, lng: lang1 },
       directionsService,
       directionsRenderer
     );
