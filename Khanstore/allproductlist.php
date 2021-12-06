@@ -5,9 +5,9 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "3.109.14.4";
+$username = "ostechnix";
+$password = "Password123#@!";
 $dbname = "khanstore";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -24,7 +24,7 @@ error_reporting();
 
 if (isset($cid)) {
     $sql = "SELECT cat.*, p.* FROM `products` p INNER JOIN categories cat ON p.product_cat = cat.cat_id";
-    $res = mysqli_query($conn, $sql);
+    $res = mysqli_query($conn,$sql);
     header('Content-Type:application/json');
 }
 else {
