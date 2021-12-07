@@ -34,10 +34,32 @@ curl_close($ch);
 $result = json_decode($response);
 
 
-print_r($result);
-// $redirect_url = $result->payment_request->longurl;
+$payment_request_id = $result->payment_request->id;
 
-// header("Location: $redirect_url");
+if($payment_request_id) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, 'https://api.instamojo.com/oauth2/token/');     
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+    
+    $payload = Array(
+        'client_id' => 'test_kXS69PGPgLWe5rszP4kKsQCoqNOb83zKvt6',
+        'client_secret' => 'test_1ChlUAbtOQd2JXDqQeGm02kGnee1KyHMQkpFECEOcDtVWqBehbbsLYeGOQLg3JIDeZmybfGyQWlVyy2vL7RRqU5iZHxqzkiM60n2IEhY2UxVZL4KYh1hZqQWDmd',
+        'grant_type' => 'client_credentials',
+      );
+    
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
+    $response = curl_exec($ch);
+    curl_close($ch); 
+    
+    $result = json_decode($response);
+
+    print_r($result);
+    
+    exit();
+}
 
 exit();
 
