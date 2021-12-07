@@ -38,7 +38,7 @@ $payment_request_id = $result->payment_request->id;
 
 if($payment_request_id) {
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://api.instamojo.com/oauth2/token/');     
+    curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/oauth2/token/');     
     curl_setopt($ch, CURLOPT_HEADER, FALSE);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
