@@ -12,14 +12,14 @@ curl_setopt($ch, CURLOPT_HEADER, FALSE);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 curl_setopt($ch, CURLOPT_HTTPHEADER,
-            array("X-Api-Key:test_d93c3d591e0abb22ab505118e62",
-                  "X-Auth-Token:test_76954866b66d6b27022e3086fd6"));
+            array("X-Api-Key: test_d93c3d591e0abb22ab505118e62",
+                  "X-Auth-Token: test_76954866b66d6b27022e3086fd6"));
 $payload = Array(
     'purpose' => $purpose,
     'amount' => $amount,
     'phone' => $phone,
     'buyer_name' => $name,
-    'redirect_url' => 'https://spacefoundation.in/payment-status.php',
+    'redirect_url' => 'https://test.instamojo.com/integrations/android/redirect/',
     'send_email' => true,
     'webhook' => 'https://spacefoundation.in/webhook.php',
     'send_sms' => true,
@@ -76,8 +76,6 @@ if($payment_request_id) {
         $response = curl_exec($ch);
         curl_close($ch); 
 
-        echo $access_token."<br><br>";
-        echo $payment_request_id."<br><br>";
         echo $response;
 
         exit();
