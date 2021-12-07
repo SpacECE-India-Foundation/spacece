@@ -76,6 +76,8 @@ if($payment_request_id) {
         $response = curl_exec($ch);
         curl_close($ch); 
 
+        echo $access_token."<br><br>";
+        echo $payment_request_id."<br><br>";
         echo $response;
 
         exit();
