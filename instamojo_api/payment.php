@@ -1,9 +1,9 @@
 <?php 
-$purpose = $_POST["purpose"];
-$amount = $_POST["amount"];
-$name = $_POST["name"];
-$phone = $_POST["phone"];
-$email = $_POST["email"];
+$purpose = $_GET["purpose"];
+$amount = $_GET["amount"];
+$name = $_GET["name"];
+$phone = $_GET["phone"];
+$email = $_GET["email"];
 
 $err = '{"success":false, "payment_request": {"id": null}}';
 
