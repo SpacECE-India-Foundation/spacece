@@ -5,6 +5,13 @@ $name = $_POST["name"];
 $phone = $_POST["phone"];
 $email = $_POST["email"];
 
+$err = '{"success":false, "payment_request": {"id": null}}';
+
+if(!isset($purpose) || !isset($amount) || !isset($name) || !isset($phone) || !isset($email)) {
+    echo $err;
+    exit();
+}
+
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
