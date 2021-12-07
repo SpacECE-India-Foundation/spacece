@@ -1,4 +1,5 @@
 <?php
+
 include_once('./db.php');
 require_once('geoplugin.class.php');
 
@@ -15,13 +16,6 @@ $delivery_id=$_GET['id'];
 $tracking_id=$_GET['tracking_id'];
 $sql="SELECT * from tracking Where user_id=$user_id and is_Active='1' ";
 $res=mysqli_fetch_assoc($conn,$sql);
-$lat1=$res['user_lat'];
-$tracking_id=$res['tracking_id'];
-$lang1=$res['user_lang'];
-$lat2=$res['delivery_lat'];
-$lang2=$res['delivery_lang'];
-
-
 
 ?>
 
@@ -34,7 +28,7 @@ $lang2=$res['delivery_lang'];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- jsFiddle will insert css and js -->
+   
   </head>
   <body>
     <div id="container">
@@ -45,11 +39,43 @@ $lang2=$res['delivery_lang'];
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly&channel=2"
       async
     ></script>
+    <script>
+          $(document).ready(function() {
+      
+        setInterval('refreshPage()',(2000*15));
+    });
+
+    function refreshPage() {
+        var user=<?php echo $_SESSION['current_user_email']?>;
+        var track_id=<?php echo $tracking_id  ?>;
+       var lat=<?php echo $lat  ?>;
+       var lang=<?php echo $lan  ?>;
+        $.ajax({
+            'method':'post',
+            'data':{
+                user:user,
+                track_id:track_id,
+                lat:lat,
+                lang:lang
+            },'url':'get_data.php?add',
+            success:function(data){
+var data1=JSON.parse(data);
+                lat1=data1.delivery_lat;
+                lang1=data1.delivery_lang;
+
+  
+}
+        });
+
+        
+    }
+  
+         </script>
     <script>
        $(document).ready(function() {
         // Call refresh page function after 5000 milliseconds (or 5 seconds).
@@ -149,3 +175,7 @@ var data1=JSON.parse(data);
     </script>
   </body>
 </html>
+
+
+     
+
