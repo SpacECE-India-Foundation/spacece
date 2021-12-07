@@ -57,7 +57,7 @@ if($payment_request_id) {
     $result = json_decode($response);
 
     print_r($result);
-    
+
     exit();
 }
 
