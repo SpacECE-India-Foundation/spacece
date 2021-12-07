@@ -17,7 +17,7 @@ else{
 
 // You can get the 'salt' from Instamojo's developers page(make sure to log in first): https://www.instamojo.com/developers
 // Pass the 'salt' without the <>.
-$mac_calculated = hash_hmac("sha1", implode("|", $data), "<YOUR_SALT>");
+$mac_calculated = hash_hmac("sha1", implode("|", $data), "c3d16aeb9f674ff9a80db603eb15d88b");
 
 if($mac_provided == $mac_calculated){
     echo "MAC is fine";

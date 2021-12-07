@@ -1,29 +1,44 @@
 <?php 
-$purpose = "Payment";
+$purpose = $_POST["purpose"];
 $amount = $_POST["amount"];
 $name = $_POST["name"];
 $phone = $_POST["phone"];
 $email = $_POST["email"];
-include 'src/instamojo.php';
-$api = new Instamojo\Instamojo('29b34070bf5867b7d36bf2586c4f4855', '40d161c14f252cc781066e0c685f5f4d','https://www.instamojo.com/api/1.1/');
-try {
-    $response = $api->paymentRequestCreate(array(
-        "purpose" => $purpose,
-        "amount" => $amount,
-        "buyer_name" => $name,
-        "phone" => $phone,
-		"email" => $email,
-        "send_email" => true,
-        "send_sms" => true,
-        'allow_repeated_payments' => false,
-        "redirect_url" => "https://studentstutorial.com/instamojo/thankyou.php",
-        "webhook" => "https://studentstutorial.com/instamojo/webhook.php"
-        ));
-   $pay_ulr = $response['longurl'];
-    header("Location: $pay_ulr");
-    exit();
-}
-catch (Exception $e) {
-    print('Error: ' . $e->getMessage());
-}     
- ?>
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
+curl_setopt($ch, CURLOPT_HEADER, FALSE);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+curl_setopt($ch, CURLOPT_HTTPHEADER,
+            array("X-Api-Key:test_d93c3d591e0abb22ab505118e62",
+                  "X-Auth-Token:test_76954866b66d6b27022e3086fd6"));
+$payload = Array(
+    'purpose' => $purpose,
+    'amount' => $amount,
+    'phone' => $phone,
+    'buyer_name' => $name,
+    'redirect_url' => 'https://spacefoundation.in/payment-status.php',
+    'send_email' => true,
+    'webhook' => 'https://spacefoundation.in/webhook.php',
+    'send_sms' => true,
+    'email' => $email,
+    'allow_repeated_payments' => false
+);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
+$response = curl_exec($ch);
+curl_close($ch); 
+
+$result = json_decode($response);
+
+
+print_r($result);
+// $redirect_url = $result->payment_request->longurl;
+
+// header("Location: $redirect_url");
+
+exit();
+
+?>

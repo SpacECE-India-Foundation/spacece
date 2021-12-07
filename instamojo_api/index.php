@@ -21,8 +21,6 @@
 	<div class="page-header">
         <h1><a href="index.php">Instamojo Payment</a></h1>
 		<form action="payment.php" method="POST" accept-charset="utf-8">
-			<input type="hidden" name="product_name" value="<?php echo $prd_name; ?>"> 
-			<input type="hidden" name="product_price" value="<?php echo $prd_price; ?>"> 
 			<div class="form-group">
 			<label>Your Name</label>
 			<input type="text" class="form-control" name="name" placeholder="Enter your name">	 
@@ -34,6 +32,10 @@
 			<div class="form-group">
 			<label>Your Email</label>
 			<input type="email" class="form-control" name="email" placeholder="Enter you email"> 
+			</div>
+			<div class="form-group">
+			<label>Your Purpose</label>
+			<input type="text" class="form-control" name="purpose" placeholder="Enter you purpose"> 
 			</div>
 			<div class="form-group">
 			<label>Amount</label>
