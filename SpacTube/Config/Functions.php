@@ -3,10 +3,10 @@
 class Functions
 {
 
-    private $DBHOST = 'localhost';
-    private $DBUSER = 'root';
-    private $DBPASS = '';
-    private $DBNAME = 'gallery2';
+    private $DBHOST = '3.109.14.4';
+    private $DBUSER = 'ostechnix';
+    private $DBPASS = 'Password123#@!';
+    private $DBNAME = 'gallery';
     public $conn;
 
     public function __construct()
