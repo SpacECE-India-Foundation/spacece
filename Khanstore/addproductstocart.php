@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting();
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
@@ -18,20 +19,31 @@ if ($conn->connect_error) {
 
 ?>
 <?php
-	$cid = isset($_GET["cat_id"])? $_GET['cat_id'] : Null;
 
-error_reporting();
+    $whereClause = '';
+    if( isset( $_GET["id"] ) ) {
+        $whereClause .= 'id=' . $_GET["id"] ;
+    }
 
-if (isset($cid)) {
-    $sql = "SELECT * FROM `categories` WHERE cat_id=" . $cid;
-    $res = mysqli_query($conn,$sql);
+    if( isset( $_GET["user_id"] ) ) {
+        $whereClause .= !empty($whereClause) ? ' AND ' : ' ' ;
+        $whereClause .= 'user_id=' . $_GET["user_id"];
+    }
+    
+    $sql = "SELECT 
+        id, p_id, ip_add, user_id, qty,start_date, end_date, total_duration, status,
+         exchange_product, exchange_price
+    FROM 
+        cart";
+
+    if(!empty($whereClause)){
+        $sql .= ' WHERE ' . $whereClause;
+    } else{
+        $sql .= ' LIMIT 35';
+    }
+
+    $res = mysqli_query( $conn, $sql );
     header('Content-Type:application/json');
-}
-else {
-    $sql = "SELECT * FROM `categories` LIMIT 35";
-    $res = mysqli_query($conn, $sql);
-    header('Content-Type:application/json');
-}
 
 //checking whether query is excuted or not
 if ($res) {
