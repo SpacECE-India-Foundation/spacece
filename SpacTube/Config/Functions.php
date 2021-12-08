@@ -6,7 +6,11 @@ class Functions
     private $DBHOST = '3.109.14.4';
     private $DBUSER = 'ostechnix';
     private $DBPASS = 'Password123#@!';
-    private $DBNAME = 'gallery';
+//     private $DBHOST = 'localhost';
+//    private $DBUSER = 'root';
+//     private $DBPASS = '';
+
+    private $DBNAME = 'gallery2';
     public $conn;
 
     public function __construct()
@@ -69,6 +73,31 @@ class Functions
     {
 
         $select = "SELECT * FROM $tbl_name ORDER BY $field_id $order";
+       
+        $query = mysqli_query($this->conn, $select);
+        if (mysqli_num_rows($query) > 0) {
+            $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
+            if ($select_fetch) {
+                return $select_fetch;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    public function trend_video_cat($tbl_name,$tb_field, $field_id, $order)
+    {
+        //echo $field_id;
+        
+        // $field_op = "";
+        // foreach ($field_id as $q_key => $q_value) {
+        //     $field_op = $field_op . "$q_key='$q_value' $op ";
+        // }
+        // $field_op = rtrim($field_op, "$op ");
+
+        $select = "SELECT * FROM  $tbl_name WHERE filter='$tb_field' ORDER BY $field_id $order LIMIT 5";
+        //echo $select;
         $query = mysqli_query($this->conn, $select);
         if (mysqli_num_rows($query) > 0) {
             $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -83,6 +112,32 @@ class Functions
     }
 
 
+    public function filter_video($tbl_name,$tb_field,$status,$field_id, $order)
+    {
+        //echo $field_id;
+        
+        // $field_op = "";
+        // foreach ($field_id as $q_key => $q_value) {
+        //     $field_op = $field_op . "$q_key='$q_value' $op ";
+        // }
+        // $field_op = rtrim($field_op, "$op ");
+
+        $select = "SELECT * FROM  $tbl_name WHERE filter='$tb_field' AND status='$status'  ORDER BY $field_id $order LIMIT 5";
+        //echo $select;
+        $query = mysqli_query($this->conn, $select);
+        if (mysqli_num_rows($query) > 0) {
+            $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
+            if ($select_fetch) {
+                return $select_fetch;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    
     public function select_order_where($tbl_name, $condition, $field_id, $op = 'AND', $order = 'ASC')
     {
 
@@ -174,4 +229,10 @@ class Functions
             return false;
         }
     }
+    // public function trend_video_cat($tblname, $field_data, $condition){
+    //    // echo $tblname;
+    //    // echo $condition;
+    //     echo $field_data;
+    // }
+    
 }

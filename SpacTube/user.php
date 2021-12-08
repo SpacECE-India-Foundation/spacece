@@ -99,30 +99,30 @@
                 <form method="post" id="video-ins" action="">
                     <div class="form-row justify-content-center">
                         <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="video_code" placeholder="Enter Youtube Video URL">
+                            <input type="text" class="form-control" name="video_code" placeholder="Enter Youtube Video URL" required>
                         </div>
                         <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="date" placeholder="Enter Video Upload Date">
-                        </div>
-                        <br><br>
-                        <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="title" placeholder="Enter Youtube Video Title">
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="desc" placeholder="Enter Video Desciption">
+                            <input type="text" class="form-control" name="date" placeholder="Enter Video Upload Date" required>
                         </div>
                         <br><br>
                         <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="length" placeholder="Enter Video Length">
+                            <input type="text" class="form-control" name="title" placeholder="Enter Youtube Video Title" required>
+                        </div>
+                        <div class="form-group col-sm-12 col-lg-6 mb-0">
+                            <input type="text" class="form-control" name="desc" placeholder="Enter Video Desciption" required>
+                        </div>
+                        <br><br>
+                        <div class="form-group col-sm-12 col-lg-6 mb-0">
+                            <input type="text" class="form-control" name="length" placeholder="Enter Video Length" required>
                         </div>
 			<div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="filter" placeholder="Enter Video Filter">
+                            <input type="text" class="form-control" name="filter" placeholder="Enter Video Filter" required>
                         </div>
                         <div class="form-group col-sm-12 mb-0">
                             <br>
                             <p>
                                 Select Status: 
-                                <select name="status">
+                                <select name="status" required>
                                 <option value="">Select...</option>
                                 <option value="free">Free</option>
                                 <option value="created">Created</option>

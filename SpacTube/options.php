@@ -1,4 +1,5 @@
 <h6 class="card-title"><?php echo $video_data['title']; ?></h6>
+
                                         <?php echo $video_data['v_date']; ?> <br>
                                         <a href="likecnt.php?btn=<?php echo $video_data['v_id'] ?>">
                                             <button name="likecnt" class ="btn"><img src="like.png" style="justify-content: center; padding-left: 30%; height: 20px; width: auto"></button>
