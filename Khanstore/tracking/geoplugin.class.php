@@ -7,7 +7,7 @@ class geoPlugin {
 	var $host = 'http://www.geoplugin.net/php.gp?ip={IP}&base_currency={CURRENCY}&lang={LANG}';
 		
 	
-	var $currency = 'USD';
+	var $currency = 'INR';
 	
 	
 	var $lang = 'en';
