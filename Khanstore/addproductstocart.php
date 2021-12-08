@@ -1,10 +1,18 @@
 <?php
 session_start();
 error_reporting();
-
+header('content-type:application/json');
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Methods: GET, OPTIONS");
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-headers:Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods,Authorization,X-Requested-With');
 
+$data = json_decode(file_get_contents("php://input"),true);
+
+
+$qty=   isset($data['qty']) ? ($data['qty']) : NULL;
+$status=   isset($data['status']) ? ($data['status']) : NULL;
+$exchange_product=  isset($data['exchange_product']) ?($data['exchange_product']): NULL;
+$exchange_price=    isset($data['exchange_price']) ? ($data['exchange_price']) : NULL;
 
 $servername = "localhost";
 $username = "ostechnix";
@@ -12,58 +20,17 @@ $password = "Password123#@!";
 $dbname = "khanstore";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+
+$sql= "INSERT INTO cart(qty,status,exchange_product,exchange_price) VALUES ($qty,'$status','$exchange_product','$exchange_price')";
+
+if (mysqli_query($conn,$sql))
+ {
+    echo json_encode(array('message'=>'cart product Record Inserted','status' => 'true'));
+    //echo json_encode(['status'=>'success','result'=>'found']);
 }
-
-?>
-<?php
-
-    $whereClause = '';
-    if( isset( $_GET["id"] ) ) {
-        $whereClause .= 'id=' . $_GET["id"] ;
+else {
+    echo json_encode(array('message'=>'cart product Record Not Inserted','status' => 'false'));
     }
 
-    if( isset( $_GET["user_id"] ) ) {
-        $whereClause .= !empty($whereClause) ? ' AND ' : ' ' ;
-        $whereClause .= 'user_id=' . $_GET["user_id"];
-    }
-    
-    $sql = "SELECT 
-        id, p_id, ip_add, user_id, qty,start_date, end_date, total_duration, status,
-         exchange_product, exchange_price
-    FROM 
-        cart";
-
-    if(!empty($whereClause)){
-        $sql .= ' WHERE ' . $whereClause;
-    } else{
-        $sql .= ' LIMIT 35';
-    }
-
-    $res = mysqli_query( $conn, $sql );
-    header('Content-Type:application/json');
-
-//checking whether query is excuted or not
-if ($res) {
-    // count that data is there or not in database
-    $count = mysqli_num_rows($res);
-    $sno = 1;
-    if ($count > 0) {
-        // we have data in database
-        while ($row = mysqli_fetch_assoc($res)) {
-
-            $arr[] = $row;   // making array of data
-
-        }
-        echo json_encode(['status' => 'success', 'data' => $arr, 'result' => 'found']);
-        //echo json_encode(['status'=>'success','result'=>'found']);
-
-
-    } else {
-        echo json_encode(['status' => 'failure', 'result' => 'not found']);
-    }
-}
 
 ?>
