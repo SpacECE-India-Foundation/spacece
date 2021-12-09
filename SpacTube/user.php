@@ -13,9 +13,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SpacTube</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        integrity="sha384s-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
-    <link rel="stylesheet" href="Stylesheet/stylesheet.css">
+    <link rel="stylesheet" href="Stylesheet/stylesheet.cs">
     <img align="left"  src="Space_ECE_logo.png" style="width: 60px; height: auto ">
     <h4 style="padding:12px;">&nbspSPACE For ECE</h4>
     <br><br>
@@ -54,6 +54,7 @@
                 <button type="button">Remove Video</button>
             </a> -->
         </div>
+
         
         <div class="container">
             <ul class="nav justify-content-center bg-dark">
@@ -96,33 +97,33 @@
                 </li>
             </ul>
             <br>
-                <form method="post" id="video-ins" action="">
+                <form  id="video-ins" name="video-ins" >
                     <div class="form-row justify-content-center">
                         <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="video_code" placeholder="Enter Youtube Video URL" required>
+                            <input type="text" class="form-control" id="video_code" name="video_code" placeholder="Enter Youtube Video URL" >
                         </div>
                         <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="date" placeholder="Enter Video Upload Date" required>
-                        </div>
-                        <br><br>
-                        <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="title" placeholder="Enter Youtube Video Title" required>
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="desc" placeholder="Enter Video Desciption" required>
+                            <input type="text" class="form-control" name="date" id="date" placeholder="Enter Video Upload Date" >
                         </div>
                         <br><br>
                         <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="length" placeholder="Enter Video Length" required>
+                            <input type="text" class="form-control" name="title"  id="title"  placeholder="Enter Youtube Video Title">
+                        </div>
+                        <div class="form-group col-sm-12 col-lg-6 mb-0">
+                            <input type="text" class="form-control" name="desc" id="desc" placeholder="Enter Video Desciption">
+                        </div>
+                        <br><br>
+                        <div class="form-group col-sm-12 col-lg-6 mb-0">
+                            <input type="text" class="form-control" name="length" id="length"  placeholder="Enter Video Length" >
                         </div>
 			<div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="filter" placeholder="Enter Video Filter" required>
+                            <input type="text" class="form-control" name="filter"  id="filter" placeholder="Enter Video Filter" >
                         </div>
                         <div class="form-group col-sm-12 mb-0">
                             <br>
                             <p>
                                 Select Status: 
-                                <select name="status" required>
+                                <select name="status" >
                                 <option value="">Select...</option>
                                 <option value="free">Free</option>
                                 <option value="created">Created</option>
@@ -146,7 +147,7 @@
 
             if(isset($_POST['submit']))
             {
-                $url = $_POST['video_code'];
+///$url = $_POST['video_code'];
                 // Here is a sample of the URLs this regex matches: (there can be more content after the given URL that will be ignored)
 
                 // http://youtu.be/dQw4w9WgXcQ
@@ -163,42 +164,42 @@
                 // It also works on the youtube-nocookie.com URL with the same above options.
                 // It will also pull the ID from the URL in an embed code (both iframe and object tags)
 
-                preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
-                $video_url = $match[1];
-                // echo $video_url;
-                $selectquery = "SELECT MAX(`v_id`) AS max_id FROM `videos` ";
-                $rowSQL = mysqli_query($conn, $selectquery); 
-                $row = mysqli_fetch_assoc($rowSQL); 
-                $video_id = $row['max_id'] + 1; 
-                $video_date = $_POST['date'];
-                // echo $video_date;
+                // preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
+                // $video_url = $match[1];
+                // // echo $video_url;
+                // $selectquery = "SELECT MAX(`v_id`) AS max_id FROM `videos` ";
+                // $rowSQL = mysqli_query($conn, $selectquery); 
+                // $row = mysqli_fetch_assoc($rowSQL); 
+                // $video_id = $row['max_id'] + 1; 
+                // $video_date = $_POST['date'];
+                // // echo $video_date;
                 
-                $video_unique = rand(1000000000000000, 10000000000000000);
-                // echo $video_unique;
-                $video_status = $_POST['status'];
-                // echo $video_status;
-                $video_title = $_POST['title'];
-                $video_desc = $_POST['desc'];
-                $video_length = $_POST['length'];
-                $video_filter = $_POST['filter'];
+                // $video_unique = rand(1000000000000000, 10000000000000000);
+                // // echo $video_unique;
+                // $video_status = $_POST['status'];
+                // // echo $video_status;
+                // $video_title = $_POST['title'];
+                // $video_desc = $_POST['desc'];
+                // $video_length = $_POST['length'];
+                // $video_filter = $_POST['filter'];
 
-                $insertquery = "INSERT into `videos`(`v_id`, `v_url`, `v_date`, `v_uni_no`, `status`, `filter`, `title`, `desc`, `length`, `cntlike`, `cntdislike`, `views`, `cntcomment`) values ('$video_id', '$url', '$video_date', '$video_unique', '$video_status', '$video_filter', '$video_title', '$video_desc', '$video_length',0,0,0,0)";
+                // $insertquery = "INSERT into `videos`(`v_id`, `v_url`, `v_date`, `v_uni_no`, `status`, `filter`, `title`, `desc`, `length`, `cntlike`, `cntdislike`, `views`, `cntcomment`) values ('$video_id', '$url', '$video_date', '$video_unique', '$video_status', '$video_filter', '$video_title', '$video_desc', '$video_length',0,0,0,0)";
                 
-                // echo $insertquery;
+                // // echo $insertquery;
 
-                $res = mysqli_query($conn, $insertquery);
-                if($res)
-                {
-                    ?>
-                    <script>alert("Video uploaded succesfully!");</script>
-                    <?php
-                }
-                else {
-                    ?>
-                    <script>alert("Video not uploaded!");</script>
-                    <?php
+                // $res = mysqli_query($conn, $insertquery);
+                // if($res)
+                // {
+                //     ?>
+                //     <script>//alert("Video uploaded succesfully!");</script>
+                //     <?php
+                // }
+                // else {
+                //     ?>
+                //     <script>//alert("Video not uploaded!");</script>
+                //     <?php
 
-                }
+                // }
                     
             }
 
@@ -461,3 +462,233 @@
 </body>
 
 </html> -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script> 
+        <script type="text/javascript">
+            $(function () {
+                $('#load_videos').load('Ajax/Load_gallery.php');
+
+         
+  $.validator.setDefaults({
+    submitHandler: function () {
+//         var matches = $('#video_code').val().match(/http:\/\/(?:www\.)?youtube.*watch\?v=([a-zA-Z0-9\-_]+)/);
+// if (matches) {
+//     alert('valid');
+// } else {
+//     alert('Invalid');
+
+
+// }
+
+
+function YouTubeGetID(url){
+    var ID = '';
+    url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+    if(url[2] !== undefined) {
+      ID = url[2].split(/[^0-9a-z_\-]/i);
+      ID = ID[0];
+    }
+    else {
+      ID = url;
+    }
+      return ID;
+  }
+        var video_url = $('#video_code').val();
+        var id=YouTubeGetID( video_url);
+       
+if(id){
+   var title=$('#title').val();
+        var date=$('#date').val();
+        var desc=$('#desc').val();
+        var length=$('#length').val();
+        var filter=$('#filter').val();
+
+        var status=$('#status').val();
+
+        //alert($video_url);
+                    $('#ins_status').text('');
+                    if (video_url != '') {
+                        $.ajax({
+                            type: "POST",
+                            url: "Ajax/Video_process.php",
+                            data: {
+                                'video_url': encodeURIComponent(video_url),
+                                id:id,
+                                title:title,
+                                date:date,
+                                desc:desc,
+                                length:length,
+                                    status:status,
+                                    filter:filter
+                            },
+                            success: function(response) {
+                                //$json_res = JSON.parse(response);
+                                alert(response);
+                                // if ($json_res.status == 101) {
+                                //    $('#load_videos').load('Ajax/Load_gallery.php');
+                                //    $('#ins_status').text('Successfully Video Added');
+                                //    $("#video-ins").trigger("reset");
+                                // } else {
+                                //     console.log($json_res.msg);
+                                // }
+                            }
+                        });
+                    } else {
+                        $('#ins_status').text('Please Enter Video Code');
+                    }
+}else{
+    alert("invalid");
+}
+        
+    }
+  });
+  $('#video-ins').validate({
+  
+    rules: {
+        video_code: {
+        required: true,
+       
+        
+      },
+      date: {
+        required: true,
+      },
+      title:{
+          required: true,
+     },desc:{
+        required: true,
+     },
+     length:{
+        required: true,
+     },
+     filter:{
+        required: true,
+     },
+     status:{
+        required: true,
+     }
+    },
+    messages: {
+        video_code: {
+           
+        required: "Please enter Valid Video code",
+      
+      },
+      date: {
+        required: "Please enter Uploaded Date",
+      },
+      title:{
+          required: "Please enter Video title",
+     },desc:{
+        required: "Please Enter Video Dedcription",
+     },
+     length:{
+        required: "Please enyer Video length",
+     },
+     filter:{
+        required: "Please Enter Filter category",
+     },
+     status:{
+        required: "Please select Status",
+     }
+    }
+});
+});
+
+
+
+
+
+
+
+
+
+
+//             $(document).ready(function() {
+              
+//                 $("#video-ins").validate({
+//     error: function (label) {
+//       $(this).addClass("error");
+//     },
+//     rules: {
+//         video_code: {
+//         required: true,
+       
+//       },
+//       date: {
+//         required: true,
+//       },
+//       title:{
+//           required: true,
+//      },desc:{
+//         required: true,
+//      },
+//      length:{
+//         required: true,
+//      },
+//      filter:{
+//         required: true,
+//      },
+//      status:{
+//         required: true,
+//      }
+//     },
+//     messages: {
+//         video_code: {
+//         required: "Please enter Valid Video code",
+      
+//       },
+//       date: {
+//         required: "Please enter Uploaded Date",
+//       },
+//       title:{
+//           required: "Please enter Video title",
+//      },desc:{
+//         required: "Please Enter Video Dedcription",
+//      },
+//      length:{
+//         required: "Please enyer Video length",
+//      },
+//      filter:{
+//         required: "Please Enter Filter category",
+//      },
+//      status:{
+//         required: "Please select Status",
+//      }
+//     },
+//   });
+
+//                 $('#video-ins').on('submit', function(e) {
+//                     e.preventDefault();
+//                     $video_url = $('#video_code').val().trim();
+//                     $('#ins_status').text('');
+//                     if ($video_url != '') {
+//                         $.ajax({
+//                             type: "POST",
+//                             url: "Ajax/Video_process.php",
+//                             data: {
+//                                 'video_url': encodeURIComponent($video_url)
+//                             },
+//                             success: function(response) {
+//                                 $json_res = JSON.parse(response);
+//                                 if ($json_res.status == 101) {
+//                                     $('#load_videos').load('Ajax/Load_gallery.php');
+//                                     $('#ins_status').text('Successfully Video Added');
+//                                     $("#video-ins").trigger("reset");
+//                                 } else {
+//                                     console.log($json_res.msg);
+//                                 }
+//                             }
+//                         });
+//                     } else {
+//                         $('#ins_status').text('Please Enter Video Code');
+//                     }
+//                 });
+//             });
+        </script>

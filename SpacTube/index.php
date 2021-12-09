@@ -61,18 +61,25 @@
         </div>
         <?php include_once '../common/footer_module.php'; ?>
 
-
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script> 
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
 
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(function () {
                 $('#load_videos').load('Ajax/Load_gallery.php');
 
-                $('#video-ins').on('submit', function(e) {
-                    e.preventDefault();
-                    $video_url = $('#video_code').val().trim();
+         
+  $.validator.setDefaults({
+    submitHandler: function () {
+      
+    
+        $video_url = $('#video_code').val().trim();
+        alert($video_url);
                     $('#ins_status').text('');
                     if ($video_url != '') {
                         $.ajax({
@@ -83,10 +90,11 @@
                             },
                             success: function(response) {
                                 $json_res = JSON.parse(response);
+                                alert(response);
                                 if ($json_res.status == 101) {
-                                    $('#load_videos').load('Ajax/Load_gallery.php');
-                                    $('#ins_status').text('Successfully Video Added');
-                                    $("#video-ins").trigger("reset");
+                                   // $('#load_videos').load('Ajax/Load_gallery.php');
+                                  //  $('#ins_status').text('Successfully Video Added');
+                                  //  $("#video-ins").trigger("reset");
                                 } else {
                                     console.log($json_res.msg);
                                 }
@@ -95,8 +103,148 @@
                     } else {
                         $('#ins_status').text('Please Enter Video Code');
                     }
-                });
-            });
+    }
+  });
+  $('#video-ins').validate({
+    rules: {
+        video_code: {
+        required: true,
+       
+      },
+      date: {
+        required: true,
+      },
+      title:{
+          required: true,
+     },desc:{
+        required: true,
+     },
+     length:{
+        required: true,
+     },
+     filter:{
+        required: true,
+     },
+     status:{
+        required: true,
+     }
+    },
+    messages: {
+        video_code: {
+        required: "Please enter Valid Video code",
+      
+      },
+      date: {
+        required: "Please enter Uploaded Date",
+      },
+      title:{
+          required: "Please enter Video title",
+     },desc:{
+        required: "Please Enter Video Dedcription",
+     },
+     length:{
+        required: "Please enyer Video length",
+     },
+     filter:{
+        required: "Please Enter Filter category",
+     },
+     status:{
+        required: "Please select Status",
+     }
+    }
+});
+});
+
+
+
+
+
+
+
+
+
+
+//             $(document).ready(function() {
+              
+//                 $("#video-ins").validate({
+//     error: function (label) {
+//       $(this).addClass("error");
+//     },
+//     rules: {
+//         video_code: {
+//         required: true,
+       
+//       },
+//       date: {
+//         required: true,
+//       },
+//       title:{
+//           required: true,
+//      },desc:{
+//         required: true,
+//      },
+//      length:{
+//         required: true,
+//      },
+//      filter:{
+//         required: true,
+//      },
+//      status:{
+//         required: true,
+//      }
+//     },
+//     messages: {
+//         video_code: {
+//         required: "Please enter Valid Video code",
+      
+//       },
+//       date: {
+//         required: "Please enter Uploaded Date",
+//       },
+//       title:{
+//           required: "Please enter Video title",
+//      },desc:{
+//         required: "Please Enter Video Dedcription",
+//      },
+//      length:{
+//         required: "Please enyer Video length",
+//      },
+//      filter:{
+//         required: "Please Enter Filter category",
+//      },
+//      status:{
+//         required: "Please select Status",
+//      }
+//     },
+//   });
+
+//                 $('#video-ins').on('submit', function(e) {
+//                     e.preventDefault();
+//                     $video_url = $('#video_code').val().trim();
+//                     $('#ins_status').text('');
+//                     if ($video_url != '') {
+//                         $.ajax({
+//                             type: "POST",
+//                             url: "Ajax/Video_process.php",
+//                             data: {
+//                                 'video_url': encodeURIComponent($video_url)
+//                             },
+//                             success: function(response) {
+//                                 $json_res = JSON.parse(response);
+//                                 if ($json_res.status == 101) {
+//                                     $('#load_videos').load('Ajax/Load_gallery.php');
+//                                     $('#ins_status').text('Successfully Video Added');
+//                                     $("#video-ins").trigger("reset");
+//                                 } else {
+//                                     console.log($json_res.msg);
+//                                 }
+//                             }
+//                         });
+//                     } else {
+//                         $('#ins_status').text('Please Enter Video Code');
+//                     }
+//                 });
+//             });
         </script>
 
 

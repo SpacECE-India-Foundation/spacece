@@ -2,18 +2,35 @@
 
 require_once '../Config/Functions.php';
 $Fun_call = new Functions();
-
+//var_dump($_POST);
 $js_data = array();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if(isset($_POST['video_url'])){
 
-        $video_url = $Fun_call->validate($_POST['video_url']);
-	 echo"<script>alert('hello...')</script>"
-        if(!empty($video_url)){
+       
+          
 
-            $field['v_url'] = $video_url;
+
+        $video_url = $Fun_call->validate($_POST['video_url']);
+	 echo"<script>alert('hello...')</script>";
+        if(!empty($video_url)){
+            $id=$_POST['id'];
+            $title=$_POST['title'];
+            $date=$_POST['date'];
+            $desc=$_POST['desc'];
+            $length=$_POST['length'];
+                $status=$_POST['status'];
+                $filter=$_POST['filter'];
+
+            $field['v_url'] = $id;
+            //$field['v_date'] = $id;
+            $field['status'] = $status;
+            $field['filter'] = $filter;
+            $field['title'] = $title;
+            $field['desc'] = $desc;
+            $field['length'] = $length;
             $field['v_date'] = date('y-m-d');
             $field['v_uni_no'] = rand(1000000000000000, 10000000000000000);
             $ins_video = $Fun_call->insert('videos', $field);
