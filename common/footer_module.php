@@ -137,10 +137,12 @@
         opacity: 0.9;
         padding: 30px 30px;
       ">
+       <div class="container">
     <div class="row">
-    <div class="container">
         <div class="col-lg-3 footer-widget ">
-            <img src="../img/logo/LibForSmalls.jpeg" class="img img-fluid img-thumbnail img-circle" alt="" style="width: 150px" />
+            <img src="<?= isset($module_logo) ? $module_logo : 'Spacece' ?>" class="img img-fluid img-thumbnail img-circle" alt="" style="width: 150px" /><a href="./index.php">
+                       
+                    </a>
 
             <div class="social">
                 <a href="https://www.facebook.com/SpacECEIn"><i class="fa fa-facebook"></i></a>
@@ -149,6 +151,7 @@
                 <a href="https://www.linkedin.com/company/spacece-co/"><i class="fa fa-linkedin"></i></a>
             </div>
         </div>
+        
         <div class="col-lg-3  footer-widget">
             <p style="color: black">
                 Still delaying your child's health concerns ?

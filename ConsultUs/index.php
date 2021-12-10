@@ -7,7 +7,15 @@ include_once '../common/header_module.php';
 <div id="preloder">
 	<div class="loader"></div>
 </div>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/magnific-popup.min.js"></script>
+<script type="text/javascript" src="js/jquery.convform.js">
 
+</script>
+<script type="text/javascript" src="js/custom.js">
+
+</script>
 <!-- Header section -->
 <!-- <header class="header-section">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
@@ -69,10 +77,10 @@ include_once '../common/header_module.php';
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class=" " src="../img/d7.jpg" alt="First slide" style="">
+				<img class=" " src="../img/d7.jpg" alt="First slide" style="width:100%;">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block" src="../img/d8.jpg" alt="Second slide">
+				<img class="d-block" src="../img/d8.jpg" alt="Second slide" style="width:100%;">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -421,15 +429,8 @@ include_once '../common/header_module.php';
 	<script src="js/main.js"></script> -->
 <!-- <script type="js/jquery.js"></script> -->
 <!-- <script type="text/javascript" src="js/jquery-3.1.1.min.js"> -->
-</script>
-<script src="js/jquery-3.2.1.min.js"></script>
+<!-- </script> -->
 
-<script type="text/javascript" src="js/jquery.convform.js">
-
-</script>
-<script type="text/javascript" src="js/custom.js">
-
-</script>
 <!-- <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript"src="js/bootstrap.min.js"></script> -->
