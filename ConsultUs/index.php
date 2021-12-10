@@ -3,17 +3,13 @@ include_once './header_local.php';
 include_once '../common/header_module.php';
 // include_once '../common/banner.php';
 ?>
+
 <!-- Page Preloder -->
 <div id="preloder">
 	<div class="loader"></div>
 </div>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/masonry.pkgd.min.js"></script>
-	<script src="js/magnific-popup.min.js"></script>
-<script type="text/javascript" src="js/jquery.convform.js">
 
-</script>
-<script type="text/javascript" src="js/custom.js">
+
 
 </script>
 <!-- Header section -->
@@ -287,7 +283,7 @@ include_once '../common/header_module.php';
 
 <!-- fixed bug id 0000100 -->
 <!---offers section-->
-<div class="section col" style="width: 100%; height: 90%; ">
+<div class="section col" style="width: 100%; ">
 	<div class="text-center">
 		<div class="section-title text-center">
 			<h3>GET THE BEST OFFERS HERE</h3>
@@ -367,7 +363,7 @@ include_once '../common/header_module.php';
 		</form>
 	</div>
 </div>
-
+</div>
 
 
 <!--session close-->
@@ -423,17 +419,27 @@ include_once '../common/header_module.php';
 <!--====== Javascripts & Jquery ======-->
 <!-- <script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script> -->
-<!-- <script src="js/owl.carousel.min.js"></script>
-	<script src="js/masonry.pkgd.min.js"></script>
-	<script src="js/magnific-popup.min.js"></script>
-	<script src="js/main.js"></script> -->
+
+
 <!-- <script type="js/jquery.js"></script> -->
 <!-- <script type="text/javascript" src="js/jquery-3.1.1.min.js"> -->
 <!-- </script> -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 
-<!-- <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript"src="js/bootstrap.min.js"></script> -->
+
+
+
+
+
+
+<script src='js/masonry.pkgd.min.js'></script>
+	<script src='js/magnific-popup.min.js'></script>
+<script  src='../js/jquery.convform.js'></script>
+<script src='js/main.js'></script>
+<script src='../js/owl.carousel.min.js'></script>
+<script type="text/javascript" src="js/jquery.convform.js">
+</script>
+<script type="text/javascript" src="js/custom.js"></script>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -464,6 +470,7 @@ include_once '../common/header_module.php';
 
 
 <?php
+// $module_logo = "../img/logo/ConsultUs.jpeg";
 include_once '../common/footer_module.php';
 
 ?>
