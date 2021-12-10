@@ -22,7 +22,7 @@ class Functions
             }
         } catch (Exception $e) {
             echo 'Message: ' . $e->getMessage();
-        }
+        } 
     }
 
     public function validate($string)
