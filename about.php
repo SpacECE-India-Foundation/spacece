@@ -99,7 +99,7 @@ include_once './common/header_module.php';
 	<!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="img/about.jpg" style="width: 100%; height: 80%;">
 		<div class="container text-black d-flex">
-		<h3 style= background: linear-gradient(to bottom, #ff6699 0%, #ff9900 100%);">
+		<h3 style= "background: linear-gradient(to bottom, #ff6699 0%, #ff9900 100%);">
 			<h3>Our aim is to encourage children in communicating with the world using all of their ability, capabilities, and language, and to overcome any barriers.</h3>
 		</div>
 	</section>
