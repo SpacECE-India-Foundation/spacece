@@ -224,6 +224,7 @@
       var email=$('#email').val();
      $.ajax({
        method:'POST',
+       url:'function.php',
        data:{
          subscribe:1,
          email:email

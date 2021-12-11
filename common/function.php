@@ -7,7 +7,8 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-if(isset($_POST['subsribe'])){
+
+if(isset($_POST['subscribe'])){
     $email=$_POST['email'];
 
    
