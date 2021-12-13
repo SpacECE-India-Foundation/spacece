@@ -1,7 +1,20 @@
 <?php
 
 require_once 'Config/Functions.php';
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/Space_Tube.jpeg";
+$module_name = "Space Tube";
+include_once '../common/header_module.php';
 $Fun_call = new Functions();
+$status='false';
+if(isset($_SESSION['current_user_email'])){
+    $table='webhook';
+    //$email='yashasvipundeer@gmail.com';
+  $status=  $Fun_call->checkSubscription($table,$email);
+ 
+ 
+}
+
 
 $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
 $get_video = $Fun_call->selected_order('videos', 'filter');
@@ -54,7 +67,11 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                 <button type="button">Remove Video</button>
             </a> -->
     </div>
+<?php
+ if($status===true){
+   
 
+?>
     <div class="container-fluid">
 
         <div class="container">
@@ -209,14 +226,19 @@ if($filter_videos){
         </div>
 
     </div>
+    <?php 
+ }
+ else{
+     echo "Please Subscribe for This Videos";
+ }
+ ?>
     <!-- <div class="container1" >
                 
                 <a href="user1.php">
                     <button type="button">Remove Video</button>
                 </a>
     </div> -->
-    <?php include 'footer.php'; ?>
-
+     <?php include_once '../common/footer_module.php'; ?>9
 
 
 

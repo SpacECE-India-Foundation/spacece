@@ -234,5 +234,15 @@ class Functions
     //    // echo $condition;
     //     echo $field_data;
     // }
+
+    public function checkSubscription($table,$email){
+        $select_assoc = "SELECT * FROM $table WHERE email='$email'";
+       /// echo $select_assoc;
+        $select_assoc_query = mysqli_query($this->conn, $select_assoc);
+        if (mysqli_num_rows($select_assoc_query) > 1) {
+            return true;
+        }
+        return false;
+    }
     
 }
