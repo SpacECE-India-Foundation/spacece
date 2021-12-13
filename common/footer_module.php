@@ -1,7 +1,7 @@
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <!--bug id  0000115 -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 .fa {
   padding: 2px;
@@ -197,8 +197,8 @@
                     Subscribe your email to get the latest news and new offer also
                     discount
                 </p>
-                <form class="footer-newslatter-form">
-                    <input type="text" placeholder="Email address" />
+                <form class="footer-newslatter-form" id="sub" name="sub" >
+                    <input type="text" name="email" id="email" placeholder="Email address" required />
                     <button style="cursor: pointer" type="submit">
                         <i class="fa fa-send"></i>
                     </button>
@@ -213,10 +213,27 @@
     <span style="font-size: 20px"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span>
 </p>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 <?= isset($extra_scripts) ? $extra_scripts : null ?>
 
 </body>
-
+<script>
+  $(document).ready(function(){
+    $('#sub').on('submit',function(){
+      var email=$('#email').val();
+     $.ajax({
+       method:'POST',
+       url:'function.php',
+       data:{
+         subscribe:1,
+         email:email
+       },
+       success:function(data){
+         alert(data);
+       }
+     })
+    })
+  })
+  </script>
 </html>
