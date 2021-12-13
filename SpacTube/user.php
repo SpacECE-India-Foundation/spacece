@@ -141,12 +141,49 @@ $module_name = "Space Tube";
                             <br><br>
                             <input type="submit" name="submit" value="Upload" class="btn btn-outline-dark" data-toggle="modal"
                                 data-target="#exampleModalCenter" style="background-color:black ;border-radius:10px;color:white;">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bulkModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+
                         </div>
                     </div>
                 </form>
+                
             </div>
         </div>
-
+        <div class="modal fade" id="bulkModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bulk Video Upload</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="field_wrapper">
+    <div>
+    <input type="text" name="field_name[]" value=""/> <input type="text" name="field_name[]" value=""/>
+    <input type="text" name="field_name[]" value=""/> <input type="text" name="field_name[]" value=""/>
+    <input type="text" name="field_name[]" value=""/> <input type="text" name="field_name[]" value=""/>
+                                <select name="status" >
+                                <option value="">Select...</option>
+                                <option value="free">Free</option>
+                                <option value="created">Created</option>
+                                </select>
+        <a href="javascript:void(0);" class="add_button" title="Add field"><i class="fa fa-plus"></i></a>
+    </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
         <?php
 
             include 'connection.php';
@@ -212,259 +249,14 @@ $module_name = "Space Tube";
 
         ?>
 
-        <!-- <div class="container1">
-            <a href="logout.php">
-                <button type="button">Logout</button>
-            </a>
-            <a href="home.php">
-                <button type="button">Back to Gallery</button>
-            </a>
-        </div> -->
-    <!-- <div class="all-v-btn btn btn-outline-dark">
-        <a href="home.php"><i class="fi-xwluxl-gear-wide fi-2x fi-flip-h"></i></a>
-    </div>
-    <footer style="background-color:#DCDCDC;font-size:16px;">
    
-   <br><small id="h.95afdmhxvf3q" dir="ltr" class="CDt4Ke zfr3Q TMjjoe" style="display: block; text-align: center;color:Dark-Black;"> @copyrights 2021</small>
-   <small id="h.xywgd2wyshlz" dir="ltr" class="CDt4Ke zfr3Q TMjjoe" style="display: block; text-align: center;">
-   <span class=" aw5Odc" style="text-decoration: underline;">
-   <a class="XqQF9c" href="mailto:events@spacece.co" target="_blank" style="">events@spacece.co</a></span> |
-    <span class=" aw5Odc" style="text-decoration: underline;"><a class="XqQF9c" href="https://api.whatsapp.com/send/?phone=%2B919096305648&text=You+are+chatting+with+%27SPACE+for+ECE%27.+Please+text+your+query+here.&app_absent=0">Contact US</a></span></small>
-    <small id="h.q469uon9qrj9" dir="ltr" class="CDt4Ke zfr3Q TMjjoe" style="display: block; text-align: center;">
-    <span class=" aw5Odc" style="text-decoration: underline;">
-    <a class="XqQF9c" href="https://www.spacece.co/terms-and-conditions">Terms and Conditions</a></span> | <span class=" aw5Odc" style="text-decoration: underline;">
-    <a class="XqQF9c" href="https://www.spacece.co/disclaimer">Disclaimer</a></span> | <span class=" aw5Odc" style="text-decoration: underline;">
-    <a class="XqQF9c" href="https://www.spacece.co/cookie-policy">Cookie Policy</a></span></small><small id="h.e5fs5t1klyxc" dir="ltr" class="CDt4Ke zfr3Q TMjjoe" style="display: block; text-align: center;">
-    <span class=" aw5Odc" style="text-decoration: underline;">
-    <a class="XqQF9c" href="https://www.spacece.co/privacy-policy">Privacy Policy</a></span> | <span class=" aw5Odc" style="text-decoration: underline;">
-    <a class="XqQF9c" href="https://www.spacece.co/return-and-refund-policy">Refund Policy</a></span> | <span class=" aw5Odc" style="text-decoration: underline;"><a class="XqQF9c" href="https://www.google.com/url?q=https%3A%2F%2Fmstalkse.spacece.co%2Fshipping-policy&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF2kcrbrifnSPsKeb8XliwTJyV6BA" target="_blank">Shipping Policy</a></span></small></div></div></div></div>
-    <div class="oKdM2c"><div id="h.39752d6bfe644c6b_12" class="hJDwNd-AhqUyc-uQSCkd jXK9ad D2fZ2 wHaque GNzUNc">
-        <div class="jXK9ad-SmKAyb">
-            <div class="tyJCtd mGzaTb baZpAe">
-                <small id="h.tac4mnm75ep2" dir="ltr" class="CDt4Ke zfr3Q TMjjoe" style="display: block;"><br></small></div></div></div></div></div></div></div></div></div></section>
-               </footer>
-         -->
 </body>
 </html>
 
-<!-- <div class="container">
-            <div class="ins-box" id="load_videos">
-            </div>
-        </div>
-    </div>
-
-
-    <div class="all-v-btn btn btn-outline-dark">
-        <a href="view.php"><i class="fi-xwluxl-table-wide fi-2x"></i></a>
-    </div>
-
-    <div class="container1">
-        <a href="logout.php">
-            <button type="button">Logout</button>
-        </a>
-        <a href="user.php">
-            <button type="button">Upload Video</button>
-        </a>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-
-    $(document).ready(function (){
-        $('#load_videos').load('Ajax/Load_gallery.php');
-
-        $('#video-ins').on('submit', function(e){
-            e.preventDefault();
-            $video_url = $('#video_code').val().trim();
-            $('#ins_status').text('');
-            if($video_url != ''){
-                $.ajax({
-                    type: "POST",
-                    url: "Ajax/Video_process.php",
-                    data: { 'video_url' : encodeURIComponent($video_url) },
-                    success: function (response) {
-                        $json_res = JSON.parse(response);
-                        if($json_res.status == 101){
-                            $('#load_videos').load('Ajax/Load_gallery.php');
-                            $('#ins_status').text('Successfully Video Added');
-                            $("#video-ins").trigger("reset");
-                        }
-                        else{
-                            console.log($json_res.msg);
-                        }
-                    }
-                });
-            }
-            else{
-                $('#ins_status').text('Please Enter Video Code');
-            }
-        });   
-    });
-    </script> -->
 
 
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SpacECE Video Gallery</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script defer src="https://friconix.com/cdn/friconix.js"> </script>
-    <link rel="stylesheet" href="Stylesheet/stylesheet.css">
-</head>
-
-<body>
-
-
-        <div class="container">
-            <div class="ins-box">
-                <form method="post" id="video-ins" action="/Ajax/video_process.php">
-                    <div class="form-row justify-content-center">
-                        <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" id="video_code" placeholder="Enter Youtube Video URL">
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-2 mb-0">
-                            <input type="submit" value="Upload" class="btn btn-outline-dark" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-    
-    $(document).ready(function (){
-
-        $delete_no = '';
-
-        $('#load_videos').load('Ajax/Load_gallery.php');
-
-
-        $('#video-ins').on('submit', function(e){
-            e.preventDefault();
-            $video_url = $('#video_code').val().trim();
-            $('#ins_status').text('');
-            if($video_url != ''){
-                $.ajax({
-                    type: "POST",
-                    url: "Ajax/Video_process.php",
-                    data: { 'video_url' : encodeURIComponent($video_url) },
-                    success: function (response) {
-                        $json_res = JSON.parse(response);
-                        if($json_res.status == 101){
-                            $('#load_videos').load('Ajax/Load_gallery.php');
-                            $('#ins_status').text('Successfully Video Added');
-                            $("#video-ins").trigger("reset");
-                        }
-                        else{
-                            console.log($json_res.msg);
-                        }
-                    }
-                });
-            }
-            else{
-                $('#ins_status').text('Please Enter Video Code');
-            }
-        });
-
-        $(document).on('click', '#video_update', function(){
-            $update_no = $(this).data('update_no');
-            $('#upd_status').text('');
-            $.getJSON("Ajax/Fetch_update.php", {'update_no' : encodeURIComponent($update_no)}, function(json_data){
-                if(json_data.status == 200){
-                    $('#update_no').val($update_no);
-                    $('#update_iframe').attr('src', 'https://www.youtube.com/embed/'+json_data.code);
-                }
-                else{
-                    console.log(json_data.code);
-                }
-            });
-        });
-
-        $('#update_video').on('submit', function(e){
-            e.preventDefault();
-            $upd_video_url = $('#update_url').val().trim();
-            $upd_video_no = $('#update_no').val().trim();
-            if($upd_video_url != '' && $upd_video_no != ''){
-                $.ajax({
-                    type: "POST",
-                    url: "Ajax/Video_process.php",
-                    data: { 
-                        'upd_video_url' : encodeURIComponent($upd_video_url),
-                        'upd_video_no' : encodeURIComponent($upd_video_no) },
-                    success: function (response) {
-                        $json_res = JSON.parse(response);
-                        if($json_res.status == 104){
-                            $('#update_reset').trigger('click');
-                            $('#load_videos').load('Ajax/Load_gallery.php');
-                            $("#update_video").trigger("reset");
-                        }
-                        else{
-                            console.log($json_res.msg);
-                        }
-                    }
-                });
-            }
-            else{
-                if($upd_video_url == ''){
-                    $('#upd_status').text('Please Enter Video Code');
-                }
-                if($upd_video_no == ''){
-                    $('#upd_status').text('Video No Not Found');
-                }
-                
-            }
-        });
-
-        $(document).on('click', '#video_delete', function(){
-            $delete_no = $(this).data('delete_no');
-        });
-
-        $('#video_delete').on('click', function(){
-            if($delete_no != ''){
-                $.ajax({
-                    type: "POST",
-                    url: "Ajax/Video_process.php",
-                    data: { 'de_video_no' : encodeURIComponent($delete_no) },
-                    success: function (res) {
-                        var json_data = JSON.parse(res);
-                        if(json_data.status == '107'){
-                            $('#video_delete').trigger('click');
-                            $('#load_videos').load('Ajax/Load_gallery.php');
-                        }
-                        else{
-                            console.log(json_data.msg);
-                        }
-                    }
-                });
-            }
-            else{
-                $('#de_status').text('Video Not Found');
-            }
-        });
-
-
-
-    });
-
-    </script>
 
 </body>
 
@@ -702,3 +494,28 @@ if(id){
 //                 });
 //             });
         </script>
+        <script type="text/javascript">
+$(document).ready(function(){
+    var maxField = 10; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+    var fieldHTML = '<div class="row"><div class="col"><input type="text" name="field_name[]" value=""/></div> <div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus" ></i></div>'; //New input field html 
+    var x = 1; //Initial field counter is 1
+    
+    //Once add button is clicked
+    $(addButton).click(function(){
+        //Check maximum number of input fields
+        if(x < maxField){ 
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); //Add field html
+        }
+    });
+    
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function(e){
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
+</script>
