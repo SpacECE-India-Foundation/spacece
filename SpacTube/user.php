@@ -2,6 +2,10 @@
 
     include 'Config/Functions.php';
     $Fun_call = new Functions();
+    $main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/Space_Tube.jpeg";
+$module_name = "Space Tube";
+    include '../common/header_module.php';
 
     ?>
 
@@ -16,9 +20,9 @@
         integrity="sha384s-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     <link rel="stylesheet" href="Stylesheet/stylesheet.cs">
-    <img align="left"  src="Space_ECE_logo.png" style="width: 60px; height: auto ">
-    <h4 style="padding:12px;">&nbspSPACE For ECE</h4>
-    <br><br>
+    <!-- <img align="left"  src="Space_ECE_logo.png" style="width: 60px; height: auto ">
+    <h4 style="padding:12px;">&nbspSPACE For ECE</h4> -->
+    <!-- <br><br> -->
     <style>
 .topright {
   position: absolute;
@@ -41,22 +45,25 @@
             </ul>
         </div> -->
 
-        <div class="topright" >
+        <!-- <div class="topright" >
             <a href="logout.php">
                 <button type="button"style="color:white; background-color:black;border-radius: 10px;">Logout</button>
             </a>
             <button onclick="window.open('https:/www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/', '_self')" type="button" style="color:white; background-color:black;border-radius: 10px;">Subscribe</button>
             <script src="https://js.instamojo.com/v1/button.js"></script>
-            <!-- <a href="user.php">
+            <a href="user.php">
                 <button type="button">Upload Video</button>
             </a>
             <a href="user1.php">
                 <button type="button">Remove Video</button>
-            </a> -->
+            </a> 
+        </div> -->
+    <div class="container">
+        <?php
+    include './menu.php';
+        ?>
         </div>
-
-        
-        <div class="container">
+        <!-- <div class="container">
             <ul class="nav justify-content-center bg-dark">
                 <li class="nav-item">
                     <div class="nav-link heading">SpacTube</div>
@@ -77,16 +84,16 @@
             <a href="http://api.whatsapp.com/send?phone=+919096305648" target="_blank">
                 <button name = "contact" class="btn-btn"style="background-color:orange;"><h6>Contact Us</h6></button>
             </a>
-            <!-- <a href="user.php">
+             <a href="user.php">
                 <button name = "upload" class="btn-btn"style="background-color:orange;"><h6>Upload Video</h6></button>
             </a>
             <a href="user1.php">
                 <button name = "remove" class="btn-btn"style="background-color:orange;"><h6>Remove Video</h6></button>
-            </a> -->
-            <!-- <a href="recents.php">
+            </a>
+            <a href="recents.php">
                 <button name = "recent" class="btn-btn"><h6>Recently Watched</h6></button>
-            </a> -->
-        </div>
+            </a>
+        </div> -->
        
         <div class="container">
             
@@ -213,7 +220,7 @@
                 <button type="button">Back to Gallery</button>
             </a>
         </div> -->
-    <div class="all-v-btn btn btn-outline-dark">
+    <!-- <div class="all-v-btn btn btn-outline-dark">
         <a href="home.php"><i class="fi-xwluxl-gear-wide fi-2x fi-flip-h"></i></a>
     </div>
     <footer style="background-color:#DCDCDC;font-size:16px;">
@@ -236,7 +243,7 @@
             <div class="tyJCtd mGzaTb baZpAe">
                 <small id="h.tac4mnm75ep2" dir="ltr" class="CDt4Ke zfr3Q TMjjoe" style="display: block;"><br></small></div></div></div></div></div></div></div></div></div></section>
                </footer>
-        
+         -->
 </body>
 </html>
 
@@ -462,6 +469,9 @@
 </body>
 
 </html> -->
+<?php
+include '../common/footer_module.php';
+?>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
