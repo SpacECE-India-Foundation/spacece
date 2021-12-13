@@ -65,7 +65,7 @@ function upload_video_on_youtube($arr_data) {
                         // Add 'snippet' object to the $playlistItem object.
                         $playlistItemSnippet = new Google_Service_YouTube_PlaylistItemSnippet();
                         $playlistItemSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA/playlists');
-                        $playlistItemSnippet->setDescription('Hello');
+                        $playlistItemSnippet->setDescription($summary );
                         $playlistItemSnippet->setPlaylistId($category);
                         $playlistItemSnippet->setPosition(0);
                         $resourceId = new Google_Service_YouTube_ResourceId();
@@ -74,7 +74,7 @@ function upload_video_on_youtube($arr_data) {
                         $resourceId->setPlaylistId('PLm0GU5IUgzTB9g59TrgjgkM5htTsgqUxt');
                         $resourceId->setVideoId($video_id);
                         $playlistItemSnippet->setResourceId($resourceId);
-                        $playlistItemSnippet->setTitle('hello5');
+                        $playlistItemSnippet->setTitle($title);
                         $playlistItem->setSnippet($playlistItemSnippet);
                         
                         // Add 'status' object to the $playlistItem object.
@@ -84,11 +84,15 @@ function upload_video_on_youtube($arr_data) {
                         
                         $response = $service->playlistItems->insert('snippet', $playlistItem);
                         print_r($response);
-                    
+                    if($response->status===200){
+                        echo "Video uploaded successfully. Video ID is ". $response->id;
+                    }else{
+                        echo "Invalid ApiKey or credencials";
+                    }
         
-                echo "Video uploaded successfully. Video ID is ". $response->id;
-    print_r($response);
-        echo "Video uploaded successfully. Video ID is ". $response->id;
+              //  echo "Video uploaded successfully. Video ID is ". $response->id;
+   // print_r($response);
+        
     } catch(Exception $e) {
         if( 401 == $e->getCode() ) {
             $refresh_token = $db->get_refersh_token();
