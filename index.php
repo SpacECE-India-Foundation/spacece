@@ -194,8 +194,10 @@ include_once './common/header_module.php';
         <span class="sr-only">Next</span>
       </a>
     </div>
-  </section>
+  </section> -->
 
+
+  
 
   <!-- Hero section end -->
   <!-- Services section -->
