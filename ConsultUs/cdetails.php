@@ -2,10 +2,10 @@
 include_once './header_local.php';
 include_once '../common/header_module.php';
 // include_once '../common/banner.php';
-include('indexDB.php'); ?>
-<?php error_reporting(0);
+include('indexDB.php');
+error_reporting(0);
 $ref = $_GET['user'];
-$cat = $_GET['category']; ?>
+$cat = $_GET['category'];
 ?>
 
 <div class="main-content text-centre" style="background: linear-gradient(to bottom right, #ffcc99 0%, #ffffff 100%);">
