@@ -2,53 +2,6 @@
 include_once './header_local.php';
 include_once '../common/header_module.php';
 //include_once 'includes/header1.php'
-?>
-<h1>Home</h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 include_once '../common/banner.php';
 ?>
 <div class="course_container">
