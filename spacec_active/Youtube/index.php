@@ -32,7 +32,7 @@ function upload_video_on_youtube($arr_data) {
     $service = new Google_Service_YouTube($client);
   
     $video = new Google_Service_YouTube_Video();
-  //
+  
     $videoSnippet = new Google_Service_YouTube_VideoSnippet();
     $videoSnippet->setDescription($arr_data['summary']);
     $videoSnippet->setTitle($arr_data['title']);
@@ -83,11 +83,11 @@ function upload_video_on_youtube($arr_data) {
                       //  $playlistItem->setStatus($playlistItemStatus);
                         
                         $response = $service->playlistItems->insert('snippet', $playlistItem);
-                        print_r($response);
+                       // print_r($response);
                     if($response->status===200){
                         echo "Video uploaded successfully. Video ID is ". $response->id;
                     }else{
-                        echo "Invalid ApiKey or credencials";
+                        echo "Unable to upload Video to youtube";
                     }
         
               //  echo "Video uploaded successfully. Video ID is ". $response->id;
