@@ -130,7 +130,7 @@ $module_name = "Space Tube";
                             <br>
                             <p>
                                 Select Status: 
-                                <select name="status" >
+                                <select name="status"  id="status">
                                 <option value="">Select...</option>
                                 <option value="free">Free</option>
                                 <option value="created">Created</option>
@@ -148,6 +148,8 @@ $module_name = "Space Tube";
                         </div>
                     </div>
                 </form>
+
+
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bulkModal">
   Bulk Upload
 </button>
@@ -169,7 +171,7 @@ $module_name = "Space Tube";
     <input type="text" id="video_code[]" placeholder="Video id" name="video_code[]" class="col-sm-3" required > <input type="text" id="title[]" name="title[]" placeholder="vedio title" class="col-sm-3" required/>
     <input type="text" name="desc[]" id="desc[]" class="col-sm-3"  placeholder="video description" required /> <input type="text" id="length[]"  placeholder="video length" name="length[]" class="col-sm-3" required/>
     <input type="text" name="filter[]" id="filter[]"  placeholder="video filter" class="col-sm-3" required /> 
-                                <select name="status" class="col-sm-3" required >
+                                <select name="status[]" id="status[]" class="col-sm-3" required >
                                 <option value="">Select...</option>
                                 <option value="free">Free</option>
                                 <option value="created">Created</option>
@@ -190,7 +192,7 @@ $module_name = "Space Tube";
 </div>
         <?php
 
-            include 'connection.php';
+            //include 'connection.php';
             
 
             if(isset($_POST['submit']))
@@ -503,7 +505,7 @@ $(document).ready(function(){
     var maxField = 5; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
-    var fieldHTML = '<div><input type="text" id="video_code[]" name="video_code[]" placeholder="video id" class="col-sm-3" required > <input type="text" id="title[]" name="title[]" class="col-sm-3" placeholder="Video tiltle"  required /><input type="text" name="desc[]" id="desc[]" class="col-sm-3" placeholder="Video description" required/> <input type="text" id="length[]" name="length[]" placeholder="Enter length" class="col-sm-3" required/><input type="text" name="filter[]" id="filter[]" class="col-sm-3" placeholder="Insert Filter" required/> <select name="status" class="col-sm-3" required ><option value="">Select...</option><option value="free">Free</option><option value="created">Created</option> </select><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus" ></i></div>'; //New input field html 
+    var fieldHTML = '<div><input type="text" id="video_code[]" name="video_code[]" placeholder="video id" class="col-sm-3" required > <input type="text" id="title[]" name="title[]" class="col-sm-3" placeholder="Video tiltle"  required /><input type="text" name="desc[]" id="desc[]" class="col-sm-3" placeholder="Video description" required/> <input type="text" id="length[]" name="length[]" placeholder="Enter length" class="col-sm-3" required/><input type="text" name="filter[]" id="filter[]" class="col-sm-3" placeholder="Insert Filter" required/> <select name="status[]" id="status[]" class="col-sm-3" required ><option value="">Select...</option><option value="free">Free</option><option value="created">Created</option> </select><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus" ></i></div>'; //New input field html 
     var x = 1; //Initial field counter is 1
     
     //Once add button is clicked
