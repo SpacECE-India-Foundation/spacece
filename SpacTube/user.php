@@ -130,7 +130,7 @@ $module_name = "Space Tube";
                             <br>
                             <p>
                                 Select Status: 
-                                <select name="status" >
+                                <select name="status"  id="status">
                                 <option value="">Select...</option>
                                 <option value="free">Free</option>
                                 <option value="created">Created</option>
@@ -141,16 +141,18 @@ $module_name = "Space Tube";
                             <br><br>
                             <input type="submit" name="submit" value="Upload" class="btn btn-outline-dark" data-toggle="modal"
                                 data-target="#exampleModalCenter" style="background-color:black ;border-radius:10px;color:white;">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bulkModal">
-  Launch demo modal
-</button>
+                               
 
 <!-- Modal -->
 
                         </div>
                     </div>
                 </form>
-                
+
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bulkModal">
+  Bulk Upload
+</button>
             </div>
         </div>
         <div class="modal fade" id="bulkModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -163,12 +165,13 @@ $module_name = "Space Tube";
         </button>
       </div>
       <div class="modal-body">
+      <form name="bulk" id="bulk" method="POST"> 
       <div class="field_wrapper">
     <div>
-    <input type="text" name="field_name[]" value=""/> <input type="text" name="field_name[]" value=""/>
-    <input type="text" name="field_name[]" value=""/> <input type="text" name="field_name[]" value=""/>
-    <input type="text" name="field_name[]" value=""/> <input type="text" name="field_name[]" value=""/>
-                                <select name="status" >
+    <input type="text" id="video_code[]" placeholder="Video id" name="video_code[]" class="col-sm-3" required > <input type="text" id="title[]" name="title[]" placeholder="vedio title" class="col-sm-3" required/>
+    <input type="text" name="desc[]" id="desc[]" class="col-sm-3"  placeholder="video description" required /> <input type="text" id="length[]"  placeholder="video length" name="length[]" class="col-sm-3" required/>
+    <input type="text" name="filter[]" id="filter[]"  placeholder="video filter" class="col-sm-3" required /> 
+                                <select name="status[]" id="status[]" class="col-sm-3" required >
                                 <option value="">Select...</option>
                                 <option value="free">Free</option>
                                 <option value="created">Created</option>
@@ -179,14 +182,17 @@ $module_name = "Space Tube";
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+
       </div>
+     </form>
+
     </div>
   </div>
 </div>
         <?php
 
-            include 'connection.php';
+            //include 'connection.php';
             
 
             if(isset($_POST['submit']))
@@ -496,10 +502,10 @@ if(id){
         </script>
         <script type="text/javascript">
 $(document).ready(function(){
-    var maxField = 10; //Input fields increment limitation
+    var maxField = 5; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
-    var fieldHTML = '<div class="row"><div class="col"><input type="text" name="field_name[]" value=""/></div> <div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><div class="col"><input type="text" name="field_name[]" value=""/></div><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus" ></i></div>'; //New input field html 
+    var fieldHTML = '<div><input type="text" id="video_code[]" name="video_code[]" placeholder="video id" class="col-sm-3" required > <input type="text" id="title[]" name="title[]" class="col-sm-3" placeholder="Video tiltle"  required /><input type="text" name="desc[]" id="desc[]" class="col-sm-3" placeholder="Video description" required/> <input type="text" id="length[]" name="length[]" placeholder="Enter length" class="col-sm-3" required/><input type="text" name="filter[]" id="filter[]" class="col-sm-3" placeholder="Insert Filter" required/> <select name="status[]" id="status[]" class="col-sm-3" required ><option value="">Select...</option><option value="free">Free</option><option value="created">Created</option> </select><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus" ></i></div>'; //New input field html 
     var x = 1; //Initial field counter is 1
     
     //Once add button is clicked
@@ -518,4 +524,27 @@ $(document).ready(function(){
         x--; //Decrement field counter
     });
 });
+</script>
+<script>
+$('#bulk').on('submit',function(){
+  // var id= [];
+    //   $('input[name="video_code[]"]').each(function(i, item) {
+    //      // alert($(item).val());
+    //     id.push($(item).val()) ;
+        
+    //  });
+     //alert(id);
+     var form=$("#bulk");
+     $.ajax({
+        type:"POST",
+        url:"Ajax/bulk_upload.php?bulk",
+        data:form.serialize(),
+
+        success: function(response){
+        alert(response);
+        }
+    });
+})
+
+
 </script>

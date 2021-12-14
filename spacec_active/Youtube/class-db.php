@@ -1,5 +1,8 @@
 <?php
 class DB {
+    // private $dbHost     = "localhost";
+    // private $dbUsername = "root";
+    // private $dbPassword = "";
     private $dbHost     = "3.109.14.4";
     private $dbUsername = "ostechnix";
     private $dbPassword = "Password123#@!";
@@ -47,7 +50,7 @@ class DB {
  
      public function get_Videos($user){
          $sql= $this->db->query("SELECT * from youtube_videos where user_id='$user' ");
-         //$data[]=array();
+         $data[]=array();
         
        while($result = $sql->fetch_assoc()){
          $data[]= $result;
@@ -61,7 +64,7 @@ class DB {
      }
  
      public function get_all_Videos(){
-         //$data[]=array();
+         $data[]=array();
          $sql= $this->db->query("SELECT * from youtube_videos  ");
          while($result = $sql->fetch_assoc()){
             $data[]= $result;
