@@ -44,7 +44,7 @@ include_once '../common/banner.php';
         }
     }
 </style>
-<button onclick="window.open('https:/www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/', '_self')" type="button" class=" btn btn-md btn-round" style="background-color:orange;" ><h6>Subscribe</h6></button>
+<button onclick="window.open('https:/www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/', '_self')" type="button" class=" btn btn-md btn-round d-flex justify-content-center " style="background-color:orange; margin-bottom:25px;" ><h6>Subscribe</h6></button>
 
 <div class="container" style="margin-top:5%;">
 
