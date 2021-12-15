@@ -1,10 +1,7 @@
 <?php
-
-$main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = "../img/logo/LibForSmalls.jpeg";
-$module_name = "Lib for smalls";
-
-include_once '../common/header_module.php';
+$main_logo = "./img/logo/SpacECELogo.jpg";
+//$module_logo = "../img/logo/LibForSmalls.jpeg";
+include_once './common/header_module.php';
 
 ?>
 
@@ -13,9 +10,9 @@ include_once '../common/header_module.php';
 <html lang="en">
 
 <head>
-	<title>SpaceECE</title>
+	<title>SPAC-ECE</title>
 	<meta charset="UTF-8">
-	<meta name="description" content="SpaceECE">
+	<meta name="description" content="SPAC-ECE">
 	<meta name="keywords" content="LERAMIZ, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->
@@ -23,7 +20,7 @@ include_once '../common/header_module.php';
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<!-- Stylesheets -->
 	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
@@ -101,7 +98,7 @@ include_once '../common/header_module.php';
 
 	<!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="img/about.jpg" style="width: 100%; height: 80%;">
-		<div class="container text-black">
+		<div class="container text-black d-flex">
 		<h3 style= "background: linear-gradient(to bottom, #ff6699 0%, #ff9900 100%);">
 			<h3>Our aim is to encourage children in communicating with the world using all of their ability, capabilities, and language, and to overcome any barriers.</h3>
 		</div>
@@ -143,8 +140,8 @@ include_once '../common/header_module.php';
 		<!-- page end -->
 
 		<?php
-include_once '../common/footer_module.php';
-?>
+		include_once 'common/footer_module.php';
+		?>
 
 
 		<!-- Footer section -->

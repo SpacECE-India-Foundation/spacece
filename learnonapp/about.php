@@ -4,7 +4,7 @@ $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/LibForSmalls.jpeg";
 $module_name = "Learnonapp";
 
-include_once './common/header_module.php';
+include_once '../common/header_module.php';
 
 ?>
 
@@ -143,7 +143,7 @@ include_once './common/header_module.php';
 		<!-- page end -->
 
 		<?php
-include_once 'includes/footer1.php';		?>
+include_once '../common/footer_module.php';		?>
 
 
 		<!-- Footer section -->
