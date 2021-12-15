@@ -45,7 +45,19 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
 
                 <?php
                 $status = 'free';
-                $filter_videos = $Fun_call->filter_video('videos', $abc, $status, 'v_id', 'DESC');
+                $filter_videos = $Fun_call->filter_video('videos', $abc, $status, 'v_id', 'DESC', '');
+
+                ?>
+            </form>
+            <br><br>
+            <form action="" method="post">
+                <input type="search" name="filterr">
+                <input type="Submit" value="Submit" name="Submit">
+
+                <?php
+                $status = 'free';
+                $abc = $_POST['filterr'];
+                $filter_videos = $Fun_call->filter_video('videos', null, $status, 'v_id', 'DESC', $abc);
 
                 ?>
             </form>
