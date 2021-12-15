@@ -1,6 +1,6 @@
 <?php
-include_once './includes/header1.php';
-
+include_once './header_local.php';
+include_once '../common/header_module.php';
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +43,7 @@ include_once './includes/header1.php';
 		<div class="loader"></div>
 	</div>
 	
-	<!-- Header section -->
+	<!-- Header section
 	<header class="header-section" style="background-color:orange;">
 		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
 			<div class="container">
@@ -84,7 +84,7 @@ include_once './includes/header1.php';
 				</div>
 			</div>
 		</div>
-	</header>
+	</header> -->
 	<!-- Header section end -->
 <!-- Page succsess msg section -->
 
@@ -104,7 +104,7 @@ include_once './includes/header1.php';
 	</div>
 
 	page --> 
-	<section class="page-section blog-page" style="margin-top: 100px;">
+	<section class="page-section blog-page" style="margin-top: 10vh;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
@@ -121,11 +121,11 @@ include_once './includes/header1.php';
 						";
 					}
 					?>
-					<div class="contact-right">
+					<div class=" ">
 						<div class="section-title">
 							<h3>FEEDBACK FORM</h3>
 						</div>
-						<form class="contact-form" method="get" action="feedback.php">
+						<form class="contact-form d-flex justify-content-center" method="POST"  action="feedback.php">
 							<div class="row">
 								<div class="col-md-5">
 									<span>fullname</span>
@@ -133,7 +133,7 @@ include_once './includes/header1.php';
 								</div>
 								<div class="col-md-6">
 								<span>Your email</span>
-									<input type="text" placeholder="Your email" name="email">
+									<input type="email" placeholder="Your email" name="email">
 								</div>
 								<div class="col-md-12">
 								<span>Your message</span>
@@ -165,7 +165,7 @@ include_once './includes/header1.php';
 			</div>			</div> 
 
 <?php
-include_once './includes/footer1.php';
+include_once '../common/footer_module.php';
 ?>
 	<!-- Footer section -->
 	<!-- <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
