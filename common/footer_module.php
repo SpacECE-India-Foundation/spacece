@@ -223,10 +223,10 @@
                 </p>
                 <form class="footer-newslatter-form" id="sub" name="sub" method="POST" >
                     <input type="text" name="email" id="email" placeholder="Email address" required />
-                   <input type="submit"  value="save"> <!--  <i class="fa fa-send"></i> -->
-                    <!-- <button style="cursor: pointer" type="submit">
+                   
+                    <button style="cursor: pointer" type="submit">
                         <i class="fa fa-send"></i> -->
-                    <!-- </button> -->
+                     </button>
                 </form>
             </div>
         </div>
