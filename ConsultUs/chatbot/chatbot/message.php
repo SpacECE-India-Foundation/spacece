@@ -1,5 +1,9 @@
 <?php
 // connecting to database
+$servername = "3.109.14.4";
+$username = "ostechnix";
+$password = "Password123#@!";
+    $dbname = "consultant_app";
 $dbname = "consultant_app";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

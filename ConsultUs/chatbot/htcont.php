@@ -1,6 +1,6 @@
 <?php
 $room = $_POST['room'];
-  session_start();
+ // session_start();
   define("SITEURL",'http://3.109.14.4//consult/');  
   $servername = "3.109.14.4";
 $username = "ostechnix";
