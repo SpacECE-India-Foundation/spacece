@@ -224,9 +224,9 @@
                 <form class="footer-newslatter-form" id="sub" name="sub" method="POST" >
                     <input type="text" name="email" id="email" placeholder="Email address" required />
                    
-                    <span class="btn btn-warning">
-    <i class="fa fa-times"></i> <input type="Submit" value="Clear"/>
-</span>
+                    <button style="cursor: pointer" type="button">
+                        <i class="fa fa-send"></i> 
+                     </button>
                 </form>
             </div>
         </div>
@@ -250,11 +250,11 @@
       alert(email);
      $.ajax({
        'method':'POST',
-      'data':{
+      ' data':{
          subscribe:1,
          email:email
        },
-      'url':'function.php',
+      ' url':'function.php',
        success:function(data){
          alert(data);
        }
