@@ -224,9 +224,9 @@
                 <form class="footer-newslatter-form" id="sub" name="sub" method="POST" >
                     <input type="text" name="email" id="email" placeholder="Email address" required />
                    
-                    <button style="cursor: pointer" type="submit">
-                        <i class="fa fa-send"></i> -->
-                     </button>
+                    <span class="btn btn-warning">
+    <i class="fa fa-times"></i> <input type="Submit" value="Clear"/>
+</span>
                 </form>
             </div>
         </div>
