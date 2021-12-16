@@ -1,11 +1,19 @@
 <?php
 $roomname = $_GET['roomname'];
   session_start();
+<<<<<<< HEAD
   define("SITEURL",'http://3.109.14.4//consult/'); 
   $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
 $dbname = "consultant_app"; 
+=======
+  define("SITEURL",'http://3.109.14.4//consult/');  
+  $servername = "3.109.14.4";
+    $username = "ostechnix";
+    $password = "Password123#@!";
+    $dbname = "consultant_app";
+>>>>>>> 17dd0c018ecbfd9f7eaa1600ef085a7d682cc478
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
