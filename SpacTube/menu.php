@@ -27,6 +27,6 @@ $page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
 <button onclick="window.location.href = 'https://api.whatsapp.com/send?phone=+9190';" name="contact" class="btn-btn" style="background-color:orange;">
     <h6>Contact Us</h6>
 </button>
-<button onclick="window.location.replace = 'https://www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/';" type="button" class="btn-btn" style="background-color:orange;">
+<button onclick="window.location.href = 'https://www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/';" type="button" class="btn-btn" style="background-color:orange;">
     <h6>Subscribe</h6>
 </button>
