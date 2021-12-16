@@ -11,16 +11,16 @@ if ($mysqli->connect_errno) {
 if(isset($_POST['subscribe'])){
     $email=$_POST['email'];
 
-   
+   var_dump($_POST);
 
                 $sql = mysqli_query($mysqli, "SELECT * from subscription Where email='$email'") or die('Sql Query3 Error' . mysqli_error($mysqli));
                 
                    while ($result = mysqli_fetch_assoc($sql)) {
-                       if(count($result)>0)
+                       if(count($result)>0){
                     echo "This Email. is already registered <br>";
                       
                    }
-               } else {
+                  else {
     
                 $query3 = mysqli_query($mysqli, "INSERT into subscription(email) values('$email')")
                 or die('Sql Query4 Error' . mysqli_error($mysqli));
@@ -35,6 +35,7 @@ if(isset($_POST['subscribe'])){
                 }
 
 
+                   }
                    }
            
             function sendEmail($headers,$toEmail, $emailSubject, $emailBody){
@@ -59,5 +60,4 @@ if(isset($_POST['subscribe'])){
                     echo "Error";
                 }
             }
-
-}
+        }

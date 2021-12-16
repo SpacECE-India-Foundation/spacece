@@ -221,7 +221,7 @@
                     Subscribe your email to get the latest news and new offer also
                     discount
                 </p>
-                <form class="footer-newslatter-form" id="sub" name="sub" >
+                <form class="footer-newslatter-form" id="sub" name="sub" method="POST" >
                     <input type="text" name="email" id="email" placeholder="Email address" required />
                     <button style="cursor: pointer" type="submit">
                         <i class="fa fa-send"></i>
