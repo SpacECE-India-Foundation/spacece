@@ -13,7 +13,7 @@ $password = "Password123#@!";
     {
         die("Connection failed: " . $conn->connect_error);
     }
-$sql= "SELECT * FROM `msg` WHERE `room`='$room' ";
+$sql= "SELECT * FROM `msg` WHERE `room`='$room' ORDER BY rtime DESC ";
 // $sql="select * from msg where LIKE '%$getMesg%' ";
 $res= "";
 $result =mysqli_query($conn,$sql);
