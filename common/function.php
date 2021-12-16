@@ -14,9 +14,10 @@ if(isset($_POST['subscribe'])){
    
 
                 $sql = mysqli_query($mysqli, "SELECT * from subscription Where email='$email'") or die('Sql Query3 Error' . mysqli_error($mysqli));
-                if (mysqli_num_rows($sql) > 0) {
+                
                    while ($result = mysqli_fetch_assoc($sql)) {
-                    echo "This Email. $email is already registered <br>";
+                       if(count($result)>0)
+                    echo "This Email. is already registered <br>";
                       
                    }
                } else {

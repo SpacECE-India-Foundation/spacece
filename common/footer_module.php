@@ -246,6 +246,7 @@
   $(document).ready(function(){
     $('#sub').on('submit',function(){
       var email=$('#email').val();
+      alert(email);
      $.ajax({
        method:'POST',
        url:'function.php',
