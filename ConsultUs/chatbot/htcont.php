@@ -2,9 +2,9 @@
 $room = $_POST['room'];
   session_start();
   define("SITEURL",'http://3.109.14.4//consult/');  
-  $servername = "localhost";
-    $username = "root";
-    $password = "";
+  $servername = "3.109.14.4";
+$username = "ostechnix";
+$password = "Password123#@!";
     $dbname = "consultant_app";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
