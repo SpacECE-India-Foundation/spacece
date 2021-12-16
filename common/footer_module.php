@@ -249,12 +249,12 @@
       var email=$('#email').val();
       alert(email);
      $.ajax({
-       method:'POST',
-       url:'function.php',
-       data:{
+       'method':'POST',
+      'data':{
          subscribe:1,
          email:email
        },
+      'url':'function.php',
        success:function(data){
          alert(data);
        }
