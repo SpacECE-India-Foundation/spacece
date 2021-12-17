@@ -35,7 +35,7 @@ if(isset($_POST['subscribe'])){
                 
                 
                 if (mysqli_num_rows( $query) > 0) {
-                    echo "Already Exists";
+                    echo "Error";
               }
                
                   else {
