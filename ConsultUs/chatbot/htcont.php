@@ -1,10 +1,10 @@
 <?php
 $room = $_POST['room'];
-  session_start();
+ // session_start();
   define("SITEURL",'http://3.109.14.4//consult/');  
-  $servername = "localhost";
-    $username = "root";
-    $password = "";
+  $servername = "3.109.14.4";
+$username = "ostechnix";
+$password = "Password123#@!";
     $dbname = "consultant_app";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +13,7 @@ $room = $_POST['room'];
     {
         die("Connection failed: " . $conn->connect_error);
     }
-$sql= "SELECT * FROM `msg` WHERE `room`='$room' ";
+$sql= "SELECT * FROM `msg` WHERE `room`='$room' ORDER BY rtime DESC ";
 // $sql="select * from msg where LIKE '%$getMesg%' ";
 $res= "";
 $result =mysqli_query($conn,$sql);
