@@ -13,7 +13,7 @@ if(isset($_POST['subscribe'])){
   
     $email=$_POST['email'];
 
-   var_dump($_POST);
+   ///var_dump($_POST);
 
                 $sql = mysqli_query($mysqli, "SELECT * from subscription Where email='$email'") or die('Sql Query3 Error' . mysqli_error($mysqli));
                 
@@ -26,6 +26,8 @@ if(isset($_POST['subscribe'])){
     
                 $query3 = mysqli_query($mysqli, "INSERT into subscription(email) values('$email')")
                 or die('Sql Query4 Error' . mysqli_error($mysqli));
+                var_dump($query3);
+
                // $toEmail = $email; 
             // $sent = sendEmail( $headers,$toEmail, $emailSubject,$emailBody);
               
