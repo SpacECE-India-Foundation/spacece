@@ -263,10 +263,11 @@
         if(data==='Error'){
           swal("Error!", "You have already subscribed to this site!", "error");
         }
-else{
+
+if(data==='Success'){
   swal("Good job!", "You have subscribed !", "success");
 
-}
+} 
 
 
        }

@@ -30,7 +30,7 @@ if(isset($_POST['subscribe'])){
    ///var_dump($_POST);
 
                 $sql =  "SELECT * from subscription Where email='$email'";
-                var_dump($sql);
+                //var_dump($sql);
                 $query=mysqli_query($conn,$sql);
                 
                 
@@ -48,7 +48,7 @@ if(isset($_POST['subscribe'])){
               
                 if( $sent==='Success'){
                     
-                 echo "Successfully Registered $email";
+                 echo "Success";
                 }else{
                      echo "Error";
                  }
@@ -60,7 +60,7 @@ if(isset($_POST['subscribe'])){
             function sendEmail($toEmail){
                 $eol = "\r\n";
                 $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers  .= 'MIME-Version: 1.0' . "\r\n";
                 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             
               
