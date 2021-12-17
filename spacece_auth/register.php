@@ -40,7 +40,8 @@ function get_consultant_categories($conn)
         <form class="register-form" method="post" autocomplete="off">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" placeholder="Enter Name" id="name" name="name" />
+                <!-- 0000016 -->
+                <input type="text" class="form-control" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" placeholder="Enter Name" id="name" name="name" />
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
