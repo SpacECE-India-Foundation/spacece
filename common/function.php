@@ -44,7 +44,7 @@ if(isset($_POST['subscribe'])){
                // var_dump($query3);
 
                 $toEmail = $email; 
-             $sent = sendEmail( $headers,$toEmail, $emailSubject,$emailBody);
+             $sent = sendEmail($toEmail);
               
                 if( $sent==='Success'){
                     
@@ -54,10 +54,10 @@ if(isset($_POST['subscribe'])){
                  }
 
 
-                //    }
+                //   }
                    }
            
-            function sendEmail($headers,$toEmail, $emailSubject, $emailBody){
+            function sendEmail($toEmail){
                 $eol = "\r\n";
                 $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
                 $headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -70,9 +70,9 @@ if(isset($_POST['subscribe'])){
             
             
                 $emailBody = "Hello " . $toEmail . ",<br><br>";
-                $emailBody .= "Wishing you a very good morning and a great day ahead.<br><br>";
-                $emailBody .= "Please find the activity for your children below. We are sure that it will make children's days full of fun and engaging.<br><br>";
-                $emailBody .= "<b>Activity:</b> <br><br>";
+                $emailBody .= "Thank You for Subscribing <br><br>";
+               
+                $emailBody .= "<b>You will receive Notifications and latest updates  to ." . $toEmail . " this Email</b> <br><br>";
                 if (mail($toEmail, $emailSubject, $emailBody, $headers)) {
                     echo "Success";
                 }else{

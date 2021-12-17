@@ -2,6 +2,7 @@
 <!--bug id  0000115 -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 .fa {
   padding: 2px;
@@ -249,7 +250,7 @@
     $('#sub').on('submit',function(e){
       e.preventDefault();
       var email=$('#email').val();
-      alert(email);
+     // alert(email);
      
      $.ajax({
        method:"POST",
@@ -259,7 +260,15 @@
        },
        url:"./common/function.php",
        success:function(data){
-         alert(data);
+        if(data==='Error'){
+          swal("Error!", "You have already subscribed to this site!", "error");
+        }
+else{
+  swal("Good job!", "You have subscribed !", "success");
+
+}
+
+
        }
      })
     })
