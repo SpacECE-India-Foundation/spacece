@@ -22,7 +22,8 @@ $extra_styles = "
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <link rel='stylesheet' type='text/css' href='./css/jquery.convform.css' />
 <link rel='stylesheet' type='text/css' href='./css/responsive.css' />
-<link rel='stylesheet' type='text/css' href='./css/jquery-ui.css' />";
+<link rel='stylesheet' type='text/css' href='./css/jquery-ui.css' />
+<link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.10.0/css/all.css' integrity='sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p' crossorigin='anonymous'/>";
 
 $extra_scripts = "<script src='./js/jquery-3.2.1.min.js'></script>
 <script src='./js/bootstrap.min.js'></script>
@@ -45,145 +46,38 @@ include_once './common/header_module.php';
 </style>
  
 <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">  -->
-<div class="container bootstrap snippets bootdey">
-<div class="row">
-  <div class="profile-nav card col-md-3 shadow p-3 mb-5  rounded">
-      <div class="panel jusify-content-center">
-          <div class="user-heading round">
-              <a href="#">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
-              </a>
-              <h1>Camila Smith</h1>
-              <p>deydey@theEmail.com</p>
-          </div>
-        
-          <ul class="nav nav-pills nav-stacked col ">
-              <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
-              <li><a href="#"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a></li>
-              <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
-              <li><a href="#"> <i class="fa fa-edit"></i> Change Password</a></li>
-          </ul>
-      </div>
-  </div>
-  <div class="profile-info col-md-9">
-      <div class="panel">
-          <!-- <form>
-              <textarea placeholder="Whats in your mind today?" rows="2" class="form-control input-lg p-text-area"></textarea>
-          </form>
-          <footer class="panel-footer">
-              <button class="btn btn-warning pull-right">Post</button>
-              <ul class="nav nav-pills">
-                  <li>
-                      <a href="#"><i class="fa fa-map-marker"></i></a>
-                  </li>
-                  <li>
-                      <a href="#"><i class="fa fa-camera"></i></a>
-                  </li>
-                  <li>
-                      <a href="#"><i class=" fa fa-film"></i></a>
-                  </li>
-                  <li>
-                      <a href="#"><i class="fa fa-microphone"></i></a>
-                  </li>
-              </ul>
-          </footer> -->
-      </div>
-      <div class="panel">
-          <!-- <div class="bio-graph-heading">
-              Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.
-          </div> -->
-          <div class="panel-body bio-graph-info">
-              <h1>Bio Graph</h1>
-              <!-- <div class="row">
-                  <div class="bio-row">
-                      <p><span>First Name </span>: Camila</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Last Name </span>: Smith</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Country </span>: Australia</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Birthday</span>: 13 July 1983</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Occupation </span>: UI Designer</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Email </span>: jsmith@flatlab.com</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Mobile </span>: (12) 03 4567890</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Phone </span>: 88 (02) 123456</p>
-                  </div> -->
-              </div>
-          </div>
-      </div>
-      <div>
-          <!-- <div class="row">
-              <div class="col-md-6">
-                  <div class="panel">
-                      <div class="panel-body">
-                          <div class="bio-chart">
-                              <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="35" data-fgcolor="#e06b7d" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(224, 107, 125); padding: 0px; -webkit-appearance: none; background: none;"></div>
-                          </div>
-                          <div class="bio-desk">
-                              <h4 class="red">Envato Website</h4>
-                              <p>Started : 15 July</p>
-                              <p>Deadline : 15 August</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <div class="panel">
-                      <div class="panel-body">
-                          <div class="bio-chart">
-                              <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="63" data-fgcolor="#4CC5CD" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(76, 197, 205); padding: 0px; -webkit-appearance: none; background: none;"></div>
-                          </div>
-                          <div class="bio-desk">
-                              <h4 class="terques">ThemeForest CMS </h4>
-                              <p>Started : 15 July</p>
-                              <p>Deadline : 15 August</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <div class="panel">
-                      <div class="panel-body">
-                          <div class="bio-chart">
-                              <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="75" data-fgcolor="#96be4b" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(150, 190, 75); padding: 0px; -webkit-appearance: none; background: none;"></div>
-                          </div>
-                          <div class="bio-desk">
-                              <h4 class="green">VectorLab Portfolio</h4>
-                              <p>Started : 15 July</p>
-                              <p>Deadline : 15 August</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <div class="panel">
-                      <div class="panel-body">
-                          <div class="bio-chart">
-                              <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="50" data-fgcolor="#cba4db" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(203, 164, 219); padding: 0px; -webkit-appearance: none; background: none;"></div>
-                          </div>
-                          <div class="bio-desk">
-                              <h4 class="purple">Adobe Muse Template</h4>
-                              <p>Started : 15 July</p>
-                              <p>Deadline : 15 August</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div> -->
-  </div>
+
+
+  <div class="row d-flex justify-content-center mt-1 mb-1 ">
+    <div class="col-sm-9 " style="">
+        <div class="profile-image float-lg-right"  style="width:120px;border-radius:60px; border:2px solid white; margin-right:-75px;  position:relative;  background-repeat: no-repeat;margin-top: 10%;" >
+        <img src="https://cdn-icons-png.flaticon.com/512/21/21104.png" style="width:120px; border:5px solid white;border-radius:70px;"  class="img img-responsive ">
+        </div>
+<div class="card shadow p-3 mb-5 bg-white rounded ml-3 col-sm-10" style="border-radius:20px;">
+<div class="card shadow p-3 mb-5 bg-white rounded ml-3 col-sm-10" style="border-radius:20px;">
+<div style="font-size: 0.5rem;">
+<button class="btn btn-sm col-sm-1  " style="float: right;"> <i class="far fa-edit fa-xs"></i></button>
 </div>
+
+<label for="">First Name :</label>
+<label for="">Last Name :</label>
+<label for="">Email Name :</label>
+</div>
+
+<div class="card shadow p-3 mb-5 bg-white rounded ml-3 col-sm-10" style="border-radius:20px;">
+<div style="font-size: 0.5rem;">
+<button class="btn btn-sm col-sm-1  " style="float: right;"> <i class="far fa-edit fa-xs"></i></button>
+<h5>Recent Activity</h5>
+</div>
+</div>
+</div>
+    </div>
+   
+    <div class=" col-sm-3 float-lg-right" style="background-color: orange; border-radius:12px; z-index: -1;">
+      
+    </div>
+ 
+
 </div>
 <?php
 include_once './common/footer_module.php';
