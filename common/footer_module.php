@@ -257,7 +257,7 @@
          subscribe:1,
          email:email
        },
-       url:"function.php",
+       url:"./function.php",
        success:function(data){
          alert(data);
        }
