@@ -4,6 +4,9 @@
   $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
     $dbname = "consultant_app";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

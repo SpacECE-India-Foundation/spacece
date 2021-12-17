@@ -1,9 +1,17 @@
 <?php
+
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/ConsultUs.jpeg";
+$module_name = "ConsultUs";
+include_once '../../common/header_module.php';
 $roomname = $_GET['roomname'];
-  session_start();
+  //session_start();
 
   define("SITEURL",'http://3.109.14.4//consult/');  
-  $servername = "3.109.14.4";
+  // $servername = "localhost";
+  //   $username = "root";
+    // $password = "";
+    $servername = "3.109.14.4";
     $username = "ostechnix";
     $password = "Password123#@!";
     $dbname = "consultant_app";
@@ -104,13 +112,15 @@ background-image: linear-gradient(90deg,  white,orange,white);
 <h2><b><center>Chat Messages- <?php echo $roomname ;?></center></b></h2>
 
 <div class="container">
-    <div class="anyclass">
+    <div id="anyclass" class="anyclass">
 
   </div>
 </div>
 <input type="text" class="form-control" name="usermsg" id="usermsg" placeholder="add msg"><br>
 <button class="btn btn-default" name="submit" id="submit">send</button>
-
+<?php
+include_once '../../common/footer_module.php';
+?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
@@ -122,12 +132,24 @@ background-image: linear-gradient(90deg,  white,orange,white);
 setInterval(runFunction, 1000);
 function runFunction()
 {
-    $.post("htcont.php",{room: '<?php echo $roomname ?>'},
-    function(data,status)
+
+  $.ajax({
+    method:'POST',
+    data:{room: '<?php echo $roomname ?>'},
+    url:'htcont.php',
+    success:function(data,status)
     {
         document.getElementsByClassName('anyclass')[0].innerHTML= data;
+     
     }
-    )
+  })
+    // $.post("htcont.php",{room: '<?php //echo $roomname ?>'},
+    // function(data,status)
+    // {
+    //     document.getElementsByClassName('anyclass')[0].innerHTML= data;
+     
+    // }
+    // )
 }
 
 // submitting on enter:credit w3 school
@@ -138,20 +160,47 @@ input.addEventListener("keyup", function(event) {
     document.getElementById("submit").click();
   }
 });
-$("#submit").click(function(){
-    var clientmsg =$('#usermsg').val();
-  $.post("postmsg.php", {text : clientmsg , room: '<?php echo $roomname ?>' , ip:'<?php echo $_SERVER['REMOTE_ADDR'] ?>' },
-  function(data,status){
-      document.getElementsByClassName('anyclass')[0].innerHTML = data;
-  });
+$("#submit").click(function(e){
+
+  var clientmsg =$('#usermsg').val();
+ if(clientmsg){
+
+ 
+ $ .ajax({
+    method:'POST',
+    data:{text : clientmsg , room: '<?php echo $roomname ?>' , ip:'<?php echo $_SERVER['REMOTE_ADDR'] ?>'},
+    url:'postmsg.php',
+    success:function(data,status)
+    {
+      $('#anyclass')[0].append(data);
+      //  document.getElementsByClassName('anyclass')[0].innerHTML= data;
+      const messages = document.getElementById('anyclass');
+	const messagesid = document.getElementById('msg');  
+	messages.scrollTop =60;
+    //   var l = document.getElementsByClassName("anyclass").length;
+    //   alert(l);
+     
+    // document.getElementsById("anyclass")[l-1].scrollIntoView();
+     
+    }
+  })
+}
+  //   var clientmsg =$('#usermsg').val();
+
+  // $.post("postmsg.php", {text : clientmsg , room: '<?php echo $roomname ?>' , ip:'<?php echo $_SERVER['REMOTE_ADDR'] ?>' },
+  // function(data,status){
+  //     document.getElementsByClassName('anyclass')[0].innerHTML = data;
+  // });
   $("#usermsg").val("");
   return false;
 });
-$("#submit").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#elementtoScrollToID").offset().top
-    }, 2000);
-});
+// $("#submit").click(function() {
+//   //document.getElementById('elementtoScrollToID').scrollTop = message.offsetHeight + message.offsetTop; 
+//     $([document.documentElement, document.body]).animate({
+//         scrollTop: $("#elementtoScrollToID").offset().top
+//     }, 200);
+//     //$("#elementtoScrollToID").scrollTop(textdiv.outerHeight());
+// });
 
 </script>
 </body>

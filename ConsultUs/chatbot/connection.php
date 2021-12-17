@@ -3,6 +3,10 @@
 $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
+
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
 $dbname = "consultant_app";
 $conn;
 

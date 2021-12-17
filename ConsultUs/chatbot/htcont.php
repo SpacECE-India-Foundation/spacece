@@ -5,6 +5,9 @@ $room = $_POST['room'];
   $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
     $dbname = "consultant_app";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -21,7 +24,7 @@ if(mysqli_num_rows($result)>0)
 {
     while($row= mysqli_fetch_assoc($result))
     {
-           echo $res = "<div class='container'>";
+           echo $res = "<div class='container' id='msg'>";
           echo  $res = $row['ip'];
            echo $res = " says <p>".$row['msg'];
           echo  $res = "</p> <span class='time-right'>".$row['rtime']."</span></div>";
