@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'spaceece');
+$mysqli = new mysqli('localhost', 'ostechnix', 'Password123#@!', 'spaceece');
 
 // Check connection
 if ($mysqli->connect_errno) {

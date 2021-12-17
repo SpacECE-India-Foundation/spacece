@@ -1,6 +1,6 @@
 <?php
 
-$DBHOST = '3.109.14.4';
+$DBHOST = 'localhost';
 $DBUSER = 'ostechnix';
 $DBPASS = 'Password123#@!';
 $DBNAME = 'gallery2';

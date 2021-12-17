@@ -200,7 +200,8 @@
                       </div>
                 </p>
                 <p style="color: black">
-                    <a href="mailto:events@spacece.co" target="_blank" rel="noopener" style="color: black">
+                <!-- bug id-0000081 -->
+                    <a href="mailto: events@spacece.co" target="_blank" rel="noopener" style="color: black">
                         <i class="fa fa-envelope" style="color: black"></i>
                         events@spacece.co
                     </a>

@@ -114,6 +114,13 @@ session_start();
             height: 100%;
             width: 100%;
         }
+
+        body {
+color: #536482;
+background-color: white;
+zoom in : 100%;
+zoom out:50%
+}
     </style>
     <!-- BUG ID-0000067 -->
     <title><?= isset($module_name) ? $module_name : 'SpaceECE' ?></title>
