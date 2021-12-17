@@ -247,10 +247,10 @@
 <script>
   $(document).ready(function(){
     $('#sub').on('submit',function(e){
-
+      e.preventDefault();
       var email=$('#email').val();
       alert(email);
-      e.preventDefault();
+     
      $.ajax({
        method:"POST",
       data:{
