@@ -23,6 +23,7 @@ $extra_styles = "
 <link rel='stylesheet' type='text/css' href='./css/jquery.convform.css' />
 <link rel='stylesheet' type='text/css' href='./css/responsive.css' />
 <link rel='stylesheet' type='text/css' href='./css/jquery-ui.css' />
+<link rel='stylesheet' type='text/css' href='./css/share.css' />
 <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.10.0/css/all.css' integrity='sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p' crossorigin='anonymous'/>";
 
 $extra_scripts = "<script src='./js/jquery-3.2.1.min.js'></script>
@@ -74,9 +75,22 @@ include_once './common/header_module.php';
     </div>
    
     <div class=" col-sm-3 float-lg-right" style="background-color: orange; border-radius:12px; z-index: -1;">
-      
+    <nav class="menu">
+   <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+   <label class="menu-open-button" for="menu-open">
+    <i class="fa fa-share-alt share-icon"></i>
+  </label>
+
+   <a href="https://www.facebook.com" target="_blank" class="menu-item facebook_share_btn"> <i class="fa fa-facebook"></i> </a>
+   <a href="https://www.twitter.com" target="_blank" class="menu-item twitter_share_btn"> <i class="fa fa-twitter"></i> </a>
+   <a href="https://www.pinterest.com" target="_blank" class="menu-item pinterest_share_btn"> <i class="fa fa-pinterest"></i> </a>
+   <a href="https://www.youtube.com" target="_blank" class="menu-item youtube_share_btn"> <i class="fa fa-youtube"></i> </a>
+   <a href="https://www.tumblr.com" target="_blank" class="menu-item tumblr_share_btn"> <i class="fa fa-tumblr"></i> </a>
+   <a href="https://plus.google.com" target="_blank" class="menu-item google_plus_share_btn"> <i class="fa fa-google-plus"></i> </a>
+</nav>
     </div>
- 
+    
+
 
 </div>
 <?php
