@@ -6,9 +6,9 @@ class Functions
     private $DBHOST = '3.109.14.4';
     private $DBUSER = 'ostechnix';
     private $DBPASS = 'Password123#@!';
-//     private $DBHOST = 'localhost';
-//    private $DBUSER = 'root';
-//     private $DBPASS = '';
+    //     private $DBHOST = 'localhost';
+    //    private $DBUSER = 'root';
+    //     private $DBPASS = '';
 
     private $DBNAME = 'gallery2';
     public $conn;
@@ -22,7 +22,7 @@ class Functions
             }
         } catch (Exception $e) {
             echo 'Message: ' . $e->getMessage();
-        } 
+        }
     }
 
     public function validate($string)
@@ -73,7 +73,7 @@ class Functions
     {
 
         $select = "SELECT * FROM $tbl_name ORDER BY $field_id $order";
-       
+
         $query = mysqli_query($this->conn, $select);
         if (mysqli_num_rows($query) > 0) {
             $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -86,10 +86,10 @@ class Functions
             return false;
         }
     }
-    public function trend_video_cat($tbl_name,$tb_field, $field_id, $order)
+    public function trend_video_cat($tbl_name, $tb_field, $field_id, $order)
     {
         //echo $field_id;
-        
+
         // $field_op = "";
         // foreach ($field_id as $q_key => $q_value) {
         //     $field_op = $field_op . "$q_key='$q_value' $op ";
@@ -112,17 +112,19 @@ class Functions
     }
 
 
-    public function filter_video($tbl_name,$tb_field,$status,$field_id, $order)
+    public function filter_video($tbl_name, $tb_field, $status, $field_id, $order, $search)
     {
         //echo $field_id;
-        
+
         // $field_op = "";
         // foreach ($field_id as $q_key => $q_value) {
         //     $field_op = $field_op . "$q_key='$q_value' $op ";
         // }
         // $field_op = rtrim($field_op, "$op ");
-
-        $select = "SELECT * FROM  $tbl_name WHERE filter='$tb_field' AND status='$status'  ORDER BY $field_id $order LIMIT 5";
+        if ($status != null)
+            $select = "SELECT * FROM  $tbl_name WHERE filter='$tb_field' AND status='$status' AND title LIKE '%$search%'  ORDER BY $field_id $order LIMIT 5";
+        else
+            $select = "SELECT * FROM  $tbl_name WHERE status='$status' AND title LIKE '%$search%'  ORDER BY $field_id $order LIMIT 5";
         //echo $select;
         $query = mysqli_query($this->conn, $select);
         if (mysqli_num_rows($query) > 0) {
@@ -137,7 +139,7 @@ class Functions
         }
     }
 
-    
+
     public function select_order_where($tbl_name, $condition, $field_id, $op = 'AND', $order = 'ASC')
     {
 
@@ -235,14 +237,14 @@ class Functions
     //     echo $field_data;
     // }
 
-    public function checkSubscription($table,$email){
+    public function checkSubscription($table, $email)
+    {
         $select_assoc = "SELECT * FROM $table WHERE email='$email'";
-       /// echo $select_assoc;
+        /// echo $select_assoc;
         $select_assoc_query = mysqli_query($this->conn, $select_assoc);
         if (mysqli_num_rows($select_assoc_query) > 1) {
             return true;
         }
         return false;
     }
-    
 }

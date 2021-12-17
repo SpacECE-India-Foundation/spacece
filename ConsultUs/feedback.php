@@ -9,16 +9,16 @@ if (isset($_COOKIE['error_msg'])) {
         </div>
     ";
 }
-include('indexDB.php');
-include("main.php");
-$name = $_GET['fullname'];
-$email = $_GET['email'];
-$feed = $_GET['feedback'];
+ include('indexDB.php');
+//include("main.php");
+$name = $_POST['fullname'];
+$email = $_POST['email'];
+$feed = $_POST['feedback'];
 
-$sql= "INSERT INTO `feedback`(`user_name`, `feedback`, `email`) VALUES ('$name','$feed','$email')";
-// echo $sql;die;
+$sql= "INSERT INTO feedback (`user_name`, `feedback`, `email`) VALUES ('$name','$feed','$email')";
+
 $res = mysqli_query($conn,$sql);
-$feedback=mysqli_fetch_assoc($res);
+//$feedback=mysqli_fetch_assoc($res);
 if (!mysqli_error($conn)){
   //  bug Id-0000030-0000031  
     setcookie('success_msg', 'Your feedback is successfully submitted', time()+3, "/");

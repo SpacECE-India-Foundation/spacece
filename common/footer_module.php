@@ -222,11 +222,12 @@
                     Subscribe your email to get the latest news and new offer also
                     discount
                 </p>
-                <form class="footer-newslatter-form" id="sub" name="sub" >
+                <form class="footer-newslatter-form" id="sub" name="sub" method="POST" >
                     <input type="text" name="email" id="email" placeholder="Email address" required />
-                    <button style="cursor: pointer" type="submit">
-                        <i class="fa fa-send"></i>
-                    </button>
+                   
+                    <button style="cursor: pointer" type="button">
+                        <i class="fa fa-send"></i> 
+                     </button>
                 </form>
             </div>
         </div>
@@ -247,13 +248,14 @@
   $(document).ready(function(){
     $('#sub').on('submit',function(){
       var email=$('#email').val();
+      alert(email);
      $.ajax({
-       method:'POST',
-       url:'function.php',
-       data:{
+       'method':'POST',
+      ' data':{
          subscribe:1,
          email:email
        },
+      ' url':'function.php',
        success:function(data){
          alert(data);
        }

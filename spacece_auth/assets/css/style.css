@@ -40,6 +40,12 @@ input.error {
   align-items: center;
 }
 
+.form-group,
+.form-group div {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .login-form input,
 .register-form input,
 .register-form select,

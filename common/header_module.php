@@ -106,7 +106,7 @@ session_start();
         .banner {
             width: 100%;
             height: 50vh;
-            margin: 20px 0;
+            margin: 20px 0 50px;
         }
 
 
@@ -130,7 +130,7 @@ zoom out:50%
     <nav class="navbar">
         <div class="logo">
             <div class="org_logo">
-                <a href="../index.php">
+                <a href=<?= $main_page ? "./index.php" : "../index.php" ?>>
                     <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
                     <span>SpaceECE</span>
                 </a>

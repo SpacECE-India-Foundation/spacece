@@ -27,7 +27,22 @@ if (mysqli_num_rows($run) > 0) {
     die();
 } else {
     if ($type == 'consultant') {
-        $sql = "INSERT INTO users (u_name, u_email, u_password, u_phone, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
+        $c_categories = $_POST['c_categories'];
+        $c_office = $_POST['c_office'];
+        $c_from_time = $_POST['c_from_time'];
+        $c_to_time = $_POST['c_to_time'];
+        $c_language = $_POST['c_language'];
+        $c_fee = $_POST['c_fee'];
+        $c_available_from = $_POST['c_available_from'];
+        $c_available_to = $_POST['c_available_to'];
+        $c_qualification = $_POST['c_qualification'];
+
+        $sql = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
+        $result = mysqli_query($conn, $sql);
+
+        $last_id = mysqli_insert_id($conn);
+
+        $query = "INSERT INTO consultant (u_id, c_category, c_office, c_from_time, c_to_time, c_language, c_fee, c_available_from, c_available_to, c_qualification) VALUES ($last_id, $c_categories, '$c_office', '$c_from_time', '$c_to_time', '$c_language', '$c_fee', '$c_available_from', '$c_available_to', '$c_qualification')";
     } else if ($type == 'customer') {
         $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image')";
     } else {

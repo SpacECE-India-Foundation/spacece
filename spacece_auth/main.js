@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $(".consultant_details").hide();
+
   // Registration form validation name, email, password, cpassword, indian phone number, image with regex
   $(".register-form").validate({
     error: function (label) {
@@ -33,6 +35,36 @@ $(document).ready(function () {
         required: true,
         extension: "jpg|jpeg|png|gif",
       },
+      user_type: {
+        required: true,
+      },
+      c_categories: {
+        required: true,
+      },
+      c_office: {
+        required: true,
+      },
+      c_from_time: {
+        required: true,
+      },
+      c_to_time: {
+        required: true,
+      },
+      c_language: {
+        required: true,
+      },
+      c_fee: {
+        required: true,
+      },
+      c_available_from: {
+        required: true,
+      },
+      c_available_to: {
+        required: true,
+      },
+      c_qualification: {
+        required: true,
+      },
     },
     messages: {
       name: {
@@ -62,6 +94,36 @@ $(document).ready(function () {
       image: {
         required: "Please upload your image",
         extension: "Please upload a valid image",
+      },
+      user_type: {
+        required: "Please select user type",
+      },
+      c_categories: {
+        required: "Please select categories",
+      },
+      c_office: {
+        required: "Please enter office address",
+      },
+      c_from_time: {
+        required: "Please enter 'From' time",
+      },
+      c_to_time: {
+        required: "Please enter 'To' time",
+      },
+      c_language: {
+        required: "Please enter language",
+      },
+      c_fee: {
+        required: "Please enter fees",
+      },
+      c_available_from: {
+        required: "Please enter 'From' availability day",
+      },
+      c_available_to: {
+        required: "Please enter 'To' availability day",
+      },
+      c_qualification: {
+        required: "Please enter qualification",
       },
     },
   });
@@ -106,6 +168,7 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       success: function (response) {
+        console.log(response);
         const data = JSON.parse(response);
         if (data.status === "success") {
           window.location.href = "./login.php";
@@ -156,5 +219,14 @@ $(document).ready(function () {
         }
       },
     });
+  });
+
+  $("#user_type").change(function () {
+    var type = $("#user_type").val();
+    if (type == "consultant") {
+      $(".consultant_details").show();
+    } else {
+      $(".consultant_details").hide();
+    }
   });
 });
