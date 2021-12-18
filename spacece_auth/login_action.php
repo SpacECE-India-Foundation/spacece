@@ -40,7 +40,7 @@ if (mysqli_num_rows($result) > 0) {
         if ($type == "consultant") {
             $newData = array(
                 'consultant_category' => $row['c_category'],
-                'consultant_office ' => $row['c_office '],
+                'consultant_office ' => $row['c_office'],
                 'consultant_from_time' => $row['c_from_time'],
                 'consultant_to_time' => $row['c_to_time'],
                 'consultant_language' => $row['c_language'],
@@ -65,6 +65,20 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['current_user_mob'] = $row['u_mob'];
     $_SESSION['current_user_image'] = $row['u_image'];
     $_SESSION['current_user_type'] = $row['u_type'];
+
+    // For consultant
+
+    if ($type == "consultant") {
+        $_SESSION["consultant_category"] = $row['c_category'];
+        $_SESSION["consultant_office"] = $row['c_office'];
+        $_SESSION["consultant_from_time"] = $row['c_from_time'];
+        $_SESSION["consultant_to_time"] = $row['c_to_time'];
+        $_SESSION["consultant_language"] = $row['c_language'];
+        $_SESSION["consultant_fee"] = $row['c_fee'];
+        $_SESSION["consultant_available_from"] = $row['c_available_from'];
+        $_SESSION["consultant_available_to"] = $row['c_available_to'];
+        $_SESSION["consultant_qualification"] = $row['c_qualification'];
+    }
 
     $redirect_url = "index.php";
 
