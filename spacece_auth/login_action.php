@@ -40,7 +40,7 @@ if (mysqli_num_rows($result) > 0) {
         if ($type == "consultant") {
             $newData = array(
                 'consultant_category' => $row['c_category'],
-                'consultant_office ' => $row['c_office '],
+                'consultant_office ' => $row['c_office'],
                 'consultant_from_time' => $row['c_from_time'],
                 'consultant_to_time' => $row['c_to_time'],
                 'consultant_language' => $row['c_language'],
