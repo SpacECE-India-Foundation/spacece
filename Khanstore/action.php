@@ -425,6 +425,7 @@ if (isset($_POST["Common"])) {
 
 					echo '</select><br></div>';
 				} else if ($status == "rent") {
+					// bug id- 0000004,0000001
 					echo
 					'<div class="row">
 								<div class="col-md-2"><br><br>
@@ -433,15 +434,16 @@ if (isset($_POST["Common"])) {
 									<a href="#" update_id=' . $product_id . ' class="btn btn-primary update"><span class="glyphicon glyphicon-ok-sign" return false> Save</span></a>
 								</div>
 							</div>
+							
 								<input type="hidden" name="product_id[]" value=' . $product_id . '/>
 								<input type="hidden" name="" value=' . $cart_item_id . '/>
 								<div class="col-md-2"><img class="img-responsive" src="product_images/' . $product_image . '"></div>
 								<div class="col-md-3"><h4>Product Name: ' . $product_title . '</h4>
-								Start Date: <input type="date" class="form-control start_date" value=' . $start_date . '><br>
+								Start Date <span style="color:#ff0000">*</span> : <input type="date" class="form-control start_date" value=' . $start_date .'" min="'.  date("Y-m-d") . '" ><br>
 								
-								Quantity: <input type="text" class="form-control qty" value=' . $qty . ' ><br>
-								Product Price(PerDay): <input type="text" class="form-control price" value=' . $rent_price . ' readonly="readonly"><br>
-								Deposit: <input type="text" class="form-control deposit" value=' . $deposit . ' readonly="readonly"><br>	
+								Quantity  <span style="color:#ff0000">*</span> : <input type="text" class="form-control qty" value=' . $qty . ' ><br>
+								Product Price(PerDay)  <span style="color:#ff0000">*</span> : <input type="text" class="form-control price" value=' . $rent_price . ' readonly="readonly"><br>
+								Deposit  <span style="color:#ff0000">*</span> : <input type="text" class="form-control deposit" value=' . $deposit . ' readonly="readonly"><br>	
 								</div>
 								<input type="hidden" class="form-control total" value=' . $product_price . ' readonly="readonly"><br>
 								<input type="hidden" class="form-control total_duration" value=' . $total_duration . ' readonly="readonly"><br>

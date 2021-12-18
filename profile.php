@@ -75,7 +75,16 @@ include_once './common/header_module.php';
     </div>
    
     <div class=" col-sm-3 float-lg-right" style="background-color: orange; border-radius:12px; z-index: -1;">
-    <nav class="menu">
+      
+    </div>
+   
+
+
+</div>
+</div>
+</div>
+<div></div>
+<nav class="menu">
    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
    <label class="menu-open-button" for="menu-open">
     <i class="fa fa-share-alt share-icon"></i>
@@ -88,11 +97,6 @@ include_once './common/header_module.php';
    <a href="https://www.tumblr.com" target="_blank" class="menu-item tumblr_share_btn"> <i class="fa fa-tumblr"></i> </a>
    <a href="https://plus.google.com" target="_blank" class="menu-item google_plus_share_btn"> <i class="fa fa-google-plus"></i> </a>
 </nav>
-    </div>
-    
-
-
-</div>
 <?php
 include_once './common/footer_module.php';
 ?>

@@ -1,49 +1,66 @@
 <?php
 
+$DBHOST = '3.109.14.4';
+$DBUSER = 'ostechnix';
+$DBPASS = 'Password123#@!';
+// $DBHOST = 'localhost';
+// $DBUSER = 'root';
+// $DBPASS = '';
+
+
+
+$DBNAME = 'spaceece';
+$conn;
+
+$conn = mysqli_connect($DBHOST, $DBUSER, $DBPASS, $DBNAME);
+
+
+if ($conn) {
+
+} else {
+    die("No Connection!");
+}
 
 
 if(isset($_POST['subscribe'])){
 
-    $mysqli = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'spaceece');
-
-// Check connection
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
+  
     $email=$_POST['email'];
 
-   var_dump($_POST);
+   ///var_dump($_POST);
 
-                $sql = mysqli_query($mysqli, "SELECT * from subscription Where email='$email'") or die('Sql Query3 Error' . mysqli_error($mysqli));
+                $sql =  "SELECT * from subscription Where email='$email'";
+                //var_dump($sql);
+                $query=mysqli_query($conn,$sql);
                 
-                   while ($result = mysqli_fetch_assoc($sql)) {
-                       if(count($result)>0){
-                    echo "This Email. is already registered <br>";
-                      
-                   }
+                
+                if (mysqli_num_rows( $query) > 0) {
+                    echo "Error";
+              }
+               
                   else {
     
-                $query3 = mysqli_query($mysqli, "INSERT into subscription(email) values('$email')")
-                or die('Sql Query4 Error' . mysqli_error($mysqli));
+                $query3 = mysqli_query($conn, "INSERT into subscription (email) values('$email') ");
+               // var_dump($query3);
+
                 $toEmail = $email; 
-             $sent = sendEmail( $headers,$toEmail, $emailSubject,$emailBody);
+             $sent = sendEmail($toEmail);
               
                 if( $sent==='Success'){
                     
-                echo "Successfully Registered $email";
+                 echo "Success";
                 }else{
-                    echo "Error";
-                }
+                     echo "Error";
+                 }
 
 
-                   }
+                //   }
                    }
            
-            function sendEmail($headers,$toEmail, $emailSubject, $emailBody){
+            function sendEmail($toEmail){
                 $eol = "\r\n";
                 $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers  .= 'MIME-Version: 1.0' . "\r\n";
                 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             
               
@@ -53,13 +70,13 @@ if ($mysqli->connect_errno) {
             
             
                 $emailBody = "Hello " . $toEmail . ",<br><br>";
-                $emailBody .= "Wishing you a very good morning and a great day ahead.<br><br>";
-                $emailBody .= "Please find the activity for your children below. We are sure that it will make children's days full of fun and engaging.<br><br>";
-                $emailBody .= "<b>Activity:</b> <br><br>";
+                $emailBody .= "Thank You for Subscribing <br><br>";
+               
+                $emailBody .= "<b>You will receive Notifications and latest updates  to ." . $toEmail . " this Email</b> <br><br>";
                 if (mail($toEmail, $emailSubject, $emailBody, $headers)) {
                     echo "Success";
                 }else{
                     echo "Error";
                 }
-            }
-        }
+             }
+            } 
