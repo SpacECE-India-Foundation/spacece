@@ -11,6 +11,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
 $get_video = $Fun_call->selected_order('videos', 'filter');
 // include 'Stylesheet/stylesheet.css';
 ?>
+<link rel="stylesheet" href="css/share.css" class="real">
 <div class="container-fluid">
 
     <div class="container"><br>
@@ -104,11 +105,25 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
 
                                         </a>
                                         <?php echo $video_data['cntdislike']; ?>
+                                       
                                         <button name="share" class="btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=" . $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><i class="fas fa-share-alt" style="color:black"></i></button>
-                                        <!-- <a href="comment.php">
-                                    <button name="comment" class="btn"><img src="comments.png" style="justify-content: center; padding-left: 30%; height: 20px; width: 35px"></button>
-                                </a> -->
-
+                                        <div class="share-button sharer" style="display: block;">
+<button type="button" class="btn btn-success share-btn">Share</button>
+<div class="social top center networks-5 ">
+ <!-- Facebook Share Button -->
+    <a class="fbtn share facebook" href="https://www.facebook.com/sharer/sharer.php?u=url"><i class="fa fa-facebook"></i></a> 
+    <!-- Google Plus Share Button -->
+    <a class="fbtn share gplus" href="https://plus.google.com/share?url=url"><i class="fa fa-google-plus"></i></a> 
+    <!-- Twitter Share Button -->
+    <a class="fbtn share twitter" href="https://twitter.com/intent/tweet?text=title&amp;url=url&amp;via=creativedevs"><i class="fa fa-twitter"></i></a> 
+       <!-- Pinterest Share Button -->
+    <a class="fbtn share pinterest" href="https://pinterest.com/pin/create/button/?url=url&amp;description=data&amp;media=image"><i class="fa fa-pinterest"></i></a>
+ 
+    <!-- LinkedIn Share Button -->
+    <a class="fbtn share linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=url&amp;title=title&amp;source=url/"><i class="fa fa-linkedin"></i></a>
+ </a>
+</div>
+</div>
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +169,27 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                                             </a>
                                             <?php echo $video_data['cntdislike']; ?>
                                             <button name="share" class="btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=" . $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><i class="fas fa-share-alt" style="color:black"></i></button>
+                                            <button name="share" class="btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=" . $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><i class="fas fa-share-alt" style="color:black"></i></button>
+                                        <div class="share-button sharer" style="display: block;">
+<button type="button" class="btn btn-success share-btn">Share</button>
+<div class="social top center networks-5 ">
+ <!-- Facebook Share Button -->
+    <a class="fbtn share facebook" href="https://www.facebook.com/sharer/sharer.php?u=url"><i class="fa fa-facebook"></i></a> 
+    <!-- Google Plus Share Button -->
+    <a class="fbtn share gplus" href="https://plus.google.com/share?url=url"><i class="fa fa-google-plus"></i></a> 
+    <!-- Twitter Share Button -->
+    <a class="fbtn share twitter" href="https://twitter.com/intent/tweet?text=title&amp;url=url&amp;via=creativedevs"><i class="fa fa-twitter"></i></a> 
+       <!-- Pinterest Share Button -->
+    <a class="fbtn share pinterest" href="https://pinterest.com/pin/create/button/?url=url&amp;description=data&amp;media=image"><i class="fa fa-pinterest"></i></a>
+ 
+    <!-- LinkedIn Share Button -->
+    <a class="fbtn share linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=url&amp;title=title&amp;source=url/"><i class="fa fa-linkedin"></i></a>
+ </a>
+</div>
+</div>
+                                          
                                             <!-- <a href="comment.php">
+
                                     <button name="comment" class="btn"><img src="comments.png" style="justify-content: center; padding-left: 30%; height: 20px; width: 35px"></button>
                                 </a> -->
 
@@ -198,5 +233,16 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
 
 
 <?php include_once '../common/footer_module.php'; ?>
-
+<script>
+$( document ).ready(function() {
+	//custom button for homepage
+     $( ".share-btn" ).click(function(e) {
+     	 $('.networks-5').not($(this).next( ".networks-5" )).each(function(){
+         	$(this).removeClass("active");
+    	 });
+     
+            $(this).next( ".networks-5" ).toggleClass( "active" );
+    });   
+});
+    </script>
 <!--End - Delete - Modal -->

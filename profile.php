@@ -1,6 +1,5 @@
 <?php
 
-
 $main_logo = "./img/logo/SpacECELogo.jpg";
 $module_logo = null;
 $module_name = null;
@@ -51,7 +50,11 @@ include_once './common/header_module.php';
  
 <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">  -->
 <?php
-
+if(!isset($_SESSION['current_user_email']))
+{
+// header('Location:index.php');
+// exit();
+// }
 $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
@@ -70,7 +73,6 @@ $password = "Password123#@!";
   // $email= $_SESSION['current_user_email'];
 $sql= "SELECT * FROM `users` WHERE `u_email`='ewqewq@wet.er' ";
 
-$res= "";
 $result =mysqli_query($conn,$sql);
 
     $row= mysqli_fetch_assoc($result);
@@ -89,7 +91,8 @@ foreach($result as $data)
   <div class="row d-flex justify-content-center mt-1 mb-1 ">
     <div class="col-sm-9 " >
         <div class="profile-image float-lg-right"  style="width:120px;border-radius:60px; margin-right:-75px;  position:relative;  background-repeat: no-repeat;margin-top: 10%;" >
-       <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($data['u_image'] ).'" style="width:120px; border:5px solid white;border-radius:70px;"  class="img img-responsive ">'?>;
+       <?php if(!empty($data['u_image'])) {echo '<img src="data:image/jpeg;base64,'.base64_encode($data['u_image'] ).'" style="width:120px; border:5px solid white;border-radius:70px;"  class="img img-responsive ">';}else{
+        echo '<img src="img/user.png" style="width:120px; border:5px solid white;border-radius:70px;"  class="img img-responsive ">'; } ?>;
         </div>
 <div class="card shadow p-3 mb-5 bg-white rounded ml-3 col-sm-10" style="border-radius:20px;">
 <div class="card shadow p-3 mb-5 bg-white rounded ml-3 col-sm-10" style="border-radius:20px;">
@@ -113,6 +116,7 @@ foreach($result as $data)
     </div>
    
     <?php
+}
 }
 ?>
     <div class=" col-sm-3 float-lg-right" style="background-color: orange; border-radius:12px; z-index: -1;">
@@ -165,13 +169,12 @@ foreach($result as $data)
    <a href="https://www.tumblr.com" target="_blank" class="menu-item tumblr_share_btn"> <i class="fa fa-tumblr"></i> </a>
    <a href="https://plus.google.com" target="_blank" class="menu-item google_plus_share_btn"> <i class="fa fa-google-plus"></i> </a>
 </nav> -->
+</div>
+</div>
 <?php
 include_once './common/footer_module.php';
-
-
-
 ?>
-<Script>
+<script>
   $('#save').on('click',function(){
 var email=$('#email').val();
 var name=$('#name').val();
@@ -203,4 +206,4 @@ if(data==='Success'){
   }
 })
   })
-  </script>
+</script>
