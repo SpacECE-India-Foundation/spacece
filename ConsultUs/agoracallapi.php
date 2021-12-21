@@ -1,9 +1,22 @@
 <?php
 include_once './indexDB.php';
-
+include("./src/RtcTokenBuilder.php");
 
 if(isset($_POST['create_call'])){
-
+  
+    $channel_name=$_POST['channel_name'];
+    $appID = "0485c1232ca7491e9ada47ae96da3160";
+    $appCertificate = "704339d4531441f0afaeb62baa2a54ca";
+    $channelName = $channel_name;
+    $uid = 2882341273;
+    $uidStr = "2882341273";
+    $role = RtcTokenBuilder::RoleAttendee;
+    $expireTimeInSeconds = 3600;
+    $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
+    $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
+    
+    $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+  //  echo 'Token with int uid: ' . $token . PHP_EOL;
   //  print_r($_POST);
  //$user_id=$_SESSION['current_user_email'];
 
@@ -11,8 +24,8 @@ if(isset($_POST['create_call'])){
  
  $user_id=$_POST['user_id'];
 
- $channel_name=$_POST['channel_name'];
-	$token=$_POST['token'];		
+
+	//$token=$_POST['token'];		
 $sql="INSERT INTO agora_call(user_id,consult_id,channel_name,token) VALUES ('$user_id','$consult_id','$channel_name','$token')";
 $result = mysqli_query($conn, $sql);
 
