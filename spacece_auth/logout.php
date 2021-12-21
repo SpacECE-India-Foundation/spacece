@@ -14,5 +14,5 @@ if (isset($_SESSION['current_user_type']))
     unset($_SESSION['current_user_type']);
 $google_client->revokeToken();
 $redirect_url = $_SERVER['HTTP_REFERER'];
-
-header("Location: " . $redirect_url);
+header("Location:../index.php");
+//header("Location: " . $redirect_url);
