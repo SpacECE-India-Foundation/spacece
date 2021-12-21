@@ -4,7 +4,7 @@ include_once './indexDB.php';
 
 if(isset($_POST['create_call'])){
 
-    print_r($_POST);
+  //  print_r($_POST);
  //$user_id=$_SESSION['current_user_email'];
 
     $consult_id=$_POST['consult_id'];
@@ -38,7 +38,7 @@ if(isset($_POST['join_call'])){
     $result = mysqli_query($conn, $sql);
     $row=mysqli_fetch_assoc($result);
     $token=$row['token'];
-   var_dump($row);
+   //var_dump($row);
     if (mysqli_num_rows($result) > 0) {
         // header('location: login.php');
         echo json_encode(array('status' => 'success','token'=>$token));
