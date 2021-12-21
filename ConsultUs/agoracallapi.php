@@ -12,8 +12,8 @@ if(isset($_POST['create_call'])){
  $user_id=$_POST['user_id'];
 
  $channel_name=$_POST['channel_name'];
-			
-$sql="INSERT INTO agora_call(user_id,consult_id,channel_name) VALUES ('$user_id','$consult_id','$channel_name')";
+	$token=$_POST['token'];		
+$sql="INSERT INTO agora_call(user_id,consult_id,channel_name,token) VALUES ('$user_id','$consult_id','$channel_name','$token')";
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
