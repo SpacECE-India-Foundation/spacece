@@ -15,6 +15,7 @@ if(isset($_POST['create_call'])){
 			
 $sql="INSERT INTO agora_call(user_id,consult_id,channel_name) VALUES ('$user_id','$consult_id','$channel_name')";
 $result = mysqli_query($conn, $sql);
+
 if ($result) {
     // header('location: login.php');
     echo json_encode(array('status' => 'success'));
@@ -35,9 +36,12 @@ if(isset($_POST['join_call'])){
                 
     $sql="SELECT * from agora_call where user_id='$user_id'";
     $result = mysqli_query($conn, $sql);
+    $row=mysqli_fetch_assoc($result);
+    $token=$row['token'];
+   var_dump($row);
     if (mysqli_num_rows($result) > 0) {
         // header('location: login.php');
-        echo json_encode(array('status' => 'success'));
+        echo json_encode(array('status' => 'success','token'=>$token));
         //die();
     } else {
         echo json_encode(array('status' => 'error', 'message' => "No call Found!"));
