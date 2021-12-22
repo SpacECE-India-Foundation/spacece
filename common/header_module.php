@@ -163,7 +163,7 @@ zoom out:50%
                         <span style="cursor: pointer;">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
                     </button>
                     <div class="dropdown-content">
-                        <a href="#"><i class="fas fa-user"></i><span>Profile</span></a>
+                        <a href="<?= isset($main_page) ? "./spacece_auth/profile.php" : "../spacece_auth/profile.php" ?>"><i class="fas fa-user"></i><span>Profile</span></a>
                         <?= isset($extra_profile_links) ? $extra_profile_links : null ?>
                         <a href=<?= isset($main_page) ? "./spacece_auth/logout.php" : "../spacece_auth/logout.php" ?>><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
                     </div>
