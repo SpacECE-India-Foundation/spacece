@@ -22,7 +22,12 @@ if(isset($_POST['create_call'])){
 
     $consult_id=$_POST['consult_id'];
  
+    //$privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
 
+
+    
+  //  $token1 = RtcTokenBuilder::buildTokenWithUserAccount($appID, $appCertificate, $channelName, $uidStr, $role, $privilegeExpiredTs);
+    
 
 
 	//$token=$_POST['token'];		

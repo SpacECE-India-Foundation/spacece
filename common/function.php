@@ -41,7 +41,7 @@ if(isset($_POST['subscribe'])){
                   else {
                    
                 $query3 = mysqli_query($conn, "INSERT into subscription (email) values('$email') ");
-                var_dump($query3);
+                //var_dump($query3);
 
                 $toEmail = $email; 
             
