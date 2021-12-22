@@ -5,8 +5,8 @@ include("./src/RtmTokenBuilder.php");
 if(isset($_POST['create_call'])){
     $user_id=$_POST['user_id'];
     //$channel_name=$_POST['channel_name'];
-    $appID = "464ff3e49fb3409494c0956edcec52e7";
-    $appCertificate = "69e339dd4ca84843a9be3ecb80cee831";
+    $appID = "21f542eedcde43a38f6c292abaa8c4c2";
+    $appCertificate = "464ff3e49fb3409494c0956edcec52e7";
     $channelName = "hello";
     $user = $user_id;
    // $uidStr = $user_id;
