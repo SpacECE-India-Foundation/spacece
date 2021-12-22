@@ -7,7 +7,7 @@ if(isset($_POST['create_call'])){
     $channel_name=$_POST['channel_name'];
     $appID = "0485c1232ca7491e9ada47ae96da3160";
     $appCertificate = "704339d4531441f0afaeb62baa2a54ca";
-    $channelName = $channel_name;
+    $channelName = "hello";
     $uid = 2882341273;
     $uidStr = $user_id;
     $role = RtcTokenBuilder::RoleAttendee;
