@@ -31,10 +31,10 @@ $result = mysqli_query($conn, $sql);
 
 if ($result) {
     // header('location: login.php');
-    echo json_encode(array('status' => 'success'));
+    echo json_encode(array('status' => 'success','token'=>$token));
     die();
 } else {
-    echo json_encode(array('status' => 'error', 'message' => "Error while Creating CAll!",'token'=>$token));
+    echo json_encode(array('status' => 'error', 'message' => "Error while Creating CAll!"));
     die();
 }
 
