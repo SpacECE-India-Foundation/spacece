@@ -5,21 +5,15 @@ include("./php/src/RtmTokenBuilder.php");
 if(isset($_POST['create_call'])){
     $user_id=$_POST['user_id'];
     //$channel_name=$_POST['channel_name'];
-    $appID = "21f542eedcde43a38f6c292abaa8c4c2";
-    $appCertificate = "464ff3e49fb3409494c0956edcec52e7";
-    $channelName = "hello";
-    $user = $user_id;
-   // $uidStr = $user_id;
-   $role = RtmTokenBuilder::RoleRtmUser;
+    $appID = "464ff3e49fb3409494c0956edcec52e7";
+    $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
+    $channelName = "test";
+    $uid = 0;
+    $uidStr = "";
+    $role = RtcTokenBuilder::RoleAttendee;
     $expireTimeInSeconds = 3600;
     $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
     $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
-    
-    //$token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
-    $token = RtmTokenBuilder::buildToken($appID, $appCertificate, $user, $role, $privilegeExpiredTs);
-  //  echo 'Token with int uid: ' . $token . PHP_EOL;
-  //  print_r($_POST);
- //$user_id=$_SESSION['current_user_email'];
 
     $consult_id=$_POST['consult_id'];
  
@@ -37,6 +31,8 @@ if(isset($_POST['create_call'])){
 //echo 'Rtm Token: ' . $token . PHP_EOL;
 
 
+$token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+//echo 'Token with int uid: ' . $token . PHP_EOL;
     $channel_name="hello";
 	//$token=$_POST['token'];		
 $sql="INSERT INTO agora_call(user_id,consult_id,channel_name,token) VALUES ('$user_id','$consult_id','$channel_name','$token')";
