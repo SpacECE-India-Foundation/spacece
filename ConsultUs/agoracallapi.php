@@ -1,30 +1,43 @@
 <?php
 include_once './indexDB.php';
 include("./src/RtcTokenBuilder.php");
-
+include("./src/RtmTokenBuilder.php");
 if(isset($_POST['create_call'])){
     $user_id=$_POST['user_id'];
     //$channel_name=$_POST['channel_name'];
     $appID = "0485c1232ca7491e9ada47ae96da3160";
     $appCertificate = "704339d4531441f0afaeb62baa2a54ca";
-    $channelName = "hellotest";
-    $uid = 2882341273;
-   /// $uidStr = $user_id;
-    $role = RtcTokenBuilder::RoleAttendee;
+    $channelName = "hello";
+    $user = $user_id;
+   // $uidStr = $user_id;
+   $role = RtmTokenBuilder::RoleRtmUser;
     $expireTimeInSeconds = 3600;
     $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
     $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
     
-    $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+    //$token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+    $token = RtmTokenBuilder::buildToken($appID, $appCertificate, $user, $role, $privilegeExpiredTs);
   //  echo 'Token with int uid: ' . $token . PHP_EOL;
   //  print_r($_POST);
  //$user_id=$_SESSION['current_user_email'];
 
     $consult_id=$_POST['consult_id'];
  
+   
+
+// $appID = "970CA35de60c44645bbae8a215061b33";
+// $appCertificate = "5CFd2fd1755d40ecb72977518be15d3b";
+
+// $role = RtmTokenBuilder::RoleRtmUser;
+// $expireTimeInSeconds = 3600;
+// $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
+// $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
+
+$token = RtmTokenBuilder::buildToken($appID, $appCertificate, $user, $role, $privilegeExpiredTs);
+//echo 'Rtm Token: ' . $token . PHP_EOL;
 
 
-    $channel_name="hellotest";
+    $channel_name="hello";
 	//$token=$_POST['token'];		
 $sql="INSERT INTO agora_call(user_id,consult_id,channel_name,token) VALUES ('$user_id','$consult_id','$channel_name','$token')";
 $result = mysqli_query($conn, $sql);
