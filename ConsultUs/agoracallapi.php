@@ -1,7 +1,7 @@
 <?php
 include_once './indexDB.php';
-include("./src/RtcTokenBuilder.php");
-include("./src/RtmTokenBuilder.php");
+include("./php/src/RtcTokenBuilder.php");
+include("./php/src/RtmTokenBuilder.php");
 if(isset($_POST['create_call'])){
     $user_id=$_POST['user_id'];
     //$channel_name=$_POST['channel_name'];
