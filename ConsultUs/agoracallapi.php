@@ -34,7 +34,7 @@ if ($result) {
     echo json_encode(array('status' => 'success'));
     die();
 } else {
-    echo json_encode(array('status' => 'error', 'message' => "Error while Creating CAll!"));
+    echo json_encode(array('status' => 'error', 'message' => "Error while Creating CAll!",'token'=>$token));
     die();
 }
 
@@ -47,7 +47,7 @@ if(isset($_POST['join_call'])){
    // $consult_id=$_POST['consultant_id'];
     //$channel_name=$_POST['channel_name'];
                 
-    $sql="SELECT * from agora_call where user_id='$user_id'";
+    $sql="SELECT * from agora_call where user_id='$user_id' ORDER BY id DESC";
     $result = mysqli_query($conn, $sql);
     $row=mysqli_fetch_assoc($result);
     $token=$row['token'];
