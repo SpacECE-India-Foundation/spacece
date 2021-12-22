@@ -260,6 +260,7 @@
        },
        url:"./common/function.php",
        success:function(data){
+        // alert(data);
         if(data==='Error'){
           swal("Error!", "You have already subscribed to this site!", "error");
         }
@@ -268,6 +269,9 @@ if(data==='Success'){
   swal("Good job!", "You have subscribed !", "success");
 
 } 
+if(data==='Invalid'){
+          swal("Error!", "Please Emter a Valid Email!", "error");
+        }
 
 
        }

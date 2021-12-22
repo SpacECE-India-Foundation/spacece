@@ -39,25 +39,14 @@ if(isset($_POST['subscribe'])){
               }
                
                   else {
-    
+                   
                 $query3 = mysqli_query($conn, "INSERT into subscription (email) values('$email') ");
-               // var_dump($query3);
+                var_dump($query3);
 
                 $toEmail = $email; 
-             $sent = sendEmail($toEmail);
-              
-                if( $sent==='Success'){
-                    
-                 echo "Success";
-                }else{
-                     echo "Error";
-                 }
-
-
-                //   }
-                   }
-           
-            function sendEmail($toEmail){
+            
+                echo $toEmail;
+                  
                 $eol = "\r\n";
                 $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
                 $headers  .= 'MIME-Version: 1.0' . "\r\n";
@@ -72,11 +61,18 @@ if(isset($_POST['subscribe'])){
                 $emailBody = "Hello " . $toEmail . ",<br><br>";
                 $emailBody .= "Thank You for Subscribing <br><br>";
                
-                $emailBody .= "<b>You will receive Notifications and latest updates  to ." . $toEmail . " this Email</b> <br><br>";
+                $emailBody .= "<b>You will receive Notifications and latest updates  this Email</b> <br><br>";
+               
                 if (mail($toEmail, $emailSubject, $emailBody, $headers)) {
                     echo "Success";
                 }else{
-                    echo "Error";
+                    echo "Invalid";
                 }
-             }
+
+
+                //   }
+                   }
+           
+         
+             
             } 
