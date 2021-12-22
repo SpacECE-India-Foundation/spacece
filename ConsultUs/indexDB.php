@@ -1,7 +1,7 @@
 <?php
 //session_start();
 define("SITEURL", '');
-$servername = "localhost";
+$servername = "3.109.14.4";
 $username = "root";
 $password = "";
 // $servername = "3.109.14.4";
