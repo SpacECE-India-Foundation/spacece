@@ -33,7 +33,7 @@ if(isset($_POST['create_call'])){
 // $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
 // $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
 
-$token = RtmTokenBuilder::buildToken($appID, $appCertificate, $user, $role, $privilegeExpiredTs);
+//$token = RtmTokenBuilder::buildToken($appID, $appCertificate, $user, $role, $privilegeExpiredTs);
 //echo 'Rtm Token: ' . $token . PHP_EOL;
 
 
