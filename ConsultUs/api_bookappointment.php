@@ -4,7 +4,9 @@
 
 $u_id=$_POST['u_id'];
 $c_id=$_POST['c_id'];
+
 $b_time=$_POST['b_time'];
+date($b_time);
        
         $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time) VALUES('$u_id','$c_id','$b_time')";
         $res = mysqli_query($conn,$sql);
