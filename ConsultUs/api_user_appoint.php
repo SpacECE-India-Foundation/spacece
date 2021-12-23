@@ -44,7 +44,7 @@ if($type == "all"){
 
 if($type != "all"){
         // showing admin added from database
-        $sql = "SELECT * FROM `appointment` WHERE `username` = '$user'";
+        $sql = "SELECT * FROM `appointment` WHERE `cid` = '$user'";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
