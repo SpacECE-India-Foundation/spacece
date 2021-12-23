@@ -103,6 +103,7 @@ if(isset($_SESSION['current_user_email'])){
                         <th> Consultant Fee:</th>
                         <th>From(Day):</th>
                         <th>To(Day):</th>
+                        <th>Qualification:</th>
                         <th>ACTION:</th>
                         
                     </tr>
@@ -146,59 +147,41 @@ if(isset($_SESSION['current_user_email'])){
               
                 //$sql = "SELECT * FROM `consultant` ";
                   $res = mysqli_query($conn1,$sql1);
-             // var_dump( $resuser);
-                    if($res){
-                       // var_dump($sql);
-                        // count that data is there or not in database
-                        $count= mysqli_num_rows($res);
-                        echo $count;
-                        $sno =1;
-                        if($count>0){
-                            // we have data in database
-                            while($row = mysqli_fetch_assoc($res))
-                            { var_dump($row);
-                                // extracting values from dA
-                                
-                               // $id=$row['u_id'];
-                                // $full_name=$row['u_name'];
-                                // $category=$row['cat_name'];
-                                // $office_location=$row['c_office'];
-                                // $stime=$row['c_from_time'];
-                                // $ctime=$row['c_to_time'];
-                                // $lang=$row['c_language'];
-                               
-                                // $img = $row['u_image'];
-                              
-                                // $fee=$row['c_fee'];
-                                // $row["c_available_from"];
-                                // $avail = $row['c_available_to'];
-                                // $quali=$row['c_qualification'];
-                                
-                                ?>
-                                <tr>
-                                <td><?php echo $sno++; ?></td>
-                               <td><img src="<?php echo $img ?>" width="100" height="100"></td>
-                                <td><?php echo $row['u_name'];; ?></td>
-                                <td><?php echo $row['cat_name']; ?></td>
-                                <td><?php echo $row['c_office']; ?></td>
-                                <td><?php echo $row['u_image'];?></td>
-                                <td><?php echo $row["c_available_from"]; ?></td>
-                                <td><?php echo $row['c_available_to']; ?></td>
-                                <td><?php echo $row['c_to_time']; ?></td>
-                                <td><?php echo $row['c_fee']; ?></td>
-                                <td><?php echo $row['c_language']; ?></td>
-                                <td><?php echo $row['c_qualification']; ?></td>
-        
-                                <td>
-                                    <a href="<?php echo SITEURL;?>appoint.php?id=<?php echo $id;?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>&name=<?php echo $full_name;?>&category=<?php echo $category;?>&conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>&user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
-                                    <br><br>
-                       <?php 
-                            }       
-                        ?>
+                  if($res){
+                    $sno =1;
+                    while($row = mysqli_fetch_assoc($res))
+                    {
+                        ?> <tr>
+                        <td><?php echo $sno++; ?></td>
+                       <td><img src="<?php echo $row['u_image']; ?>" width="100" height="100"></td>
+                        <td><?php echo $row['u_name']; ?></td>
+                        <td><?php echo $row['cat_name']; ?></td>
+                        <td><?php echo $row['c_office']; ?></td>
+                        <td><?php echo $row['c_language']; ?></td>
+                        <td><?php echo $row['c_from_time']; ?></td>
+                        <td><?php echo $row['c_to_time']; ?></td>
+                        <td><?php echo $row['c_fee']; ?></td>
+                        <td><?php echo $row["c_available_from"]; ?></td>
+
+                        <td><?php echo $row['c_available_to']; ?></td>
+                        
+                       
+                        <td><?php echo $row['c_qualification']; ?></td>
+
+                        <td>
+                        <a href="./appoint.php?id=<?php echo $row['u_id'];?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>
+                        &name=<?php echo $full_name;?>&category=<?php echo $category;?>
+                        &conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
+                        &user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" 
+                        class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
+                                    <br>
+                                   <?php }
+                  }
+                ?>
                      
                        
 
- <a href="<?php echo SITEURL;?>instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br>
+ <a href="./instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br>
   <?php  $sql = "SELECT * FROM `webhook` WHERE purpose='Consultant App' AND email='".$_SESSION['current_user_email']."' ";
 
                    $res2  = mysqli_query($conn,$sql);
@@ -222,8 +205,8 @@ if(isset($_SESSION['current_user_email'])){
                    
                     <?php
                     /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
-                     }
-                    }
+                  
+
                    
                    // echo $sql;
                     ?>
