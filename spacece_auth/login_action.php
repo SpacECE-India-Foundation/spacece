@@ -63,7 +63,7 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['current_user_email'] = $row['u_email'];
     $_SESSION['current_user_name'] = $row['u_name'];
     $_SESSION['current_user_mob'] = $row['u_mob'];
-    $_SESSION['current_user_image'] = $row['u_image'];
+    $_SESSION['current_user_image'] = '../img/users/' . $row['u_image'];
     $_SESSION['current_user_type'] = $row['u_type'];
 
     // For consultant
