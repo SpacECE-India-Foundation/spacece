@@ -7,7 +7,8 @@ if(isset($_POST['create_call'])){
 //echo 'Token with int uid: ' . $token . PHP_EOL;
     //$channel_name="hello";
 	//$token=$_POST['token'];	
-    
+    $consult_id=$_POST['consult_id'];
+    $user_id=$_POST['user_id'];
     $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
     $result = mysqli_query($conn, $sql);
     $row=mysqli_fetch_assoc($result);
