@@ -36,7 +36,7 @@ function paymentInit($name, $email, $mobile, $total)
         'currency' => 'INR',
         'phone' => '+91' . $mobile,
         'buyer_name' => $name,
-        'redirect_url' => 'http://www.spacece.co/?ref_id=1234',
+        'redirect_url' => 'http://www.spacece.co/',
         'send_email' => true,
         'webhook' => 'http://educationfoundation.space/ConsultUs/instamojo_payment/spaceactive_webhook2.php',
         'send_sms' => true,
