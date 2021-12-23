@@ -151,27 +151,28 @@ if(isset($_SESSION['current_user_email'])){
                        // var_dump($sql);
                         // count that data is there or not in database
                         $count= mysqli_num_rows($res);
+                        echo $count;
                         $sno =1;
                         if($count>0){
                             // we have data in database
                             while($row = mysqli_fetch_assoc($res))
-                            { //var_dump($row);
+                            { var_dump($row);
                                 // extracting values from dA
                                 
                                // $id=$row['u_id'];
-                                $full_name=$row['u_name'];
-                                $category=$row['cat_name'];
-                                $office_location=$row['c_office'];
-                                $stime=$row['c_from_time'];
-                                $ctime=$row['c_to_time'];
-                                $lang=$row['c_language'];
+                                // $full_name=$row['u_name'];
+                                // $category=$row['cat_name'];
+                                // $office_location=$row['c_office'];
+                                // $stime=$row['c_from_time'];
+                                // $ctime=$row['c_to_time'];
+                                // $lang=$row['c_language'];
                                
-                                $img = $row['u_image'];
+                                // $img = $row['u_image'];
                               
-                                $fee=$row['c_fee'];
-                                $row["c_available_from"];
-                                $avail = $row['c_available_to'];
-                                $quali=$row['c_qualification'];
+                                // $fee=$row['c_fee'];
+                                // $row["c_available_from"];
+                                // $avail = $row['c_available_to'];
+                                // $quali=$row['c_qualification'];
                                 
                                 ?>
                                 <tr>
@@ -179,10 +180,10 @@ if(isset($_SESSION['current_user_email'])){
                                <td><img src="<?php echo $img ?>" width="100" height="100"></td>
                                 <td><?php echo $row['u_name'];; ?></td>
                                 <td><?php echo $row['cat_name']; ?></td>
-                                <td><?php echo $office_location; ?></td>
-                                <td><?php echo $lang; ?></td>
-                                <td><?php echo $ctime; ?></td>
-                                <td><?php echo $stime; ?></td>
+                                <td><?php echo $row['c_office']; ?></td>
+                                <td><?php echo $row['u_image'];?></td>
+                                <td><?php echo $row["c_available_from"]; ?></td>
+                                <td><?php echo $row['c_available_to']; ?></td>
                                 <td><?php echo $row['c_to_time']; ?></td>
                                 <td><?php echo $row['c_fee']; ?></td>
                                 <td><?php echo $row['c_language']; ?></td>

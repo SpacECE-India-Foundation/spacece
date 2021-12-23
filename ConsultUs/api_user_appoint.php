@@ -8,7 +8,7 @@
 
 if($type == "all"){
         // showing admin added from database
-        $sql = "SELECT * FROM `appointment`";
+        $sql = "SELECT * FROM `new_apointment`";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
@@ -42,9 +42,9 @@ if($type == "all"){
 
 <?php
 
-if($type != "all"){
+if($type != "all" && $user){
         // showing admin added from database
-        $sql = "SELECT * FROM `appointment` WHERE `cid` = '$user'";
+        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$user'";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
@@ -79,5 +79,8 @@ if($type != "all"){
         }
 
     }
-                    // displaying value in table
+           
+    
+   
+ 
             ?>

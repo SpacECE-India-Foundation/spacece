@@ -11,7 +11,7 @@ if(isset($_GET['cat'])){
 if(empty($cat_name)){
         // showing admin added from database
         $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
-        users.u_image AS u_image ,users.u_image as image,
+        users.u_image AS u_image ,
     consultant.c_office AS c_office,consultant.c_from_time As c_from_time, consultant.c_to_time As c_to_time , 
     consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
     consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
@@ -53,7 +53,7 @@ if(empty($cat_name)){
 
 if($cat_name ){
         // showing admin added from database
-        $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name, users.u_image AS u_image ,
+        $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
         users.u_image as image, consultant.c_office AS c_office,consultant.c_from_time As 
         c_from_time, consultant.c_to_time As c_to_time , consultant.c_language AS c_language, 
         consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from, consultant.c_available_to AS 
