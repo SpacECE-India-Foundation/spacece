@@ -146,17 +146,41 @@ if(isset($_SESSION['current_user_email'])){
               
                 //$sql = "SELECT * FROM `consultant` ";
                   $res = mysqli_query($conn1,$sql1);
+                  if($res){
+                    $sno =1;
+                    while($row = mysqli_fetch_assoc($res))
+                    {
+                        ?> <tr>
+                        <td><?php echo $sno++; ?></td>
+                       <td><img src="<?php echo $row['u_image']; ?>" width="100" height="100"></td>
+                        <td><?php echo $row['u_name']; ?></td>
+                        <td><?php echo $row['cat_name']; ?></td>
+                        <td><?php echo $row['c_office']; ?></td>
+                        <td><?php echo $row['c_language']; ?></td>
+                        <td><?php echo $row["c_available_from"]; ?></td>
+                        <td><?php echo $row['c_available_to']; ?></td>
+                        <td><?php echo $row['c_to_time']; ?></td>
+                        <td><?php echo $row['c_fee']; ?></td>
+                       
+                        <td><?php echo $row['c_qualification']; ?></td>
+
+                        <td>
+                        <a href="./appoint.php?id=<?php echo $id;?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>&name=<?php echo $full_name;?>&category=<?php echo $category;?>&conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>&user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
+                                    <br>
+                                   <?php }
+                  }
+                 
              // var_dump( $resuser);
                     if($res){
                        // var_dump($sql);
                         // count that data is there or not in database
                         $count= mysqli_num_rows($res);
-                        echo $count;
+                       // echo $count;
                         $sno =1;
                         if($count>0){
                             // we have data in database
                             while($row = mysqli_fetch_assoc($res))
-                            { var_dump($row);
+                            {// var_dump($row);
                                 // extracting values from dA
                                 
                                // $id=$row['u_id'];
@@ -178,16 +202,16 @@ if(isset($_SESSION['current_user_email'])){
                                 <tr>
                                 <td><?php echo $sno++; ?></td>
                                <td><img src="<?php echo $img ?>" width="100" height="100"></td>
-                                <td><?php echo $row['u_name'];; ?></td>
-                                <td><?php echo $row['cat_name']; ?></td>
-                                <td><?php echo $row['c_office']; ?></td>
-                                <td><?php echo $row['u_image'];?></td>
-                                <td><?php echo $row["c_available_from"]; ?></td>
-                                <td><?php echo $row['c_available_to']; ?></td>
-                                <td><?php echo $row['c_to_time']; ?></td>
-                                <td><?php echo $row['c_fee']; ?></td>
-                                <td><?php echo $row['c_language']; ?></td>
-                                <td><?php echo $row['c_qualification']; ?></td>
+                                <td><?php //echo $row['u_name'];; ?></td>
+                                <td><?php // echo $row['cat_name']; ?></td>
+                                <td><?php //echo $row['c_office']; ?></td>
+                                <td><?php //echo $row['u_image'];?></td>
+                                <td><?php //echo $row["c_available_from"]; ?></td>
+                                <td><?php //echo $row['c_available_to']; ?></td>
+                                <td><?php //echo $row['c_to_time']; ?></td>
+                                <td><?php //echo $row['c_fee']; ?></td>
+                                <td><?php //echo $row['c_language']; ?></td>
+                                <td><?php //echo $row['c_qualification']; ?></td>
         
                                 <td>
                                     <a href="<?php echo SITEURL;?>appoint.php?id=<?php echo $id;?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>&name=<?php echo $full_name;?>&category=<?php echo $category;?>&conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>&user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
