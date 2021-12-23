@@ -157,7 +157,7 @@ session_start();
             ?>
                 <div class="dropdown">
                     <button class="dropbtn">
-                        <img class="user_avatar" src=<?= isset($_SESSION['current_user_image']) ? $_SESSION['current_user_image'] : 'https://www.w3schools.com/howto/img_avatar.png' ?> alt="User" />
+                        <img class="user_avatar" src=<?= !isset($_SESSION['current_user_image']) ? 'https://www.w3schools.com/howto/img_avatar.png' : ($main_page ? './img/users/' . $_SESSION['current_user_image'] : '../img/users/' . $_SESSION['current_user_image']) ?> alt="User" />
                         <span style="cursor: pointer;">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
                     </button>
                     <div class="dropdown-content">
