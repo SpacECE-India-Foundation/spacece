@@ -2,22 +2,22 @@
 include_once './indexDB.php';
 include("./php/src/RtcTokenBuilder.php");
 include("./php/src/RtmTokenBuilder.php");
-if(isset($_POST['create_call'])){
+if(isset($_POST['consult_id'])){
  
 //echo 'Token with int uid: ' . $token . PHP_EOL;
     //$channel_name="hello";
 	//$token=$_POST['token'];	
     $consult_id=$_POST['consult_id'];
     $user_id=$_POST['user_id'];
-    $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
-    $result = mysqli_query($conn, $sql);
-    $row=mysqli_fetch_assoc($result);
-    $token=$row['token'];
-    $channelname=$row['channel_name'];
-   //var_dump($row);
-    if (mysqli_num_rows($result) > 0) {
-        echo json_encode(array('status' => 'success','token'=>$token,'channelName'=>$channelname));
-    }else{
+//     $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
+//     $result = mysqli_query($conn, $sql);
+//     $row=mysqli_fetch_assoc($result);
+//     $token=$row['token'];
+//     $channelname=$row['channel_name'];
+//    //var_dump($row);
+//     if (mysqli_num_rows($result) > 0) {
+//         echo json_encode(array('status' => 'success','token'=>$token,'channelName'=>$channelname));
+//     }else{
 
         $consult_id=$_POST['consult_id'];
         $user_id=$_POST['user_id'];
@@ -48,7 +48,7 @@ if(isset($_POST['create_call'])){
             echo json_encode(array('status' => 'error', 'message' => "Error while Creating CAll!"));
             die();
         }
-    }
+   // }
 
 
 
