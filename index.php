@@ -39,7 +39,7 @@ $extra_scripts = "<script src='./js/jquery-3.2.1.min.js'></script>
 
 include_once './common/header_module.php';
 
-echo "<script type='text/javascript'>" . $_SESSION . "</script>";
+print_r($_SESSION);
 //session_start();
 ?>
 <!DOCTYPE html>
