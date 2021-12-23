@@ -3,6 +3,7 @@
 <?php include("./includes/functions.php")?>
 <?php
 $cat_name=$_GET['cat'];
+echo $cat_name;
 if($cat_name == "all"){
         // showing admin added from database
         $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,users.u_email as u_email,
@@ -48,7 +49,7 @@ if($cat_name == "all"){
 
 if($cat_name != "all"){
         // showing admin added from database
-        $sql = "SELECT * FROM `consultant` join consultant_category where consultant.c_category=consultant_category.cat_id AND consultant_category.cat_slug='$cat_name";
+        $sql = "SELECT * FROM `consultant` join consultant_category where consultant.c_category=consultant_category.cat_id AND consultant_category.cat_name='$cat_name";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
