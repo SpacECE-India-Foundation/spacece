@@ -4,12 +4,12 @@ error_reporting(0);
       $category= $_GET['category'];
   $val=$_GET['val'];
 ?>
-<?php include("indexDB.php")?>
+<?php include("./includes/functions.php")?>
 <?php
 
 if($category == "one"){
         // showing admin added from database
-        $sql = "SELECT * FROM `consultant` WHERE `category`= '$val' ";
+        $sql = "SELECT * FROM `consultant_category` WHERE `category`= '$val' ";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
@@ -44,7 +44,7 @@ if($category == "one"){
         
 elseif($category= "all"){
         // showing admin added from database
-        $sql = "SELECT * FROM `consultant`";
+        $sql = "SELECT * FROM `consultant_category`";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 

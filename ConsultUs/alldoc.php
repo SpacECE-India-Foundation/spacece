@@ -1,27 +1,28 @@
 
-<?php include('indexDB.php') ?>
+<?php // include('indexDB.php');
+?>
 <?php error_reporting(0); 
+
+define('DB_HOST_NAME', 'localhost');
+define('DB_USER_NAME', 'root');
+define('DB_USER_PASSWORD', '');
+define('DB_USER_DATABASE', 'spaceece');
+$conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
+
+if ($conn1) {
+    
+    
+} else {
+    die("Connection failed: " . $conn->connect_error);
+}
 $ref='';
 $_SESSION['current_user_email']='krishnathorat007@gmail.com';
 $_SESSION['current_user_name']='Krishna Thorat';
 if(isset($_SESSION['current_user_email'])){
     $email = $_SESSION['current_user_email'];
     $ref= $_SESSION['current_user_name'];
-    
-    $consult_id=$_POST['consult_id'];
-    $user_id=$_POST['user_id'];
-    $channel_name=$user_id.$consult_id;
-    $appID = "464ff3e49fb3409494c0956edcec52e7";
-    $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
-    $channelName =$user_id.$consult_id;
-    $uid = 0;
-    $uidStr = $user_id;
-    $role = RtcTokenBuilder::RoleAttendee;
-    $expireTimeInSeconds = 3600;
-    $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
-    $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
 
-$token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+    
     // $sql="INSERT INTO agora_call(user_id,consult_id,channel_name,token) VALUES ('$user_id','$consult_id','$channel_name','$token')";
     // $result = mysqli_query($conn, $sql);
     
@@ -29,6 +30,8 @@ $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelNam
     header('location:../spacece_auth/login.php');
     exit();
 }
+
+
 //session_start();
  ?>
 <html>
@@ -40,7 +43,7 @@ $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelNam
 
         <! ... menu section starts...>
         <div class="menu text-center" style="background-color:orange;">
-<img src="img/space.jpg" alt="" style="width:6%; ">
+<!-- <img src="img/space.jpg" alt="" style="width:6%; "> -->
             <div class="wrapper" >
                 <ul>
                     <li><a href="index2.php">HOME</a></li>
@@ -83,10 +86,10 @@ $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelNam
 
 
                  <!.... BUTTON TO ADD consultant...>
-                <a href="<?php echo SITEURL;?>chatbot/room.php?roomname=global1" class="btn-primary" style="color:black;background-color:orange;float:right;">CHAT GLOBAL</a><br>
+                <a href="./chatbot/room.php?roomname=global1" class="btn-primary" style="color:black;background-color:orange;float:right;">CHAT GLOBAL</a><br>
                  <br>
                  <br>
-
+                 
                 <table class="tb-full">
                     <tr>
                         <th>S.NO.:</th>
@@ -97,83 +100,100 @@ $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelNam
                         <th>LANGUAGE:</th>
                         <th>TIME(from):</th>
                         <th>TIME(to):</th>
+                        <th> Consultant Fee:</th>
+                        <th>From(Day):</th>
+                        <th>To(Day):</th>
                         <th>ACTION:</th>
+                        
                     </tr>
                     <?php
-                   $sql1= "SELECT DISTINCT users.u_id,users.u_email,users.u_image,consultant.c_office,consultant.c_from_time,consultant.c_to_time,consultant.c_language,consultant.c_fee,consultant.c_available_from,consultant.c_available_to,consultant.c_qualification,consultant_category.cat_name FROM `consultant_category` JOIN `consultant` JOIN users WHERE users.u_id = consultant.u_id AND users.u_type='consultant' and consultant.c_category=consultant_category.cat_id";
-                    $user_id; 
+       // $sql1= "SELECT DISTINCT users.u_id,users.u_email,users.u_image,consultant.c_office,consultant.c_from_time,consultant.c_to_time,consultant.c_language,consultant.c_fee,consultant.c_available_from,consultant.c_available_to,consultant.c_qualification,consultant_category.cat_name FROM `consultant_category` JOIN `consultant` JOIN users WHERE users.u_id = consultant.u_id AND users.u_type='consultant' and consultant.c_category=consultant_category.cat_id";
+                   // $user_id; 
                     // schanges
-                    $sql = "SELECT * FROM `login` WHERE `username`= '$ref'";
-                    $res2 = mysqli_query($conn,$sql);
+//                     $sql = "SELECT * FROM `login` WHERE `username`= '$ref'";
+//                     $res2 = mysqli_query($conn,$sql);
 
-                    //checking whether query is excuted or not
-                    if($res2){
+//                     //checking whether query is excuted or not
+//                     if($res2){
                        
-                        // count that data is there or not in database
-                        $count= mysqli_num_rows($res2);
-                        $sno2 =1;
-                        if($count>0){
-                            // we have data in database
-                            while($row2 = mysqli_fetch_assoc($res2))
-                            {
-                                // extracting values from dATABASE
-//var_dump($row2);
-                                $_SESSION['user_id']=$row2['UID'];
-                                $user_id=$row2['UID'];
-                                $user_name=$row2['username'];
-                                $user_email=$row2['email'];
-                                $user_mob=$row2['phone'];          
+//                         // count that data is there or not in database
+//                         $count= mysqli_num_rows($res2);
+//                         $sno2 =1;
+//                         if($count>0){
+//                             // we have data in database
+//                             while($row2 = mysqli_fetch_assoc($res2))
+//                             {
+//                                 // extracting values from dATABASE
+// //var_dump($row2);
+//                                 $_SESSION['user_id']=$row2['UID'];
+//                                 $user_id=$row2['UID'];
+//                                 $user_name=$row2['username'];
+//                                 $user_email=$row2['email'];
+//                                 $user_mob=$row2['phone'];          
 
-                            }}}
+//                             }}}
                                 // changes
                         ?>
                     <?php
-                    // showing admin added from database
-                    $sql = "SELECT * FROM `consultant` ";
-                    $res = mysqli_query($conn,$sql);
-
-
-                    //checking whether query is excuted or not
+                  $sql1="SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,users.u_email as u_email,
+                  users.u_image AS u_image ,users.u_mob As mobile,
+              consultant.c_office AS c_office,consultant.c_from_time As c_from_time, consultant.c_to_time As c_to_time , 
+              consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
+              consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
+              consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
+              WHERE users.u_id = consultant.u_id 
+              AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant'";
+              
+                //$sql = "SELECT * FROM `consultant` ";
+                  $res = mysqli_query($conn1,$sql1);
+             // var_dump( $resuser);
                     if($res){
+                       // var_dump($sql);
                         // count that data is there or not in database
                         $count= mysqli_num_rows($res);
                         $sno =1;
                         if($count>0){
                             // we have data in database
                             while($row = mysqli_fetch_assoc($res))
-                            {
-                                // extracting values from dATABASE
-
-                                $id=$row['c_id'];
-                                $full_name=$row['name'];
-                                $category=$row['category'];
-                                $office_location=$row['office'];
-                                $stime=$row['stime'];
-                                $ctime=$row['ctime'];
-                                $lang=$row['lang'];
+                            { //var_dump($row);
+                                // extracting values from dA
+                                
+                                $id=$row['u_id'];
+                                $full_name=$row['u_name'];
+                                $category=$row['cat_name'];
+                                $office_location=$row['c_office'];
+                                $stime=$row['c_from_time'];
+                                $ctime=$row['c_to_time'];
+                                $lang=$row['c_language'];
                                 $conmob=$row['mobile'];
-                                $img = $row['img'];
-                                $uid= rand(0,1000000);
-                                
-
-                                
-                                // displaying value in table
+                                $img = $row['u_image'];
+                                $u_email=$row['u_email'];
+                                $fee=$row['c_fee'];
+                                $row["c_available_from"];
+                                $avail = $row['c_available_to'];
+                                $quali=$row['c_qualification'];?>
+                                <tr>
+                                <td><?php echo $sno++; ?></td>
+                               <td><img src="<?php echo $img ?>" width="100" height="100"></td>
+                                <td><?php echo $full_name; ?></td>
+                                <td><?php echo $category; ?></td>
+                                <td><?php echo $office_location; ?></td>
+                                <td><?php echo $lang; ?></td>
+                                <td><?php echo $ctime; ?></td>
+                                <td><?php echo $stime; ?></td>
+                                <td><?php echo $u_email; ?></td>
+                                <td><?php echo $fee; ?></td>
+                                <td><?php echo $avail; ?></td>
+                                <td><?php echo $quali; ?></td>
+        
+                                <td>
+                                    <a href="<?php echo SITEURL;?>appoint.php?id=<?php echo $id;?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>&name=<?php echo $full_name;?>&category=<?php echo $category;?>&conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>&user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
+                                    <br><br>
+                       <?php 
+                            }       
                         ?>
                      
-                        <tr>
-                        <td><?php echo $sno++; ?></td>
-                       <td><img src="<?php echo $img ?>" width="100" height="100"></td>
-                        <td><?php echo $full_name; ?></td>
-                        <td><?php echo $category; ?></td>
-                        <td><?php echo $office_location; ?></td>
-                        <td><?php echo $lang; ?></td>
-                        <td><?php echo $ctime; ?></td>
-                        <td><?php echo $stime; ?></td>
-
-
-                        <td>
-                            <a href="<?php echo SITEURL;?>appoint.php?id=<?php echo $id;?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>&name=<?php echo $full_name;?>&category=<?php echo $category;?>&conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>&user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
-                            <br><br>
+                       
 
  <a href="<?php echo SITEURL;?>instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br>
   <?php  $sql = "SELECT * FROM `webhook` WHERE purpose='Consultant App' AND email='".$_SESSION['current_user_email']."' ";
@@ -201,12 +221,31 @@ $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelNam
                     /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
                      }
                     }
-                    }
+                   
+                   // echo $sql;
                     ?>
 
                 </table>     
             </div>
 
+            
+<?php
+// $consult_id=$_POST['consult_id'];
+// $user_id=$_POST['user_id'];
+// $channel_name=$user_id.$consult_id;
+// $appID = "464ff3e49fb3409494c0956edcec52e7";
+// $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
+// $channelName =$user_id.$consult_id;
+// $uid = 0;
+// $uidStr = $user_id;
+// $role = RtcTokenBuilder::RoleAttendee;
+// $expireTimeInSeconds = 3600;
+// $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
+// $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
+
+// $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+
+?>
             
         </div>
         <!... main section ends....>
