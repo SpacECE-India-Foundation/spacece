@@ -36,16 +36,18 @@ if (mysqli_num_rows($run) > 0) {
         $c_available_from = $_POST['c_available_from'];
         $c_available_to = $_POST['c_available_to'];
         $c_qualification = $_POST['c_qualification'];
-
+        $redirectUrl = 'ConsultUs/index.php';
         $sql = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
 
         $result = mysqli_query($conn, $sql);
 
         $last_id = mysqli_insert_id($conn);
 
-        $query = "INSERT INTO consultant (u_id, c_category, c_office, c_from_time, c_to_time, c_language, c_fee, c_available_from, c_available_to, c_qualification) VALUES ($last_id, $c_categories, '$c_office', '$c_from_time', '$c_to_time', '$c_language', '$c_fee', '$c_available_from', '$c_available_to', '$c_qualification')";
+        $query = "INSERT INTO consultant (u_id, c_category, c_office, c_from_time, c_to_time, c_language, c_fee, c_available_from, c_available_to, c_qualification) 
+      VALUES ($last_id, $c_categories, '$c_office', '$c_from_time', '$c_to_time', '$c_language', '$c_fee', '$c_available_from', '$c_available_to', '$c_qualification')";
     } else if ($type == 'customer') {
         $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image')";
+        $redirectUrl = './index.php';
     } else {
         echo json_encode(array('status' => 'error', 'message' => "Invalid user type!"));
         die();
@@ -55,7 +57,7 @@ if (mysqli_num_rows($run) > 0) {
 
     if ($result) {
         // header('location: login.php');
-        echo json_encode(array('status' => 'success'));
+        echo json_encode(array('status' => 'success', 'redirect_url' => $redirectUrl));
         die();
     } else {
         echo json_encode(array('status' => 'error', 'message' => "Error while registering user!"));
