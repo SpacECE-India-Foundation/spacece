@@ -40,7 +40,7 @@ if(isset($_POST['create_call'])){
         
         if ($result) {
             // header('location: login.php');
-            echo json_encode(array('status' => 'success','token'=>$token));
+            echo json_encode(array('status' => 'success','token'=>$token,'channelName'=>$channelName));
             die();
         } else {
             echo json_encode(array('status' => 'error', 'message' => "Error while Creating CAll!"));

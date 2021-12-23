@@ -2,11 +2,29 @@
 <?php include('indexDB.php') ?>
 <?php error_reporting(0); 
 $ref='';
-///$_SESSION['current_user_email']='krishnathorat007@gmail.com';
-//$_SESSION['current_user_name']='Krishna Thorat';
+$_SESSION['current_user_email']='krishnathorat007@gmail.com';
+$_SESSION['current_user_name']='Krishna Thorat';
 if(isset($_SESSION['current_user_email'])){
     $email = $_SESSION['current_user_email'];
     $ref= $_SESSION['current_user_name'];
+    
+    $consult_id=$_POST['consult_id'];
+    $user_id=$_POST['user_id'];
+    $channel_name=$user_id.$consult_id;
+    $appID = "464ff3e49fb3409494c0956edcec52e7";
+    $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
+    $channelName =$user_id.$consult_id;
+    $uid = 0;
+    $uidStr = $user_id;
+    $role = RtcTokenBuilder::RoleAttendee;
+    $expireTimeInSeconds = 3600;
+    $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
+    $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
+
+$token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+    // $sql="INSERT INTO agora_call(user_id,consult_id,channel_name,token) VALUES ('$user_id','$consult_id','$channel_name','$token')";
+    // $result = mysqli_query($conn, $sql);
+    
 }else{
     header('location:../spacece_auth/login.php');
     exit();
@@ -82,6 +100,7 @@ if(isset($_SESSION['current_user_email'])){
                         <th>ACTION:</th>
                     </tr>
                     <?php
+                   $sql1= "SELECT DISTINCT users.u_id,users.u_email,users.u_image,consultant.c_office,consultant.c_from_time,consultant.c_to_time,consultant.c_language,consultant.c_fee,consultant.c_available_from,consultant.c_available_to,consultant.c_qualification,consultant_category.cat_name FROM `consultant_category` JOIN `consultant` JOIN users WHERE users.u_id = consultant.u_id AND users.u_type='consultant' and consultant.c_category=consultant_category.cat_id";
                     $user_id; 
                     // schanges
                     $sql = "SELECT * FROM `login` WHERE `username`= '$ref'";
@@ -168,6 +187,8 @@ if(isset($_SESSION['current_user_email'])){
                    //    echo $id;
                     ?>
                     <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                    <br><br>
+                    <a id="link" data-id="<?php echo $id;?>"  class="btn-second" onclick="createall()" style="color:black;background-color:yellow"> Schedule call</a>
                     <?php
                    }
   ?>
@@ -212,7 +233,7 @@ var id1=generateToken();
 //alert(user_id);
 var c_id=$('#link').data('id');
 
-//var id='<?php echo $_SESSION['user_id'];  ?>';
+//var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
@@ -236,7 +257,10 @@ var time=+d;
  })
 
  window.location.href="Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;  
-}   
+} 
+function createall(){
+    alert("hello");
+}  
 
 </script>
 
