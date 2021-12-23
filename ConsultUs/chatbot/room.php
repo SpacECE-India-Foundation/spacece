@@ -109,23 +109,25 @@ background-image: linear-gradient(90deg,  white,orange,white);
 </head>
 <body>
 
-<h2><b><center>Chat Messages- <?php echo $roomname ;?></center></b></h2>
+
 
 <div class="container">
+<h2><b><center>Chat Messages- <?php echo $roomname ;?></center></b></h2>
     <div id="anyclass" class="anyclass">
 
   </div>
 </div>
-<input type="text" class="form-control" name="usermsg" id="usermsg" placeholder="add msg"><br>
-<button class="btn btn-default" name="submit" id="submit">send</button>
-<?php
-include_once '../../common/footer_module.php';
-?>
+<textarea class="form-control" name="usermsg" id="usermsg" placeholder="add msg"></textarea>
+<!-- <input type="text" class="form-control" name="usermsg" id="usermsg" placeholder="add msg"><br> -->
+<button class="btn btn-secondary" name="submit" id="submit">send</button>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+<?php
+include_once '../../common/footer_module.php';
+?>
 <script type="text/javascript">
 // new msg in 1s check
 // bug id=0000017
