@@ -12,9 +12,10 @@ if(isset($_POST['create_call'])){
     $result = mysqli_query($conn, $sql);
     $row=mysqli_fetch_assoc($result);
     $token=$row['token'];
+    $channelname=$row['channel_name'];
    //var_dump($row);
     if (mysqli_num_rows($result) > 0) {
-        echo json_encode(array('status' => 'success','token'=>$token));
+        echo json_encode(array('status' => 'success','token'=>$token,'channelName'=>$channelname));
     }else{
 
         $consult_id=$_POST['consult_id'];
