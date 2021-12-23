@@ -39,6 +39,7 @@ $extra_scripts = "<script src='./js/jquery-3.2.1.min.js'></script>
 
 include_once './common/header_module.php';
 
+print_r($_SESSION);
 //session_start();
 ?>
 <!DOCTYPE html>
@@ -55,12 +56,12 @@ include_once './common/header_module.php';
   <link href="img/Favicon.ico" rel="shortcut icon" />
 
   <!-- Google Fonts -->
-  
+
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
 
-<!-- bug id-0000115 -->
- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<meta charset="utf-8">
+  <!-- bug id-0000115 -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -196,7 +197,7 @@ include_once './common/header_module.php';
   </section> -->
 
 
-  
+
 
   <!-- Hero section end -->
   <!-- Services section -->
@@ -409,72 +410,72 @@ include_once './common/header_module.php';
       </div>
     </div>
   </section> -->
-  <!-- 0000086,0000085 -->
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="img/o1.jpg" alt="First slide"  style="width: 10%; height: 10%">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="img/o2.jpg" alt="Second slide" style="width: 100%; height: 30%" >
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-  <br /><br /> 
-
-  <!---offers close-->
-
-  <!-- ChatBot -->
-  <div class="chat_icon">
-    <i class="fa fa-comments" aria-hidden="true" style="color: black; border: 2px solid black;border-radius:15px;"></i>
-  </div>
-
-  <div class="chat_box">
-    <div class="my-conv-form-wrapper">
-      <form action="" method="GET" class="hidden">
-        <select data-conv-question="Hello! How can I help you" name="category">
-          <option value="WebDevelopment">Toys Booking ?</option>
-          <option value="DigitalMarketing">Booking Consultants?</option>
-        </select>
-
-        <div data-conv-fork="category">
-          <div data-conv-case="WebDevelopment">
-            <input type="text" name="domainName" data-conv-question="Please, tell me your domain name" />
+      <!-- 0000086,0000085 -->
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="img/o1.jpg" alt="First slide" style="width: 10%; height: 10%">
           </div>
-          <div data-conv-case="DigitalMarketing" data-conv-fork="first-question2">
-            <input type="text" name="companyName" data-conv-question="Please, enter your company name" />
+          <div class="carousel-item">
+            <img class="d-block w-100" src="img/o2.jpg" alt="Second slide" style="width: 100%; height: 30%">
           </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <br /><br />
 
-        <input type="text" name="name" data-conv-question="Please, Enter your name" />
+      <!---offers close-->
 
-        <input type="text" data-conv-question="Hi {name}, <br> It's a pleasure to meet you." data-no-answer="true" />
+      <!-- ChatBot -->
+      <div class="chat_icon">
+        <i class="fa fa-comments" aria-hidden="true" style="color: black; border: 2px solid black;border-radius:15px;"></i>
+      </div>
 
-        <input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?" />
+      <div class="chat_box">
+        <div class="my-conv-form-wrapper">
+          <form action="" method="GET" class="hidden">
+            <select data-conv-question="Hello! How can I help you" name="category">
+              <option value="WebDevelopment">Toys Booking ?</option>
+              <option value="DigitalMarketing">Booking Consultants?</option>
+            </select>
 
-        <select data-conv-question="Please Conform">
-          <option value="Yes">Conform</option>
-        </select>
-      </form>
-    </div>
-  </div>
-  <br>
-  <!--session close-->
+            <div data-conv-fork="category">
+              <div data-conv-case="WebDevelopment">
+                <input type="text" name="domainName" data-conv-question="Please, tell me your domain name" />
+              </div>
+              <div data-conv-case="DigitalMarketing" data-conv-fork="first-question2">
+                <input type="text" name="companyName" data-conv-question="Please, enter your company name" />
+              </div>
+            </div>
 
-  <!-- Footer section -->
-  <!-- <footer class="footer-section set-bg" style="
+            <input type="text" name="name" data-conv-question="Please, Enter your name" />
+
+            <input type="text" data-conv-question="Hi {name}, <br> It's a pleasure to meet you." data-no-answer="true" />
+
+            <input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?" />
+
+            <select data-conv-question="Please Conform">
+              <option value="Yes">Conform</option>
+            </select>
+          </form>
+        </div>
+      </div>
+      <br>
+      <!--session close-->
+
+      <!-- Footer section -->
+      <!-- <footer class="footer-section set-bg" style="
         background-color: orange;
         border-collapse: collapse;
         border: 2px solid navy;
@@ -567,10 +568,10 @@ include_once './common/header_module.php';
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body> -->
 
-  <?php
-  include_once './common/footer_module.php';
-  ?>
-<script type="text/javascript" src="js/jquery.convform.js"></script>
+      <?php
+      include_once './common/footer_module.php';
+      ?>
+      <script type="text/javascript" src="js/jquery.convform.js"></script>
 </body>
 
 </html>
