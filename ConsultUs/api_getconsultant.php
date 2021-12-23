@@ -1,9 +1,9 @@
 <?php  // this is serverside page === api key ?>
-<?php $user = $_GET['user']; ?>
+
 <?php include("./includes/functions.php")?>
 <?php
-
-if($user == "all"){
+$cat_name=$_GET['cat'];
+if($cat_name == "all"){
         // showing admin added from database
         $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,users.u_email as u_email,
         users.u_image AS u_image ,users.u_mob As mobile,
@@ -45,8 +45,8 @@ if($user == "all"){
             ?>
 
 <?php
-$cat_name=$_GET['cat'];
-if($user != "all"){
+
+if($cat_name != "all"){
         // showing admin added from database
         $sql = "SELECT * FROM `consultant` join consultant_category where consultant.c_category=consultant_category.cat_id AND consultant_category.cat_name='$cat_name";
         $res = mysqli_query($conn,$sql);
