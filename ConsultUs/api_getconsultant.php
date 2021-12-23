@@ -49,7 +49,7 @@ if($cat_name == "all"){
 
 if($cat_name != "all"){
         // showing admin added from database
-        $sql = "SELECT * FROM `consultant` join consultant_category where consultant.c_category=consultant_category.cat_id AND consultant_category.cat_name='$cat_name";
+        $sql = "SELECT * FROM `consultant` join consultant_category where consultant.c_category=consultant_category.cat_id AND consultant_category.cat_name='$cat_name'";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
