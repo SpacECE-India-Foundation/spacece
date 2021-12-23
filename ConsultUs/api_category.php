@@ -24,12 +24,12 @@ if($category === "one"){
                 while($row = mysqli_fetch_assoc($res))
                 {
                     
-                    echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+                   // echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
 
-                  //  $arr[] = $row;   // making array of data
+                    $arr[] = $row;   // making array of data
                  
                 }
-            
+                echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
