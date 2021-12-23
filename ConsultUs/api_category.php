@@ -7,7 +7,7 @@ error_reporting(0);
 <?php include("./includes/functions.php")?>
 <?php
 
-if($category == "one"){
+if($category === "one"){
         // showing admin added from database
         $sql = "SELECT * FROM `consultant_category` WHERE `category`= '$val' ";
         $res = mysqli_query($conn,$sql);
@@ -24,12 +24,12 @@ if($category == "one"){
                 while($row = mysqli_fetch_assoc($res))
                 {
                     
+                    echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
 
-
-                    $arr[] = $row;   // making array of data
+                  //  $arr[] = $row;   // making array of data
                  
                 }
-               echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+            
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
@@ -42,7 +42,7 @@ if($category == "one"){
     }
                     // displaying value in table
         
-elseif($category= "all"){
+elseif($category=== "all"){
         // showing admin added from database
         $sql = "SELECT * FROM `consultant_category`";
         $res = mysqli_query($conn,$sql);
