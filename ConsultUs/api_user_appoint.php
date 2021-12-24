@@ -2,10 +2,10 @@
  error_reporting(0);
  include("indexDB.php");
 // $user = $_GET['user']; 
-$status=$_GET['status'];
+$status=$_POST['status'];
 $id='';
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
+if(isset($_POST['id'])){
+    $id = $_POST['id'];
 }
 
 
