@@ -13,7 +13,7 @@ if(isset($_POST['c_id'])){
 
 
 
-if(empty($id)){
+if(empty($c_id)){
         // showing admin added from database
         $sql = "SELECT * FROM `new_apointment`";
         $res = mysqli_query($conn,$sql);
