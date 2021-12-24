@@ -46,9 +46,9 @@ if(empty($id)){
                     // displaying value in table
 
 if($id){
-    echo "inside";
+   // echo "inside";
         // showing admin added from database
-        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$user' or `u_id`='$user' ";
+        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$id' or `u_id`='$id' ";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
