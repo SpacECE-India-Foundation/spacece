@@ -99,7 +99,9 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             }
                         }
                     }else{
-                        echo "No data Found";
+                        ?>
+                        <tr><td><?php   echo "No data Found";  ?></td></tr>
+                                            <?php
                     }
                 } else {
                     ?>
@@ -166,7 +168,10 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             }
                         }
                     }else{
-                        echo "No data Found";
+                        ?>
+    <tr><td><?php   echo "No data Found";  ?></td></tr>
+                        <?php
+                      
                     }
                 }
                 ?>
