@@ -1,5 +1,5 @@
 
-<?php // include('indexDB.php');
+<?php  include('indexDB.php');
 ?>
 <?php error_reporting(0); 
 
@@ -137,7 +137,7 @@ if(isset($_SESSION['current_user_email'])){
                         ?>
                     <?php
                   $sql1="SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
-                  users.u_image AS u_image ,
+                  users.u_image AS u_image ,users.u_mob AS u_mob,
               consultant.c_office AS c_office,consultant.c_from_time As c_from_time, consultant.c_to_time As c_to_time , 
               consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
               consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
@@ -170,47 +170,39 @@ if(isset($_SESSION['current_user_email'])){
 
                         <td>
                         <a href="./appoint.php?id=<?php echo $row['u_id'];?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>
-                        &name=<?php echo $full_name;?>&category=<?php echo $category;?>
+                        &name=<?php echo $row['u_name'];?>&category=<?php echo $row['cat_name'];?>
                         &conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
                         &user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" 
                         class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
+                        <a href="./instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br>
                                     <br>
-                                   <?php }
+                                   <?php
+                                    $sql = "SELECT * FROM `webhook` WHERE purpose='Consultant App' AND email='".$_SESSION['current_user_email']."' ";
+
+                                    $res2  = mysqli_query($conn,$sql);
+                                    $row=mysqli_fetch_assoc($res2);
+                                    $count=mysqli_num_rows($res2);
+                                   
+                                    if($count >0){
+                 //echo $_SESSION['user_id'];
+                                    //    echo $id;
+                                     ?>
+                                  <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                    <br><br>
+                    <a id="link" data-id="<?php echo $id;?>"  class="btn-second" onclick="createall()" style="color:black;background-color:yellow"> Schedule call</a>
+                    </td> </tr> 
+                           <?php
+                                
+                                }
                   }
                 ?>
                      
-                       
+                           
 
- <a href="./instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br>
-  <?php  $sql = "SELECT * FROM `webhook` WHERE purpose='Consultant App' AND email='".$_SESSION['current_user_email']."' ";
-
-                   $res2  = mysqli_query($conn,$sql);
-                   $row=mysqli_fetch_assoc($res2);
-                   $count=mysqli_num_rows($res2);
-                  
-                   if($count >0){
-//echo $_SESSION['user_id'];
-                   //    echo $id;
-                    ?>
-                    <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
-                    <br><br>
-                    <a id="link" data-id="<?php echo $id;?>"  class="btn-second" onclick="createall()" style="color:black;background-color:yellow"> Schedule call</a>
-                    <?php
-                   }
-  ?>
-                            <br><br><br>
-
-                        </td>
-                    </tr>
-                   
-                    <?php
-                    /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
-                  
-
-                   
-                   // echo $sql;
-                    ?>
-
+ 
+  <?php 
+                  }         
+              ?>   
                 </table>     
             </div>
 
