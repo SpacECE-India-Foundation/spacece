@@ -76,6 +76,7 @@ if($id && $status=='Active' ){
                     
                      $total= add_time(date("Y-m-d h:i:sa"), $time1);
                      $str=strtotime($total);
+                     echo ($str - $date2);
                      if($str-$date2 > 0){
                         $arr[] = $row;  
                      }
