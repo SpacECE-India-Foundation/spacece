@@ -15,11 +15,11 @@ $roomname = $_GET['roomname'];
   define("SITEURL",'http://3.109.14.4//consult/');  
   // $servername = "localhost";
   //   $username = "root";
-    // $password = "";
+  //   $password = "";
     $servername = "3.109.14.4";
     $username = "ostechnix";
     $password = "Password123#@!";
-    $dbname = "consultant_app";
+     $dbname = "consultant_app";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -56,16 +56,11 @@ $roomname = $_GET['roomname'];
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 <style>
-body {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 0 20px;
- 
-background-image: linear-gradient(90deg,  white,orange,white);
-}
 
-.container {
+
+.wrapper {
   border: 2px solid black;
+  max-width: 800px;
   background-color: #DAF7A6;
   border-radius: 5px;
   padding: 10px;
@@ -77,13 +72,13 @@ background-image: linear-gradient(90deg,  white,orange,white);
   background-color: #ddd;
 }
 
-.container::after {
+.wrapper::after {
   content: "";
   clear: both;
   display: table;
 }
 
-.container img {
+.wrapper img {
   float: left;
   max-width: 60px;
   width: 100%;
@@ -91,7 +86,7 @@ background-image: linear-gradient(90deg,  white,orange,white);
   border-radius: 50%;
 }
 
-.container img.right {
+.wrapper img.right {
   float: right;
   margin-left: 20px;
   margin-right:0;
@@ -115,8 +110,9 @@ background-image: linear-gradient(90deg,  white,orange,white);
 <body>
 
 
-
-<div class="container">
+<div class="container d-flex justify-content-center " >
+ <div class="w-50">
+<div class="wrapper">
 <h2><b><center>Chat Messages- <?php echo $roomname ;?></center></b></h2>
     <div id="anyclass" class="anyclass">
 
@@ -124,8 +120,8 @@ background-image: linear-gradient(90deg,  white,orange,white);
 </div>
 <textarea class="form-control" name="usermsg" id="usermsg" placeholder="add msg"></textarea>
 <!-- <input type="text" class="form-control" name="usermsg" id="usermsg" placeholder="add msg"><br> -->
-<button class="btn btn-secondary" name="submit" id="submit">send</button>
-
+<button class="btn btn-secondary btn-md" name="submit" id="submit">send</button>
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
