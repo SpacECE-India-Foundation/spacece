@@ -11,7 +11,29 @@ define('DB_HOST_NAME', '3.109.14.4');
 define('DB_USER_NAME', 'ostechnix');
 define('DB_USER_PASSWORD', 'Password123#@!');
 define('DB_USER_DATABASE', 'spaceece');
+
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
+
+$email=$_SESSION['current_user_email'];
+$sql="SELECT * FROM users WHERE u_email='$email'";
+$res = mysqli_query($conn1, $sql);
+
+
+
+if ($res) {
+   
+    $count = mysqli_num_rows($res);
+    $sno = 1;
+    if ($count > 0) {
+      
+        while ($row = mysqli_fetch_assoc($res)) {
+            $u_mob=$row['u_mob'];
+            $u_email=$row['u_email'];
+       
+        }
+    }
+}
+
 
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -28,7 +50,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
             <br>
             <br>
 
-            <table class=" table  tb-full">
+            <table class=" table table-striped table-hover  tb-full">
                 <tr>
                     <th>S.NO.:</th>
                     <th>IMAGE:</th>
@@ -42,6 +64,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                     <th>Available from(day):</th>
                     <th>Available To(day):</th>
                     <th>Qualification:</th>
+                    <th>Action:</th>
                 </tr>
                 <?php
              
@@ -67,7 +90,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
                                 // extracting values from dATABASE
-
+                                $app_id=rand(0000000,9999999);
                         ?>
                         <tr>
                         <td><?php echo $sno++; ?></td>
@@ -87,10 +110,10 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td><?php echo $row['c_qualification']; ?></td>
 
                         <td>
-                        <a href="./appoint.php?id=<?php echo $row['u_id'];?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>
+                        <a href="./appoint.php?id=<?php echo $row['u_id'];?>&ctime=<?php echo $row['c_from_time'];?>&stime=<?php echo $row['c_to_time'];?>
                         &name=<?php echo $row['u_name'];?>&category=<?php echo $row['cat_name'];?>
-                        &conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
-                        &user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" 
+                        &conmob=<?php echo $row['u_mob'];?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
+                        &user_email=<?php echo $u_email;?>&user_mob=<?php echo  $u_mob;?>" 
                         class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
 
                     <?php
@@ -131,7 +154,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         if ($count > 0) {
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
-                               
+                               $app_id=rand(0000000,9999999);
 
                             ?>
                               <tr>
@@ -152,10 +175,10 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td><?php echo $row['c_qualification']; ?></td>
 
                         <td>
-                        <a href="./appoint.php?id=<?php echo $row['u_id'];?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>
+                        <a href="./appoint.php?id=<?php echo $row['u_id'];?>&ctime=<?php echo $row['c_from_time'];?>&stime=<?php echo $row['c_to_time'];?>
                         &name=<?php echo $row['u_name'];?>&category=<?php echo $row['cat_name'];?>
-                        &conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
-                        &user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" 
+                        &conmob=<?php echo $row['u_mob'];?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
+                        &user_email=<?php echo $u_email;?>&user_mob=<?php echo  $u_mob;?>" 
                         class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
 
 
