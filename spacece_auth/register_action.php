@@ -14,7 +14,7 @@ $hashed_password = md5($password);
 
 $destination_path = getcwd() . DIRECTORY_SEPARATOR;
 
-$target_path = $destination_path . 'images/' . basename($_FILES["image"]["name"]);
+$target_path = $destination_path . '../img/users/' . basename($_FILES["image"]["name"]);
 
 move_uploaded_file($_FILES['image']['tmp_name'], $target_path);
 
