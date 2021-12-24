@@ -49,9 +49,8 @@ if(empty($id)){
 if($id && $status=='Active' ){
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
-    echo  $date2;
         // showing admin added from database
-        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$id' or `u_id`='$id' ";
+        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$id' ";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
    
@@ -64,30 +63,33 @@ if($id && $status=='Active' ){
             $count= mysqli_num_rows($res);
             $sno =1;
             if($count>0){
-                // we have data in database
-                while($row = mysqli_fetch_assoc($res))
-                {
-                $time1=  $row['end-time'];
-                   
-                    
-                     $total= add_time(date("Y-m-d h:i:sa"), $time1);
-                     $str=strtotime($total);
-                     echo $str;
-                     $count1=$str - $date2;
-                    // echo ($str - $date2);
-                    // if($str-$date2 > 0){
-                     //   $arr[] = $row;  
-                    //  }
-
-
-
-                 
-                }
                 function add_time($time,$plusMinutes){
 
                     $endTime = strtotime("+{$plusMinutes} minutes", strtotime($time));
                     return date('Y-m-d h:i:s', $endTime);
                  }
+                // we have data in database
+                while($row = mysqli_fetch_assoc($res))
+                {
+               $time1=  $row['end_time'];
+            
+                   //echo  $time1;
+                      $total= add_time(date("Y-m-d h:i:sa"), $time1);
+                     $str=strtotime($total);
+                    
+ 
+             
+                
+                if(strtotime($row['b_time'],strtotime("+{$plusMinutes} minutes")    )> $date2){
+
+                       $arr[] = $row;  
+                      }
+
+
+
+                 
+                }
+                
                echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
