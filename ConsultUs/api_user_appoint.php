@@ -3,9 +3,9 @@
  include("indexDB.php");
 // $user = $_GET['user']; 
 $status=$_POST['status'];
-$id='';
+$c_id='';
 if(isset($_POST['id'])){
-    $id = $_POST['id'];
+    $c_id = $_POST['id'];
 }
 
 
@@ -50,7 +50,7 @@ if($id && $status=='Active' ){
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
         // showing admin added from database
-        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$id' ";
+        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$c_id' ";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
    
@@ -105,7 +105,7 @@ if($id && $status=='Active' ){
     if($id && $status=='All' ){
         // echo "inside";
              // showing admin added from database
-             $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$id' or `u_id`='$id' ";
+             $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$c_id' or `u_id`='$c_id' ";
              $res = mysqli_query($conn,$sql);
              header('Content-Type:application/json');
      
