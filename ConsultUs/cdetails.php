@@ -98,6 +98,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
                             }
                         }
+                    }else{
+                        echo "No data Found";
                     }
                 } else {
                     ?>
@@ -113,9 +115,9 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                 consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
                 consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
                 consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
-                WHERE users.u_id = consultant.u_id AND  consultant_category.cat_name='Physical Health'
+                WHERE users.u_id = consultant.u_id AND  consultant_category.cat_name='$cat'
                 AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' ";
-                echo $sql;
+           
                     $res = mysqli_query($conn1, $sql);
 
 
@@ -127,7 +129,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         if ($count > 0) {
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
-                               var_dump($row);
+                               
 
                             ?>
                               <tr>
@@ -163,6 +165,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
                             }
                         }
+                    }else{
+                        echo "No data Found";
                     }
                 }
                 ?>
