@@ -14,7 +14,7 @@ if(isset($_POST['c_id'])){
 
 
 if(empty($c_id)){
-    echo "Inside 1";
+    
         // showing admin added from database
         $sql = "SELECT * FROM `new_apointment`";
         $res = mysqli_query($conn,$sql);
@@ -34,13 +34,13 @@ if(empty($c_id)){
                     $arr[] = $row;   // making array of data
                  
                 }
-               echo json_encode(['status'=>'success','api'=>'1','data'=>$arr,'result'=>'found']);
+               echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
             }
             else{
-                echo json_encode(['status'=>'fail','api'=>'1','msg'=>"NO DATA FOUND"]);
+                echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
             }
         }
 
@@ -92,13 +92,13 @@ if($id && $status=='Active' ){
                  
                 }
                 
-               echo json_encode(['status'=>'success','api'=>'2','data'=>$arr,'result'=>'found']);
+               echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
             }
             else{
-                echo json_encode(['status'=>'fail','api'=>'2','msg'=>"NO DATA FOUND"]);
+                echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
             }
         }
 
@@ -129,13 +129,13 @@ if($id && $status=='Active' ){
     
                       
                      }
-                    echo json_encode(['status'=>'success','api'=>'3','data'=>$arr,'result'=>'found']);
+                    echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
                     //echo json_encode(['status'=>'success','result'=>'found']);
      
      
                  }
                  else{
-                     echo json_encode(['status'=>'fail','api'=>'3','msg'=>"NO DATA FOUND"]);
+                     echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
                  }
              }
      
@@ -143,7 +143,7 @@ if($id && $status=='Active' ){
    
 
          if(isset($_POST['c_id']) && isset($_POST['u_id'])){
-            echo "Inside 4";
+           
              $c_id=$_POST['c_id'];
              $u_id=$_POST['u_id'];
             // echo "inside";
@@ -171,13 +171,13 @@ if($id && $status=='Active' ){
         
                           
                          }
-                        echo json_encode(['status'=>'success' ,'api'=>'4','data'=>$arr,'result'=>'found']);
+                        echo json_encode(['status'=>'success' ,'data'=>$arr,'result'=>'found']);
                         //echo json_encode(['status'=>'success','result'=>'found']);
          
          
                      }
                      else{
-                         echo json_encode(['status'=>'fail','api'=>'4','msg'=>"NO DATA FOUND"]);
+                         echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
                      }
                  }
          
