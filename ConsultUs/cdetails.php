@@ -28,7 +28,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
             <br>
             <br>
 
-            <table class="tb-full">
+            <table class=" table  tb-full">
                 <tr>
                     <th>S.NO.:</th>
                     <th>IMAGE:</th>
