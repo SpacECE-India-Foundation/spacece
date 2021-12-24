@@ -1,12 +1,17 @@
-<?php  // this is serverside page === api key ?>
-<?php error_reporting(0);
- $user = $_GET['user']; 
- $type = $_GET['type'];
- ?>
-<?php include("indexDB.php")?>
-<?php
+<?php  // this is serverside page === api key 
+ error_reporting(0);
+ include("indexDB.php");
+// $user = $_GET['user']; 
+$id='';
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+}
 
-if($type == "all"){
+
+
+
+
+if(empty($id)){
         // showing admin added from database
         $sql = "SELECT * FROM `new_apointment`";
         $res = mysqli_query($conn,$sql);
@@ -38,13 +43,10 @@ if($type == "all"){
 
     }
                     // displaying value in table
-            ?>
 
-<?php
-
-if($type != "all" && $user){
+if($id){
         // showing admin added from database
-        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$user'";
+        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$user' or `u_id`='$user' ";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
