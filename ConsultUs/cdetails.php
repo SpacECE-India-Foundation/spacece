@@ -6,7 +6,7 @@ include('indexDB.php');
 error_reporting(0);
 $ref = $_GET['user'];
 $cat = $_GET['category'];
-echo $cat;
+//echo $cat;
 define('DB_HOST_NAME', '3.109.14.4');
 define('DB_USER_NAME', 'ostechnix');
 define('DB_USER_PASSWORD', 'Password123#@!');
@@ -113,7 +113,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                 consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
                 consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
                 consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
-                WHERE users.u_id = consultant.u_id AND  consultant_category.cat_name='$cat'
+                WHERE users.u_id = consultant.u_id AND  consultant_category.cat_name='Physical Health'
                 AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' ";
                     $res = mysqli_query($conn, $sql);
 
