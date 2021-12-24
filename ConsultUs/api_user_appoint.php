@@ -14,6 +14,7 @@ if(isset($_POST['c_id'])){
 
 
 if(empty($c_id)){
+    echo "Inside 1";
         // showing admin added from database
         $sql = "SELECT * FROM `new_apointment`";
         $res = mysqli_query($conn,$sql);
@@ -47,6 +48,7 @@ if(empty($c_id)){
                     // displaying value in table
 
 if($id && $status=='Active' ){
+    echo "Inside 2";
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
         // showing admin added from database
@@ -103,6 +105,7 @@ if($id && $status=='Active' ){
     }
            
     if($id && $status=='All' ){
+        echo "Inside 3";
         // echo "inside";
              // showing admin added from database
              $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$c_id' or `u_id`='$c_id' ";
@@ -140,6 +143,7 @@ if($id && $status=='Active' ){
    
 
          if(isset($_POST['c_id']) && isset($_POST['u_id'])){
+            echo "Inside 4";
              $c_id=$_POST['c_id'];
              $u_id=$_POST['u_id'];
             // echo "inside";
