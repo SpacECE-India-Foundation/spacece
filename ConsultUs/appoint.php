@@ -1,5 +1,8 @@
 <?php 
-include_once './includes/header1.php';
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/ConsultUs.jpeg";
+$module_name = "ConsultUs";
+include_once '../common/header_module.php';
 include('indexDB.php'); ?>
 <?php
  echo $cid = $_GET['id'];
@@ -211,7 +214,7 @@ a {
             </div>
          </div>
        <?php
-include_once './includes/footer1.php';
+include_once '../common/footer_module.php';
 
 
 ?>
