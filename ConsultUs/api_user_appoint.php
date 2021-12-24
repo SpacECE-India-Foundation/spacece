@@ -49,7 +49,7 @@ if(empty($id)){
 if($id && $status=='Active' ){
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
-   // echo "inside";
+    echo "inside";
         // showing admin added from database
         $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$id' or `u_id`='$id' ";
         $res = mysqli_query($conn,$sql);
@@ -59,11 +59,7 @@ if($id && $status=='Active' ){
         //checking whether query is excuted or not
         if($res  ){
            
-            function add_time($time,$plusMinutes){
-
-                $endTime = strtotime("+{$plusMinutes} minutes", strtotime($time));
-                return date('Y-m-d h:i:s', $endTime);
-             }
+            
             // count that data is there or not in database
             $count= mysqli_num_rows($res);
             $sno =1;
@@ -85,6 +81,11 @@ if($id && $status=='Active' ){
 
                  
                 }
+                function add_time($time,$plusMinutes){
+
+                    $endTime = strtotime("+{$plusMinutes} minutes", strtotime($time));
+                    return date('Y-m-d h:i:s', $endTime);
+                 }
                echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
