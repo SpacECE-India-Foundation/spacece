@@ -15,7 +15,7 @@ date($b_time);
 
         //checking whether query is excuted or not
         if($res){
-            echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+            echo json_encode(['status'=>'success','result'=>'found']);
             // count that data is there or not in database
             
            
