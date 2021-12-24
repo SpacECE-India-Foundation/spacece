@@ -126,7 +126,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         if ($count > 0) {
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
-                                // extracting values from dATABASE
+                               var_dump($row);
 
                             ?>
                               <tr>
