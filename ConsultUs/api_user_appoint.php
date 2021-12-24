@@ -34,13 +34,13 @@ if(empty($c_id)){
                     $arr[] = $row;   // making array of data
                  
                 }
-               echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+               echo json_encode(['status'=>'success','api'=>'1','data'=>$arr,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
             }
             else{
-                echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
+                echo json_encode(['status'=>'fail','api'=>'1','msg'=>"NO DATA FOUND"]);
             }
         }
 
@@ -48,7 +48,7 @@ if(empty($c_id)){
                     // displaying value in table
 
 if($id && $status=='Active' ){
-    echo "Inside 2";
+   
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
         // showing admin added from database
@@ -92,20 +92,20 @@ if($id && $status=='Active' ){
                  
                 }
                 
-               echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+               echo json_encode(['status'=>'success','api'=>'2','data'=>$arr,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
             }
             else{
-                echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
+                echo json_encode(['status'=>'fail','api'=>'2','msg'=>"NO DATA FOUND"]);
             }
         }
 
     }
            
     if($id && $status=='All' ){
-        echo "Inside 3";
+       
         // echo "inside";
              // showing admin added from database
              $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$c_id' or `u_id`='$c_id' ";
@@ -129,13 +129,13 @@ if($id && $status=='Active' ){
     
                       
                      }
-                    echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+                    echo json_encode(['status'=>'success','api'=>'3','data'=>$arr,'result'=>'found']);
                     //echo json_encode(['status'=>'success','result'=>'found']);
      
      
                  }
                  else{
-                     echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
+                     echo json_encode(['status'=>'fail','api'=>'3','msg'=>"NO DATA FOUND"]);
                  }
              }
      
@@ -171,13 +171,13 @@ if($id && $status=='Active' ){
         
                           
                          }
-                        echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+                        echo json_encode(['status'=>'success' ,'api'=>'4','data'=>$arr,'result'=>'found']);
                         //echo json_encode(['status'=>'success','result'=>'found']);
          
          
                      }
                      else{
-                         echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
+                         echo json_encode(['status'=>'fail','api'=>'4','msg'=>"NO DATA FOUND"]);
                      }
                  }
          
