@@ -104,7 +104,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
                     <?php
 
-                        echo $cat;
+                       
                     // showing admin added from database
 
                     $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
@@ -115,6 +115,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                 consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
                 WHERE users.u_id = consultant.u_id AND  consultant_category.cat_name='Physical Health'
                 AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' ";
+                echo $sql;
                     $res = mysqli_query($conn, $sql);
 
 
