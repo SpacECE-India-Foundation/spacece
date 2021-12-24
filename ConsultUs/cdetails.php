@@ -124,7 +124,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         // count that data is there or not in database
                         $count = mysqli_num_rows($res);
                         $sno = 1;
-                        if ($count > 0) {
+                       
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
                                var_dump($row);
@@ -163,7 +163,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
                             }
                         }
-                    }
+                
                 }
                 ?>
 
