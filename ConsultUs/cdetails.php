@@ -120,11 +120,11 @@ if ($res) {
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
 
                             }
+                        }else{
+                            ?>
+                            <tr><td><?php   echo "No data Found";  ?></td></tr>
+                                                <?php
                         }
-                    }else{
-                        ?>
-                        <tr><td><?php   echo "No data Found";  ?></td></tr>
-                                            <?php
                     }
                 } else {
                     ?>
@@ -189,11 +189,11 @@ if ($res) {
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
 
                             }
-                        }
-                    }else{
-                        ?>
-    <tr><td><?php   echo "No data Found";  ?></td></tr>
-                        <?php
+                        }else{
+                            ?>
+        <tr><td><?php   echo "No data Found";  ?></td></tr>
+                            <?php
+                    }
                       
                     }
                 }
