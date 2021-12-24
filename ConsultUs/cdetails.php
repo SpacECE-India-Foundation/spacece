@@ -44,7 +44,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                     <th>Qualification:</th>
                 </tr>
                 <?php
-                echo $cat;
+             
                 // showing admin added from database
                 if ($cat == "all") {
                     $sql="SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
@@ -104,7 +104,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
                     <?php
 
-
+                        echo $cat;
                     // showing admin added from database
 
                     $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
