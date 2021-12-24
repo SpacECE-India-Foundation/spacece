@@ -138,5 +138,46 @@ if($id && $status=='Active' ){
      
          }
    
+
+         if(isset($_POST['c_id']) && isset($_POST['u_id'])){
+             $c_id=$_POST['c_id'];
+             $u_id=$_POST['u_id'];
+            // echo "inside";
+                 // showing admin added from database
+                 $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.b_time 
+                 FROM spaceece.users JOIN consultant_app.new_apointment WHERE spaceece.users.u_id IN('$c_id','$u_id') 
+                 AND consultant_app.new_apointment.u_id ='$u_id' AND consultant_app.new_apointment.c_id='$c_id' ";
+                 $res = mysqli_query($conn,$sql);
+                 header('Content-Type:application/json');
+         
+         
+                 //checking whether query is excuted or not
+                 if($res  ){
+                   
+                     // count that data is there or not in database
+                     $count= mysqli_num_rows($res);
+                     $sno =1;
+                     if($count>0){
+                         // we have data in database
+                         while($row = mysqli_fetch_assoc($res))
+                         {
+    
+         
+                             $arr[] = $row;   // making array of data
+        
+                          
+                         }
+                        echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+                        //echo json_encode(['status'=>'success','result'=>'found']);
+         
+         
+                     }
+                     else{
+                         echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
+                     }
+                 }
+         
+             }
+       
  
             ?>
