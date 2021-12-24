@@ -116,7 +116,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                 WHERE users.u_id = consultant.u_id AND  consultant_category.cat_name='Physical Health'
                 AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' ";
                 echo $sql;
-                    $res = mysqli_query($conn, $sql);
+                    $res = mysqli_query($conn1, $sql);
 
 
                     //checking whether query is excuted or not
@@ -124,7 +124,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         // count that data is there or not in database
                         $count = mysqli_num_rows($res);
                         $sno = 1;
-                       
+                        if ($count > 0) {
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
                                var_dump($row);
@@ -163,7 +163,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
                             }
                         }
-                
+                    }
                 }
                 ?>
 
