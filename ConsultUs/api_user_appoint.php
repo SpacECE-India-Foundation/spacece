@@ -49,7 +49,7 @@ if(empty($id)){
 if($id && $status=='Active' ){
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
-    echo "inside";
+    echo  $date2;
         // showing admin added from database
         $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$id' or `u_id`='$id' ";
         $res = mysqli_query($conn,$sql);
@@ -72,10 +72,12 @@ if($id && $status=='Active' ){
                     
                      $total= add_time(date("Y-m-d h:i:sa"), $time1);
                      $str=strtotime($total);
-                     echo ($str - $date2);
-                     if($str-$date2 > 0){
-                        $arr[] = $row;  
-                     }
+                     echo $str;
+                     $count1=$str - $date2;
+                    // echo ($str - $date2);
+                    // if($str-$date2 > 0){
+                     //   $arr[] = $row;  
+                    //  }
 
 
 
