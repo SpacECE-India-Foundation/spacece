@@ -37,7 +37,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                     <th>LANGUAGE:</th>
                     <th>Available from(Time):</th>
                     <th>Available to(Time):</th>
-                    <th>OFFICE:</th>
+                    <th>Consultant fee:</tho>
                     <th>Available from(day):</th>
                     <th>Available To(day):</th>
                     <th>Qualification:</th>
@@ -105,7 +105,14 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
                     // showing admin added from database
 
-                    $sql = "SELECT * FROM `consultant` WHERE `category`='$cat' order by `name` ";
+                    $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
+                    users.u_image AS u_image ,users.u_mob AS u_mob,
+                consultant.c_office AS c_office,consultant.c_from_time As c_from_time, consultant.c_to_time As c_to_time , 
+                consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
+                consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
+                consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
+                WHERE users.u_id = consultant.u_id AND  consultant_category.cat_name='$cat'
+                AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' ";
                     $res = mysqli_query($conn, $sql);
 
 
@@ -119,32 +126,34 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             while ($row = mysqli_fetch_assoc($res)) {
                                 // extracting values from dATABASE
 
-                                $id = $row['c_id'];
-                                $full_name = $row['name'];
-                                $category = $row['category'];
-                                $office_location = $row['office'];
-                                $stime = $row['stime'];
-                                $ctime = $row['ctime'];
-                                $img = $row['img'];
-                                $lang = $row['lang'];
-                                $uid = rand(0, 1000000);
+                            ?>
+                              <tr>
+                        <td><?php echo $sno++; ?></td>
+                       <td><img src="<?php echo $row['u_image']; ?>" width="100" height="100"></td>
+                        <td><?php echo $row['u_name']; ?></td>
+                        <td><?php echo $row['cat_name']; ?></td>
+                        <td><?php echo $row['c_office']; ?></td>
+                        <td><?php echo $row['c_language']; ?></td>
+                        <td><?php echo $row['c_from_time']; ?></td>
+                        <td><?php echo $row['c_to_time']; ?></td>
+                        <td><?php echo $row['c_fee']; ?></td>
+                        <td><?php echo $row["c_available_from"]; ?></td>
+
+                        <td><?php echo $row['c_available_to']; ?></td>
+                        
+                       
+                        <td><?php echo $row['c_qualification']; ?></td>
+
+                        <td>
+                        <a href="./appoint.php?id=<?php echo $row['u_id'];?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>
+                        &name=<?php echo $row['u_name'];?>&category=<?php echo $row['cat_name'];?>
+                        &conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
+                        &user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" 
+                        class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
 
 
 
-                                // displaying value in table
-                    ?>
-
-                                <tr>
-                                    <td><?php echo $sno++; ?></td>
-                                    <td><img src="<?php echo $img ?>" width="100" height="100"></td>
-                                    <td><?php echo $full_name; ?></td>
-                                    <td><?php echo $category; ?></td>
-                                    <td><?php echo $office_location; ?></td>
-                                    <td><?php echo $lang; ?></td>
-                                    <td><?php echo $ctime; ?></td>
-                                    <td><?php echo $stime; ?></td>
-
-                                </tr>
+                  
 
                 <?php
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
