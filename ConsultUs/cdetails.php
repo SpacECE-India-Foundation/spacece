@@ -6,7 +6,7 @@ include('indexDB.php');
 error_reporting(0);
 $ref = $_GET['user'];
 $cat = $_GET['category'];
-
+echo $cat;
 define('DB_HOST_NAME', '3.109.14.4');
 define('DB_USER_NAME', 'ostechnix');
 define('DB_USER_PASSWORD', 'Password123#@!');
@@ -44,6 +44,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                     <th>Qualification:</th>
                 </tr>
                 <?php
+                echo $cat;
                 // showing admin added from database
                 if ($cat == "all") {
                     $sql="SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
