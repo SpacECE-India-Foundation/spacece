@@ -4,8 +4,8 @@
 // $user = $_GET['user']; 
 $status=$_POST['status'];
 $c_id='';
-if(isset($_POST['id'])){
-    $c_id = $_POST['id'];
+if(isset($_POST['c_id'])){
+    $c_id = $_POST['c_id'];
 }
 
 
