@@ -148,7 +148,8 @@ if($id && $status=='Active' ){
              $u_id=$_POST['u_id'];
             // echo "inside";
                  // showing admin added from database
-                 $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.b_time 
+                 $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.b_time ,
+                 consultant_app.new_apointment.end_time
                  FROM spaceece.users JOIN consultant_app.new_apointment WHERE spaceece.users.u_id IN('$c_id','$u_id') 
                  AND consultant_app.new_apointment.u_id ='$u_id' AND consultant_app.new_apointment.c_id='$c_id' ";
                  $res = mysqli_query($conn,$sql);
