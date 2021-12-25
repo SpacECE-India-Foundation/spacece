@@ -11,6 +11,7 @@ date($b_time);
 $date3=strtotime(date("Y-m-d h:i:sa"));
 date_default_timezone_set("Asia/Kolkata");
 $date1=strtotime(date($b_time));
+echo $date1;
 if($date3 < $date1){
     echo json_encode(['status'=>'fail','msg'=>"INVALID SELECTED DATE"]);
     
