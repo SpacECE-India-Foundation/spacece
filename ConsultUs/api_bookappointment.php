@@ -16,7 +16,7 @@ if($date3 < $date1){
     
 }else{
 
-echo "INisde";
+
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
 $res = mysqli_query($conn,$sql);
 {
@@ -31,7 +31,7 @@ $res = mysqli_query($conn,$sql);
           
             $date2=strtotime(date( $tme));
             if($date1>$date2 || $date1<$date2){
-               
+                echo "INisde";
                 if(strtotime($row['b_time'],strtotime("+{ $end} minutes")   )> $date1 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date1 ){
                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time) VALUES('$u_id','$c_id','$b_time')";
                     $res = mysqli_query($conn,$sql);
