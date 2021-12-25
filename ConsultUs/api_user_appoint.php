@@ -10,13 +10,19 @@ if(isset($_POST['c_id'])){
 
 
 
+$u_id='';
+if(isset($u_id)){
+    $u_id=$_POST['u_id'];
+}
 
 
 
 if(empty($c_id)){
     
         // showing admin added from database
-        $sql = "SELECT * FROM `new_apointment`";
+        $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.b_time ,
+        consultant_app.new_apointment.end_time
+        FROM spaceece.users JOIN consultant_app.new_apointment WHERE consultant_app.new_apointment.u_id ='$u_id' AND consultant_app.new_apointment.c_id='$c_id'`";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
@@ -52,7 +58,10 @@ if($id && $status=='Active' ){
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
         // showing admin added from database
-        $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$c_id' ";
+        $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.b_time ,
+        consultant_app.new_apointment.end_time
+        FROM spaceece.users JOIN consultant_app.new_apointment WHERE spaceece.users.u_id IN('$c_id','$u_id') 
+        AND consultant_app.new_apointment.u_id ='$u_id' AND consultant_app.new_apointment.c_id='$c_id' ";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
    
@@ -144,8 +153,6 @@ if($id && $status=='Active' ){
 
          if(isset($_POST['c_id']) && isset($_POST['u_id'])){
            
-             $c_id=$_POST['c_id'];
-             $u_id=$_POST['u_id'];
             // echo "inside";
                  // showing admin added from database
                  $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.b_time ,

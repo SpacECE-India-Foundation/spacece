@@ -48,9 +48,9 @@ $stime = $_GET['stime'];
   background-color: black;
 } */
 
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 /* Add padding to containers */
 /* .container {
