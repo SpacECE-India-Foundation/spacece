@@ -43,20 +43,20 @@ $stime = $_GET['stime'];
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
+/* body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: black;
-}
+} */
 
 * {
   box-sizing: border-box;
 }
 
 /* Add padding to containers */
-.container {
+/* .container {
   padding: 16px;
   background-color: white;
-}
+} */
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
