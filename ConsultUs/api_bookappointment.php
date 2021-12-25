@@ -52,7 +52,7 @@ $res = mysqli_query($conn,$sql1);
                   
                    }
             }else{
-                echo json_encode(['status'=>'fail','time'=>$date3,'msg'=>"UNABLE TO ADD DATA"]);
+                echo json_encode(['status'=>'fail','time'=>$date3, 'time2'=>$date2,'msg'=>"UNABLE TO ADD DATA"]);
             }
 
           
