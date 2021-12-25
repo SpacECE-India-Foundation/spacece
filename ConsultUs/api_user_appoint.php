@@ -55,9 +55,9 @@ if(empty($c_id) && $status=='All'){
 
     }
                     // displaying value in table
-
+                    echo $status;
 if($u_id || $c_id && $status==='Active' ){
-    echo $status;
+   
     echo "inside2";
    
     date_default_timezone_set("Asia/Kolkata");
