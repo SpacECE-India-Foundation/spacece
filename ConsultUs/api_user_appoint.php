@@ -18,7 +18,7 @@ if(isset($u_id)){
 
 
 if(empty($c_id)){
-    
+    echo "inside1";
         // showing admin added from database
         $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.b_time ,
         consultant_app.new_apointment.end_time
@@ -54,6 +54,7 @@ if(empty($c_id)){
                     // displaying value in table
 
 if($u_id || $c_id && $status=='Active' ){
+    echo "inside2";
    
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
@@ -112,7 +113,8 @@ if($u_id || $c_id && $status=='Active' ){
 
     }
            
-    if($id && $status=='All' ){
+    if($u_id && $status=='All' ){
+    echo "inside3";
        
         // echo "inside";
              // showing admin added from database
@@ -151,6 +153,7 @@ if($u_id || $c_id && $status=='Active' ){
    
 
          if(isset($_POST['c_id']) && isset($_POST['u_id'])){
+    echo "inside4";
            
             // echo "inside";
                  // showing admin added from database
