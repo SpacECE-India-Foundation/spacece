@@ -3,6 +3,7 @@
  include("indexDB.php");
 // $user = $_GET['user']; 
 $status=$_POST['status'];
+echo $status;
 $c_id='';
 if(isset($_POST['c_id'])){
     $c_id = $_POST['c_id'];
@@ -58,9 +59,17 @@ if($u_id || $c_id && $status=='Active' ){
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
         // showing admin added from database
-        $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,
-        consultant_app.new_apointment.b_time , consultant_app.new_apointment.end_time FROM spaceece.users 
-        JOIN consultant_app.new_apointment WHERE consultant_app.new_apointment.u_id ='$u_id' OR consultant_app.new_apointment.c_id='$c_id'";
+            if($u_id){
+                $sql="SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,
+                consultant_app.new_apointment.b_time , consultant_app.new_apointment.end_time FROM spaceece.users 
+                JOIN consultant_app.new_apointment
+                 WHERE spaceece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.u_id ='$u_id'";
+            }if($c_id){
+                $sql="SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,
+                consultant_app.new_apointment.b_time , consultant_app.new_apointment.end_time FROM spaceece.users 
+                JOIN consultant_app.new_apointment WHERE spaceece.users.u_id = consultant_app.new_apointment.u_id AND
+                 consultant_app.new_apointment.c_id ='40'";
+            }
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
    
@@ -115,9 +124,18 @@ if($u_id || $c_id && $status=='Active' ){
     if($u_id && $status=='All' ){
     echo "inside3";
        
-        // echo "inside";
-             // showing admin added from database
-             $sql = "SELECT * FROM `new_apointment` WHERE `c_id` = '$c_id' or `u_id`='$c_id' ";
+  
+    if($u_id){
+        $sql="SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,
+        consultant_app.new_apointment.b_time , consultant_app.new_apointment.end_time FROM spaceece.users 
+        JOIN consultant_app.new_apointment
+         WHERE spaceece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.u_id ='$u_id'";
+    }if($c_id){
+        $sql="SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,
+        consultant_app.new_apointment.b_time , consultant_app.new_apointment.end_time FROM spaceece.users 
+        JOIN consultant_app.new_apointment WHERE spaceece.users.u_id = consultant_app.new_apointment.u_id AND
+         consultant_app.new_apointment.c_id ='40'";
+    }
              $res = mysqli_query($conn,$sql);
              header('Content-Type:application/json');
      
