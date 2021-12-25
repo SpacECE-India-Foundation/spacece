@@ -29,11 +29,12 @@ $res = mysqli_query($conn,$sql1);
             $tme=$row['b_time'];
             $end=$row['end_time'];
           
-            $date2=strtotime(date($row['b_time']));
+            $date2=strtotime($row['b_time']);
             echo  $date2;
+            echo "INisde";
             echo $date1;
             if($date1>$date2 || $date1<$date2){
-                echo "INisde";
+               
                 if(strtotime($row['b_time'],strtotime("+{ $end} minutes")   )> $date1 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date1 ){
                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time) VALUES('$u_id','$c_id','$b_time')";
                     $res = mysqli_query($conn,$sql);
