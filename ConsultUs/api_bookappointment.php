@@ -8,8 +8,13 @@ $c_id=$_POST['c_id'];
 $b_time=$_POST['b_time'];
 $end_time=$_POST['end_time'];
 date($b_time);
+$date3=strtotime(date("Y-m-d h:i:sa"));
 date_default_timezone_set("Asia/Kolkata");
 $date1=strtotime(date($b_time));
+if($date3 <$date1){
+    echo json_encode(['status'=>'fail','msg'=>"INVALID SELECTED DATE"]);
+}else{
+
 
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
 $res = mysqli_query($conn,$sql);
@@ -51,7 +56,7 @@ $res = mysqli_query($conn,$sql);
     }
 }
         
-
+}
     
                    
             ?>
