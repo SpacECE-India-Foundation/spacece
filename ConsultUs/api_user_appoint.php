@@ -114,7 +114,7 @@ if($u_id || $c_id && $status==='Active' ){
                  
                 }
                 
-               echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+               echo json_encode(['status'=>'success', 'status'=>$status,'data'=>$arr,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
