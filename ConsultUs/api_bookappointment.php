@@ -6,8 +6,34 @@ $u_id=$_POST['u_id'];
 $c_id=$_POST['c_id'];
 
 $b_time=$_POST['b_time'];
+$end_time=$_POST['end_time'];
 date($b_time);
-       
+date_default_timezone_set("Asia/Kolkata");
+$date1=strtotime(date($b_time));
+
+$sql1="SELECT * from new_apointment where c_id='$c_id'";
+$res = mysqli_query($conn,$sql);
+{
+    if($res){
+        // count that data is there or not in database
+        $count= mysqli_num_rows($res);
+        $sno =1;
+        if($count>0){
+
+            $tme=$row['b_time'];
+            $end=$row['end_time'];
+          
+            $date2=strtotime(date( $tme));
+            if($date1>$date2 ||$date1<$date2){
+               
+
+            }
+
+          
+
+        }
+    }
+}
         $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time) VALUES('$u_id','$c_id','$b_time')";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
@@ -24,5 +50,5 @@ date($b_time);
         }
 
     
-                    // displaying value in table
+                   
             ?>

@@ -22,7 +22,7 @@ if(isset($u_id)){
 
 
 if(empty($c_id) && $status=='All'){
-    echo "inside1";
+    //echo "inside1";
         // showing admin added from database
         $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.b_time , consultant_app.new_apointment.end_time FROM spaceece.users JOIN consultant_app.new_apointment WHERE 
         consultant_app.new_apointment.c_id=spaceece.users.u_id OR consultant_app.new_apointment.u_id=spaceece.users.u_id";
@@ -60,7 +60,7 @@ if(!empty($status)){
 
 if($u_id || $c_id && $status==='Active' ){
    
-    echo "inside2";
+   //echo "inside2";
    
     date_default_timezone_set("Asia/Kolkata");
     $date2=strtotime(date("Y-m-d h:i:sa"));
@@ -140,7 +140,7 @@ if($u_id || $c_id && $status==='Active' ){
          WHERE spaceece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.u_id ='$u_id'";
     }if($c_id){
         $sql="SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,
-        consultant_app.new_apointment.c_id,(SELECT spaceece.users.u_name from spaceece.users JOIN consultant_app.new_apointment WHERE spaceece.users.u_id=consultant_app.new_apointment.u_id and consultant_app.new_apointment.u_id='$u_id')AS c_name,(SELECT spaceece.users.u_image from spaceece.users JOIN consultant_app.new_apointment WHERE spaceece.users.u_id=consultant_app.new_apointment.u_id and consultant_app.new_apointment.u_id='$u_id')AS c_image,  consultant_app.new_apointment.end_time FROM spaceece.users 
+        consultant_app.new_apointment.c_id,(SELECT spaceece.users.u_name from spaceece.users JOIN consultant_app.new_apointment WHERE spaceece.users.u_id=consultant_app.new_apointment.u_id and consultant_app.new_apointment.u_id='$c_id')AS c_name,(SELECT spaceece.users.u_image from spaceece.users JOIN consultant_app.new_apointment WHERE spaceece.users.u_id=consultant_app.new_apointment.u_id and consultant_app.new_apointment.u_id='$c_id')AS c_image,  consultant_app.new_apointment.end_time FROM spaceece.users 
         JOIN consultant_app.new_apointment
          WHERE spaceece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.u_id ='$c_id'";
     }
