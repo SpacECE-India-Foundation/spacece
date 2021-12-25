@@ -121,7 +121,7 @@ if($u_id || $c_id && $status=='Active' ){
 
     }
            
-    if($u_id && $status=='All' ){
+    if( $u_id || $c_id ){
     echo "inside3";
        
   
