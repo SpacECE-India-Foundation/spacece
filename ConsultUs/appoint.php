@@ -5,10 +5,10 @@ $module_name = "ConsultUs";
 include_once '../../common/header_module.php';
 include('indexDB.php'); ?>
 <?php
- echo $cid = $_GET['id'];
- echo $category = $_GET['category'];
- echo $name = $_GET['name'];
-  echo $uid =$_GET['uid'];
+//  echo $cid = $_GET['id'];
+//  echo $category = $_GET['category'];
+//  echo $name = $_GET['name'];
+//   echo $uid =$_GET['uid'];
 $ctime =$_GET['ctime'];
 $stime = $_GET['stime'];
       $con_mob = $_GET['conmob'];
@@ -175,7 +175,7 @@ a {
     </p>
     <hr>
     <label for="userid"><b>Booking Id</b></label>
-    <input type="text" value="<?php echo $uid?>" name="userid" id="userid" required>
+    <input type="text" value="<?php echo $id?>" name="userid" id="userid" required>
     <label for="adate"><b>Date Of Appointment:</b></label>
         <!-- bug id=0000014 -->
    <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>"><br><br>
