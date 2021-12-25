@@ -18,7 +18,7 @@ if($date3 < $date1){
 
 
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
-$res = mysqli_query($conn,$sql);
+$res = mysqli_query($conn,$sql1);
 {
     if($res){
         // count that data is there or not in database
