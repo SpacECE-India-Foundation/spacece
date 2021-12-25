@@ -18,7 +18,7 @@ if(isset($u_id)){
 
 
 
-if(empty($c_id)){
+if(empty($c_id) && $status=='All'){
     echo "inside1";
         // showing admin added from database
         $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.b_time , consultant_app.new_apointment.end_time FROM spaceece.users JOIN consultant_app.new_apointment WHERE 
