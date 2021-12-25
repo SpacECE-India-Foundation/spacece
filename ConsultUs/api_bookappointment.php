@@ -29,7 +29,9 @@ $res = mysqli_query($conn,$sql1);
             $tme=$row['b_time'];
             $end=$row['end_time'];
           
-            $date2=strtotime(date( $tme));
+            $date2=strtotime(date($row['b_time']));
+            echo  $date2;
+            echo $date1;
             if($date1>$date2 || $date1<$date2){
                 echo "INisde";
                 if(strtotime($row['b_time'],strtotime("+{ $end} minutes")   )> $date1 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date1 ){
