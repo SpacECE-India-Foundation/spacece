@@ -13,9 +13,10 @@ date_default_timezone_set("Asia/Kolkata");
 $date1=strtotime(date($b_time));
 if($date3 >$date1){
     echo json_encode(['status'=>'fail','msg'=>"INVALID SELECTED DATE"]);
+    
 }else{
 
-
+echo "INisde";
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
 $res = mysqli_query($conn,$sql);
 {
