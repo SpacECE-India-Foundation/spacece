@@ -2,11 +2,11 @@
  error_reporting(0);
  include("indexDB.php");
 // $user = $_GET['user']; 
-$status='';
+$status= null;
 if(isset($_POST['status'])){
     $status=$_POST['status'];
 }
-echo $status;
+
 $c_id='';
 if(isset($_POST['c_id'])){
     $c_id = $_POST['c_id'];
@@ -55,7 +55,9 @@ if(empty($c_id) && $status=='All'){
 
     }
                     // displaying value in table
-                    echo $status;
+if(!empty($status)){
+
+
 if($u_id || $c_id && $status==='Active' ){
    
     echo "inside2";
@@ -114,7 +116,7 @@ if($u_id || $c_id && $status==='Active' ){
                  
                 }
                 
-               echo json_encode(['status'=>'success', 'status'=>$status,'data'=>$arr,'result'=>'found']);
+               echo json_encode(['status'=>'success', 'status1'=>$status,'data'=>$arr,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
@@ -125,7 +127,7 @@ if($u_id || $c_id && $status==='Active' ){
         }
 
     }
-           
+}  
     if( $u_id || $c_id ){
     //echo "inside3";
        
