@@ -32,7 +32,7 @@ $res = mysqli_query($conn,$sql);
             $date2=strtotime(date( $tme));
             if($date1>$date2 || $date1<$date2){
                
-                if(strtotime($row['b_time'],strtotime("+{ $end} minutes")    )> $date1 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date1 ){
+                if(strtotime($row['b_time'],strtotime("+{ $end} minutes")   )> $date1 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date1 ){
                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time) VALUES('$u_id','$c_id','$b_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
