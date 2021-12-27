@@ -11,6 +11,7 @@ $end_time=$_POST['end_time'];
 $date3=strtotime(date("Y-m-d h:i:sa"));
 date_default_timezone_set("Asia/Kolkata");
 $date1=strtotime(date($b_time));
+$date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
 
 if($date3 > $date1){
     echo json_encode(['status'=>'fail','date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
@@ -32,12 +33,12 @@ $res = mysqli_query($conn,$sql1);
             $tme=$row['b_time'];
             $end=$row['end_time'];
           
-            $date2=strtotime($row['b_time']);
+            $date2=strtotime($row['b_time'],strtotime("+{ $end} minutes") );
           
             if($date1>$date2 || $date1<$date2){
              
                
-                if(strtotime($row['b_time'],strtotime("+{ $end} minutes")   )> $date2 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date2 ){
+                if(strtotime($row['b_time'],strtotime("+{ $end_time} minutes") )> $date2 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date2 ){
                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
@@ -45,7 +46,7 @@ $res = mysqli_query($conn,$sql1);
             
                     //checking whether query is excuted or not
                     if($res){
-                        echo json_encode(['status'=>'success','result'=>'Added']);
+                        echo json_encode(['status'=>'success','date4' =>$date4,'result'=>'Added']);
                         // count that data is there or not in database
                         
                        
