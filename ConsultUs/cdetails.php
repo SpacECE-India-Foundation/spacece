@@ -90,7 +90,8 @@ define('DB_HOST_NAME', '3.109.14.4');
                         // count that data is there or not in database
                         $count = mysqli_num_rows($res);
                         $sno = 1;
-                        if ($count > 0) {
+                        echo $count;
+                        
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
                                 // extracting values from dATABASE
@@ -130,7 +131,7 @@ define('DB_HOST_NAME', '3.109.14.4');
                             <tr><td><?php   echo "No data Found";  ?></td></tr>
                                                 <?php
                         }
-                    }
+                    
                  else {
                     ?>
 
