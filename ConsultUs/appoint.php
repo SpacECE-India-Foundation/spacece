@@ -2,7 +2,7 @@
 
 if(empty($_SESSION['current_user_email'])){
   header('location:../spacece_auth/login.php');
-  exit();
+ 
 }else{
 
 
