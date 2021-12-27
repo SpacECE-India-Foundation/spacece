@@ -86,7 +86,7 @@ define('DB_HOST_NAME', '3.109.14.4');
 
 
                     //checking whether query is excuted or not
-                    if ($res) {
+                   
                         // count that data is there or not in database
                         $count = mysqli_num_rows($res);
                         $sno = 1;
@@ -94,6 +94,7 @@ define('DB_HOST_NAME', '3.109.14.4');
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
                                 // extracting values from dATABASE
+                                var_dump($row);
                                 $app_id=rand(0000000,9999999);
                         ?>
                         <tr>
@@ -130,7 +131,7 @@ define('DB_HOST_NAME', '3.109.14.4');
                                                 <?php
                         }
                     }
-                } else {
+                 else {
                     ?>
 
                     <?php
