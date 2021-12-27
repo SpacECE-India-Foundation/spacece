@@ -1,10 +1,10 @@
 <?php 
 
-if(!isset($_SESSION['current_user_email'])){
+if(empty($_SESSION['current_user_email'])){
   header('location:../spacece_auth/login.php');
   exit();
 }else{
- 
+
 
 $email=$_SESSION['current_user_email'];
 $main_logo = "../img/logo/SpacECELogo.jpg";
