@@ -207,23 +207,23 @@ a {
     </p>
     <hr>
     <label for="userid"><b>Booking Id</b></label>
-    <input type="text" value="<?php echo $id?>" name="userid" id="userid" required>
+    <input type="text" value="<?php //echo $id?>" name="userid" id="userid" required>
     <label for="adate"><b>Date Of Appointment:</b></label>
         <!-- bug id=0000014 -->
-   <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>"><br><br>
+   <input type="date" id="adate" name="adate"  min="<?php //echo date('Y-m-d') ?>"><br><br>
     <!-- bug id-0000045 -->
  <label for="atime"><b>Select A Time:</b></label>
   <input type="time" id="atime" name="atime" min="16:00" max="22:00" >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
-    <input type="text" value="<?php echo $user_name ?>" name="fullname" id="fullname" required>
+    <input type="text" value="<?php //echo $user_name ?>" name="fullname" id="fullname" required>
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $name ?>" name="cname" id="cname" required>
+    <input type="text" value="<?php //echo $name ?>" name="cname" id="cname" required>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" value="<?php echo $user_email ?>" name="email" id="email" required>
+    <input type="text" value="<?php // echo $user_email ?>" name="email" id="email" required>
     <label for="mobile"><b>Mobile Number:</b></label>
-    <input type="text" value="<?php echo $user_mob ?>" name="mobile" id="mobile" required><br>
+    <input type="text" value="<?php // echo $user_mob ?>" name="mobile" id="mobile" required><br>
     
     <hr>
   <input type="submit" name="submit" class="registerbtn" value="submit">
