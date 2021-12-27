@@ -17,7 +17,7 @@ if($date3 < $date1){
     
 }else{
 
-
+    echo json_encode(['status'=>'Inside','msg'=>"UNABLE TO ADD DATA"]);
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
 $res = mysqli_query($conn,$sql1);
 {
@@ -74,7 +74,7 @@ $res = mysqli_query($conn,$sql1);
                         
                        
                     }
-        echo json_encode(['status'=>'fail','time'=>$date3, 'time2'=>$date2,'msg'=>"UNABLE TO ADD DATA"]);
+        echo json_encode(['status'=>'fail','msg'=>"UNABLE TO ADD DATA"]);
     }
 }
 
