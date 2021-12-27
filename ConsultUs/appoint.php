@@ -41,15 +41,15 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
 //   echo $uid =$_GET['uid'];
-$ctime =$_GET['ctime'];
-$stime = $_GET['stime'];
-      $con_mob = $_GET['conmob'];
-   $user_name =$_GET['user_name'];
-  $user_email =$_GET['user_email'];
-  $user_mob =$_GET['user_mob'];
-  $sql="INSERT INTO `appointment`( `cid`, `category`, `cname`,`bid`,`com_mob`) VALUES ('$cid','$category','$name','$uid','$con_mob')";
-  $res= mysqli_query($conn,$sql);
-  if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
+// $ctime =$_GET['ctime'];
+// $stime = $_GET['stime'];
+//       $con_mob = $_GET['conmob'];
+//    $user_name =$_GET['user_name'];
+//   $user_email =$_GET['user_email'];
+//   $user_mob =$_GET['user_mob'];
+//   $sql="INSERT INTO `appointment`( `cid`, `category`, `cname`,`bid`,`com_mob`) VALUES ('$cid','$category','$name','$uid','$con_mob')";
+//   $res= mysqli_query($conn,$sql);
+//   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
   //echo "<h3 style = 'color:white;'>this is your booking id = $uid , please fill it in form</h3>";
 
   ?>
