@@ -33,11 +33,9 @@ $res = mysqli_query($conn,$sql1);
             $end=$row['end_time'];
           
             $date2=strtotime($row['b_time']);
-            echo  $date2;
-            echo "INisde";
-            echo $date1;
+          
             if($date1>$date2 || $date1<$date2){
-                echo json_encode(['status'=>'fail','time'=>$date3, 'time2'=>$date2,'msg'=>"UNABLE TO ADD DATA"]);
+             
                
                 if(strtotime($row['b_time'],strtotime("+{ $end} minutes")   )> $date1 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date1 ){
                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
