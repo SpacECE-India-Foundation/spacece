@@ -10,7 +10,7 @@ define("SITEURL", 'http://3.109.14.4/spac/');
 $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
-$dbname = "api_learnonapp";
+$dbname = "spacece";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -25,13 +25,13 @@ $cid = $_GET['cid'];
 error_reporting();
 
 if (isset($uid)) {
-	$sql = "SELECT * FROM learnon_courses
+	$sql = "SELECT * FROM learnonapp_courses
 			WHERE id IN 
 				(
-					SELECT cid FROM learnon_users_courses
+					SELECT cid FROM learnonapp_users_courses
 						 WHERE uid IN 
 						 (
-							 SELECT id FROM learnon_users
+							 SELECT id FROM users
 							 WHERE id = " . $uid . "
 						 )
 				);";
@@ -39,13 +39,13 @@ if (isset($uid)) {
 	$res = mysqli_query($conn, $sql);
 	header('Content-Type:application/json');
 } elseif (isset($cid)) {
-	$sql = "SELECT * FROM learnon_users
+	$sql = "SELECT * FROM users
 			WHERE id IN 
 				(
-					SELECT uid FROM learnon_users_courses
+					SELECT uid FROM learnonapp_users_courses
 						 WHERE cid IN 
 						 (
-							 SELECT id FROM learnon_courses
+							 SELECT id FROM learnonapp_courses
 							 WHERE id = " . $cid . "
 						 )
 				);";

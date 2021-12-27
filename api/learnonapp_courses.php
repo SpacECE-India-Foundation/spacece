@@ -10,7 +10,7 @@ define("SITEURL", 'http://3.109.14.4/spac/');
 $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
-$dbname = "api_learnonapp";
+$dbname = "spacece";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -24,11 +24,11 @@ $cid = $_GET['cid'];
 error_reporting();
 
 if (isset($cid)) {
-    $sql = "SELECT * FROM `learnon_courses` WHERE `id`=" . $cid;
+    $sql = "SELECT * FROM `learnonapp_courses` WHERE `id`=" . $cid;
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 } else {
-    $sql = "SELECT * FROM `learnon_courses` LIMIT 9";
+    $sql = "SELECT * FROM `learnonapp_courses` LIMIT 9";
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 }
