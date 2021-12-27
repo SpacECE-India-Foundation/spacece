@@ -242,11 +242,11 @@ a {
 </html>
 
 <! ... end section starts...>
-         <div class="footer text-centre" style="background-color:orange;">
+         <!-- <div class="footer text-centre" style="background-color:orange;">
             <div class="wrapper">
                  <p class="text-center" ><a href="#"></a></p>
             </div>
-         </div>
+         </div> -->
        <?php
 
 include_once '../common/footer_module.php';
