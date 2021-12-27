@@ -28,7 +28,7 @@ $res = mysqli_query($conn,$sql1);
         $sno =1;
         if($count>0){
             while($row = mysqli_fetch_assoc($res)){
-
+$date5=strtotime(date($row['b_time']));
           
             $tme=$row['b_time'];
             $end=$row['end_time'];
@@ -36,9 +36,9 @@ $res = mysqli_query($conn,$sql1);
             $date2=strtotime((date($row['b_time'])),strtotime("+{ $end} minutes") );
           
             if($date1>$date2 || $date1<$date2){
-             echo json_encode($row);
+      
               
-                if($date4){
+                if($date1 >$date4 || $date   && $date1 <$date4 || $date  ){
                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
@@ -46,7 +46,7 @@ $res = mysqli_query($conn,$sql1);
             
                     //checking whether query is excuted or not
                     if($res){
-                        echo json_encode(['status'=>'success','diff'=> $date2,'date4' =>$date4,'result'=>'Added']);
+                        echo json_encode(['status'=>'success','diff'=> $date1,'date4' =>$date4,'result'=>'Added']);
                         // count that data is there or not in database
                         
                        
