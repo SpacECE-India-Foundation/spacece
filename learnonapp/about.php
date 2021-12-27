@@ -1,7 +1,7 @@
 <?php
 
 $main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = "../img/logo/LibForSmalls.jpeg";
+$module_logo = "../img/logo/LearnOnApp.jpeg";
 $module_name = "Learnonapp";
 
 include_once '../common/header_module.php';

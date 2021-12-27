@@ -434,7 +434,7 @@ include_once './common/header_module.php';
         </a>
       </div>
       <br /><br />
-
+      </section> 
       <!---offers close-->
 
       <!-- ChatBot -->

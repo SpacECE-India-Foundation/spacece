@@ -3,6 +3,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <style>
 .fa {
   padding: 2px;
@@ -160,7 +161,7 @@
        <div class="container">
     <div class="row">
         <div class="col-lg-3 footer-widget ">
-            <img src="<?= isset($module_logo) ? $module_logo : 'Spacece' ?>" class="img img-fluid img-thumbnail img-circle" alt="" style="width: 150px" /><a href="./index.php">
+            <img src="<?= isset($module_logo) ? $module_logo : './img/logo/SpacECELogo.jpg' ?>" class="img img-fluid img-thumbnail img-circle" alt="" style="width: 150px" /><a href="./index.php">
                        
                     </a>
 
@@ -237,7 +238,7 @@
 
 </footer>
 <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px">
-    <span style="font-size: 20px"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span>
+    <span style="font-size: 20px"><span class="color_15">&copy;2021 by spaceECE INDIA FOUNDATION</span></span>
 </p>
 
 
