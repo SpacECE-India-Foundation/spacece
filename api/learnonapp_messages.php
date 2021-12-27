@@ -10,7 +10,7 @@ define("SITEURL", 'http://3.109.14.4/spac/');
 $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
-$dbname = "api_learnonapp";
+$dbname = "spaceece";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -25,15 +25,15 @@ $header = $_GET['header'];
 error_reporting();
 
 if (isset($day_no)) {
-    $sql = "SELECT * FROM `learnon_messages` WHERE `no_of_day`=" . $day_no;
+    $sql = "SELECT * FROM `learnonapp_messages` WHERE `no_of_day`=" . $day_no;
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 } elseif (isset($header)) {
-    $sql = "SELECT * FROM `learnon_messages` WHERE `header`='" . $header . "'";
+    $sql = "SELECT * FROM `learnonapp_messages` WHERE `header`='" . $header . "'";
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 } else {
-    $sql = "SELECT * FROM `learnon_messages`";
+    $sql = "SELECT * FROM `learnonapp_messages`";
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 }

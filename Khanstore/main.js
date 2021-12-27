@@ -223,7 +223,7 @@ $(document).ready(function () {
     var mobile = $("#paymentInit").data("mobile");
     var total = $(".net_total").data("total");
     $.ajax({
-      url: "payment.php",
+      url: "cart_process.php",
       method: "POST",
       data: {
         paymentInit: 1,
@@ -238,10 +238,10 @@ $(document).ready(function () {
       },
       success: function (response) {
         var data = JSON.parse(response);
-        alert(response);
+        console.log(response);
         // console.log(data);
         if (data.success === false) {
-          alert(data.message);
+          console.log(data.message);
         } else {
           window.location.replace(data.payment_request.longurl);
         }
