@@ -223,7 +223,7 @@ $(document).ready(function () {
     var mobile = $("#paymentInit").data("mobile");
     var total = $(".net_total").data("total");
     $.ajax({
-      url: "payment.php",
+      url: "cart_process.php",
       method: "POST",
       data: {
         paymentInit: 1,

@@ -36,9 +36,9 @@ function paymentInit($name, $email, $mobile, $total)
         'currency' => 'INR',
         'phone' => '+91' . $mobile,
         'buyer_name' => $name,
-        'redirect_url' => 'http://www.spacece.co/',
+        'redirect_url' => 'https://spacefoundation.in/test/SpacECE-PHP/Khanstore/payment_confirm.php',
         'send_email' => true,
-        'webhook' => 'http://educationfoundation.space/ConsultUs/instamojo_payment/spaceactive_webhook2.php',
+        'webhook' => 'https://spacefoundation.in/test/SpacECE-PHP/instamojo_api/webhook.php',
         'send_sms' => true,
         'email' => $email,
         'allow_repeated_payments' => false
