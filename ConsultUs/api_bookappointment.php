@@ -53,7 +53,7 @@ $date5=strtotime(date($row['b_time']));
                     }
                   
                    }else if($date1==$date5 || $date1==$date2){
-                    echo json_encode(['status'=>'fail1','date1'=>$date1,'date4'=>$date4,'date5'=>$date5,'msg'=>"UNABLE TO ADD DATA"]);
+                    echo json_encode(['status'=>'fail1','date1'=>$date1,'date4'=>$date4,'date2'=>$date2,'date5'=>$date5,'msg'=>"UNABLE TO ADD DATA"]);
                    }
             }else{
                 echo json_encode(['status'=>'fail2','msg'=>"UNABLE TO ADD DATA"]);
