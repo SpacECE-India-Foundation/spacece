@@ -46,7 +46,7 @@ $res = mysqli_query($conn,$sql1);
             
                     //checking whether query is excuted or not
                     if($res){
-                        echo json_encode(['status'=>'success', strtotime($row['b_time'],strtotime("+{ $end} minutes") ),'date4' =>$date4,'result'=>'Added']);
+                        echo json_encode(['status'=>'success', $date2,'date4' =>$date4,'result'=>'Added']);
                         // count that data is there or not in database
                         
                        
