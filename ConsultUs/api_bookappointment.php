@@ -12,7 +12,20 @@ $date3=strtotime(date("Y-m-d h:i:sa"));
 date_default_timezone_set("Asia/Kolkata");
 $date1=strtotime(date($b_time));
 $date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
-
+$sql2="SELECT spacece.consultant.c_from_time,spacece.consultant.c_to_time, from spacece.consultant join spacece.users where spacece.users.u_id='$c_id'";
+$res = mysqli_query($conn,$sql2);
+$count= mysqli_num_rows($res);
+$sno =1;
+if($count>0){
+while($row = mysqli_fetch_assoc($res)){
+if(strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4 ){
+    if(strtotime($row['c_to_time'])< $date1|| strtotime($row['c_to_time'])< $date4 ){
+        echo json_encode(['status'=>'fail','date1'=>$date1,'date3'=>$date3,'msg'=>"CONSULTANT NOT AVAILABLE"]);
+    }
+}else{
+    
+$sql1="SELECT * from new_apointment where c_id='$c_id'";
+$res = mysqli_query($conn,$sql1);
 if($date3 > $date1){
     echo json_encode(['status'=>'fail','date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
     
@@ -86,6 +99,12 @@ $res = mysqli_query($conn,$sql1);
        
     }
 }
+}
+}
+}
+
+
+
 
 }   
 
