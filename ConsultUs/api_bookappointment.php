@@ -38,7 +38,7 @@ $date5=strtotime(date($row['b_time']));
             if($date1>$date2 || $date1<$date2){
       
               
-                if($date1 >($date4 || $date)   && $date1 < ($date4 || $date)  ){
+                if($date1 >($date4 || $date)   || $date1 < ($date4 || $date)  ){
                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
