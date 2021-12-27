@@ -1,9 +1,5 @@
 <?php 
 
-if(empty($_SESSION['current_user_email'])){
-  header('location:../spacece_auth/login.php');
- 
-}else{
 
 
 $email=$_SESSION['current_user_email'];
@@ -249,7 +245,7 @@ a {
             </div>
          </div>
        <?php
-}
+
 include_once '../common/footer_module.php';
 
 

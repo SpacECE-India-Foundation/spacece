@@ -80,15 +80,14 @@ if (mysqli_num_rows($result) > 0) {
         $_SESSION["consultant_qualification"] = $row['c_qualification'];
     }
 
-    // $redirect_url = "index.php";
+    $redirect_url = "index.php";
 
-    // if (isset($_SESSION['redirect_url'])) {
-    //     $redirect_url = $_SESSION['redirect_url'];
-    //     unset($_SESSION['redirect_url']);
-    // }
+    if (isset($_SESSION['redirect_url'])) {
+        $redirect_url = $_SESSION['redirect_url'];
+        unset($_SESSION['redirect_url']);
+    }
     // header('location: index.php');
-   // echo json_encode(array('status' => 'success', 'redirect_url' => $redirect_url));
-    echo json_encode(array('status' => 'success', ));
+    echo json_encode(array('status' => 'success', 'redirect_url' => $redirect_url));
     die();
 } else {
     echo json_encode(array('status' => 'error', "message" => "Invalid email or password"));
