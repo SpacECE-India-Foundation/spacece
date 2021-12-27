@@ -25,35 +25,31 @@ $cid = $_GET['cid'];
 error_reporting();
 
 if (isset($uid)) {
-	$sql = "SELECT * FROM learnonapp_courses
-			WHERE id IN 
-				(
-					SELECT cid FROM learnonapp_users_courses
-						 WHERE uid IN 
-						 (
-							 SELECT id FROM users
-							 WHERE id = " . $uid . "
-						 )
-				);";
+	$sql = "SELECT
+				uc.*
+			FROM
+				users u,
+				learnonapp_courses c,
+				learnonapp_users_courses uc
+			WHERE
+				uc.uid = u.u_id AND uc.cid = c.id AND u.u_id = " . $uid;
 
 	$res = mysqli_query($conn, $sql);
 	header('Content-Type:application/json');
 } elseif (isset($cid)) {
-	$sql = "SELECT * FROM users
-			WHERE id IN 
-				(
-					SELECT uid FROM learnonapp_users_courses
-						 WHERE cid IN 
-						 (
-							 SELECT id FROM learnonapp_courses
-							 WHERE id = " . $cid . "
-						 )
-				);";
+	$sql = "SELECT
+				uc.*
+			FROM
+				users u,
+				learnonapp_courses c,
+				learnonapp_users_courses uc
+			WHERE
+				uc.uid = u.u_id AND uc.cid = c.id AND c.id = " . $cid;
 
 	$res = mysqli_query($conn, $sql);
 	header('Content-Type:application/json');
 } else {
-	echo json_encode(['status' => 'failure', 'result' => 'wrong api']);
+	echo json_encode(['status' => 'error', 'result' => 'wrong api']);
 	die();
 }
 
@@ -74,7 +70,7 @@ if ($res) {
 
 
 	} else {
-		echo json_encode(['status' => 'failure', 'result' => 'not found']);
+		echo json_encode(['status' => 'error', 'result' => 'not found']);
 	}
 }
 
