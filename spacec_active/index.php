@@ -39,7 +39,7 @@ include_once '../common/banner.php';
 
             align-self: center;
             margin: 0 auto;
-            min-width: 980px;
+            min-width: 1080px;
 
         }
     }
@@ -300,10 +300,12 @@ include_once '../common/banner.php';
 
 
 
+                  $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+
                     foreach ($videos as $video) {
                         echo "<div class='col-md-6'>";
-                        echo '<iframe width="180" height="120"
-                               src="https://www.youtube.com/embed/' . $video['video_id'] . '"
+                        echo '<iframe width="530" height="520"
+                               src="https://www.youtube.com/embed/' . $video_id . '"
                                frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                                </iframe>';
                         echo "</div>";
@@ -338,7 +340,7 @@ include_once '../common/banner.php';
                     $videos = $db->get_all_Videos();
                     foreach ($videos as $video) {
                         echo "<div class='col-md-6'>";
-                        echo '<iframe width="180" height="120"
+                        echo '<iframe width="530" height="120"
                                src="https://www.youtube.com/embed/' . $video['video_id'] . '"
                                frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                                </iframe>';
