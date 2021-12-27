@@ -87,7 +87,8 @@ if (mysqli_num_rows($result) > 0) {
     //     unset($_SESSION['redirect_url']);
     // }
     // header('location: index.php');
-    echo json_encode(array('status' => 'success', 'redirect_url' => $redirect_url));
+   // echo json_encode(array('status' => 'success', 'redirect_url' => $redirect_url));
+    echo json_encode(array('status' => 'success', ));
     die();
 } else {
     echo json_encode(array('status' => 'error', "message" => "Invalid email or password"));
