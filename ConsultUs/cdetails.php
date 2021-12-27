@@ -89,13 +89,12 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                    
                         // count that data is there or not in database
                         $count = mysqli_num_rows($res);
-                        $sno = 1;
-                        echo $count;
+                    
                         if ($count > 0) {
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
                                 // extracting values from dATABASE
-                                var_dump($row);
+                               
                                 $app_id=rand(0000000,9999999);
                         ?>
                         <tr>
