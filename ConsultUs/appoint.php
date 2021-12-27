@@ -1,11 +1,12 @@
 <?php 
 
-if(isset($_SESSION['current_user_email'])){
-  $email=$_SESSION['current_user_email'];
-}else{
+if(!isset($_SESSION['current_user_email'])){
   header('location:../spacece_auth/login.php');
   exit();
-}
+}else{
+ 
+
+$email=$_SESSION['current_user_email'];
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
@@ -248,6 +249,7 @@ a {
             </div>
          </div>
        <?php
+}
 include_once '../common/footer_module.php';
 
 
