@@ -146,7 +146,7 @@ include_once '../common/header_module.php';
 		<div class="row">
 			<div class="col-lg-4 col-md-6 blog-item">
 				<!-- //bug id-0000076 -->
-				<a href="cdetails.php?category=Pediatrics">
+				<a href="cdetails.php?category=Paediatrician">
 					<img src="../img/d1.jpg" alt=""></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
@@ -156,7 +156,7 @@ include_once '../common/header_module.php';
 				<p> </p>
 			</div>
 			<div class="col-lg-4 col-md-6 blog-item">
-				<a href="cdetails.php?category=psychiatrist">
+				<a href="cdetails.php?category=Psychiatrist">
 					<img src="../img/d3.jpg" alt=""></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
@@ -166,7 +166,7 @@ include_once '../common/header_module.php';
 				<p> </p>
 			</div>
 			<div class="col-lg-4 col-md-6 blog-item">
-				<a href="cdetails.php?category=physical health">
+				<a href="cdetails.php?category=Physical Health">
 					<img src="../img/d4.jpg" alt=""></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
@@ -176,7 +176,7 @@ include_once '../common/header_module.php';
 				<p> </p>
 			</div>
 			<div class="col-lg-4 col-md-6 blog-item">
-				<a href="cdetails.php?category=mental health">
+				<a href="cdetails.php?category=Mental Health">
 					<img src="../img/d5.jpg" alt=""></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
@@ -187,7 +187,7 @@ include_once '../common/header_module.php';
 			</div>
 
 			<div class="col-lg-4 col-md-6 blog-item">
-				<a href="cdetails.php?category=nutrition">
+				<a href="cdetails.php?category=Nutritionist">
 					<img src="../img/d6.jpg" alt=""></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">

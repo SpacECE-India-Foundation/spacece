@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
             'current_user_email' => $row['u_email'],
             'current_user_mob' => $row['u_mob'],
             'current_user_type' => $row['u_type'],
-            'current_user_image' => $row['u_image'],
+            'current_user_image' => "https://spacefoundation.in/test/SpacECE-PHP/img/users/" . $row['u_image'],
         );
 
         if ($type == "consultant") {

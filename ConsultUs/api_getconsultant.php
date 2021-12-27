@@ -1,11 +1,23 @@
 <?php  // this is serverside page === api key ?>
-<?php $user = $_GET['user']; ?>
-<?php include("indexDB.php")?>
-<?php
 
-if($user == "all"){
+<?php include("./includes/functions.php")?>
+<?php
+$cat_name='';
+if(isset($_GET['cat'])){
+    $cat_name=$_GET['cat'];
+}
+
+//echo $cat_name;
+if(empty($cat_name)){
         // showing admin added from database
-        $sql = "SELECT * FROM `consultant`";
+        $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
+        users.u_image AS u_image ,
+    consultant.c_office AS c_office,consultant.c_from_time As c_from_time, consultant.c_to_time As c_to_time , 
+    consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
+    consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
+    consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
+    WHERE users.u_id = consultant.u_id 
+    AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant'";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
@@ -39,9 +51,16 @@ if($user == "all"){
 
 <?php
 
-if($user != "all"){
+if($cat_name ){
         // showing admin added from database
-        $sql = "SELECT * FROM `consultant` WHERE `name` = '$user'";
+        $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
+        users.u_image as image, consultant.c_office AS c_office,consultant.c_from_time As 
+        c_from_time, consultant.c_to_time As c_to_time , consultant.c_language AS c_language, 
+        consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from, consultant.c_available_to AS 
+        c_available_to ,consultant.c_qualification AS c_qualification , consultant_category.cat_name AS cat_name 
+        FROM consultant_category JOIN consultant JOIN users WHERE users.u_id = consultant.u_id AND
+         consultant.c_category=consultant_category.cat_id
+         AND users.u_type='consultant' AND consultant_category.cat_name='$cat_name'";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
