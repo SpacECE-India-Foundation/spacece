@@ -21,14 +21,14 @@ if($date3 > $date1){
   
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
 $res = mysqli_query($conn,$sql1);
-{
+
     if($res){
         // count that data is there or not in database
         $count= mysqli_num_rows($res);
         $sno =1;
         if($count>0){
             while($row = mysqli_fetch_assoc($res)){
-$date5=strtotime(date($row['b_time']));
+        $date5=strtotime(date($row['b_time']));
           
             $tme=$row['b_time'];
             $end=$row['end_time'];
@@ -58,7 +58,7 @@ $date5=strtotime(date($row['b_time']));
                 }else if($date1==$date5 || $date1==$date2){
                         echo json_encode(['status'=>'fail1','date1'=>$date1,'date4'=>$date4,'date2'=>$date2,'date5'=>$date5,'msg'=>"UNABLE TO ADD DATA"]);
                        }
-                }else{
+            }else{
                     echo json_encode(['status'=>'fail2','msg'=>"UNABLE TO ADD DATA"]);
                 }
                 
@@ -68,8 +68,7 @@ $date5=strtotime(date($row['b_time']));
 
           
 
-        }
-    }else{
+        }else{
         $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
@@ -88,8 +87,8 @@ $date5=strtotime(date($row['b_time']));
     }
 }
 
-        
-}
+}   
+
 
     
                    
