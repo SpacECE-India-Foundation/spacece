@@ -1,10 +1,44 @@
 <?php 
+
+if(isset($_SESSION['current_user_email'])){
+  $email=$_SESSION['current_user_email'];
+}else{
+  header('location:../spacece_auth/login.php');
+  exit();
+}
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 include_once '../../common/header_module.php';
 include('indexDB.php'); ?>
 <?php
+
+define('DB_HOST_NAME', '3.109.14.4');
+define('DB_USER_NAME', 'ostechnix');
+define('DB_USER_PASSWORD', 'Password123#@!');
+define('DB_USER_DATABASE', 'spaceece');
+
+$conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
+
+
+$sql="SELECT * FROM users WHERE u_email='$email'";
+$res = mysqli_query($conn1, $sql);
+
+
+
+if ($res) {
+   
+    $count = mysqli_num_rows($res);
+    $sno = 1;
+    if ($count > 0) {
+      
+        while ($row = mysqli_fetch_assoc($res)) {
+            $u_mob=$row['u_mob'];
+            $u_email=$row['u_email'];
+       
+        }
+    }
+}
 //  echo $cid = $_GET['id'];
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];

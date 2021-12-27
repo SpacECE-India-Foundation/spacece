@@ -1,11 +1,6 @@
 <?php
 
-if(isset($_SESSION['current_user_email'])){
-    $email=$_SESSION['current_user_email'];
-}else{
-    header('location:../spacece_auth/login.php');
-    exit();
-}
+
 include_once './header_local.php';
 include_once '../common/header_module.php';
 // include_once '../common/banner.php';
