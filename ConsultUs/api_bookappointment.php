@@ -38,7 +38,7 @@ $date5=strtotime(date($row['b_time']));
             if($date1>$date2 || $date1<$date2){
       
               
-                if($date1 >($date4 || $date)   || $date1 < ($date4 || $date)  ){
+                if($date1 >($date4 || $date5)   || $date1 < ($date4 || $date5)  ){
                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
@@ -53,7 +53,7 @@ $date5=strtotime(date($row['b_time']));
                     }
                   
                    }else{
-                    echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
+                    echo json_encode(['status'=>'fail1','date1'=>$date1,'date4'=>$date4,'date5'=>$date5,'msg'=>"UNABLE TO ADD DATA"]);
                    }
             }else{
                 echo json_encode(['status'=>'fail2','msg'=>"UNABLE TO ADD DATA"]);
