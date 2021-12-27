@@ -19,24 +19,24 @@ define('DB_USER_DATABASE', 'spaceece');
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
 
 
-$sql="SELECT * FROM users WHERE u_email='$email'";
-$res = mysqli_query($conn1, $sql);
+// $sql="SELECT * FROM users WHERE u_email='$email'";
+// $res = mysqli_query($conn1, $sql);
 
 
 
-if ($res) {
+// if ($res) {
    
-    $count = mysqli_num_rows($res);
-    $sno = 1;
-    if ($count > 0) {
+//     $count = mysqli_num_rows($res);
+//     $sno = 1;
+//     if ($count > 0) {
       
-        while ($row = mysqli_fetch_assoc($res)) {
-            $u_mob=$row['u_mob'];
-            $u_email=$row['u_email'];
+//         while ($row = mysqli_fetch_assoc($res)) {
+//             $u_mob=$row['u_mob'];
+//             $u_email=$row['u_email'];
        
-        }
-    }
-}
+//         }
+//     }
+// }
 //  echo $cid = $_GET['id'];
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
