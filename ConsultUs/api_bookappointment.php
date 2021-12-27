@@ -76,7 +76,7 @@ $res = mysqli_query($conn,$sql1);
                         
                        
                     }
-        echo json_encode(['status'=>'fail','msg'=>"UNABLE TO ADD DATA"]);
+        echo json_encode(['status'=>'fail', 'sql'=>$sql,'msg'=>"UNABLE TO ADD DATA"]);
     }
 }
 
