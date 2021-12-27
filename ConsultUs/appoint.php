@@ -60,7 +60,7 @@ $stime = $_GET['stime'];
     <body>
         <! ... menu section starts...>
 
-        <div class="menu text-center" style="background-color:orange;">
+        <!-- <div class="menu text-center" style="background-color:orange;">
 <img src="img/space.jpg" alt="" style="width:6%; ">
             <div class="wrapper" >
                 <ul>
@@ -68,7 +68,7 @@ $stime = $_GET['stime'];
                     <li><a href="alldoc.php?user=<?php echo $user_name?>">CONSULTANT</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
 
 <html>
 <head>
