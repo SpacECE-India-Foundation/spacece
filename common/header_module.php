@@ -125,6 +125,8 @@ session_start();
 </head>
 
 <body>
+<?php $main_page= isset($main_page) ? ($main_page) :  NULL ?>
+
     <nav class="navbar">
         <div class="logo">
             <div class="org_logo">
