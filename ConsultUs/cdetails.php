@@ -1,4 +1,11 @@
 <?php
+
+if(isset($_SESSION['current_user_email'])){
+    $email=$_SESSION['current_user_email'];
+}else{
+    header('location:../spacece_auth/login.php');
+    exit();
+}
 include_once './header_local.php';
 include_once '../common/header_module.php';
 // include_once '../common/banner.php';
@@ -13,12 +20,7 @@ define('DB_USER_PASSWORD', 'Password123#@!');
 define('DB_USER_DATABASE', 'spaceece');
 
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
-// if(isset($_SESSION['current_user_email'])){
-//     $email=$_SESSION['current_user_email'];
-// }else{
-//     header('location:../spacece_auth/login.php');
-//     exit();
-// }
+
 
 // $sql="SELECT * FROM users WHERE u_email='$email'";
 // $res = mysqli_query($conn1, $sql);
