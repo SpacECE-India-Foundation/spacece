@@ -33,7 +33,7 @@ $res = mysqli_query($conn,$sql1);
             $tme=$row['b_time'];
             $end=$row['end_time'];
           
-            $date2=strtotime((date($tme)),strtotime("+{ $end} minutes") );
+            $date2=strtotime((date($row['b_time'])),strtotime("+{ $end} minutes") );
           
             if($date1>$date2 || $date1<$date2){
              
