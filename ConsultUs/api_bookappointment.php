@@ -17,7 +17,7 @@ if($date3 < $date1){
     
 }else{
 
-    echo json_encode(['status'=>'Inside','msg'=>"UNABLE TO ADD DATA"]);
+  
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
 $res = mysqli_query($conn,$sql1);
 {
@@ -26,7 +26,9 @@ $res = mysqli_query($conn,$sql1);
         $count= mysqli_num_rows($res);
         $sno =1;
         if($count>0){
+            while($row = mysqli_fetch_assoc($res)){
 
+          
             $tme=$row['b_time'];
             $end=$row['end_time'];
           
@@ -79,6 +81,7 @@ $res = mysqli_query($conn,$sql1);
 }
 
         
+}
 }
     
                    
