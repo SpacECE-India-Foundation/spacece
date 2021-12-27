@@ -36,9 +36,9 @@ $res = mysqli_query($conn,$sql1);
             $date2=strtotime((date($row['b_time'])),strtotime("+{ $end} minutes") );
           
             if($date1>$date2 || $date1<$date2){
-             
+             echo json_encode($row);
               
-                if(strtotime($row['b_time'],strtotime("+{ $end} minutes") )> $date4 || strtotime($row['b_time'],strtotime("+{ $end} minutes"))< $date4 || strtotime($row['b_time'],strtotime("+{ $end} minutes") )> $date1 || strtotime($row['b_time'],strtotime("+{ $end} minutes"))< $date1){
+                if($date4){
                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
