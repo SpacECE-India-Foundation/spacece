@@ -39,25 +39,25 @@ $res = mysqli_query($conn,$sql1);
             if($date1>$date2 || $date1<$date2){
                 echo json_encode(['status'=>'fail','time'=>$date3, 'time2'=>$date2,'msg'=>"UNABLE TO ADD DATA"]);
                
-                // if(strtotime($row['b_time'],strtotime("+{ $end} minutes")   )> $date1 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date1 ){
-                //     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
-                //     $res = mysqli_query($conn,$sql);
-                //     header('Content-Type:application/json');
+                if(strtotime($row['b_time'],strtotime("+{ $end} minutes")   )> $date1 || strtotime($row['b_time'],strtotime("+{ $end} minutes")    )< $date1 ){
+                    $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
+                    $res = mysqli_query($conn,$sql);
+                    header('Content-Type:application/json');
             
             
-                //     //checking whether query is excuted or not
-                //     if($res){
-                //         echo json_encode(['status'=>'success','result'=>'found']);
-                //         // count that data is there or not in database
+                    //checking whether query is excuted or not
+                    if($res){
+                        echo json_encode(['status'=>'success','result'=>'Added']);
+                        // count that data is there or not in database
                         
                        
-                //     }
+                    }
                   
-                //    }else{
-                //     echo json_encode(['status'=>'fail','time'=>$date3, 'time2'=>$date2,'msg'=>"UNABLE TO ADD DATA"]);
-                //    }
+                   }else{
+                    echo json_encode(['status'=>'fail','msg'=>"UNABLE TO ADD DATA"]);
+                   }
             }else{
-                echo json_encode(['status'=>'fail','time'=>$date3, 'time2'=>$date2,'msg'=>"UNABLE TO ADD DATA"]);
+                echo json_encode(['status'=>'fail','msg'=>"UNABLE TO ADD DATA"]);
             }
 
           
@@ -71,12 +71,14 @@ $res = mysqli_query($conn,$sql1);
             
                     //checking whether query is excuted or not
                     if($res){
-                        echo json_encode(['status'=>'success','result'=>'found']);
+                        echo json_encode(['status'=>'success','result'=>'Added']);
                         // count that data is there or not in database
                         
                        
+                    }else{
+                        echo json_encode(['status'=>'fail', 'msg'=>"UNABLE TO ADD DATA"]);
                     }
-        echo json_encode(['status'=>'fail', 'sql'=>$sql,'msg'=>"UNABLE TO ADD DATA"]);
+       
     }
 }
 
