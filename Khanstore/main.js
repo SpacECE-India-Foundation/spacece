@@ -238,10 +238,10 @@ $(document).ready(function () {
       },
       success: function (response) {
         var data = JSON.parse(response);
-        alert(response);
+        console.log(response);
         // console.log(data);
         if (data.success === false) {
-          alert(data.message);
+          console.log(data.message);
         } else {
           window.location.replace(data.payment_request.longurl);
         }
