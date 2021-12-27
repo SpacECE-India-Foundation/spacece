@@ -19,12 +19,24 @@ if ($conn->connect_error) {
 }
 ?>
 <?php
+$uid = $_GET['uid'];
 $cid = $_GET['cid'];
 
 error_reporting();
 
 if (isset($cid)) {
     $sql = "SELECT * FROM `learnonapp_courses` WHERE `id`=" . $cid;
+    $res = mysqli_query($conn, $sql);
+    header('Content-Type:application/json');
+} else if (isset($uid)) {
+    $sql = "SELECT
+                c.*
+            FROM
+                users u,
+                learnonapp_courses c,
+                learnonapp_users_courses uc
+            WHERE
+                uc.uid = u.u_id AND uc.cid = c.id AND u.u_id = " . $uid;
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 } else {
