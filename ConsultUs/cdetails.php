@@ -20,24 +20,7 @@ if(isset($_SESSION['current_user_email'])){
     exit();
 }
 
-$sql="SELECT * FROM users WHERE u_email='$email'";
-$res = mysqli_query($conn1, $sql);
 
-
-
-if ($res) {
-   
-    $count = mysqli_num_rows($res);
-    $sno = 1;
-    if ($count > 0) {
-      
-        while ($row = mysqli_fetch_assoc($res)) {
-            $u_mob=$row['u_mob'];
-            $u_email=$row['u_email'];
-       
-        }
-    }
-}
 
 
 ?>
