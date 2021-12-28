@@ -54,7 +54,7 @@ $con_name=$_GET['con_name'];
  $cat_name=$_GET['cat_name'];
   $sql="INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$u_id','$u_mob')";
   $res= mysqli_query($conn,$sql);
-  echo $sql;
+ 
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
   //echo "<h3 style = 'color:white;'>this is your booking id = $uid , please fill it in form</h3>";
 
@@ -176,6 +176,7 @@ a {
   
          //2.inserting into database
         $sql= " UPDATE `appointment` SET `username`= '$full_name' , `status`='$status',`email`='$email', `mobile`='$mob',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
+        echo $sql;
         $res= mysqli_query($conn,$sql);
          echo "<h3 style = 'color:white;'>$full_name<h3>";
          echo "<h3 style = 'color:white;'>$email<h3>";
