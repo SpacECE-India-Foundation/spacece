@@ -112,7 +112,7 @@ $res = mysqli_query($conn,$sql1);
 
 
 } else{
-    echo json_encode(['status'=>'fail','count'=>$count 'msg'=>"UNABLE TO ADD DATA"]);
+    echo json_encode(['status'=>'fail','count'=>$count, 'msg'=>"UNABLE TO ADD DATA"]);
 }  
 
 
