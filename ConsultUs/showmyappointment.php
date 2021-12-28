@@ -1,15 +1,4 @@
-<?
-session_start();
-if(isset($_SESSION['current_user_email'])){
-    $email = $_SESSION['current_user_email'];
-    $user= $_SESSION['current_user_name'];
-} else{
-    header('location:../spacece_auth/login.php');
-    exit();
-}
-
-include('indexDB.php');
-
+<?php include('indexDB.php');
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
@@ -17,7 +6,13 @@ include_once '../common/header_module.php';
 include_once '../common/header_module.php'; ?>
 <?php
 $user = '';
-
+if(isset($_SESSION['current_user_email'])){
+    $email = $_SESSION['current_user_email'];
+    $user= $_SESSION['current_user_name'];
+} else{
+    header('location:../spacece_auth/login.php');
+    exit();
+}
 
 
  ?>
