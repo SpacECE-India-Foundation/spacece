@@ -1,6 +1,6 @@
 <?php
 $room = $_POST['room'];
- // session_start();
+ session_start();
   define("SITEURL",'http://3.109.14.4//consult/');  
   $servername = "3.109.14.4";
 $username = "ostechnix";
@@ -25,7 +25,12 @@ if(mysqli_num_rows($result)>0)
     while($row= mysqli_fetch_assoc($result))
     {
            echo $res = "<div class='wrapper' id='msg'>";
-          echo  $res = $row['ip'];
+           if(isset($_POST['current_user_name'])){
+            echo  $res = $_POST['current_user_name'];
+           }else{
+            echo  $res = $row['ip'];  
+           }
+         
            echo $res = " says <p>".$row['msg'];
           echo  $res = "</p> <span class='time-right'>".$row['rtime']."</span></div>";
     }
