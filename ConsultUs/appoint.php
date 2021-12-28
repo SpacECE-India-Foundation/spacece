@@ -38,6 +38,7 @@ if ($res) {
           $u_name=$row['u_name'];
             $u_mob=$row['u_mob'];
             $u_email=$row['u_email'];
+            $u_id=$row['u_id'];
        
         }
     }
@@ -49,8 +50,8 @@ if ($res) {
 $c_id=$_GET['id'];
 $b_id=$_GET['b_id'];
 $con_name=$_GET['con_name'];
- 
-  $sql="INSERT INTO `appointment`( `cid`, `category`, `cname`,`bid`,`com_mob`) VALUES ('$cid','$category','$name','$uid','$con_mob')";
+ $cat_name=$_GET['cat_name'];
+  $sql="INSERT INTO `appointment`( `cid`, `category`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$con_name','$uid','$con_mob')";
   $res= mysqli_query($conn,$sql);
   echo $sql;
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}

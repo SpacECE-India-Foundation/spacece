@@ -81,6 +81,8 @@ $res = mysqli_query($conn,$sql1);
 
           
 
+        }else{
+            echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
         }
 }else{
     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
