@@ -113,11 +113,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td><?php echo $row['c_qualification']; ?></td>
 
                         <td>
-                        <a href="./appoint.php?id=<?php echo $row['u_id'];?>&ctime=<?php echo $row['c_from_time'];?>&stime=<?php echo $row['c_to_time'];?>
-                        &name=<?php echo $row['u_name'];?>&category=<?php echo $row['cat_name'];?>
-                        &conmob=<?php echo $row['u_mob'];?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
-                        &user_email=<?php echo $u_email;?>&user_mob=<?php echo  $u_mob;?>" 
-                        class="btn btn-secondary btn-small" >Book Appointment </a>
+                        <a href="./appoint.php?id=<?php echo $app_id;?> >Book Appointment </a>
 
                     <?php
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
