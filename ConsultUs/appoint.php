@@ -187,13 +187,13 @@ a {
          if($res){
              $_SESSION['add']= "<div style='color:green;'> appointment booked successfully</div>";         //creating session variable
              // redirecting page
-             header("location:".SITEURL.'alldoc.php'."?user=$full_name");
+             header("location:./alldoc.php");
              //echo "<h3 style = 'color:white;'>database updated<h3>";
          }
       else{
           $_SESSION['add']= "failed to book appointment successfully";         //creating session variable
           // redirecting page
-          header("location:".SITEURL.'alldoc.php'."?user=$full_name");
+          header("location:./alldoc.php");
       //echo "<h3 style = 'color:white;'>database not updated<h3>";
       }
       
