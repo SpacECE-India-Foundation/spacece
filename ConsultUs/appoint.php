@@ -43,12 +43,10 @@ if ($res) {
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
 //   echo $uid =$_GET['uid'];
-$ctime =$_GET['ctime'];
-$stime = $_GET['stime'];
-      $con_mob = $_GET['conmob'];
-   $user_name =$_GET['user_name'];
-  $user_email =$_GET['user_email'];
-  $user_mob =$_GET['user_mob'];
+$c_id=$_GET['id'];
+$b_id=$_GET['b_id'];
+$con_name=$_GET['con_name'];
+ 
   $sql="INSERT INTO `appointment`( `cid`, `category`, `cname`,`bid`,`com_mob`) VALUES ('$cid','$category','$name','$uid','$con_mob')";
   $res= mysqli_query($conn,$sql);
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
@@ -212,7 +210,7 @@ a {
     </p>
     <hr>
     <label for="userid"><b>Booking Id</b></label>
-    <input type="text" value="<?php echo $id?>" name="userid" id="userid" required>
+    <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>
     <label for="adate"><b>Date Of Appointment:</b></label>
         <!-- bug id=0000014 -->
    <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>"><br><br>
@@ -223,7 +221,7 @@ a {
     <label for="fullname"><b>Fullname</b></label>
     <input type="text" value="<?php echo $user_name ?>" name="fullname" id="fullname" required>
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $name ?>" name="cname" id="cname" required>
+    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required>
 
     <label for="email"><b>Email</b></label>
     <input type="text" value="<?php echo $user_email ?>" name="email" id="email" required>
