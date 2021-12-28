@@ -81,23 +81,23 @@ $res = mysqli_query($conn,$sql1);
 
           
 
-        }else{
-        $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
-                    $res = mysqli_query($conn,$sql);
-                    header('Content-Type:application/json');
-            
-            
-                    //checking whether query is excuted or not
-                    if($res){
-                        echo json_encode(['status'=>'success','result'=>'Added']);
-                        // count that data is there or not in database
-                        
-                       
-                    }else{
-                        echo json_encode(['status'=>'fail', 'msg'=>"UNABLE TO ADD DATA"]);
-                    }
-       
-    }
+        }
+}else{
+    $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
+                $res = mysqli_query($conn,$sql);
+                header('Content-Type:application/json');
+        
+        
+                //checking whether query is excuted or not
+                if($res){
+                    echo json_encode(['status'=>'success','result'=>'Added']);
+                    // count that data is there or not in database
+                    
+                   
+                }else{
+                    echo json_encode(['status'=>'fail', 'msg'=>"UNABLE TO ADD DATA"]);
+                }
+   
 }
 }
 }
