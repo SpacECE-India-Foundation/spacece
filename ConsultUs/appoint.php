@@ -19,7 +19,9 @@ define('DB_USER_PASSWORD', 'Password123#@!');
 define('DB_USER_DATABASE', 'spaceece');
 
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
-
+$u_name='';
+$u_mob='';
+$u_email='';
 
 $sql="SELECT * FROM users WHERE u_email='$email'";
 $res = mysqli_query($conn1, $sql);
@@ -33,8 +35,10 @@ if ($res) {
     if ($count > 0) {
       
         while ($row = mysqli_fetch_assoc($res)) {
+          $u_name=$row['u_name'];
             $u_mob=$row['u_mob'];
             $u_email=$row['u_email'];
+            $u_id=$row['u_id'];
        
         }
     }
@@ -43,14 +47,13 @@ if ($res) {
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
 //   echo $uid =$_GET['uid'];
-$ctime =$_GET['ctime'];
-$stime = $_GET['stime'];
-      $con_mob = $_GET['conmob'];
-   $user_name =$_GET['user_name'];
-  $user_email =$_GET['user_email'];
-  $user_mob =$_GET['user_mob'];
-  $sql="INSERT INTO `appointment`( `cid`, `category`, `cname`,`bid`,`com_mob`) VALUES ('$cid','$category','$name','$uid','$con_mob')";
+$c_id=$_GET['cid'];
+$b_id=$_GET['b_id'];
+$con_name=$_GET['con_name'];
+ $cat_name=$_GET['cat_name'];
+  $sql="INSERT INTO `appointment`( `cid`, `category`,'username', `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$uid','$con_mob')";
   $res= mysqli_query($conn,$sql);
+  echo $sql;
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
   //echo "<h3 style = 'color:white;'>this is your booking id = $uid , please fill it in form</h3>";
 
@@ -68,7 +71,7 @@ $stime = $_GET['stime'];
             <div class="wrapper" >
                 <ul>
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="alldoc.php?user=<?php echo $user_name?>">CONSULTANT</a></li>
+                    <li><a href="alldoc.php?user=<?php //echo $user_name?>">CONSULTANT</a></li>
                 </ul>
             </div>
         </div> -->
@@ -212,7 +215,7 @@ a {
     </p>
     <hr>
     <label for="userid"><b>Booking Id</b></label>
-    <input type="text" value="<?php echo $id?>" name="userid" id="userid" required>
+    <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>
     <label for="adate"><b>Date Of Appointment:</b></label>
         <!-- bug id=0000014 -->
    <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>"><br><br>
@@ -221,14 +224,14 @@ a {
   <input type="time" id="atime" name="atime" min="16:00" max="22:00" >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
-    <input type="text" value="<?php echo $user_name ?>" name="fullname" id="fullname" required>
+    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required readonly>
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $name ?>" name="cname" id="cname" required>
+    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" value="<?php echo $user_email ?>" name="email" id="email" required>
+    <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
     <label for="mobile"><b>Mobile Number:</b></label>
-    <input type="text" value="<?php echo $user_mob ?>" name="mobile" id="mobile" required><br>
+    <input type="text" value="<?php echo $u_mob ?>" name="mobile" id="mobile" required><br>
     
     <hr>
   <input type="submit" name="submit" class="registerbtn" value="submit">
