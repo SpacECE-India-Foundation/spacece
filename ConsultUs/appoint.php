@@ -1,6 +1,6 @@
 <?php 
 
-
+session_start();
 $email='';
 if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
