@@ -10,7 +10,7 @@ if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
  ?>
- <a class="btn btn-sm " style="background-color: orange;" href="alldoc.php">Booked CONSULTANT</a>
+
 <?php
 //$email=$_SESSION['current_user_email'];
 define('DB_HOST_NAME', '3.109.14.4');
