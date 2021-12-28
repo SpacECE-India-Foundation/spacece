@@ -1,5 +1,5 @@
 <?php include('indexDB.php');
-include_once './includes/header1.php'; ?>
+include_once '../common/header_module.php'; ?>
 <?php
 $user = '';
 if(isset($_SESSION['current_user_email'])){
@@ -24,7 +24,7 @@ if(isset($_SESSION['current_user_email'])){
 <img src="img/space.jpg" alt="" style="width:6%;"><br><br>
                 <ul>
                     <li><a href="index2.php?user=<?php // $user ?>">HOME</a></li>
-                    <li><a href="alldoc.php?user=<?php// echo $user ?>">CONSULTANT</a></li>
+                    <li><a href="alldoc.php?user=<?php // echo $user ?>">CONSULTANT</a></li>
                 </ul>
             </div>
         </div> -->
