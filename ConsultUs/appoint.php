@@ -19,7 +19,9 @@ define('DB_USER_PASSWORD', 'Password123#@!');
 define('DB_USER_DATABASE', 'spaceece');
 
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
-
+$u_name='';
+$u_mob='';
+$u_email='';
 
 $sql="SELECT * FROM users WHERE u_email='$email'";
 $res = mysqli_query($conn1, $sql);
@@ -33,6 +35,7 @@ if ($res) {
     if ($count > 0) {
       
         while ($row = mysqli_fetch_assoc($res)) {
+          $u_name=$row['u_name'];
             $u_mob=$row['u_mob'];
             $u_email=$row['u_email'];
        
@@ -66,7 +69,7 @@ $con_name=$_GET['con_name'];
             <div class="wrapper" >
                 <ul>
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="alldoc.php?user=<?php echo $user_name?>">CONSULTANT</a></li>
+                    <li><a href="alldoc.php?user=<?php //echo $user_name?>">CONSULTANT</a></li>
                 </ul>
             </div>
         </div> -->
@@ -219,14 +222,14 @@ a {
   <input type="time" id="atime" name="atime" min="16:00" max="22:00" >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
-    <input type="text" value="<?php echo $user_name ?>" name="fullname" id="fullname" required>
+    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required readonly>
 <label for="cname"><b>Consultant Name</b></label>
     <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" value="<?php echo $user_email ?>" name="email" id="email" required>
+    <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
     <label for="mobile"><b>Mobile Number:</b></label>
-    <input type="text" value="<?php echo $user_mob ?>" name="mobile" id="mobile" required><br>
+    <input type="text" value="<?php echo $u_mob ?>" name="mobile" id="mobile" required><br>
     
     <hr>
   <input type="submit" name="submit" class="registerbtn" value="submit">
