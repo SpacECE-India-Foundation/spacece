@@ -7,7 +7,7 @@ include_once '../common/header_module.php'; ?>
 <?php
 $user = '';
 if(isset($_SESSION['current_user_email'])){
-    $email = $_GET['current_user_email'];
+    $email = $_SESSION['current_user_email'];
     $user= $_SESSION['current_user_name'];
 } else{
     header('location:../spacece_auth/login.php');
