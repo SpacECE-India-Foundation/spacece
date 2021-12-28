@@ -171,11 +171,11 @@ a {
           // $bookid = $uid;
            $atime = $_POST["atime"];
            $adate = $_POST["adate"];
-         echo $status ="inactive";
+         $status ="inactive";
          // encrypt pass 
   
          //2.inserting into database
-        $sql= " UPDATE `appointment` SET `username`= '$full_name' , `status`='$status',`email`='$email', `mobile`='$mob',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
+        $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
         echo $sql;
         $res= mysqli_query($conn,$sql);
          echo "<h3 style = 'color:white;'>$full_name<h3>";
