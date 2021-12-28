@@ -1,4 +1,8 @@
 <?php include('indexDB.php');
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/ConsultUs.jpeg";
+$module_name = "ConsultUs";
+include_once '../common/header_module.php';
 include_once '../common/header_module.php'; ?>
 <?php
 $user = '';
@@ -28,7 +32,7 @@ if(isset($_SESSION['current_user_email'])){
                 </ul>
             </div>
         </div> -->
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
                 <table class="tb-full">
                     <tr>
                         <th>S.NO.</th>
@@ -113,9 +117,12 @@ if(isset($_SESSION['current_user_email'])){
             </div>
         </div>
       <?php
-                 include_once './includes/header1.php';
+                 include_once '../common/footer_module.php';
 ?>
                  </body>
 
-
+                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </html>
