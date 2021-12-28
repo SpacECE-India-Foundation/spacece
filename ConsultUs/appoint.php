@@ -9,8 +9,8 @@ $email='';
 if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
-include('indexDB.php'); ?>
-
+ ?>
+ <a class="btn btn-sm " style="background-color: orange;" href="alldoc.php">Booked CONSULTANT</a>
 <?php
 //$email=$_SESSION['current_user_email'];
 define('DB_HOST_NAME', '3.109.14.4');
@@ -47,13 +47,14 @@ if ($res) {
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
 //   echo $uid =$_GET['uid'];
+include('indexDB.php');
 $c_id=$_GET['cid'];
 $b_id=$_GET['b_id'];
 $con_name=$_GET['con_name'];
  $cat_name=$_GET['cat_name'];
-  $sql="INSERT INTO `appointment`( `cid`, `category`,'username', `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$uid','$con_mob')";
+  $sql="INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$u_id','$u_mob')";
   $res= mysqli_query($conn,$sql);
-  echo $sql;
+ 
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
   //echo "<h3 style = 'color:white;'>this is your booking id = $uid , please fill it in form</h3>";
 
@@ -167,14 +168,15 @@ a {
           $full_name = $user_name;
           $email = $user_email;
           $mob = $user_mob;
-           $bookid = $uid;
+          // $bookid = $uid;
            $atime = $_POST["atime"];
            $adate = $_POST["adate"];
-         echo $status ="inactive";
+         $status ="inactive";
          // encrypt pass 
   
          //2.inserting into database
-        $sql= " UPDATE `appointment` SET `username`= '$full_name' , `status`='$status',`email`='$email', `mobile`='$mob',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$bookid'";
+        $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
+       
         $res= mysqli_query($conn,$sql);
          echo "<h3 style = 'color:white;'>$full_name<h3>";
          echo "<h3 style = 'color:white;'>$email<h3>";
@@ -185,13 +187,13 @@ a {
          if($res){
              $_SESSION['add']= "<div style='color:green;'> appointment booked successfully</div>";         //creating session variable
              // redirecting page
-             header("location:".SITEURL.'alldoc.php'."?user=$full_name");
+             header("location:./alldoc.php");
              //echo "<h3 style = 'color:white;'>database updated<h3>";
          }
       else{
           $_SESSION['add']= "failed to book appointment successfully";         //creating session variable
           // redirecting page
-          header("location:".SITEURL.'alldoc.php'."?user=$full_name");
+          header("location:./alldoc.php");
       //echo "<h3 style = 'color:white;'>database not updated<h3>";
       }
       
