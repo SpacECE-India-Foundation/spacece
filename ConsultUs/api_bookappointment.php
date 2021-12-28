@@ -12,7 +12,7 @@ $date3=strtotime(date("Y-m-d h:i:sa"));
 date_default_timezone_set("Asia/Kolkata");
 $date1=strtotime(date($b_time));
 $date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
-$sql2="SELECT spacece.consultant.c_from_time,spacece.consultant.c_to_time, from spacece.consultant join spacece.users where spacece.users.u_id='$c_id'";
+$sql2="SELECT spaceece.consultant.c_from_time,spaceece.consultant.c_to_time from spaceece.consultant join spaceece.users where spaceece.users.u_id='$c_id'";
 $res = mysqli_query($conn,$sql2);
 $count= mysqli_num_rows($res);
 $sno =1;
