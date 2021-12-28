@@ -1,8 +1,10 @@
 <?php 
+
+
 $email='';
 if(isset($_SESSION['current_user_id'])){
 $email=$_SESSION['current_user_email'];
-}
+
 
 
 $main_logo = "../img/logo/SpacECELogo.jpg";
@@ -250,7 +252,9 @@ a {
        <?php
 
 include_once '../common/footer_module.php';
-
+}else{
+  header('location:spacece_auth/login.php');
+}
 
 ?>
     </body>
