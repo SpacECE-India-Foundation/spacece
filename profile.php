@@ -52,6 +52,7 @@ include_once './common/header_module.php';
 <?php
 if(!isset($_SESSION['current_user_email']))
 {
+  $email=$_SESSION['current_user_email'];
 // header('Location:index.php');
 // exit();
 // }
@@ -71,7 +72,7 @@ $password = "Password123#@!";
     }
 
   // $email= $_SESSION['current_user_email'];
-$sql= "SELECT * FROM `users` WHERE `u_email`='ewqewq@wet.er' ";
+$sql= "SELECT * FROM `users` WHERE `u_email`='$email' ";
 
 $result =mysqli_query($conn,$sql);
 
