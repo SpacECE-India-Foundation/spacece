@@ -96,7 +96,6 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                 $app_id=rand(0000000,9999999);
                         ?>
                         <tr>
-                       
                         <td><?php echo $sno++; ?></td>
                        <td><img src="<?php echo "../img/users/". $row['u_image']; ?>" width="100" height="100"></td>
                         <td><?php echo $row['u_name']; ?></td>
@@ -114,7 +113,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td><?php echo $row['c_qualification']; ?></td>
 
                         <td>
-                        <a href="./appoint.php?id=$app_id >Book Appointment </a>
+                        <a href="./appoint.php?id=<?php echo $app_id;?> >Book Appointment </a>
 
                     <?php
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
