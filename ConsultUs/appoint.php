@@ -1,16 +1,17 @@
 <?php 
-
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/ConsultUs.jpeg";
+$module_name = "ConsultUs";
+include_once '../../common/header_module.php';
 session_start();
+
 $email='';
 if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
 
 
-$main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = "../img/logo/ConsultUs.jpeg";
-$module_name = "ConsultUs";
-include_once '../../common/header_module.php';
+
 include('indexDB.php'); ?>
 
 <?php
@@ -205,7 +206,7 @@ a {
   ?>
 
 <form action="" method="POST">
-  <div class="container">
+  <div class="container" style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
     <p>
     </p>
