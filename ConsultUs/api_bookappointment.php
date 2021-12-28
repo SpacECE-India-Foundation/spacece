@@ -18,6 +18,7 @@ $count= mysqli_num_rows($res);
 $sno =1;
 if($count>0){
 while($row = mysqli_fetch_assoc($res)){
+    var_dump($row);
 if(strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4 ){
     if(strtotime($row['c_to_time'])< $date1|| strtotime($row['c_to_time'])< $date4 ){
         echo json_encode(['status'=>'fail','date1'=>$date1,'date3'=>$date3,'msg'=>"CONSULTANT NOT AVAILABLE"]);
