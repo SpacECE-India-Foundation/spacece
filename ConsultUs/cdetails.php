@@ -1,4 +1,7 @@
 <?php
+
+
+
 include_once './header_local.php';
 include_once '../common/header_module.php';
 // include_once '../common/banner.php';
@@ -14,25 +17,25 @@ define('DB_USER_DATABASE', 'spaceece');
 
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
 
-$email=$_SESSION['current_user_email'];
-$sql="SELECT * FROM users WHERE u_email='$email'";
-$res = mysqli_query($conn1, $sql);
+
+// $sql="SELECT * FROM users WHERE u_email='$email'";
+// $res = mysqli_query($conn1, $sql);
 
 
 
-if ($res) {
+// if ($res) {
    
-    $count = mysqli_num_rows($res);
-    $sno = 1;
-    if ($count > 0) {
+//     $count = mysqli_num_rows($res);
+//     $sno = 1;
+//     if ($count > 0) {
       
-        while ($row = mysqli_fetch_assoc($res)) {
-            $u_mob=$row['u_mob'];
-            $u_email=$row['u_email'];
+//         while ($row = mysqli_fetch_assoc($res)) {
+//             $u_mob=$row['u_mob'];
+//             $u_email=$row['u_email'];
        
-        }
-    }
-}
+//         }
+//     }
+// }
 
 
 ?>
@@ -46,10 +49,9 @@ if ($res) {
         </h2>
         <br>
         <!.... BUTTON TO ADD consultant...>
-            <a href="./chatbot/room.php?roomname=global1" class="btn-primary" style="color:black;background-color:orange;float:right;">CHAT GLOBAL</a><br><br>
+            <a href="./chatbot/room.php?roomname=global1" class=" btn btn-sm" style="color:black;background-color:orange;float:right;">CHAT GLOBAL</a><br><br>
             <br>
             <br>
-
             <table class=" table table-striped table-hover  tb-full">
                 <tr>
                     <th>S.NO.:</th>
@@ -82,19 +84,20 @@ if ($res) {
 
 
                     //checking whether query is excuted or not
-                    if ($res) {
+                   
                         // count that data is there or not in database
                         $count = mysqli_num_rows($res);
-                        $sno = 1;
+                    
                         if ($count > 0) {
                             // we have data in database
                             while ($row = mysqli_fetch_assoc($res)) {
                                 // extracting values from dATABASE
+                               
                                 $app_id=rand(0000000,9999999);
                         ?>
                         <tr>
                         <td><?php echo $sno++; ?></td>
-                       <td><img src="<?php echo $row['u_image']; ?>" width="100" height="100"></td>
+                       <td><img src="<?php echo "../img/users/". $row['u_image']; ?>" width="100" height="100"></td>
                         <td><?php echo $row['u_name']; ?></td>
                         <td><?php echo $row['cat_name']; ?></td>
                         <td><?php echo $row['c_office']; ?></td>
@@ -114,7 +117,7 @@ if ($res) {
                         &name=<?php echo $row['u_name'];?>&category=<?php echo $row['cat_name'];?>
                         &conmob=<?php echo $row['u_mob'];?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
                         &user_email=<?php echo $u_email;?>&user_mob=<?php echo  $u_mob;?>" 
-                        class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
+                        class="btn btn-secondary btn-small" >Book Appointment </a>
 
                     <?php
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
@@ -126,7 +129,7 @@ if ($res) {
                                                 <?php
                         }
                     }
-                } else {
+                 else {
                     ?>
 
                     <?php
@@ -200,12 +203,13 @@ if ($res) {
                 ?>
 
             </table>
+            
     </div>
 </div>
 <?php
 // $module_logo = "../img/logo/ConsultUs.jpeg";
 include_once '../common/footer_module.php';
-
+          
 
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
