@@ -10,7 +10,7 @@ if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
  ?>
-
+ <a class="btn btn-sm " style="color: orange;" href="alldoc.php">Booked CONSULTANT</a>
 <?php
 //$email=$_SESSION['current_user_email'];
 define('DB_HOST_NAME', '3.109.14.4');
@@ -176,7 +176,7 @@ a {
   
          //2.inserting into database
         $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
-        echo $sql;
+       
         $res= mysqli_query($conn,$sql);
          echo "<h3 style = 'color:white;'>$full_name<h3>";
          echo "<h3 style = 'color:white;'>$email<h3>";
