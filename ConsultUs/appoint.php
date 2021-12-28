@@ -205,7 +205,7 @@ a {
   
   ?>
 
-<form action="" method="POST" class=" d-flex justify-content-center">
+<form action="" method="POST" class="  justify-content-center">
   <div class="container " style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
     <p>

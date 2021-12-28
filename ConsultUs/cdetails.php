@@ -49,7 +49,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         </h2>
         <br>
         <!.... BUTTON TO ADD consultant...>
-            <a href="./chatbot/room.php?roomname=global1" class="btn-primary" style="color:black;background-color:orange;float:right;">CHAT GLOBAL</a><br><br>
+            <a href="./chatbot/room.php?roomname=global1" class=" btn btn-sm" style="color:black;background-color:orange;float:right;">CHAT GLOBAL</a><br><br>
             <br>
             <br>
             <table class=" table table-striped table-hover  tb-full">
@@ -117,7 +117,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         &name=<?php echo $row['u_name'];?>&category=<?php echo $row['cat_name'];?>
                         &conmob=<?php echo $row['u_mob'];?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>
                         &user_email=<?php echo $u_email;?>&user_mob=<?php echo  $u_mob;?>" 
-                        class="btn-second" style="color:black;background-color:lightgreen">Book Appointment </a>
+                        class="btn btn-secondary btn-small" >Book Appointment </a>
 
                     <?php
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
