@@ -70,7 +70,7 @@ $res = mysqli_query($conn,$sql1);
                     }else{
                         echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
                     }
-                }else if($date1==$date5 || $date1==$date2){
+                }else{
                         echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
                        }
             }else{
@@ -110,7 +110,9 @@ $res = mysqli_query($conn,$sql1);
 
 
 
-}   
+} else{
+    echo json_encode(['status'=>'fail', 'msg'=>"UNABLE TO ADD DATA"]);
+}  
 
 
     

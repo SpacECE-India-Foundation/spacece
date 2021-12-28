@@ -9,7 +9,7 @@ $email='';
 if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
-include('indexDB.php'); ?>
+ ?>
 
 <?php
 //$email=$_SESSION['current_user_email'];
@@ -47,6 +47,7 @@ if ($res) {
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
 //   echo $uid =$_GET['uid'];
+include('indexDB.php');
 $c_id=$_GET['cid'];
 $b_id=$_GET['b_id'];
 $con_name=$_GET['con_name'];
