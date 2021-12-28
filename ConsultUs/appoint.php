@@ -253,7 +253,7 @@ a {
 
 include_once '../common/footer_module.php';
 }else{
-  header('location:spacece_auth/login.php');
+  header('location:../spacece_auth/login.php');
 }
 
 ?>
