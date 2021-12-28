@@ -97,7 +97,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         ?>
                         <tr>
                         <td><?php echo $sno++; ?></td>
-                       <td><img src="<?php echo $row['u_image']; ?>" width="100" height="100"></td>
+                       <td><img src="<?php echo "../img/users/". $row['u_image']; ?>" width="100" height="100"></td>
                         <td><?php echo $row['u_name']; ?></td>
                         <td><?php echo $row['cat_name']; ?></td>
                         <td><?php echo $row['c_office']; ?></td>
