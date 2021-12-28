@@ -21,10 +21,37 @@ if ($conn->connect_error) {
 <?php
 $uid = $_GET['uid'];
 $cid = $_GET['cid'];
+$subid = $_GET['subid'];
 
 error_reporting();
 
-if (isset($cid)) {
+if (isset($cid) && isset($subid)) {
+    $sql = "
+        SELECT
+            sc.cid,
+            c.title,
+            c.description,
+            c.logo,
+            c.type,
+            c.mode,
+            c.mode,
+            c.duration,
+            c.price,
+            sc.id,
+            sc.introduction,
+            sc.topic,
+            sc.quote,
+            sc.question,
+            sc.video_url,
+            sc.author
+        FROM
+            learnonapp_courses c
+        INNER JOIN learnonapp_subcourses sc ON
+            c.id = sc.cid AND c.id = " . $cid;
+
+    $res = mysqli_query($conn, $sql);
+    header('Content-Type:application/json');
+} else if (isset($cid)) {
     $sql = "SELECT * FROM `learnonapp_courses` WHERE `id`=" . $cid;
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
