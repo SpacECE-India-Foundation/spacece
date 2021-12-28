@@ -34,7 +34,6 @@ if (isset($cid) && isset($subid)) {
             c.logo,
             c.type,
             c.mode,
-            c.mode,
             c.duration,
             c.price,
             sc.id,

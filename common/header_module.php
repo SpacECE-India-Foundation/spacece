@@ -119,13 +119,48 @@ session_start();
             color: #536482;
             background-color: white;
         }
+
+        .center {
+            text-align: center;
+        }
+
+        .about-page {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-page .about-moto {
+            display: flex;
+            min-height: 320px;
+            background-color: #f6f6f6;
+            padding: 40px 80px;
+            align-items: center;
+        }
+
+        .about-page .about-desc {
+            display: flex;
+            flex-direction: column;
+            padding: 40px 80px;
+        }
+
+        .about-page .about-desc h3 span {
+            border-bottom: 2px solid #536482;
+        }
+
+        .about-page .about-desc p {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #707070;
+            font-weight: 400;
+            line-height: 1.5;
+        }
     </style>
     <!-- BUG ID-0000067 -->
     <title><?= isset($module_name) ? $module_name : 'SpaceECE' ?></title>
 </head>
 
 <body>
-<?php $main_page= isset($main_page) ? ($main_page) :  NULL ?>
+    <?php $main_page = isset($main_page) ? ($main_page) :  NULL ?>
 
     <nav class="navbar">
         <div class="logo">
