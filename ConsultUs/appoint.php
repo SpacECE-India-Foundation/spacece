@@ -9,9 +9,6 @@ $email='';
 if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
-
-
-
 include('indexDB.php'); ?>
 
 <?php
@@ -206,7 +203,7 @@ a {
   ?>
 
 <form action="" method="POST">
-  <div class="container" style="width:80%">
+  <div class="container d-flex justify-content-center" style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
     <p>
     </p>
