@@ -168,14 +168,14 @@ a {
           $full_name = $user_name;
           $email = $user_email;
           $mob = $user_mob;
-           $bookid = $uid;
+          // $bookid = $uid;
            $atime = $_POST["atime"];
            $adate = $_POST["adate"];
          echo $status ="inactive";
          // encrypt pass 
   
          //2.inserting into database
-        $sql= " UPDATE `appointment` SET `username`= '$full_name' , `status`='$status',`email`='$email', `mobile`='$mob',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$bookid'";
+        $sql= " UPDATE `appointment` SET `username`= '$full_name' , `status`='$status',`email`='$email', `mobile`='$mob',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
         $res= mysqli_query($conn,$sql);
          echo "<h3 style = 'color:white;'>$full_name<h3>";
          echo "<h3 style = 'color:white;'>$email<h3>";
