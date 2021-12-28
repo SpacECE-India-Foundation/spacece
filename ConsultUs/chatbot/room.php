@@ -1,6 +1,6 @@
 <?PHP
-$main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = "../img/logo/ConsultUs.jpeg";
+$main_logo = "../../img/logo/SpacECELogo.jpg";
+$module_logo = "../../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 include_once '../../common/header_module.php';
 ?>
