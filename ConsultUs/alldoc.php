@@ -5,6 +5,7 @@ $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 include_once '../common/header_module.php';
   include('indexDB.php');
+  
 ?>
 <?php error_reporting(0); 
 
@@ -24,8 +25,8 @@ if ($conn1) {
     die("Connection failed: " . $conn->connect_error);
 }
 $ref='';
-$_SESSION['current_user_email']='krishnathorat007@gmail.com';
-$_SESSION['current_user_name']='Krishna Thorat';
+$_SESSION['current_user_email'];
+$_SESSION['current_user_name'];
 if(isset($_SESSION['current_user_email'])){
     $email = $_SESSION['current_user_email'];
     $ref= $_SESSION['current_user_name'];
