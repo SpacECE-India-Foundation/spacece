@@ -4,10 +4,10 @@ session_start();
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
-$servername = "localhost";
+$servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
-$dbname = "api_learnonapp";
+$dbname = "spaceece";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 ?>
 <?php
 
-$sql = "SELECT * FROM learnon_messages WHERE header='Introduction'";
+$sql = "SELECT * FROM learnonapp_messages WHERE header='Introduction'";
 $res = mysqli_query($conn, $sql);
 
 if ($res) {
@@ -26,7 +26,7 @@ if ($res) {
     if ($count > 0) {
         while ($row = mysqli_fetch_assoc($res)) {
             // print_r($row['no_of_day']);
-            $sql2 = "SELECT * FROM learnon_users WHERE days = " . $row['no_of_day'];
+            $sql2 = "SELECT * FROM users WHERE days = " . $row['no_of_day'];
             $res2 = mysqli_query($conn, $sql2);
 
             if ($res2) {
