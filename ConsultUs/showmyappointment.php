@@ -1,4 +1,4 @@
-<?php include('indexDB.php');
+<?
 session_start();
 if(isset($_SESSION['current_user_email'])){
     $email = $_SESSION['current_user_email'];
@@ -7,6 +7,9 @@ if(isset($_SESSION['current_user_email'])){
     header('location:../spacece_auth/login.php');
     exit();
 }
+
+include('indexDB.php');
+
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
