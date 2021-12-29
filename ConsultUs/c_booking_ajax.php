@@ -20,10 +20,10 @@ $c_to_time=$_POST['c_to_time'];
 //  $_SESSION['add']= "Consultant Un available";
  }else{
 
-    $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
+    // $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
    
-    $res1= mysqli_query($conn,$sql1);
-    var_dump($res1);
+    // $res1= mysqli_query($conn,$sql1);
+    // var_dump($res1);
     
 
 // //2.inserting into database

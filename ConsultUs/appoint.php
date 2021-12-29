@@ -77,7 +77,7 @@ $con_name=$_GET['con_name'];
   echo $sql;
   
   $res= mysqli_query($conn,$sql);
- 
+ echo $res;
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
   //echo "<h3 style = 'color:white;'>this is your booking id = $uid , please fill it in form</h3>";
 
