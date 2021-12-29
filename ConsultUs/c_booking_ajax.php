@@ -21,9 +21,9 @@ $c_to_time=$_POST['c_to_time'];
  }else{
 
     $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
-   
+   echo  $sql1;
     $res1= mysqli_query($conn,$sql1);
-    var_dump($res1);
+    
     
 
 // //2.inserting into database
