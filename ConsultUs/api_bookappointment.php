@@ -61,7 +61,7 @@ $res = mysqli_query($conn,$sql1);
                 
                         //checking whether query is excuted or not
                         if($res){
-                            echo json_encode(['status'=>'success','result'=>'Added']);
+                            echo json_encode(['status'=>'success','result'=>'Added','c_id'=>$c_id]);
                             // count that data is there or not in database
                             
                            

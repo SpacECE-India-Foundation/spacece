@@ -22,7 +22,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 $u_name='';
 $u_mob='';
 $u_email='';
-
+$c_from_time='';
+$c_to_time='';
 $sql="SELECT * FROM users WHERE u_email='$email'";
 $res = mysqli_query($conn1, $sql);
 
@@ -40,6 +41,24 @@ if ($res) {
             $u_email=$row['u_email'];
             $u_id=$row['u_id'];
        
+        }
+    }
+}
+$c_id=$_GET['cid'];
+$sql="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'";
+$res = mysqli_query($conn1, $sql);
+
+
+
+if ($res) {
+   
+    $count = mysqli_num_rows($res);
+    $sno = 1;
+    if ($count > 0) {
+      
+        while ($row = mysqli_fetch_assoc($res)) {
+        $c_from_time=$row['c_from_time'];
+        $c_to_time=$row['c_to_time'];
         }
     }
 }
@@ -173,7 +192,13 @@ a {
            $adate = $_POST["adate"];
          $status ="inactive";
          // encrypt pass 
-  
+         $time= date("H:i", strtotime($atime));
+         $time1=strtotime($time);
+         if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
+
+         }else{
+
+         
          //2.inserting into database
         $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
        
@@ -203,8 +228,7 @@ a {
         </div>';
       }
   
-      else{
-                }
+      }
   
       
   
@@ -223,7 +247,7 @@ a {
    <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>"><br><br>
     <!-- bug id-0000045 -->
  <label for="atime"><b>Select A Time:</b></label>
-  <input type="time" id="atime" name="atime" min="16:00" max="22:00" >
+  <input type="time" id="atime" name="atime"  >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
     <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required >
