@@ -124,6 +124,10 @@ session_start();
             text-align: center;
         }
 
+        .justify {
+            text-align: justify;
+        }
+
         .about-page {
             display: flex;
             flex-direction: column;
@@ -135,6 +139,7 @@ session_start();
             background-color: #f6f6f6;
             padding: 40px 80px;
             align-items: center;
+            justify-content: center;
         }
 
         .about-page .about-desc {
