@@ -10,7 +10,7 @@ if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
  ?>
- <a class="btn btn-sm " style="background-color: orange;" href="alldoc.php">Booked CONSULTANT</a>
+
 <?php
 //$email=$_SESSION['current_user_email'];
 define('DB_HOST_NAME', '3.109.14.4');
@@ -22,7 +22,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 $u_name='';
 $u_mob='';
 $u_email='';
-
+$c_from_time='';
+$c_to_time='';
 $sql="SELECT * FROM users WHERE u_email='$email'";
 $res = mysqli_query($conn1, $sql);
 
@@ -43,6 +44,25 @@ if ($res) {
         }
     }
 }
+$c_id=$_GET['cid'];
+// $sql1="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'";
+// $res1 = mysqli_query($conn1, $sql1);
+
+
+
+// if ($res1) {
+   
+//     $count = mysqli_num_rows($res1);
+  
+//     if ($count > 0) {
+      
+//         while ($row = mysqli_fetch_assoc($res1)) {
+//           var_dump($row);
+//         $c_from_time=$row['c_from_time'];
+//         $c_to_time=$row['c_to_time'];
+//         }
+//     }
+// }
 //  echo $cid = $_GET['id'];
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
@@ -173,7 +193,14 @@ a {
            $adate = $_POST["adate"];
          $status ="inactive";
          // encrypt pass 
-  
+         $time= date("H:i", strtotime($atime));
+         $time1=strtotime($time);
+        //  if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
+        //    echo "<script>Consultant Un available in selected Time</csript>";
+
+        //  }else{
+
+         
          //2.inserting into database
         $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
        
@@ -197,14 +224,13 @@ a {
       //echo "<h3 style = 'color:white;'>database not updated<h3>";
       }
       
-          echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style:"color:white;">
+          echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style:"backgeound-color:orange">
           <strong style="color:white;">sucess!</strong> <h3 style="color:white;">Your form is submitted sucessfully.</h3>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
       }
   
-      else{
-                }
+    //  }
   
       
   
@@ -223,7 +249,7 @@ a {
    <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>"><br><br>
     <!-- bug id-0000045 -->
  <label for="atime"><b>Select A Time:</b></label>
-  <input type="time" id="atime" name="atime" min="16:00" max="22:00" >
+  <input type="time" id="atime" name="atime"  >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
     <input type="text" value="<?php echo $u_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"  name="fullname" id="fullname" required readonly>

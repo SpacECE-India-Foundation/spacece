@@ -51,8 +51,8 @@ if(isset($_SESSION['current_user_email'])){
     <body>
 
         <! ... menu section starts...>
-        <div class="menu text-center" style="background-color:orange;">
-<!-- <img src="img/space.jpg" alt="" style="width:6%; "> -->
+        <!-- <div class="menu text-center" style="background-color:orange;">
+<img src="img/space.jpg" alt="" style="width:6%; "> 
             <div class="wrapper" >
                 <ul>
                     <li><a href="index2.php">HOME</a></li>
@@ -60,7 +60,7 @@ if(isset($_SESSION['current_user_email'])){
                     <li><a href="showmyappointment.php">SHOW MY APPOINTMENT</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <!... menu section ends....>
 
         
