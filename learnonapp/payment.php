@@ -57,10 +57,10 @@ function paymentInit($name, $email, $mobile, $total)
     curl_close($ch);
     // $response = "result:". $response;
     // $response = json_encode($response);
-    // print_r($response);
+    print_r($response);
 
-    echo $response;
+    // echo $response;
 
-    // header('location:'. $response->payment_request->longurl);
+    // header('location:' . $response->payment_request->longurl);
     exit();
 }
