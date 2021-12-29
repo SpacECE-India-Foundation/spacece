@@ -305,7 +305,7 @@ include_once '../common/footer_module.php';
 
 <script>
 
-  $('#appoint').on('submit',function(){
+  $('#submit').on('click',function(){
 
 
 var c_from_time="<?php echo $c_from_time; ?>";
@@ -319,7 +319,8 @@ var mobile=$('#mobile').val();
 var email=$('#email').val();
 $.ajax({
   method:'post',
-  data:{b_id:b_id,
+  data:{
+    b_id:b_id,
     adate:adate,
     atime:atime,
     cname:cname,
