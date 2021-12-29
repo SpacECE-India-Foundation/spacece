@@ -23,7 +23,7 @@ $c_to_time=$_POST['c_to_time'];
 
 // //2.inserting into database
 $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
-
+echo $sql;
 $res= mysqli_query($conn,$sql);
 echo $res;
 // echo "<h3 style = 'color:white;'>$full_name<h3>";
