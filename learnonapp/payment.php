@@ -8,7 +8,7 @@ if (!isset($_SESSION['current_user_id'])) {
     $name = $_SESSION['current_user_name'];
     $email = $_SESSION['current_user_email'];
     $mobile = $_SESSION['current_user_mob'];
-    $total = 100;
+    $total = 49;
 
     if ($total < 10) {
         echo json_encode(array('success' => false, 'message' => 'Minimum order amount is Rs. 10'));
