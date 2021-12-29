@@ -48,7 +48,7 @@ $c_id=$_GET['cid'];
 $sql1="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'"; $res1 = mysqli_query($conn1, $sql1);
 
 
-echo $sql1;
+
  if ($res1) {
    
     $count = mysqli_num_rows($res1);
@@ -56,7 +56,7 @@ echo $sql1;
     if ($count > 0) {
       
         while ($row = mysqli_fetch_assoc($res1)) {
-          var_dump($row);
+        
         $c_from_time=$row['c_from_time'];
         $c_to_time=$row['c_to_time'];
         }
@@ -196,10 +196,10 @@ a {
          // encrypt pass 
          $time= date("H:i", strtotime($atime));
          $time1=strtotime($time);
-        //  if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
-        //    echo "<script>Consultant Un available in selected Time</csript>";
+         if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
+           echo "<script>Consultant Un available in selected Time</csript>";
 
-        //  }else{
+         }else{
 
          
          //2.inserting into database
@@ -231,7 +231,7 @@ a {
         </div>';
       }
   
-    //  }
+     }
   
       
   
