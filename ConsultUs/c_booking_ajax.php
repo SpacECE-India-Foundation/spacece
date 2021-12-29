@@ -25,6 +25,7 @@ $c_to_time=$_POST['c_to_time'];
 $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
 
 $res= mysqli_query($conn,$sql);
+echo $res;
 // echo "<h3 style = 'color:white;'>$full_name<h3>";
 // echo "<h3 style = 'color:white;'>$email$email<h3>";
 // echo "<h3 style = 'color:white;'>$mob<h3>";
