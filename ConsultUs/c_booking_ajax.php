@@ -1,6 +1,15 @@
 <?php
-include 'indexdb.php';
 
+$servername = "3.109.14.4";
+$username = "ostechnix";
+$password = "Password123#@!";
+$dbname = "consultant_app";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 //var_dump($_POST);
  $full_name = $_POST['fullname'];
  $email = $_POST['email'];
@@ -21,14 +30,14 @@ $c_to_time=$_POST['c_to_time'];
  }else{
 
     $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
-   echo  $sql1;
+ 
     $res1= mysqli_query($conn,$sql1);
     
     
 
 // //2.inserting into database
-$sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$bookid'";
-echo $sql;
+$sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
+
 $res= mysqli_query($conn,$sql);
 echo $res;
 // echo "<h3 style = 'color:white;'>$full_name<h3>";
