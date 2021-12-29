@@ -34,8 +34,8 @@ $(document).ready(function () {
                       <p class="list-type"><strong>Type:</strong> ${course.type}</p>
                       <p class="list-mode"><strong>Mode:</strong> ${course.mode}</p>
                     </div>
-                    <a href="payment.php" class="btn">
-                      Buy Now
+                    <a href="course.php?id=${course.id}" class="btn">
+                      Know More
                     </a>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ $(document).ready(function () {
               </div>
               <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
             </div>
-            <a href="course.php?id=${course.id}" class="btn btn-wide">
+            <a href="payment.php" class="btn btn-wide">
               Buy Course
             </a>
           </div>`
