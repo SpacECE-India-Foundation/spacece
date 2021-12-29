@@ -40,13 +40,13 @@ if(isset($_SESSION['current_user_email'])){
                         <th>CATEGORY:</th>
                         <th>USERNAME:</th>
                         <th>CONSULTANT NAME</th>
-                        <th>CONSULTANT MOB</th>
+                        <th>MOBILE NUMBER:</th>
                         <th>A_DATE:</th>
                         <th>A_TIME:</th>
                         <th>STATUS:</th>
                         <th>EMAIL:</th>
-                        <th>MOBILE NUMBER:</th>
-                        <th>UID:</th>
+                       
+                        <th>BID:</th>
                         <th>ACTION:</th>
                     </tr>
                     <?php
