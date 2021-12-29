@@ -31,8 +31,8 @@ $(document).ready(function () {
                   <p class="list-text">${course.description}</p >
                   <div class="list-body">
                     <div class="list-misc">
-                      <p class="list-type">Type: ${course.type}</p>
-                      <p class="list-mode">Mode: ${course.mode}</p>
+                      <p class="list-type"><strong>Type:</strong> ${course.type}</p>
+                      <p class="list-mode"><strong>Mode:</strong> ${course.mode}</p>
                     </div>
                     <a href="course.php?id=${course.id}" class="btn">
                       Buy Now
