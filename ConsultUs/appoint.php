@@ -255,14 +255,14 @@ a {
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
 
-    <!-- <input type="text" value="<?php //echo $u_name ?>" name="fullname" id="fullname" required readonly >
+    <input type="text" value="<?php //echo $u_name ?>" name="fullname" id="fullname" required readonly >
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php //echo $con_name ?>" name="cname" id="cname" required > -->
+    <input type="text" value="<?php //echo $con_name ?>" name="cname" id="cname" required >
 
-    <input type="text" value="<?php echo $u_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"  name="fullname" id="fullname" required readonly>
+    <!-- <input type="text" value="<?php //echo $u_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"  name="fullname" id="fullname" required readonly>
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $con_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="cname" id="cname" required>
-
+    <input type="text" value="<?php //echo $con_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="cname" id="cname" required>
+ -->
 
     <label for="email"><b>Email</b></label>
     <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
