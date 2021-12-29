@@ -304,30 +304,30 @@ include_once '../common/footer_module.php';
     </body>
 
 <script>
-var c_from_time=<?php echo $c_from_time; ?>;
-var c_to_time=<?php echo $c_to_time; ?>;
-var b_id=$('#userid').val();
-var adate=$('#adate').val();
-var adate=$('#atime').val();
-var fullname=$('#fullname').val();
-var cname=$('cname').val();
-var mobile=$('#mobile').val();
-var email=$('#email').val();
-$.ajax({
-  method:'post',
-  data:{b_id:b_id,
-    adate:adate,
-    adate:adate,
-    cname:cname,
-    mobile:mobile,
-    email:email,
-    c_from_time:c_from_time,
-    c_to_time:c_to_time
-  },url:'./c_booking_ajax.php',
-  success:function(data){
-    alert(data);
-  }
-})
+// var c_from_time=<?php //echo $c_from_time; ?>;
+// var c_to_time=<?php //echo $c_to_time; ?>;
+// var b_id=$('#userid').val();
+// var adate=$('#adate').val();
+// var adate=$('#atime').val();
+// var fullname=$('#fullname').val();
+// var cname=$('cname').val();
+// var mobile=$('#mobile').val();
+// var email=$('#email').val();
+// $.ajax({
+//   method:'post',
+//   data:{b_id:b_id,
+//     adate:adate,
+//     adate:adate,
+//     cname:cname,
+//     mobile:mobile,
+//     email:email,
+//     c_from_time:c_from_time,
+//     c_to_time:c_to_time
+//   },url:'./c_booking_ajax.php',
+//   success:function(data){
+//     alert(data);
+//   }
+// })
 
 
   </script>
