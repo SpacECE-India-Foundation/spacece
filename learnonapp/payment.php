@@ -5,6 +5,7 @@ if (!isset($_SESSION['current_user_id'])) {
     header('Location: ../spacece_auth/login.php');
     exit();
 } else {
+    $_SESSION['course_id'] = $_POST['course_id'];
     $name = $_SESSION['current_user_name'];
     $email = $_SESSION['current_user_email'];
     $mobile = $_SESSION['current_user_mob'];
