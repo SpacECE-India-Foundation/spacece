@@ -59,7 +59,7 @@ $(document).ready(function () {
         if (d.status == "success") {
           const course = d.data[0];
           $("#course_details").html(
-            `<div class="single_course">
+            `<form action="./payment.php" method="POST" class="single_course">
             <div class="single_course_body">
               <div>
                 <strong class="single_course_title">${course.title}</strong>
@@ -69,10 +69,11 @@ $(document).ready(function () {
               </div>
               <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
             </div>
-            <a href="payment.php" class="btn btn-wide">
+            <input type="hidden" name="course_id" value="${course.id}">
+            <button type="submit" class="btn btn-wide">
               Buy Course
-            </a>
-          </div>`
+            </button>
+          </form>`
           );
         }
       },
