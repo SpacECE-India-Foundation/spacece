@@ -42,7 +42,7 @@ function paymentInit($name, $email, $mobile, $total)
         'currency' => 'INR',
         'phone' => '+91' . $mobile,
         'buyer_name' => $name,
-        'redirect_url' => 'https://spacefoundation.in/test/SpacECE-PHP/Khanstore/payment_confirm.php',
+        'redirect_url' => 'https://spacefoundation.in/test/SpacECE-PHP/learnonapp/payment_confirm.php',
         'send_email' => true,
         'webhook' => 'https://spacefoundation.in/test/SpacECE-PHP/instamojo_api/webhook.php',
         'send_sms' => true,
@@ -55,15 +55,9 @@ function paymentInit($name, $email, $mobile, $total)
     curl_close($ch);
     // $response = "result:". $response;
     $response = json_decode($response);
-    print_r($response);
-
-    echo "<br><br>";
-
-    $response = json_encode($response);
-    print_r($response);
 
     // echo $response;
 
-    // header('location:' . $response->payment_request->longurl);
+    header('location:' . $response->payment_request->longurl);
     exit();
 }
