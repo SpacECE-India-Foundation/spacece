@@ -312,18 +312,19 @@ var c_from_time="<?php echo $c_from_time; ?>";
 var c_to_time="<?php echo $c_to_time; ?>";
 var b_id=$('#userid').val();
 var adate=$('#adate').val();
-var adate=$('#atime').val();
+var atime=$('#atime').val();
 var fullname=$('#fullname').val();
-var cname=$('cname').val();
+var cname=$('#cname').val();
 var mobile=$('#mobile').val();
 var email=$('#email').val();
 $.ajax({
   method:'post',
   data:{b_id:b_id,
     adate:adate,
-    adate:adate,
+    atime:atime,
     cname:cname,
     mobile:mobile,
+    fullname:fullname,
     email:email,
     c_from_time:c_from_time,
     c_to_time:c_to_time
