@@ -197,7 +197,7 @@ a {
       //echo "<h3 style = 'color:white;'>database not updated<h3>";
       }
       
-          echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style:"color:white;">
+          echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style:"backgeound-color:orange">
           <strong style="color:white;">sucess!</strong> <h3 style="color:white;">Your form is submitted sucessfully.</h3>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
