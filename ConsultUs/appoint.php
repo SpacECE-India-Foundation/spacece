@@ -304,8 +304,10 @@ include_once '../common/footer_module.php';
     </body>
 
 <script>
-var c_from_time="<?php //echo $c_from_time; ?>";
-var c_to_time="<?php //echo $c_to_time; ?>";
+
+  $('#submit')
+var c_from_time="<?php echo $c_from_time; ?>";
+var c_to_time="<?php echo $c_to_time; ?>";
 var b_id=$('#userid').val();
 var adate=$('#adate').val();
 var adate=$('#atime').val();
