@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+include('connect.php');
 
 $data = $_POST;
 $mac_provided = $data['mac'];  // Get the MAC from the POST data
@@ -22,9 +25,26 @@ if ($mac_provided == $mac_calculated) {
     echo "MAC is fine";
     // Do something here
     if ($data['status'] == "Credit") {
-        // Payment was successful, mark it as completed in your database  
+        $status = $data['status'];
+        $email = $data['buyer'];
+        $phone = $data['buyer_phone'];
+        $purpose = $data['purpose'];
+        $name = $data['buyer_name'];
+        $amt = $data['amount'];
     } else {
-        // Payment was unsuccessful, mark it as failed in your database
+        $query1 = "SELECT * FROM users WHERE u_email='$email'";
+
+        $result = mysqli_query($conn, $query1);
+
+        if (!$result) {
+            $query2 = "INSERT INTO users(u_fname, u_email, u_mob, space_active) VALUES ('$name','$email', '$phone', 'active')";
+            mysqli_query($conn, $query2);
+        }
+
+        $sql = "INSERT INTO webhook( imojo_id, payment_id, u_email, p_name, date_of_activation, date_of_expire, amount) 
+VALUES ('$payment_id','$payment_id','$email','$purpose','$date_purchase','$end_date','$amt')";
+
+        $res = mysqli_query($conn, $sql);
     }
 } else {
     echo "Invalid MAC passed";
