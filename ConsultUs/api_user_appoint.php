@@ -43,7 +43,7 @@ if(empty($c_id) && $status=='All'){
                     $arr[] = $row;   // making array of data
                  
                 }
-               echo json_encode(['status'=>'success','data'=>$arr,'result'=>'found']);
+               echo json_encode(['status'=>'success','data'=>$arr,'c_id'=>$u_id,'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
@@ -119,7 +119,7 @@ if($u_id || $c_id && $status==='Active' ){
                  
                 }
                 
-               echo json_encode(['status'=>'success', 'status1'=>$status,'data'=>$arr,'result'=>'found']);
+               echo json_encode(['status'=>'success', 'status1'=>$status,'data'=>$arr, 'c_id'=>$cid , 'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
 
 
@@ -183,7 +183,7 @@ if($u_id || $c_id && $status==='Active' ){
    
 
          if(isset($_POST['c_id']) && isset($_POST['u_id'])){
-    echo "inside4";
+    
            
             // echo "inside";
                  // showing admin added from database
