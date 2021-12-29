@@ -10,7 +10,7 @@ if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
  ?>
- <a class="btn btn-sm " style="background-color: orange;" href="alldoc.php">Booked CONSULTANT</a>
+
 <?php
 //$email=$_SESSION['current_user_email'];
 define('DB_HOST_NAME', '3.109.14.4');
@@ -226,9 +226,9 @@ a {
   <input type="time" id="atime" name="atime" min="16:00" max="22:00" >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
-    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required readonly>
+    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required >
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required>
+    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required readonly>
 
     <label for="email"><b>Email</b></label>
     <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>

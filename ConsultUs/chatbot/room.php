@@ -1,8 +1,17 @@
 <?PHP
-$main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = "../img/logo/ConsultUs.jpeg";
+session_start();
+if(isset($_SESSION['current_user_email'])){
+  $email = $_SESSION['current_user_email'];
+  $user= $_SESSION['current_user_name'];
+} else{
+  header('location:../../spacece_auth/login.php');
+  exit();
+}
+$main_logo = "../../img/logo/SpacECELogo.jpg";
+$module_logo = "../../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 include_once '../../common/header_module.php';
+
 ?>
 
 
