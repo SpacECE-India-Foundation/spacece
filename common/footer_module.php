@@ -150,7 +150,7 @@
 }
 </style>
 </head>
-
+<div class="container">
 <footer class="footer-section set-bg" style="
         background-color: orange;
         border-collapse: collapse;
@@ -158,7 +158,7 @@
         opacity: 0.9;
         padding: 30px 30px;
       ">
-       <div class="container">
+      
     <div class="row">
         <div class="col-lg-3 footer-widget ">
             <img src="<?= isset($module_logo) ? $module_logo : './img/logo/SpacECELogo.jpg' ?>" class="img img-fluid img-thumbnail img-circle" alt="" style="width: 150px" /><a href="./index.php">
@@ -235,7 +235,7 @@
         </div>
     </div>
 
-
+</div>
 </footer>
 <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px">
     <span style="font-size: 20px"><span class="color_15">&copy;2021 by spaceECE INDIA FOUNDATION</span></span>
