@@ -198,6 +198,7 @@ a {
          $time1=strtotime($time);
          if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
            echo "<script>Consultant Un available in selected Time</csript>";
+           echo "Consultant Un available in selected Time";
 
          }else{
 
