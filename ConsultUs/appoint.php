@@ -238,7 +238,7 @@ a {
   
   ?>
 
-<form  method="POST" id="appoint" class="  justify-content-center">
+<form  method="POST" name="appoint" id="appoint" class="  justify-content-center">
   <div class="container " style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
     <p>
