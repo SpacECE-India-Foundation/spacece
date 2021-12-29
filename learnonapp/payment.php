@@ -2,8 +2,10 @@
 
 if (!isset($_SESSION['current_user_id'])) {
     header('Location: ../spacece_auth/login.php');
+    echo "<script>alert('Please login first.');</script>";
     exit();
 } else {
+    echo "<script>alert('Logged In already.');</script>";
     $name = $_SESSION['current_user_name'];
     $email = $_SESSION['current_user_email'];
     $mobile = $_SESSION['current_user_mob'];
