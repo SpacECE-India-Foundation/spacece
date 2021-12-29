@@ -9,6 +9,7 @@ $redirectUrl = $_SESSION['redirect_url'];
 
 if (isset($_SESSION['current_user_id'])) {
   header("Location: " . $redirectUrl);
+  exit();
 }
 ?>
 
