@@ -22,7 +22,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 $u_name='';
 $u_mob='';
 $u_email='';
-
+$c_from_time='';
+$c_to_time='';
 $sql="SELECT * FROM users WHERE u_email='$email'";
 $res = mysqli_query($conn1, $sql);
 
@@ -191,7 +192,13 @@ a {
            $adate = $_POST["adate"];
          $status ="inactive";
          // encrypt pass 
-  
+         $time= date("H:i", strtotime($atime));
+         $time1=strtotime($time);
+         if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
+
+         }else{
+
+         
          //2.inserting into database
         $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
        
@@ -221,8 +228,7 @@ a {
         </div>';
       }
   
-      else{
-                }
+      }
   
       
   
