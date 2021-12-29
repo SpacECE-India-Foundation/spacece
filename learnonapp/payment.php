@@ -54,7 +54,12 @@ function paymentInit($name, $email, $mobile, $total)
     $response = curl_exec($ch);
     curl_close($ch);
     // $response = "result:". $response;
-    // $response = json_encode($response);
+    $response = json_decode($response);
+    print_r($response);
+
+    echo "<br><br>";
+
+    $response = json_encode($response);
     print_r($response);
 
     // echo $response;
