@@ -24,7 +24,7 @@ $c_to_time=$_POST['c_to_time'];
  $time= date("H:i", strtotime($atime));
  $time1=strtotime($time);
  if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
-  echo 'Error';
+  echo 'Consultant is UN Available in SELECTED Time';
 
 //  $_SESSION['add']= "Consultant Un available";
  }else{
@@ -39,26 +39,21 @@ $c_to_time=$_POST['c_to_time'];
 $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
 $res= mysqli_query($conn,$sql);
-echo $res;
-// echo "<h3 style = 'color:white;'>$full_name<h3>";
-// echo "<h3 style = 'color:white;'>$email$email<h3>";
-// echo "<h3 style = 'color:white;'>$mob<h3>";
-// echo "<h3 style = 'color:white;'>$userid<h3>";
 
-//3. checking data is inserted or not
+
 if($res){
-   echo "success".$full_name.$email.$mob;
-//    $_SESSION['add']= "<div style='color:green;'> appointment booked successfully</div>";         //creating session variable
-   // redirecting page
-//    header("location:./alldoc.php");
-   //echo "<h3 style = 'color:white;'>database updated<h3>";
+   echo '<div>Successfully Booked With
+       <h5>Booking Id: '.$bookid.'</h5>
+       <h5>Full name: '.$full_name.'</h5>
+       <h5>Email: '.$email.'</h5>
+       <h5>Phone Number: '.$mob.'</h5>
+       </div>';
+
+
 }
 else{
-    echo 'Error1';
-//$_SESSION['add']= "failed to book appointment ";         //creating session variable
-// redirecting page
-// header("location:./alldoc.php");
-//echo "<h3 style = 'color:white;'>database not updated<h3>";
+    echo 'Invalid Data';
+
 }
 
 
