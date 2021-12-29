@@ -179,7 +179,9 @@ $(document).ready(function () {
               background: "linear-gradient(to right, #00b09b, #96c93d)",
             },
           }).showToast();
-          window.location.href = "./login.php";
+          setTimeout(function () {
+            window.location.href = "./login.php";
+          }, 3000);
         }
         if (data.status === "error") {
           Toastify({
