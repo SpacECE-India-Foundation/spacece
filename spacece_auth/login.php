@@ -5,8 +5,10 @@ include_once '../common/header_module.php';
 if (!isset($_SESSION['redirect_url']))
   $_SESSION['redirect_url'] = $_SERVER['HTTP_REFERER'];
 
+$redirectUrl = $_SESSION['redirect_url'];
+
 if (isset($_SESSION['current_user_id'])) {
-  header("Location: index.php");
+  header("Location: " . $redirectUrl);
 }
 ?>
 
