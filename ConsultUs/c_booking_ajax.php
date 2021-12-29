@@ -22,7 +22,7 @@ $c_to_time=$_POST['c_to_time'];
 
 
 // //2.inserting into database
-$sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
+$sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$bookid'";
 echo $sql;
 $res= mysqli_query($conn,$sql);
 echo $res;
