@@ -168,9 +168,17 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       success: function (response) {
-        console.log(response);
         const data = JSON.parse(response);
         if (data.status === "success") {
+          Toastify({
+            text: data.message,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            className: "success",
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+          }).showToast();
           window.location.href = "./login.php";
         }
         if (data.status === "error") {

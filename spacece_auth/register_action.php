@@ -57,7 +57,7 @@ if (mysqli_num_rows($run) > 0) {
 
     if ($result) {
         // header('location: login.php');
-        echo json_encode(array('status' => 'success', 'redirect_url' => $redirectUrl));
+        echo json_encode(array('status' => 'success', 'message' => "Registration successful!", 'redirectUrl' => $redirectUrl));
         die();
     } else {
         echo json_encode(array('status' => 'error', 'message' => "Error while registering user!"));
