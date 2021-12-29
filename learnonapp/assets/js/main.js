@@ -34,7 +34,7 @@ $(document).ready(function () {
                       <p class="list-type"><strong>Type:</strong> ${course.type}</p>
                       <p class="list-mode"><strong>Mode:</strong> ${course.mode}</p>
                     </div>
-                    <a href="course.php?id=${course.id}" class="btn">
+                    <a href="payment.php" class="btn">
                       Buy Now
                     </a>
                   </div>
