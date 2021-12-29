@@ -44,8 +44,6 @@ if(isset($_SESSION['current_user_email'])){
                         <th>A_DATE:</th>
                         <th>A_TIME:</th>
                         <th>STATUS:</th>
-                        <th>EMAIL:</th>
-                       
                         <th>BID:</th>
                         <th>ACTION:</th>
                     </tr>
