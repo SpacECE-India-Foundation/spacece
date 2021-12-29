@@ -45,24 +45,25 @@ if ($res) {
     }
 }
 $c_id=$_GET['cid'];
-// $sql1="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'";
-// $res1 = mysqli_query($conn1, $sql1);
+$sql1="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'"; $res1 = mysqli_query($conn1, $sql1);
 
 
 
-// if ($res1) {
+ if ($res1) {
    
-//     $count = mysqli_num_rows($res1);
+    $count = mysqli_num_rows($res1);
   
-//     if ($count > 0) {
+    if ($count > 0) {
       
-//         while ($row = mysqli_fetch_assoc($res1)) {
-//           var_dump($row);
-//         $c_from_time=$row['c_from_time'];
-//         $c_to_time=$row['c_to_time'];
-//         }
-//     }
-// }
+        while ($row = mysqli_fetch_assoc($res1)) {
+        
+        $c_from_time=$row['c_from_time'];
+        $c_to_time=$row['c_to_time'];
+        }
+    }
+ }else{
+   echo "No  data Found";
+ }
 //  echo $cid = $_GET['id'];
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
@@ -195,10 +196,11 @@ a {
          // encrypt pass 
          $time= date("H:i", strtotime($atime));
          $time1=strtotime($time);
-        //  if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
-        //    echo "<script>Consultant Un available in selected Time</csript>";
-
-        //  }else{
+         if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
+           echo '<script>alert("Consultant Un available in selected Time");<script>';
+          
+           $_SESSION['add']= "Consultant Un available in selected Tim";
+         }else{
 
          
          //2.inserting into database
@@ -230,7 +232,7 @@ a {
         </div>';
       }
   
-    //  }
+     }
   
       
   
@@ -246,10 +248,10 @@ a {
     <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>
     <label for="adate"><b>Date Of Appointment:</b></label>
         <!-- bug id=0000014 -->
-   <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>"><br><br>
+   <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>" required><br><br>
     <!-- bug id-0000045 -->
  <label for="atime"><b>Select A Time:</b></label>
-  <input type="time" id="atime" name="atime"  >
+  <input type="time" id="atime" name="atime" required >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
     <input type="text" value="<?php echo $u_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"  name="fullname" id="fullname" required readonly>
