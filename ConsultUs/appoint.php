@@ -73,9 +73,11 @@ $c_id=$_GET['cid'];
 $b_id=$_GET['b_id'];
 $con_name=$_GET['con_name'];
  $cat_name=$_GET['cat_name'];
-  $sql="INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$u_id','$u_mob')";
+  $sql="INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$b_id','$u_mob')";
+  echo $sql;
+  
   $res= mysqli_query($conn,$sql);
- 
+ echo $res;
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
   //echo "<h3 style = 'color:white;'>this is your booking id = $uid , please fill it in form</h3>";
 
@@ -183,62 +185,62 @@ a {
   
   // process the value  from the form  and save it to database
   // check whether form is submitted or not
-      if(isset($_POST["submit"]))
-      { //1.getting data into variable
+      //if(isset($_POST["submit"]))
+      //{ //1.getting data into variable
         
-          $full_name = $user_name;
-          $email = $user_email;
-          $mob = $user_mob;
-          // $bookid = $uid;
-           $atime = $_POST["atime"];
-           $adate = $_POST["adate"];
-         $status ="inactive";
-         // encrypt pass 
-         $time= date("H:i", strtotime($atime));
-         $time1=strtotime($time);
-         if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
-           echo '<script>alert("Consultant Un available in selected Time");<script>';
+      //     $full_name = $user_name;
+      //     $email = $user_email;
+      //     $mob = $user_mob;
+      //     // $bookid = $uid;
+      //      $atime = $_POST["atime"];
+      //      $adate = $_POST["adate"];
+      //    $status ="inactive";
+      //    // encrypt pass 
+      //    $time= date("H:i", strtotime($atime));
+      //    $time1=strtotime($time);
+      //    if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
           
-           $_SESSION['add']= "Consultant Un available in selected Tim";
-         }else{
+          
+      //      $_SESSION['add']= "Consultant Un available";
+      //    }else{
 
          
-         //2.inserting into database
-        $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
+      //    //2.inserting into database
+      //   $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
        
-        $res= mysqli_query($conn,$sql);
-         echo "<h3 style = 'color:white;'>$full_name<h3>";
-         echo "<h3 style = 'color:white;'>$email<h3>";
-         echo "<h3 style = 'color:white;'>$mob<h3>";
-         echo "<h3 style = 'color:white;'>$userid<h3>";
+      //   $res= mysqli_query($conn,$sql);
+      //    echo "<h3 style = 'color:white;'>$full_name<h3>";
+      //    echo "<h3 style = 'color:white;'>$email<h3>";
+      //    echo "<h3 style = 'color:white;'>$mob<h3>";
+      //    echo "<h3 style = 'color:white;'>$userid<h3>";
        
-         //3. checking data is inserted or not
-         if($res){
-             $_SESSION['add']= "<div style='color:green;' class='p-3 mb-2 bg-primary text-white'> appointment booked successfully</div>";         //creating session variable
-             // redirecting page
-             header("location:./alldoc.php");
-             //echo "<h3 style = 'color:white;'>database updated<h3>";
-         }
-      else{
-          $_SESSION['add']= "failed to book appointment successfully";         //creating session variable
-          // redirecting page
-          header("location:./alldoc.php");
-      //echo "<h3 style = 'color:white;'>database not updated<h3>";
-      }
+      //    //3. checking data is inserted or not
+      //    if($res){
+      //        $_SESSION['add']= "<div style='color:green;'> appointment booked successfully</div>";         //creating session variable
+      //        // redirecting page
+      //        header("location:./alldoc.php");
+      //        //echo "<h3 style = 'color:white;'>database updated<h3>";
+      //    }
+      // else{
+      //     $_SESSION['add']= "failed to book appointment successfully";         //creating session variable
+      //     // redirecting page
+      //     header("location:./alldoc.php");
+      // //echo "<h3 style = 'color:white;'>database not updated<h3>";
+      // }
       
-          echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style:"backgeound-color:orange">
-          <strong style="color:white;">sucess!</strong> <h3 style="color:white;">Your form is submitted sucessfully.</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
-      }
+      //     echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style:"backgeound-color:orange">
+      //     <strong style="color:white;">sucess!</strong> <h3 style="color:white;">Your form is submitted sucessfully.</h3>
+      //     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      //   </div>';
+      // }
   
-     }
+    // }
   
       
   
   ?>
 
-<form action="" method="POST" class="  justify-content-center">
+<form   name="appoint" id="appoint" class="  justify-content-center">
   <div class="container " style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
     <p>
@@ -251,12 +253,18 @@ a {
    <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>" required><br><br>
     <!-- bug id-0000045 -->
  <label for="atime"><b>Select A Time:</b></label>
-  <input type="time" id="atime" name="atime" required >
+  <input type="time" id="atime" name="atime" required  >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
-    <input type="text" value="<?php echo $u_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"  name="fullname" id="fullname" required readonly>
+
+    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required >
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $con_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="cname" id="cname" required>
+    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required  readonly>
+
+    <!-- <input type="text" value="<?php //echo $u_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"  name="fullname" id="fullname" required readonly>
+<label for="cname"><b>Consultant Name</b></label>
+    <input type="text" value="<?php //echo $con_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="cname" id="cname" required>
+ -->
 
     <label for="email"><b>Email</b></label>
     <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
@@ -264,7 +272,7 @@ a {
     <input type="text" value="<?php echo $u_mob ?>"   minlength="10" maxlength="10" pattern="\d{10}" name="mobile" id="mobile" required><br>
     
     <hr>
-  <input type="submit" name="submit" class="registerbtn" value="submit">
+  <input type="submit" name="submit" id="submit" class="registerbtn">
   </div>
   
   <div class="container signin" style="background-color:orange">
@@ -295,8 +303,46 @@ include_once '../common/footer_module.php';
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    </body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+<script>
+  $(document).ready(function(){
 
 
+ $('#appoint').on('submit', function(e) {
+        e.preventDefault();
+
+var c_from_time="<?php echo $c_from_time; ?>";
+var c_to_time="<?php echo $c_to_time; ?>";
+var b_id=$('#userid').val();
+var adate=$('#adate').val();
+var atime=$('#atime').val();
+var fullname=$('#fullname').val();
+var cname=$('#cname').val();
+var mobile=$('#mobile').val();
+var email=$('#email').val();
+$.ajax({
+  method:'post',
+  data:{
+    b_id:b_id,
+    adate:adate,
+    atime:atime,
+    cname:cname,
+    mobile:mobile,
+    fullname:fullname,
+    email:email,
+    c_from_time:c_from_time,
+    c_to_time:c_to_time
+  },url:'./c_booking_ajax.php',
+  success:function(data){
+window.location.href="./cdetails.php?category=all"
+swal("Good job!", data, "success");
+  }
+})
+
+  })
+})
+  </script>
 </html>
 

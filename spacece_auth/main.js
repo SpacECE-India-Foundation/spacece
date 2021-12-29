@@ -168,10 +168,20 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       success: function (response) {
-        console.log(response);
         const data = JSON.parse(response);
         if (data.status === "success") {
-          window.location.href = "./login.php";
+          Toastify({
+            text: data.message,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            className: "success",
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+          }).showToast();
+          setTimeout(function () {
+            window.location.href = "./login.php";
+          }, 3000);
         }
         if (data.status === "error") {
           Toastify({

@@ -95,8 +95,10 @@ if(isset($_SESSION['current_user_email'])){
                         <td><?php echo $email; ?></td>
                         <td><?php echo $mobile; ?></td>
                         <td><?php echo $uid; ?></td>
-                        <td><a href="<?php echo SITEURL;?>delete_appointment.php?id=<?php echo $uid;?>&user=<?php echo $user;?>" class="btn-three">DELETE APPOINTMENT</a>
-                            <br><br><br>
+                        <td><a href="<?php echo SITEURL;?>delete_appointment.php?id=<?php echo $uid;?>&user=<?php echo $user;?>&email=<?php echo $email;?>" class="btn-three">DELETE APPOINTMENT</a>
+            
+                            <br><br>
+                            <a href="./instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br><br>
                             <a href="<?php echo SITEURL;?>chatbot/room.php?roomname=bid<?php echo $uid;?>" class="btn-primary">CHAT</a>
                         </td>
 
