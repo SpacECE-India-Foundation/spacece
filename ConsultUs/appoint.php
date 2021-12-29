@@ -214,7 +214,7 @@ a {
        
          //3. checking data is inserted or not
          if($res){
-             $_SESSION['add']= "<div style='color:green;'> appointment booked successfully</div>";         //creating session variable
+             $_SESSION['add']= "<div style='color:green;' class='p-3 mb-2 bg-primary text-white'> appointment booked successfully</div>";         //creating session variable
              // redirecting page
              header("location:./alldoc.php");
              //echo "<h3 style = 'color:white;'>database updated<h3>";
