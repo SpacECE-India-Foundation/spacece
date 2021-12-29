@@ -238,7 +238,7 @@ a {
   
   ?>
 
-<form  method="POST" class="  justify-content-center">
+<form  method="POST" id="appoint" class="  justify-content-center">
   <div class="container " style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
     <p>
@@ -305,7 +305,9 @@ include_once '../common/footer_module.php';
 
 <script>
 
-  $('#submit')
+  $('#appoint').on('submit',function(){
+
+
 var c_from_time="<?php echo $c_from_time; ?>";
 var c_to_time="<?php echo $c_to_time; ?>";
 var b_id=$('#userid').val();
@@ -331,7 +333,7 @@ $.ajax({
   }
 })
 
-
+  )}
   </script>
 </html>
 
