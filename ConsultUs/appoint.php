@@ -199,7 +199,7 @@ a {
          if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
            echo '<script>alert("Consultant Un available in selected Time");<script>';
           
-
+           $_SESSION['add']= "Consultant Un available in selected Tim";
          }else{
 
          
