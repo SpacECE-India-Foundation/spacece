@@ -39,7 +39,7 @@ if($res){
    //echo "<h3 style = 'color:white;'>database updated<h3>";
 }
 else{
-    echo 'Error';
+    echo 'Error1';
 //$_SESSION['add']= "failed to book appointment ";         //creating session variable
 // redirecting page
 // header("location:./alldoc.php");
