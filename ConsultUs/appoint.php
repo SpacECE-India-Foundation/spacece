@@ -305,7 +305,7 @@ include_once '../common/footer_module.php';
 
 <script>
 
-  $('#appoint').on('click',function(){
+  $('#appoint').on('submit',function(){
 
 
 var c_from_time="<?php echo $c_from_time; ?>";
