@@ -95,7 +95,7 @@ if(isset($_SESSION['current_user_email'])){
                         <td><?php echo $email; ?></td>
                         <td><?php echo $mobile; ?></td>
                         <td><?php echo $uid; ?></td>
-                        <td><a href="<?php echo SITEURL;?>delete_appointment.php?id=<?php echo $uid;?>&user=<?php echo $user;?>" class="btn-three">DELETE APPOINTMENT</a>
+                        <td><a href="<?php echo SITEURL;?>delete_appointment.php?id=<?php echo $uid;?>&user=<?php echo $user;?>&email=<?php echo $email;?>" class="btn-three">DELETE APPOINTMENT</a>
                             <br><br><br>
                             <a href="<?php echo SITEURL;?>chatbot/room.php?roomname=bid<?php echo $uid;?>" class="btn-primary">CHAT</a>
                         </td>

@@ -186,51 +186,51 @@ a {
       if(isset($_POST["submit"]))
       { //1.getting data into variable
         
-          $full_name = $user_name;
-          $email = $user_email;
-          $mob = $user_mob;
-          // $bookid = $uid;
-           $atime = $_POST["atime"];
-           $adate = $_POST["adate"];
-         $status ="inactive";
-         // encrypt pass 
-         $time= date("H:i", strtotime($atime));
-         $time1=strtotime($time);
-         if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
-           echo '<script>alert("Consultant Un available in selected Time");<script>';
+      //     $full_name = $user_name;
+      //     $email = $user_email;
+      //     $mob = $user_mob;
+      //     // $bookid = $uid;
+      //      $atime = $_POST["atime"];
+      //      $adate = $_POST["adate"];
+      //    $status ="inactive";
+      //    // encrypt pass 
+      //    $time= date("H:i", strtotime($atime));
+      //    $time1=strtotime($time);
+      //    if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
+      //      echo '<script>alert("Consultant Un available in selected Time");<script>';
           
-           $_SESSION['add']= "Consultant Un available in selected Tim";
-         }else{
+      //      $_SESSION['add']= "Consultant Un available";
+      //    }else{
 
          
-         //2.inserting into database
-        $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
+      //    //2.inserting into database
+      //   $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$b_id'";
        
-        $res= mysqli_query($conn,$sql);
-         echo "<h3 style = 'color:white;'>$full_name<h3>";
-         echo "<h3 style = 'color:white;'>$email<h3>";
-         echo "<h3 style = 'color:white;'>$mob<h3>";
-         echo "<h3 style = 'color:white;'>$userid<h3>";
+      //   $res= mysqli_query($conn,$sql);
+      //    echo "<h3 style = 'color:white;'>$full_name<h3>";
+      //    echo "<h3 style = 'color:white;'>$email<h3>";
+      //    echo "<h3 style = 'color:white;'>$mob<h3>";
+      //    echo "<h3 style = 'color:white;'>$userid<h3>";
        
-         //3. checking data is inserted or not
-         if($res){
-             $_SESSION['add']= "<div style='color:green;'> appointment booked successfully</div>";         //creating session variable
-             // redirecting page
-             header("location:./alldoc.php");
-             //echo "<h3 style = 'color:white;'>database updated<h3>";
-         }
-      else{
-          $_SESSION['add']= "failed to book appointment successfully";         //creating session variable
-          // redirecting page
-          header("location:./alldoc.php");
-      //echo "<h3 style = 'color:white;'>database not updated<h3>";
-      }
+      //    //3. checking data is inserted or not
+      //    if($res){
+      //        $_SESSION['add']= "<div style='color:green;'> appointment booked successfully</div>";         //creating session variable
+      //        // redirecting page
+      //        header("location:./alldoc.php");
+      //        //echo "<h3 style = 'color:white;'>database updated<h3>";
+      //    }
+      // else{
+      //     $_SESSION['add']= "failed to book appointment successfully";         //creating session variable
+      //     // redirecting page
+      //     header("location:./alldoc.php");
+      // //echo "<h3 style = 'color:white;'>database not updated<h3>";
+      // }
       
-          echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style:"backgeound-color:orange">
-          <strong style="color:white;">sucess!</strong> <h3 style="color:white;">Your form is submitted sucessfully.</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
-      }
+      //     echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style:"backgeound-color:orange">
+      //     <strong style="color:white;">sucess!</strong> <h3 style="color:white;">Your form is submitted sucessfully.</h3>
+      //     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      //   </div>';
+      // }
   
      }
   
@@ -238,7 +238,7 @@ a {
   
   ?>
 
-<form action="" method="POST" class="  justify-content-center">
+<form  method="POST" class="  justify-content-center">
   <div class="container " style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
     <p>
@@ -254,9 +254,9 @@ a {
   <input type="time" id="atime" name="atime" required >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
-    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required >
+    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required readonly >
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required readonly>
+    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required >
 
     <label for="email"><b>Email</b></label>
     <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
@@ -264,7 +264,7 @@ a {
     <input type="text" value="<?php echo $u_mob ?>" name="mobile" id="mobile" required><br>
     
     <hr>
-  <input type="submit" name="submit" class="registerbtn" value="submit">
+  <input type="submit" name="submit" id="submit" class="registerbtn" value="submit">
   </div>
   
   <div class="container signin" style="background-color:orange">
@@ -297,6 +297,33 @@ include_once '../common/footer_module.php';
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     </body>
 
+<script>
+var c_from_time=<?php echo $c_from_time; ?>;
+var c_to_time=<?php echo $c_to_time; ?>;
+var b_id=$('#userid').val();
+var adate=$('#adate').val();
+var adate=$('#atime').val();
+var fullname=$('#fullname').val();
+var cname=$('cname').val();
+var mobile=$('#mobile').val();
+var email=$('#email').val();
+$.ajax({
+  method:'post',
+  data:{b_id:b_id,
+    adate:adate,
+    adate:adate,
+    cname:cname,
+    mobile:mobile,
+    email:email,
+    c_from_time:c_from_time,
+    c_to_time:c_to_time
+  },url:'./c_booking_ajax.php',
+  success:function(data){
+    alert(data);
+  }
+})
 
+
+  </script>
 </html>
 
