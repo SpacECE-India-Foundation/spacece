@@ -45,23 +45,24 @@ if ($res) {
     }
 }
 $c_id=$_GET['cid'];
-$sql="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'";
-$res = mysqli_query($conn1, $sql);
+// $sql1="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'";
+// $res1 = mysqli_query($conn1, $sql1);
 
 
 
-if ($res) {
+// if ($res1) {
    
-    $count = mysqli_num_rows($res);
-    $sno = 1;
-    if ($count > 0) {
+//     $count = mysqli_num_rows($res1);
+  
+//     if ($count > 0) {
       
-        while ($row = mysqli_fetch_assoc($res)) {
-        $c_from_time=$row['c_from_time'];
-        $c_to_time=$row['c_to_time'];
-        }
-    }
-}
+//         while ($row = mysqli_fetch_assoc($res1)) {
+//           var_dump($row);
+//         $c_from_time=$row['c_from_time'];
+//         $c_to_time=$row['c_to_time'];
+//         }
+//     }
+// }
 //  echo $cid = $_GET['id'];
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
@@ -194,10 +195,10 @@ a {
          // encrypt pass 
          $time= date("H:i", strtotime($atime));
          $time1=strtotime($time);
-         if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
-           echo "<script>Consultant Un available in selected Time</csript>";
+        //  if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
+        //    echo "<script>Consultant Un available in selected Time</csript>";
 
-         }else{
+        //  }else{
 
          
          //2.inserting into database
@@ -229,7 +230,7 @@ a {
         </div>';
       }
   
-      }
+    //  }
   
       
   
