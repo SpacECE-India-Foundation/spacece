@@ -1,7 +1,7 @@
 <?php
 include 'indexdb.php';
 
-var_dump($_POST);
+//var_dump($_POST);
  $full_name = $_POST['fullname'];
  $email = $_POST['email'];
  $mob =  $_POST['mobile'];
@@ -20,6 +20,11 @@ $c_to_time=$_POST['c_to_time'];
 //  $_SESSION['add']= "Consultant Un available";
  }else{
 
+    $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
+   
+    $res1= mysqli_query($conn,$sql1);
+    var_dump($res1);
+    
 
 // //2.inserting into database
 $sql= " UPDATE `appointment` SET  `status`='$status',`time_appointment`='$atime',`date_appointment`='$adate' WHERE `bid`='$bookid'";
