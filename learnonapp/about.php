@@ -1,10 +1,5 @@
 <?php
 include_once './header_local.php';
-$extra_styles = '
-<link href="img/Favicon.ico" rel="shortcut icon" />
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-';
 include_once '../common/header_module.php';
 
 ?>
