@@ -259,7 +259,7 @@ a {
     <label for="email"><b>Email</b></label>
     <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
     <label for="mobile"><b>Mobile Number:</b></label>
-    <input type="text" value="<?php echo $u_mob ?>"   maxlength="10" name="mobile" id="mobile" required><br>
+    <input type="text" value="<?php echo $u_mob ?>"   minlength="10" maxlength="10" pattern="\d{10}" name="mobile" id="mobile" required><br>
     
     <hr>
   <input type="submit" name="submit" class="registerbtn" value="submit">
