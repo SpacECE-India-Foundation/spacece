@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if (!isset($_SESSION['current_user_id'])) {
     header('Location: ../spacece_auth/login.php');
