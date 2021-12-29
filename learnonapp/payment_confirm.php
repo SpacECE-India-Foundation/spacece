@@ -7,10 +7,12 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
     $payment_id = $_GET['payment_id'];
     $payment_request_id = $_GET['payment_request_id'];
 
+    $api_url = 'https://test.instamojo.com/api/1.1/payment-requests/' . $payment_request_id . '/' . $payment_id . '/';
+
     // Verify payment by payment_id and payment_request_id
     $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, 'https://www.instamojo.com/api/1.1/payment-requests/' . $payment_request_id . '/' . $payment_id . '/');
+    curl_setopt($ch, CURLOPT_URL, $api_url);
     curl_setopt($ch, CURLOPT_HEADER, FALSE);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
@@ -26,10 +28,9 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
     $response = curl_exec($ch);
     curl_close($ch);
 
-    echo $response;
-    die();
+    $response = json_decode($response);
 
-    if ($response['success'] == true) {
+    if ($response->success == true) {
         // Payment is successful
         $payment_success = true;
     } else {
