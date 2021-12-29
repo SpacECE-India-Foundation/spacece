@@ -183,8 +183,8 @@ a {
   
   // process the value  from the form  and save it to database
   // check whether form is submitted or not
-      if(isset($_POST["submit"]))
-      { //1.getting data into variable
+      //if(isset($_POST["submit"]))
+      //{ //1.getting data into variable
         
       //     $full_name = $user_name;
       //     $email = $user_email;
@@ -232,7 +232,7 @@ a {
       //   </div>';
       // }
   
-     }
+    // }
   
       
   
@@ -251,13 +251,13 @@ a {
    <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>" required><br><br>
     <!-- bug id-0000045 -->
  <label for="atime"><b>Select A Time:</b></label>
-  <input type="time" id="atime" name="atime" required >
+  <input type="time" id="atime" name="atime" required  >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
 
-    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required readonly >
+    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required >
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required >
+    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required  readonly>
 
     <!-- <input type="text" value="<?php //echo $u_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"  name="fullname" id="fullname" required readonly>
 <label for="cname"><b>Consultant Name</b></label>
@@ -270,7 +270,7 @@ a {
     <input type="text" value="<?php echo $u_mob ?>"   minlength="10" maxlength="10" pattern="\d{10}" name="mobile" id="mobile" required><br>
     
     <hr>
-  <input type="submit" name="submit" id="submit" class="registerbtn" value="submit">
+  <input type="submit" name="submit" id="submit" class="registerbtn">
   </div>
   
   <div class="container signin" style="background-color:orange">
@@ -304,9 +304,11 @@ include_once '../common/footer_module.php';
     </body>
 
 <script>
+  $(document).ready(function(){
 
-  $('#appoint').on('submit',function(){
 
+ $('#appoint').on('submit', function(e) {
+        e.preventDefault();
 
 var c_from_time="<?php echo $c_from_time; ?>";
 var c_to_time="<?php echo $c_to_time; ?>";
@@ -336,6 +338,7 @@ $.ajax({
 })
 
   })
+})
   </script>
 </html>
 
