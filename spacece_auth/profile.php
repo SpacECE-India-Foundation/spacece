@@ -138,7 +138,7 @@ foreach($result as $data)
          <div class="container  ">
          <input type="text" class="form-control  mb-3" name="name" id="name" value="<?php echo $data['u_name'] ?>" placeholder="Enter Your name">
          <input type="email" class="form-control   mb-3" name="email" id="email" value="<?php echo $data['u_email'] ?>" placeholder="Enter Your Email" readonly>
-         <input type="text" class="form-control   mb-3" name="mobile" id="mobile" value="<?php echo $data['u_mob'] ?>" placeholder="Enter your mobile number" >
+         <input type="text" class="form-control   mb-3" name="mobile" id="mobile" maxlength="10" value="<?php echo $data['u_mob'] ?>" placeholder="Enter your mobile number" >
          <input type="text" class="form-control   mb-3" name="type" id="type" value="<?php echo $data['u_type'] ?>"readonly>
          <Input type="submit" id="save" name="save" class="btn btn-primary form-control" value="Save changes">
         </div>
