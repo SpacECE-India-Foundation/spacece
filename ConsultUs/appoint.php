@@ -259,7 +259,7 @@ a {
 
     <input type="text" value="<?php echo $u_name ?>"   onkeypress="return /[a-z]/i.test(event.key)"  name="fullname" id="fullname" required >
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required  readonly>
+    <input type="text" value="<?php echo $con_name ?>"  onkeypress="return /[a-z]/i.test(event.key)"  name="cname" id="cname" required  readonly>
 
     <!-- <input type="text" value="<?php //echo $u_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"  name="fullname" id="fullname" required readonly>
 <label for="cname"><b>Consultant Name</b></label>
@@ -269,7 +269,7 @@ a {
     <label for="email"><b>Email</b></label>
     <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
     <label for="mobile"><b>Mobile Number:</b></label>
-    <input type="text" value="<?php echo $u_mob ?>"   minlength="10" maxlength="10" pattern="\d{10}" name="mobile" id="mobile" required><br>
+    <input type="text" value="<?php echo $u_mob ?>"   minlength="10" maxlength="10" pattern="[0-9]{10}" name="mobile" id="mobile" required><br>
     
     <hr>
   <input type="submit" name="submit" id="submit" class="registerbtn">
