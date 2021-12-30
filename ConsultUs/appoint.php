@@ -257,7 +257,7 @@ a {
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
 
-    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required >
+    <input type="text" value="<?php echo $u_name ?>"   onkeypress="return /[a-z]/i.test(event.key)"  name="fullname" id="fullname" required >
 <label for="cname"><b>Consultant Name</b></label>
     <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required  readonly>
 
