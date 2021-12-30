@@ -1,5 +1,5 @@
 <?php
-
+ echo $_POST;
 $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
@@ -24,16 +24,10 @@ $c_to_time=$_POST['c_to_time'];
  $time= date("H:i", strtotime($atime));
  $time1=strtotime($time);
  if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
-  echo 'Consultant is UN Available in SELECTED Time';
+  echo 'Unavailable';
 
 //  $_SESSION['add']= "Consultant Un available";
  }else{
-
-    $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
- 
-    $res1= mysqli_query($conn,$sql1);
-    
-    
 
 // //2.inserting into database
 $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
@@ -42,17 +36,16 @@ $res= mysqli_query($conn,$sql);
 
 
 if($res){
-   echo '<div>Successfully Booked With
-       <h5>Booking Id: '.$bookid.'</h5>
-       <h5>Full name: '.$full_name.'</h5>
-       <h5>Email: '.$email.'</h5>
-       <h5>Phone Number: '.$mob.'</h5>
-       </div>';
-
+  $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
+ 
+  $res1= mysqli_query($conn,$sql1);
+  while($row=mysqli_fetch_assoc($res1)){
+    echo json_encode($row);
+  }
 
 }
 else{
-    echo 'Invalid Data';
+    echo 'Invalid';
 
 }
 
