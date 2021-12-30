@@ -14,7 +14,7 @@ $status=   isset($data['status']) ? ($data['status']) : NULL;
 $exchange_product=  isset($data['exchange_product']) ?($data['exchange_product']): NULL;
 $exchange_price=    isset($data['exchange_price']) ? ($data['exchange_price']) : NULL;
 
-$servername = "localhost";
+$servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
 $dbname = "khanstore";
