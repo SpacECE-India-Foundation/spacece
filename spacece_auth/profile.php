@@ -39,7 +39,7 @@ function get_input_value($row, $input)
       <label for="phone">Mobile No.</label>
       <input type="text" class="form-control" placeholder="Enter Mobile No." id="phone" name="phone" value="<?= get_input_value($row, 'u_mob'); ?>" />
     </div>
-
+    <!-- Change Password Functionality -->
     <button type="button" id="change_password" style="display: none;">Change Password</button>
 
     <div class="form-group" id="js-password" style="display: none;">
@@ -50,6 +50,7 @@ function get_input_value($row, $input)
       <label for="cpassword">Confirm Password</label>
       <input type="password" class="form-control" placeholder="Confirm Password" id="cpassword" name="cpassword" />
     </div>
+
     <button type="button" id="edit" name="edit_profile">Edit Profile</button>
     <button type="submit" id="update" name="update_profile" style="display: none;">Update Profile</button>
     <br>
