@@ -18,6 +18,7 @@ if ($conn->connect_error) {
   $atime = $_POST["atime"];
   $adate = $_POST["adate"];
  $status ="inactive";
+ $c_id=$_POST['c_id'];
 // // encrypt pass 
 $c_from_time=$_POST['c_from_time'];
 $c_to_time=$_POST['c_to_time'];
@@ -28,7 +29,13 @@ $c_to_time=$_POST['c_to_time'];
 
 //  $_SESSION['add']= "Consultant Un available";
  }else{
+   
+  $sql1= " SELECT * from appointment WHERE `cid`='$c_id'";
+  $res1= mysqli_query($conn,$sql1);
+  $row=mysqli_fetch_assoc($res1);
+  if($row){
 
+ 
 // //2.inserting into database
 $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
@@ -50,7 +57,9 @@ else{
 }
 
 
+}else{
+  echo 'Invalid';
 }
-
+ }
 
 ?>

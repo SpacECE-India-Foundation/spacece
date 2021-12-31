@@ -323,6 +323,7 @@ include_once '../common/footer_module.php';
 
 var c_from_time="<?php echo $c_from_time; ?>";
 var c_to_time="<?php echo $c_to_time; ?>";
+var c_id=<?php  echo $cid; ?>;
 var b_id=$('#userid').val();
 var adate=$('#adate').val();
 var atime=$('#atime').val();
@@ -339,6 +340,7 @@ $.ajax({
     cname:cname,
     mobile:mobile,
     fullname:fullname,
+    c_id:c_id,
     email:email,
     c_from_time:c_from_time,
     c_to_time:c_to_time

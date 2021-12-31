@@ -104,7 +104,7 @@ if(isset($_SESSION['current_user_email'])){
             
                             <br><br>
                             <a href="./instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn btn-sm" style="color:black;background-color:pink"> Confirm Appointment </a><br><br><br>
-                            <a href="<?php echo SITEURL;?>chatbot/room.php?roomname=bid<?php echo $uid;?>" class="btn-primary">CHAT</a>
+                            <a href="<?php echo SITEURL;?>chatbot/room.php?roomname=bid<?php echo $uid;?>" class="btn btn-primary">CHAT</a>
                         </td>
 
                     </tr>
