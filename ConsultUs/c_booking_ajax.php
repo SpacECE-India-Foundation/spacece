@@ -22,6 +22,7 @@ if ($conn->connect_error) {
 // // encrypt pass 
 $c_from_time=$_POST['c_from_time'];
 $c_to_time=$_POST['c_to_time'];
+$getDate=date($adate);
  $time= date("H:i", strtotime($atime));
  $time1=strtotime($time);
  if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
@@ -32,12 +33,13 @@ $c_to_time=$_POST['c_to_time'];
   $time3 = strtotime($atime);
 $startTime = date("H:i", strtotime('-10 minutes', $time3));
 $endTime = date("H:i", strtotime('+10 minutes', $time3));
-  $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='date($adate)'";
+
+  $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$getDate'";
 
  $res2= mysqli_query($conn,$sql2);
 
 echo $res2;
- if($res2){
+ if($res2 >0 ){
   while( $row=mysqli_fetch_assoc($res2)){
     $booked_time=strtotime($row['time_appointment']);
     if($booked_time >$time3 || $booked_time < $time3 ){
