@@ -1,6 +1,5 @@
 <?php 
 session_start();
-var_dump($_SESSION);
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
@@ -344,8 +343,19 @@ $.ajax({
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-window.location.href="./cdetails.php?category=all"
-swal("Good job!", data, "success");
+
+    var responseData = "data : " + data;
+        swal({
+        html:true,
+        title: title,
+        type: type,
+        text:  responseData,
+        confirmButtonColor: "#33537d",
+        confirmButtonText: "Close",
+        closeOnConfirm: false
+      })
+//window.location.href="./cdetails.php?category=all"
+//swal("Good job!", data, "success");
   }
 })
 
