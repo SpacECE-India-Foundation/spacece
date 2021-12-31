@@ -35,7 +35,7 @@ $c_to_time=$_POST['c_to_time'];
  $res2= mysqli_query($conn,$sql2);
  echo $res2;
  if($res2 >0){
-  while( $row=mysqli_fetch_assoc($res1)){
+  while( $row=mysqli_fetch_assoc($res2)){
     echo "Inside 12";
 // //2.inserting into database
 $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
