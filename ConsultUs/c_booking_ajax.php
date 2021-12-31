@@ -63,7 +63,24 @@ else{
 
 }
  }else{
-  echo 'Invalid';
+  $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
+
+  $res= mysqli_query($conn,$sql);
+  
+  
+  if($res){
+    $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
+   
+    $res1= mysqli_query($conn,$sql1);
+    $row=mysqli_fetch_assoc($res1);
+      echo json_encode($row);
+    
+  
+  }
+  else{
+      echo 'Invalid';
+  
+  }
  }
  }
 
