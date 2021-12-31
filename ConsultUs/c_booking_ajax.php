@@ -31,6 +31,7 @@ $c_to_time=$_POST['c_to_time'];
  }else{
    
   $sql1= " SELECT * from appointment WHERE `cid`='$c_id'";
+  echo $sql1;
   $res1= mysqli_query($conn,$sql1);
   $row=mysqli_fetch_assoc($res1);
   if($row){
