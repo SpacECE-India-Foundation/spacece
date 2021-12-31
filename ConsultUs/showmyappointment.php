@@ -113,7 +113,7 @@ if(isset($_SESSION['current_user_email'])){
                     }
                 }
                         else{
-                           echo "<script> $('#table').hide();</script>";
+                          
                             echo "sorry no appointment found";
                         }
                     }
