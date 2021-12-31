@@ -345,7 +345,7 @@ $.ajax({
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-    
+    alert(data);
     if(data==="Unavailable"){
       swal("Error","Consultant Un available","error");
     }
