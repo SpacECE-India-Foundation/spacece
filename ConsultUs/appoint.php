@@ -81,7 +81,8 @@ $c_id=$_GET['cid'];
 $b_id=$_GET['b_id'];
 $con_name=$_GET['con_name'];
  $cat_name=$_GET['cat_name'];
-  $sql="INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$b_id','$u_mob')";
+ $email=$_GET['email'];
+  $sql="INSERT INTO `appointment`( `cid`, `category`,`username`,`email`cname`,`bid`,`mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$b_id','$u_mob')";
 
   
   $res= mysqli_query($conn,$sql);
@@ -344,7 +345,7 @@ $.ajax({
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-    alert(data);
+    
     if(data==="Unavailable"){
       swal("Error","Consultant Un available","error");
     }
@@ -354,7 +355,7 @@ $.ajax({
     swal("Good job!", "Booking Id :"+data1.bid+"\n Consultant name :"+data1.cname
   + "\n  user name:"+data1.username +"\n Email : "+data1.email	+"\n Date of appointment:"+data1.date_appoint+" \n Time of appoint :"+data1.time_appointment
     +"\n mobile:"+data1.mobile+"", "success") ;
-window.location.href="../cdetails.php?category=all";
+window.location.href="../../cdetails.php?category=all";
 //swal("Good job!", data, "success");
   } else{
     swal("Error","Invalid Data","error");
