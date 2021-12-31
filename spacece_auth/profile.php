@@ -31,9 +31,38 @@ function get_input_value($row, $input)
       <label for="name">Name</label>
       <input type="text" class="form-control" placeholder="Enter Name" id="name" name="name" value="<?= get_input_value($row, 'u_name'); ?>" />
     </div>
+<<<<<<< HEAD
     <div class="form-group" id="js-email">
       <label for="email">Email</label>
       <input type="email" class="form-control" placeholder="Enter Email" id="email" name="email" value="<?= get_input_value($row, 'u_email'); ?>" />
+=======
+   
+    <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="Edit" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Edit">Edit Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body d-flex justify-content-center ">
+       <form method="POST" id= "edit_profile" >
+         <div class="container  ">
+         <input type="text" class="form-control  mb-3" name="name" id="name" value="<?php echo $data['u_name'] ?>" placeholder="Enter Your name">
+         <input type="email" class="form-control   mb-3" name="email" id="email" value="<?php echo $data['u_email'] ?>" placeholder="Enter Your Email" readonly>
+         <input type="text" class="form-control   mb-3" name="mobile" id="mobile" maxlength="10" value="<?php echo $data['u_mob'] ?>" placeholder="Enter your mobile number" >
+         <input type="text" class="form-control   mb-3" name="type" id="type" value="<?php echo $data['u_type'] ?>"readonly>
+         <Input type="submit" id="save" name="save" class="btn btn-primary form-control" value="Save changes">
+        </div>
+         
+       </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+>>>>>>> 80931b8db5f836ffff63ec7a4f5341b119bc566c
     </div>
     <div class="form-group" id="js-phone">
       <label for="phone">Mobile No.</label>

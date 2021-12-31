@@ -73,9 +73,11 @@ $c_id=$_GET['cid'];
 $b_id=$_GET['b_id'];
 $con_name=$_GET['con_name'];
  $cat_name=$_GET['cat_name'];
-  $sql="INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$u_id','$u_mob')";
+  $sql="INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$b_id','$u_mob')";
+  echo $sql;
+  
   $res= mysqli_query($conn,$sql);
- 
+ echo $res;
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
   //echo "<h3 style = 'color:white;'>this is your booking id = $uid , please fill it in form</h3>";
 
@@ -183,8 +185,8 @@ a {
   
   // process the value  from the form  and save it to database
   // check whether form is submitted or not
-      if(isset($_POST["submit"]))
-      { //1.getting data into variable
+      //if(isset($_POST["submit"]))
+      //{ //1.getting data into variable
         
       //     $full_name = $user_name;
       //     $email = $user_email;
@@ -232,13 +234,13 @@ a {
       //   </div>';
       // }
   
-     }
+    // }
   
       
   
   ?>
 
-<form  method="POST" id="appoint" class="  justify-content-center">
+<form   name="appoint" id="appoint" class="  justify-content-center">
   <div class="container " style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
     <p>
@@ -251,13 +253,13 @@ a {
    <input type="date" id="adate" name="adate"  min="<?php echo date('Y-m-d') ?>" required><br><br>
     <!-- bug id-0000045 -->
  <label for="atime"><b>Select A Time:</b></label>
-  <input type="time" id="atime" name="atime" required >
+  <input type="time" id="atime" name="atime" required  >
 <br><br>
     <label for="fullname"><b>Fullname</b></label>
 
-    <input type="text" value="<?php echo $u_name ?>" name="fullname" id="fullname" required readonly >
+    <input type="text" value="<?php echo $u_name ?>"   onkeypress="return /[a-z]/i.test(event.key)"  name="fullname" id="fullname" required >
 <label for="cname"><b>Consultant Name</b></label>
-    <input type="text" value="<?php echo $con_name ?>" name="cname" id="cname" required >
+    <input type="text" value="<?php echo $con_name ?>"  onkeypress="return /[a-z]/i.test(event.key)"  name="cname" id="cname" required  readonly>
 
     <!-- <input type="text" value="<?php //echo $u_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"  name="fullname" id="fullname" required readonly>
 <label for="cname"><b>Consultant Name</b></label>
@@ -267,10 +269,10 @@ a {
     <label for="email"><b>Email</b></label>
     <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
     <label for="mobile"><b>Mobile Number:</b></label>
-    <input type="text" value="<?php echo $u_mob ?>"   minlength="10" maxlength="10" pattern="\d{10}" name="mobile" id="mobile" required><br>
+    <input type="text" value="<?php echo $u_mob ?>"   minlength="10" maxlength="10" pattern="[0-9]{10}" name="mobile" id="mobile" required><br>
     
     <hr>
-  <input type="submit" name="submit" id="submit" class="registerbtn" value="submit">
+  <input type="submit" name="submit" id="submit" class="registerbtn">
   </div>
   
   <div class="container signin" style="background-color:orange">
@@ -301,12 +303,15 @@ include_once '../common/footer_module.php';
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    </body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
 
 <script>
+  $(document).ready(function(){
 
-  $('#appoint').on('submit',function(){
 
+ $('#appoint').on('submit', function(e) {
+        e.preventDefault();
 
 var c_from_time="<?php echo $c_from_time; ?>";
 var c_to_time="<?php echo $c_to_time; ?>";
@@ -319,7 +324,8 @@ var mobile=$('#mobile').val();
 var email=$('#email').val();
 $.ajax({
   method:'post',
-  data:{b_id:b_id,
+  data:{
+    b_id:b_id,
     adate:adate,
     atime:atime,
     cname:cname,
@@ -330,11 +336,32 @@ $.ajax({
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-    alert(data);
+   if(data==='Unavailable'){
+    swal("Error","Consultant Un-Available Selected time!" , "Error");
+   }else if(data==='Invalid'){
+    swal("Error","Invalid Data!" , "Error");
+   }else{
+
+    swal("Good job!", "Booking id:"+data.b_id,
+"Booking id:"+data.b_id,
+"User name:"+data.username,
+"Phone:"+data.mobile,
+"Email:"+data.email,
+"Date of appointment	:"+data.date_appointment,
+"Time of appointment:"+data.time_appointment,
+
+ "success");
+
+    window.location.href="./cdetails.php?category=all"
+   }
+
+
+ 
   }
 })
 
   })
+})
   </script>
 </html>
 
