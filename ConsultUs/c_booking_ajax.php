@@ -76,7 +76,7 @@ else{
 
 }
  }else{
-   echo "Inside 2";
+  
   $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
   $res= mysqli_query($conn,$sql);
