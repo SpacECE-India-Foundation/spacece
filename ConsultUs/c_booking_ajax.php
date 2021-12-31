@@ -29,10 +29,11 @@ $c_to_time=$_POST['c_to_time'];
 
 //  $_SESSION['add']= "Consultant Un available";
  }else{
-  echo "Inside 1";
+  
   $sql2= " SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$adate'";
 
  $res2= mysqli_query($conn,$sql2);
+ echo $res2;
  if($res2 >0){
   while( $row=mysqli_fetch_assoc($res1)){
     echo "Inside 12";
