@@ -247,7 +247,7 @@ a {
       
   
   ?>
-
+<a href="./cdetails.php?category=all" class="btn btn-secondary">View All consultants</a>
 <form   name="appoint" id="appoint" class="  justify-content-center">
   <div class="container " style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
