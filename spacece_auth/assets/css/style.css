@@ -13,7 +13,8 @@ input.error {
 }
 
 .login-page,
-.register-page {
+.register-page,
+.profile-page {
   margin: 10% auto;
   display: flex;
   flex-direction: column;
@@ -21,13 +22,15 @@ input.error {
 }
 
 .login-page h2,
-.register-page h2 {
+.register-page h2,
+.profile-page h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
 .login-form,
-.register-form {
+.register-form,
+.profile-form {
   width: 100%;
   max-width: 400px;
   padding: 20px;
@@ -48,8 +51,10 @@ input.error {
 
 .login-form input,
 .register-form input,
+.profile-form input,
 .register-form select,
-.login-form select {
+.login-form select,
+.profile-form select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -60,7 +65,8 @@ input.error {
 }
 
 .login-form button,
-.register-form button {
+.register-form button,
+.profile-form button {
   width: 100%;
   padding: 10px;
   border: none;
@@ -72,12 +78,14 @@ input.error {
 }
 
 .login-form button:hover,
-.register-form button:hover {
+.register-form button:hover,
+.profile-form button:hover {
   background: #43a047;
 }
 
 .login-form .message,
-.register-form .message {
+.register-form .message,
+.profile-form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 14px;
