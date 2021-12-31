@@ -30,7 +30,7 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
 
     $response = json_decode($response);
 
-    if ($response->success == true) {
+    if ($response->success == true && $_GET['payment_status'] == 'Credit') {
         // Payment is successful
         $payment_success = true;
     } else {

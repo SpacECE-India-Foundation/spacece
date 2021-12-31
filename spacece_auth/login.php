@@ -17,11 +17,11 @@ if (isset($_SESSION['current_user_id'])) {
   <h2>Login</h2>
   <form class="login-form" method="post" autocomplete="off">
     <div class="form-group">
-      <label for="name">Email</label>
+      <label for="email">Email</label>
       <input type="email" class="form-control" placeholder="Enter Email" name="email" />
     </div>
     <div class="form-group">
-      <label for="name">Password</label>
+      <label for="password">Password</label>
       <input type="password" class="form-control" placeholder="Enter Password" name="password" />
     </div>
     <div class="form-group">
