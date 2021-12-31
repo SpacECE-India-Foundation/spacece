@@ -38,7 +38,7 @@ $endTime = date("H:i", strtotime('+10 minutes', $time3));
 
  $res2= mysqli_query($conn,$sql2);
 
-echo $res2;
+
  if($res2 >0 ){
   while( $row=mysqli_fetch_assoc($res2)){
     $booked_time=strtotime($row['time_appointment']);
