@@ -344,7 +344,8 @@ $.ajax({
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-
+    alert(data['b_id']);
+    alert(data.b_id);
     alert(data);
     var data1=JSON.parse(data);
     alert(data['b_id']);
