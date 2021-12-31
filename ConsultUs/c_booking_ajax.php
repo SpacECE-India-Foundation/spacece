@@ -32,9 +32,9 @@ $getDate=date($adate);
  }else{
   $time3 = strtotime($atime);
 $startTime = date("H:i", strtotime('-10 minutes', $time3));
-$endTime = date("H:i", strtotime('+10 minutes', $time3));
+$endTime = strtotime(date("H:i", strtotime('+10 minutes', $time3)));
 
-echo $endTime;
+echo $endTime.",";
 
   $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$getDate'";
 
