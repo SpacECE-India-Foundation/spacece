@@ -345,16 +345,8 @@ $.ajax({
   },url:'./c_booking_ajax.php',
   success:function(data){
 
-    var responseData = "data : " + data;
-        swal({
-        html:true,
-        title: title,
-        type: type,
-        text:  responseData,
-        confirmButtonColor: "#33537d",
-        confirmButtonText: "Close",
-        closeOnConfirm: false
-      })
+    var answer = JSON.parse(data);
+    swal("Good job!", ""+answer.b_id+"", "success") 
 //window.location.href="./cdetails.php?category=all"
 //swal("Good job!", data, "success");
   }
