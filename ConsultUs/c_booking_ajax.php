@@ -30,7 +30,7 @@ $c_to_time=$_POST['c_to_time'];
 //  $_SESSION['add']= "Consultant Un available";
  }else{
   
-  $sql2= " SELECT * from appointment WHERE `cid`='$c_id' and date_appointment='$adate'";
+  $sql2= " SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$adate'";
 
  $res2= mysqli_query($conn,$sql2);
 
