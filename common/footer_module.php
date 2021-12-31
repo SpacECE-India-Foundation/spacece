@@ -191,16 +191,16 @@
                     </a>
                 </p>
                 <p style="color: black">
-                    <!-- <a href="tel: +919096305648" target="_blank" rel="noopener" style="color: black">
+                    <a href="tel: +919096305648" target="_blank" rel="noopener" style="color: black">
                         <i class="fa fa-phone" style="color: black"></i>
                         +91 90963 05648
-                    </a> -->
+                    </a>
                     <!-- bug id 0000080-->
-                            <div class="on-mobile">
+                            <!-- <div class="on-mobile">
                        <a href="tel:+919096305648"  target="_blank" rel="noopener" style="color: black">
                         <i class="fa fa-phone" style="color: black"></i>919096305648</a>
                       </div>
-                </p>
+                </p> -->
                 <p style="color: black">
                 <!-- bug id-0000081 -->
                     <a href="mailto: events@spacece.co" target="_blank" rel="noopener" style="color: black">
