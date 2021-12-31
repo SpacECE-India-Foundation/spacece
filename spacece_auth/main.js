@@ -1,12 +1,23 @@
 $(document).ready(function () {
   $(".consultant_details").hide();
 
-  // $("#update").hide();
   $("#js-name input").prop("disabled", true);
   $("#js-email input").prop("disabled", true);
   $("#js-phone input").prop("disabled", true);
-  // $("#js-password").show();
-  // $("#js-confirm-password").hide();
+
+  $("#change_password").click(function () {
+    $("#js-password").show();
+    $("#js-confirm-password").show();
+    $("#js-password input").prop("disabled", false);
+    $("#js-confirm-password input").prop("disabled", false);
+    $("#change_password").hide();
+  });
+
+  $("#edit_profile").click(function () {
+    $("#js-name input").prop("disabled", false);
+    $("#js-email input").prop("disabled", false);
+    $("#js-phone input").prop("disabled", false);
+  });
 
   // Registration form validation name, email, password, cpassword, indian phone number, image with regex
   $(".register-form").validate({
