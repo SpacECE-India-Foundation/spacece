@@ -323,7 +323,7 @@ include_once '../common/footer_module.php';
 
 var c_from_time="<?php echo $c_from_time; ?>";
 var c_to_time="<?php echo $c_to_time; ?>";
-var c_id=<?php  echo $cid; ?>;
+var c_id=<?php  echo $c_id; ?>;
 var b_id=$('#userid').val();
 var adate=$('#adate').val();
 var atime=$('#atime').val();
