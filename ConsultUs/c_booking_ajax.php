@@ -34,7 +34,7 @@ $getDate=date($adate);
 $startTime = date("H:i", strtotime('-10 minutes', $time3));
 $endTime = strtotime(date("H:i", strtotime('+10 minutes', $time3)));
 
-echo $endTime.",";
+
 
   $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$getDate'";
 
@@ -44,9 +44,10 @@ echo $endTime.",";
  if($res2 >0 ){
   while( $row=mysqli_fetch_assoc($res2)){
     $booked_time=strtotime($row['time_appointment']);
-    echo $booked_time .",";
+   
     if( $time3 > $booked_time ||  $time3  < $booked_time ){
       if(  $endTime >$booked_time  ||  $endTime< $booked_time){
+        echo $booked_time .",".$time3.",".$endTime;
         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
 $res= mysqli_query($conn,$sql);
