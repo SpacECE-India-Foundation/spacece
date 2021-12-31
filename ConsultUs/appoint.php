@@ -344,7 +344,8 @@ $.ajax({
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-    if(data===Unavailable){
+    alert(data);
+    if(data==="Unavailable"){
       swal("Error","Consultant Un available","error");
     }
     if(data.length>15){
@@ -352,7 +353,7 @@ $.ajax({
 
     swal("Good job!", "Booking Id :"+data1.bid+"\n Consultant name :"+data1.cname
   + "\n  user name:"+data1.username +"\n Email : "+data1.email	+"\n Date of appointment:"+data1.date_appoint+" \n Time of appoint :"+data1.time_appointment
-    +"\n ", "success") ;
+    +"\n mobile:"+data1.mobile+"", "success") ;
 window.location.href="../cdetails.php?category=all";
 //swal("Good job!", data, "success");
   } else{
