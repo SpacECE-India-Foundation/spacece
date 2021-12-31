@@ -345,7 +345,7 @@ $.ajax({
   },url:'./c_booking_ajax.php',
   success:function(data){
 
-    alert(data['b_id']);
+    alert(data.b_id);
     
   
     swal("Good job!", "Booking Id"+data['b_id']+"", "success") 
