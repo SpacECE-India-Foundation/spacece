@@ -36,7 +36,7 @@ if(isset($_SESSION['current_user_email'])){
                <div class="container">
                <div class="table">
     
-    
+               <a href="./cdetails.php?category=all" class="btn btn-secondary">View All consultants</a>
         
         <table class="tb-full" id="booking">
                     <tr>
