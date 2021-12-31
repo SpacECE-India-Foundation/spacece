@@ -6,6 +6,10 @@ include_once '../common/header_module.php';
 session_start();
 
 $email='';
+if(empty($_SESSION['current_user_email'])){
+  header('location:../spacece_auth/login.php');
+  exit();
+}
 if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
@@ -43,6 +47,9 @@ if ($res) {
        
         }
     }
+}else{
+ 
+
 }
 $c_id=$_GET['cid'];
 $sql1="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'"; $res1 = mysqli_query($conn1, $sql1);
@@ -74,10 +81,10 @@ $b_id=$_GET['b_id'];
 $con_name=$_GET['con_name'];
  $cat_name=$_GET['cat_name'];
   $sql="INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$b_id','$u_mob')";
-  echo $sql;
+ 
   
   $res= mysqli_query($conn,$sql);
- echo $res;
+
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
   //echo "<h3 style = 'color:white;'>this is your booking id = $uid , please fill it in form</h3>";
 
@@ -285,7 +292,7 @@ a {
 </body>
 </html>
 
-<! ... end section starts...>
+
          <!-- <div class="footer text-centre" style="background-color:orange;">
             <div class="wrapper">
                  <p class="text-center" ><a href="#"></a></p>
