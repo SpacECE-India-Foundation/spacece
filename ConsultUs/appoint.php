@@ -346,7 +346,7 @@ $.ajax({
   success:function(data){
     var data1=JSON.parse(data);
 
-    swal("Good job!", "Booking Id :"+data.bid+"<br>", "success") 
+    swal("Good job!", "Booking Id :"+data1.bid+"</br>","Booking Id :"+data1.cname+"</br>", "success") 
 //window.location.href="./cdetails.php?category=all"
 //swal("Good job!", data, "success");
   }
