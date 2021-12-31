@@ -32,7 +32,10 @@ $c_to_time=$_POST['c_to_time'];
    
   $sql1= " SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$adate'";
   echo $sql1;
-  $res1= mysqli_query($conn,$sql1);
+ $res1= mysqli_query($conn,$sql1);
+ if($res1 >0){
+
+ 
  
   while( $row=mysqli_fetch_assoc($res1)){
 echo $row;
@@ -59,6 +62,9 @@ else{
 
 
 }
+ }else{
+  echo 'Invalid';
+ }
  }
 
 ?>
