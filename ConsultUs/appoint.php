@@ -253,6 +253,8 @@ a {
     <h1>BOOK APPOINTMENT</h1>
     <p>
     </p>
+    <h5>Available Time(From):<?php echo $c_from_time; ?></h5>
+    <h5>Available Time(To):<?php echo $c_to_time; ?></h5>
     <hr>
     <label for="userid"><b>Booking Id</b></label>
     <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>

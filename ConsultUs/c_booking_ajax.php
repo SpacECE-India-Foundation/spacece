@@ -29,17 +29,20 @@ $c_to_time=$_POST['c_to_time'];
 
 //  $_SESSION['add']= "Consultant Un available";
  }else{
-  
+  $time3 = strtotime($atime);
+$startTime = date("H:i", strtotime('-10 minutes', $time3));
+$endTime = date("H:i", strtotime('+10 minutes', $time3));
   $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='date($adate)'";
 
  $res2= mysqli_query($conn,$sql2);
 
-var_dump($res2);
+
  if($res2){
   while( $row=mysqli_fetch_assoc($res2)){
-    echo "Inside 12";
-// //2.inserting into database
-$sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
+    $booked_time=strtotime($row['time_appointment']);
+    if($booked_time >$time3 || $booked_time < $time3 ){
+      if($booked_time> $endTime || $booked_time> $endTime){
+        $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
 $res= mysqli_query($conn,$sql);
 
@@ -57,6 +60,12 @@ else{
     echo 'Invalid';
 
 }
+      }
+
+    }
+   
+// //2.inserting into database
+
 
 
 }
