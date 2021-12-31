@@ -345,8 +345,9 @@ $.ajax({
   },url:'./c_booking_ajax.php',
   success:function(data){
 
-    alert(data.b_id);
-    
+    alert(data);
+    var data1=JSON>parse(data);
+    alert("data1 is " +data1);
   
     swal("Good job!", "Booking Id"+data['b_id']+"", "success") 
 //window.location.href="./cdetails.php?category=all"
