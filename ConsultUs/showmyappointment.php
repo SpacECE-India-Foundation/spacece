@@ -33,7 +33,7 @@ if(isset($_SESSION['current_user_email'])){
             </div>
         </div> -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-                <table class="tb-full">
+                <table class="tb-full" id="booking">
                     <tr>
                         <th>S.NO.</th>
                         <th>CID:</th>
@@ -108,6 +108,7 @@ if(isset($_SESSION['current_user_email'])){
                     }
                 }
                         else{
+                           echo "<script> $('#booking').hide();</script>";
                             echo "sorry no appointment found";
                         }
                     }
