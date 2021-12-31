@@ -346,11 +346,11 @@ $.ajax({
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-    
+    alert(data);
     if(data==="Unavailable"){
       swal("Error","Consultant Un available","error");
     }
-    if(data.length>15){
+    if(data.length > 15){
     var data1=JSON.parse(data);
 
     swal("Good job!", "Booking Id :"+data1.bid+"\n Consultant name :"+data1.cname
