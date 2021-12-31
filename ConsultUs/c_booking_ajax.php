@@ -1,5 +1,5 @@
 <?php
- echo $_POST;
+ //echo $_POST;
 $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";

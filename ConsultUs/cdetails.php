@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if(empty($_SESSION['current_user_email'])){
+    header('location:../spacece_auth/login.php');
+    exit();
+  }
 
 
 include_once './header_local.php';
