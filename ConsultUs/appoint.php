@@ -344,13 +344,12 @@ $.ajax({
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-    alert(data['b_id']);
-    alert(data.b_id);
+   
     alert(data);
     var data1=JSON.parse(data);
-    alert(data['b_id']);
-    alert("data1 is " +data1);
-    alert(data1['b_id']);
+   
+    alert("data1 is :" + data1.cname);
+   
     alert(data1.b_id);
     swal("Good job!", "Booking Id"+data.b_id+"", "success") 
 //window.location.href="./cdetails.php?category=all"
