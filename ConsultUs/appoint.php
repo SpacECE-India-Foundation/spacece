@@ -336,8 +336,27 @@ $.ajax({
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-window.location.href="./cdetails.php?category=all"
-swal("Good job!", data, "success");
+   if(data==='Unavailable'){
+    swal("Error","Consultant Un-Available Selected time!" , "Error");
+   }else if(data==='Invalid'){
+    swal("Error","Invalid Data!" , "Error");
+   }else{
+
+    swal("Good job!", "Booking id:"+data.b_id,
+"Booking id:"+data.b_id,
+"User name:"+data.username,
+"Phone:"+data.mobile,
+"Email:"+data.email,
+"Date of appointment	:"+data.date_appointment,
+"Time of appointment:"+data.time_appointment,
+
+ "success");
+
+    window.location.href="./cdetails.php?category=all"
+   }
+
+
+ 
   }
 })
 

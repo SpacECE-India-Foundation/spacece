@@ -25,11 +25,9 @@ if(mysqli_num_rows($result)>0)
     while($row= mysqli_fetch_assoc($result))
     {
            echo $res = "<div class='wrapper' id='msg'>";
-           if(isset($_SESSION['current_user_name'])){
-            echo  $res = $_SESSION['current_user_name'];
-           }else{
+        
             echo  $res = $row['ip'];  
-           }
+           
          
            echo $res = " says <p>".$row['msg'];
           echo  $res = "</p> <span class='time-right'>".$row['rtime']."</span></div>";
