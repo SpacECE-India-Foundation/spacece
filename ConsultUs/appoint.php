@@ -352,7 +352,7 @@ $.ajax({
     alert("data1 is " +data1);
     alert(data1['b_id']);
     alert(data1.b_id);
-    swal("Good job!", "Booking Id"+data['b_id']+"", "success") 
+    swal("Good job!", "Booking Id"+data.b_id+"", "success") 
 //window.location.href="./cdetails.php?category=all"
 //swal("Good job!", data, "success");
   }

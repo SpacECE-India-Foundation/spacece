@@ -39,9 +39,9 @@ if($res){
   $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
  
   $res1= mysqli_query($conn,$sql1);
-  while($row=mysqli_fetch_assoc($res1)){
+  $row=mysqli_fetch_assoc($res1);
     echo json_encode($row);
-  }
+  
 
 }
 else{
