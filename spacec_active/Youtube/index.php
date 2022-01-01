@@ -64,7 +64,7 @@ function upload_video_on_youtube($arr_data) {
                 
                         // Add 'snippet' object to the $playlistItem object.
                         $playlistItemSnippet = new Google_Service_YouTube_PlaylistItemSnippet();
-                        $playlistItemSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA/playlists');
+                        $playlistItemSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
                         $playlistItemSnippet->setDescription($summary );
                         $playlistItemSnippet->setPlaylistId($category);
                         $playlistItemSnippet->setPosition(0);
