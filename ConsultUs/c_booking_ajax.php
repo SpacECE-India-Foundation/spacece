@@ -45,9 +45,9 @@ $endTime = strtotime(date("H:i", strtotime('+10 minutes', $time3)));
   while( $row=mysqli_fetch_assoc($res2)){
     $booked_time=strtotime(date($row['time_appointment']));
    
-    if( ($booked_time > $time3) ||  ($booked_time < $time3)){
+    if( ($booked_time > $time3) ||  ($booked_time >  $endTime)){
      // if($booked_time < $time3 ){
-       if(  ($booked_time >$endTime)  ||  ($booked_time < $endTime)){
+       if(  ($booked_time < $endTime)  ||  ($booked_time < $time3)){
       
         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
