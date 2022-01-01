@@ -33,7 +33,12 @@ if(isset($_SESSION['current_user_email'])){
             </div>
         </div> -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-                <table class="tb-full">
+               <div class="container">
+               <div class="table">
+    
+               <a href="./cdetails.php?category=all" class="btn btn-secondary">View All consultants</a>
+        
+        <table class="tb-full" id="booking">
                     <tr>
                         <th>S.NO.</th>
                         <th>CID:</th>
@@ -95,11 +100,11 @@ if(isset($_SESSION['current_user_email'])){
                         <td><?php echo $email; ?></td>
                         <td><?php echo $mobile; ?></td>
                         <td><?php echo $uid; ?></td>
-                        <td><a href="<?php echo SITEURL;?>delete_appointment.php?id=<?php echo $uid;?>&user=<?php echo $user;?>&email=<?php echo $email;?>" class="btn-three">DELETE APPOINTMENT</a>
+                        <td><a href="<?php echo SITEURL;?>delete_appointment.php?id=<?php echo $uid;?>&user=<?php echo $user;?>&email=<?php echo $email;?>" class=" btn btn-sm btn-danger ">DELETE APPOINTMENT</a>
             
                             <br><br>
-                            <a href="./instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br><br>
-                            <a href="<?php echo SITEURL;?>chatbot/room.php?roomname=bid<?php echo $uid;?>" class="btn-primary">CHAT</a>
+                            <a href="./instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn btn-sm" style="color:black;background-color:pink"> Confirm Appointment </a><br><br><br>
+                            <a href="<?php echo SITEURL;?>chatbot/room.php?roomname=bid<?php echo $uid;?>" class="btn btn-primary">CHAT</a>
                         </td>
 
                     </tr>
@@ -108,12 +113,15 @@ if(isset($_SESSION['current_user_email'])){
                     }
                 }
                         else{
+                          
                             echo "sorry no appointment found";
                         }
                     }
                     ?>
 
-                </table>     
+                </table>   
+                </div>
+               </div>  
             </div>
         </div>
       <?php

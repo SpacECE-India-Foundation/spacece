@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if(empty($_SESSION['current_user_email'])){
+    header('location:../spacece_auth/login.php');
+    exit();
+  }
 
 
 include_once './header_local.php';
@@ -175,7 +179,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td><?php echo $row['c_qualification']; ?></td>
 
                         <td>
-                        <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>" >Book Appointment </a>
+                        <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>&email=" >Book Appointment </a>
 
 
 

@@ -1,11 +1,16 @@
 <?php 
+session_start();
+if(empty($_SESSION['current_user_email'])){
+  header('location:../spacece_auth/login.php');
+  exit();
+}
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 include_once '../common/header_module.php';
-session_start();
 
 $email='';
+
 if(isset($_SESSION['current_user_email'])){
 $email=$_SESSION['current_user_email'];
 
@@ -43,6 +48,9 @@ if ($res) {
        
         }
     }
+}else{
+ 
+
 }
 $c_id=$_GET['cid'];
 $sql1="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'"; $res1 = mysqli_query($conn1, $sql1);
@@ -74,10 +82,10 @@ $b_id=$_GET['b_id'];
 $con_name=$_GET['con_name'];
  $cat_name=$_GET['cat_name'];
   $sql="INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$b_id','$u_mob')";
-  echo $sql;
+
   
   $res= mysqli_query($conn,$sql);
- echo $res;
+
   if(!$res){echo "<h3 style = 'color:white;'><center>sorry,unable to connect</center></h3>";}
   //echo "<h3 style = 'color:white;'>this is your booking id = $uid , please fill it in form</h3>";
 
@@ -239,12 +247,14 @@ a {
       
   
   ?>
-
+<a href="./cdetails.php?category=all" class="btn btn-secondary">View All consultants</a>
 <form   name="appoint" id="appoint" class="  justify-content-center">
   <div class="container " style="width:80%">
     <h1>BOOK APPOINTMENT</h1>
     <p>
     </p>
+    <h5>Available Time(From):<?php echo $c_from_time; ?></h5>
+    <h5>Available Time(To):<?php echo $c_to_time; ?></h5>
     <hr>
     <label for="userid"><b>Booking Id</b></label>
     <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>
@@ -285,7 +295,7 @@ a {
 </body>
 </html>
 
-<! ... end section starts...>
+
          <!-- <div class="footer text-centre" style="background-color:orange;">
             <div class="wrapper">
                  <p class="text-center" ><a href="#"></a></p>
@@ -315,6 +325,7 @@ include_once '../common/footer_module.php';
 
 var c_from_time="<?php echo $c_from_time; ?>";
 var c_to_time="<?php echo $c_to_time; ?>";
+var c_id=<?php  echo $c_id; ?>;
 var b_id=$('#userid').val();
 var adate=$('#adate').val();
 var atime=$('#atime').val();
@@ -331,33 +342,28 @@ $.ajax({
     cname:cname,
     mobile:mobile,
     fullname:fullname,
+    c_id:c_id,
     email:email,
     c_from_time:c_from_time,
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-   if(data==='Unavailable'){
-    swal("Error","Consultant Un-Available Selected time!" , "Error");
-   }else if(data==='Invalid'){
-    swal("Error","Invalid Data!" , "Error");
-   }else{
+    alert(data);
+    if(data==="Unavailable"){
+      swal("Error","Consultant Un available","error");
+    }
+    if(data.length > 15){
+    var data1=JSON.parse(data);
 
-    swal("Good job!", "Booking id:"+data.b_id,
-"Booking id:"+data.b_id,
-"User name:"+data.username,
-"Phone:"+data.mobile,
-"Email:"+data.email,
-"Date of appointment	:"+data.date_appointment,
-"Time of appointment:"+data.time_appointment,
-
- "success");
-
-    window.location.href="./cdetails.php?category=all"
-   }
-
-
- 
+    swal("Good job!", "Booking Id :"+data1.bid+"\n Consultant name :"+data1.cname
+  + "\n  user name:"+data1.username +"\n Email : "+data1.email	+"\n Date of appointment:"+data1.date_appoint+" \n Time of appoint :"+data1.time_appointment
+    +"\n mobile:"+data1.mobile+"", "success") ;
+window.location.href="./cdetails.php?category=all";
+//swal("Good job!", data, "success");
+  } else{
+    swal("Error","Invalid Data","error");
   }
+}
 })
 
   })
