@@ -35,6 +35,8 @@ View All videos
 </button></td></td>
         </tr>';
                 }
+            }else{
+                echo "No video Found";
             }
         } else {
             $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities WHERE status='free' ") or die('Sql Query Error');
@@ -56,6 +58,8 @@ View All videos
 </button></td></td>
         </tr>';
                 }
+            }else{
+                echo "No video Found";
             }
         }
     }
