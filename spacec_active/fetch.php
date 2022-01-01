@@ -50,10 +50,8 @@ View All videos
        <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
        data-toggle="modal" data-target="#editModal" >
        View <i class="fas fa-expand"></i></button>
-   <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
-   Upload video
-</button>
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#AllVideos">
+ 
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
 View All videos
 </button></td></td>
         </tr>';
