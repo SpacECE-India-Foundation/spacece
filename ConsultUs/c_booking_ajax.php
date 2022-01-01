@@ -30,7 +30,7 @@ $getDate=date($adate);
 
 //  $_SESSION['add']= "Consultant Un available";
  }else{
-  $time3 = strtotime(date($atime));
+  $time3 = strtotime("H:i",date($atime));
 $startTime = date("H:i", strtotime('-10 minutes', $time3));
 $endTime = strtotime(date("H:i", strtotime('+10 minutes', $time3)));
 
