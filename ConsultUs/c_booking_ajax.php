@@ -46,7 +46,7 @@ $endTime = strtotime(date("H:i", strtotime('+10 minutes', $atime)));
     $booked_time=strtotime(date($row['time_appointment']));
    
     if( ($booked_time > $time3) ||  ($booked_time >  $endTime)){
-  
+  echo "Inside 1";
      // if($booked_time < $time3 ){
        if(  ($booked_time < $endTime)  ||  ($booked_time < $time3)){
        
