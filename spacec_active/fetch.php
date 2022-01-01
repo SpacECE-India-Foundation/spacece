@@ -27,7 +27,7 @@ if (isset($_POST['getDetails'])) {
         View <i class="fas fa-expand"></i></button>
     <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
     Upload video
-</button><div class="col-sm-1> <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+</button> <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
 My Videos
 </button>
 <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
@@ -52,7 +52,7 @@ View All videos
        View <i class="fas fa-expand"></i></button>
    <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
    Upload video
-</button> <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+</button>
 My Videos
 </button>
 <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#AllVideos">
