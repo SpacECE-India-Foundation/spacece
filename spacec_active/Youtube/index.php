@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
  require_once './config.php';
 
 if (isset($_POST['title'])) {
@@ -71,7 +71,7 @@ function upload_video_on_youtube($arr_data) {
                         $resourceId = new Google_Service_YouTube_ResourceId();
                         $resourceId->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
                         $resourceId->setKind('youtube#video');
-                        $resourceId->setPlaylistId('PLm0GU5IUgzTB9g59TrgjgkM5htTsgqUxt');
+                        $resourceId->setPlaylistId('PLm0GU5IUgzTCafm3r3F3NqHs-NORlBSgJ');
                         $resourceId->setVideoId($video_id);
                         $playlistItemSnippet->setResourceId($resourceId);
                         $playlistItemSnippet->setTitle($title);
