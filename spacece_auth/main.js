@@ -1,32 +1,3 @@
-const input = document.querySelector("#fileToUpload");
-
-input.addEventListener("change", (e) => {
-  let files = input.files;
-  document.querySelector(".file-name").innerHTML = "";
-
-  if (files.length > 0) {
-    for (let i = 0; i <= files.length - 1; i++) {
-      let fileName = files.item(i).name;
-      let fileSize = (files.item(i).size / 1000).toFixed(2);
-
-      const fileNameAndSize = `${fileName} - ${fileSize}KB`;
-
-      document.querySelector(".file-name").innerHTML +=
-        fileNameAndSize + "<br>";
-    }
-  }
-
-  return;
-
-  // Get the file name and size
-  //   const { name: fileName, size } = input;
-  // Convert size in bytes to kilo bytes
-  //   const fileSize = (size / 1000).toFixed(2);
-  // Set the text content
-  //   const fileNameAndSize = `${fileName} - ${fileSize}KB`;
-  //   document.querySelector('.file-name').textContent = fileNameAndSize;
-});
-
 $(document).ready(function () {
   $(".consultant_details").hide();
 
