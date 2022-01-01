@@ -159,6 +159,75 @@ session_start();
             font-weight: 400;
             line-height: 1.5;
         }
+
+        #js-pro-pic {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #js-pro-pic img {
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .fileToUpload {
+            opacity: 0;
+            width: 17%;
+            height: 4%;
+            position: absolute;
+            z-index: 999;
+            cursor: pointer;
+        }
+
+        @media (max-width: 640px) {
+            .fileToUpload {
+                width: 41%;
+                height: 3%;
+            }
+        }
+
+        .file-input label {
+            margin: 0 auto;
+            display: block;
+            width: 200px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: #FFA500;
+            box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform .2s ease-out;
+        }
+
+        input:hover+label,
+        input:focus+label {
+            transform: scale(1.02);
+        }
+
+        input:focus+label {
+            outline: 1px solid #000;
+            outline: -webkit-focus-ring-color auto 2px;
+        }
+
+        .file-name {
+            font-size: 1.2rem;
+            color: #555;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .fileToUpload {
+            cursor: pointer;
+        }
     </style>
     <!-- BUG ID-0000067 -->
     <title><?= isset($module_name) ? $module_name : 'SpaceECE' ?></title>

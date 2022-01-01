@@ -1,15 +1,14 @@
 $(document).ready(function () {
   $(".consultant_details").hide();
 
-  $("#js-name input").prop("disabled", true);
-  $("#js-email input").prop("disabled", true);
-  $("#js-phone input").prop("disabled", true);
-
   $("#edit").click(function () {
     $("#js-name input").prop("disabled", false);
     $("#js-email input").prop("disabled", false);
     $("#js-phone input").prop("disabled", false);
     $("#change_password").show();
+    $("#edit").hide();
+    $("#update").show();
+    $(".file-input").show();
   });
 
   $("#change_password").click(function () {
