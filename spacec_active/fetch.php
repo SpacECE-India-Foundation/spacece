@@ -53,8 +53,6 @@ View All videos
    <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#exampleModal">
    Upload video
 </button>
-My Videos
-</button>
 <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#AllVideos">
 View All videos
 </button></td></td>
