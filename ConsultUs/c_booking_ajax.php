@@ -46,7 +46,7 @@ $endTime = strtotime(date("H:i", strtotime('+10 minutes', $time3)));
     $booked_time=strtotime($row['time_appointment']);
    
     if( $time3 > $booked_time ||  $time3  < $booked_time ){
-      if(  $endTime >$booked_time  ||  $endTime< $booked_time){
+      // if(  $endTime >$booked_time  ||  $endTime< $booked_time){
         echo $booked_time .",".$time3.",".$endTime;
         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
@@ -74,7 +74,7 @@ else{
 
 
 
-}
+//}
  }else{
   
   $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
