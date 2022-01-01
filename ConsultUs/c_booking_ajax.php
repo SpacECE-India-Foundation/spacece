@@ -50,7 +50,7 @@ $endTime = strtotime(date("H:i", strtotime('+10 minutes', $atime)));
     if( ($booked_time > $time3) ||  ($booked_time >  $endTime)){
   echo "Inside 1";
      // if($booked_time < $time3 ){
-       if(    ($booked_time < $time3)){
+       if(    ($booked_time < $time3) || ($booked_time < $endTime)){
        
         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
