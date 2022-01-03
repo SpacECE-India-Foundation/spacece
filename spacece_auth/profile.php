@@ -42,11 +42,11 @@ function get_input_value($row, $input)
         </div>
         <div class="form-group" id="js-email">
             <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="Enter Email" id="email" name="email" value="<?= get_input_value($row, 'u_email'); ?>" />
+            <input type="email" class="form-control" placeholder="Enter Email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" value="<?= get_input_value($row, 'u_email'); ?>" />
         </div>
         <div class="form-group" id="js-phone">
             <label for="phone">Mobile No.</label>
-            <input type="text" class="form-control" placeholder="Enter Mobile No." id="phone" name="phone" value="<?= get_input_value($row, 'u_mob'); ?>" />
+            <input type="text" class="form-control" placeholder="Enter Mobile No." id="phone" minlength="10" maxlength="10" name="phone" pattern="[7-9]{1}[0-9]{9}" value="<?= get_input_value($row, 'u_mob'); ?>" />
         </div>
         <!-- Change Password Functionality -->
         <button type="button" id="change_password" style="display: none;">Change Password</button>
