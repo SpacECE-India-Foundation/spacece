@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
  require_once './config.php';
 
 if (isset($_POST['title'])) {
@@ -64,23 +64,23 @@ function upload_video_on_youtube($arr_data) {
                 
                         // Add 'snippet' object to the $playlistItem object.
                         $playlistItemSnippet = new Google_Service_YouTube_PlaylistItemSnippet();
-                        $playlistItemSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA/playlists');
+                        $playlistItemSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
                         $playlistItemSnippet->setDescription($summary );
                         $playlistItemSnippet->setPlaylistId($category);
                         $playlistItemSnippet->setPosition(0);
                         $resourceId = new Google_Service_YouTube_ResourceId();
                         $resourceId->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
                         $resourceId->setKind('youtube#video');
-                        $resourceId->setPlaylistId('PLm0GU5IUgzTB9g59TrgjgkM5htTsgqUxt');
+                        $resourceId->setPlaylistId('PLm0GU5IUgzTCPa0S6EbS1TKatX5-XEzay');
                         $resourceId->setVideoId($video_id);
                         $playlistItemSnippet->setResourceId($resourceId);
                         $playlistItemSnippet->setTitle($title);
                         $playlistItem->setSnippet($playlistItemSnippet);
                         
                         // Add 'status' object to the $playlistItem object.
-                       // $playlistItemStatus = new Google_Service_YouTube_PlaylistItemStatus();
-                      // $playlistItemStatus->setPrivacyStatus('public');
-                      //  $playlistItem->setStatus($playlistItemStatus);
+                       $playlistItemStatus = new Google_Service_YouTube_PlaylistItemStatus();
+                      $playlistItemStatus->setPrivacyStatus('public');
+                       $playlistItem->setStatus($playlistItemStatus);
                         
                         $response = $service->playlistItems->insert('snippet', $playlistItem);
                        // print_r($response);

@@ -88,17 +88,7 @@ include_once '../common/banner.php';
                         //echo "<pre>";
                         ?>
                         <br>
-                        <div class="row mb-3">
-                            <div class="col-sm-10">
-                                <select id="category" name="category" class="form-control col-sm-3">
-                                    <?php
-                                    foreach ($file1['items'] as $playlist) {
-                                        echo "<option value=" . $playlist['id'] . ">" . $playlist['snippet']['title'] . "</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
+                       
                         <?php
 
                         $API_URL1 = $base_url . "part=snippet%2Cstatus&key=" . $key . " HTTP/1.1";
@@ -278,9 +268,9 @@ include_once '../common/banner.php';
 </div>
 
 
-<div class="modal fade modal-xl  " id="myVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog  modal-xl" role="document">
-        <div class="modal-content">
+<div class="modal fade modal-lg  " id="myVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-lg   " role="document">
+        <div class="modal-content ">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModal">My Videos</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -290,7 +280,7 @@ include_once '../common/banner.php';
             <div class="modal-body">
 
                 <?php
-
+   
                 if (isset($_SESSION['current_user_email'])) {
                     $user = $_SESSION['current_user_email'];
                     include_once 'Youtube/class-db.php';
@@ -298,18 +288,27 @@ include_once '../common/banner.php';
                     $db = new DB();
                     $videos = $db->get_Videos($user);
 
-
-
-                  $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+                    
+                 
+                 // $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
 
                     foreach ($videos as $video) {
+                        $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+                        $video_id;
                         echo "<div class='col-md-6'>";
-                        echo '<iframe width="530" height="520"
-                               src="https://www.youtube.com/embed/' . $video_id . '"
+                        echo'<iframe width="250" height="180"
+                               src="https://www.youtube.com/embed/'.$video_id.'"
                                frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-                               </iframe>';
+                               </iframe> ';
+                        // echo '<iframe width="230" height="180"
+                        //        src="youtube.com/watch?v='.$video_id. '"
+                        //        frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
+                        //        </iframe>';
                         echo "</div>";
+                     
                     }
+                   
+                    echo "</div>";
                     echo "</div>";
                 }
                 ?>
@@ -319,8 +318,8 @@ include_once '../common/banner.php';
     </div>
 </div>
 
-<div class="modal fade  " id="AllVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog modal-xl" role="document">
+<div class="modal fade  " id="allVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModal">View all Videos</h5>
@@ -339,9 +338,28 @@ include_once '../common/banner.php';
                     $db = new DB();
                     $videos = $db->get_all_Videos();
                     foreach ($videos as $video) {
+                        $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+                       
                         echo "<div class='col-md-6'>";
-                        echo '<iframe width="530" height="120"
-                               src="https://www.youtube.com/embed/' . $video['video_id'] . '"
+                        echo '<iframe width="250" height="180"
+                               src="https://www.youtube.com/embed/' .  $video_id . '"
+                               frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
+                               </iframe>';
+                        echo "</div>";
+                    }
+                    echo "</div>";
+                }else{
+                    include_once 'Youtube/class-db.php';
+                   
+                    echo "<div class='row'>";
+                    $db = new DB();
+                    $videos = $db->get_all_Videos();
+                    foreach ($videos as $video) {
+                        $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+                       
+                        echo "<div class='col-md-6'>";
+                        echo '<iframe width="250" height="180"
+                               src="https://www.youtube.com/embed/' .  $video_id . '"
                                frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                                </iframe>';
                         echo "</div>";
