@@ -462,6 +462,7 @@ $(document).ready(function () {
         getCartItem is used to show the cart item into dropdown menu 
         checkOutDetails is used to show cart item into Khanstore/Cart page
     */
+
   function checkOutDetails() {
     $(".overlay").show();
     $.ajax({
