@@ -31,7 +31,7 @@ if($date3 > $date1){
     echo json_encode(['status'=>'fail','date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
     
 }else{
-echo "Inside1";
+
   
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
 $res2 = mysqli_query($conn,$sql1);
@@ -85,7 +85,7 @@ $res2 = mysqli_query($conn,$sql1);
           
 
         }else{
-   echo  "inside";
+
 
     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
                 $res = mysqli_query($conn,$sql);
