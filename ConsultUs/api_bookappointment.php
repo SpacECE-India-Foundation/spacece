@@ -53,7 +53,7 @@ $res2 = mysqli_query($conn,$sql1);
               
                 if($date1 >$date5  || $date1 < $date5){
                     if ($date1 >$date2 || $date1 <$date2 ){
-                        echo "Inside2";
+                       
                         $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
                         $res = mysqli_query($conn,$sql);
                         header('Content-Type:application/json');
