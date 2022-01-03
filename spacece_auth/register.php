@@ -33,11 +33,11 @@ function get_consultant_categories($conn)
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="Enter Email" id="email" name="email" />
+            <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter Email" id="email" name="email" />
         </div>
         <div class="form-group">
             <label for="phone">Mobile No.</label>
-            <input type="text" class="form-control" placeholder="Enter Mobile No." id="phone" name="phone" />
+            <input type="text" class="form-control"  minlength="10" maxlength="10"  pattern="[7-9]{1}[0-9]{9}" placeholder="Enter Mobile No." id="phone" name="phone" />
         </div>
         <div class="form-group">
             <label for="password">Password</label>
