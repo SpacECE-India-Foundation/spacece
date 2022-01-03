@@ -284,7 +284,6 @@ session_start();
                     <i class="fas fa-user-plus"></i><span>Register</span></a>
                 <a href=<?= isset($main_page) ? "./spacece_auth/login.php" : "../spacece_auth/login.php" ?>>
                     <i class="fas fa-sign-in-alt"></i><span>Login</span></a>
-                    <!-- <a href=<?= isset($main_page) ? "./spacece_auth/logout.php" : "../spacece_auth/logout.php" ?>><i class="fas fa-sign-out-alt"></i><span>Logout</span></a> -->
             <?php
             }
             ?>
