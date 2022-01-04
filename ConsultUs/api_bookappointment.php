@@ -60,8 +60,8 @@ else{
                     
                         $tme=$row['b_time'];
                         $end=$row['end_time'];
-                    
-                        $date2=strtotime((date($row['b_time'])),strtotime("+{ $end} minutes") );
+                        $date2 = strtotime(date("Y-m-d H:i", strtotime('+ ' .$end_time. 'minutes', $row['b_time'])));
+                       // $date2=strtotime((date($row['b_time'])),strtotime("+{ $end} minutes") );
                     
                         if($date1 > $date2 || $date1 > $date5){
                 
