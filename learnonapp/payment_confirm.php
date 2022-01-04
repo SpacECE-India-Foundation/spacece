@@ -33,9 +33,11 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
     if ($response->success == true && $_GET['payment_status'] == 'Credit') {
         // Payment is successful
         $payment_success = true;
+        $response = file_get_contents('../api/learnonapp_add_payments.php?payment_status=success&payment_id=' . $payment_id);
     } else {
         // Payment is not successful
         $payment_success = false;
+        $response = file_get_contents('../api/learnonapp_add_payments.php?payment_status=failure&payment_id=null');
     }
 }
 
