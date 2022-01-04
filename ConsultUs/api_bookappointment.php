@@ -13,7 +13,7 @@ $date3=strtotime(date("Y-m-d h:i:sa"));
 
 $date1=strtotime($b_time);
 $time=strtotime(date("h:i:sa",$_POST['b_time']));
-echo $time;
+
 //$date1= strtotime(date('2022-04-21 16:55:01'));;
 $date4 = strtotime(date("Y-m-d H:i", strtotime('+ ' .$end_time. 'minutes', $date1)));
 //$date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
@@ -44,7 +44,7 @@ else{
 
             if($date3 > $date1){
                 echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
-                
+                break;
             }else{
 
             
@@ -92,6 +92,7 @@ else{
                         //         }
                         }else{
                                 echo json_encode(['status'=>'fail2','msg'=>"UNABLE TO ADD DATA"]);
+                                break;
 
                             }
                             
