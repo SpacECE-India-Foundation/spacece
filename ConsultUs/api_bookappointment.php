@@ -27,6 +27,22 @@ if(strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4
     
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
 $res = mysqli_query($conn,$sql1);
+if(!$res){
+    $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
+                $res = mysqli_query($conn,$sql);
+                header('Content-Type:application/json');
+        
+        
+                //checking whether query is excuted or not
+                if($res){
+                    echo json_encode(['status'=>'success','result'=>'Added']);
+                    // count that data is there or not in database
+                    
+                   
+                }else{
+                    echo json_encode(['status'=>'fail', 'msg'=>"UNABLE TO ADD DATA"]);
+                }
+}
 if($date3 > $date1){
     echo json_encode(['status'=>'fail','date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
     
@@ -41,7 +57,7 @@ $res2 = mysqli_query($conn,$sql1);
         $sno =1;
         if($count>0){
             while($row = mysqli_fetch_assoc($res2)){
-        $date5=strtotime(date($row['b_time']));
+             $date5=strtotime(date($row['b_time']));
           
             $tme=$row['b_time'];
             $end=$row['end_time'];
@@ -103,7 +119,11 @@ $res2 = mysqli_query($conn,$sql1);
                 }
    
 }
+
+
 }
+
+
 }
 }
 
