@@ -5,9 +5,9 @@
 $u_id=$_POST['u_id'];
 $c_id=$_POST['c_id'];
 
-$b_time=$_POST['b_time'];
+$b_time1=$_POST['b_time'];
 $end_time=$_POST['end_time'];
- $b_time= date($b_time);
+ $b_time= date($b_time1);
 
 $date3=strtotime(date("Y-m-d h:i:sa"));
 
