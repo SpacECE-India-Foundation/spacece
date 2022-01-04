@@ -39,14 +39,24 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
         // Payment is successful
         $payment_success = true;
         echo "Yes<br><br>";
-        $res = file_get_contents('../api/learnonapp_add_payments.php?payment_status=success&payment_id=' . $payment_id);
-        echo $res;
+        $url = "../api/learnonapp_add_payments.php?payment_status=success&payment_id=" . $payment_id;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        echo $data;
     } else {
         // Payment is not successful
         $payment_success = false;
         echo "Yes<br><br>";
-        $res = file_get_contents('../api/learnonapp_add_payments.php?payment_status=failure&payment_id=null');
-        echo $res;
+        $url = "../api/learnonapp_add_payments.php?payment_status=failure&payment_id=null";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        echo $data;
     }
 }
 
