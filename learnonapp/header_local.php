@@ -12,6 +12,8 @@ $extra_styles = '
 $extra_scripts = "<script src='./assets/js/main.js'></script>";
 $banner_img = "../img/banner/LearnOnApp.png";
 
-// $extra_main_nav_links = "
-//     <a href='./courses.php'><i class='fas fa-book-open'></i><span>Courses</span></a>
-// ";
+if (isset($_SESSION['current_user_id'])) {
+	$extra_main_nav_links = "
+    <a href='./my_courses.php'><i class='fas fa-book-open'></i><span>My Courses</span></a>
+";
+}
