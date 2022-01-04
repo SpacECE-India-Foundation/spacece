@@ -26,8 +26,8 @@ $sno =1;
 if($count>0){
 while($row = mysqli_fetch_assoc($res1)){
 
-    $to_time=strtotime(date($row['c_to_time']));
-    $from_time=strtotime(date($row['c_from_time']));
+    $to_time=strtotime(date( "h:i:s",$row['c_to_time']));
+    $from_time=strtotime(date( "h:i:s",$row['c_from_time']));
     echo $to_time.',';
     echo $time.',';
     echo $from_time .',';
