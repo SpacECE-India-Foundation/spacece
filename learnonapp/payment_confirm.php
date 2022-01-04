@@ -5,6 +5,7 @@ include_once '../common/banner.php';
 include './db.php';
 
 $payment_success = false;
+$msg = null;
 
 // instamojo payment confirm
 if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['payment_request_id']) && $_GET['payment_request_id'] != '') {
@@ -46,6 +47,7 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
             if ($result->num_rows > 0) {
                 // Payment already exists
                 $payment_success = false;
+                $msg = "This payment has already been made.";
             } else {
                 // Payment is new
                 $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`, `payment_status`, `payment_details`) VALUES ($user_id, $course_id, 'paid', '.$payment_id.') ON DUPLICATE KEY UPDATE `payment_status` = 'paid', `payment_details` = '$payment_id'";
@@ -54,18 +56,22 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
 
                 if ($result) {
                     $payment_success = true;
+                    $msg = "Your payment has been successfully processed. You will receive an email confirmation shortly.";
                 } else {
-                    $payment_success = true;
+                    $payment_success = false;
+                    $msg = "There was an error processing your payment. If the payment is deducted, please contact us.";
                 }
             }
         } else {
-            $payment_success = false;
             $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`) VALUES ($user_id, $course_id)";
             $result = mysqli_query($conn, $sql);
+            $payment_success = false;
+            $msg = "There was an error processing your payment. Please try again later.";
         }
     } else {
         // Payment is not successful
         $payment_success = false;
+        $msg = "You can't make payment without logging in.";
     }
 }
 
@@ -82,7 +88,7 @@ if ($payment_success) {
                 <div class="col-md-12">
                     <div class="payment-success-content">
                         <h1 class="text-success">Payment Successful</h1>
-                        <p>Your payment has been successfully processed. You will receive an email confirmation shortly.</p>
+                        <p><?= $msg; ?></p>
                         <a href="./index.php" class="btn btn-success">Back to Home</a>
                     </div>
                 </div>
@@ -98,7 +104,7 @@ if ($payment_success) {
                 <div class="col-md-12">
                     <div class="payment-error-content">
                         <h1 class="text-danger">Payment Failed</h1>
-                        <p>Your payment has been failed. Please try again.</p>
+                        <p><?= $msg; ?></p>
                         <a href="./index.php" class="btn btn-danger">Back to Home</a>
                     </div>
                 </div>
