@@ -37,7 +37,7 @@ if(strtotime(date($row['c_from_time']))>$date1|| strtotime(date($row['c_from_tim
     
     }else{
 
-            if($date3 > $date1){
+            if($date3 < $date1){
                 echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
                 
             }else{
