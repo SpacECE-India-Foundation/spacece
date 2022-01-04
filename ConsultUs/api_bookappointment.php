@@ -14,7 +14,10 @@ $date3=strtotime(date("Y-m-d h:i:sa"));
 $date1=strtotime($b_time);
 
 //$date1= strtotime(date('2022-04-21 16:55:01'));;
-$date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
+$date4 = date("Y-m-d H:i", strtotime('+ ' .$end_time. 'minutes', $time));
+//$date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
+
+   // $startTime = date("Y-m-d H:i:s", strtotime('+{ $end_time} minutes', $b_time));
 $sql2="SELECT spaceece.consultant.c_from_time,spaceece.consultant.c_to_time from spaceece.consultant join spaceece.users where  spaceece.users.u_id=spaceece.consultant.u_id AND spaceece.users.u_id='$c_id' ";
 $res1 = mysqli_query($conn,$sql2);
 $count= mysqli_num_rows($res1);
