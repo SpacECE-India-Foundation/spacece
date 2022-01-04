@@ -1,4 +1,8 @@
 <?php
+include_once './header_local.php';
+include_once '../common/header_module.php';
+include_once '../common/banner.php';
+
 $payment_success = false;
 $res = null;
 
@@ -41,10 +45,6 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
         $res = file_get_contents('../api/learnonapp_add_payments.php?payment_status=failure&payment_id=null');
     }
 }
-
-include_once './header_local.php';
-include_once '../common/header_module.php';
-include_once '../common/banner.php';
 
 print_r($res);
 
