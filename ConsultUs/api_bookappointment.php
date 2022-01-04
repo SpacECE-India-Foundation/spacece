@@ -64,7 +64,7 @@ if(strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4
                             
                                     //checking whether query is excuted or not
                                     if($res){
-                                        echo json_encode(['status'=>'success','result'=>'Added']);
+                                        echo json_encode(['status'=>'success','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'result'=>'Added']);
                                         // count that data is there or not in database
                                         
                                     
