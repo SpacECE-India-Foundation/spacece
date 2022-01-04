@@ -35,6 +35,7 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
     curl_close($ch);
 
     $response = json_decode($response);
+
     if (isset($_SESSION['current_user_id']) && isset($_SESSION['course_id'])) {
         $user_id = $_SESSION['current_user_id'];
         $course_id = $_SESSION['course_id'];
@@ -50,7 +51,7 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
                 $msg = "This payment has already been made.";
             } else {
                 // Payment is new
-                $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`, `payment_status`, `payment_details`) VALUES ($user_id, $course_id, 'paid', '.$payment_id.') ON DUPLICATE KEY UPDATE `payment_status` = 'paid', `payment_details` = '$payment_id'";
+                $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`, `payment_status`, `payment_details`) VALUES ($user_id, $course_id, 'paid', '$payment_id') ON DUPLICATE KEY UPDATE `payment_status` = 'paid', `payment_details` = '$payment_id'";
 
                 $result = mysqli_query($conn, $sql);
 
