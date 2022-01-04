@@ -40,7 +40,7 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
 
         if ($response->success == true && $_GET['payment_status'] == 'Credit') {
             // Payment is successful
-            $sql = "SELECT * FROM `learnonapp_users_courses` WHERE payment_details = '$response->payment_id'";
+            $sql = "SELECT * FROM `learnonapp_users_courses` WHERE payment_details = '.$payment_id.'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -48,7 +48,8 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
                 $payment_success = false;
             } else {
                 // Payment is new
-                $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`, `payment_status`, `payment_details`) VALUES ($user_id, $course_id, 'paid', '$response->payment_id')";
+                $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`, `payment_status`, `payment_details`) VALUES ($user_id, $course_id, 'paid', '.$payment_id.') ON DUPLICATE KEY UPDATE `payment_status` = 'paid', `payment_details` = '.$payment_id.'";
+
                 $result = mysqli_query($conn, $sql);
 
                 if ($result) {
@@ -59,7 +60,7 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
             }
         } else {
             $payment_success = false;
-            $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`, `payment_status`, `payment_details`) VALUES ($user_id, $course_id, 'failed', null)";
+            $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`) VALUES ($user_id, $course_id)";
             $result = mysqli_query($conn, $sql);
         }
     } else {
