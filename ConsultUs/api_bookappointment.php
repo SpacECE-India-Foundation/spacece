@@ -12,7 +12,7 @@ $end_time=$_POST['end_time'];
 $date3=strtotime(date("Y-m-d h:i:sa"));
 
 $date1=strtotime($b_time);
-$time=strtotime(date("h:i:sa",$_POST['time']));
+$time=strtotime(date("h:i:sa",$_POST['b_time']));
 
 //$date1= strtotime(date('2022-04-21 16:55:01'));;
 $date4 = strtotime(date("Y-m-d H:i", strtotime('+ ' .$end_time. 'minutes', $date1)));
