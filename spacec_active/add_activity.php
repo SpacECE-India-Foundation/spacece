@@ -23,12 +23,55 @@ include_once '../common/banner.php';
 
     <div class="card mb-3 d-flex jistify-content-center ">
         <form id="add_activity" name="add_activity" class="  mb-3" >
-            <div class="row d-flex justify-content-center mb-3">
-                <div class="col-sm-6 ">
-                <lable>Activity Name</lable>
+            <div class="row ">
+                <div class="col-sm-6 d-flex justify-content-center mb-3 ">
+                    <div class="col-sm-10">
+                <lable class="mb-3">Activity Name : </lable>
         <input type="text" name="act_name" class="form-control" id="act_name" required>
+             
+
+                <lable class="mb-3">Activity Level : </lable>
+                <select class="form-control" id="act_lvl" name="act_lvl" required>
+                    <option value="">Select</option>
+                    <option value="1">Level 1</option>
+                    <option value="2">Level 2</option>
+                    <option value="3">Level 3</option>
+                    <option value="4">Level 4</option>
+                </select>
+        
+               
+                <lable class="mb-3">Activity Developing Domain  : </lable>
+        <input type="text" name="act_dom" class="form-control" id="act_dom" required>
+              
+                <lable class="mb-3">Activity objectives  : </lable>
+                <textarea name="act_obj" class="form-control" id="act_obj" cols="30" rows="3" required></textarea>
+      
+                <lable class="mb-3">Activity process : </lable>
+      
+      <textarea name="act_pro" class="form-control" id="act_pro" cols="30" rows="3" required></textarea>
+                
                 </div>
+                </div>
+                <div class="col-sm-6 ">
+                <div class="col-sm-10">
+                <lable class="mb-3">Activity Key Objectives  : </lable>
+        <input type="text" name="act_key" class="form-control" id="act_key" required>
+                <lable class="mb-3">Activity material : </lable>
+        <input type="text" name="act_mat" class="form-control" id="act_mat" required>
+               
+                <lable class="mb-3">Activity Assesment : </lable>
+                <textarea name="act_asses" class="form-control" id="act_asses" cols="30" rows="3" required></textarea>
            
+                
+
+                <lable class="mb-3">Activity Instructions : </lable>
+        
+        <textarea name="act_ins" class="form-control" id="act_ins" cols="30" rows="3" required></textarea>
+              
+                <lable class="mb-3">Activity Date: </lable>
+        <input type="date" name="act_date" class="form-control" id="act_date" required>
+        </div>
+</div>
             </div>
         
         </form>
