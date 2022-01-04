@@ -27,7 +27,8 @@ if(strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4
     
 $sql1="SELECT * from new_apointment where c_id='$c_id'";
 $res = mysqli_query($conn,$sql1);
-if(!$res){
+if(empty($res)){
+    echo "Inside";
     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
                 $res = mysqli_query($conn,$sql);
                 header('Content-Type:application/json');
