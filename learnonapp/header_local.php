@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/LearnOnApp.jpeg";

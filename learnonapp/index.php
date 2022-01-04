@@ -11,9 +11,9 @@ include_once '../common/banner.php';
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head> -->
 <div class="course_container">
-    <div id="courses">
+  <div id="courses">
 
-    </div>
+  </div>
 </div>
 <?php
 include_once '../common/footer_module.php';
