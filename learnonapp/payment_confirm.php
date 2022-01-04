@@ -38,15 +38,17 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
     if ($response->success == true && $_GET['payment_status'] == 'Credit') {
         // Payment is successful
         $payment_success = true;
+        echo "Yes<br><br>";
         $res = file_get_contents('../api/learnonapp_add_payments.php?payment_status=success&payment_id=' . $payment_id);
+        echo $res;
     } else {
         // Payment is not successful
         $payment_success = false;
+        echo "Yes<br><br>";
         $res = file_get_contents('../api/learnonapp_add_payments.php?payment_status=failure&payment_id=null');
+        echo $res;
     }
 }
-
-print_r($res);
 
 ?>
 
