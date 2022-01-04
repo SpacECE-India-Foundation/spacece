@@ -18,6 +18,7 @@ $count= mysqli_num_rows($res1);
 $sno =1;
 if($count>0){
 while($row = mysqli_fetch_assoc($res1)){
+    echo "Inside1";
 
 if(strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4 ){
     if(strtotime($row['c_to_time'])< $date1|| strtotime($row['c_to_time'])< $date4 ){
@@ -31,7 +32,7 @@ if(strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4
                 
             }else{
 
-            
+            echo "Inside2";
             $sql1="SELECT * from new_apointment where c_id='$c_id'";
             $res2 = mysqli_query($conn,$sql1);
 
