@@ -19,7 +19,7 @@ $count= mysqli_num_rows($res1);
 $sno =1;
 if($count>0){
 while($row = mysqli_fetch_assoc($res1)){
-    echo "Inside1";
+ 
 
 if((strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4)&&(strtotime($row['c_to_time'])< $date1|| strtotime($row['c_to_time'])< $date4) ){
     //if( ){
@@ -27,7 +27,7 @@ if((strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date
   //  }
     
     }else{
-echo "Inside2";
+
             if($date3 > $date1){
                 echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
                 
