@@ -7,7 +7,7 @@ $c_id=$_POST['c_id'];
 
 $b_time=$_POST['b_time'];
 $end_time=$_POST['end_time'];
- $b_time= date($b_time);
+ $b_time= $b_time;
 $date3=strtotime(date("Y-m-d h:i:sa"));
 date_default_timezone_set("Asia/Kolkata");
 $date1=strtotime(date($b_time));
