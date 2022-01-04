@@ -26,13 +26,13 @@ if(strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4
     }
     
     }else{
-
+        echo "Inside2";
             if($date3 > $date1){
                 echo json_encode(['status'=>'fail','date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
                 
             }else{
 
-            echo "Inside2";
+            
             $sql1="SELECT * from new_apointment where c_id='$c_id'";
             $res2 = mysqli_query($conn,$sql1);
 
