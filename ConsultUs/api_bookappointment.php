@@ -20,10 +20,10 @@ if($count>0){
 while($row = mysqli_fetch_assoc($res1)){
     echo "Inside1";
 
-if(strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4 ){
-    if(strtotime($row['c_to_time'])< $date1|| strtotime($row['c_to_time'])< $date4 ){
+if((strtotime($row['c_from_time'])>$date1|| strtotime($row['c_from_time'])>$date4 )&&(strtotime($row['c_to_time'])< $date1|| strtotime($row['c_to_time'])< $date4)){
+   // if( ){
         echo json_encode(['status'=>'fail','date1'=>$date1,'date3'=>$date3,'msg'=>"CONSULTANT NOT AVAILABLE"]);
-    }
+  //  }
     
     }else{
         echo "Inside2";
