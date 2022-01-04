@@ -2,9 +2,9 @@
 include_once './header_local.php';
 include_once '../common/header_module.php';
 include_once '../common/banner.php';
+include './db.php';
 
 $payment_success = false;
-$res = null;
 
 // instamojo payment confirm
 if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['payment_request_id']) && $_GET['payment_request_id'] != '') {
@@ -38,27 +38,13 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
     if ($response->success == true && $_GET['payment_status'] == 'Credit') {
         // Payment is successful
         $payment_success = true;
-        echo "Yes<br><br>";
-        $url = "../api/learnonapp_add_payments.php?payment_status=success&payment_id=" . $payment_id;
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $data = curl_exec($ch);
-        curl_close($ch);
-        echo $data;
     } else {
         // Payment is not successful
         $payment_success = false;
-        echo "Yes<br><br>";
-        $url = "../api/learnonapp_add_payments.php?payment_status=failure&payment_id=null";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $data = curl_exec($ch);
-        curl_close($ch);
-        echo $data;
     }
 }
+
+print_r($_SESSION);
 
 ?>
 
