@@ -63,10 +63,10 @@ else{
                     
                         $date2=strtotime((date($row['b_time'])),strtotime("+{ $end} minutes") );
                     
-                        if($date1 > $date2 && $date1< $date2){
+                        if($date1 > $date2 || $date1< $date2){
                 
                         
-                             if($date1 > $date5  && $date1 < $date5){
+                             if($date1 > $date5  || $date1 < $date5){
                             //     if ($date1 > $date2 ||  $date1 < $date2 ){
                                 
                                     $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
