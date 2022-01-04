@@ -24,10 +24,10 @@ $count= mysqli_num_rows($res1);
 $sno =1;
 if($count>0){
 while($row = mysqli_fetch_assoc($res1)){
-//  if(strtotime(date($row['c_from_time']))>$date1 || strtotime(date($row['c_to_time']))< $date4){
-//     echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'msg'=>"CONSULTANT NOT AVAILABLE"]);
-//  }
-// else{
+ if(strtotime(date($row['c_from_time']))>$date1 || strtotime(date($row['c_to_time']))< $date4){
+    echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'msg'=>"CONSULTANT NOT AVAILABLE"]);
+ }
+else{
 
 
 if(((strtotime(date($row['c_from_time'])))> $date1) || ((strtotime(date($row['c_from_time'])))>$date4) ){
@@ -123,7 +123,7 @@ if(((strtotime(date($row['c_from_time'])))> $date1) || ((strtotime(date($row['c_
 }
 
 
-//}
+}
 
 } else{
     echo json_encode(['status'=>'fail','count'=>$count, 'msg'=>"UNABLE TO ADD DATA"]);
