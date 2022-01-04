@@ -75,7 +75,7 @@ if(((strtotime(date($row['c_from_time'])))> $date1) || ((strtotime(date($row['c_
                                         echo json_encode(['status'=>'success','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'result'=>'Added']);
                                         // count that data is there or not in database
                                         
-                                    
+                                    break;
                                     }
                                 
                                 
