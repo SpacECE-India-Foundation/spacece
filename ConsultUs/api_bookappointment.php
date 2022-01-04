@@ -30,11 +30,11 @@ while($row = mysqli_fetch_assoc($res1)){
 // else{
 
 
-if((strtotime(date($row['c_from_time'])))>$date1|| (strtotime(date($row['c_from_time'])))>$date4 ){
+if((strtotime(date($row['c_from_time'])))>$date1 || (strtotime(date($row['c_from_time'])))>$date4 || ((strtotime(date($row['c_to_time'])))< $date1|| (strtotime(date($row['c_to_time'])))< $date4)){
  
-    if((strtotime(date($row['c_to_time'])))< $date1|| (strtotime(date($row['c_to_time'])))< $date4 ){
+   // if( ){
         echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date4'=>$date4, 'date3'=>$date3,'msg'=>"CONSULTANT NOT AVAILABLE"]);
-    }
+ //   }
     
     }else{
 
