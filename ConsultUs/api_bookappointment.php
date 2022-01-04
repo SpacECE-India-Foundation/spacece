@@ -27,8 +27,8 @@ if($count>0){
 while($row = mysqli_fetch_assoc($res1)){
 
     $to_time=strtotime(date($row['c_to_time']));
- if( $to_time < $time ){
-    echo json_encode(['status'=>'fail','time'=>$time,'from'=>strtotime(date($row['c_from_time'])),'to'=> strtotime(date($row['c_to_time'])),'b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'msg'=>"CONSULTANT NOT AVAILABLE"]);
+ if( $to_time < $time ||  (strtotime(date($row['c_from_time']))) < $time ){
+    echo json_encode(['status'=>'fail','time'=>$time,'from'=>strtotime(date($row['c_from_time'])),'to'=> $to_time,'b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'msg'=>"CONSULTANT NOT AVAILABLE"]);
  }
 else{
 
