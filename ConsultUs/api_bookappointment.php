@@ -12,6 +12,7 @@ $end_time=$_POST['end_time'];
 $date3=strtotime(date("Y-m-d h:i:sa"));
 date_default_timezone_set("Asia/Kolkata");
 $date1=strtotime(date($_POST['b_time']));
+echo $date1;
 $date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
 $sql2="SELECT spaceece.consultant.c_from_time,spaceece.consultant.c_to_time from spaceece.consultant join spaceece.users where  spaceece.users.u_id=spaceece.consultant.u_id AND spaceece.users.u_id='$c_id' ";
 $res1 = mysqli_query($conn,$sql2);
