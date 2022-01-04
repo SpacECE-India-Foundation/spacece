@@ -70,6 +70,7 @@ $(document).ready(function () {
               <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
             </div>
             <input type="hidden" name="course_id" value="${course.id}">
+            <input type="hidden" name="course_total" value="${course.price}">
             <button type="submit" class="btn btn-wide">
               Buy Course
             </button>
