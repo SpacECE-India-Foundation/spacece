@@ -30,13 +30,13 @@ while($row = mysqli_fetch_assoc($res1)){
 else{
 
 
-if(((strtotime(date($row['c_from_time'])))> $date1) || ((strtotime(date($row['c_from_time'])))>$date4) ){
+// if(((strtotime(date($row['c_from_time'])))> $date1) || ((strtotime(date($row['c_from_time'])))>$date4) ){
  
-    if(((strtotime(date($row['c_to_time'])))< $date1) || ((strtotime(date($row['c_to_time'])))< $date4 )){
-        echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date4'=>$date4, 'date3'=>$date3,'msg'=>"CONSULTANT NOT AVAILABLE"]);
-    }
+//     if(((strtotime(date($row['c_to_time'])))< $date1) || ((strtotime(date($row['c_to_time'])))< $date4 )){
+//         echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date4'=>$date4, 'date3'=>$date3,'msg'=>"CONSULTANT NOT AVAILABLE"]);
+//     }
     
-    }else{
+//     }else{
 
             if($date3 > $date1){
                 echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
@@ -123,7 +123,7 @@ if(((strtotime(date($row['c_from_time'])))> $date1) || ((strtotime(date($row['c_
 }
 
 
-}
+//}
 
 } else{
     echo json_encode(['status'=>'fail','count'=>$count, 'msg'=>"UNABLE TO ADD DATA"]);
