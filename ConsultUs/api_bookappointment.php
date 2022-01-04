@@ -31,7 +31,7 @@ while($row = mysqli_fetch_assoc($res1)){
     echo $to_time.',';
     echo $time.',';
     echo $from_time .',';
- if(  ( $time < $from_time )  ){
+ if(  ( $time > $from_time ) && ( $time < $to_time )   ){
     echo json_encode(['status'=>'fail','time'=>$time,'from'=>strtotime(date($row['c_from_time'])),'to'=> $to_time,'b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'msg'=>"CONSULTANT NOT AVAILABLE"]);
  }
 else{
