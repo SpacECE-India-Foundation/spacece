@@ -4,9 +4,6 @@ session_start();
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
-
-//site url
-define("SITEURL", 'http://3.109.14.4/spac/');
 $servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
@@ -23,6 +20,9 @@ $uid = $_SESSION['current_user_id'];
 $cid = $_SESSION['course_id'];
 $payment_status = $_GET['payment_status'];
 $payment_id = $_GET['payment_id'];
+
+echo json_encode(array('status' => 'success', 'message' => "Working", 'GET' => $_GET, 'SESSION' => $_SESSION));
+exit();
 
 if (isset($uid) && isset($cid) && isset($payment_status) && isset($payment_id)) {
     $sql = "INSERT INTO `learnonapp_users_courses` (`payment_details`, `user_id`, `course_id`, `payment_status`) VALUES ('$payment_id', '$uid', '$cid', '$payment_status')";
