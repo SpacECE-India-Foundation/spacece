@@ -14,7 +14,7 @@ $date3=strtotime(date("Y-m-d h:i:sa"));
 $date1=strtotime($b_time);
 
 //$date1= strtotime(date('2022-04-21 16:55:01'));;
-$date4 = strtotime(date("Y-m-d H:i", strtotime('+ ' .$end_time. 'minutes', $b_time)));
+$date4 = strtotime(date("Y-m-d H:i", strtotime('+ ' .$end_time. 'minutes', $date1)));
 //$date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
 
    // $startTime = date("Y-m-d H:i:s", strtotime('+{ $end_time} minutes', $b_time));
