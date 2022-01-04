@@ -34,17 +34,41 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
     curl_close($ch);
 
     $response = json_decode($response);
+    if (isset($_SESSION['current_user_id']) && isset($_SESSION['course_id'])) {
+        $user_id = $_SESSION['current_user_id'];
+        $course_id = $_SESSION['course_id'];
 
-    if ($response->success == true && $_GET['payment_status'] == 'Credit') {
-        // Payment is successful
-        $payment_success = true;
+        if ($response->success == true && $_GET['payment_status'] == 'Credit') {
+            // Payment is successful
+            $sql = "SELECT * FROM `learnonapp_users_courses` WHERE payment_details = '$response->payment_id'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Payment already exists
+                $payment_success = false;
+            } else {
+                // Payment is new
+                $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`, `payment_status`, `payment_details`) VALUES ($user_id, $course_id, 'paid', '$response->payment_id')";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result) {
+                    $payment_success = true;
+                } else {
+                    $payment_success = true;
+                }
+            }
+        } else {
+            $payment_success = false;
+            $sql = "INSERT INTO `learnonapp_users_courses` (`uid`, `cid`, `payment_status`, `payment_details`) VALUES ($user_id, $course_id, 'failed', null)";
+            $result = mysqli_query($conn, $sql);
+        }
     } else {
         // Payment is not successful
         $payment_success = false;
     }
 }
 
-print_r($_SESSION);
+// print_r($_SESSION);
 
 ?>
 
