@@ -1,4 +1,9 @@
 <?php
+include_once './header_local.php';
+include_once '../common/header_module.php';
+include_once '../common/banner.php';
+include './db.php';
+
 $payment_success = false;
 
 // instamojo payment confirm
@@ -39,9 +44,7 @@ if (isset($_GET['payment_id']) && $_GET['payment_id'] != '' && isset($_GET['paym
     }
 }
 
-include_once './header_local.php';
-include_once '../common/header_module.php';
-include_once '../common/banner.php';
+print_r($_SESSION);
 
 ?>
 
