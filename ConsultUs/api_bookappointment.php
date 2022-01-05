@@ -8,12 +8,12 @@ $c_id=$_POST['c_id'];
 $b_time1=$_POST['b_time'];
 $end_time=$_POST['end_time'];
  $b_time= date($b_time1);
-
+$b_date=date('Y-m-d',$b_time1);
 $date3=strtotime(date("Y-m-d h:i:sa"));
 
 $date1=strtotime($b_time);
-//$time=strtotime(date("h:i:s",$b_time));
-$time=strtotime(date("H:i:s", strtotime($b_time1)));
+$time=strtotime(date("H:i:s",$_POST['time']));
+//$time=strtotime(date("H:i:s", strtotime($b_time1)));
 //$date1= strtotime(date('2022-04-21 16:55:01'));;
 $date4 = strtotime(date("Y-m-d H:i", strtotime('+ ' .$end_time. 'minutes', $date1)));
 //$date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
@@ -51,8 +51,8 @@ else{
                 break;
             }else{
 
-            
-            $sql1="SELECT * from new_apointment where c_id='$c_id'";
+            $b_date=date($_POST['b_date']);
+            $sql1="SELECT * from new_apointment where c_id='$c_id' and $b_date='$b_date'";
             $res2 = mysqli_query($conn,$sql1);
 
                     // count that data is there or not in database
