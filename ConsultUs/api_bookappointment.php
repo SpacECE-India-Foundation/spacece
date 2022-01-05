@@ -73,7 +73,7 @@ else{
                              if($date5 < $date1  || $date5 > $date2){
                             //     if ($date1 > $date2 ||  $date1 < $date2 ){
                                 
-                                    $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time) VALUES('$u_id','$c_id','$b_time','$end_time')";
+                                    $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date) VALUES('$u_id','$c_id','$b_time','$end_time','$b_date')";
                                     $res = mysqli_query($conn,$sql);
                                     header('Content-Type:application/json');
                             
