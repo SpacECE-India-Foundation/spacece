@@ -47,7 +47,7 @@ while($row = mysqli_fetch_assoc($res1)){
             if($count>0){
                 while($row = mysqli_fetch_assoc($res2)){
                 $date5=strtotime($row['booking_time']);
-            
+            echo $date5;
                 $tme=$row['b_time'];
                 $end=$row['end_time'];
             echo $row['booking_time'];
@@ -120,7 +120,7 @@ else{
 //     }
     
 //     }else{
-    echo json_encode(['status'=>'fail','time'=>$time,'from'=>strtotime(date($row['c_from_time'])),'to'=> $to_time,'b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'msg'=>"CONSULTANT NOT AVAILABLE"]);
+    echo json_encode(['status'=>'fail','msg'=>"CONSULTANT NOT AVAILABLE"]);
        
 
 
