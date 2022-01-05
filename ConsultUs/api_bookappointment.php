@@ -52,7 +52,7 @@ while($row = mysqli_fetch_assoc($res1)){
                 $tme=$row['b_time'];
                 $end=$row['end_time'];
           
-                $date2=strtotime($date5,strtotime("+{ $end} minutes") );
+                $date2=strtotime($row['booking_time'] ,strtotime("+{ $end} minutes") );
           
                 if(($time > $date5) && ($time > $date2)  || (($time < $date5) && ($time < $date2)) ){
         
@@ -61,7 +61,7 @@ while($row = mysqli_fetch_assoc($res1)){
                     //     if ($date1 > $date2 ||  $date1 < $date2 ){
                         
                             $sql = "INSERT INTO  new_apointment (u_id,c_id,end_time,b_date,booking_time) VALUES('$u_id','$c_id','$end_time','$b_date','$booking_time')";
-                            echo  $sql;
+                      
                             $res = mysqli_query($conn,$sql);
                             header('Content-Type:application/json');
                     
