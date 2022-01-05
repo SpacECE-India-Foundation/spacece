@@ -39,6 +39,7 @@ while($row = mysqli_fetch_assoc($res1)){
 
    // $b_date=date($_POST['b_date']);
     $sql1="SELECT * from new_apointment where c_id='$c_id' and b_date='$b_date'";
+    echo  $sql1;
     $res2 = mysqli_query($conn,$sql1);
 
             // count that data is there or not in database
