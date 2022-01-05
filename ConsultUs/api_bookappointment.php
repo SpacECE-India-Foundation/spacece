@@ -76,7 +76,7 @@ while($row = mysqli_fetch_assoc($res1)){
                     
                 }
                 else{
-                        echo json_encode(['status'=>'fail2','time'=>$time,'b_time'=>$row['booking_time'],'date1'=>$date5,'date3'=>$date3,'msg'=>"UNABLE TO ADD DATA"]);
+                        echo json_encode(['status'=>'fail2','time'=>$time,'row'=>$row,'b_time'=>$row['booking_time'],'date1'=>$date5,'date3'=>$date3,'msg'=>"UNABLE TO ADD DATA"]);
                         break;
 
                     }
