@@ -47,11 +47,11 @@ while($row = mysqli_fetch_assoc($res1)){
             if($count>0){
                 while($row = mysqli_fetch_assoc($res2)){
                 $date5=strtotime($row['booking_time']);
-            echo $date5;
+           
                 $tme=$row['b_time'];
                 $end=$row['end_time'];
-            echo $row['booking_time'];
-                $date2=strtotime($row['booking_time'],strtotime("+{ $end} minutes") );
+          
+                $date2=strtotime($date5,strtotime("+{ $end} minutes") );
           
                 if(($time > $date5) && ($time > $date2)  || (($time < $date5) && ($time < $date2)) ){
         
