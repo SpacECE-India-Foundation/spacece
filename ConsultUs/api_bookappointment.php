@@ -33,7 +33,88 @@ while($row = mysqli_fetch_assoc($res1)){
     echo $from_time .',';
  if(  ( $time > $from_time ) &&  ( $time < $to_time ) ){
 
-    echo json_encode(['status'=>'fail','time'=>$time,'from'=>strtotime(date($row['c_from_time'])),'to'=> $to_time,'b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'msg'=>"CONSULTANT NOT AVAILABLE"]);
+    if($date3 > $date1){
+        echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
+        break;
+    }else{
+
+    $b_date=date($_POST['b_date']);
+    $sql1="SELECT * from new_apointment where c_id='$c_id' and b_date='$b_date'";
+    $res2 = mysqli_query($conn,$sql1);
+
+            // count that data is there or not in database
+            $count= mysqli_num_rows($res2);
+            $sno =1;
+            if($count>0){
+                while($row = mysqli_fetch_assoc($res2)){
+                $date5=strtotime(date($row['b_time']));
+            
+                $tme=$row['b_time'];
+                $end=$row['end_time'];
+            
+                $date2=strtotime((date($row['b_time'])),strtotime("+{ $end} minutes") );
+          
+                if($date5 > $date1 || $date5 < $date2){
+        
+                
+                     if($date5 < $date1  || $date5 > $date2){
+                    //     if ($date1 > $date2 ||  $date1 < $date2 ){
+                        
+                            $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date) VALUES('$u_id','$c_id','$b_time','$end_time',_date''$b)";
+                            $res = mysqli_query($conn,$sql);
+                            header('Content-Type:application/json');
+                    
+                    
+                            //checking whether query is excuted or not
+                            if($res){
+                                echo json_encode(['status'=>'success','b_time'=>$date2,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'result'=>'Added']);
+                                // count that data is there or not in database
+                                
+                            break;
+                            }
+                        
+                        
+                        }else{
+                            echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
+                            break;
+                        }
+                //     }else{
+                //             echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
+                //         }
+                }else{
+                        echo json_encode(['status'=>'fail2','msg'=>"UNABLE TO ADD DATA"]);
+                        break;
+
+                    }
+                    
+                    
+                    
+                }
+
+            
+
+            }else{
+
+
+        $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date) VALUES('$u_id','$c_id','$b_time','$end_time','$b_date')";
+                    $res = mysqli_query($conn,$sql);
+                    header('Content-Type:application/json');
+            
+            
+                    //checking whether query is excuted or not
+                    if($res){
+                        echo json_encode(['status'=>'success','result'=>'Added']);
+                        // count that data is there or not in database
+                        
+                    
+                    }else{
+                        echo json_encode(['status'=>'fail', 'msg'=>"UNABLE TO ADD DATA"]);
+                    }
+    
+    }
+
+
+}
  }
 else{
 
@@ -45,89 +126,8 @@ else{
 //     }
     
 //     }else{
-
-            if($date3 > $date1){
-                echo json_encode(['status'=>'fail','b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'msg'=>"INVALID SELECTED DATE"]);
-                break;
-            }else{
-
-            $b_date=date($_POST['b_date']);
-            $sql1="SELECT * from new_apointment where c_id='$c_id' and b_date='$b_date'";
-            $res2 = mysqli_query($conn,$sql1);
-
-                    // count that data is there or not in database
-                    $count= mysqli_num_rows($res2);
-                    $sno =1;
-                    if($count>0){
-                        while($row = mysqli_fetch_assoc($res2)){
-                        $date5=strtotime(date($row['b_time']));
-                    
-                        $tme=$row['b_time'];
-                        $end=$row['end_time'];
-                    
-                        $date2=strtotime((date($row['b_time'])),strtotime("+{ $end} minutes") );
-                  
-                        if($date5 > $date1 || $date5 < $date2){
-                
-                        
-                             if($date5 < $date1  || $date5 > $date2){
-                            //     if ($date1 > $date2 ||  $date1 < $date2 ){
-                                
-                                    $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date) VALUES('$u_id','$c_id','$b_time','$end_time',_date''$b)";
-                                    $res = mysqli_query($conn,$sql);
-                                    header('Content-Type:application/json');
-                            
-                            
-                                    //checking whether query is excuted or not
-                                    if($res){
-                                        echo json_encode(['status'=>'success','b_time'=>$date2,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'result'=>'Added']);
-                                        // count that data is there or not in database
-                                        
-                                    break;
-                                    }
-                                
-                                
-                                }else{
-                                    echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
-                                    break;
-                                }
-                        //     }else{
-                        //             echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
-                        //         }
-                        }else{
-                                echo json_encode(['status'=>'fail2','msg'=>"UNABLE TO ADD DATA"]);
-                                break;
-
-                            }
-                            
-                            
-                            
-                        }
-
-                    
-
-                    }else{
-
-
-                $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date) VALUES('$u_id','$c_id','$b_time','$end_time','$b_date')";
-                            $res = mysqli_query($conn,$sql);
-                            header('Content-Type:application/json');
-                    
-                    
-                            //checking whether query is excuted or not
-                            if($res){
-                                echo json_encode(['status'=>'success','result'=>'Added']);
-                                // count that data is there or not in database
-                                
-                            
-                            }else{
-                                echo json_encode(['status'=>'fail', 'msg'=>"UNABLE TO ADD DATA"]);
-                            }
-            
-            }
-
-
-        }
+    echo json_encode(['status'=>'fail','time'=>$time,'from'=>strtotime(date($row['c_from_time'])),'to'=> $to_time,'b_time'=>$b_time,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'msg'=>"CONSULTANT NOT AVAILABLE"]);
+       
 
 
 }
