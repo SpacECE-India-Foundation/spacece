@@ -66,7 +66,7 @@ while($row = mysqli_fetch_assoc($res1)){
                     
                             //checking whether query is excuted or not
                             if($res){
-                                echo json_encode(['status'=>'success','time'=>$time,'b_time'=>$date2,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'result'=>'Added']);
+                                echo json_encode(['status'=>'success','time'=>$time,'row'=>$row,'b_time'=>$date2,'date1'=>$date1,'date3'=>$date3,'date4'=>$date4,'result'=>'Added']);
                                 // count that data is there or not in database
                                 
                             break;
