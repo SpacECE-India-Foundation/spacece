@@ -11,7 +11,7 @@ $end_time=$_POST['end_time'];
 $b_date=date('Y-m-d',$b_time1);
 $date3=strtotime(date("Y-m-d h:i:sa"));
 $booking_time=$_POST['time'];
-$date1=strtotime($b_time);
+$date1=strtotime($b_date);
 //$time=strtotime(date("H:i:s",date($_POST['time'])));
 $time=strtotime(date("H:i:s",date($_POST['time'])));
 //$time=strtotime(date("H:i:s", strtotime($b_time1)));
@@ -50,7 +50,7 @@ while($row = mysqli_fetch_assoc($res1)){
             
                 $tme=$row['b_time'];
                 $end=$row['end_time'];
-            
+            echo $row['booking_time'];
                 $date2=strtotime($row['booking_time'],strtotime("+{ $end} minutes") );
           
                 if(($time > $date5) && ($time > $date2)  || (($time < $date5) && ($time < $date2)) ){
