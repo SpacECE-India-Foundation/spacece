@@ -53,7 +53,7 @@ while($row = mysqli_fetch_assoc($res1)){
                 $end=$row['end_time'];
           
                 $date2=strtotime($row['booking_time'] ,strtotime("+{ $end} minutes") );
-                $date2=strtotime( $date2);
+               
           
                 if(($time > $date5) && ($time > $date2)  || (($time < $date5) && ($time < $date2)) ){
         
