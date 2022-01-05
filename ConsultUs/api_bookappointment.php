@@ -54,7 +54,7 @@ while($row = mysqli_fetch_assoc($res1)){
           
                 $date2=strtotime($row['booking_time'] ,strtotime("+{ $end} minutes") );
                
-                $endTime1 = date("H:i",strtotime('+  '.$end.'minutes', strtotime($row['booking_time'])));
+                $endTime1 = date("H:i",strtotime('+ '.$end.'minutes', strtotime($row['booking_time'])));
 
                         $endTime=strtotime($endTime1);
                 if(($time > $date5) && ($time > $endTime)  || (($time < $date5) && ($time < $endTime)) ){
