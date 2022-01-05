@@ -45,9 +45,9 @@ while($row = mysqli_fetch_assoc($res1)){
             $sno =1;
             if($count>0){
                 while($row = mysqli_fetch_assoc($res2)){
-                $date5=strtotime(date($row['b_time']));
+                $date5=strtotime(date($row['booking_time']));
             
-                $tme=$row['booking_time'];
+                $tme=$row['b_time'];
                 $end=$row['end_time'];
             
                 $date2=strtotime((date($row['booking_time'])),strtotime("+{ $end} minutes") );
