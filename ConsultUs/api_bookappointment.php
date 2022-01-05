@@ -53,10 +53,10 @@ while($row = mysqli_fetch_assoc($res1)){
             
                 $date2=strtotime($row['booking_time'],strtotime("+{ $end} minutes") );
           
-                if($date5 > $time || $date5 > $date2){
+                if(($time > $date5) || ($time > $date2) || ($time < $date5) || ($time < $date2) ){
         
                 
-                     if($date5 < $time ){
+                 
                     //     if ($date1 > $date2 ||  $date1 < $date2 ){
                         
                             $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date,booking_time) VALUES('$u_id','$c_id','$b_time','$end_time','$b_date','$booking_time')";
@@ -73,10 +73,11 @@ while($row = mysqli_fetch_assoc($res1)){
                             }
                         
                         
-                        }else{
-                            echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
-                            break;
-                        }
+                       /// }
+                        //else{
+                        //     echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
+                        //     break;
+                        // }
                 //     }else{
                 //             echo json_encode(['status'=>'fail1','msg'=>"UNABLE TO ADD DATA"]);
                 //         }
