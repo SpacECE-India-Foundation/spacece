@@ -54,9 +54,9 @@ while($row = mysqli_fetch_assoc($res1)){
           
                 $date2=strtotime($row['booking_time'] ,strtotime("+{ $end} minutes") );
                
-                $endTime = date("H:i",strtotime('+  '.$end.'minutes', strtotime($row['booking_time'])));
+                $endTime1 = date("H:i",strtotime('+  '.$end.'minutes', strtotime($row['booking_time'])));
 
-
+                        $endTime=strtotime($endTime1);
                 if(($time > $date5) && ($time > $endTime)  || (($time < $date5) && ($time < $endTime)) ){
         
                 
@@ -81,7 +81,7 @@ while($row = mysqli_fetch_assoc($res1)){
                     
                 }
                 else{
-                        echo json_encode(['status'=>'fail2','time'=>$time,'row'=>$row,'b_time'=>$row['booking_time'],'date1'=>$date5,'date3'=>$date3,'date2'=>$endTime,'msg'=>"UNABLE TO ADD DATA"]);
+                        echo json_encode(['status'=>'fail2','time'=>$time,'row'=>$endTime,'b_time'=>$row['booking_time'],'date1'=>$date5,'date3'=>$date3,'date2'=>$endTime,'msg'=>"UNABLE TO ADD DATA"]);
                         break;
 
                     }
