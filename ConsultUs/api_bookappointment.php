@@ -9,9 +9,9 @@ $b_time1=$_POST['b_time'];
 $end_time=$_POST['end_time'];
  $b_time= date($b_time1);
 $b_date=date('Y-m-d',$b_time1);
-$date3=strtotime(date("Y-m-d h:i:sa"));
+$date3=strtotime(date("Y-m-d"));
 $booking_time=$_POST['time'];
-$date1=strtotime($b_date);
+$date1=strtotime(date("Y-m-d",$b_date));
 //$time=strtotime(date("H:i:s",date($_POST['time'])));
 $time=strtotime(date("H:i:s",date($_POST['time'])));
 //$time=strtotime(date("H:i:s", strtotime($b_time1)));
@@ -37,7 +37,7 @@ while($row = mysqli_fetch_assoc($res1)){
         break;
     }else{
 
-    $b_date=date($_POST['b_date']);
+    $b_date=date('Y-m-d',$_POST['b_date']);
     $sql1="SELECT * from new_apointment where c_id='$c_id' and b_date='$b_date'";
     $res2 = mysqli_query($conn,$sql1);
 
