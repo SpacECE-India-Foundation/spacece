@@ -80,7 +80,7 @@ if (mysqli_num_rows($result) > 0) {
         $_SESSION["consultant_qualification"] = $row['c_qualification'];
     }
 
-    $redirect_url = "index.php";
+    $redirect_url = "../index.php";
 
     if (isset($_SESSION['redirect_url'])) {
         $redirect_url = $_SESSION['redirect_url'];

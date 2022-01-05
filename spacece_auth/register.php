@@ -8,7 +8,7 @@ if (!isset($_SESSION['redirect_url']))
     $_SESSION['redirect_url'] = $_SERVER['HTTP_REFERER'];
 
 if (isset($_SESSION['current_user_id'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 
 function get_consultant_categories($conn)
@@ -37,7 +37,7 @@ function get_consultant_categories($conn)
         </div>
         <div class="form-group">
             <label for="phone">Mobile No.</label>
-            <input type="text" class="form-control"  minlength="10" maxlength="10"  pattern="[7-9]{1}[0-9]{9}" placeholder="Enter Mobile No." id="phone" name="phone" />
+            <input type="text" class="form-control" minlength="10" maxlength="10" pattern="[7-9]{1}[0-9]{9}" placeholder="Enter Mobile No." id="phone" name="phone" />
         </div>
         <div class="form-group">
             <label for="password">Password</label>

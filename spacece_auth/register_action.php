@@ -36,7 +36,7 @@ if (mysqli_num_rows($run) > 0) {
         $c_available_from = $_POST['c_available_from'];
         $c_available_to = $_POST['c_available_to'];
         $c_qualification = $_POST['c_qualification'];
-        $redirectUrl = '/index.php';
+        $redirectUrl = '../index.php';
         $sql = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
 
         $result = mysqli_query($conn, $sql);
@@ -47,7 +47,7 @@ if (mysqli_num_rows($run) > 0) {
       VALUES ($last_id, $c_categories, '$c_office', '$c_from_time', '$c_to_time', '$c_language', '$c_fee', '$c_available_from', '$c_available_to', '$c_qualification')";
     } else if ($type == 'customer') {
         $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image')";
-        $redirectUrl = '/index.php';
+        $redirectUrl = '../index.php';
     } else {
         echo json_encode(array('status' => 'error', 'message' => "Invalid user type!"));
         die();
