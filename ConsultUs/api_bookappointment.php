@@ -57,11 +57,11 @@ while($row = mysqli_fetch_assoc($res1)){
                 $endTime1 = date("H:i",strtotime('+ '.$end.'minutes', strtotime($row['booking_time'])));
 
                         $endTime=strtotime($endTime1);
-                if(($time > $date5) && ($time > $endTime)  || (($time < $date5) && ($time < $endTime)) ){
+                if(($time > $date5)  ){
         
                 
                  
-                    //     if ($date1 > $date2 ||  $date1 < $date2 ){
+                    //   && ($time > $endTime)  || (($time < $date5) && ($time < $endTime)  if ($date1 > $date2 ||  $date1 < $date2 ){
                         
                             $sql = "INSERT INTO  new_apointment (u_id,c_id,end_time,b_date,booking_time) VALUES('$u_id','$c_id','$end_time','$b_date','$booking_time')";
                       
