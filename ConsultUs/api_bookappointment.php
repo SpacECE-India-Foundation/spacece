@@ -15,7 +15,7 @@ $date1=strtotime($b_time);
 $time=strtotime(date("H:i:s",date($_POST['time'])));
 //$time=strtotime(date("H:i:s", strtotime($b_time1)));
 //$date1= strtotime(date('2022-04-21 16:55:01'));;
-$date4 = strtotime(date("Y-m-d H:i", strtotime('+ ' .$end_time. 'minutes', $date1)));
+$date4 = strtotime(date(" H:i", strtotime('+ ' .$end_time. 'minutes', $booking_time)));
 //$date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
 
    // $startTime = date("Y-m-d H:i:s", strtotime('+{ $end_time} minutes', $b_time));
@@ -52,10 +52,10 @@ while($row = mysqli_fetch_assoc($res1)){
             
                 $date2=strtotime((date($row['booking_time'])),strtotime("+{ $end} minutes") );
           
-                if($date5 > $date1 || $date5 < $date2){
+                if($date5 > $time || $date5 < $date2){
         
                 
-                     if($date5 < $date1  || $date5 > $date2){
+                     if($date5 < $time  || $date5 > $date2){
                     //     if ($date1 > $date2 ||  $date1 < $date2 ){
                         
                             $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date,booking_time) VALUES('$u_id','$c_id','$b_time','$end_time','$b_date',$booking_time)";
