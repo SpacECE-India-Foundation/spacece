@@ -10,7 +10,7 @@ $end_time=$_POST['end_time'];
  $b_time= date($b_time1);
 $b_date=date('Y-m-d',$b_time1);
 $date3=strtotime(date("Y-m-d h:i:sa"));
-
+$booking_time=date("H:i:s",date($_POST['time']));
 $date1=strtotime($b_time);
 $time=strtotime(date("H:i:s",date($_POST['time'])));
 //$time=strtotime(date("H:i:s", strtotime($b_time1)));
@@ -28,9 +28,7 @@ while($row = mysqli_fetch_assoc($res1)){
 
     $to_time=strtotime(date( "h:i:s",$row['c_to_time']));
     $from_time=strtotime(date( "h:i:s",$row['c_from_time']));
-    echo $to_time.',';
-    echo $time.',';
-    echo $from_time .',';
+
  if(  ( $time > $from_time ) &&  ( $time < $to_time ) ){
 
     if($date3 > $date1){
@@ -60,7 +58,7 @@ while($row = mysqli_fetch_assoc($res1)){
                      if($date5 < $date1  || $date5 > $date2){
                     //     if ($date1 > $date2 ||  $date1 < $date2 ){
                         
-                            $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date) VALUES('$u_id','$c_id','$b_time','$end_time',_date''$b)";
+                            $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date,booking_time) VALUES('$u_id','$c_id','$b_time','$end_time','$b_date',$booking_time)";
                             $res = mysqli_query($conn,$sql);
                             header('Content-Type:application/json');
                     
@@ -96,7 +94,7 @@ while($row = mysqli_fetch_assoc($res1)){
             }else{
 
 
-        $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date) VALUES('$u_id','$c_id','$b_time','$end_time','$b_date')";
+        $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date,booking_time) VALUES('$u_id','$c_id','$b_time','$end_time','$b_date','$booking_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
             
