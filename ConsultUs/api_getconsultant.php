@@ -13,6 +13,7 @@ if(empty($cat_name)){
         $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
         users.u_image AS u_image ,
     consultant.c_office AS c_office,consultant.c_from_time As c_from_time, consultant.c_to_time As c_to_time , 
+    consultant.c_aval_days As c_aval_days, 
     consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
     consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
     consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
@@ -56,7 +57,7 @@ if($cat_name ){
         $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
         users.u_image as image, consultant.c_office AS c_office,consultant.c_from_time As 
         c_from_time, consultant.c_to_time As c_to_time , consultant.c_language AS c_language, 
-        consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from, consultant.c_available_to AS 
+        consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from ,consultant.c_aval_days As c_aval_days, consultant.c_available_to AS 
         c_available_to ,consultant.c_qualification AS c_qualification , consultant_category.cat_name AS cat_name 
         FROM consultant_category JOIN consultant JOIN users WHERE users.u_id = consultant.u_id AND
          consultant.c_category=consultant_category.cat_id
