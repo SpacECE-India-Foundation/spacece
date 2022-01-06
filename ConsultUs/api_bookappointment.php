@@ -49,7 +49,7 @@ while($row = mysqli_fetch_assoc($res1)){
     }else{
         
    // $b_date=date($_POST['b_date']);
-    $sql1="SELECT * from new_apointment where b_date='$b_date' and  c_id='$c_id'  and booking_time BETWEEN '$booking_time' AND '$to_time1' AND  end_time BETWEEN '$booking_time' AND '$to_time1'  ";
+    $sql1="SELECT * from new_apointment where b_date='$b_date' and  c_id='$c_id'  and booking_time BETWEEN '$booking_time' AND '$to_time1'   ";
 
     $res2 = mysqli_query($conn,$sql1);
 
