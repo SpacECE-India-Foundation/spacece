@@ -5,9 +5,9 @@
 $u_id=$_POST['u_id'];
 $c_id=$_POST['c_id'];
 
-$b_time1=$_POST['b_time'];
+//$b_time1=$_POST['b_time'];
 $end_time=$_POST['end_time'];
- $b_time= date($b_time1);
+ //$b_time= date($b_time1);
 $b_date=date($_POST['b_date']);
 $date3=strtotime(date("Y-m-d"));
 $booking_time=$_POST['time'];
@@ -64,7 +64,7 @@ while($row = mysqli_fetch_assoc($res1)){
             }else{
                
                $booking_id=rand(9999999,0000000);
-        $sql = "INSERT INTO  new_apointment (booking_id,u_id,c_id,b_time,end_time,b_date,booking_time) VALUES('$booking_id','$u_id','$c_id','$b_time','$to_time1','$b_date','$booking_time')";
+        $sql = "INSERT INTO  new_apointment (booking_id,u_id,c_id,end_time,b_date,booking_time) VALUES('$booking_id','$u_id','$c_id','$to_time1','$b_date','$booking_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
             
