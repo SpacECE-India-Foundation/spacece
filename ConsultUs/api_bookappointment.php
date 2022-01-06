@@ -20,17 +20,27 @@ $time=strtotime(date($_POST['time']));
 $date4 = date("H:i",strtotime('+ '.$end_time.'minutes', strtotime($booking_time)));
 //$date4=strtotime($b_time,strtotime("+{ $end_time} minutes"));
 $to_time1 = date("H:i:s",strtotime('+ '.$end_time.'minutes', strtotime($_POST['time'])));
+function getWeekday($date) {
+    return date('l', strtotime($date));
+}
+
+$avl= getWeekday($b_date);
    // $startTime = date("Y-m-d H:i:s", strtotime('+{ $end_time} minutes', $b_time));
-$sql2="SELECT spaceece.consultant.c_from_time,spaceece.consultant.c_to_time from spaceece.consultant join spaceece.users where  spaceece.users.u_id=spaceece.consultant.u_id AND spaceece.users.u_id='$c_id' ";
+$sql2="SELECT spaceece.consultant.c_from_time,spaceece.consultant.c_to_time,spaceece.consultant.c_aval_days As c_aval_days from spaceece.consultant join spaceece.users where  spaceece.users.u_id=spaceece.consultant.u_id AND spaceece.users.u_id='$c_id' ";
 $res1 = mysqli_query($conn,$sql2);
 $count= mysqli_num_rows($res1);
 $sno =1;
 if($count>0){
 while($row = mysqli_fetch_assoc($res1)){
-
+    $DaysArray = explode(",", $row['c_aval_days']);
     $to_time=strtotime($row['c_to_time']);
     $from_time=strtotime($row['c_from_time']);
 
+    if (in_array($avl, $DaysArray))
+  {
+
+   
+  
  if(  ( $time > $from_time ) &&  ( $time < $to_time ) ){
 
     if($date3 > $date1){
@@ -39,7 +49,7 @@ while($row = mysqli_fetch_assoc($res1)){
     }else{
         
    // $b_date=date($_POST['b_date']);
-    $sql1="SELECT * from new_apointment where c_id='$c_id' and b_date='$b_date' and booking_time BETWEEN '$booking_time' AND '$to_time1' OR  end_time BETWEEN '$booking_time' AND '$to_time1' ";
+    $sql1="SELECT * from new_apointment where b_date='$b_date' and  c_id='$c_id'  and booking_time BETWEEN '$booking_time' AND '$to_time1' AND  end_time BETWEEN '$booking_time' AND '$to_time1'  ";
     echo  $sql1;
     $res2 = mysqli_query($conn,$sql1);
 
@@ -90,6 +100,11 @@ else{
 
 }
 }
+else{
+    echo json_encode(['status'=>'fail','msg'=>"CONSULTANT NOT AVAILABLE"]);
+}
+}
+
 
 
 //}
