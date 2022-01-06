@@ -53,8 +53,8 @@ while($row = mysqli_fetch_assoc($res1)){
 
             }else{
                
-               
-        $sql = "INSERT INTO  new_apointment (u_id,c_id,b_time,end_time,b_date,booking_time) VALUES('$u_id','$c_id','$b_time','$to_time1','$b_date','$booking_time')";
+               $booking_id=rand(9999999,0000000);
+        $sql = "INSERT INTO  new_apointment (booking_id,u_id,c_id,b_time,end_time,b_date,booking_time) VALUES('$booking_id','$u_id','$c_id','$b_time','$to_time1','$b_date','$booking_time')";
                     $res = mysqli_query($conn,$sql);
                     header('Content-Type:application/json');
             
@@ -66,7 +66,7 @@ while($row = mysqli_fetch_assoc($res1)){
                         
                     
                     }else{
-                        echo json_encode(['status'=>'fail','b_date'=>$b_date, 'msg'=>"CONSULTANT UN-AVAILABLE SELECTED Time"]);
+                        echo json_encode(['status'=>'fail','b_date'=>$b_date,'Booking id'=> $booking_id , 'user_id'=>$u_id,'c_id'=>$c_id,'b_time'=> $b_time,'to_time'=>$to_time1,'b_date'=>$b_date,'booking_time'=>$booking_time,'msg'=>"CONSULTANT UN-AVAILABLE SELECTED Time"]);
                     }
     
     }
