@@ -5,7 +5,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 
-$servername = "3.109.14.4";
+$servername = "localhost";
 $username = "ostechnix";
 $password = "Password123#@!";
 $dbname = "khanstore";
@@ -23,12 +23,12 @@ if ($conn->connect_error) {
 error_reporting();
 
 if (isset($bookId)) {
-    $sql = "SELECT * FROM `bookownerapi` WHERE bookId=" . $bookId;
+    $sql = "SELECT * FROM `bookowner` WHERE bookId=" . $bookId;
     $res = mysqli_query($conn,$sql);
     header('Content-Type:application/json');
 }
 else {
-    $sql = "SELECT * FROM `bookownerapi` LIMIT 35";
+    $sql = "SELECT * FROM `bookowner` LIMIT 35";
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 }

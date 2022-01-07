@@ -5,7 +5,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 
-$servername = "3.109.14.4";
+$servername = "localhost";
 $username = "ostechnix";
 $password = "Password123#@!";
 $dbname = "khanstore";
@@ -23,12 +23,12 @@ if ($conn->connect_error) {
 error_reporting();
 
 if (isset($userId)) {
-    $sql = "SELECT * FROM `recommendationsapi` WHERE userId=" . $userId;
+    $sql = "SELECT * FROM ` recommendations` WHERE userId=" . $userId;
     $res = mysqli_query($conn,$sql);
     header('Content-Type:application/json');
 }
 else {
-    $sql = "SELECT * FROM `recommendationsapi` LIMIT 35";
+    $sql = "SELECT * FROM ` recommendations` LIMIT 35";
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 }
