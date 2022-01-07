@@ -18,7 +18,7 @@ $u_id='';
 if(isset($u_id)){
     $u_id=$_POST['u_id'];
 }
-echo $u_id;
+
 
 
 if(empty($c_id) && $status=='All'){
