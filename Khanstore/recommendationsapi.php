@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 error_reporting();
 
 if (isset($userId)) {
-    $sql = "SELECT * FROM ` recommendations` WHERE userId=" . $userId;
+    $sql = "SELECT * FROM `recommendations` WHERE userId=" . $userId;
     $res = mysqli_query($conn,$sql);
     header('Content-Type:application/json');
 }
