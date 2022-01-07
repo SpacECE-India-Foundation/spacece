@@ -22,7 +22,7 @@ include_once '../common/banner.php';
 <div class="container ">
 
     <div class="card mb-3 d-flex jistify-content-center ">
-        <form id="add_activity" name="add_activity" class="  mb-3" method="POST">
+        <form id="add_activity" name="add_activity" class="  mb-3" method="POST" action="./ajax_add_activity.php">
             <div class="row ">
                 <div class="col-sm-6 d-flex justify-content-center mb-3 ">
                     <div class="col-sm-10">
@@ -33,10 +33,10 @@ include_once '../common/banner.php';
                 <lable class="mb-3">Activity Level : </lable>
                 <select class="form-control" id="act_lvl" name="act_lvl" required>
                     <option value="">Select</option>
-                    <option value="1">Level 1</option>
-                    <option value="2">Level 2</option>
-                    <option value="3">Level 3</option>
-                    <option value="4">Level 4</option>
+                    <option value=" Level 1">Level 1</option>
+                    <option value=" Level 2">Level 2</option>
+                    <option value=" Level 3">Level 3</option>
+                    <option value=" Level 4">Level 4</option>
                 </select>
         
                
@@ -80,7 +80,7 @@ include_once '../common/banner.php';
 
         </div>
        
-        <input type="submit" id="save" name="save" class="mb-3 btn btn-primary">
+        
 </div>
 
             </div>
@@ -111,7 +111,7 @@ include_once '../common/footer_module.php';
 
         
 $("#add_activity").on('submit',function( e ){
-        e.preventDefault;
+       // e.preventDefault;
         var act_name=$('#act_name').val();
         var act_lvl=$('#act_lvl').val();
         var act_dom=$('#act_dom').val();
@@ -128,7 +128,7 @@ $("#add_activity").on('submit',function( e ){
         
         var act_date=$('#act_date').val();
         var pl_desc=$('#pl_desc').val();
-        alert(pl_desc);
+        alert(act_lvl);
         $.ajax({
 
                 method:'POST',
