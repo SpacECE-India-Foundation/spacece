@@ -40,12 +40,14 @@ if ($res) {
     $count = mysqli_num_rows($res);
     $sno = 1;
     if ($count > 0) {
+        echo "inside";
         // we have data in database
         while ($row = mysqli_fetch_assoc($res)) {
 
             $arr[] = $row;   // making array of data
 
         }
+        echo "inside";
         echo json_encode(['status' => 'success', 'data' => $arr, 'result' => 'found']);
         //echo json_encode(['status'=>'success','result'=>'found']);
 
