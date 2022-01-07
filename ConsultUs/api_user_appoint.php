@@ -20,7 +20,7 @@ if(isset($u_id)){
     $u_id=$_POST['u_id'];
 }
 
-echo $c_id;
+
 
 if(empty($c_id) && $status=='All'){
     //echo "inside1";
