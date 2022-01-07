@@ -71,12 +71,12 @@ while($row = mysqli_fetch_assoc($res1)){
             
                     //checking whether query is excuted or not
                     if($res){
-                        echo json_encode(['status'=>'success','result'=>'Added']);
+                        echo json_encode(['status'=>'success','b_date'=>$b_date,'Booking id'=> $booking_id , 'user_id'=>$u_id,'c_id'=>$c_id,'b_time'=> $b_time,'to_time'=>$to_time1,'b_date'=>$b_date,'booking_time'=>$booking_time, 'result'=>'Added']);
                         // count that data is there or not in database
                         
                     
                     }else{
-                        echo json_encode(['status'=>'fail','b_date'=>$b_date,'Booking id'=> $booking_id , 'user_id'=>$u_id,'c_id'=>$c_id,'b_time'=> $b_time,'to_time'=>$to_time1,'b_date'=>$b_date,'booking_time'=>$booking_time,'msg'=>"CONSULTANT UN-AVAILABLE SELECTED Time"]);
+                        echo json_encode(['status'=>'fail','msg'=>"CONSULTANT UN-AVAILABLE SELECTED Time"]);
                     }
     
     }
