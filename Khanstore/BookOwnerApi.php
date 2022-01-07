@@ -1,8 +1,8 @@
 <?php
-//session_start();
+session_start();
 
-//header('Access-Control-Allow-Origin: *');
-///header("Access-Control-Allow-Methods: GET, OPTIONS");
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 
 $servername = "3.109.14.4";
@@ -19,9 +19,9 @@ if ($conn->connect_error) {
 ?>
 <?php
 	$bookId = isset($_GET["bookId"])? $_GET['bookId'] : Null;
-    echo "inside";
-//error_reporting();
-$res="";
+
+error_reporting();
+
 if (isset($bookId)) {
     $sql = "SELECT * FROM `bookowner` WHERE bookId=" . $bookId;
     $res = mysqli_query($conn,$sql);
@@ -40,14 +40,12 @@ if ($res) {
     $count = mysqli_num_rows($res);
     $sno = 1;
     if ($count > 0) {
-        echo "inside";
         // we have data in database
         while ($row = mysqli_fetch_assoc($res)) {
 
             $arr[] = $row;   // making array of data
 
         }
-        echo "inside";
         echo json_encode(['status' => 'success', 'data' => $arr, 'result' => 'found']);
         //echo json_encode(['status'=>'success','result'=>'found']);
 
