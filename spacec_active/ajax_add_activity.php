@@ -56,7 +56,7 @@ if($response->id){
     if( $this->db->query("INSERT INTO spaceactive_activity (activity_name,activity_level,activity_dev_domain,activity_objectives,
     activity_key_dev,activity_material,activity_assessment,activity_process,activity_instructions,
     status,activity_date,playlist_id,playlist_descr,playlist_name) 
-    Values('$act_name','$act_lvl','$act_dom','$act_obj','$act_key','$act_mat','$act_asses','$act_pro','$act_ins','$status','$act_date','$playlist_id','$pl_desc','$pl_name')"));
+    values ('$act_name','$act_lvl','$act_dom','$act_obj','$act_key','$act_mat','$act_asses','$act_pro','$act_ins','$status','$act_date','$playlist_id','$pl_desc','$pl_name')"));
     echo "Successs";
 
 
