@@ -28,7 +28,7 @@ if (isset($userId)) {
     header('Content-Type:application/json');
 }
 else {
-    $sql = "SELECT * FROM ` recommendations` LIMIT 35";
+    $sql = "SELECT * FROM `recommendations` LIMIT 35";
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 }
