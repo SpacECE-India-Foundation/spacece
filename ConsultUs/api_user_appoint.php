@@ -110,7 +110,7 @@ if($u_id || $c_id && $status==='Active' ){
  
              
                 
-                if(strtotime($row['b_time'],strtotime("+{$plusMinutes} minutes")    )> $date2){
+                //if(strtotime($row['b_time'],strtotime("+{$plusMinutes} minutes")    )> $date2){
 
                        $arr[] = $row;  
                       }
@@ -118,7 +118,7 @@ if($u_id || $c_id && $status==='Active' ){
 
 
                  
-                }
+               // }
                 
                echo json_encode(['status'=>'success', 'status1'=>$status,'data'=>$arr, 'c_id'=>$cid , 'result'=>'found']);
                //echo json_encode(['status'=>'success','result'=>'found']);
