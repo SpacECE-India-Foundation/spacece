@@ -80,7 +80,7 @@ include_once '../common/banner.php';
 
         </div>
        
-        
+        <input type="submit" id="save" name="save" class="mb-3 btn btn-primary">
 </div>
 
             </div>
