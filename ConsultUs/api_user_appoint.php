@@ -154,7 +154,7 @@ if($u_id || $c_id && $status==='Active' ){
      
      
              //checking whether query is excuted or not
-             if($res  ){
+             if($res){
                
                  // count that data is there or not in database
                  $count= mysqli_num_rows($res);
@@ -177,7 +177,9 @@ if($u_id || $c_id && $status==='Active' ){
                  else{
                      echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
                  }
-             }
+             } else{
+                echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
+            }
      
          }
    
