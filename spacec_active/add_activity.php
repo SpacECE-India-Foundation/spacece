@@ -106,6 +106,7 @@ include_once '../common/footer_module.php';
 
 <script>
 $("#add_activity").on('submit',function(){
+
         var act_name=$('#act_name').val();
         var act_lvl=$('#act_lvl').val();
         var act_dom=$('#act_dom').val();
@@ -122,6 +123,7 @@ $("#add_activity").on('submit',function(){
         
         var act_date=$('#act_date').val();
         var pl_desc=$('#pl_desc').val();
+        alert(pl_desc);
         $.ajax({
 
                 method:'POST',
@@ -141,6 +143,7 @@ $("#add_activity").on('submit',function(){
                 },
                 url:'ajax_add_activity.php',
                 success:function(result){
+                        alert("data");
                         alert(result);
                 }
         })
