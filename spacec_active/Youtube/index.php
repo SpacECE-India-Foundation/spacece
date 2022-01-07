@@ -4,7 +4,7 @@ session_start();
  require_once './config.php';
 
 if (isset($_POST['title'])) {
-    var_dump($_POST);
+   // var_dump($_POST);
     $arr_data = array(
         'title' => $_POST['title'],
         'summary' => $_POST['summary'],
