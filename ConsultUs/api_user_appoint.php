@@ -225,8 +225,6 @@ if($u_id || $c_id && $status==='Active' ){
                      }
                  }
          
-             }else{
-                echo json_encode(['status'=>'fail','msg'=>"NO DATA FOUND"]);
              }
        
  
