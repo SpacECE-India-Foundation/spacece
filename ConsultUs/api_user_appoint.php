@@ -149,6 +149,7 @@ if($u_id || $c_id && $status==='Active' ){
         JOIN consultant_app.new_apointment
          WHERE spaceece.users.u_id = consultant_app.new_apointment.u_id AND consultant_app.new_apointment.c_id ='$c_id'";
     }
+    echo $sql;
              $res = mysqli_query($conn,$sql);
              header('Content-Type:application/json');
      
