@@ -36,6 +36,7 @@ else {
 //checking whether query is excuted or not
 if ($res) {
     // count that data is there or not in database
+    
     $count = mysqli_num_rows($res);
     $sno = 1;
     if ($count > 0) {
@@ -49,9 +50,12 @@ if ($res) {
         //echo json_encode(['status'=>'success','result'=>'found']);
 
 
-    } else {
+    } 
+    else {
         echo json_encode(['status' => 'failure', 'result' => 'not found']);
     }
 }
-
+else {
+    echo json_encode(['status' => 'failure', 'result' => 'not found']);
+}
 ?>
