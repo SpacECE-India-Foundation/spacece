@@ -33,10 +33,10 @@ include_once '../common/banner.php';
                 <lable class="mb-3">Activity Level : </lable>
                 <select class="form-control" id="act_lvl" name="act_lvl" required>
                     <option value="">Select</option>
-                    <option value=" Level 1">Level 1</option>
-                    <option value=" Level 2">Level 2</option>
-                    <option value=" Level 3">Level 3</option>
-                    <option value=" Level 4">Level 4</option>
+                    <option value="1">Level 1</option>
+                    <option value="2">Level 2</option>
+                    <option value="3">Level 3</option>
+                    <option value="4">Level 4</option>
                 </select>
         
                
@@ -74,6 +74,14 @@ include_once '../common/banner.php';
        
         <lable class="mb-3">Playlist  description: </lable>
         <input type="text" name="pl_desc" class="form-control" id="pl_desc" placeholder="Playlist  description" required>
+
+        <lable class="mb-3">Activity Status : </lable>
+                <select class="form-control" id="act_type" name="act_type" required>
+                    <option value="">Select</option>
+                    <option value="Free">Free</option>
+                    <option value="Paid">Paid</option>
+                   
+                </select>
         </div>
         <div class="mb-3">
         <input type="submit" id="save" name="save" class="mb-3 btn btn-primary">
@@ -125,10 +133,12 @@ $("#add_activity").on('submit',function( ){
         
         var act_asses=$('#act_asses').val();
         var act_ins=$('#act_ins').val();
-        
+        var  act_type=$('#act_type').val();
         var act_date=$('#act_date').val();
         var pl_desc=$('#pl_desc').val();
-        alert(act_lvl);
+
+       
+        
         $.ajax({
 
                 method:'POST',
@@ -144,7 +154,8 @@ $("#add_activity").on('submit',function( ){
                         act_asses:act_asses,
                         act_ins:act_ins,
                         act_date:act_date,
-                        pl_desc:pl_desc
+                        pl_desc:pl_desc,
+                        act_type:act_type
                 },
                 url:'ajax_add_activity.php',
                 success:function(result){

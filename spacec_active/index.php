@@ -481,9 +481,14 @@ include_once '../common/footer_module.php';
         //alert(file_data);
         var title = $('#title').val();
         var summary = $('#summary').val();
+        var cat_id= $('#exampleModal').attr('data-id');
+        var pl_id=$('#exampleModal').attr('data-plylist');
         fd.append("file", file_data);
         fd.append("title", title);
         fd.append("summary", summary);
+        fd.append("cat_id", cat_id);
+        fd.append("pl_id", pl_id);
+
         $('.progress').show();
 
         $.ajax({

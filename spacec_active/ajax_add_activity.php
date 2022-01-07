@@ -17,7 +17,7 @@ if(isset($_POST['act_name'])){
  $act_ins=$_POST['act_ins'];
  $act_date=$_POST['act_date'];
  $pl_desc=$_POST['pl_desc'];
- $status="Free";
+ $status=$_POST['act_type'];
 
   $client = new Google_Client();
   
@@ -50,19 +50,27 @@ $playlistStatus->setPrivacyStatus('public');
 $playlist->setStatus($playlistStatus);
 
 $response = $service->playlists->insert('snippet,status', $playlist);
-print_r($response);
+//print_r($response->id);
 $playlist_id=$response->id;
-if($response->id){
-    if( $this->db->query("INSERT INTO spaceactive_activity (activity_name,activity_level,activity_dev_domain,activity_objectives,
-    activity_key_dev,activity_material,activity_assessment,activity_process,activity_instructions,
-    status,activity_date,playlist_id,playlist_descr,playlist_name) 
-    values ('$act_name','$act_lvl','$act_dom','$act_obj','$act_key','$act_mat','$act_asses','$act_pro','$act_ins','$status','$act_date','$playlist_id','$pl_desc','$pl_name')"));
-    echo "Successs";
+//$playlist_id="PLm0GU5IUgzTCF15NmxX8aKSU-_I8Jo340";
 
 
-}else{
-    echo "Successs"; 
+if($playlist_id){
+    $AddItems = $db->AddActivity($act_name,$act_lvl,$act_dom,$act_obj,$act_key,$act_mat,$act_asses,$act_pro,$act_ins,$status,$act_date,$playlist_id,$pl_desc,$pl_name);
+    // echo $AddItems;
+    
+//     if($AddItems ==="Success"){
+//     echo "Successs"; 
+//    }else{
+//     echo "Error";
+//    }
+   
+   
+
 }
+// }else{
+//     echo "Error"; 
+// }
 
 
 }
