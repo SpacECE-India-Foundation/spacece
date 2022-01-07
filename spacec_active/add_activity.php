@@ -22,7 +22,7 @@ include_once '../common/banner.php';
 <div class="container ">
 
     <div class="card mb-3 d-flex jistify-content-center ">
-        <form id="add_activity" name="add_activity" class="  mb-3"  method="POST">
+        <form id="add_activity" name="add_activity" class="  mb-3">
             <div class="row ">
                 <div class="col-sm-6 d-flex justify-content-center mb-3 ">
                     <div class="col-sm-10">
@@ -105,8 +105,8 @@ include_once '../common/footer_module.php';
 <!-- <script type="text/javascript" src="js/scriptcall.js"></script> -->
 
 <script>
-$("#add_activity").on('submit',function(){
-
+$("#add_activity").on('submit',function( e ){
+        e.preventDefault;
         var act_name=$('#act_name').val();
         var act_lvl=$('#act_lvl').val();
         var act_dom=$('#act_dom').val();

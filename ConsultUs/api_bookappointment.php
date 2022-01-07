@@ -55,9 +55,15 @@ while($row = mysqli_fetch_assoc($res1)){
 
            
             $count= mysqli_num_rows($res2);
+            $sql2="SELECT * from new_apointment where b_date='$b_date' and  c_id='$c_id'  and end_time BETWEEN '$booking_time' AND '$to_time1'   ";
+
+            $res3 = mysqli_query($conn,$sql2);
+        
+                   
+                    $count2= mysqli_num_rows($res3);
             $sno =1;
           
-            if($count>0){
+            if($count>0 || $count2>0){
               
                 echo json_encode(['status'=>'fail','msg'=>"CONSULTANT UN-AVAILABLE SELECTED Time"]);
 
