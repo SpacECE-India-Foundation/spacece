@@ -2,7 +2,7 @@
  error_reporting(0);
  include("indexDB.php");
 // $user = $_GET['user'];
- echo "Inside";
+
 $status= null;
 if(isset($_POST['status'])){
     $status=$_POST['status'];
@@ -133,7 +133,7 @@ if($u_id || $c_id && $status==='Active' ){
     }
 }  
     if( $u_id || $c_id ){
-    //echo "inside3";
+    echo "inside3";
        
   
     if($u_id){
