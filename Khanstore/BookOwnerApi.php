@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 ?>
 <?php
 	$bookId = isset($_GET["bookId"])? $_GET['bookId'] : Null;
-
+    echo "inside";
 //error_reporting();
 $res="";
 if (isset($bookId)) {
