@@ -20,8 +20,8 @@ if ($conn->connect_error) {
 <?php
 	$bookId = isset($_GET["bookId"])? $_GET['bookId'] : Null;
 
-error_reporting();
-
+//error_reporting();
+$res="";
 if (isset($bookId)) {
     $sql = "SELECT * FROM `bookowner` WHERE bookId=" . $bookId;
     $res = mysqli_query($conn,$sql);
