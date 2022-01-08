@@ -274,8 +274,8 @@ include_once '../common/banner.php';
             <div class="modal-body">
 
                 <?php
-                      $cat_id='<Script>document.getElementById("cv_cat_id").value</Script>';
-                      echo $cat_id;
+                   
+                      echo $cat_id=1;
                 if (isset($_SESSION['current_user_email'])) {
                     $user = $_SESSION['current_user_email'];
                     include_once 'Youtube/class-db.php';
