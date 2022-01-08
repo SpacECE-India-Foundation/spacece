@@ -350,7 +350,7 @@ include_once '../common/banner.php';
                     echo "</div>";
                 }else{
                     $cat_id='<Script>document.getElementById("v_cat_id").val();</Script>';
-                  echo '<Script>alert(document.getElementById("v_cat_id").val());</Script>';
+                 
                     include_once 'Youtube/class-db.php';
                     //$cat_id=1;
                     echo "<div class='row'>";
