@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 use Google\Service\Script;
 
@@ -338,7 +338,8 @@ include_once '../common/banner.php';
 
                 <?php
                 if (isset($_SESSION['current_user_email'])) {
-                   $cat_id='<Script>document.getElementById("v_cat_id").value</Script>';
+                   //$cat_id='<Script>document.getElementById("v_cat_id").value</Script>';
+                   $cat_id=1;
                     include_once 'Youtube/class-db.php';
                     $user = $_SESSION['current_user_email'];
                     echo "<div class='row'>";
@@ -357,9 +358,9 @@ include_once '../common/banner.php';
                     }
                     echo "</div>";
                 }else{
-                    $cat_id='<Script>document.getElementById("v_cat_id").value</Script>';
+                   // $cat_id='<Script>document.getElementById("v_cat_id").value</Script>';
                     include_once 'Youtube/class-db.php';
-                   
+                    $cat_id=1;
                     echo "<div class='row'>";
                     $db = new DB();
                     $videos = $db->get_all_Videos($cat_id);
@@ -584,4 +585,4 @@ include_once '../common/footer_module.php';
 //                         var id = $(this).data("text");
 //                         alert(id);
 //                         $('#cv_cat_id').append(id);
-//                     })</script> -->
+//                     })</script>
