@@ -39,7 +39,7 @@ class DB {
         return json_decode($result['provider_value']);
     }
     public function upload_video_to_db($video_id, $title, $summary,$category,$user,$act_id,$pl_id){
-        if( $this->db->query("INSERT INTO youtube_videos(user_id,video_id,title,description,category_id,) VALUES('$user', '$video_id','$title','$summary','$category','$pl_id)')")){
+        if( $this->db->query("INSERT INTO youtube_videos(usere_email,video_id,title,description,category_id,) VALUES('$user', '$video_id','$title','$summary','$category','$pl_id)')")){
             echo "Success";
         }
         else{
@@ -49,7 +49,7 @@ class DB {
  
  
      public function get_Videos($user,$cat_id){
-         $sql= $this->db->query("SELECT * from youtube_videos where user_id='$user' and cat_id= '$cat_id' ");
+         $sql= $this->db->query("SELECT * from youtube_videos where usere_email='$user' and cat_id= '$cat_id' ");
          $data[]=array();
         
        while($result = $sql->fetch_assoc()){
