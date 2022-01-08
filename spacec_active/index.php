@@ -274,11 +274,12 @@ include_once '../common/banner.php';
             <div class="modal-body">
 
                 <?php
-
+            $year='';
             if(!empty($_POST["cv_cat_id"])){
-                $year=$_POST["cv_cat_id"];
+            $year=$_POST["cv_cat_id"];
                 echo "<script type='text/javascript'>alert('$year');</script>";
                 }
+                echo  $year;
                    include_once 'Youtube/class-db.php';
                if (isset($_SESSION['current_user_email'])) {
                     $cat_id=1;
