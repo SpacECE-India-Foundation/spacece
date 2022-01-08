@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 //use Google\Service\Script;
 
 include_once './header_local.php';
@@ -260,7 +260,7 @@ include_once '../common/banner.php';
     </div>
 </div>
 
-<div class="modal fade modal-lg  " id="myVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+<!-- <div class="modal fade modal-lg  " id="myVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog modal-lg   " role="document">
     <input type="hidden"  name="cv_cat_id" id="cv_cat_id">
         <div class="modal-content ">
@@ -274,44 +274,44 @@ include_once '../common/banner.php';
 
                 <?php
                   
-                  if (isset($_SESSION['current_user_email'])) {
-                    $cat_id=1;
-                    echo "inside";
-                    $user = $_SESSION['current_user_email'];
-                    include_once 'Youtube/class-db.php';
-                    echo "<div class='row'>";
-                    $db = new DB();
-                    $videos = $db->get_Videos($user,$cat_id);
+            //    if (isset($_SESSION['current_user_email'])) {
+            //         $cat_id=1;
+            //         echo "inside";
+            //         $user = $_SESSION['current_user_email'];
+            //         include_once 'Youtube/class-db.php';
+            //         echo "<div class='row'>";
+            //         $db = new DB();
+            //         $videos = $db->get_Videos($user,$cat_id);
 
                     
                  
-                 // $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+            //      // $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
 
-                    foreach ($videos as $video) {
-                        $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-                        //$video_id;
-                        echo "<div class='col-md-6'>";
-                        echo'<iframe width="250" height="180"
-                               src="https://www.youtube.com/embed/'.$video_id.'"
-                               frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-                               </iframe> ';
-                        // echo '<iframe width="230" height="180"
-                        //        src="youtube.com/watch?v='.$video_id. '"
-                        //        frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-                        //        </iframe>';
-                        echo "</div>";
+            //         foreach ($videos as $video) {
+            //             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+            //             //$video_id;
+            //             echo "<div class='col-md-6'>";
+            //             echo'<iframe width="250" height="180"
+            //                    src="https://www.youtube.com/embed/'.$video_id.'"
+            //                    frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
+            //                    </iframe> ';
+            //             // echo '<iframe width="230" height="180"
+            //             //        src="youtube.com/watch?v='.$video_id. '"
+            //             //        frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
+            //             //        </iframe>';
+            //             echo "</div>";
                      
-                    }
+                    //}
                    
-                    echo "</div>";
-                    echo "</div>";
-                }
+                    // echo "</div>";
+                    // echo "</div>";
+                // }
                 ?>
 
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <div class="modal fade  " id="allVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
