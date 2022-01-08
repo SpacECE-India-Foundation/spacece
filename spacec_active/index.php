@@ -340,10 +340,9 @@ include_once '../common/banner.php';
                 <?php
                  echo ' <div id="catdet"></div>';
                 if (isset($_SESSION['current_user_email'])) {
-                    $cat_id='';
-                 if(isset($_POST['cid'])){
-                    $cat_id=$_POST['cid'];
-                 } echo  "updated ". $cat_id;
+                    $cat_id="<script>$('#cid').val();</script>";
+                 
+                  echo  "updated ". $cat_id;
                     include_once 'Youtube/class-db.php';
                     $user = $_SESSION['current_user_email'];
                     echo "<div class='row'>";
