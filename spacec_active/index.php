@@ -263,7 +263,7 @@ include_once '../common/banner.php';
 
 <div class="modal fade modal-lg  " id="myVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog modal-lg   " role="document">
-    <input type="hidden"  name="cv_cat_id" id="cv_cat_id">
+    <input type="text"  name="cv_cat_id" id="cv_cat_id">
         <div class="modal-content ">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModal">My Videos</h5>
@@ -581,12 +581,12 @@ $(document).on("click", "#upload", function()
 {
     var id = $(this).data("text");
                         alert(id);
-                        $('#v_cat_id').value(id);
+                        $('#v_cat_id').append(id);
                     })
                     
                      $(document).on("click", "#all", function() {
                         var id = $(this).data("text");
                         alert(id);
-                        $('#cv_cat_id').value(id);
+                        $('#cv_cat_id').append(id);
                     })
                     </script>
