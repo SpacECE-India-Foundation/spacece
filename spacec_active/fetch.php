@@ -5,7 +5,7 @@ include('db.php');
 if (isset($_POST['getDetails'])) {
 
     if (isset($_POST['id'])) {
-        $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities where activity_id='" . $_POST['id'] . "' ") or die('Sql Query Error');
+        $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities where act_id='" . $_POST['id'] . "' ") or die('Sql Query Error');
         if (mysqli_num_rows($query) > 0) {
             $result = mysqli_fetch_assoc($query);
             echo json_encode($result);
@@ -25,12 +25,12 @@ if (isset($_POST['getDetails'])) {
         <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
         data-toggle="modal" data-target="#editModal" >
         View <i class="fas fa-expand"></i></button>
-    <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-plylist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
     Upload video
-</button> <button type="button" class="btn btn-secondary" id="view" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+</button> <button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
 My Videos
 </button>
-<button type="button" class="btn btn-secondary" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
 View All videos
 </button></td></td>
         </tr>';
