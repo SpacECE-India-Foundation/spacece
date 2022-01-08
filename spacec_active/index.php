@@ -275,7 +275,7 @@ include_once '../common/banner.php';
 
                 <?php
                    
-                      echo $cat_id=1;
+                       $cat_id=1;
                 if (isset($_SESSION['current_user_email'])) {
                     $user = $_SESSION['current_user_email'];
                     include_once 'Youtube/class-db.php';
@@ -358,7 +358,7 @@ include_once '../common/banner.php';
                     $videos = $db->get_all_Videos($cat_id);
                     foreach ($videos as $video) {
                         $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-                        echo $cat_id;
+                        
                         echo "<div class='col-md-6'>";
                         echo '<iframe width="250" height="180"
                                src="https://www.youtube.com/embed/' .  $video_id . '"
