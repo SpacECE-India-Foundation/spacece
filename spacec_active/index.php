@@ -298,7 +298,7 @@ include_once '../common/banner.php';
 
                     foreach ($videos as $video) {
                         $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-                        $video_id;
+                        //$video_id;
                         echo "<div class='col-md-6'>";
                         echo'<iframe width="250" height="180"
                                src="https://www.youtube.com/embed/'.$video_id.'"

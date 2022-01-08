@@ -119,7 +119,6 @@ include_once '../common/footer_module.php';
 
         
 $("#add_activity").on('submit',function( ){
-       // e.preventDefault;
         var act_name=$('#act_name').val();
         var act_lvl=$('#act_lvl').val();
         var act_dom=$('#act_dom').val();

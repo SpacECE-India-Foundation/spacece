@@ -1,5 +1,6 @@
 <?php
-
+echo "Working";
+exit();
  require_once './Youtube/config.php';
 if(isset($_POST['act_name'])){
 
@@ -38,10 +39,10 @@ $playlist = new Google_Service_YouTube_Playlist();
 // Add 'snippet' object to the $playlist object.
 $playlistSnippet = new Google_Service_YouTube_PlaylistSnippet();
 $playlistSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
-// $playlistSnippet->setDescription($pl_desc);
-// $playlistSnippet->setTitle($pl_name);
- $playlistSnippet->setDescription("Hello");
-  $playlistSnippet->setTitle("Testing");
+$playlistSnippet->setDescription($pl_desc);
+$playlistSnippet->setTitle($pl_name);
+//  $playlistSnippet->setDescription("Hello");
+//   $playlistSnippet->setTitle("Testing");
 $playlist->setSnippet($playlistSnippet);
 
 // Add 'status' object to the $playlist object.
