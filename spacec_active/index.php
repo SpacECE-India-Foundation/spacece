@@ -277,7 +277,7 @@ include_once '../common/banner.php';
                    include_once 'Youtube/class-db.php';
                if (isset($_SESSION['current_user_email'])) {
                     $cat_id=1;
-                    echo "inside";
+                    
                     $user = $_SESSION['current_user_email'];
                    
                     echo "<div class='row'>";
@@ -285,9 +285,7 @@ include_once '../common/banner.php';
                     $videos = $db->get_Videos($user,$cat_id);
 
                     
-                  echo'<script>
-                    var p = document.getElementById("cv_cat_id");
-                </script>';
+                 
                  // $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
 
                     foreach ($videos as $video) {
@@ -577,8 +575,6 @@ $(document).on("click", "#upload", function()
     var id = $(this).data("text");
                         alert(id);
                         $('#v_cat_id').append(id);
-
-                        
                     })
                     
                      $(document).on("click", "#all", function() {
