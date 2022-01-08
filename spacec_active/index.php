@@ -583,12 +583,12 @@ $(document).on("click", "#upload", function()
 {
     var id = $(this).data("text");
                         alert(id);
-                        $('#v_cat_id').val(id);
+                        $('#v_cat_id').html(id);
                     })
                     
                      $(document).on("click", "#all", function() {
                         var id = $(this).data("text");
                         alert(id);
-                        $('#cv_cat_id').val(id);
+                        $('#cv_cat_id').html(id);
                     })
                     </script>
