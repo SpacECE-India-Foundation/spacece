@@ -1,6 +1,5 @@
 <?php
-echo "Working";
-exit();
+
  require_once './Youtube/config.php';
 if(isset($_POST['act_name'])){
 
@@ -19,7 +18,9 @@ if(isset($_POST['act_name'])){
  $act_date=$_POST['act_date'];
  $pl_desc=$_POST['pl_desc'];
  $status=$_POST['act_type'];
-
+ 
+json_encode( $_POST);
+ exit();
   $client = new Google_Client();
   
 $db = new DB();
