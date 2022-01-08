@@ -273,7 +273,7 @@ include_once '../common/banner.php';
             <div class="modal-body">
 
                 <?php
-                   
+                   session_start();
                 if (isset($_SESSION['current_user_email'])) {
                     $cat_id=1;
                     echo "inside";
