@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+var_dump($_SESSION);
 //use Google\Service\Script;
 
 include_once './header_local.php';
@@ -277,7 +277,7 @@ include_once '../common/banner.php';
                    include_once 'Youtube/class-db.php';
                if (isset($_SESSION['current_user_email'])) {
                     $cat_id=1;
-                    
+                    echo "inside";
                     $user = $_SESSION['current_user_email'];
                    
                     echo "<div class='row'>";
