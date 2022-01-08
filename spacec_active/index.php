@@ -571,13 +571,16 @@ include_once '../common/footer_module.php';
 
     });
 </script>
-<script> $(document).on("click", "#upload", function() 
+<script>
+
+$(document).on("click", "#upload", function() 
 {
     var id = $(this).data("text");
                         alert(id);
                         $('#v_cat_id').append(id);
-                    })</script>
-                    <script> $(document).on("click", "#all", function() {
+                    })
+                    
+                     $(document).on("click", "#all", function() {
                         var id = $(this).data("text");
                         alert(id);
                         $('#cv_cat_id').append(id);
