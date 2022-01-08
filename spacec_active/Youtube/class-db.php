@@ -49,7 +49,7 @@ class DB {
  
  
      public function get_Videos($user,$cat_id){
-         $sql= $this->db->query("SELECT * from youtube_videos where usere_email='$user' and cat_id= '$cat_id' ");
+         $sql= $this->db->query("SELECT * from youtube_videos where user_email='$user' and cat_id= '$cat_id' ");
          $data[]=array();
         
        while($result = $sql->fetch_assoc()){
