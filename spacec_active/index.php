@@ -588,7 +588,7 @@ $(document).on("click", "#upload", function()
                     
                      $(document).on("click", "#all", function() {
                         var id = $(this).data("text");
-                        var c='<input type="text" id="cid" name="cid value="'+id+'">';
+                        var c='<input type="text" id="cid" name="cid" value="'+id+'">';
                         alert(c);
                        $('#catdet').append(c);
                       
