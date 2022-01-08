@@ -332,7 +332,7 @@ function leaveChannel() {
 
 // use tokens for added security
 function generateToken() {
-  return "0060485c1232ca7491e9ada47ae96da3160IAAK9qg0/582/AL9hK4KDtIKrGU8lzDAxpZc2rKzQ4UL0QZa8+gAAAAAEADd+JEhvLePYQEAAQC7t49h"; // TODO: add a token generation
+  return "0060485c1232ca7491e9ada47ae96da3160IABxwth4Z7J/3yswGgj/CVCDnzpojEgg70oxn8ILQiCWowZa8+gAAAAAEACjOAeR9ovaYQEAAQD0i9ph"; // TODO: add a token generation
 }
 function enableUiControls(localStream) {
 
@@ -401,5 +401,5 @@ function enableUiControls(localStream) {
 }
 }
 function generateToken() {
-  return "0060485c1232ca7491e9ada47ae96da3160IAAK9qg0/582/AL9hK4KDtIKrGU8lzDAxpZc2rKzQ4UL0QZa8+gAAAAAEADd+JEhvLePYQEAAQC7t49h"; // TODO: add a token generation
+  return "0060485c1232ca7491e9ada47ae96da3160IABxwth4Z7J/3yswGgj/CVCDnzpojEgg70oxn8ILQiCWowZa8+gAAAAAEACjOAeR9ovaYQEAAQD0i9ph"; // TODO: add a token generation
 }
