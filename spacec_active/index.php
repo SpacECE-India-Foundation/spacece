@@ -350,7 +350,7 @@ include_once '../common/banner.php';
                     echo "</div>";
                 }else{
                     $cat_id='<Script>document.getElementById("v_cat_id").value</Script>';
-                    echo $cat_id;
+                  
                     include_once 'Youtube/class-db.php';
                     //$cat_id=1;
                     echo "<div class='row'>";
@@ -358,7 +358,7 @@ include_once '../common/banner.php';
                     $videos = $db->get_all_Videos($cat_id);
                     foreach ($videos as $video) {
                         $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-                       
+                        echo $cat_id;
                         echo "<div class='col-md-6'>";
                         echo '<iframe width="250" height="180"
                                src="https://www.youtube.com/embed/' .  $video_id . '"
