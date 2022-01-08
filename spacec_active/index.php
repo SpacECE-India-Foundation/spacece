@@ -79,22 +79,7 @@ include_once '../common/banner.php';
                                 <input class="form-control" type="text" name="title" id="title" placeholder="Enter Video Title">
                             </div>
                         </div>
-                        <?php
-
-                        $key = "AIzaSyDn5f6MqVpdcpbw3rj-ixCvRRgNrP7LjE0";
-                        $base_url = "https://www.googleapis.com/youtube/v3/";
-                        $channelId = "UCSFXd8_Kp1a5ZHAaOejPiHA";
-                        $max = 20;
-
-                        $API_URL = $base_url . "playlists?part=snippet&channelId=" . $channelId . "&maxResults=" . $max . "&key=" . $key;
-                        //var_dump($API_URL);
-                        $file1 = file_get_contents($API_URL);
-                        $file1 = json_decode($file1, true);
-                        //echo "<pre>";
-                        //var_dump($file1['items'][0]['id']);
-
-                        //echo "<pre>";
-                        ?>
+                       
                         <br>
                        
                         <?php
