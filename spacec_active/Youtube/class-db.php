@@ -66,6 +66,7 @@ class DB {
      public function get_all_Videos($cat_id){
          $data[]=array();
          $sql= $this->db->query("SELECT * from youtube_videos Where cat_id= '$cat_id' ");
+         echo $sql;
          while($result = $sql->fetch_assoc()){
             $data[]= $result;
          }
