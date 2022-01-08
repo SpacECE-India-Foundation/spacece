@@ -281,8 +281,8 @@ include_once '../common/banner.php';
                     $user = $_SESSION['current_user_email'];
                    
                     echo "<div class='row'>";
-                   // $db = new DB();
-                   // $videos = $db->get_Videos($user,$cat_id);
+                    $db = new DB();
+                    $videos = $db->get_Videos($user,$cat_id);
 
                     
                  
