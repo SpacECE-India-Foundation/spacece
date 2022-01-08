@@ -1,7 +1,4 @@
-<?php
-
-use Google\Service\Script;
-
+<!-- <?php
 include_once './header_local.php';
 include_once '../common/header_module.php';
 include_once '../common/banner.php';
@@ -273,7 +270,6 @@ include_once '../common/banner.php';
 
 <div class="modal fade modal-lg  " id="myVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog modal-lg   " role="document">
-    <input type="hidden"  name="cv_cat_id" id="cv_cat_id">
         <div class="modal-content ">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModal">My Videos</h5>
@@ -284,13 +280,13 @@ include_once '../common/banner.php';
             <div class="modal-body">
 
                 <?php
-                     $cat_id='<Script>document.getElementById("cv_cat_id").value</Script>';
+   
                 if (isset($_SESSION['current_user_email'])) {
                     $user = $_SESSION['current_user_email'];
                     include_once 'Youtube/class-db.php';
                     echo "<div class='row'>";
                     $db = new DB();
-                    $videos = $db->get_Videos($user,$cat_id);
+                    $videos = $db->get_Videos($user, $user);
 
                     
                  
@@ -298,7 +294,7 @@ include_once '../common/banner.php';
 
                     foreach ($videos as $video) {
                         $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-                        //$video_id;
+                        $video_id;
                         echo "<div class='col-md-6'>";
                         echo'<iframe width="250" height="180"
                                src="https://www.youtube.com/embed/'.$video_id.'"
@@ -324,8 +320,6 @@ include_once '../common/banner.php';
 
 <div class="modal fade  " id="allVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog modal-lg" role="document">
-    <input type="hidden"  name="v_cat_id" id="v_cat_id">
-
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModal">View all Videos</h5>
@@ -338,13 +332,11 @@ include_once '../common/banner.php';
 
                 <?php
                 if (isset($_SESSION['current_user_email'])) {
-                   $cat_id='<Script>document.getElementById("v_cat_id").value</Script>';
                     include_once 'Youtube/class-db.php';
                     $user = $_SESSION['current_user_email'];
                     echo "<div class='row'>";
-                    
                     $db = new DB();
-                    $videos = $db->get_all_Videos($cat_id,$user);
+                    $videos = $db->get_all_Videos( $user);
                     foreach ($videos as $video) {
                         $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
                        
@@ -357,12 +349,11 @@ include_once '../common/banner.php';
                     }
                     echo "</div>";
                 }else{
-                    $cat_id='<Script>document.getElementById("v_cat_id").value</Script>';
                     include_once 'Youtube/class-db.php';
                    
                     echo "<div class='row'>";
                     $db = new DB();
-                    $videos = $db->get_all_Videos($cat_id);
+                    $videos = $db->get_all_Videos( $user);
                     foreach ($videos as $video) {
                         $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
                        
@@ -477,10 +468,8 @@ include_once '../common/footer_module.php';
         });
     });
 
-    
-    $(document).on("click", "#upload", function() {
-        var cat_id= $(this).data('id');
-        var pl_id=$(this).data('plylist');
+
+
 
     $('#uploadVideo').on('submit', function(event) {
 
@@ -492,7 +481,8 @@ include_once '../common/footer_module.php';
         //alert(file_data);
         var title = $('#title').val();
         var summary = $('#summary').val();
-       
+        var cat_id= $('#exampleModal').attr('data-id');
+        var pl_id=$('#exampleModal').attr('data-plylist');
         fd.append("file", file_data);
         fd.append("title", title);
         fd.append("summary", summary);
@@ -541,7 +531,7 @@ include_once '../common/footer_module.php';
         });
     });
 
-});
+
 
 
     $('#playlist').on('click', function() {
@@ -570,18 +560,4 @@ include_once '../common/footer_module.php';
         });
 
     });
-</script>
-<script>
-
-$(document).on("click", "#upload", function() 
-{
-    var id = $(this).data("text");
-                        alert(id);
-                        $('#v_cat_id').append(id);
-                    })
-                    
-                     $(document).on("click", "#all", function() {
-                        var id = $(this).data("text");
-                        alert(id);
-                        $('#cv_cat_id').append(id);
-                    })</script>
+</script> 

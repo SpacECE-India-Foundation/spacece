@@ -19,7 +19,7 @@ if(isset($_POST['act_name'])){
  $pl_desc=$_POST['pl_desc'];
  $status=$_POST['act_type'];
  
-var_dump($_POST);
+
   $client = new Google_Client();
   
 $db = new DB();
