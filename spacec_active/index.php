@@ -338,7 +338,7 @@ include_once '../common/banner.php';
 
 
                 <?php
-                 echo ' <input type="text"  name="v_cat_id" id="v_cat_id">';
+                 echo ' <div id="catdet"></div>';
                 if (isset($_SESSION['current_user_email'])) {
                     $cat_id=1;
                  
@@ -588,10 +588,9 @@ $(document).on("click", "#upload", function()
                     
                      $(document).on("click", "#all", function() {
                         var id = $(this).data("text");
-                        alert(id);
-                        $('#cv_cat_id').html(id);
-                        $('#v_cat_id').html(id);
-                        //$('#v_cat_id').append(id);
-                        $('#v_cat_id').val(id);
+                        var c='<input type="text" id="cid" name="cid value="'+id+'">';
+                        alert(c);
+                       $('#catdet').append(c);
+                      
                     })
                     </script>
