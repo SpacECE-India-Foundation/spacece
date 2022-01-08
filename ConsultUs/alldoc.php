@@ -25,8 +25,8 @@ if ($conn1) {
     die("Connection failed: " . $conn->connect_error);
 }
 $ref='';
-$_SESSION['current_user_email']='krishna.thorat20@vit.edu';
-$_SESSION['current_user_name']='Krishna Thorat';
+$_SESSION['current_user_email'];
+$_SESSION['current_user_name'];
 if(isset($_SESSION['current_user_email'])){
     $email = $_SESSION['current_user_email'];
     $ref= $_SESSION['current_user_name'];
@@ -186,7 +186,7 @@ if(isset($_SESSION['current_user_email'])){
                         <a href="./instamojo_payment/index.php?id=<?php echo $id;?>&user=<?php echo $user_name;?>" class="btn-second" style="color:black;background-color:pink"> Confirm Appointment </a><br><br>
                                     <br>
                                    <?php
-                                    $sql = "SELECT * FROM `webhook` WHERE purpose='Testing' AND email='".$_SESSION['current_user_email']."' ";
+                                    $sql = "SELECT * FROM `webhook` WHERE purpose='Consultant App' AND email='".$_SESSION['current_user_email']."' ";
 
                                     $res2  = mysqli_query($conn,$sql);
                                     $row=mysqli_fetch_assoc($res2);
