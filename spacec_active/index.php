@@ -274,7 +274,8 @@ include_once '../common/banner.php';
             <div class="modal-body">
 
                 <?php
-                    //  $cat_id='<Script>document.getElementById("cv_cat_id").value</Script>';
+                      $cat_id='<Script>document.getElementById("cv_cat_id").value</Script>';
+                      echo $cat_id;
                 if (isset($_SESSION['current_user_email'])) {
                     $user = $_SESSION['current_user_email'];
                     include_once 'Youtube/class-db.php';
@@ -328,8 +329,8 @@ include_once '../common/banner.php';
 
                 <?php
                 if (isset($_SESSION['current_user_email'])) {
-                   //$cat_id='<Script>document.getElementById("v_cat_id").value</Script>';
-                   $cat_id=1;
+                   $cat_id='<Script>document.getElementById("v_cat_id").value</Script>';
+                   echo $cat_id;
                     include_once 'Youtube/class-db.php';
                     $user = $_SESSION['current_user_email'];
                     echo "<div class='row'>";
