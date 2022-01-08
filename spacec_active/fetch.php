@@ -55,7 +55,7 @@ View All videos
        data-toggle="modal" data-target="#editModal" >
        View <i class="fas fa-expand"></i></button>
  
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+<button type="button" class="btn btn-secondary"  id="all" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
 View All videos
 </button></td></td>
         </tr>';
