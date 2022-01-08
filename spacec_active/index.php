@@ -332,9 +332,14 @@ include_once '../common/banner.php';
 
                 <?php
                 if (isset($_SESSION['current_user_email'])) {
+                    echo '<script> $(document).on("click", "#upload", function() {
+                        var id = $(this).data("text");
+                        aleart(id);
+                    })</script>';
                     include_once 'Youtube/class-db.php';
                     $user = $_SESSION['current_user_email'];
                     echo "<div class='row'>";
+                    
                     $db = new DB();
                     $videos = $db->get_all_Videos();
                     foreach ($videos as $video) {
@@ -468,8 +473,10 @@ include_once '../common/footer_module.php';
         });
     });
 
-
-
+    
+    $(document).on("click", "#upload", function() {
+        var cat_id= $(this).data('id');
+        var pl_id=$(this).data('plylist');
 
     $('#uploadVideo').on('submit', function(event) {
 
@@ -481,8 +488,7 @@ include_once '../common/footer_module.php';
         //alert(file_data);
         var title = $('#title').val();
         var summary = $('#summary').val();
-        var cat_id= $('#exampleModal').attr('data-id');
-        var pl_id=$('#exampleModal').attr('data-plylist');
+       
         fd.append("file", file_data);
         fd.append("title", title);
         fd.append("summary", summary);
@@ -531,7 +537,7 @@ include_once '../common/footer_module.php';
         });
     });
 
-
+});
 
 
     $('#playlist').on('click', function() {

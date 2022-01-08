@@ -58,7 +58,9 @@ function upload_video_on_youtube($arr_data) {
         $title=$_POST['title'];
         $summary=$_POST['summary'];
         $category=$_POST['category'];
-        $db->upload_video_to_db($video_id, $title, $summary,$category,$user);
+        $pl_id=$_POST['pl_id'];
+        $act_id= $_POST['cat_id'];
+        $db->upload_video_to_db($video_id, $title, $summary,$category,$user,$pl_id,$act_id);
                    
                         $playlistItem = new Google_Service_YouTube_PlaylistItem();
                 
@@ -116,7 +118,10 @@ function upload_video_on_youtube($arr_data) {
             $title=$_POST['title'];
             $summary=$_POST['summary'];
             $category=$_POST['category'];
-            $db->upload_video_to_db($video_id, $title, $summary,$category,$user);
+            $pl_id=$_POST['pl_id'];
+            $act_id= $_POST['cat_id'];
+
+            $db->upload_video_to_db($video_id, $title, $summary,$category,$user,$pl_id,$act_id);
         } else {
             echo $e->getMessage(); //print the error just in case your video is not uploaded.
         }
