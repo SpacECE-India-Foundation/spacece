@@ -276,14 +276,15 @@ include_once '../common/banner.php';
                 <?php
             $year='';
             if(!empty($_POST["cv_cat_id"])){
+                echo "Inside2";
             $year=$_POST["cv_cat_id"];
-                echo "<script type='text/javascript'>alert('$year');</script>";
+            echo  $year;
                 }
-                echo  $year;
+               
                    include_once 'Youtube/class-db.php';
                if (isset($_SESSION['current_user_email'])) {
                     $cat_id=1;
-                    echo "inside";
+                   
                     $user = $_SESSION['current_user_email'];
                    
                     echo "<div class='row'>";
