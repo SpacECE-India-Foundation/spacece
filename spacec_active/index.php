@@ -275,8 +275,9 @@ include_once '../common/banner.php';
 
                 <?php
                    
-                       $cat_id=1;
                 if (isset($_SESSION['current_user_email'])) {
+                    $cat_id=1;
+
                     $user = $_SESSION['current_user_email'];
                     include_once 'Youtube/class-db.php';
                     echo "<div class='row'>";
