@@ -263,7 +263,7 @@ include_once '../common/banner.php';
 
 <div class="modal fade modal-lg  " id="myVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog modal-lg   " role="document">
-    <input type="text"  name="cv_cat_id" id="cv_cat_id">
+   
         <div class="modal-content ">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModal">My Videos</h5>
@@ -274,6 +274,7 @@ include_once '../common/banner.php';
             <div class="modal-body">
 
                 <?php
+                echo ' <input type="text"  name="cv_cat_id" id="cv_cat_id">';
             $year='';
             if(!empty($_POST["cv_cat_id"])){
                 echo "Inside2";
@@ -337,6 +338,7 @@ include_once '../common/banner.php';
 
 
                 <?php
+                 echo ' <input type="text"  name="v_cat_id" id="v_cat_id">';
                 if (isset($_SESSION['current_user_email'])) {
                     $cat_id=1;
                  
