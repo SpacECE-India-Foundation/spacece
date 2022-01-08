@@ -387,7 +387,7 @@ include_once '../common/banner.php';
 
 </html>
 <?php
-// include_once '../common/footer_module.php';
+include_once '../common/footer_module.php';
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -399,7 +399,7 @@ include_once '../common/banner.php';
 
 <script type="text/javascript">
     $(document).ready(function() {
-        alert("Inside");
+      
         $('.progress').hide();
         // $('#progress').hide();
         $.ajax({
@@ -409,7 +409,7 @@ include_once '../common/banner.php';
                 'getDetails': 1
             },
             success: function(data) {
-                alert(data);
+             
                 $('#tablebody').append(data);
             }
 
@@ -471,9 +471,9 @@ include_once '../common/banner.php';
     });
 
     
-    // $(document).on("click", "#upload", function() {
-    //     var cat_id= $(this).data('id');
-    //     var pl_id=$(this).data('plyalist')
+    $(document).on("click", "#upload", function() {
+        var cat_id= $(this).data('id');
+        var pl_id=$(this).data('plyalist');
 
     $('#uploadVideo').on('submit', function(event) {
 
@@ -534,7 +534,7 @@ include_once '../common/banner.php';
         });
     });
 
-//});
+});
 
 
     $('#playlist').on('click', function() {
@@ -564,3 +564,18 @@ include_once '../common/banner.php';
 
     });
 </script>
+<script>
+
+$(document).on("click", "#upload", function() 
+{
+    var id = $(this).data("text");
+                        alert(id);
+                        $('#v_cat_id').append(id);
+                    })
+                    
+                     $(document).on("click", "#all", function() {
+                        var id = $(this).data("text");
+                        alert(id);
+                        $('#cv_cat_id').append(id);
+                    })
+                    </script>
