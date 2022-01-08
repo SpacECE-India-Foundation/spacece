@@ -571,8 +571,9 @@ include_once '../common/footer_module.php';
 
     });
 </script>
-<script> $(document).on("click", "#upload", function() {
-                        var id = $(this).data("text");
+<script> $(document).on("click", "#upload", function() 
+{
+    var id = $(this).data("text");
                         alert(id);
                         $('#v_cat_id').append(id);
                     })</script>
