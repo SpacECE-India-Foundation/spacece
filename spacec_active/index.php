@@ -471,9 +471,9 @@ include_once '../common/footer_module.php';
     });
 
     
-    $(document).on("click", "#upload", function() {
-        var cat_id= $(this).data('id');
-        var pl_id=$(this).data('plylist');
+    // $(document).on("click", "#upload", function() {
+    //     var cat_id= $(this).data('id');
+    //     var pl_id=$(this).data('plyalist')
 
     $('#uploadVideo').on('submit', function(event) {
 
@@ -534,7 +534,7 @@ include_once '../common/footer_module.php';
         });
     });
 
-});
+//});
 
 
     $('#playlist').on('click', function() {
@@ -564,17 +564,3 @@ include_once '../common/footer_module.php';
 
     });
 </script>
-<script>
-
-// $(document).on("click", "#upload", function() 
-// {
-//     var id = $(this).data("text");
-//                         alert(id);
-//                         $('#v_cat_id').append(id);
-//                     })
-                    
-//                      $(document).on("click", "#all", function() {
-//                         var id = $(this).data("text");
-//                         alert(id);
-//                         $('#cv_cat_id').append(id);
-//                     })</script>
