@@ -2,11 +2,11 @@
 require_once 'vendor/autoload.php';
 require_once 'class-db.php';
   
-define('GOOGLE_CLIENT_ID', '151284826547-71gu1qj8jco0l2gvqkt72bj8bj9k2u0a.apps.googleusercontent.com');
-define('GOOGLE_CLIENT_SECRET', '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');
+define('GOOGLE_CLIENT_ID', '861549903054-k9s6lhfls18ogg5r2bhbkef5vo0qsbni.apps.googleusercontent.com');
+define('GOOGLE_CLIENT_SECRET', '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');
   
 $config = [
-    'callback' => 'http://spacefoundation.in/test/SpacECE-PHP/spacec_active/Youtube/callback.php',
+    'callback' => 'https://spacefoundation.in/test/SpacECE-PHP/spacec_active/Youtube/callback.php',
     'keys'     => [
                     'id' => GOOGLE_CLIENT_ID,
                     'secret' => GOOGLE_CLIENT_SECRET
