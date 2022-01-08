@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION);
+
 //use Google\Service\Script;
 
 include_once './header_local.php';
