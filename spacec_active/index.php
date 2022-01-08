@@ -340,8 +340,10 @@ include_once '../common/banner.php';
                 <?php
                  echo ' <div id="catdet"></div>';
                 if (isset($_SESSION['current_user_email'])) {
-                    $cat_id=1;
-                 
+                    $cat_id='';
+                 if(isset($_POST['cid'])){
+                    $cat_id=$_POST['cid'];
+                 } echo $cat_id;
                     include_once 'Youtube/class-db.php';
                     $user = $_SESSION['current_user_email'];
                     echo "<div class='row'>";
@@ -587,6 +589,7 @@ $(document).on("click", "#upload", function()
                     })
                     
                      $(document).on("click", "#all", function() {
+                        $('#catdet').empty();
                         var id = $(this).data("text");
                         var c='<input type="text" id="cid" name="cid" value="'+id+'">';
                         alert(c);
