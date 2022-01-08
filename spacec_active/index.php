@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 //use Google\Service\Script;
 
 include_once './header_local.php';
