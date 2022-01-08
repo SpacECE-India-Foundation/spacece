@@ -25,8 +25,8 @@ if ($conn1) {
     die("Connection failed: " . $conn->connect_error);
 }
 $ref='';
-$_SESSION['current_user_email'];
-$_SESSION['current_user_name'];
+$_SESSION['current_user_email']='krishna.thorat20@vit.edu';
+$_SESSION['current_user_name']='Krishna Thorat';
 if(isset($_SESSION['current_user_email'])){
     $email = $_SESSION['current_user_email'];
     $ref= $_SESSION['current_user_name'];
