@@ -409,6 +409,7 @@ include_once '../common/footer_module.php';
 
 <script type="text/javascript">
     $(document).ready(function() {
+        alert("Inside");
         $('.progress').hide();
         // $('#progress').hide();
         $.ajax({
@@ -418,6 +419,7 @@ include_once '../common/footer_module.php';
                 'getDetails': 1
             },
             success: function(data) {
+                alert(data);
                 $('#tablebody').append(data);
             }
 
