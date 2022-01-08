@@ -329,7 +329,7 @@ include_once '../common/banner.php';
 
                 <?php
                 if (isset($_SESSION['current_user_email'])) {
-                   $cat_id='<Script>document.getElementById("v_cat_id").val();</Script>';
+                   $cat_id='<script>document.getElementById("v_cat_id").val();</script>';
                  
                     include_once 'Youtube/class-db.php';
                     $user = $_SESSION['current_user_email'];
