@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('db.php');
+echo "Inside";
 
 if (isset($_POST['getDetails'])) {
 
@@ -43,6 +44,7 @@ View All videos
 
             if (mysqli_num_rows($query) > 0) {
                 while ($result = mysqli_fetch_assoc($query)) {
+                    var_dump($result);
 
                     echo '<tr>
             <td>' . $result['activity_no'] . '</td>
