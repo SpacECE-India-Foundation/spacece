@@ -22,7 +22,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
 
 <div class="topright">
     <!-- <a href="logout.php"> -->
-    <button onclick="window.open('logout.php', '_self')" type="button" style="background-color:black;color:white;border-radius:10px;">Logout</button>
+    <!-- <button onclick="window.open('logout.php', '_self')" type="button" style="background-color:black;color:white;border-radius:10px;">Logout</button> -->
     <!-- </a> -->
     <button onclick="window.open('https:/www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/', '_self')" type="button" style="color:white; background-color:black;border-radius: 10px;">Subscribe</button>
     <script src="https://js.instamojo.com/v1/button.js"></script>
