@@ -1,6 +1,6 @@
 <?php
-
-use Google\Service\Script;
+session_start();
+//use Google\Service\Script;
 
 include_once './header_local.php';
 include_once '../common/header_module.php';
