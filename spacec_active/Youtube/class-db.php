@@ -38,8 +38,8 @@ class DB {
      //var_dump( json_($result['provider_value']));
         return json_decode($result['provider_value']);
     }
-    public function upload_video_to_db($video_id, $title, $summary,$category,$user){
-        if( $this->db->query("INSERT INTO youtube_videos(user_id,video_id,title,description,category_id) VALUES('$user', '$video_id','$title','$summary','$category')")){
+    public function upload_video_to_db($video_id, $title, $summary,$category,$user,$act_id,$pl_id){
+        if( $this->db->query("INSERT INTO youtube_videos(user_id,video_id,title,description,category_id,) VALUES('$user', '$video_id','$title','$summary','$category','$pl_id)')")){
             echo "Success";
         }
         else{
@@ -48,8 +48,8 @@ class DB {
      }
  
  
-     public function get_Videos($user){
-         $sql= $this->db->query("SELECT * from youtube_videos where user_id='$user' ");
+     public function get_Videos($user,$cat_id){
+         $sql= $this->db->query("SELECT * from youtube_videos where user_id='$user' and cat_id= '$cat_id' ");
          $data[]=array();
         
        while($result = $sql->fetch_assoc()){
@@ -63,9 +63,9 @@ class DB {
       
      }
  
-     public function get_all_Videos(){
+     public function get_all_Videos($cat_id){
          $data[]=array();
-         $sql= $this->db->query("SELECT * from youtube_videos  ");
+         $sql= $this->db->query("SELECT * from youtube_videos Where cat_id= '$cat_id' ");
          while($result = $sql->fetch_assoc()){
             $data[]= $result;
          }
@@ -89,6 +89,18 @@ class DB {
         } else {
             $this->db->query("UPDATE youtube_oauth SET provider_value = '$token' WHERE provider = 'youtube'");
         }
+    }
+    public function AddActivity($act_name,$act_lvl,$act_dom,$act_obj,$act_key,$act_mat,$act_asses,$act_pro,$act_ins,$status,$act_date,$playlist_id,$pl_desc,$pl_name){
+        if( $this->db->query("INSERT INTO spaceactive_activities (activity_name,activity_level,activity_dev_domain,activity_objectives,
+    activity_key_dev,activity_material,activity_assessment,activity_process,activity_instructions,
+    status,activity_date,playlist_id,playlist_descr,playlist_name) 
+    values ('$act_name','$act_lvl','$act_dom','$act_obj','$act_key','$act_mat','$act_asses','$act_pro','$act_ins','$status','$act_date','$playlist_id','$pl_desc','$pl_name')")){
+          echo "Success";
+         
+    } else{
+        
+        echo "Error";
+    }
     }
     
 }

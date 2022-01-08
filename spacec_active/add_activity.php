@@ -22,7 +22,7 @@ include_once '../common/banner.php';
 <div class="container ">
 
     <div class="card mb-3 d-flex jistify-content-center ">
-        <form id="add_activity" name="add_activity" class="  mb-3" method="POST">
+        <form id="add_activity" name="add_activity" class="  mb-3" method="POST" action="./ajax_add_activity.php">
             <div class="row ">
                 <div class="col-sm-6 d-flex justify-content-center mb-3 ">
                     <div class="col-sm-10">
@@ -74,6 +74,14 @@ include_once '../common/banner.php';
        
         <lable class="mb-3">Playlist  description: </lable>
         <input type="text" name="pl_desc" class="form-control" id="pl_desc" placeholder="Playlist  description" required>
+
+        <lable class="mb-3">Activity Status : </lable>
+                <select class="form-control" id="act_type" name="act_type" required>
+                    <option value="">Select</option>
+                    <option value="Free">Free</option>
+                    <option value="Paid">Paid</option>
+                   
+                </select>
         </div>
         <div class="mb-3">
         <input type="submit" id="save" name="save" class="mb-3 btn btn-primary">
@@ -110,8 +118,8 @@ include_once '../common/footer_module.php';
      
 
         
-$("#add_activity").on('submit',function( e ){
-        e.preventDefault;
+$("#add_activity").on('submit',function( ){
+       // e.preventDefault;
         var act_name=$('#act_name').val();
         var act_lvl=$('#act_lvl').val();
         var act_dom=$('#act_dom').val();
@@ -125,10 +133,12 @@ $("#add_activity").on('submit',function( e ){
         
         var act_asses=$('#act_asses').val();
         var act_ins=$('#act_ins').val();
-        
+        var  act_type=$('#act_type').val();
         var act_date=$('#act_date').val();
         var pl_desc=$('#pl_desc').val();
-        alert(pl_desc);
+
+       
+        
         $.ajax({
 
                 method:'POST',
@@ -144,7 +154,8 @@ $("#add_activity").on('submit',function( e ){
                         act_asses:act_asses,
                         act_ins:act_ins,
                         act_date:act_date,
-                        pl_desc:pl_desc
+                        pl_desc:pl_desc,
+                        act_type:act_type
                 },
                 url:'ajax_add_activity.php',
                 success:function(result){
