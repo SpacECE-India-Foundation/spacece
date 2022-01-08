@@ -590,5 +590,8 @@ $(document).on("click", "#upload", function()
                         var id = $(this).data("text");
                         alert(id);
                         $('#cv_cat_id').html(id);
+                        $('#v_cat_id').html(id);
+                        //$('#v_cat_id').append(id);
+                        $('#v_cat_id').val(id);
                     })
                     </script>
