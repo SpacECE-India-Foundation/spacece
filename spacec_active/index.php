@@ -274,7 +274,7 @@ include_once '../common/banner.php';
 
                 <?php
                   
-                if (isset($_SESSION['current_user_email'])) {
+                  if (isset($_SESSION['current_user_email'])) {
                     $cat_id=1;
                     echo "inside";
                     $user = $_SESSION['current_user_email'];
