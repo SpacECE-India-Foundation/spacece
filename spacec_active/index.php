@@ -349,10 +349,10 @@ include_once '../common/banner.php';
                     }
                     echo "</div>";
                 }else{
-                    $cat_id='<Script>document.getElementById("v_cat_id").val();</Script>';
+                   // $cat_id='<Script>document.getElementById("v_cat_id").val();</Script>';
                  
                     include_once 'Youtube/class-db.php';
-                    //$cat_id=1;
+                    $cat_id=1;
                     echo "<div class='row'>";
                     $db = new DB();
                     $videos = $db->get_all_Videos($cat_id);
