@@ -85,7 +85,7 @@ if(isset($_POST['all'])){
        
         echo "<div class='row'>";
         $db = new DB();
-        $videos = $db->get_all_Videos($cat_id);
+        $videos = $db->get_all_Videos($act_id);
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
             
