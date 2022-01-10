@@ -15,15 +15,9 @@ if (isset($_SESSION['current_user_email'])) {
      echo "<div class='row'>";
      $db = new DB();
      $videos = $db->get_Videos($user,$act_id);
+  
      
-     if(sizeof($videos) < 1){
-        echo "<div class='col-md-6'>";
-        echo "NO Data Found";
-        echo "</div>";
-
-     }
-     
-  else{
+ 
 
   
   // $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
@@ -31,6 +25,9 @@ if (isset($_SESSION['current_user_email'])) {
      foreach ($videos as $video) {
          $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
          //$video_id;
+         if(!empty($video_id)){
+
+         
          echo "<div class='col-md-6'>";
          echo'<iframe width="250" height="180"
                 src="https://www.youtube.com/embed/'.$video_id.'"
@@ -41,12 +38,15 @@ if (isset($_SESSION['current_user_email'])) {
          //        frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
          //        </iframe>';
          echo "</div>";
+         }else{
+             echo  "No Data Found";
+         }
       
      }
     
      echo "</div>";
      echo "</div>";
- }
+ 
 }
 }
 if(isset($_POST['all'])){
@@ -63,6 +63,8 @@ if(isset($_POST['all'])){
 
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+            if(!empty($video_id)){
+
             
            
             echo "<div class='col-md-6'>";
@@ -71,6 +73,9 @@ if(isset($_POST['all'])){
                    frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                    </iframe>';
             echo "</div>";
+            }else{
+                echo "No data found";
+            }
         }
         echo "</div>";
     
@@ -85,7 +90,7 @@ if(isset($_POST['all'])){
        
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-            if($video_id){
+            if(!empty($video_id)){
             echo "<div class='col-md-6'>";
             echo '<iframe width="250" height="180"
                    src="https://www.youtube.com/embed/' .  $video_id . '"
