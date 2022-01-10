@@ -169,7 +169,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             // $channelname=$row1['channel_name'];
                             $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
                                 ?>
-                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $row['u_id'];?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $row['u_id'];?>" onclick="redirectTo('<?php echo $row['u_id'];?>','<?php echo $_SESSION['user_id'];?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
                                 <?php 
                         }
                        
@@ -293,7 +293,7 @@ function redirectTo(id,user_id,token,appId,channel_name){
 //  channel ="testing";
  //token="0060485c1232ca7491e9ada47ae96da3160IAAw2qjO8uvCZCP9l4Qpz22rUHon7W13zhOb7OnlZc3ww/tD/hgAAAAAEACkCrtyPxSKYQEAAQA+FIph";
 //alert(user_id);
-var c_id=$('#link').data('id');
+var c_id=id;
 
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
