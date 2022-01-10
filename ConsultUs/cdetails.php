@@ -128,7 +128,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         $sql="SELECT * FROM `webhook` WHERE email='$email'";
                         $user_id=$_SESSION['current_user_id'];
                         $res2  = mysqli_query($conn,$sql);
-                        $row=mysqli_fetch_assoc($res2);
+                        $row2=mysqli_fetch_assoc($res2);
                         $count=mysqli_num_rows($res2);
                        
         // $sql="INSERT INTO agora_call(user_id,consult_id,channel_name,token) VALUES ('$user_id','$consult_id','$channel_name','$token')";
@@ -147,6 +147,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $user_name=substr($_SESSION['current_user_name'],0,4);
                             $con_name=substr($row['u_name'],0,4);
                             $consult_id=$row['u_id'];
+                            echo  $consult_id;
                             $user_id=$_POST['user_id'];
                             $channel_name=$user_id.$consult_id;
                            
