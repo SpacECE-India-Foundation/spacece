@@ -497,6 +497,7 @@ include_once '../common/footer_module.php';
 
 $(document).on("click", "#myVideo", function() 
 {
+    $('#myvideos').empty();
     var act_id = $(this).data("text");
 $.ajax({
     method:'POST',
@@ -506,7 +507,7 @@ $.ajax({
     },
     url:'get_videos.php',
     success:function(result){
-        alert(result);
+        
         $('#myvideos').append(result);
     }
 })                      
@@ -525,7 +526,7 @@ $.ajax({
                         url:'get_videos.php',
                         success:function(result){
                            
-                            alert(result);
+                          
                             $('#allvideos').append(result);
                         }
                     })
