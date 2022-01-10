@@ -266,7 +266,7 @@ var d = new Date(); //without params it defaults to "now"
 
 var time=+d;
 
- var link=linkfull+"Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;
+ var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;
  $.ajax({
     url:"video.php",method:"POST",
     data:{
