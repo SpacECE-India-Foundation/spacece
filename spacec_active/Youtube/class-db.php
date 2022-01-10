@@ -48,8 +48,8 @@ class DB {
      }
  
  
-     public function get_Videos($user,$cat_id){
-         $sql= $this->db->query("SELECT * from youtube_videos where user_email='$user' and act_id= '$cat_id' ");
+     public function get_Videos($user,$act_id){
+         $sql= $this->db->query("SELECT * from youtube_videos where user_email='$user' and act_id= '$act_id' ");
        
         
        while($result = $sql->fetch_assoc()){
@@ -61,9 +61,9 @@ class DB {
       
      }
  
-     public function get_all_Videos($cat_id){
+     public function get_all_Videos($act_id){
       
-         $sql= $this->db->query("SELECT * from youtube_videos Where cat_id= '$cat_id' ");
+         $sql= $this->db->query("SELECT * from youtube_videos Where act_id= '$act_id' ");
          
          while($result = $sql->fetch_assoc()){
             $data[]= $result;
