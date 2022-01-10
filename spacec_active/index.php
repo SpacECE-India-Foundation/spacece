@@ -515,7 +515,7 @@ $.ajax({
                      $(document).on("click", "#all", function() {
                         
                         var act_id = $(this).data("text");
-                       
+                        $('#allvideos').empty();
                         $.ajax({
                         method:'POST',
                         data:{
