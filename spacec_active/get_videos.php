@@ -87,7 +87,7 @@ if(isset($_POST['all'])){
         $db = new DB();
         $videos = $db->get_all_Videos($act_id);
       
-       
+       echo (count($videos));
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
             if(!empty($video_id)){
