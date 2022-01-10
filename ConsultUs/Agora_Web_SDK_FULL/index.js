@@ -2,23 +2,21 @@ let params = (new URL(document.location)).searchParams;
 let channel1 = params.get('channel'); // is the string "cha123".
 let appid1 = params.get('appId'); // is the string "183432424242"
 let id1 = params.get('id'); 
-var agoraAppId = "0485c1232ca7491e9ada47ae96da3160";
+
 if(channel1){
 
 
 
 //alert(decodeURIComponent(id1).replace(/\+/g, '%20'));
 //alert(id1);
- var token1 =generateToken();
+ var token1 =id1;
 
  ///var agoraAppId = "0485c1232ca7491e9ada47ae96da3160";
  console.log(agoraAppId) // Set your Agora App ID
 var channelName ="testing";
 var uid="43456";
 var attend = false;
-if(channel1===channelName && appid1===agoraAppId && id1===token1){
-attend = true;
-}
+
 
 // video profile settings
 var cameraVideoProfile = '480p_4'; // 640 × 480 @ 30fps  & 750kbs
@@ -79,7 +77,7 @@ client.on('stream-added', function (evt) {
 
 client.on('stream-subscribed', function (evt) {
   
-  if(attend===true){
+ 
 alert("Added");
 
   var remoteStream = evt.stream;
@@ -92,10 +90,7 @@ alert("Added");
   } else {
     addRemoteStreamMiniView(remoteStream);
   }
-}else{
-  alert("Invalid Link");
-  window.location.href="http://localhost/ConsultUs/alldoc.php";
-}
+
 });
 
 // remove the remote-container when a user leaves the channel
@@ -147,7 +142,7 @@ function joinChannel() {
 
   
 
-  var token = generateToken();
+  var token = id1;
 console.log(token);
   var userID = null;
 
@@ -207,7 +202,7 @@ function initScreenShare() {
 }
 
 function joinChannelAsScreenShare() {
-  var token = generateToken();
+  var token = id1;
   var userID = null; // set to null to auto generate uid on successfull connection
   screenClient.join(token, channelName, userID, function(uid) { 
     localStreams.screen.id = uid;  // keep track of the uid of the screen stream.
@@ -331,9 +326,7 @@ function leaveChannel() {
 }
 
 // use tokens for added security
-function generateToken() {
-  return "0060485c1232ca7491e9ada47ae96da3160IABxwth4Z7J/3yswGgj/CVCDnzpojEgg70oxn8ILQiCWowZa8+gAAAAAEACjOAeR9ovaYQEAAQD0i9ph"; // TODO: add a token generation
-}
+
 function enableUiControls(localStream) {
 
   $("#mic-btn").prop("disabled", false);
@@ -399,7 +392,4 @@ function enableUiControls(localStream) {
   });
 
 }
-}
-function generateToken() {
-  return "0060485c1232ca7491e9ada47ae96da3160IABxwth4Z7J/3yswGgj/CVCDnzpojEgg70oxn8ILQiCWowZa8+gAAAAAEACjOAeR9ovaYQEAAQD0i9ph"; // TODO: add a token generation
 }
