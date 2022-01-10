@@ -144,13 +144,15 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         // }
 
                         if($count >0){
+                            $user_name=substr($_SESSION['current_user_name'],0,4);
+                            $con_name=substr($row['u_name'],0,4);
                             $consult_id=$row['u_id'];
                             $user_id=$_POST['user_id'];
                             $channel_name=$user_id.$consult_id;
                             echo  $channel_name;
                             $appID = "464ff3e49fb3409494c0956edcec52e7";
                             $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
-                            $channelName =$user_id.$consult_id;
+                            $channelName =$user_name.$consult_id;
                             $uid = 0;
                             $uidStr = $user_id;
                             $role = RtcTokenBuilder::RoleAttendee;
