@@ -149,7 +149,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $consult_id=$row['u_id'];
                            
                             $user_id=$_SESSION['current_user_id'];
-                            echo $user_id;
+                           
                             $channel_name=$user_id.$consult_id;
                            
                             $appID = "464ff3e49fb3409494c0956edcec52e7";
@@ -296,14 +296,14 @@ function redirectTo(id,user_id,token,appId,channel_name){
  //token="0060485c1232ca7491e9ada47ae96da3160IAAw2qjO8uvCZCP9l4Qpz22rUHon7W13zhOb7OnlZc3ww/tD/hgAAAAAEACkCrtyPxSKYQEAAQA+FIph";
 //alert(user_id);
 var c_id=id;
-alert(c_id);
+
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
-var d = new Date(); //without params it defaults to "now"
+var time = new Date(); //without params it defaults to "now"
 
-var time=+d;
+//var time=+d;
 
  var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
  $.ajax({
