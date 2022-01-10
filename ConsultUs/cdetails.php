@@ -149,7 +149,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $consult_id=$row['u_id'];
                             $user_id=$_POST['user_id'];
                             $channel_name=$user_id.$consult_id;
-                            echo  $channel_name;
+                           
                             $appID = "464ff3e49fb3409494c0956edcec52e7";
                             $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
                             $channelName =$user_name.$consult_id;
@@ -169,7 +169,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             // $channelname=$row1['channel_name'];
                             $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
                                 ?>
-                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $row['u_id'];?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
                                 <?php 
                         }
                        
@@ -282,12 +282,12 @@ include_once '../common/footer_module.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/agora-rtc-sdk@3.5.1/AgoraRTCSDK.min.js"></script>
-    <script src="Agora_Web_SDK_FULL/index.js"></script> 
+  
 <script type="text/javascript">
  
     
-function redirectTo(id,user_id){
-var id1=generateToken();
+function redirectTo(id,user_id,token,appId,channel_name){
+
   //  alert(encodeURIComponent(uriComponent);(id));
 //    appid=agoraAppId;
 //  channel ="testing";
@@ -303,7 +303,7 @@ var d = new Date(); //without params it defaults to "now"
 
 var time=+d;
 
- var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;
+ var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
  $.ajax({
     url:"video.php",method:"POST",
     data:{
@@ -318,7 +318,7 @@ var time=+d;
     }
  })
 
- window.location.href="Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;  
+ window.location.href="Agora_Web_SDK_Full/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
 } 
 function createall(){
     alert("hello");
