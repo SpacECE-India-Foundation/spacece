@@ -147,8 +147,9 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $user_name=substr($_SESSION['current_user_name'],0,4);
                             $con_name=substr($row['u_name'],0,4);
                             $consult_id=$row['u_id'];
-                            echo  $consult_id;
+                           
                             $user_id=$_SESSION['current_user_id'];
+                            echo $user_id;
                             $channel_name=$user_id.$consult_id;
                            
                             $appID = "464ff3e49fb3409494c0956edcec52e7";
@@ -170,7 +171,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             // $channelname=$row1['channel_name'];
                             $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
                                 ?>
-                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
                                 <?php 
                         }
                        
