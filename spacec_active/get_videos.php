@@ -21,7 +21,7 @@ if (isset($_SESSION['current_user_email'])) {
 
   
   // $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-  if (count($videos)>1){
+  if (count($videos)>0){
      foreach ($videos as $video) {
          $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
          //$video_id;
@@ -33,10 +33,7 @@ if (isset($_SESSION['current_user_email'])) {
                 src="https://www.youtube.com/embed/'.$video_id.'"
                 frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                 </iframe> ';
-         // echo '<iframe width="230" height="180"
-         //        src="youtube.com/watch?v='.$video_id. '"
-         //        frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-         //        </iframe>';
+        
          echo "</div>";
          }
       
@@ -60,7 +57,7 @@ if(isset($_POST['all'])){
         $db = new DB();
         $videos = $db->get_all_Videos($act_id,$user);
   
-        if (count($videos)>1){
+        if (count($videos)>0){
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
             
@@ -87,7 +84,7 @@ if(isset($_POST['all'])){
         $db = new DB();
         $videos = $db->get_all_Videos($act_id);
       
-       if (count($videos)>1){
+       if (count($videos)>0){
 
        
         foreach ($videos as $video) {
