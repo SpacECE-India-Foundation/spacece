@@ -164,7 +164,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
                             $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
                             
-                           $time= date('d-m-Y H:i:s');
+                           $time= date('Y-m-d H:i:s');
 
                             // $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
                             // $result = mysqli_query($conn, $sql);
