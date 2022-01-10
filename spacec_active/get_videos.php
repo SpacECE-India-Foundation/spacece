@@ -69,6 +69,7 @@ if(isset($_POST['all'])){
   else{
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+            
            
             echo "<div class='col-md-6'>";
             echo '<iframe width="250" height="180"
@@ -89,7 +90,7 @@ if(isset($_POST['all'])){
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
             
-     if(sizeof($video_id) < 2){
+     if(sizeof($video_id) < 0){
         echo "<div class='col-md-6'>";
         echo "NO Data Found";
         echo "</div>";
