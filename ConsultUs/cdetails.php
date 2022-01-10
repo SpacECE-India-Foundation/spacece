@@ -148,7 +148,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $con_name=substr($row['u_name'],0,4);
                             $consult_id=$row['u_id'];
                             echo  $consult_id;
-                            $user_id=$_POST['user_id'];
+                            $user_id=$_SESSION['current_user_id'];
                             $channel_name=$user_id.$consult_id;
                            
                             $appID = "464ff3e49fb3409494c0956edcec52e7";
