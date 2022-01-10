@@ -1,5 +1,5 @@
 <?php
-// session_start();
+ session_start();
 // if(empty($_SESSION['current_user_email'])){
 //     header('location:../spacece_auth/login.php');
 //     exit();
@@ -10,6 +10,8 @@ include_once './header_local.php';
 include_once '../common/header_module.php';
 // include_once '../common/banner.php';
 include('indexDB.php');
+include("./php/src/RtcTokenBuilder.php");
+include("./php/src/RtmTokenBuilder.php");
 error_reporting(0);
 $ref = $_GET['user'];
 $cat = $_GET['category'];
@@ -181,7 +183,21 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td>
                         <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>&email=" >Book Appointment </a>
 
+                        <?php
+                        if(isset($_SESSION['current_user_id']))
+                        $email=$_SESSION['current_user_email'];
+                        $sql="SELECT * FROM `webhook` WHERE email='$email'";
+                        $res2  = mysqli_query($conn,$sql);
+                        $row=mysqli_fetch_assoc($res2);
+                        $count=mysqli_num_rows($res2);
+                       
+                        if($count >0){
 
+                                ?>
+                        <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                                <?php 
+                        }
+                        ?>
 
                   
 
@@ -213,3 +229,47 @@ include_once '../common/footer_module.php';
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/agora-rtc-sdk@3.5.1/AgoraRTCSDK.min.js"></script>
+    <script src="Agora_Web_SDK_FULL/index.js"></script> 
+<script type="text/javascript">
+ 
+    
+function redirectTo(id,user_id){
+var id1=generateToken();
+  //  alert(encodeURIComponent(uriComponent);(id));
+   appid=agoraAppId;
+ channel ="testing";
+ //token="0060485c1232ca7491e9ada47ae96da3160IAAw2qjO8uvCZCP9l4Qpz22rUHon7W13zhOb7OnlZc3ww/tD/hgAAAAAEACkCrtyPxSKYQEAAQA+FIph";
+//alert(user_id);
+var c_id=$('#link').data('id');
+
+//var id='<?php /// echo $_SESSION['user_id'];  ?>';
+var url = window.location.href;
+var regex = new RegExp('/[^/]*$');
+var linkfull=url.replace(regex, '/');
+var d = new Date(); //without params it defaults to "now"
+
+var time=+d;
+
+ var link=linkfull+"Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;
+ $.ajax({
+    url:"video.php",method:"POST",
+    data:{
+        link:link,
+        c_id:c_id,
+        video:1,
+        time:time 
+    },
+    success:function(data){
+        console.log(data);
+        alert(data);
+    }
+ })
+
+ window.location.href="Agora_Web_SDK_Full/index.html?id="+encodeURIComponent(id1)+"&appId="+appid+"&channel="+channel+"&id="+id+"&user_id="+user_id;  
+} 
+function createall(){
+    alert("hello");
+}  
+
+</script>
