@@ -290,7 +290,7 @@ include_once '../common/footer_module.php';
 <script type="text/javascript">
  
     
-function redirectTo(id,user_id,token,appId,channel_name,$time){
+function redirectTo(id,user_id,token,appId,channel_name,time){
 
   //  alert(encodeURIComponent(uriComponent);(id));
 //    appid=agoraAppId;
@@ -298,7 +298,7 @@ function redirectTo(id,user_id,token,appId,channel_name,$time){
  //token="0060485c1232ca7491e9ada47ae96da3160IAAw2qjO8uvCZCP9l4Qpz22rUHon7W13zhOb7OnlZc3ww/tD/hgAAAAAEACkCrtyPxSKYQEAAQA+FIph";
 //alert(user_id);
 var c_id=id;
-var time=time;
+
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
