@@ -122,7 +122,10 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td>
                         <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>" >Book Appointment </a>
                         <?php
-                        if(isset($_SESSION['current_user_id']))
+
+                        if(isset($_SESSION['current_user_id'])){
+
+                        
                         $email=$_SESSION['current_user_email'];
                         $sql="SELECT * FROM `webhook` WHERE email='$email'";
                         $user_id=$_SESSION['current_user_id'];
@@ -173,6 +176,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
 
                             }
+                        }
                         }else{
                             ?>
                             <tr><td><?php   echo "No data Found";  ?></td></tr>
