@@ -4,8 +4,6 @@
 //     header('location:../spacece_auth/login.php');
 //     exit();
 //   }
-
-var_dump($_SESSION);
 include_once './header_local.php';
 include_once '../common/header_module.php';
 // include_once '../common/banner.php';
@@ -132,28 +130,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         $res2  = mysqli_query($conn,$sql);
                         $row=mysqli_fetch_assoc($res2);
                         $count=mysqli_num_rows($res2);
-                        $consult_id=$row['u_id'];
-                                $user_id=$_POST['user_id'];
-                                $channel_name=$user_id.$consult_id;
-                                echo  $channel_name;
-                                $appID = "464ff3e49fb3409494c0956edcec52e7";
-                                $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
-                                $channelName =$user_id.$consult_id;
-                                $uid = 0;
-                                $uidStr = $user_id;
-                                $role = RtcTokenBuilder::RoleAttendee;
-                                $expireTimeInSeconds = 3600;
-                                $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
-                                $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
-                                
-                               
-
-                                // $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
-                                // $result = mysqli_query($conn, $sql);
-                                // $row1=mysqli_fetch_assoc($result);
-                                // $token=$row1['token'];
-                                // $channelname=$row1['channel_name'];
-                                $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+                       
         // $sql="INSERT INTO agora_call(user_id,consult_id,channel_name,token) VALUES ('$user_id','$consult_id','$channel_name','$token')";
         // $result = mysqli_query($conn, $sql);
         
@@ -167,7 +144,28 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         // }
 
                         if($count >0){
+                            $consult_id=$row['u_id'];
+                            $user_id=$_POST['user_id'];
+                            $channel_name=$user_id.$consult_id;
+                            echo  $channel_name;
+                            $appID = "464ff3e49fb3409494c0956edcec52e7";
+                            $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
+                            $channelName =$user_id.$consult_id;
+                            $uid = 0;
+                            $uidStr = $user_id;
+                            $role = RtcTokenBuilder::RoleAttendee;
+                            $expireTimeInSeconds = 3600;
+                            $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
+                            $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
+                            
+                           
 
+                            // $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
+                            // $result = mysqli_query($conn, $sql);
+                            // $row1=mysqli_fetch_assoc($result);
+                            // $token=$row1['token'];
+                            // $channelname=$row1['channel_name'];
+                            $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
                                 ?>
                         <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
                                 <?php 
