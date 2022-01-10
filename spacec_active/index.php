@@ -292,7 +292,7 @@ include_once '../common/banner.php';
             </div>
             <div class="modal-body">
                 <div id="allvideos" name="allvideos">
-                    
+
                 </div>
 
                 
@@ -497,11 +497,11 @@ include_once '../common/footer_module.php';
 
 $(document).on("click", "#myVideo", function() 
 {
-    var id = $(this).data("text");
+    var act_id = $(this).data("text");
 $.ajax({
     method:'POST',
     data:{
-        id:id,
+        act_id:act_id,
         myVideo:1
     },
     url:'get_videos.php',
@@ -514,12 +514,12 @@ $.ajax({
                     
                      $(document).on("click", "#all", function() {
                         
-                        var id = $(this).data("text");
+                        var act_id = $(this).data("text");
                        
                         $.ajax({
                         method:'POST',
                         data:{
-                            id:id,
+                            act_id:act_id,
                             all:1
                         },
                         url:'get_videos.php',
