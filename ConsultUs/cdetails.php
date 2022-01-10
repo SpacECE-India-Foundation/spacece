@@ -149,7 +149,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $user_name=substr($_SESSION['current_user_name'],0,4);
                             $con_name=substr($row['u_name'],0,4);
                             $consult_id=$row['u_id'];
-                           
+                        
                             $user_id=$_SESSION['current_user_id'];
                            
                             $channel_name=$user_id.$consult_id;
@@ -236,7 +236,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td><?php echo $row['c_qualification']; ?></td>
 
                         <td>
-                        <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>&email=" >Book Appointment </a>
+                        <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>" >Book Appointment </a>
 
                         <?php
                         if(isset($_SESSION['current_user_id']))
