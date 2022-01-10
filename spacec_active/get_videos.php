@@ -8,13 +8,13 @@ if(isset($_POST['myVideo'])){
 
 
 if (isset($_SESSION['current_user_email'])) {
-     $cat_id=1;
+    $act_id=$_POST['act_id'];
     
      $user = $_SESSION['current_user_email'];
     
      echo "<div class='row'>";
      $db = new DB();
-     $videos = $db->get_Videos($user,$cat_id);
+     $videos = $db->get_Videos($user,$act_id);
      
      if(sizeof($videos) < 1){
         echo "<div class='col-md-6'>";
@@ -50,6 +50,7 @@ if (isset($_SESSION['current_user_email'])) {
 }
 }
 if(isset($_POST['all'])){
+    $act_id=$_POST['act_id'];
     if (isset($_SESSION['current_user_email'])) {
                 
        
@@ -57,7 +58,7 @@ if(isset($_POST['all'])){
         echo "<div class='row'>";
         
         $db = new DB();
-        $videos = $db->get_all_Videos($cat_id,$user);
+        $videos = $db->get_all_Videos($act_id,$user);
         
      if(sizeof($videos) < 1){
         echo "<div class='col-md-6'>";
