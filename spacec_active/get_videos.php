@@ -59,14 +59,8 @@ if(isset($_POST['all'])){
         
         $db = new DB();
         $videos = $db->get_all_Videos($act_id,$user);
-        echo $videos;
-     if(sizeof($videos) < 1){
-        echo "<div class='col-md-6'>";
-        echo "NO Data Found";
-        echo "</div>";
+  
 
-     }
-  else{
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
             
@@ -79,7 +73,7 @@ if(isset($_POST['all'])){
             echo "</div>";
         }
         echo "</div>";
-    }
+    
     }else{
      
      
@@ -88,15 +82,11 @@ if(isset($_POST['all'])){
         $db = new DB();
         $videos = $db->get_all_Videos($act_id);
         echo $videos;
-        if(sizeof($videos) < 1){
-            echo "<div class='col-md-6'>";
-            echo "NO Data Found";
-            echo "</div>";
-    
-         }
-      else{
+       
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
+            if($video_id){
+
             
      
             echo "<div class='col-md-6'>";
@@ -105,8 +95,11 @@ if(isset($_POST['all'])){
                    frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
                    </iframe>';
             echo "</div>";
+            }else{
+                echo "No data found";
+            }
         }
         echo "</div>";
-    }
+    
 }
 }
