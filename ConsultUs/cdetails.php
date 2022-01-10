@@ -187,6 +187,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         if(isset($_SESSION['current_user_id']))
                         $email=$_SESSION['current_user_email'];
                         $sql="SELECT * FROM `webhook` WHERE email='$email'";
+                        echo $sql;
                         $res2  = mysqli_query($conn,$sql);
                         $row=mysqli_fetch_assoc($res2);
                         $count=mysqli_num_rows($res2);
