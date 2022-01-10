@@ -121,8 +121,22 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
                         <td>
                         <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>" >Book Appointment </a>
+                        <?php
+                        if(isset($_SESSION['current_user_id']))
+                        $email=$_SESSION['current_user_email'];
+                        $sql="SELECT * FROM `webhook` WHERE email='$email'";
+                       
+                        $res2  = mysqli_query($conn,$sql);
+                        $row=mysqli_fetch_assoc($res2);
+                        $count=mysqli_num_rows($res2);
+                       
+                        if($count >0){
 
-                    <?php
+                                ?>
+                        <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                                <?php 
+                        }
+                       
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
 
                             }
@@ -187,7 +201,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         if(isset($_SESSION['current_user_id']))
                         $email=$_SESSION['current_user_email'];
                         $sql="SELECT * FROM `webhook` WHERE email='$email'";
-                        echo $sql;
+                       
                         $res2  = mysqli_query($conn,$sql);
                         $row=mysqli_fetch_assoc($res2);
                         $count=mysqli_num_rows($res2);
