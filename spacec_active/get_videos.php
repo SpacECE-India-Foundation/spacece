@@ -59,7 +59,7 @@ if(isset($_POST['all'])){
         
         $db = new DB();
         $videos = $db->get_all_Videos($act_id,$user);
-        
+        echo $videos;
      if(sizeof($videos) < 1){
         echo "<div class='col-md-6'>";
         echo "NO Data Found";
@@ -87,6 +87,7 @@ if(isset($_POST['all'])){
         echo "<div class='row'>";
         $db = new DB();
         $videos = $db->get_all_Videos($act_id);
+        echo $videos;
         if(sizeof($videos) < 1){
             echo "<div class='col-md-6'>";
             echo "NO Data Found";
