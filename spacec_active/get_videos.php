@@ -16,7 +16,7 @@ if (isset($_SESSION['current_user_email'])) {
      $db = new DB();
      $videos = $db->get_Videos($user,$cat_id);
      
-     if(sizeof($videos) < 2){
+     if(sizeof($videos) < 1){
         echo "<div class='col-md-6'>";
         echo "NO Data Found";
         echo "</div>";
@@ -59,7 +59,7 @@ if(isset($_POST['all'])){
         $db = new DB();
         $videos = $db->get_all_Videos($cat_id,$user);
         
-     if(sizeof($videos) < 2){
+     if(sizeof($videos) < 1){
         echo "<div class='col-md-6'>";
         echo "NO Data Found";
         echo "</div>";
