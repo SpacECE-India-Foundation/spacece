@@ -310,7 +310,14 @@ var time=+d;
         link:link,
         c_id:c_id,
         video:1,
-        time:time 
+        time:time,
+        channel_name:channel_name,
+        time:time,
+        token:token,
+        user_id:user_id
+        
+
+
     },
     success:function(data){
         console.log(data);

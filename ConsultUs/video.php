@@ -4,9 +4,17 @@ if(isset($_POST['video'])){
 	$id=$_POST['c_id'];
 	$url=$_POST['link'];
 	$time=$_POST['time'];
+	$channel_name=$_POST['channel_name'];
+	$token=$_POST['token'];
+	$user_id=$_POST['user_id'];
 //echo $url;
 
-			$sql="UPDATE  consultant set call_url='$url',call_time='$time' where c_id='$id'";
+
+
+      
+       
+			//$sql="UPDATE  consultant set call_url='$url',call_time='$time' where c_id='$id'";
+			$sql="Insert into agora_call (user_id,consult_id,channel_name,token,call_time,joining_url) VALUES('$user_id','$id','$channel_name','$token','$time','$url')";
 			echo $sql;
 			$res2 = mysqli_query($conn,$sql);
 
