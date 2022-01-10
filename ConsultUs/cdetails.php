@@ -144,6 +144,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         // }
 
                         if($count >0){
+                            date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
+
                             $user_name=substr($_SESSION['current_user_name'],0,4);
                             $con_name=substr($row['u_name'],0,4);
                             $consult_id=$row['u_id'];
@@ -162,7 +164,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
                             $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
                             
-                           
+                           $time= date('d-m-Y H:i:s');
 
                             // $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
                             // $result = mysqli_query($conn, $sql);
@@ -171,7 +173,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             // $channelname=$row1['channel_name'];
                             $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
                                 ?>
-                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>',<?php echo $time; ?>);" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
                                 <?php 
                         }
                        
@@ -288,7 +290,7 @@ include_once '../common/footer_module.php';
 <script type="text/javascript">
  
     
-function redirectTo(id,user_id,token,appId,channel_name){
+function redirectTo(id,user_id,token,appId,channel_name,$time){
 
   //  alert(encodeURIComponent(uriComponent);(id));
 //    appid=agoraAppId;
@@ -301,7 +303,7 @@ var c_id=id;
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
-var time = new Date('Y-m-d H:i:s'); //without params it defaults to "now"
+//var time = new Date(''); //without params it defaults to "now"
 
 //var time=+d;
 
