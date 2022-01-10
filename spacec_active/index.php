@@ -272,51 +272,8 @@ include_once '../common/banner.php';
                 </button>
             </div>
             <div class="modal-body">
-
-                <?php
-                echo ' <input type="text"  name="cv_cat_id" id="cv_cat_id">';
-            $year='';
-            if(!empty($_POST["cv_cat_id"])){
-                echo "Inside2";
-            $year=$_POST["cv_cat_id"];
-            echo  $year;
-                }
+            <div id="myvideos" name="myvideos"></div>
                
-                   include_once 'Youtube/class-db.php';
-               if (isset($_SESSION['current_user_email'])) {
-                    $cat_id=1;
-                   
-                    $user = $_SESSION['current_user_email'];
-                   
-                    echo "<div class='row'>";
-                    $db = new DB();
-                    $videos = $db->get_Videos($user,$cat_id);
-
-                    
-                 
-                 // $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-
-                    foreach ($videos as $video) {
-                        $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-                        //$video_id;
-                        echo "<div class='col-md-6'>";
-                        echo'<iframe width="250" height="180"
-                               src="https://www.youtube.com/embed/'.$video_id.'"
-                               frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-                               </iframe> ';
-                        // echo '<iframe width="230" height="180"
-                        //        src="youtube.com/watch?v='.$video_id. '"
-                        //        frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-                        //        </iframe>';
-                        echo "</div>";
-                     
-                    }
-                   
-                    echo "</div>";
-                    echo "</div>";
-                }
-                ?>
-
             </div>
         </div>
     </div>
@@ -325,8 +282,7 @@ include_once '../common/banner.php';
 
 <div class="modal fade  " id="allVideos" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog modal-lg" role="document">
-    <input type="hidden"  name="v_cat_id" id="v_cat_id">
-
+   
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModal">View all Videos</h5>
@@ -335,52 +291,11 @@ include_once '../common/banner.php';
                 </button>
             </div>
             <div class="modal-body">
-
-
-                <?php
-                 echo ' <div id="catdet"></div>';
-                if (isset($_SESSION['current_user_email'])) {
-                    $cat_id="<script>$('#cid').val();</script>";
-                 
-                  echo  "updated ". $cat_id;
-                    include_once 'Youtube/class-db.php';
-                    $user = $_SESSION['current_user_email'];
-                    echo "<div class='row'>";
+                <div id="allvideos" name="allvideos">
                     
-                    $db = new DB();
-                    $videos = $db->get_all_Videos($cat_id,$user);
-                    foreach ($videos as $video) {
-                        $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-                       
-                        echo "<div class='col-md-6'>";
-                        echo '<iframe width="250" height="180"
-                               src="https://www.youtube.com/embed/' .  $video_id . '"
-                               frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-                               </iframe>';
-                        echo "</div>";
-                    }
-                    echo "</div>";
-                }else{
-                 
-                 
-                    include_once 'Youtube/class-db.php';
-                    $cat_id=1;
-                    echo "<div class='row'>";
-                    $db = new DB();
-                    $videos = $db->get_all_Videos($cat_id);
-                    foreach ($videos as $video) {
-                        $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
-                        
-                        echo "<div class='col-md-6'>";
-                        echo '<iframe width="250" height="180"
-                               src="https://www.youtube.com/embed/' .  $video_id . '"
-                               frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-                               </iframe>';
-                        echo "</div>";
-                    }
-                    echo "</div>";
-                }
-                ?>
+                </div>
+
+                
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
@@ -580,19 +495,39 @@ include_once '../common/footer_module.php';
 </script>
 <script>
 
-$(document).on("click", "#upload", function() 
+$(document).on("click", "#myVideo", function() 
 {
     var id = $(this).data("text");
-                        alert(id);
-                        $('#v_cat_id').html(id);
+$.ajax({
+    method:'POST',
+    data:{
+        id:id,
+        myVideo:1
+    },
+    url:'get_videos.php',
+    success:function(result){
+        alert(result);
+        $('#myvideos').append(result);
+    }
+})                      
                     })
                     
                      $(document).on("click", "#all", function() {
-                        $('#catdet').empty();
+                        
                         var id = $(this).data("text");
-                        var c='<input type="hidden" id="cid" name="cid" value="'+id+'">';
-                        alert(c);
-                       $('#catdet').append(c);
-                      
+                       
+                        $.ajax({
+                        method:'POST',
+                        data:{
+                            id:id,
+                            all:1
+                        },
+                        url:'get_videos.php',
+                        success:function(result){
+                           
+                            alert(result);
+                            $('#allvideos').append(result);
+                        }
                     })
+                })
                     </script>

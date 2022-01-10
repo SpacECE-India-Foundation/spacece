@@ -28,7 +28,7 @@ if (isset($_POST['getDetails'])) {
         View <i class="fas fa-expand"></i></button>
     <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
     Upload video
-</button> <button type="button" class="btn btn-secondary" id="view" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+</button> <button type="button" class="btn btn-secondary" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
 My Videos
 </button>
 <button type="button" class="btn btn-secondary" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
