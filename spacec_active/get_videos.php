@@ -87,16 +87,17 @@ if(isset($_POST['all'])){
         echo "<div class='row'>";
         $db = new DB();
         $videos = $db->get_all_Videos($act_id);
+        if(sizeof($videos) < 1){
+            echo "<div class='col-md-6'>";
+            echo "NO Data Found";
+            echo "</div>";
+    
+         }
+      else{
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
             
-     if(sizeof($video_id) < 0){
-        echo "<div class='col-md-6'>";
-        echo "NO Data Found";
-        echo "</div>";
-
-     }
-  else{
+     
             echo "<div class='col-md-6'>";
             echo '<iframe width="250" height="180"
                    src="https://www.youtube.com/embed/' .  $video_id . '"
