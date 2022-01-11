@@ -359,6 +359,7 @@ include_once '../common/footer_module.php';
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/agora-rtc-sdk@3.5.1/AgoraRTCSDK.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
 <script type="text/javascript">
  
     
@@ -410,7 +411,7 @@ var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
  //without params it defaults to "now"
 
-var c_time=+d;
+
     $('#schedule').on('submit',function(){
         var time=$('#datetimepicker5').val();
         var c_time=+time;
