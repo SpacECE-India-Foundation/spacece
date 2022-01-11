@@ -321,20 +321,20 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
       <form method="POST" id="schedule">
 
       <div class="container">
-   <div class="row">
-      <div class='col-sm-6'>
-         <div class="form-group">
-            <div class='input-group date' id='datetimepicker5'>
-               <input type='text' class="form-control" />
-               <span class="input-group-addon">
-               <span class="glyphicon glyphicon-calendar"></span>
-               </span>
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
-         </div>
-      </div>
-      
-   </div>
+        </div>
+    </div>
 </div>
+
 
       </form>
       </div>
@@ -446,7 +446,7 @@ var linkfull=url.replace(regex, '/');
 </script>
 <script type="text/javascript">
          $(function () {
-             $('#datetimepicker5').datetimepicker({
+             $('#datetimepicker1').datetimepicker({
                 minDate: moment()
                 
              });
