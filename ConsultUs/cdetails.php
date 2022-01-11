@@ -332,7 +332,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
       <div class='col-sm-6'>
       <div class="input-group">
             <div class='input-group date' id='datetimepicker1'>
-               <input type='text' class="form-control" />
+               <input type='text' class="form-control" id="date1" name="date1">
                <span class="input-group-addon">
                <span class="glyphicon glyphicon-calendar"></span>
                </span>
@@ -372,6 +372,7 @@ include_once '../common/footer_module.php';
 <script type="text/javascript">
          $(function () {
              $('#datetimepicker1').datetimepicker({
+                use24hours: true,
                 minDate: moment()
              });
          });
