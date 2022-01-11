@@ -310,7 +310,32 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+      <form method="POST" id="schedule">
+
+      <div class="container">
+   <div class="row">
+      <div class='col-sm-6'>
+         <div class="form-group">
+            <div class='input-group date' id='datetimepicker5'>
+               <input type='text' class="form-control" />
+               <span class="input-group-addon">
+               <span class="glyphicon glyphicon-calendar"></span>
+               </span>
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript">
+         $(function () {
+             $('#datetimepicker5').datetimepicker({
+                minDate:new Date(),
+                
+             });
+         });
+      </script>
+   </div>
+</div>
+
+      </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
