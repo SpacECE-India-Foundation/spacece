@@ -325,7 +325,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form method="POST" id="schedule">
+      <form method="POST" id="schedule" name="schedule">
 
       <div class="container">
    <div class="row">
@@ -434,9 +434,12 @@ var linkfull=url.replace(regex, '/');
 
     $('#schedule').on('submit',function(){
         var time=$('#datetimepicker1').val();
-        var c_time=+time;
-        alert(time);
+       $('#datetimepicker1').on('change',function(){
+           alert($(this).val());
+       })
+   
         alert($("#datetimepicker1").find("input")[1].value);
+        console.log($('#datetimepicker1').data('DateTimePicker').date());
     //     $.ajax({
     // url:"video.php",method:"POST",
     // data:{
