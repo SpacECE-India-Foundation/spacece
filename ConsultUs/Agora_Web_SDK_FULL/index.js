@@ -1,5 +1,5 @@
 let params = (new URL(document.location)).searchParams;
-let channel1 = params.get('channel'); // is the string "cha123".
+let channel1 = params.get('channel_name'); // is the string "cha123".
 let appid1 = params.get('appId'); // is the string "183432424242"
 let id1 = params.get('id'); 
 
@@ -11,7 +11,7 @@ if(channel1){
 //alert(id1);
  var token1 =id1;
 
- ///var agoraAppId = "0485c1232ca7491e9ada47ae96da3160";
+ var agoraAppId =appid1;
  console.log(agoraAppId) // Set your Agora App ID
 var channelName ="testing";
 var uid="43456";
@@ -138,12 +138,12 @@ client.on("unmute-video", function (evt) {
 });
 
 // join a channel
-function joinChannel() {
+function joinChannel(id1) {
 
   
 
   var token = id1;
-console.log(token);
+ 
   var userID = null;
 
 
@@ -190,10 +190,10 @@ function createCameraStream(uid) {
 }
 
 // SCREEN SHARING
-function initScreenShare() {
+function initScreenShare(id1) {
   screenClient.init(agoraAppId, function () {
     console.log("AgoraRTC screenClient initialized");
-    joinChannelAsScreenShare();
+    joinChannelAsScreenShare(id1);
     screenShareActive = true;
     // TODO: add logic to swap button
   }, function (err) {
@@ -201,7 +201,7 @@ function initScreenShare() {
   });  
 }
 
-function joinChannelAsScreenShare() {
+function joinChannelAsScreenShare(id1) {
   var token = id1;
   var userID = null; // set to null to auto generate uid on successfull connection
   screenClient.join(token, channelName, userID, function(uid) { 
