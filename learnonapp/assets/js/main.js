@@ -1,3 +1,32 @@
+// Admin Page Edit Course
+const editCourse = (id) => {
+  $(`#tr-${id}`).html(
+    `<td id="td-id-${id}">${id}</td>
+  <td><input type="text" id="title-${id}" value="${$(
+      `#td-title-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="description-${id}" value="${$(
+      `#td-description-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="duration-${id}" value="${$(
+      `#td-duration-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="mode-${id}" value="${$(
+      `#td-mode-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="type-${id}" value="${$(
+      `#td-type-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="price-${id}" value="${$(
+      `#td-price-${id}`
+    ).text()}"></td>
+  <td>
+    <button class="btn btn-wide" onclick="updateCourse(${id})">Update</button><br>
+    <button class="btn btn-wide" onclick="deleteCourse(${id})">Delete</button>
+  </td>`
+  );
+};
+
 $(document).ready(function () {
   //Fetching Courses Function Start
   $.ajax({
@@ -103,35 +132,6 @@ $(document).ready(function () {
     });
   }
   //Fetching Single Course Function End
-
-  // Admin Page Edit Course
-  function editCourse(id) {
-    $(`#tr-${id}`).html(
-      `<td id="td-id-${id}">${id}</td>
-    <td><input type="text" id="title-${id}" value="${$(
-        `#td-title-${id}`
-      ).text()}"></td>
-    <td><input type="text" id="description-${id}" value="${$(
-        `#td-description-${id}`
-      ).text()}"></td>
-    <td><input type="text" id="duration-${id}" value="${$(
-        `#td-duration-${id}`
-      ).text()}"></td>
-    <td><input type="text" id="mode-${id}" value="${$(
-        `#td-mode-${id}`
-      ).text()}"></td>
-    <td><input type="text" id="type-${id}" value="${$(
-        `#td-type-${id}`
-      ).text()}"></td>
-    <td><input type="text" id="price-${id}" value="${$(
-        `#td-price-${id}`
-      ).text()}"></td>
-    <td>
-      <button class="btn btn-wide" onclick="updateCourse(${id})">Update</button><br>
-      <button class="btn btn-wide" onclick="deleteCourse(${id})">Delete</button>
-    </td>`
-    );
-  }
 
   // Admin Page Details
   $.ajax({
