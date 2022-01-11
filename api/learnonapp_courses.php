@@ -33,6 +33,8 @@ if (isset($_POST['action']) && $_POST['action'] = 'update') {
     duration='" . $_POST['duration'] . "',
     price='" . $_POST['price'] . "',
     WHERE id='" . $_POST['id'] . "'";
+    echo json_encode(['status' => 'failure', 'result' => $sql]);
+    die();
     $result = $conn->query($sql);
     if ($result) {
         $sql = "SELECT * FROM `learnonapp_courses`";
