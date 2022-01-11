@@ -369,7 +369,13 @@ include_once '../common/footer_module.php';
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha256-5YmaxAwMjIpMrVlK84Y/+NjCpKnFYa8bWWBbUHSBGfU=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/agora-rtc-sdk@3.5.1/AgoraRTCSDK.min.js"></script>
-
+<script type="text/javascript">
+         $(function () {
+             $('#datetimepicker1').datetimepicker({
+                minDate: moment()
+             });
+         });
+      </script>
 
 
 
@@ -427,28 +433,29 @@ var linkfull=url.replace(regex, '/');
 
 
     $('#schedule').on('submit',function(){
-        var time=$('#datetimepicker5').val();
+        var time=$('#datetimepicker1').val();
         var c_time=+time;
-        $.ajax({
-    url:"video.php",method:"POST",
-    data:{
-        link:link,
-        c_id:c_id,
-        video:1,
-        time:time,
-        channel_name:channel_name,
-        time:time,
-        token:token,
-        user_id:user_id,
-        c_time:c_time
+        alert(time);
+    //     $.ajax({
+    // url:"video.php",method:"POST",
+    // data:{
+    //     link:link,
+    //     c_id:c_id,
+    //     video:1,
+    //     time:time,
+    //     channel_name:channel_name,
+    //     time:time,
+    //     token:token,
+    //     user_id:user_id,
+    //     c_time:c_time
         
 
 
-    },
-    success:function(data){
-        console.log(data);
-        alert(data);
-    }
+    // },
+    // success:function(data){
+    //     console.log(data);
+    //     alert(data);
+    // }
     })
     
     });  
@@ -456,11 +463,5 @@ var linkfull=url.replace(regex, '/');
 
 
 </script>
-<script type="text/javascript">
-         $(function () {
-             $('#datetimepicker1').datetimepicker({
-                minDate: moment()
-             });
-         });
-      </script>
+
 
