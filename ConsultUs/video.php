@@ -23,13 +23,13 @@ if(isset($_POST['video'])){
 
 	if(isset($_POST['getCall'])){
 		//echo "inside";
-		$cname=$_POST['user'];
+		$c_id=$_POST['user'];
 
 		date_default_timezone_set('Asia/Kolkata');
 $timenow=strtotime(date('d-m-Y H:i'));
 
 //echo $cname;
-$sql1="SELECT * from consultant where name='$cname'";
+$sql1="SELECT * from agora_call where consult_id='$c_id'";
 
 $res2 = mysqli_query($conn,$sql1);
 
@@ -37,11 +37,11 @@ $res2 = mysqli_query($conn,$sql1);
 while($row1=mysqli_fetch_assoc($res2)){
 	$call=null;
 
- $sql = "SELECT * FROM `appointment` where `cname`='$cname'";
+ $sql = "SELECT * FROM `agora_call` where `consult_id`='$c_id'";
                     $res = mysqli_query($conn,$sql);
                      while($row = mysqli_fetch_assoc($res))
                             {
-                            	$time1=$row1['call_time'];
+                            	$time1=$row1['c_time'];
                             	if(($timenow-$time1)<1800){
                             		
                             		 $call.= $row['call_url'];

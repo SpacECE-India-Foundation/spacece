@@ -18,7 +18,7 @@ define('DB_HOST_NAME', '3.109.14.4');
 define('DB_USER_NAME', 'ostechnix');
 define('DB_USER_PASSWORD', 'Password123#@!');
 define('DB_USER_DATABASE', 'spaceece');
-
+date_default_timezone_set("Asia/Calcutta"); 
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
 
 
@@ -131,20 +131,10 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         $row2=mysqli_fetch_assoc($res2);
                         $count=mysqli_num_rows($res2);
                        
-        // $sql="INSERT INTO agora_call(user_id,consult_id,channel_name,token) VALUES ('$user_id','$consult_id','$channel_name','$token')";
-        // $result = mysqli_query($conn, $sql);
-        
-        // if ($result) {
-        //     // header('location: login.php');
-        //     echo json_encode(array('status' => 'success','token'=>$token,'channelName'=>$channelName));
-        //     die();
-        // } else {
-        //     echo json_encode(array('status' => 'error', 'message' => "Error while Creating CAll!"));
-        //     die();
-        // }
+
 
                         if($count >0){
-                            date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
+                             //India time (GMT+5:30)
 
                             $user_name=substr($_SESSION['current_user_name'],0,4);
                             $con_name=substr($row['u_name'],0,4);
@@ -239,20 +229,57 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>" >Book Appointment </a>
 
                         <?php
-                        if(isset($_SESSION['current_user_id']))
-                        $email=$_SESSION['current_user_email'];
-                        $sql="SELECT * FROM `webhook` WHERE email='$email'";
-                       
-                        $res2  = mysqli_query($conn,$sql);
-                        $row=mysqli_fetch_assoc($res2);
-                        $count=mysqli_num_rows($res2);
-                       
-                        if($count >0){
+                        if(isset($_SESSION['current_user_id'])){
 
-                                ?>
-                        <a id="link" data-id="<?php echo $id;?>" onclick="redirectTo('<?php echo $id;?>','<?php echo $_SESSION['user_id'];?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
-                                <?php 
-                        }
+                        
+                            $email=$_SESSION['current_user_email'];
+                            $sql="SELECT * FROM `webhook` WHERE email='$email'";
+                            $user_id=$_SESSION['current_user_id'];
+                            $res2  = mysqli_query($conn,$sql);
+                            $row2=mysqli_fetch_assoc($res2);
+                            $count=mysqli_num_rows($res2);
+                           
+    
+    
+                            if($count >0){
+                                 //India time (GMT+5:30)
+    
+                                $user_name=substr($_SESSION['current_user_name'],0,4);
+                                $con_name=substr($row['u_name'],0,4);
+                                $consult_id=$row['u_id'];
+                            
+                                $user_id=$_SESSION['current_user_id'];
+                               
+                                $channel_name=$user_id.$consult_id;
+                               
+                                $appID = "464ff3e49fb3409494c0956edcec52e7";
+                                $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
+                                $channelName =$user_name.$consult_id;
+                                $uid = 0;
+                                $uidStr = $user_id;
+                                $role = RtcTokenBuilder::RoleAttendee;
+                                $expireTimeInSeconds = 3600;
+                                $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
+                                $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
+                                
+                               $time= date('Y-m-d H:i:s');
+    
+                                // $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
+                                // $result = mysqli_query($conn, $sql);
+                                // $row1=mysqli_fetch_assoc($result);
+                                // $token=$row1['token'];
+                                // $channelname=$row1['channel_name'];
+                                $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+                                    ?>
+                            <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                             
+                            <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" data-bs-toggle="modal" data-bs-target="#SheduleleModal" style="color:black;background-color:yellow">Schedule call</a>
+                             <?php 
+                            }
+                           
+                                    /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
+    
+                                }
                         ?>
 
                   
@@ -275,6 +302,23 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
             
     </div>
 </div>
+<div class="modal fade" id="SheduleleModal" tabindex="-1" aria-labelledby="SheduleleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="SheduleleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 // $module_logo = "../img/logo/ConsultUs.jpeg";
 include_once '../common/footer_module.php';
@@ -292,11 +336,6 @@ include_once '../common/footer_module.php';
     
 function redirectTo(id,user_id,token,appId,channel_name,time){
 
-  //  alert(encodeURIComponent(uriComponent);(id));
-//    appid=agoraAppId;
-//  channel ="testing";
- //token="0060485c1232ca7491e9ada47ae96da3160IAAw2qjO8uvCZCP9l4Qpz22rUHon7W13zhOb7OnlZc3ww/tD/hgAAAAAEACkCrtyPxSKYQEAAQA+FIph";
-//alert(user_id);
 var c_id=id;
 
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
@@ -330,7 +369,7 @@ var c_time=+d;
     }
  })
 
-// window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
+ window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
 } 
 function createall(){
     alert("hello");
