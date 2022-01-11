@@ -399,8 +399,44 @@ var c_time=+d;
 
  window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
 } 
+
+
 function scheduleredirectTo(id,user_id,token,appId,channel_name){
-    alert("hello");
-}  
+    var c_id=id;
+
+//var id='<?php /// echo $_SESSION['user_id'];  ?>';
+var url = window.location.href;
+var regex = new RegExp('/[^/]*$');
+var linkfull=url.replace(regex, '/');
+ //without params it defaults to "now"
+
+var c_time=+d;
+    $('#schedule').on('submit',function(){
+        var time=$('#datetimepicker5').val();
+        var c_time=+time;
+        $.ajax({
+    url:"video.php",method:"POST",
+    data:{
+        link:link,
+        c_id:c_id,
+        video:1,
+        time:time,
+        channel_name:channel_name,
+        time:time,
+        token:token,
+        user_id:user_id,
+        c_time:c_time
+        
+
+
+    },
+    success:function(data){
+        console.log(data);
+        alert(data);
+    }
+    })
+    
+    });  
+}
 
 </script>
