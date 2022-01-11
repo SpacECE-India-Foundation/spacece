@@ -128,14 +128,20 @@ $(document).ready(function () {
               return `<tr id="tr-${course.id}">
                     <td id="td-id-${course.id}">${course.id}</td>
                     <td id="td-title-${course.id}">${course.title}</td>
-                    <td id="td-description-${course.id}">${course.description}</td>
+                    <td id="td-description-${course.id}">${
+                course.description
+              }</td>
                     <td id="td-duration-${course.id}">${course.duration}</td>
                     <td id="td-mode-${course.id}">${course.mode}</td>
                     <td id="td-type-${course.id}">${course.type}</td>
                     <td id="td-price-${course.id}">${course.price}</td>
                     <td>
-                      <button class="btn btn-wide" onclick="editCourse(${course.id})">Edit</button><br>
-                      <button class="btn btn-wide" onclick="deleteCourse(${course.id})">Delete</button>
+                      <button class="btn btn-wide" onclick="${editCourse(
+                        course.id
+                      )}">Edit</button><br>
+                      <button class="btn btn-wide" onclick="${editCourse(
+                        course.id
+                      )}">Delete</button>
                     </td>
               </tr>`;
             })}
