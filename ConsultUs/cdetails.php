@@ -447,7 +447,7 @@ var linkfull=url.replace(regex, '/');
 <script type="text/javascript">
          $(function () {
              $('#datetimepicker5').datetimepicker({
-                defaultDate: new Date()
+                defaultDate: new Date('Y-m-d H:i:a'),
                 
              });
          });
