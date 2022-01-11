@@ -110,17 +110,32 @@ $(document).ready(function () {
     // url: "https://spacefoundation.in/test/SpacECE-PHP/api/learnonapp_courses.php",
     type: "GET",
     success: function (d) {
-      console.log(d);
-      // if (d.status == "success") {
-      // const courses = d.data;
-      // $("#admin-page").html(
-      //   courses.map((course) => {
-      //     return `<div class="course">
-      //         ${course}
-      //   </div>`;
-      //   })
-      // );
-      // }
+      if (d.status == "success") {
+        const courses = d.data;
+        $("#admin-page").html(`
+          <table id="admin-table">
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Duration</th>
+              <th>Mode</th>
+              <th>Type</th>
+              <th>Price</th>
+            </tr>
+            ${courses.map((course) => {
+              return `<tr>
+                    <td>${course.id}</td>
+                    <td>${course.title}</td>
+                    <td>${course.description}</td>
+                    <td>${course.duration}</td>
+                    <td>${course.mode}</td>
+                    <td>${course.type}</td>
+                    <td>${course.price}</td>
+              </tr>`;
+            })}
+          </table>`);
+      }
     },
   });
 });
