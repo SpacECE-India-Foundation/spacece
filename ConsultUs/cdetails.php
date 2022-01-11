@@ -344,7 +344,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 </div>
 </div>
 
-
+<input type="submit" id="submit">
       </form>
       </div>
       <div class="modal-footer">
