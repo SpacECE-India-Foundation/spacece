@@ -122,20 +122,54 @@ $(document).ready(function () {
               <th>Mode</th>
               <th>Type</th>
               <th>Price</th>
+              <th></th>
             </tr>
             ${courses.map((course) => {
-              return `<tr>
-                    <td>${course.id}</td>
-                    <td>${course.title}</td>
-                    <td>${course.description}</td>
-                    <td>${course.duration}</td>
-                    <td>${course.mode}</td>
-                    <td>${course.type}</td>
-                    <td>${course.price}</td>
+              return `<tr id="tr-${course.id}">
+                    <td id="td-id-${course.id}">${course.id}</td>
+                    <td id="td-title-${course.id}">${course.title}</td>
+                    <td id="td-description-${course.id}">${course.description}</td>
+                    <td id="td-duration-${course.id}">${course.duration}</td>
+                    <td id="td-mode-${course.id}">${course.mode}</td>
+                    <td id="td-type-${course.id}">${course.type}</td>
+                    <td id="td-price-${course.id}">${course.price}</td>
+                    <td>
+                      <button class="btn btn-wide" onclick="editCourse(${course.id})">Edit</button><br>
+                      <button class="btn btn-wide" onclick="deleteCourse(${course.id})">Delete</button>
+                    </td>
               </tr>`;
             })}
           </table>`);
       }
     },
   });
+
+  // Admin Page Edit Course
+  function editCourse(id) {
+    $(`#tr-${id}`).html(
+      `<td id="td-id-${id}">${id}</td>
+      <td><input type="text" id="title-${id}" value="${$(
+        `#td-title-${id}`
+      ).text()}"></td>
+      <td><input type="text" id="description-${id}" value="${$(
+        `#td-description-${id}`
+      ).text()}"></td>
+      <td><input type="text" id="duration-${id}" value="${$(
+        `#td-duration-${id}`
+      ).text()}"></td>
+      <td><input type="text" id="mode-${id}" value="${$(
+        `#td-mode-${id}`
+      ).text()}"></td>
+      <td><input type="text" id="type-${id}" value="${$(
+        `#td-type-${id}`
+      ).text()}"></td>
+      <td><input type="text" id="price-${id}" value="${$(
+        `#td-price-${id}`
+      ).text()}"></td>
+      <td>
+        <button class="btn btn-wide" onclick="updateCourse(${id})">Update</button><br>
+        <button class="btn btn-wide" onclick="deleteCourse(${id})">Delete</button>
+      </td>`
+    );
+  }
 });
