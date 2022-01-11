@@ -327,14 +327,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
             </div>
          </div>
       </div>
-      <script type="text/javascript">
-         $(function () {
-             $('#datetimepicker5').datetimepicker({
-                minDate:new Date(),
-                
-             });
-         });
-      </script>
+      
    </div>
 </div>
 
@@ -441,3 +434,11 @@ var linkfull=url.replace(regex, '/');
 }
 
 </script>
+<script type="text/javascript">
+         $(function () {
+             $('#datetimepicker5').datetimepicker({
+                minDate:new Date(),
+                
+             });
+         });
+      </script>
