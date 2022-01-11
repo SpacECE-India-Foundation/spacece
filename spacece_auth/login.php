@@ -29,7 +29,7 @@ if (isset($_SESSION['current_user_id'])) {
       <select name="type" id="user_type">
         <option value="customer">Customer</option>
         <option value="consultant">Consultant</option>
-        <option value="consultant">Admin</option>
+        <option value="admin">Admin</option>
       </select>
     </div>
     <button type="submit" name="login">Login</button>
