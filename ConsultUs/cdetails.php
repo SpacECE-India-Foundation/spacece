@@ -436,6 +436,7 @@ var linkfull=url.replace(regex, '/');
         var time=$('#datetimepicker1').val();
         var c_time=+time;
         alert(time);
+        alert($("#datetimepicker1").find("input")[1].value);
     //     $.ajax({
     // url:"video.php",method:"POST",
     // data:{
