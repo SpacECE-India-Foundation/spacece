@@ -31,10 +31,10 @@ if (isset($_POST['action']) && $_POST['action'] = 'update') {
     type='" . $_POST['type'] . "',
     mode='" . $_POST['mode'] . "',
     duration='" . $_POST['duration'] . "',
-    price='" . $_POST['price'] . "',
+    price='" . $_POST['price'] . "'
     WHERE id='" . $_POST['id'] . "'";
-    echo json_encode(['status' => 'failure', 'result' => $sql]);
-    die();
+    // echo json_encode(['status' => 'failure', 'result' => $sql]);
+    // die();
     $result = $conn->query($sql);
     if ($result) {
         $sql = "SELECT * FROM `learnonapp_courses`";
