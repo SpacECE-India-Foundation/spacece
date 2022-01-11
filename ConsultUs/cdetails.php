@@ -434,13 +434,10 @@ var linkfull=url.replace(regex, '/');
 
 
     $('#schedule').on('submit',function(){
-        var time=$('#datetimepicker1').val();
-       $('#datetimepicker1').on('change',function(){
-           alert($(this).val());
-       })
-   
-        alert($("#datetimepicker1").find("input")[1].value);
-        console.log($('#datetimepicker1').data('DateTimePicker').date());
+        var time=$('#date1').val();
+      
+   alert(time);
+      
     //     $.ajax({
     // url:"video.php",method:"POST",
     // data:{
