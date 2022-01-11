@@ -446,9 +446,6 @@ var linkfull=url.replace(regex, '/');
 </script>
 <script type="text/javascript">
          $(function () {
-             $('#datetimepicker1').datetimepicker({
-                minDate: moment()
-                
-             });
+            $('#datetimepicker1').datetimepicker();
          });
       </script>
