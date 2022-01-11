@@ -334,10 +334,10 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
             <div class='input-group date' id='datetimepicker1'>
                <input type='text' class="form-control" />
                <span class="input-group-addon">
-               <span class=" input-group-addon glyphicon glyphicon-calendar"></span>
+               <span class="glyphicon glyphicon-calendar"></span>
                </span>
             </div>
-         </div>
+        
       </div>
       
    </div>
