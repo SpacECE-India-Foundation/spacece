@@ -327,7 +327,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         <div class='col-sm-6'>
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+                    <input type='datetime-local' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -348,6 +348,14 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
     </div>
   </div>
 </div>
+<script type="text/javascript">
+         $(function () {
+            $('#datetimepicker1').datetimepicker({
+	minDate: moment()
+});
+
+         });
+      </script>
 <?php
 // $module_logo = "../img/logo/ConsultUs.jpeg";
 include_once '../common/footer_module.php';
@@ -448,11 +456,4 @@ var linkfull=url.replace(regex, '/');
 }
 
 </script>
-<script type="text/javascript">
-         $(function () {
-            $('#datetimepicker1').datetimepicker({
-	minDate: moment()
-});
 
-         });
-      </script>
