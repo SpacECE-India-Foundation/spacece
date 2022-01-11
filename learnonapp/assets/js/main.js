@@ -51,7 +51,7 @@ const updateCourse = (id) => {
     data: formData,
     processData: false,
     contentType: false,
-    success: function (response) {
+    success: function (d) {
       if (d.status == "success") {
         const courses = d.data;
         $("#admin-page").html(`
