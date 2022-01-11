@@ -372,7 +372,7 @@ include_once '../common/footer_module.php';
 <script type="text/javascript">
          $(function () {
              $('#datetimepicker1').datetimepicker({
-                use24hours: true,
+                format: "YYYY-MM-DD HH:mm ",
                 minDate: moment()
              });
          });
