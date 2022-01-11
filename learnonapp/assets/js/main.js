@@ -103,4 +103,24 @@ $(document).ready(function () {
     });
   }
   //Fetching Single Course Function End
+
+  // Admin Page Details
+  $.ajax({
+    url: "../api/learnonapp_courses.php",
+    // url: "https://spacefoundation.in/test/SpacECE-PHP/api/learnonapp_courses.php",
+    type: "GET",
+    success: function (d) {
+      console.log(d);
+      // if (d.status == "success") {
+      // const courses = d.data;
+      // $("#admin-page").html(
+      //   courses.map((course) => {
+      //     return `<div class="course">
+      //         ${course}
+      //   </div>`;
+      //   })
+      // );
+      // }
+    },
+  });
 });
