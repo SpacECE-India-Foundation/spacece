@@ -457,7 +457,9 @@ var linkfull=url.replace(regex, '/');
 </script>
 <script type="text/javascript">
          $(function () {
-             $('#datetimepicker1').datetimepicker();
+             $('#datetimepicker1').datetimepicker({
+                 format:'yyy-mm-dd hh:ii:ss'
+             });
          });
       </script>
 
