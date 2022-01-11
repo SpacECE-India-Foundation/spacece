@@ -66,7 +66,7 @@ if (isset($cid) && isset($subid)) {
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 } else {
-    $sql = "SELECT * FROM `learnonapp_courses` LIMIT 9";
+    $sql = "SELECT * FROM `learnonapp_courses`";
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 }
