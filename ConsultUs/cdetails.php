@@ -456,7 +456,7 @@ var linkfull=url.replace(regex, '/');
     //     console.log(data);
     //     alert(data);
     // }
-    })
+    //})
     
     });  
 }
