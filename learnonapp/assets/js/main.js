@@ -27,6 +27,66 @@ const editCourse = (id) => {
   );
 };
 
+const updateCourse = (id) => {
+  const title = $(`#title-${id}`).val();
+  const description = $(`#description-${id}`).val();
+  const duration = $(`#duration-${id}`).val();
+  const mode = $(`#mode-${id}`).val();
+  const type = $(`#type-${id}`).val();
+  const price = $(`#price-${id}`).val();
+
+  let formData = new FormData();
+  formData.append("title", title);
+  formData.append("description", description);
+  formData.append("duration", duration);
+  formData.append("mode", mode);
+  formData.append("type", type);
+  formData.append("price", price);
+  formData.append("action", "update");
+  formData.append("id", id);
+
+  $.ajax({
+    url: "../api/learnonapp_courses.php",
+    type: "POST",
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (response) {
+      if (d.status == "success") {
+        const courses = d.data;
+        $("#admin-page").html(`
+          <table id="admin-table">
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Duration</th>
+              <th>Mode</th>
+              <th>Type</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+            ${courses.map((course) => {
+              return `<tr id="tr-${course.id}">
+                    <td id="td-id-${course.id}">${course.id}</td>
+                    <td id="td-title-${course.id}">${course.title}</td>
+                    <td id="td-description-${course.id}">${course.description}</td>
+                    <td id="td-duration-${course.id}">${course.duration}</td>
+                    <td id="td-mode-${course.id}">${course.mode}</td>
+                    <td id="td-type-${course.id}">${course.type}</td>
+                    <td id="td-price-${course.id}">${course.price}</td>
+                    <td>
+                      <button class="btn btn-wide" onclick="editCourse(${course.id})">Edit</button><br>
+                      <button class="btn btn-wide" onclick="deleteCourse(${course.id})">Delete</button>
+                    </td>
+              </tr>`;
+            })}
+          </table>`);
+      }
+    },
+  });
+};
+
 $(document).ready(function () {
   //Fetching Courses Function Start
   $.ajax({
