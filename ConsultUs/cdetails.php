@@ -303,9 +303,9 @@ var c_id=id;
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
-//var time = new Date(''); //without params it defaults to "now"
+var time = new Date(''); //without params it defaults to "now"
 
-//var time=+d;
+var c_time=+d;
 
  var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
  $.ajax({
@@ -318,7 +318,8 @@ var linkfull=url.replace(regex, '/');
         channel_name:channel_name,
         time:time,
         token:token,
-        user_id:user_id
+        user_id:user_id,
+        c_time:c_time
         
 
 
