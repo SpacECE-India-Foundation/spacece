@@ -164,7 +164,9 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
                                 ?>
                         <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
-                                <?php 
+                        <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" data-bs-toggle="modal" data-bs-target="#SheduleleModal" style="color:black;background-color:yellow">Schedule call</a>  
+                           
+                           <?php 
                         }
                        
                                 /*<a href="<?php echo SITEURL;?>chatbot/room.php?roomname=uid<?php echo $uid;?>" class="btn-primary">CHAT</a>*/
@@ -396,7 +398,7 @@ var c_time=+d;
 
  window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
 } 
-function createall(){
+function scheduleredirectTo(id,user_id,token,appId,channel_name,time){
     alert("hello");
 }  
 
