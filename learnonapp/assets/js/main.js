@@ -122,6 +122,8 @@ const addCourse = () => {
 
 $("#add-course-form").submit((e) => {
   e.preventDefault();
+  alert("add course");
+  exit();
   let formData = new FormData(this);
   formData.append("action", "add");
   $.ajax({
