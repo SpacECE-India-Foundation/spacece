@@ -392,9 +392,9 @@ var c_id=id;
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
-var time = new Date(''); //without params it defaults to "now"
+var time = new Date(); //without params it defaults to "now"
 
-var c_time=+d;
+var c_time=+time;
 
  var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
  $.ajax({
@@ -434,31 +434,31 @@ var linkfull=url.replace(regex, '/');
 
 
     $('#schedule').on('submit',function(){
-        var time=$('#date1').val();
+        var time1=$('#date1').val();
       
-   alert(time);
+   time=+time1;
       
-    //     $.ajax({
-    // url:"video.php",method:"POST",
-    // data:{
-    //     link:link,
-    //     c_id:c_id,
-    //     video:1,
-    //     time:time,
-    //     channel_name:channel_name,
-    //     time:time,
-    //     token:token,
-    //     user_id:user_id,
-    //     c_time:c_time
+        $.ajax({
+    url:"video.php",method:"POST",
+    data:{
+        link:link,
+        c_id:c_id,
+        video:1,
+        time:time,
+        channel_name:channel_name,
+        time:time,
+        token:token,
+        user_id:user_id,
+        c_time:c_time
         
 
 
-    // },
-    // success:function(data){
-    //     console.log(data);
-    //     alert(data);
-    // }
-    //})
+    },
+    success:function(data){
+        console.log(data);
+        alert(data);
+    }
+    })
     
     });  
 }
