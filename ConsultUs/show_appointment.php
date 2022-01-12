@@ -1,7 +1,7 @@
 <?php
 include_once './includes/header1.php';
 include('indexDB.php');
-//session_start();
+session_start();
  if(empty($_SESSION['current_user_email'])){
     header('location:../spacecce_auth/login.php');
     exit();
@@ -38,7 +38,7 @@ include('indexDB.php');
                     
                     $nid= $_SESSION['current_user_name'];
                     $sql = "SELECT * FROM `appointment` where `cname`='$nid'";
-                    
+                    echo $sql;
                     $res = mysqli_query($conn,$sql);
 
 
@@ -105,7 +105,7 @@ include('indexDB.php');
                              </div>
          </div>
         <?php
-        include_once './includes/footer1.php';
+        // include_once './includes/footer1.php';
         ?>
     </body>
 
