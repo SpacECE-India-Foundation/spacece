@@ -425,7 +425,7 @@ console.log(time);//without params it defaults to "now"
     }
  })
 
-// window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
+ window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
 } 
 
 
