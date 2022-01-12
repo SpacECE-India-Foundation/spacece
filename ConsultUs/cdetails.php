@@ -440,7 +440,7 @@ var linkfull=url.replace(regex, '/');
     $('#schedule').on('submit',function(e){
         var time=$('#date1').val();
         
-
+alert(time);
         e.preventDefault();
    
       
