@@ -1,14 +1,13 @@
 <?php
 include_once './includes/header1.php';
+include('indexDB.php');
 //session_start();
- if(isset($_SESSION['current_user_email'])){
-    $email = $_GET['current_user_email'];
-    
-} else{
+ if(empty($_SESSION['current_user_email'])){
     header('location:../spacecce_auth/login.php');
     exit();
-}
-include('indexDB.php');
+    
+} 
+
  ?>
 <html>
     <head>
