@@ -4,7 +4,7 @@ session_start();
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
-
+include '../common/header_module.php';
 // include_once '../common/header_module.php'; 
 include('indexDB.php');
 $user = '';
