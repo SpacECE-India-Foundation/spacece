@@ -448,6 +448,7 @@ var linkfull=url.replace(regex, '/');
       alert(token);
       alert(appId);
       alert(channel_name);
+      alert(link);
      
 
         $.ajax({
