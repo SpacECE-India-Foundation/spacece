@@ -10,10 +10,6 @@ include_once './includes/header1.php';
 }
 include('indexDB.php');
  ?>
-<?php 
-
-
- ?>
 <html>
     <head>
         <title>appointment-HOME PAGE</title>
@@ -40,7 +36,7 @@ include('indexDB.php');
                     </tr>
                     <?php
                     error_reporting(0);
-                    // showing admin added from database
+                    
                     $nid= $_SESSION['current_user_name'];
                     $sql = "SELECT * FROM `appointment` where `cname`='$nid'";
                     
