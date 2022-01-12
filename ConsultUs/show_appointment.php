@@ -1,5 +1,5 @@
 <?php
-include_once './includes/header1.php';
+// include_once './includes/header1.php';
 include('indexDB.php');
 session_start();
  if(empty($_SESSION['current_user_email'])){
