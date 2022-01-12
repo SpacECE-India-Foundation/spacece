@@ -436,19 +436,13 @@ var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
 
-
+var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
     $('#schedule').on('submit',function(e){
         var time=$('#date1').val();
         
 
         e.preventDefault();
    
-      alert(c_id);
-      alert(user_id);
-      alert(token);
-      alert(appId);
-      alert(channel_name);
-      alert(link);
      
 
         $.ajax({
