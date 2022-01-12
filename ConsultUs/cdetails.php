@@ -372,7 +372,7 @@ include_once '../common/footer_module.php';
 <script type="text/javascript">
          $(function () {
              $('#datetimepicker1').datetimepicker({
-                format: "YYYY-MM-DD HH:mm ",
+                format: "YYYY-MM-DD HH:mm:ss ",
                 minDate: moment()
              });
          });
