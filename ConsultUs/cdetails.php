@@ -431,11 +431,12 @@ var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
  //without params it defaults to "now"
 
-
-    $('#schedule').on('submit',function(){
-        var time1=$('#date1').val();
-      
-   time=+time1;
+    $('#schedule').on('submit',function(e){
+        var time=$('#date1').val();
+        
+ var c_time=+time;
+        e.preventDefault();
+   
       
         $.ajax({
     url:"video.php",method:"POST",
@@ -447,10 +448,6 @@ var linkfull=url.replace(regex, '/');
         time:time,
         token:token,
         user_id:user_id,
-        c_time:c_time
-        
-
-
     },
     success:function(data){
         console.log(data);
