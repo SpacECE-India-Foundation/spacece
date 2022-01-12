@@ -392,11 +392,17 @@ var c_id=id;
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
-var time = new Date({
-    format: "YYYY-MM-DD HH:mm "
-}); //without params it defaults to "now"
+var date = new Date();
+var time =
+date.getFullYear() +"-" +
+  ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
+  ("00" + date.getDate()).slice(-2) + " " +
+  ("00" + date.getHours()).slice(-2) + ":" +
+  ("00" + date.getMinutes()).slice(-2) + ":" +
+  ("00" + date.getSeconds()).slice(-2);
+console.log(time);//without params it defaults to "now"
 
-var c_time=+time;
+
 
  var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
  $.ajax({
@@ -409,7 +415,6 @@ var c_time=+time;
         channel_name:channel_name,
         token:token,
         user_id:user_id,
-        c_time:c_time
         
 
 
