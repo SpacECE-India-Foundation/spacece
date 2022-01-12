@@ -440,12 +440,19 @@ var linkfull=url.replace(regex, '/');
     $('#schedule').on('submit',function(e){
         var time=$('#date1').val();
         
-alert(time);
+
         e.preventDefault();
    
-      
+      alert(c_id);
+      alert(user_id);
+      alert(token);
+      alert(appId);
+      alert(channel_name);
+     
+
         $.ajax({
-    url:"video.php",method:"POST",
+    url:"video.php",
+    method:"POST",
     data:{
         link:link,
         c_id:c_id,
