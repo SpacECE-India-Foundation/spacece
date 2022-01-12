@@ -1,4 +1,5 @@
 <?php
+include_once './includes/header1.php';
 //session_start();
  if(isset($_SESSION['current_user_email'])){
     $email = $_GET['current_user_email'];
@@ -8,7 +9,7 @@
     exit();
 }
 include('indexDB.php');
-include_once './includes/header1.php'; ?>
+ ?>
 <?php 
 
 
@@ -42,6 +43,7 @@ include_once './includes/header1.php'; ?>
                     // showing admin added from database
                     $nid= $_SESSION['current_user_name'];
                     $sql = "SELECT * FROM `appointment` where `cname`='$nid'";
+                    
                     $res = mysqli_query($conn,$sql);
 
 
