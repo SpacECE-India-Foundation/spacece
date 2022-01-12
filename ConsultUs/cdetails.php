@@ -429,40 +429,40 @@ console.log(time);//without params it defaults to "now"
 } 
 
 
-// function scheduleredirectTo(id,user_id,token,appId,channel_name){
-//     var c_id=id;
+function scheduleredirectTo(id,user_id,token,appId,channel_name){
+    var c_id=id;
 
-// var url = window.location.href;
-// var regex = new RegExp('/[^/]*$');
-// var linkfull=url.replace(regex, '/');
-//  //without params it defaults to "now"
+var url = window.location.href;
+var regex = new RegExp('/[^/]*$');
+var linkfull=url.replace(regex, '/');
 
-//     $('#schedule').on('submit',function(e){
-//         var time=$('#date1').val();
+
+    $('#schedule').on('submit',function(e){
+        var time=$('#date1').val();
         
-//  var c_time=+time;
-//         e.preventDefault();
+
+        e.preventDefault();
    
       
-//         $.ajax({
-//     url:"video.php",method:"POST",
-//     data:{
-//         link:link,
-//         c_id:c_id,
-//         video:1,
-//         channel_name:channel_name,
-//         time:time,
-//         token:token,
-//         user_id:user_id,
-//     },
-//     success:function(data){
-//         console.log(data);
-//         alert(data);
-//     }
-//     })
+        $.ajax({
+    url:"video.php",method:"POST",
+    data:{
+        link:link,
+        c_id:c_id,
+        video:1,
+        channel_name:channel_name,
+        time:time,
+        token:token,
+        user_id:user_id,
+    },
+    success:function(data){
+        console.log(data);
+        alert(data);
+    }
+    })
     
-//     });  
-// }
+    });  
+}
 
 
 </script>
