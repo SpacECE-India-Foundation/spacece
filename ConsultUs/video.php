@@ -3,7 +3,7 @@
 if(isset($_POST['video'])){
 	$id=$_POST['c_id'];
 	$url=$_POST['link'];
-	$time=date($_POST['time']);
+	$time=$_POST['time'];
 	$channel_name=$_POST['channel_name'];
 	$token=$_POST['token'];
 	$user_id=$_POST['user_id'];
