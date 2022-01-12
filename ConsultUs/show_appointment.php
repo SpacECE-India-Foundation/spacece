@@ -1,14 +1,16 @@
-<?php include('indexDB.php');
+<?php
+ if(isset($_SESSION['current_user_email'])){
+    $email = $_GET['current_user_email'];
+    $nid= $_SESSION['current_user_name'];
+} else{
+    header('location:../spacecce_auth/login.php');
+    exit();
+}
+include('indexDB.php');
 include_once './includes/header1.php'; ?>
 <?php 
  $nid = '';
- if(isset($_SESSION['current_user_email'])){
-     $email = $_GET['current_user_email'];
-     $nid= $_SESSION['current_user_name'];
- } else{
-     header('location:../spacecce_auth/login.php');
-     exit();
- }
+
  ?>
 <html>
     <head>
