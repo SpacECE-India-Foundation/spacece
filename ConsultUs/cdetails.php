@@ -392,7 +392,9 @@ var c_id=id;
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
-var time = new Date(); //without params it defaults to "now"
+var time = new Date({
+    format: "YYYY-MM-DD HH:mm "
+}); //without params it defaults to "now"
 
 var c_time=+time;
 
