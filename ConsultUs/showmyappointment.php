@@ -1,10 +1,12 @@
-<?php include('indexDB.php');
+<?php
+session_start();
+include('indexDB.php');
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 
-include_once '../common/header_module.php'; ?>
-<?php
+include_once '../common/header_module.php'; 
+
 $user = '';
 if(isset($_SESSION['current_user_email'])){
     $email = $_SESSION['current_user_email'];
