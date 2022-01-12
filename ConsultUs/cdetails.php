@@ -405,7 +405,6 @@ var c_time=+time;
         video:1,
         time:time,
         channel_name:channel_name,
-        time:time,
         token:token,
         user_id:user_id,
         c_time:c_time
@@ -419,7 +418,7 @@ var c_time=+time;
     }
  })
 
- window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
+// window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
 } 
 
 
@@ -444,7 +443,6 @@ var linkfull=url.replace(regex, '/');
         link:link,
         c_id:c_id,
         video:1,
-        time:time,
         channel_name:channel_name,
         time:time,
         token:token,

@@ -7,10 +7,11 @@ if(isset($_POST['video'])){
 	$channel_name=$_POST['channel_name'];
 	$token=$_POST['token'];
 	$user_id=$_POST['user_id'];
-	$c_time=$_POST['c_time'];
+	$c_time=strtotime($_POST['time']);
 //echo $url;
+
 			$sql="Insert into agora_call (user_id,consult_id,channel_name,token,call_time,joining_url,c_time) VALUES('$user_id','$id','$channel_name','$token','$time','$url','$c_time')";
-		
+		echo $sql;
 			$res2 = mysqli_query($conn,$sql);
 	if($res2){
 		echo"Success ";
