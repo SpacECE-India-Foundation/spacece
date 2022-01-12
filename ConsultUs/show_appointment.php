@@ -105,7 +105,7 @@ include('indexDB.php');
                              </div>
          </div>
         <?php
-        include_once './includes/header1.php';
+        include_once './includes/footer1.php';
         ?>
     </body>
 
