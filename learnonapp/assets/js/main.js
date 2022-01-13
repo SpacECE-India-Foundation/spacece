@@ -90,7 +90,7 @@ const updateCourse = (id) => {
 
 const addCourse = () => {
   $("#admin-page").html(`
-  <form id="add-course-form">
+  <form id="add-course-form" onsubmit="addCourse()">
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" name="title" id="title" placeholder="Title">
@@ -120,7 +120,7 @@ const addCourse = () => {
   `);
 };
 
-$("#add-course-form").submit((e) => {
+const addCourse = () => {
   e.preventDefault();
   alert("add course");
   exit();
@@ -167,7 +167,7 @@ $("#add-course-form").submit((e) => {
       }
     },
   });
-});
+};
 
 $(document).ready(function () {
   //Fetching Courses Function Start
