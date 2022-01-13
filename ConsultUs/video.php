@@ -82,7 +82,7 @@ include("./php/src/RtmTokenBuilder.php");
 	
    $time= date('Y-m-d H:i:s');
 
-	$token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+	$token = RtcTokenBuilder::buildTokenWithUid($appID,$appCertificate,$channelName,$uid,$role,$privilegeExpiredTs);
 	
 	$data=array('token'=>$token,'appID'=>$appID);
 	echo json_encode($data);

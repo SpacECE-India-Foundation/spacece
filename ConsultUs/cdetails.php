@@ -500,8 +500,7 @@ $.ajax({
         generateToken:1,
         c_id:c_id,
         user_id:user_id,
-       
-        user_name:user_name
+       user_name:user_name
 
 
     },
