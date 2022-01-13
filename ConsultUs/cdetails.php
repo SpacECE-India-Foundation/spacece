@@ -473,10 +473,10 @@ var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&ch
 function redirectTo(id,user_id,channel_name,user_name,channelName){
 
 var c_id=id;
-alert(id);
-alert(user_id);
-alert(channelName);
-alert(channel_name);
+// alert(id);
+// alert(user_id);
+
+// alert(channel_name);
 alert(user_name);
 
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
@@ -501,7 +501,7 @@ $.ajax({
         c_id:c_id,
         user_id:user_id,
        
-        channelName:channelName
+        user_name:user_name
 
 
     },

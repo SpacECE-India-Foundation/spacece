@@ -69,7 +69,7 @@ if(isset($_POST['generateToken'])){
 include("./php/src/RtmTokenBuilder.php");
 	$c_id=$_POST['c_id'];
 	$user_id=$_POST['user_id'];
-	$channel_name=$_POST['consult_name'];                         
+	$channel_name=$_POST['user_name'];                         
 	$appID = "464ff3e49fb3409494c0956edcec52e7";
 	$appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
 	$channelName =$channel_name;
