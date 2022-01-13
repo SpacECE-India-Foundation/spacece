@@ -401,8 +401,8 @@ include_once '../common/footer_module.php';
 
     
     $(document).on("click", "#upload", function() {
-        var cat_id= $(this).data('id');
-        var pl_id=$(this).data('plyalist');
+        var cat_id= $(this).data('text');
+        var pl_id=$(this).data('playlist');
 alert(cat_id);
 alert(pl_id);
     $('#uploadVideo').on('submit', function(event) {
