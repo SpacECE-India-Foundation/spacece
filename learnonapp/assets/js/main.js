@@ -90,7 +90,7 @@ const updateCourse = (id) => {
 
 const addCourse = () => {
   $("#admin-page").html(`
-  <form id="add-course-form" onsubmit="addCourse()">
+  <form id="add-course-form" onsubmit="addCourseSubmit()">
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" name="title" id="title" placeholder="Title">
@@ -120,7 +120,7 @@ const addCourse = () => {
   `);
 };
 
-const addCourse = () => {
+const addCourseSubmit = () => {
   e.preventDefault();
   alert("add course");
   exit();
