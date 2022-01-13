@@ -90,6 +90,7 @@ const updateCourse = (id) => {
 
 const deleteCourse = (id) => {
   let formData = new FormData();
+  formData.append("action", "delete");
   formData.append("id", id);
 
   $.ajax({

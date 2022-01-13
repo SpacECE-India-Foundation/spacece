@@ -19,9 +19,6 @@ if ($conn->connect_error) {
 }
 ?>
 <?php
-$uid = $_GET['uid'];
-$cid = $_GET['cid'];
-$subid = $_GET['subid'];
 
 error_reporting();
 
