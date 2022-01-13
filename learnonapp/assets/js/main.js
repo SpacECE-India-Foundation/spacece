@@ -27,6 +27,84 @@ const editCourse = (id) => {
   );
 };
 
+const addCourse = () => {
+  $("#admin-table").append(
+    `<tr>
+  <td id="td-id-new">New</td>
+  <td><input type="text" id="title-new"></td>
+  <td><input type="text" id="description-new"></td>
+  <td><input type="text" id="duration-new"></td>
+  <td><input type="text" id="mode-new"></td>
+  <td><input type="text" id="type-new"></td>
+  <td><input type="text" id="price-new"></td>
+  <td>
+    <button class="btn btn-wide" onclick="addCourseSubmit()">Create</button><br>
+    <button class="btn btn-wide" onclick="cancelCourse()">Cancel</button>
+  </td>
+</tr>`
+  );
+};
+
+const addCourseSubmit = () => {
+  let title = $("#title-new").val();
+  let description = $("#description-new").val();
+  let duration = $("#duration-new").val();
+  let mode = $("#mode-new").val();
+  let type = $("#type-new").val();
+  let price = $("#price-new").val();
+
+  let formData = new FormData();
+  formData.append("title", title);
+  formData.append("description", description);
+  formData.append("duration", duration);
+  formData.append("mode", mode);
+  formData.append("type", type);
+  formData.append("price", price);
+  formData.append("action", "add");
+
+  $.ajax({
+    url: "../api/learnonapp_courses_add.php",
+    type: "POST",
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (d) {
+      if (d.status == "success") {
+        const courses = d.data;
+        $("#admin-page").html(`
+        <button class="btn btn-wide" onclick="addCourse()">Add Course</button>
+          <table id="admin-table">
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Duration</th>
+              <th>Mode</th>
+              <th>Type</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+            ${courses.map((course) => {
+              return `<tr id="tr-${course.id}">
+                    <td id="td-id-${course.id}">${course.id}</td>
+                    <td id="td-title-${course.id}">${course.title}</td>
+                    <td id="td-description-${course.id}">${course.description}</td>
+                    <td id="td-duration-${course.id}">${course.duration}</td>
+                    <td id="td-mode-${course.id}">${course.mode}</td>
+                    <td id="td-type-${course.id}">${course.type}</td>
+                    <td id="td-price-${course.id}">${course.price}</td>
+                    <td>
+                      <button class="btn btn-wide" onclick="editCourse(${course.id})">Edit</button><br>
+                      <button class="btn btn-wide" onclick="deleteCourse(${course.id})">Delete</button>
+                    </td>
+              </tr>`;
+            })}
+          </table>`);
+      }
+    },
+  });
+};
+
 const updateCourse = (id) => {
   const title = $(`#title-${id}`).val();
   const description = $(`#description-${id}`).val();
@@ -95,87 +173,6 @@ const deleteCourse = (id) => {
 
   $.ajax({
     url: "../api/learnonapp_courses_delete.php",
-    type: "POST",
-    data: formData,
-    processData: false,
-    contentType: false,
-    success: function (d) {
-      if (d.status == "success") {
-        const courses = d.data;
-        $("#admin-page").html(`
-        <button class="btn btn-wide" onclick="addCourse()">Add Course</button>
-          <table id="admin-table">
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Duration</th>
-              <th>Mode</th>
-              <th>Type</th>
-              <th>Price</th>
-              <th></th>
-            </tr>
-            ${courses.map((course) => {
-              return `<tr id="tr-${course.id}">
-                    <td id="td-id-${course.id}">${course.id}</td>
-                    <td id="td-title-${course.id}">${course.title}</td>
-                    <td id="td-description-${course.id}">${course.description}</td>
-                    <td id="td-duration-${course.id}">${course.duration}</td>
-                    <td id="td-mode-${course.id}">${course.mode}</td>
-                    <td id="td-type-${course.id}">${course.type}</td>
-                    <td id="td-price-${course.id}">${course.price}</td>
-                    <td>
-                      <button class="btn btn-wide" onclick="editCourse(${course.id})">Edit</button><br>
-                      <button class="btn btn-wide" onclick="deleteCourse(${course.id})">Delete</button>
-                    </td>
-              </tr>`;
-            })}
-          </table>`);
-      }
-    },
-  });
-};
-
-const addCourse = () => {
-  $("#admin-page").html(`
-  <form id="add-course-form" onsubmit="addCourseSubmit()">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" name="title" id="title" placeholder="Title">
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" class="form-control" name="description" id="description" placeholder="Description">
-    </div>
-    <div class="form-group">
-      <label for="duration">Duration</label>
-      <input type="text" class="form-control" name="duration" id="duration" placeholder="Duration">
-    </div>
-    <div class="form-group">
-      <label for="mode">Mode</label>
-      <input type="text" class="form-control" name="mode" id="mode" placeholder="Mode">
-    </div>
-    <div class="form-group">
-      <label for="type">Type</label>
-      <input type="text" class="form-control" name="type" id="type" placeholder="Type">
-    </div>
-    <div class="form-group">
-      <label for="price">Price</label>
-      <input type="text" class="form-control" name="price" id="price" placeholder="Price">
-    </div>
-    <button type="submit" class="btn btn-primary">Add</button>
-  </form>
-  `);
-};
-
-const addCourseSubmit = () => {
-  e.preventDefault();
-  alert("add course");
-  exit();
-  let formData = new FormData(this);
-  formData.append("action", "add");
-  $.ajax({
-    url: "../api/learnonapp_courses_add.php",
     type: "POST",
     data: formData,
     processData: false,
