@@ -17,8 +17,8 @@ if(channel1){
 
  var agoraAppId =appid1;
  console.log(agoraAppId) // Set your Agora App ID
-var channelName="1024";
-var uid="0";
+var channelName="hello";
+var uid="10";
 var attend = false;
 
 
@@ -148,7 +148,7 @@ function joinChannel() {
 
   var token = id1;
   alert(token);
-  var userID = '123';
+  var userID = null;
 
 
    
