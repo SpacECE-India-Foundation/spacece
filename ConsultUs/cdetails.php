@@ -475,7 +475,7 @@ function redirectTo(id,user_id,channel_name,user_name,channelName){
 var c_id=id;
 alert(id);
 alert(user_id);
-alert(channelName);
+alert(consult_name);
 
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
