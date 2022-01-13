@@ -142,7 +142,7 @@ client.on("unmute-video", function (evt) {
 });
 
 // join a channel
-function joinChannel(id1) {
+function joinChannel() {
 
   alert("Started");
 
@@ -195,10 +195,10 @@ function createCameraStream(uid) {
 }
 
 // SCREEN SHARING
-function initScreenShare(id1) {
+function initScreenShare() {
   screenClient.init(agoraAppId, function () {
     console.log("AgoraRTC screenClient initialized");
-    joinChannelAsScreenShare(id1);
+    joinChannelAsScreenShare();
     screenShareActive = true;
     // TODO: add logic to swap button
   }, function (err) {
@@ -206,7 +206,7 @@ function initScreenShare(id1) {
   });  
 }
 
-function joinChannelAsScreenShare(id1) {
+function joinChannelAsScreenShare() {
   console.log("Joined");
   var token = id1;
   var userID = null; // set to null to auto generate uid on successfull connection
