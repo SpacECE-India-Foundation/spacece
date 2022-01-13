@@ -23,12 +23,12 @@ if(isset($_POST['video'])){
 }
 
 	if(isset($_POST['getCall'])){
-		//echo "inside";
+	echo "inside";
 		$c_id=$_POST['user'];
 
 		date_default_timezone_set('Asia/Kolkata');
 $timenow=strtotime(date('Y-m-d H:i:a'));
-
+echo $timenow;
 //echo $cname;
 $sql1="SELECT * from agora_call where consult_id='$c_id'";
 
@@ -43,6 +43,7 @@ while($row1=mysqli_fetch_assoc($res2)){
                      while($row = mysqli_fetch_assoc($res))
                             {
                             	$time1=$row1['c_time'];
+								echo $$time1;
                             	if(($timenow-$time1)<1800){
                             		
                             		 $call.= $row['joining_url'];
