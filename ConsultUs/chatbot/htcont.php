@@ -26,8 +26,12 @@ if(mysqli_num_rows($result)>0)
     {
            echo $res = "<div class='wrapper' id='msg'>";
         
-            echo  $res = $row['ip'];  
-           
+             
+           if(empty($row['u_name'])){
+            echo  $res = $row['ip'];
+           }else{
+            echo  $res = $row['u_name'];
+           }
          
            echo $res = " says <p>".$row['msg'];
           echo  $res = "</p> <span class='time-right'>".$row['rtime']."</span></div>";
