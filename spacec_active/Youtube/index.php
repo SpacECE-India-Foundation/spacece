@@ -68,21 +68,19 @@ function upload_video_on_youtube($arr_data) {
                    
                         $playlistItem = new Google_Service_YouTube_PlaylistItem();
                 
+                       
+
                         // Add 'snippet' object to the $playlistItem object.
                         $playlistItemSnippet = new Google_Service_YouTube_PlaylistItemSnippet();
-                        $playlistItemSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
-                        $playlistItemSnippet->setDescription($summary );
-                        $playlistItemSnippet->setPlaylistId($category);
+                        $playlistItemSnippet->setPlaylistId($pl_id);
                         $playlistItemSnippet->setPosition(0);
                         $resourceId = new Google_Service_YouTube_ResourceId();
-                        $resourceId->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
                         $resourceId->setKind('youtube#video');
-                        $resourceId->setPlaylistId($pl_id);
                         $resourceId->setVideoId($video_id);
                         $playlistItemSnippet->setResourceId($resourceId);
-                        $playlistItemSnippet->setTitle($title);
                         $playlistItem->setSnippet($playlistItemSnippet);
                         
+                       
                         // Add 'status' object to the $playlistItem object.
                        $playlistItemStatus = new Google_Service_YouTube_PlaylistItemStatus();
                       $playlistItemStatus->setPrivacyStatus('public');
