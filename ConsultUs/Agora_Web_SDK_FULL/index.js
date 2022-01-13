@@ -17,7 +17,7 @@ if(channel1){
 
  var agoraAppId =appid1;
  console.log(agoraAppId) // Set your Agora App ID
-var channelName=channel1;
+var channelName="1024";
 var uid="0";
 var attend = false;
 
