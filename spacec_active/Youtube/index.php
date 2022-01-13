@@ -45,7 +45,7 @@ function upload_video_on_youtube($arr_data) {
     $videoStatus = new  Google_Service_YouTube_VideoStatus();
     $videoStatus->setPrivacyStatus('public');
     $video->setStatus($videoStatus);
-    var_dump( $video);
+    
     try {
         $response = $service->videos->insert(
             'snippet,status',
@@ -56,7 +56,7 @@ function upload_video_on_youtube($arr_data) {
                 'uploadType' => 'multipart'
             )
         );
-        print_r($response);
+       
         $video_id=$response->id;
         $user = $_SESSION['current_user_email'];
         $title=$_POST['title'];
@@ -64,7 +64,8 @@ function upload_video_on_youtube($arr_data) {
         $category=$_POST['category'];
         $pl_id=$_POST['pl_id'];
         $act_id= $_POST['id'];
-        $db->upload_video_to_db($video_id, $title, $summary,$category,$user,$pl_id,$act_id);
+       $add= $db->upload_video_to_db($video_id, $title, $summary,$category,$user,$pl_id,$act_id);
+       echo $add;
                    
                         $playlistItem = new Google_Service_YouTube_PlaylistItem();
                 
