@@ -403,7 +403,8 @@ include_once '../common/footer_module.php';
     $(document).on("click", "#upload", function() {
         var cat_id= $(this).data('id');
         var pl_id=$(this).data('plyalist');
-
+alert(cat_id);
+alert(pl_id);
     $('#uploadVideo').on('submit', function(event) {
 
         $('#exampleModal').modal('hide');
