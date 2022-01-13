@@ -9,6 +9,7 @@ if (isset($_POST['title'])) {
         'title' => $_POST['title'],
         'summary' => $_POST['summary'],
         'category'=>$_POST['category'],
+        'playlist_id'=>$_POST['pl_id'],
         'video_path' => $_FILES['file']['tmp_name'],
     );
     upload_video_on_youtube($arr_data);
@@ -73,7 +74,7 @@ function upload_video_on_youtube($arr_data) {
                         $resourceId = new Google_Service_YouTube_ResourceId();
                         $resourceId->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
                         $resourceId->setKind('youtube#video');
-                        $resourceId->setPlaylistId('PLm0GU5IUgzTCPa0S6EbS1TKatX5-XEzay');
+                        $resourceId->setPlaylistId($pl_id);
                         $resourceId->setVideoId($video_id);
                         $playlistItemSnippet->setResourceId($resourceId);
                         $playlistItemSnippet->setTitle($title);
