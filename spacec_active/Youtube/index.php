@@ -63,7 +63,7 @@ function upload_video_on_youtube($arr_data) {
         $category=$_POST['category'];
         $pl_id=$_POST['pl_id'];
         $act_id= $_POST['id'];
-        $db->upload_video_to_db($video_id, $title, $summary, $category, $user, $pl_id, $act_id);
+        $db->upload_video_to_db($video_id, $title, $summary, $category, $user, $act_id, $pl_id);
        
                    
                         $playlistItem = new Google_Service_YouTube_PlaylistItem();
