@@ -179,7 +179,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
                               // echo $token;
                                ?>
-                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $con_name;?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $channelName;?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
                        
                         <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>');" class="btn-second" data-bs-toggle="modal" data-bs-target="#SheduleleModal" style="color:black;background-color:yellow">Schedule call</a>  
                            
@@ -470,12 +470,12 @@ var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&ch
     });  
 }
 
-function redirectTo(id,user_id,channel_name,user_name,consult_name){
+function redirectTo(id,user_id,channel_name,user_name,channelName){
 
 var c_id=id;
 alert(id);
 alert(user_id);
-alert(consult_name);
+alert(channelName);
 
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
