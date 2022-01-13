@@ -148,7 +148,7 @@ function joinChannel() {
 
   var token = id1;
   alert(token);
-  var userID = 0;
+  var userID = null;
 
 
    
