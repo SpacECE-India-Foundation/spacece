@@ -1,5 +1,5 @@
 let params = (new URL(document.location)).searchParams;
-let channel1 = params.get('channel_name'); // is the string "cha123".
+let channel1 = params.get('channel'); // is the string "cha123".
 let appid1 = params.get('appId'); // is the string "183432424242"
 let id1 = params.get('id'); 
 
@@ -140,7 +140,7 @@ client.on("unmute-video", function (evt) {
 // join a channel
 function joinChannel(id1) {
 
-  
+  alert("Started");
 
   var token = id1;
  
@@ -173,6 +173,7 @@ function createCameraStream(uid) {
    
    try{
      localStream.play('local-video');
+     alert("Started");
    } catch(err){
     console.log(err);
    }// play the given stream within the local-video div
@@ -202,6 +203,7 @@ function initScreenShare(id1) {
 }
 
 function joinChannelAsScreenShare(id1) {
+  console.log("Joined");
   var token = id1;
   var userID = null; // set to null to auto generate uid on successfull connection
   screenClient.join(token, channelName, userID, function(uid) { 
