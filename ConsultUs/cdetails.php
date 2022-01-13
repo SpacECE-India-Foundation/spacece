@@ -473,6 +473,11 @@ var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&ch
 function redirectTo(id,user_id,channel_name,user_name,consult_name){
 
 var c_id=id;
+alert(id);
+alert(user_id);
+alert(channel_name);
+alert(user_name);
+alert(consult_name);
 
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
