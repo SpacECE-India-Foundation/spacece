@@ -39,8 +39,11 @@ class DB {
         return json_decode($result['provider_value']);
     }
     public function upload_video_to_db($video_id, $title, $summary,$category,$user,$act_id,$pl_id){
-        if( $this->db->query("INSERT INTO youtube_videos(user_email,video_id,title,v_description,category_id,pl_id,act_id) VALUES('$user', '$video_id','$title','$summary','$category','$pl_id,'$act_id')")){
+        if( $this->db->query("INSERT INTO youtube_videos(user_email,video_id,title,v_description,category_id,playlist_id,act_id) VALUES('$user', '$video_id','$title','$summary','$category','$pl_id,'$act_id')")){
             echo "Success";
+        
+
+
         }
         else{
             echo "Error";

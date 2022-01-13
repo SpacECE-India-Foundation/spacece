@@ -63,7 +63,7 @@ function upload_video_on_youtube($arr_data) {
         $category=$_POST['category'];
         $pl_id=$_POST['pl_id'];
         $act_id= $_POST['id'];
-       $add= $db->upload_video_to_db($video_id, $title, $summary, $category, $user, $pl_id, $act_id);
+        $db->upload_video_to_db($video_id, $title, $summary, $category, $user, $pl_id, $act_id);
        
                    
                         $playlistItem = new Google_Service_YouTube_PlaylistItem();
@@ -87,7 +87,7 @@ function upload_video_on_youtube($arr_data) {
                     //    $playlistItem->setStatus($playlistItemStatus);
                         
                         $response = $service->playlistItems->insert('snippet', $playlistItem);
-                       // print_r($response);
+                        print_r($response);
                     if($response->status===200){
                         echo "Video uploaded successfully. Video ID is ". $response->id;
                     }else{
