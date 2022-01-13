@@ -27,7 +27,7 @@ if(isset($_POST['video'])){
 		$c_id=$_POST['user'];
 
 		date_default_timezone_set('Asia/Kolkata');
-$timenow=strtotime(date('d-m-Y H:i:a'));
+$timenow=strtotime(date('Y-m-d H:i:a'));
 
 //echo $cname;
 $sql1="SELECT * from agora_call where consult_id='$c_id'";
