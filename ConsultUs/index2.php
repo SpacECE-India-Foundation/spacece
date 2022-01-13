@@ -412,7 +412,7 @@ if(isset($_SESSION['current_user_email'])){
 </div>
 
 
-
+<div id="call"></div>
 <!--session close-->
 
 
@@ -507,7 +507,7 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 
  setInterval(function(){ 
  	let user ="<?php echo $_SESSION['current_user_id'];?>";
-	 alert(user);
+	 //alert(user);
 
 $.ajax({
 url:'./video.php',
@@ -519,7 +519,7 @@ data:{
 success:function(data){
        // console.log(data);
         alert(data);
-        //$('#call').html(data);
+        $('#call').html(data);
     }
 });
 
