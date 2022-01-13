@@ -404,8 +404,7 @@ include_once '../common/footer_module.php';
         var cat_id= $(this).data('text');
         var pl_id=$(this).data('playlist');
         var id =    $(this).data('text');
-alert(id);
-alert(pl_id);
+
     $('#uploadVideo').on('submit', function(event) {
 
         $('#exampleModal').modal('hide');
@@ -420,7 +419,7 @@ alert(pl_id);
         fd.append("file", file_data);
         fd.append("title", title);
         fd.append("summary", summary);
-        fd.append("cat_id", cat_id);
+        fd.append("id", cat_id);
         fd.append("pl_id", pl_id);
 
         $('.progress').show();
