@@ -290,8 +290,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                 // $channelname=$row1['channel_name'];
                                 $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
                                     ?>
-                            <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
-                             
+                            <!-- <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php // echo $consult_id;?>" onclick="redirectTo('<?php //echo $consult_id;?>','<?php // echo $user_id;?>','<?php // echo $token;?>','<?php //echo $appID;?>','<?php // echo $channelName;?>','<?php // echo $time; ?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a> -->
+                            <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $con_name;?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
                             <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" data-bs-toggle="modal" data-bs-target="#SheduleleModal" style="color:black;background-color:yellow">Schedule call</a>
                              <?php 
                             }
@@ -388,49 +388,49 @@ include_once '../common/footer_module.php';
 <script type="text/javascript">
  
     
-function redirectTo(id,user_id,token,appId,channel_name,time){
+// function redirectTo(id,user_id,token,appId,channel_name,time){
 
-var c_id=id;
+// var c_id=id;
 
-//var id='<?php /// echo $_SESSION['user_id'];  ?>';
-var url = window.location.href;
-var regex = new RegExp('/[^/]*$');
-var linkfull=url.replace(regex, '/');
-var date = new Date();
-var time =
-date.getFullYear() +"-" +
-  ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
-  ("00" + date.getDate()).slice(-2) + " " +
-  ("00" + date.getHours()).slice(-2) + ":" +
-  ("00" + date.getMinutes()).slice(-2) + ":" +
-  ("00" + date.getSeconds()).slice(-2);
-console.log(time);//without params it defaults to "now"
+// //var id='<?php /// echo $_SESSION['user_id'];  ?>';
+// var url = window.location.href;
+// var regex = new RegExp('/[^/]*$');
+// var linkfull=url.replace(regex, '/');
+// var date = new Date();
+// var time =
+// date.getFullYear() +"-" +
+//   ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
+//   ("00" + date.getDate()).slice(-2) + " " +
+//   ("00" + date.getHours()).slice(-2) + ":" +
+//   ("00" + date.getMinutes()).slice(-2) + ":" +
+//   ("00" + date.getSeconds()).slice(-2);
+// console.log(time);//without params it defaults to "now"
 
 
 
- var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
- $.ajax({
-    url:"video.php",method:"POST",
-    data:{
-        link:link,
-        c_id:c_id,
-        video:1,
-        time:time,
-        channel_name:channel_name,
-        token:token,
-        user_id:user_id,
+//  var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
+//  $.ajax({
+//     url:"video.php",method:"POST",
+//     data:{
+//         link:link,
+//         c_id:c_id,
+//         video:1,
+//         time:time,
+//         channel_name:channel_name,
+//         token:token,
+//         user_id:user_id,
         
 
 
-    },
-    success:function(data){
-        console.log(data);
-        alert(data);
-    }
- })
+//     },
+//     success:function(data){
+//         console.log(data);
+//         alert(data);
+//     }
+//  })
 
- window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
-} 
+//  window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
+// } 
 
 
 function scheduleredirectTo(id,user_id,token,appId,channel_name){
@@ -470,7 +470,66 @@ var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&ch
     });  
 }
 
+function redirectTo(id,user_id,channel_name,user_name,consult_name){
 
+var c_id=id;
+
+//var id='<?php /// echo $_SESSION['user_id'];  ?>';
+var url = window.location.href;
+var regex = new RegExp('/[^/]*$');
+var linkfull=url.replace(regex, '/');
+var date = new Date();
+var time =
+date.getFullYear() +"-" +
+  ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
+  ("00" + date.getDate()).slice(-2) + " " +
+  ("00" + date.getHours()).slice(-2) + ":" +
+  ("00" + date.getMinutes()).slice(-2) + ":" +
+  ("00" + date.getSeconds()).slice(-2);
+console.log(time);//without params it defaults to "now"
+
+$.ajax({
+    url:'video.php',
+    method:'POST',
+    data:{
+        generateToken:1,
+        c_id:c_id,
+        user_id:user_id,
+        channel_name:channel_name,
+        user_name:user_name,
+        consult_name:consult_name
+
+
+    },
+    success:function(data){
+        alert(data);
+    }
+
+});
+
+//  var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
+//  $.ajax({
+//     url:"video.php",method:"POST",
+//     data:{
+//         link:link,
+//         c_id:c_id,
+//         video:1,
+//         time:time,
+//         channel_name:channel_name,
+//         token:token,
+//         user_id:user_id,
+        
+
+
+//     },
+//     success:function(data){
+//         console.log(data);
+//         alert(data);
+//     }
+//  })
+
+ window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
+} 
 </script>
 
 
