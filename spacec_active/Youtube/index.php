@@ -4,7 +4,7 @@ session_start();
  require_once './config.php';
 
 if (isset($_POST['title'])) {
-    var_dump($_POST);
+
     $arr_data = array(
         'title' => $_POST['title'],
         'summary' => $_POST['summary'],
@@ -37,13 +37,13 @@ function upload_video_on_youtube($arr_data) {
     $videoSnippet = new Google_Service_YouTube_VideoSnippet();
     $videoSnippet->setDescription($arr_data['summary']);
     $videoSnippet->setTitle($arr_data['title']);
-    //var_dump($videoSnippet);
+    var_dump($videoSnippet);
     $video->setSnippet($videoSnippet);
   
     $videoStatus = new  Google_Service_YouTube_VideoStatus();
     $videoStatus->setPrivacyStatus('public');
     $video->setStatus($videoStatus);
-   // var_dump( $video);
+    var_dump( $video);
     try {
         $response = $service->videos->insert(
             'snippet,status',
