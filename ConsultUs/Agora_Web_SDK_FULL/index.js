@@ -144,10 +144,10 @@ client.on("unmute-video", function (evt) {
 // join a channel
 function joinChannel() {
 
-  alert("Started");
+  
 
   var token = id1;
- 
+  alert(token);
   var userID = null;
 
 
