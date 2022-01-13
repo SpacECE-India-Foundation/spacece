@@ -157,11 +157,11 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         
                             $user_id=$_SESSION['current_user_id'];
                            
-                            $channel_name=$user_id.$consult_id;
+                            $channel_name=$user_id.$con_name;
                            
                             $appID = "464ff3e49fb3409494c0956edcec52e7";
                             $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
-                            $channelName =$user_name.$consult_id;
+                            $channelName =$user_name.$con_name ;
                             $uid = 0;
                             $uidStr = $user_id;
                             $role = RtcTokenBuilder::RoleAttendee;
@@ -273,7 +273,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                
                                 $appID = "464ff3e49fb3409494c0956edcec52e7";
                                 $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
-                                $channelName =$user_name.$consult_id;
+                                $channelName =$user_name.$con_name;
                                 $uid = 0;
                                 $uidStr = $user_id;
                                 $role = RtcTokenBuilder::RoleAttendee;
