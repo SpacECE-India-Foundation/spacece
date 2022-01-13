@@ -475,7 +475,7 @@ function redirectTo(id,user_id,channel_name,user_name,channelName){
 var c_id=id;
 alert(id);
 alert(user_id);
-alert(consult_name);
+alert(channelName);
 
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
@@ -499,7 +499,7 @@ $.ajax({
         c_id:c_id,
         user_id:user_id,
        
-        consult_name:consult_name
+        channelName:channelName
 
 
     },
