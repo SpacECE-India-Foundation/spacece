@@ -46,7 +46,54 @@ const updateCourse = (id) => {
   formData.append("id", id);
 
   $.ajax({
-    url: "../api/learnonapp_courses.php",
+    url: "../api/learnonapp_courses_update.php",
+    type: "POST",
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (d) {
+      if (d.status == "success") {
+        const courses = d.data;
+        $("#admin-page").html(`
+        <button class="btn btn-wide" onclick="addCourse()">Add Course</button>
+          <table id="admin-table">
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Duration</th>
+              <th>Mode</th>
+              <th>Type</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+            ${courses.map((course) => {
+              return `<tr id="tr-${course.id}">
+                    <td id="td-id-${course.id}">${course.id}</td>
+                    <td id="td-title-${course.id}">${course.title}</td>
+                    <td id="td-description-${course.id}">${course.description}</td>
+                    <td id="td-duration-${course.id}">${course.duration}</td>
+                    <td id="td-mode-${course.id}">${course.mode}</td>
+                    <td id="td-type-${course.id}">${course.type}</td>
+                    <td id="td-price-${course.id}">${course.price}</td>
+                    <td>
+                      <button class="btn btn-wide" onclick="editCourse(${course.id})">Edit</button><br>
+                      <button class="btn btn-wide" onclick="deleteCourse(${course.id})">Delete</button>
+                    </td>
+              </tr>`;
+            })}
+          </table>`);
+      }
+    },
+  });
+};
+
+const deleteCourse = (id) => {
+  let formData = new FormData();
+  formData.append("id", id);
+
+  $.ajax({
+    url: "../api/learnonapp_courses_delete.php",
     type: "POST",
     data: formData,
     processData: false,
@@ -127,7 +174,7 @@ const addCourseSubmit = () => {
   let formData = new FormData(this);
   formData.append("action", "add");
   $.ajax({
-    url: "../api/learnonapp_courses.php",
+    url: "../api/learnonapp_courses_add.php",
     type: "POST",
     data: formData,
     processData: false,
