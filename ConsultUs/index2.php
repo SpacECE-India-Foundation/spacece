@@ -7,6 +7,9 @@ $ref = '';
 if(isset($_SESSION['current_user_email'])){
     $email = $_SESSION['current_user_email'];
     $ref= $_SESSION['current_user_name'];
+}else{
+	header('location:../spacece_auth/login.php');
+	exit();
 }
 
 ?>
@@ -503,8 +506,7 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 
 
  setInterval(function(){ 
- 	let user ="<?php if(isset($_SESSION['current_user_email'])){
-    echo $_SESSION['current_user_id '];}?>";
+ 	let user ="<?php echo $_SESSION['current_user_id '];?>";
 
 $.ajax({
 url:'./video.php',

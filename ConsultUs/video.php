@@ -55,7 +55,7 @@ while($row1=mysqli_fetch_assoc($res2)){
 
                             	
                             }
-                            if($call){
+                            if(!empty($call)){
                             	 echo "<a href='".$call."'>Join Now</a>"; echo "<a href='".$call."' class='btn btn-sm'><i class='fa fa-video-camera' aria-hidden='true'>Join Now</i></a>";
                             }
                            
