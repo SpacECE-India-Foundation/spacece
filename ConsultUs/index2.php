@@ -504,7 +504,7 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 
 	$(document).ready(function(){
 
-
+		$('#call').empty();
  setInterval(function(){ 
  	let user ="<?php echo $_SESSION['current_user_id'];?>";
 	 //alert(user);
