@@ -13,11 +13,11 @@ if(channel1){
 
 //alert(decodeURIComponent(id1).replace(/\+/g, '%20'));
 //alert(id1);
- var token1 ="0068a0176984cea4e4e8a96c984d149d52fIAAFsM8CgbdiQVksZdvsGnuofX5EahYxdqIcfTvcrQMEEQx+f9gAAAAAEACBgxuCmMzhYQEAAQCXzOFh";
+ var token1 =id1;
 
- var agoraAppId ="8a0176984cea4e4e8a96c984d149d52f";
+ var agoraAppId =appid1;
  console.log(agoraAppId) // Set your Agora App ID
-var channelName="test";
+var channelName=channel1;
 var uid="10";
 var attend = false;
 

@@ -514,7 +514,7 @@ $.ajax({
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
 
-var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+user_name+"&id="+c_id+"&user_id="+user_id;
+var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+user_name+"&c_id="+c_id+"&user_id="+user_id;
    
 $.ajax({
     url:"video.php",method:"POST",
@@ -533,7 +533,7 @@ $.ajax({
     success:function(data){
         console.log(data);
         alert(data);
-        window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+user_name+"&id="+c_id+"&user_id="+user_id;  
+        window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+user_name+"&c_id="+c_id+"&user_id="+user_id;  
     }
 
 
