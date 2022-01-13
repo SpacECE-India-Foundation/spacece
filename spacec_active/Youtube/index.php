@@ -63,8 +63,8 @@ function upload_video_on_youtube($arr_data) {
         $category=$_POST['category'];
         $pl_id=$_POST['pl_id'];
         $act_id= $_POST['id'];
-       $add= $db->upload_video_to_db($video_id, $title, $summary,$category,$user,$pl_id,$act_id);
-       echo $add;
+       $add= $db->upload_video_to_db($video_id, $title, $summary, $category, $user, $pl_id, $act_id);
+       
                    
                         $playlistItem = new Google_Service_YouTube_PlaylistItem();
                 
@@ -82,9 +82,9 @@ function upload_video_on_youtube($arr_data) {
                         
                        
                         // Add 'status' object to the $playlistItem object.
-                       $playlistItemStatus = new Google_Service_YouTube_PlaylistItemStatus();
-                      $playlistItemStatus->setPrivacyStatus('public');
-                       $playlistItem->setStatus($playlistItemStatus);
+                    //    $playlistItemStatus = new Google_Service_YouTube_PlaylistItemStatus();
+                    //   $playlistItemStatus->setPrivacyStatus('public');
+                    //    $playlistItem->setStatus($playlistItemStatus);
                         
                         $response = $service->playlistItems->insert('snippet', $playlistItem);
                        // print_r($response);
