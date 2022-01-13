@@ -27,7 +27,7 @@ if(isset($_POST['video'])){
 		$c_id=$_POST['user'];
 
 		date_default_timezone_set('Asia/Kolkata');
-$timenow=strtotime(date('d-m-Y H:i'));
+$timenow=strtotime(date('d-m-Y H:i:a'));
 
 //echo $cname;
 $sql1="SELECT * from agora_call where consult_id='$c_id'";
@@ -50,10 +50,7 @@ while($row1=mysqli_fetch_assoc($res2)){
                             	}else{
                             		 $call= "";
                             	}
-                            	
-                            	//if()
 
-                            	
                             }
                             if(!empty($call)){
                             	 echo "<a href='".$call."'>Join Now</a>"; echo "<a href='".$call."' class='btn btn-sm'><i class='fa fa-video-camera' aria-hidden='true'>Join Now</i></a>";
