@@ -506,7 +506,9 @@ $.ajax({
 
     },
     success:function(data){
-        
+        alert(data);
+        alert(data['appId']);
+        alert(data['token']);
     }
 
 });

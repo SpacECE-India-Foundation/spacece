@@ -64,7 +64,7 @@ while($row1=mysqli_fetch_assoc($res2)){
 	
 }
 if(isset($_POST['generateToken'])){
-	var_dump($_POST);
+
 	include("./php/src/RtcTokenBuilder.php");
 include("./php/src/RtmTokenBuilder.php");
 	$c_id=$_POST['c_id'];
