@@ -159,8 +159,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                            
                             $channel_name=$user_id.$con_name;
                            
-                            $appID = "464ff3e49fb3409494c0956edcec52e7";
-                            $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
+                            $appID = "8a0176984cea4e4e8a96c984d149d52f";
+                            $appCertificate = "0bfb49c03978438a8f6723c29f9ccdee";
                             $channelName =$user_name.$con_name ;
                             $uid = 0;
                             $uidStr = $user_id;
@@ -271,8 +271,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                
                                 $channel_name=$user_id.$consult_id;
                                
-                                $appID = "464ff3e49fb3409494c0956edcec52e7";
-                                $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
+                                $appID = "8a0176984cea4e4e8a96c984d149d52f";
+                                $appCertificate = "0bfb49c03978438a8f6723c29f9ccdee";
                                 $channelName =$user_name.$con_name;
                                 $uid = 0;
                                 $uidStr = $user_id;
