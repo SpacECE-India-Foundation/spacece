@@ -3,7 +3,7 @@ include_once './header_local.php';
 include_once '../common/header_module.php';
 include_once '../common/banner.php';
 
-if (!isset($_SESSION['current_user_id']) && !isset($_SESSION['current_user_type'])) {
+if (!isset($_SESSION['current_user_id']) && $_SESSION['current_user_type'] != 'admin') {
     header("Location: ./index.php");
 }
 ?>
