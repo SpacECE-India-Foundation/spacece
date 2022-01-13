@@ -54,13 +54,14 @@ function upload_video_on_youtube($arr_data) {
                 'uploadType' => 'multipart'
             )
         );
+        print_r($response);
         $video_id=$response->id;
         $user = $_SESSION['current_user_email'];
         $title=$_POST['title'];
         $summary=$_POST['summary'];
         $category=$_POST['category'];
         $pl_id=$_POST['pl_id'];
-        $act_id= $_POST['cat_id'];
+        $act_id= $_POST['id'];
         $db->upload_video_to_db($video_id, $title, $summary,$category,$user,$pl_id,$act_id);
                    
                         $playlistItem = new Google_Service_YouTube_PlaylistItem();
