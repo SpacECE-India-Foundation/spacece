@@ -343,7 +343,7 @@ include_once './common/header_module.php';
           <p>
             <i class="fa fa-check-circle" style="color: black"></i>
             <span>
-              Wide varity of stuffs, which helps your children to grow
+              Wide Variety of stuffs, which helps your children to grow
               physically as well as mentally
             </span>
           </p>
