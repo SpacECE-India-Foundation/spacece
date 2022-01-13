@@ -38,7 +38,6 @@ function upload_video_on_youtube($arr_data) {
     $videoSnippet->setChannelId('PLm0GU5IUgzTCrTNRX_ijXIatqoiat8IiC');
     $videoSnippet->setDescription($arr_data['summary']);
     $videoSnippet->setTitle($arr_data['title']);
-    $videoSnippet->setDefaultLanguage('en');
 
     $video->setSnippet($videoSnippet);
   
