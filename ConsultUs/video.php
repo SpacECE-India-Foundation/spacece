@@ -43,7 +43,7 @@ while($row1=mysqli_fetch_assoc($res2)){
                      while($row = mysqli_fetch_assoc($res))
                             {
                             	$time1=$row1['c_time'];
-								echo $$time1;
+								echo $time1;
                             	if(($timenow-$time1)<1800){
                             		
                             		 $call.= $row['joining_url'];
