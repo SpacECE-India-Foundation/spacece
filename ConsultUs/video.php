@@ -64,6 +64,8 @@ while($row1=mysqli_fetch_assoc($res2)){
 	
 }
 if(isset($_POST['generateToken'])){
+	include("./php/src/RtcTokenBuilder.php");
+include("./php/src/RtmTokenBuilder.php");
 	$c_id=$_POST['c_id'];
 	$user_id=$_POST['user_id'];
 	$channel_name=$_POST['channel_name'];
