@@ -69,14 +69,10 @@ if(isset($_POST['generateToken'])){
 include("./php/src/RtmTokenBuilder.php");
 	$c_id=$_POST['c_id'];
 	$user_id=$_POST['user_id'];
-	$channel_name=$_POST['channel_name'];
-	$user_name=$_POST['user_name'];
-	$consult_name=$_POST['consult_name'];
-	$channel_name=$user_id.$consult_id;
-               echo  $channel_name;               
+	$channel_name=$_POST['consult_name'];                         
 	$appID = "464ff3e49fb3409494c0956edcec52e7";
 	$appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
-	$channelName =$user_name.$consult_name;
+	$channelName =$channel_name;
 	$uid = 0;
 	$uidStr = $user_id;
 	$role = RtcTokenBuilder::RoleAttendee;

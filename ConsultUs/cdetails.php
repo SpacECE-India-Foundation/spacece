@@ -475,8 +475,6 @@ function redirectTo(id,user_id,channel_name,user_name,consult_name){
 var c_id=id;
 alert(id);
 alert(user_id);
-
-alert(user_name);
 alert(consult_name);
 
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
@@ -500,8 +498,7 @@ $.ajax({
         generateToken:1,
         c_id:c_id,
         user_id:user_id,
-        channel_name:channel_name,
-        user_name:user_name,
+       
         consult_name:consult_name
 
 
