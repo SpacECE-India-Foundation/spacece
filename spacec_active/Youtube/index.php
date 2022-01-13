@@ -35,7 +35,7 @@ function upload_video_on_youtube($arr_data) {
     $video = new Google_Service_YouTube_Video();
   
     $videoSnippet = new Google_Service_YouTube_VideoSnippet();
-    $videoSnippet->setChannelId('PLm0GU5IUgzTCrTNRX_ijXIatqoiat8IiC');
+    $videoSnippet->setChannelId('UCt6Ed7f7MRjHf03HyVnXRsw');
     $videoSnippet->setDescription($arr_data['summary']);
     $videoSnippet->setTitle($arr_data['title']);
 
