@@ -476,6 +476,8 @@ var c_id=id;
 alert(id);
 alert(user_id);
 alert(channelName);
+alert(channel_name);
+alert(user_name);
 
 //var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
