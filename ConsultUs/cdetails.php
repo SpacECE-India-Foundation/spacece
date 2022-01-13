@@ -506,7 +506,7 @@ $.ajax({
 
     },
     success:function(data){
-        alert(data);
+        
     }
 
 });
