@@ -1,5 +1,5 @@
 <?php
- session_start();
+session_start();
 // if(empty($_SESSION['current_user_email'])){
 //     header('location:../spacece_auth/login.php');
 //     exit();
@@ -14,6 +14,9 @@ error_reporting(0);
 $ref = $_GET['user'];
 $cat = $_GET['category'];
 //echo $cat;
+// define('DB_HOST_NAME', 'localhost');
+// define('DB_USER_NAME', 'root');
+// define('DB_USER_PASSWORD', '');
 define('DB_HOST_NAME', '3.109.14.4');
 define('DB_USER_NAME', 'ostechnix');
 define('DB_USER_PASSWORD', 'Password123#@!');
@@ -45,23 +48,18 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 ?>
  
   
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.14.30/js/bootstrap-datetimepicker.min.js" integrity="sha512-S/yovhD96PAQtOskZtPuDTXcrU5ZOEYeiZfbYL1gfyZNobFCktETZERF1PTY+lHdqtSynoBNXKCgp/Lzh9dlBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script> 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+  <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css"  rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.14.30/css/bootstrap-datetimepicker.min.css" integrity="sha512-4yyv1lG510c3JZgYOkoajpJ1m4C4d/ZJMUlyhhXt6KXBaFdo0MoRCijWQGxLKJ+qyt+qmoI8081iQOjTmv62xA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.min.css" integrity="sha256-SMGbWcp5wJOVXYlZJyAXqoVWaE/vgFA5xfrH3i/jVw0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+
 <div class="main-content text-centre" style="background: linear-gradient(to bottom right, #ffcc99 0%, #ffffff 100%);">
     <div class="wrapper ">
         <br><br><br><br><br>
@@ -330,31 +328,31 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form method="POST" id="schedule">
+      <form method="POST" id="schedule" name="schedule">
 
       <div class="container">
    <div class="row">
       <div class='col-sm-6'>
-         <div class="form-group">
+      <div class="input-group">
             <div class='input-group date' id='datetimepicker1'>
-               <input type='text' class="form-control" />
+               <input type='text' class="form-control" id="date1" name="date1">
                <span class="input-group-addon">
                <span class="glyphicon glyphicon-calendar"></span>
                </span>
             </div>
-         </div>
+        
       </div>
-     
+      
    </div>
 </div>
 </div>
 
-
+<input type="submit" id="submit">
       </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
@@ -366,10 +364,22 @@ include_once '../common/footer_module.php';
           
 
 ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha256-5YmaxAwMjIpMrVlK84Y/+NjCpKnFYa8bWWBbUHSBGfU=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/agora-rtc-sdk@3.5.1/AgoraRTCSDK.min.js"></script>
-
+<script type="text/javascript">
+         $(function () {
+             $('#datetimepicker1').datetimepicker({
+                format: "YYYY-MM-DD HH:mm:ss ",
+                minDate: moment()
+             });
+         });
+      </script>
 
 
 
@@ -385,9 +395,17 @@ var c_id=id;
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
-var time = new Date(''); //without params it defaults to "now"
+var date = new Date();
+var time =
+date.getFullYear() +"-" +
+  ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
+  ("00" + date.getDate()).slice(-2) + " " +
+  ("00" + date.getHours()).slice(-2) + ":" +
+  ("00" + date.getMinutes()).slice(-2) + ":" +
+  ("00" + date.getSeconds()).slice(-2);
+console.log(time);//without params it defaults to "now"
 
-var c_time=+d;
+
 
  var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
  $.ajax({
@@ -398,10 +416,8 @@ var c_time=+d;
         video:1,
         time:time,
         channel_name:channel_name,
-        time:time,
         token:token,
         user_id:user_id,
-        c_time:c_time
         
 
 
@@ -419,31 +435,30 @@ var c_time=+d;
 function scheduleredirectTo(id,user_id,token,appId,channel_name){
     var c_id=id;
 
-//var id='<?php /// echo $_SESSION['user_id'];  ?>';
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
- //without params it defaults to "now"
 
+var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
+    $('#schedule').on('submit',function(e){
+        var time=$('#date1').val();
+        
 
-    $('#schedule').on('submit',function(){
-        var time=$('#datetimepicker5').val();
-        var c_time=+time;
+        e.preventDefault();
+   
+     
+
         $.ajax({
-    url:"video.php",method:"POST",
+    url:"video.php",
+    method:"POST",
     data:{
         link:link,
         c_id:c_id,
         video:1,
-        time:time,
         channel_name:channel_name,
         time:time,
         token:token,
         user_id:user_id,
-        c_time:c_time
-        
-
-
     },
     success:function(data){
         console.log(data);
@@ -454,12 +469,7 @@ var linkfull=url.replace(regex, '/');
     });  
 }
 
+
 </script>
-<script type="text/javascript">
-         $(function () {
-             $('#datetimepicker1').datetimepicker({
-                 format:'yyy-mm-dd hh:ii:ss'
-             });
-         });
-      </script>
+
 

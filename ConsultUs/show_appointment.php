@@ -1,14 +1,13 @@
-<?php include('indexDB.php');
-include_once './includes/header1.php'; ?>
-<?php 
- $nid = '';
- if(isset($_SESSION['current_user_email'])){
-     $email = $_GET['current_user_email'];
-     $nid= $_SESSION['current_user_name'];
- } else{
-     header('location:../spacecce_auth/login.php');
-     exit();
- }
+<?php
+// include_once './includes/header1.php';
+include('indexDB.php');
+session_start();
+ if(empty($_SESSION['current_user_email'])){
+    header('location:../spacecce_auth/login.php');
+    exit();
+    
+} 
+
  ?>
 <html>
     <head>
@@ -36,8 +35,10 @@ include_once './includes/header1.php'; ?>
                     </tr>
                     <?php
                     error_reporting(0);
-                    // showing admin added from database
+                    
+                    $nid= $_SESSION['current_user_name'];
                     $sql = "SELECT * FROM `appointment` where `cname`='$nid'";
+                    echo $sql;
                     $res = mysqli_query($conn,$sql);
 
 
@@ -104,7 +105,7 @@ include_once './includes/header1.php'; ?>
                              </div>
          </div>
         <?php
-        include_once './includes/header1.php';
+        // include_once './includes/footer1.php';
         ?>
     </body>
 
