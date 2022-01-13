@@ -506,11 +506,39 @@ $.ajax({
 
     },
     success:function(data){
-        alert(data);
+       // alert(data);
         var data1=JSON.parse(data);
-        alert(data1['appId']);
-        alert(data1['token']);
+        var appId=data1['appID'];
+        var token=data1['token'];
+        var url = window.location.href;
+var regex = new RegExp('/[^/]*$');
+var linkfull=url.replace(regex, '/');
+
+var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+user_name+"&id="+c_id+"&user_id="+user_id;
+   
+$.ajax({
+    url:"video.php",method:"POST",
+    data:{
+        link:link,
+        c_id:c_id,
+        video:1,
+        time:time,
+        channel_name:user_name,
+        token:token,
+        user_id:user_id,
+        
+
+
+    },
+    success:function(data){
+        console.log(data);
+        alert(data);
+        window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+user_name+"&id="+c_id+"&user_id="+user_id;  
     }
+
+
+});
+}
 
 });
 
