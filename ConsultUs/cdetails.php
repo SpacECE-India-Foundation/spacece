@@ -177,7 +177,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                             // $token=$row1['token'];
                             // $channelname=$row1['channel_name'];
                             $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
-                                ?>
+                               echo $token;
+                               ?>
                         <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
                        
                         <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>');" class="btn-second" data-bs-toggle="modal" data-bs-target="#SheduleleModal" style="color:black;background-color:yellow">Schedule call</a>  
