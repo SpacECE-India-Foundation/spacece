@@ -17,7 +17,7 @@ if(channel1){
 
  var agoraAppId =appid1;
  console.log(agoraAppId) // Set your Agora App ID
-var channelName =channel1;
+var channelName=channel1;
 var uid="0";
 var attend = false;
 
@@ -152,7 +152,7 @@ function joinChannel() {
 
 
    
-  client.join(token, channelName, userID, function(uid) {
+  client.join(token,channelName,userID,function(uid) {
    
       console.log("User " + uid + " join channel successfully");
       createCameraStream(uid);
