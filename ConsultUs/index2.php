@@ -1,4 +1,5 @@
 <?php 
+session_start();
    include_once './includes/header1.php';
    include('indexDB.php'); ?>
 <?php error_reporting(0); 
