@@ -335,7 +335,7 @@ include_once './common/header_module.php';
     <!--Benefits-->
     <div class="container">
       <div class="section-title">
-        <h3 class="text-center">IF YOU REGISTER WITH US : BENIFITS</h3>
+        <h3 class="text-center">IF YOU REGISTER WITH US : BENEFITS</h3>
         <p></p>
       </div>
       <div class="row">
