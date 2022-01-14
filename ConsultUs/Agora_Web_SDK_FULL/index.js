@@ -326,6 +326,7 @@ function leaveChannel() {
     // hide the mute/no-video overlays
     toggleVisibility("#mute-overlay", false); 
     toggleVisibility("#no-local-video", false); 
+    wimdow.location.href('../cdetails.php?category=all');
   }, function(err) {
     console.log("client leave failed ", err); //error handling
   });
