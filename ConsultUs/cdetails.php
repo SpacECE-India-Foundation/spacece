@@ -149,7 +149,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
 
                         if($count >0){
-                             //India time (GMT+5:30)
+                         
 
                             $user_name=substr($_SESSION['current_user_name'],0,4);
                             $con_name=substr($row['u_name'],0,4);
@@ -157,30 +157,19 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         
                             $user_id=$_SESSION['current_user_id'];
                            
-                            $channel_name=$user_id.$consult_id;
+                            $channel_name=$user_id.$con_name;
                            
-                            $appID = "464ff3e49fb3409494c0956edcec52e7";
-                            $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
-                            $channelName =$user_name.$consult_id;
-                            $uid = 0;
-                            $uidStr = $user_id;
-                            $role = RtcTokenBuilder::RoleAttendee;
-                            $expireTimeInSeconds = 3600;
-                            $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
-                            $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
-                            
+                            $appID = "8a0176984cea4e4e8a96c984d149d52f";
+                            $appCertificate = "0bfb49c03978438a8f6723c29f9ccdee";
+                            $channelName =$user_name.$con_name ;
+                           
                            $time= date('Y-m-d H:i:s');
 
-                            // $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
-                            // $result = mysqli_query($conn, $sql);
-                            // $row1=mysqli_fetch_assoc($result);
-                            // $token=$row1['token'];
-                            // $channelname=$row1['channel_name'];
-                            $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
-                                ?>
-                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
+                         
+                               ?>
+                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $channelName;?>');" class="btn btn-secondary"> Call Counsultants</a>
                        
-                        <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>');" class="btn-second" data-bs-toggle="modal" data-bs-target="#SheduleleModal" style="color:black;background-color:yellow">Schedule call</a>  
+                        <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $con_name;?>');" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#SheduleleModal" >Schedule call</a>  
                            
                            <?php 
                         }
@@ -270,28 +259,23 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                
                                 $channel_name=$user_id.$consult_id;
                                
-                                $appID = "464ff3e49fb3409494c0956edcec52e7";
-                                $appCertificate = "21f542eedcde43a38f6c292abaa8c4c2";
-                                $channelName =$user_name.$consult_id;
-                                $uid = 0;
-                                $uidStr = $user_id;
-                                $role = RtcTokenBuilder::RoleAttendee;
-                                $expireTimeInSeconds = 3600;
-                                $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
-                                $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
+                                $appID = "8a0176984cea4e4e8a96c984d149d52f";
+                                $appCertificate = "0bfb49c03978438a8f6723c29f9ccdee";
+                                $channelName =$user_name.$con_name;
+                            //     $uid = 0;
+                            //     $uidStr = $user_id;
+                            //     $role = RtcTokenBuilder::RoleAttendee;
+                            //     $expireTimeInSeconds = 3600;
+                            //     $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
+                            //     $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
                                 
-                               $time= date('Y-m-d H:i:s');
+                            //    $time= date('Y-m-d H:i:s');
     
-                                // $sql="SELECT * from agora_call where user_id='$user_id' and consult_id='$consult_id' ORDER BY id DESC";
-                                // $result = mysqli_query($conn, $sql);
-                                // $row1=mysqli_fetch_assoc($result);
-                                // $token=$row1['token'];
-                                // $channelname=$row1['channel_name'];
-                                $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
+                            //     $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
                                     ?>
-                            <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a>
-                             
-                            <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $token;?>','<?php echo $appID;?>','<?php echo $channelName;?>','<?php echo $time; ?>');" class="btn-second" data-bs-toggle="modal" data-bs-target="#SheduleleModal" style="color:black;background-color:yellow">Schedule call</a>
+                            <!-- <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php // echo $consult_id;?>" onclick="redirectTo('<?php //echo $consult_id;?>','<?php // echo $user_id;?>','<?php // echo $token;?>','<?php //echo $appID;?>','<?php // echo $channelName;?>','<?php // echo $time; ?>');" class="btn-second" style="color:black;background-color:yellow"> Call Counsultants</a> -->
+                            <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $con_name;?>');" class="btn btn-secondary" > Call Counsultants</a>
+                            <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $con_name;?>');" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#SheduleleModal" style="color:black;background-color:yellow">Schedule call</a>
                              <?php 
                             }
                            
@@ -387,59 +371,33 @@ include_once '../common/footer_module.php';
 <script type="text/javascript">
  
     
-function redirectTo(id,user_id,token,appId,channel_name,time){
 
-var c_id=id;
-
-//var id='<?php /// echo $_SESSION['user_id'];  ?>';
-var url = window.location.href;
-var regex = new RegExp('/[^/]*$');
-var linkfull=url.replace(regex, '/');
-var date = new Date();
-var time =
-date.getFullYear() +"-" +
-  ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
-  ("00" + date.getDate()).slice(-2) + " " +
-  ("00" + date.getHours()).slice(-2) + ":" +
-  ("00" + date.getMinutes()).slice(-2) + ":" +
-  ("00" + date.getSeconds()).slice(-2);
-console.log(time);//without params it defaults to "now"
-
-
-
- var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
- $.ajax({
-    url:"video.php",method:"POST",
-    data:{
-        link:link,
-        c_id:c_id,
-        video:1,
-        time:time,
-        channel_name:channel_name,
-        token:token,
-        user_id:user_id,
-        
-
-
-    },
-    success:function(data){
-        console.log(data);
-        alert(data);
-    }
- })
-
- window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
-} 
-
-
-function scheduleredirectTo(id,user_id,token,appId,channel_name){
+function scheduleredirectTo(id,user_id,channel_name,user_name,channelName){
     var c_id=id;
 
 var url = window.location.href;
 var regex = new RegExp('/[^/]*$');
 var linkfull=url.replace(regex, '/');
 
-var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;
+$.ajax({
+    url:'video.php',
+    method:'POST',
+    data:{
+        generateToken:1,
+        c_id:c_id,
+        user_id:user_id,
+       user_name:user_name
+
+
+    },
+    success:function(data){
+        var data1=JSON.parse(data);
+        var appId=data1['appID'];
+        var token=data1['token'];
+        var url = window.location.href;
+var regex = new RegExp('/[^/]*$');
+var linkfull=url.replace(regex, '/');
+var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+user_name+"&c_id="+c_id+"&user_id="+user_id;
     $('#schedule').on('submit',function(e){
         var time=$('#date1').val();
         
@@ -462,14 +420,84 @@ var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&ch
     },
     success:function(data){
         console.log(data);
-        alert(data);
+      //  alert(data);
     }
     })
-    
+
     });  
 }
+});
+}
+
+function redirectTo(id,user_id,channel_name,user_name,channelName){
+
+var c_id=id;
+
+var url = window.location.href;
+var regex = new RegExp('/[^/]*$');
+var linkfull=url.replace(regex, '/');
+var date = new Date();
+var time =
+date.getFullYear() +"-" +
+  ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
+  ("00" + date.getDate()).slice(-2) + " " +
+  ("00" + date.getHours()).slice(-2) + ":" +
+  ("00" + date.getMinutes()).slice(-2) + ":" +
+  ("00" + date.getSeconds()).slice(-2);
+console.log(time);//without params it defaults to "now"
+
+$.ajax({
+    url:'video.php',
+    method:'POST',
+    data:{
+        generateToken:1,
+        c_id:c_id,
+        user_id:user_id,
+       user_name:user_name
 
 
+    },
+    success:function(data){
+       // alert(data);
+        var data1=JSON.parse(data);
+        var appId=data1['appID'];
+        var token=data1['token'];
+        var url = window.location.href;
+var regex = new RegExp('/[^/]*$');
+var linkfull=url.replace(regex, '/');
+
+var link=linkfull+"Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+user_name+"&c_id="+c_id+"&user_id="+user_id;
+   
+$.ajax({
+    url:"video.php",method:"POST",
+    data:{
+        link:link,
+        c_id:c_id,
+        video:1,
+        time:time,
+        channel_name:user_name,
+        token:token,
+        user_id:user_id,
+        
+
+
+    },
+    success:function(data){
+        console.log(data);
+       // alert(data);
+        window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+user_name+"&c_id="+c_id+"&user_id="+user_id;  
+    }
+
+
+});
+}
+
+});
+
+
+
+ window.location.href="Agora_Web_SDK_FULL/index.html?id="+token+"&appId="+appId+"&channel="+channel_name+"&id="+id+"&user_id="+user_id;  
+} 
 </script>
 
 

@@ -4,11 +4,12 @@ session_start();
  require_once './config.php';
 
 if (isset($_POST['title'])) {
-   // var_dump($_POST);
+
     $arr_data = array(
         'title' => $_POST['title'],
         'summary' => $_POST['summary'],
         'category'=>$_POST['category'],
+        'playlist_id'=>$_POST['pl_id'],
         'video_path' => $_FILES['file']['tmp_name'],
     );
     upload_video_on_youtube($arr_data);
@@ -34,15 +35,16 @@ function upload_video_on_youtube($arr_data) {
     $video = new Google_Service_YouTube_Video();
   
     $videoSnippet = new Google_Service_YouTube_VideoSnippet();
+    $videoSnippet->setChannelId('UCt6Ed7f7MRjHf03HyVnXRsw');
     $videoSnippet->setDescription($arr_data['summary']);
     $videoSnippet->setTitle($arr_data['title']);
-    //var_dump($videoSnippet);
+
     $video->setSnippet($videoSnippet);
   
     $videoStatus = new  Google_Service_YouTube_VideoStatus();
     $videoStatus->setPrivacyStatus('public');
     $video->setStatus($videoStatus);
-   // var_dump( $video);
+    
     try {
         $response = $service->videos->insert(
             'snippet,status',
@@ -53,39 +55,39 @@ function upload_video_on_youtube($arr_data) {
                 'uploadType' => 'multipart'
             )
         );
+       
         $video_id=$response->id;
         $user = $_SESSION['current_user_email'];
         $title=$_POST['title'];
         $summary=$_POST['summary'];
         $category=$_POST['category'];
         $pl_id=$_POST['pl_id'];
-        $act_id= $_POST['cat_id'];
-        $db->upload_video_to_db($video_id, $title, $summary,$category,$user,$pl_id,$act_id);
+        $act_id= $_POST['id'];
+        $db->upload_video_to_db($video_id, $title, $summary, $category, $user, $act_id, $pl_id);
+       
                    
                         $playlistItem = new Google_Service_YouTube_PlaylistItem();
                 
+                       
+
                         // Add 'snippet' object to the $playlistItem object.
                         $playlistItemSnippet = new Google_Service_YouTube_PlaylistItemSnippet();
-                        $playlistItemSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
-                        $playlistItemSnippet->setDescription($summary );
-                        $playlistItemSnippet->setPlaylistId($category);
+                        $playlistItemSnippet->setPlaylistId($pl_id);
                         $playlistItemSnippet->setPosition(0);
                         $resourceId = new Google_Service_YouTube_ResourceId();
-                        $resourceId->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
                         $resourceId->setKind('youtube#video');
-                        $resourceId->setPlaylistId('PLm0GU5IUgzTCPa0S6EbS1TKatX5-XEzay');
                         $resourceId->setVideoId($video_id);
                         $playlistItemSnippet->setResourceId($resourceId);
-                        $playlistItemSnippet->setTitle($title);
                         $playlistItem->setSnippet($playlistItemSnippet);
                         
+                       
                         // Add 'status' object to the $playlistItem object.
-                       $playlistItemStatus = new Google_Service_YouTube_PlaylistItemStatus();
-                      $playlistItemStatus->setPrivacyStatus('public');
-                       $playlistItem->setStatus($playlistItemStatus);
+                    //    $playlistItemStatus = new Google_Service_YouTube_PlaylistItemStatus();
+                    //   $playlistItemStatus->setPrivacyStatus('public');
+                    //    $playlistItem->setStatus($playlistItemStatus);
                         
                         $response = $service->playlistItems->insert('snippet', $playlistItem);
-                       // print_r($response);
+                        print_r($response);
                     if($response->status===200){
                         echo "Video uploaded successfully. Video ID is ". $response->id;
                     }else{

@@ -1,11 +1,20 @@
 <?php 
-   include_once './includes/header1.php';
-   include('indexDB.php'); ?>
+session_start();
+include_once './header_local.php';
+include_once '../common/header_module.php';
+// include_once '../common/banner.php';
+include('indexDB.php');
+include("./php/src/RtcTokenBuilder.php");
+include("./php/src/RtmTokenBuilder.php");
+    ?>
 <?php error_reporting(0); 
 $ref = '';
 if(isset($_SESSION['current_user_email'])){
     $email = $_SESSION['current_user_email'];
     $ref= $_SESSION['current_user_name'];
+}else{
+	header('location:../spacece_auth/login.php');
+	exit();
 }
 
 ?>
@@ -408,7 +417,7 @@ if(isset($_SESSION['current_user_email'])){
 </div>
 
 
-
+<div id="call"></div>
 <!--session close-->
 
 
@@ -499,11 +508,11 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 <script type="text/javascript">
 
 	$(document).ready(function(){
-
-
+ 
+		$('#call').empty();
  setInterval(function(){ 
- 	let user ="<?php if(isset($_SESSION['current_user_email'])){
-    echo $_SESSION['current_user_id '];}?>";
+ 	let user ="<?php echo $_SESSION['current_user_id'];?>";
+	 //alert(user);
 
 $.ajax({
 url:'./video.php',
@@ -514,8 +523,8 @@ data:{
 },
 success:function(data){
        // console.log(data);
-        alert(data);
-        //$('#call').html(data);
+        
+        $('#call').html(data);
     }
 });
 

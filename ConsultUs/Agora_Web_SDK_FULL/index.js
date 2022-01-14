@@ -1,7 +1,11 @@
 let params = (new URL(document.location)).searchParams;
-let channel1 = params.get('channel_name'); // is the string "cha123".
+let channel1 = params.get('channel'); // is the string "cha123".
 let appid1 = params.get('appId'); // is the string "183432424242"
 let id1 = params.get('id'); 
+console.log(id1);
+console.log(appid1);
+console.log(channel1);
+
 
 if(channel1){
 
@@ -13,8 +17,8 @@ if(channel1){
 
  var agoraAppId =appid1;
  console.log(agoraAppId) // Set your Agora App ID
-var channelName ="testing";
-var uid="43456";
+var channelName=channel1;
+var uid="10";
 var attend = false;
 
 
@@ -78,7 +82,7 @@ client.on('stream-added', function (evt) {
 client.on('stream-subscribed', function (evt) {
   
  
-alert("Added");
+//alert("Added");
 
   var remoteStream = evt.stream;
   var remoteId = remoteStream.getId();
@@ -138,17 +142,17 @@ client.on("unmute-video", function (evt) {
 });
 
 // join a channel
-function joinChannel(id1) {
+function joinChannel() {
 
   
 
   var token = id1;
- 
+ // alert(token);
   var userID = null;
 
 
    
-  client.join(token, channelName, userID, function(uid) {
+  client.join(token,channelName,userID,function(uid) {
    
       console.log("User " + uid + " join channel successfully");
       createCameraStream(uid);
@@ -173,6 +177,7 @@ function createCameraStream(uid) {
    
    try{
      localStream.play('local-video');
+     //alert("Started");
    } catch(err){
     console.log(err);
    }// play the given stream within the local-video div
@@ -190,10 +195,10 @@ function createCameraStream(uid) {
 }
 
 // SCREEN SHARING
-function initScreenShare(id1) {
+function initScreenShare() {
   screenClient.init(agoraAppId, function () {
     console.log("AgoraRTC screenClient initialized");
-    joinChannelAsScreenShare(id1);
+    joinChannelAsScreenShare();
     screenShareActive = true;
     // TODO: add logic to swap button
   }, function (err) {
@@ -201,7 +206,8 @@ function initScreenShare(id1) {
   });  
 }
 
-function joinChannelAsScreenShare(id1) {
+function joinChannelAsScreenShare() {
+  console.log("Joined");
   var token = id1;
   var userID = null; // set to null to auto generate uid on successfull connection
   screenClient.join(token, channelName, userID, function(uid) { 
@@ -320,6 +326,7 @@ function leaveChannel() {
     // hide the mute/no-video overlays
     toggleVisibility("#mute-overlay", false); 
     toggleVisibility("#no-local-video", false); 
+    wimdow.location.href('../cdetails.php?category=all');
   }, function(err) {
     console.log("client leave failed ", err); //error handling
   });

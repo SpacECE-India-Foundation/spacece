@@ -12,7 +12,9 @@ $res = mysqli_query($conn,$sql);
 if($res){
     $_SESSION['delete']= "<div style='color:green;'> APPOINTMENT CANCELLED SUCCESSFULLY</div>";         //creating session variable
     // redirecting page
-    header("location:./cdetails.php?category=all");
+    $page = $_SERVER['PHP_SELF'];
+    $sec = "10";
+    header("Refresh: $sec; url=$page");
 }
 else{
  $_SESSION['delete']= "<div  style='color:red;'> FAILED TO CANCEL APPOINTMENT </div>";         //creating session variable

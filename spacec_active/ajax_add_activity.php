@@ -38,7 +38,7 @@ $playlist = new Google_Service_YouTube_Playlist();
 
 // Add 'snippet' object to the $playlist object.
 $playlistSnippet = new Google_Service_YouTube_PlaylistSnippet();
-$playlistSnippet->setChannelId('UCSFXd8_Kp1a5ZHAaOejPiHA');
+$playlistSnippet->setChannelId('UCt6Ed7f7MRjHf03HyVnXRsw');
 $playlistSnippet->setDescription($pl_desc);
 $playlistSnippet->setTitle($pl_name);
 //  $playlistSnippet->setDescription("Hello");

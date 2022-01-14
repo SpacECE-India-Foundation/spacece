@@ -305,6 +305,7 @@ include_once '../common/banner.php';
         </div>
     </div>
 </div>
+    </div>
 <div class="progress">
     <div id="progress-bar" class="progress-bar progress-bar-striped" role="progressbar" style="width:10px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
 </div>
@@ -401,8 +402,9 @@ include_once '../common/footer_module.php';
 
     
     $(document).on("click", "#upload", function() {
-        var cat_id= $(this).data('id');
-        var pl_id=$(this).data('plyalist');
+        var cat_id= $(this).data('text');
+        var pl_id=$(this).data('playlist');
+        var id =    $(this).data('text');
 
     $('#uploadVideo').on('submit', function(event) {
 
@@ -418,7 +420,7 @@ include_once '../common/footer_module.php';
         fd.append("file", file_data);
         fd.append("title", title);
         fd.append("summary", summary);
-        fd.append("cat_id", cat_id);
+        fd.append("id", id);
         fd.append("pl_id", pl_id);
 
         $('.progress').show();
