@@ -82,7 +82,7 @@ client.on('stream-added', function (evt) {
 client.on('stream-subscribed', function (evt) {
   
  
-alert("Added");
+//alert("Added");
 
   var remoteStream = evt.stream;
   var remoteId = remoteStream.getId();
@@ -147,7 +147,7 @@ function joinChannel() {
   
 
   var token = id1;
-  alert(token);
+ // alert(token);
   var userID = null;
 
 
@@ -177,7 +177,7 @@ function createCameraStream(uid) {
    
    try{
      localStream.play('local-video');
-     alert("Started");
+     //alert("Started");
    } catch(err){
     console.log(err);
    }// play the given stream within the local-video div

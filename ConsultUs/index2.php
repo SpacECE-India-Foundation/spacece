@@ -1,7 +1,12 @@
 <?php 
 session_start();
-   include_once './includes/header1.php';
-   include('indexDB.php'); ?>
+include_once './header_local.php';
+include_once '../common/header_module.php';
+// include_once '../common/banner.php';
+include('indexDB.php');
+include("./php/src/RtcTokenBuilder.php");
+include("./php/src/RtmTokenBuilder.php");
+    ?>
 <?php error_reporting(0); 
 $ref = '';
 if(isset($_SESSION['current_user_email'])){
@@ -503,7 +508,7 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 <script type="text/javascript">
 
 	$(document).ready(function(){
-
+ 
 		$('#call').empty();
  setInterval(function(){ 
  	let user ="<?php echo $_SESSION['current_user_id'];?>";
@@ -518,7 +523,7 @@ data:{
 },
 success:function(data){
        // console.log(data);
-        alert(data);
+        
         $('#call').html(data);
     }
 });
