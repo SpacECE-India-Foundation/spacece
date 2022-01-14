@@ -380,7 +380,7 @@ include_once './common/header_module.php';
         <div class="col-lg-4 col-md-6 blog-item">
           <p>
             <i class="fa fa-check-circle" style="color: black"></i>
-            <span>Realiable and Trust-worthy</span>
+            <span>Reliable and Trust-worthy</span>
           </p>
         </div>
       </div>
