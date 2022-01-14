@@ -90,12 +90,14 @@ a {
   cursor: pointer;
 }
 
-.course_container {
+.course_container,
+.my_course_container {
   display: flex;
   justify-content: center;
 }
 
-#courses {
+#courses,
+#my_courses {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -104,7 +106,8 @@ a {
   width: 90vw;
 }
 
-#courses .course {
+#courses .course,
+#my_courses .course {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -116,16 +119,19 @@ a {
   width: 100%;
 }
 
-#courses .course img {
+#courses .course img,
+#my_courses .course img {
   height: 200px;
   width: auto;
 }
 
-#courses .course:not(:last-child) {
+#courses .course:not(:last-child),
+#my_courses .course:not(:last-child) {
   border-bottom: 3px solid #ccc;
 }
 
-#courses .course .list-body {
+#courses .course .list-body,
+#my_courses .course .list-body {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -133,17 +139,20 @@ a {
   max-width: 300px;
 }
 
-#courses .course .list-misc {
+#courses .course .list-misc,
+#my_courses .course .list-misc {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-#courses .course .list-title {
+#courses .course .list-title,
+#my_courses .course .list-title {
   font-size: 1.5rem;
 }
 
-#courses .course .list-text {
+#courses .course .list-text,
+#my_courses .course .list-text {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -156,6 +165,7 @@ a {
 }
 
 #courses .course .btn,
+#my_courses .course .btn,
 #course_details .btn {
   background-color: #ffae1a;
   color: #fff;
@@ -213,11 +223,13 @@ a {
 }
 
 @media only screen and (max-width: 768px) {
-  #courses .course {
+  #courses .course,
+  #my_courses .course {
     flex-wrap: wrap;
     justify-content: center;
   }
-  #courses .course .list-text {
+  #courses .course .list-text,
+  #my_courses .course .list-text {
     -webkit-line-clamp: 4;
   }
 }
