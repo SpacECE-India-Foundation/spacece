@@ -147,18 +147,8 @@ function get_consultant_categories($conn)
                 </select>
             </div>
            
-                <div class="form-group">
-                <select name="teams" id="teams" multiple="multiple" class="form-control">
-      <option value="vikings">Minnesota Vikings</option>
-      <option value="packers">Green Bay Packers</option>
-      <option value="lions">Detroit Lions</option>
-      <option value="bears">Chicago Bears</option>
-      <option value="patriots">New England Patriots</option>
-      <option value="jets">New York Jets</option>
-      <option value="bills">Buffalo Bills</option>
-      <option value="dolphins">Miami Dolphins</option>
-    </select>
-            </div>
+              
+               
          
 <!-- Note the missing multiple attribute! -->
 
@@ -174,34 +164,5 @@ function get_consultant_categories($conn)
 
 <?php include_once '../common/footer_module.php'; ?>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-  $('select').multiselect({
-    templates: { // Use the Awesome Bootstrap Checkbox structure
-      li: '<li class="checkList"><a tabindex="0"><div class="aweCheckbox aweCheckbox-danger"><label for=""></label></div></a></li>'
-    }
-  });
-  $('.multiselect-container div.aweCheckbox').each(function(index) {
 
-    var id = 'multiselect-' + index,
-      $input = $(this).find('input');
-
-    // Associate the label and the input
-    $(this).find('label').attr('for', id);
-    $input.attr('id', id);
-
-    // Remove the input from the label wrapper
-    $input.detach();
-
-    // Place the input back in before the label
-    $input.prependTo($(this));
-
-    $(this).click(function(e) {
-      // Prevents the click from bubbling up and hiding the dropdown
-      e.stopPropagation();
-    });
-
-  });
-});
-</script>
 
