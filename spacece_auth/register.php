@@ -181,3 +181,6 @@ $('#btnget').click(function() {
 });
 });
 </script>
+<script type="text/javascript">
+    $('#chkveg').multiselect();
+</script>
