@@ -34,6 +34,9 @@ $extra_styles = '
     background: #dd4b39;
     color: white;
   }
+  .multiselect-container>li>a>label {
+    padding: 4px 20px 3px 20px;
+  }
 </style>
 ';
 
