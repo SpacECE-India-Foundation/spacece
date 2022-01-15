@@ -148,7 +148,7 @@ function get_consultant_categories($conn)
             </div>
            
                 <div class="form-group">
-                <select id="chkveg" name="chkveg" multiple="multiple">
+                <select id="chkveg" name="chkveg">
       <option value="cheese">Cheese</option>
       <option value="tomatoes">Tomatoes</option>
       <option value="mozarella">Mozzarella</option>
