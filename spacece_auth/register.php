@@ -148,26 +148,20 @@ function get_consultant_categories($conn)
             </div>
            
                 <div class="form-group">
-                <select id="chkveg" name="chkveg" multiple="multiple">
-                    <option value="cheese">Cheese</option>
-                    <option value="tomatoes">Tomatoes</option>
-                    <option value="mozarella">Mozzarella</option>
-                    <option value="mushrooms">Mushrooms</option>
-                    <option value="pepperoni">Pepperoni</option>
-                    <option value="onions">Onions</option>
-                </select>
+                <select name="teams" id="teams" multiple="multiple" class="form-control">
+      <option value="vikings">Minnesota Vikings</option>
+      <option value="packers">Green Bay Packers</option>
+      <option value="lions">Detroit Lions</option>
+      <option value="bears">Chicago Bears</option>
+      <option value="patriots">New England Patriots</option>
+      <option value="jets">New York Jets</option>
+      <option value="bills">Buffalo Bills</option>
+      <option value="dolphins">Miami Dolphins</option>
+    </select>
             </div>
          
 <!-- Note the missing multiple attribute! -->
-<select id="example-multiple-selected" multiple="multiple">
-    <option value="1">Option 1</option>
-    <option value="2" >Option 2</option>
-    <!-- Option 3 will be selected in advance ... -->
-    <option value="3" >Option 3</option>
-    <option value="4">Option 4</option>
-    <option value="5">Option 5</option>
-    <option value="6">Option 6</option>
-</select>
+
             <div class="form-group">
                 <label for="c_qualification">Qualification</label>
                 <input type="text" class="form-control" placeholder="Enter Qualification" id="c_qualification" name="c_qualification" />
@@ -181,9 +175,33 @@ function get_consultant_categories($conn)
 <?php include_once '../common/footer_module.php'; ?>
 
 <script type="text/javascript">
-    $('#chkveg').multiselect();
+    $(document).ready(function() {
+  $('select').multiselect({
+    templates: { // Use the Awesome Bootstrap Checkbox structure
+      li: '<li class="checkList"><a tabindex="0"><div class="aweCheckbox aweCheckbox-danger"><label for=""></label></div></a></li>'
+    }
+  });
+  $('.multiselect-container div.aweCheckbox').each(function(index) {
+
+    var id = 'multiselect-' + index,
+      $input = $(this).find('input');
+
+    // Associate the label and the input
+    $(this).find('label').attr('for', id);
+    $input.attr('id', id);
+
+    // Remove the input from the label wrapper
+    $input.detach();
+
+    // Place the input back in before the label
+    $input.prependTo($(this));
+
+    $(this).click(function(e) {
+      // Prevents the click from bubbling up and hiding the dropdown
+      e.stopPropagation();
+    });
+
+  });
+});
 </script>
-<script type="text/javascript">
-    $('#example-multiple-selected').multiselect();
-</script>
-<!-- Note the missing multiple attribute! -->
+
