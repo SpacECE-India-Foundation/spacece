@@ -157,15 +157,13 @@ function get_consultant_categories($conn)
                     <option value="onions">Onions</option>
                 </select>
             </div>
-            <script type="text/javascript">
-    $('#example-multiple-selected').multiselect();
-</script>
+         
 <!-- Note the missing multiple attribute! -->
 <select id="example-multiple-selected" multiple="multiple">
     <option value="1">Option 1</option>
-    <option value="2" selected="selected">Option 2</option>
+    <option value="2" >Option 2</option>
     <!-- Option 3 will be selected in advance ... -->
-    <option value="3" selected="selected">Option 3</option>
+    <option value="3" >Option 3</option>
     <option value="4">Option 4</option>
     <option value="5">Option 5</option>
     <option value="6">Option 6</option>
