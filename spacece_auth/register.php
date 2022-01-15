@@ -170,7 +170,7 @@ function get_consultant_categories($conn)
 <?php include_once '../common/footer_module.php'; ?>
 
 <script>
-    $(function() {
+    $('#chkveg').on('change',function() {
 
 $('#chkveg').multiselect({
   includeSelectAllOption: true
