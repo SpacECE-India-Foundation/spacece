@@ -135,26 +135,27 @@ function get_consultant_categories($conn)
                 </select>
             </div>
             <div class="form-group">
-            <select id="chkveg" multiple="multiple">
-                <option value="cheese">Cheese</option>
-                <option value="tomatoes">Tomatoes</option>
-                <option value="mozarella">Mozzarella</option>
-                <option value="mushrooms">Mushrooms</option>
-                <option value="pepperoni">Pepperoni</option>
-                <option value="onions">Onions</option>
-             </select>
+                <label for="c_available_to">Availability To</label>
+                <select name="c_available_to" id="c_available_to">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
             </div>
            
-            <div class="form-group">
-            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Option 1</a></li>
-                <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Option 2</a></li>
-                <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;Option 3</a></li>
-                <li><a href="#" class="small" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;Option 4</a></li>
-                <li><a href="#" class="small" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;Option 5</a></li>
-                <li><a href="#" class="small" data-value="option6" tabIndex="-1"><input type="checkbox"/>&nbsp;Option 6</a></li>
-                </ul>
+                <div class="form-group">
+                <select id="chkveg" name="chkveg" multiple="multiple">
+      <option value="cheese">Cheese</option>
+      <option value="tomatoes">Tomatoes</option>
+      <option value="mozarella">Mozzarella</option>
+      <option value="mushrooms">Mushrooms</option>
+      <option value="pepperoni">Pepperoni</option>
+      <option value="onions">Onions</option>
+    </select>
             </div>
 
             <div class="form-group">
@@ -168,9 +169,8 @@ function get_consultant_categories($conn)
 </div>
 
 <?php include_once '../common/footer_module.php'; ?>
-
 <script>
-    $('#chkveg').on('change',function() {
+    $(function() {
 
 $('#chkveg').multiselect({
   includeSelectAllOption: true
