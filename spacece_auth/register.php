@@ -135,16 +135,14 @@ function get_consultant_categories($conn)
                 </select>
             </div>
             <div class="form-group">
-                <label for="c_available_to">Availability To</label>
-                <select name="c_available_to" id="c_available_to">
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
-                </select>
+            <select id="chkveg" multiple="multiple">
+                <option value="cheese">Cheese</option>
+                <option value="tomatoes">Tomatoes</option>
+                <option value="mozarella">Mozzarella</option>
+                <option value="mushrooms">Mushrooms</option>
+                <option value="pepperoni">Pepperoni</option>
+                <option value="onions">Onions</option>
+             </select>
             </div>
            
             <div class="form-group">
@@ -172,26 +170,14 @@ function get_consultant_categories($conn)
 <?php include_once '../common/footer_module.php'; ?>
 
 <script>
-    var options = [];
+    $(function() {
 
-$( '.dropdown-menu a' ).on( 'click', function( event ) {
+$('#chkveg').multiselect({
+  includeSelectAllOption: true
+});
 
-   var $target = $( event.currentTarget ),
-       val = $target.attr( 'data-value' ),
-       $inp = $target.find( 'input' ),
-       idx;
-
-   if ( ( idx = options.indexOf( val ) ) > -1 ) {
-      options.splice( idx, 1 );
-      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
-   } else {
-      options.push( val );
-      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
-   }
-
-   $( event.target ).blur();
-      
-   console.log( options );
-   return false;
+$('#btnget').click(function() {
+  alert($('#chkveg').val());
+});
 });
 </script>
