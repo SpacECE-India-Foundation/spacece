@@ -1,5 +1,7 @@
 let uid = $("#uid_placeholder").data("uid") || null;
 
+console.log("uid", uid);
+
 // Admin Page Edit Course
 const editCourse = (id) => {
   $(`#tr-${id}`).html(
@@ -370,5 +372,3 @@ $(document).ready(function () {
     },
   });
 });
-
-console.log("uid", uid);
