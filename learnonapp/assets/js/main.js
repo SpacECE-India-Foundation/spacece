@@ -1,7 +1,5 @@
 let uid = $("#uid_placeholder").data("uid") || null;
 
-console.log("uid", uid);
-
 // Admin Page Edit Course
 const editCourse = (id) => {
   $(`#tr-${id}`).html(
@@ -297,8 +295,8 @@ $(document).ready(function () {
   let cid = params.get("id");
   if (cid) {
     let url = uid
-      ? `../api/learnonapp_courses.php?cid=${cid}`
-      : `../api/learnonapp_courses.php?uid=${uid}&cid=${cid}`;
+      ? `../api/learnonapp_courses.php?uid=${uid}&cid=${cid}`
+      : `../api/learnonapp_courses.php?cid=${cid}`;
     $.ajax({
       url: url,
       // url: `https://spacefoundation.in/test/SpacECE-PHP/api/learnonapp_courses.php?cid=${id}`,
