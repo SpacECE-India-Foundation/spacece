@@ -302,28 +302,46 @@ $(document).ready(function () {
       // url: `https://spacefoundation.in/test/SpacECE-PHP/api/learnonapp_courses.php?cid=${id}`,
       type: "GET",
       success: function (d) {
-        console.log(d);
-        // if (d.status == "success") {
-        //   const course = d.data[0];
-        //   $("#course_details").html(
-        //     `<form action="./payment.php" method="POST" class="single_course">
-        //     <div class="single_course_body">
-        //       <div>
-        //         <strong class="single_course_title">${course.title}</strong>
-        //         <p class="single_course_text">${course.description}</p>
-        //         <p class="single_course_type">Type: ${course.type}</p>
-        //         <p class="single_course_mode">Mode: ${course.mode}</p>
-        //       </div>
-        //       <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
-        //     </div>
-        //     <input type="hidden" name="course_id" value="${course.id}">
-        //     <input type="hidden" name="course_total" value="${course.price}">
-        //     <button type="submit" class="btn btn-wide">
-        //       Buy Course
-        //     </button>
-        //   </form>`
-        //   );
-        // }
+        // console.log(d);
+        if (d.status == "success") {
+          const course = d.data[0];
+          if (
+            !course.luc_id ||
+            !course.payment_status ||
+            course.payment_status == "failed"
+          ) {
+            $("#course_details").html(
+              `<form action="./payment.php" method="POST" class="single_course">
+            <div class="single_course_body">
+              <div>
+                <strong class="single_course_title">${course.title}</strong>
+                <p class="single_course_text">${course.description}</p>
+                <p class="single_course_type">Type: ${course.type}</p>
+                <p class="single_course_mode">Mode: ${course.mode}</p>
+              </div>
+              <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
+            </div>
+            <input type="hidden" name="course_id" value="${course.id}">
+            <input type="hidden" name="course_total" value="${course.price}">
+            <button type="submit" class="btn btn-wide">
+              Buy Course
+            </button>
+          </form>`
+            );
+          } else {
+            $("#course_details").html(
+              `<div class="single_course_body">
+              <div>
+                <strong class="single_course_title">${course.title}</strong>
+                <p class="single_course_text">${course.description}</p>
+                <p class="single_course_type">Type: ${course.type}</p>
+                <p class="single_course_mode">Mode: ${course.mode}</p>
+              </div>
+              <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
+            </div>`
+            );
+          }
+        }
       },
     });
   }
