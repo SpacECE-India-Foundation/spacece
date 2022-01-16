@@ -7,6 +7,7 @@ include './placeholder.php';
 
 if (!isset($_SESSION['current_user_id'])) {
   header("Location: ../spacece_auth/login.php");
+  exit();
 }
 ?>
 <!-- <head>
