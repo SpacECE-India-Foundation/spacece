@@ -284,6 +284,12 @@ $(document).ready(function () {
         </div>`;
             })
           );
+        } else {
+          $("#my_courses").html(`
+            <div class="course">
+            <h2>No Courses Found</h2>
+            </div>
+          `);
         }
       },
     });
