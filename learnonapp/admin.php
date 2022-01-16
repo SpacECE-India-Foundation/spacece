@@ -8,8 +8,6 @@ if (!isset($_SESSION['current_user_type']) || $_SESSION['current_user_type'] != 
     header("Location: ./index.php");
     exit();
 }
-
-print_r($_SESSION);
 ?>
 <div id="admin-page">
 </div>
