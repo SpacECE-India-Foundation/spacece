@@ -51,7 +51,7 @@ if (isset($cid) && isset($subid)) {
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
 } else if (isset($cid) && isset($uid)) {
-    $sql = "SELECT lc.*, luc.id,luc.payment_status
+    $sql = "SELECT lc.*, luc.id AS luc_id, luc.payment_status
             FROM learnonapp_courses lc
             LEFT JOIN
             learnonapp_users_courses luc
