@@ -258,32 +258,32 @@ $(document).ready(function () {
     // url: "https://spacefoundation.in/test/SpacECE-PHP/api/learnonapp_courses.php",
     type: "GET",
     success: function (d) {
-      console.log(d);
-      // if (d.status == "success") {
-      //   const courses = d.data;
-      // $("#my_courses").html(
-      //   courses.map((course) => {
-      //     return `<div class="course">
-      //         <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
-      //         <div class="list-content">
-      //           <div class="list-body mb-20">
-      //             <strong class="list-title">${course.title}</strong>
-      //           </div>
-      //           <p class="list-text">${course.description}</p >
-      //           <div class="list-body">
-      //             <div class="list-misc">
-      //               <p class="list-type"><strong>Type:</strong> ${course.type}</p>
-      //               <p class="list-mode"><strong>Mode:</strong> ${course.mode}</p>
-      //             </div>
-      //             <a href="course.php?id=${course.id}" class="btn">
-      //               Start Course
-      //             </a>
-      //           </div>
-      //         </div>
-      //   </div>`;
-      // })
-      // );
-      // }
+      // console.log(d);
+      if (d.status == "success") {
+        const courses = d.data;
+        $("#my_courses").html(
+          courses.map((course) => {
+            return `<div class="course">
+              <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
+              <div class="list-content">
+                <div class="list-body mb-20">
+                  <strong class="list-title">${course.title}</strong>
+                </div>
+                <p class="list-text">${course.description}</p >
+                <div class="list-body">
+                  <div class="list-misc">
+                    <p class="list-type"><strong>Type:</strong> ${course.type}</p>
+                    <p class="list-mode"><strong>Mode:</strong> ${course.mode}</p>
+                  </div>
+                  <a href="course.php?id=${course.id}" class="btn">
+                    Start Course
+                  </a>
+                </div>
+              </div>
+        </div>`;
+          })
+        );
+      }
     },
   });
   //Fetching Customer Function End

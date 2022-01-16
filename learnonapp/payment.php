@@ -1,22 +1,33 @@
 <?php
 session_start();
+include './db.php';
 
 if (!isset($_SESSION['current_user_id'])) {
     header('Location: ../spacece_auth/login.php');
     exit();
 } else {
-    $_SESSION['course_id'] = $_POST['course_id'];
-    $name = $_SESSION['current_user_name'];
-    $email = $_SESSION['current_user_email'];
-    $mobile = $_SESSION['current_user_mob'];
-    $total = $_POST['course_total'];
+    $sql = "SELECT * FROM `learnonapp_users_courses` 
+            WHERE `uid`=" . $_SESSION['current_user_id']
+        . " AND `cid`=" . $_POST['course_id'];
 
-    if ($total < 10) {
-        echo json_encode(array('success' => false, 'message' => 'Minimum order amount is Rs. 10'));
-        exit();
+    $res = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($res) > 0) {
+        header('Location: ./my_courses.php');
+    } else {
+        $_SESSION['course_id'] = $_POST['course_id'];
+        $name = $_SESSION['current_user_name'];
+        $email = $_SESSION['current_user_email'];
+        $mobile = $_SESSION['current_user_mob'];
+        $total = $_POST['course_total'];
+
+        if ($total < 10) {
+            echo json_encode(array('success' => false, 'message' => 'Minimum order amount is Rs. 10'));
+            exit();
+        }
+
+        paymentInit($name, $email, $mobile, $total);
     }
-
-    paymentInit($name, $email, $mobile, $total);
 }
 
 function paymentInit($name, $email, $mobile, $total)
