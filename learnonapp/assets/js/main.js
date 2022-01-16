@@ -330,15 +330,17 @@ $(document).ready(function () {
             );
           } else {
             $("#course_details").html(
-              `<div class="single_course_body">
-              <div>
-                <strong class="single_course_title">${course.title}</strong>
-                <p class="single_course_text">${course.description}</p>
-                <p class="single_course_type">Type: ${course.type}</p>
-                <p class="single_course_mode">Mode: ${course.mode}</p>
-              </div>
-              <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
-            </div>`
+              `<div class="single_course">
+                  <div class="single_course_body">
+                  <div>
+                    <strong class="single_course_title">${course.title}</strong>
+                    <p class="single_course_text">${course.description}</p>
+                    <p class="single_course_type">Type: ${course.type}</p>
+                    <p class="single_course_mode">Mode: ${course.mode}</p>
+                  </div>
+                  <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
+                </div>
+              </div>`
             );
           }
         }
