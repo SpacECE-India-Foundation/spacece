@@ -259,7 +259,7 @@ $(document).ready(function () {
       // url: "https://spacefoundation.in/test/SpacECE-PHP/api/learnonapp_courses.php",
       type: "GET",
       success: function (d) {
-        console.log(d);
+        // console.log(d);
         if (d.status == "success") {
           const courses = d.data;
           $("#my_courses").html(
