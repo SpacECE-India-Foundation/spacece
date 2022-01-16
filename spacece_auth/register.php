@@ -146,6 +146,12 @@ function get_consultant_categories($conn)
                     <option value="Sunday">Sunday</option>
                 </select>
             </div>
+           
+              
+               
+         
+<!-- Note the missing multiple attribute! -->
+
             <div class="form-group">
                 <label for="c_qualification">Qualification</label>
                 <input type="text" class="form-control" placeholder="Enter Qualification" id="c_qualification" name="c_qualification" />
@@ -157,3 +163,6 @@ function get_consultant_categories($conn)
 </div>
 
 <?php include_once '../common/footer_module.php'; ?>
+
+
+
