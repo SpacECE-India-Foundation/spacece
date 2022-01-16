@@ -25,42 +25,6 @@ $subid = $_GET['subid'];
 
 error_reporting();
 
-if (isset($_POST['action']) && $_POST['action'] = 'update') {
-    $sql = "UPDATE learnonapp_courses SET title='" . $_POST['title'] . "',
-    description='" . $_POST['description'] . "',
-    type='" . $_POST['type'] . "',
-    mode='" . $_POST['mode'] . "',
-    duration='" . $_POST['duration'] . "',
-    price='" . $_POST['price'] . "'
-    WHERE id='" . $_POST['id'] . "'";
-    // echo json_encode(['status' => 'failure', 'result' => $sql]);
-    // die();
-    $result = $conn->query($sql);
-    if ($result) {
-        $sql = "SELECT * FROM `learnonapp_courses`";
-        $res = mysqli_query($conn, $sql);
-        header('Content-Type:application/json');
-    } else {
-        echo json_encode(['status' => 'failure', 'result' => 'not found']);
-        die();
-    }
-}
-
-if (isset($_POST['action']) && $_POST['action'] = 'add') {
-    $sql = "INSERT INTO learnonapp_courses (title, description, type, mode, duration, price)
-    VALUES ('" . $_POST['title'] . "', '" . $_POST['description'] . "', '" . $_POST['type'] . "', '" . $_POST['mode'] . "', '" . $_POST['duration'] . "', '" . $_POST['price'] . "')";
-
-    $result = $conn->query($sql);
-    if ($result) {
-        $sql = "SELECT * FROM `learnonapp_courses`";
-        $res = mysqli_query($conn, $sql);
-        header('Content-Type:application/json');
-    } else {
-        echo json_encode(['status' => 'failure', 'result' => 'not found']);
-        die();
-    }
-}
-
 if (isset($cid) && isset($subid)) {
     $sql = "
         SELECT
