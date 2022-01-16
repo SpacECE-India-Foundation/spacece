@@ -1,4 +1,4 @@
-let uid = $("#my_courses").data("id") || 0;
+let uid = $("#uid_placeholder").data("uid") || null;
 
 // Admin Page Edit Course
 const editCourse = (id) => {
@@ -252,18 +252,19 @@ $(document).ready(function () {
   });
   //Fetching Courses Function End
 
-  //Fetching Customer Function Start
-  $.ajax({
-    url: "../api/learnonapp_courses.php?uid=" + uid,
-    // url: "https://spacefoundation.in/test/SpacECE-PHP/api/learnonapp_courses.php",
-    type: "GET",
-    success: function (d) {
-      // console.log(d);
-      if (d.status == "success") {
-        const courses = d.data;
-        $("#my_courses").html(
-          courses.map((course) => {
-            return `<div class="course">
+  if (uid) {
+    //Fetching Customer Function Start
+    $.ajax({
+      url: "../api/learnonapp_courses.php?uid=" + uid,
+      // url: "https://spacefoundation.in/test/SpacECE-PHP/api/learnonapp_courses.php",
+      type: "GET",
+      success: function (d) {
+        // console.log(d);
+        if (d.status == "success") {
+          const courses = d.data;
+          $("#my_courses").html(
+            courses.map((course) => {
+              return `<div class="course">
               <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
               <div class="list-content">
                 <div class="list-body mb-20">
@@ -281,43 +282,48 @@ $(document).ready(function () {
                 </div>
               </div>
         </div>`;
-          })
-        );
-      }
-    },
-  });
-  //Fetching Customer Function End
+            })
+          );
+        }
+      },
+    });
+    //Fetching Customer Function End
+  }
 
   //Fetching Single Course Function Start
   let params = new URL(document.location).searchParams;
-  let id = params.get("id");
-  if (id) {
+  let cid = params.get("id");
+  if (cid) {
+    let url = uid
+      ? `../api/learnonapp_courses.php?cid=${cid}`
+      : `../api/learnonapp_courses.php?uid=${uid}&cid=${cid}`;
     $.ajax({
-      url: `../api/learnonapp_courses.php?cid=${id}`,
+      url: url,
       // url: `https://spacefoundation.in/test/SpacECE-PHP/api/learnonapp_courses.php?cid=${id}`,
       type: "GET",
       success: function (d) {
-        if (d.status == "success") {
-          const course = d.data[0];
-          $("#course_details").html(
-            `<form action="./payment.php" method="POST" class="single_course">
-            <div class="single_course_body">
-              <div>
-                <strong class="single_course_title">${course.title}</strong>
-                <p class="single_course_text">${course.description}</p>
-                <p class="single_course_type">Type: ${course.type}</p>
-                <p class="single_course_mode">Mode: ${course.mode}</p>
-              </div>
-              <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
-            </div>
-            <input type="hidden" name="course_id" value="${course.id}">
-            <input type="hidden" name="course_total" value="${course.price}">
-            <button type="submit" class="btn btn-wide">
-              Buy Course
-            </button>
-          </form>`
-          );
-        }
+        console.log(d);
+        // if (d.status == "success") {
+        //   const course = d.data[0];
+        //   $("#course_details").html(
+        //     `<form action="./payment.php" method="POST" class="single_course">
+        //     <div class="single_course_body">
+        //       <div>
+        //         <strong class="single_course_title">${course.title}</strong>
+        //         <p class="single_course_text">${course.description}</p>
+        //         <p class="single_course_type">Type: ${course.type}</p>
+        //         <p class="single_course_mode">Mode: ${course.mode}</p>
+        //       </div>
+        //       <img src="https://spacefoundation.in/test/SpacECE-PHP/img/logo/SpacECELogo.jpg" alt="${course.title}">
+        //     </div>
+        //     <input type="hidden" name="course_id" value="${course.id}">
+        //     <input type="hidden" name="course_total" value="${course.price}">
+        //     <button type="submit" class="btn btn-wide">
+        //       Buy Course
+        //     </button>
+        //   </form>`
+        //   );
+        // }
       },
     });
   }

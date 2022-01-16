@@ -1,6 +1,7 @@
 <?php
 include_once './header_local.php';
 include_once '../common/header_module.php';
+include './placeholder.php';
 
 ?>
 

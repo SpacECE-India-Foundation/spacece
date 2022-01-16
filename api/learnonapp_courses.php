@@ -50,6 +50,17 @@ if (isset($cid) && isset($subid)) {
 
     $res = mysqli_query($conn, $sql);
     header('Content-Type:application/json');
+} else if (isset($cid) && isset($uid)) {
+    $sql = "SELECT lc.*, luc.id,luc.payment_status
+            FROM learnonapp_courses lc
+            LEFT JOIN
+            learnonapp_users_courses luc
+            ON lc.id = luc.cid
+            AND luc.uid = " . $uid . "
+            WHERE lc.id = " . $cid;
+
+    $res = mysqli_query($conn, $sql);
+    header('Content-Type:application/json');
 } else if (isset($cid)) {
     $sql = "SELECT * FROM `learnonapp_courses` WHERE `id`=" . $cid;
     $res = mysqli_query($conn, $sql);
