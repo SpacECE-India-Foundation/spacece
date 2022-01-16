@@ -370,3 +370,5 @@ $(document).ready(function () {
     },
   });
 });
+
+console.log("uid", uid);
