@@ -5,7 +5,7 @@ include_once '../common/banner.php';
 include './placeholder.php';
 
 if (!isset($_SESSION['current_user_type']) || $_SESSION['current_user_type'] != 'admin') {
-    header("Location: index.php");
+    echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
     exit();
 }
 ?>

@@ -6,7 +6,7 @@ include_once '../common/banner.php';
 include './placeholder.php';
 
 if (!isset($_SESSION['current_user_id'])) {
-  header("Location: ../spacece_auth/login.php");
+  echo "<script type='text/javascript'> document.location = '../spacece_auth/login.php'; </script>";
   exit();
 }
 ?>
