@@ -178,7 +178,17 @@ if (mysqli_num_rows($run) > 0) {
 	}else{
 	die();
 	}
-	?>
+	?><div class="col-lg-4 col-md-6 blog-item">
+	<!-- //bug id-0000076 -->
+	<a href="cdetails.php?category=all">
+		<img src="../img/consult_category/all.php" alt="" width="500" height="200"></a>
+	<h5><a href="#"> </a></h5>
+	<div class="blog-meta">
+		<!--<span><i class="fa fa-user"></i>Manas Sinkar</span>
+			<span><i class="fa fa-clock-o"></i>25 Jan 2019</span>-->
+	</div>
+	<p> </p>
+</div>
 			
 		</div>
 	</div>

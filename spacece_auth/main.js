@@ -18,7 +18,12 @@ $(document).ready(function () {
     $("#js-confirm-password input").prop("disabled", false);
     $("#change_password").hide();
   });
-
+  $('#c_available_days').selectpicker();
+  var selectedItem='';
+  $('#c_available_days').change(function () {
+    selectedItem= $('#c_available_days').val();
+    
+});
   // Registration form validation name, email, password, cpassword, indian phone number, image with regex
   $(".register-form").validate({
     error: function (label) {
@@ -138,12 +143,12 @@ $(document).ready(function () {
       c_fee: {
         required: "Please enter fees",
       },
-      c_available_from: {
-        required: "Please enter 'From' availability day",
-      },
-      c_available_to: {
-        required: "Please enter 'To' availability day",
-      },
+      // c_available_from: {
+      //   required: "Please enter 'From' availability day",
+      // },
+      // c_available_to: {
+      //   required: "Please enter 'To' availability day",
+      // },
       c_qualification: {
         required: "Please enter qualification",
       },
@@ -293,15 +298,18 @@ $(document).ready(function () {
       c_fee: {
         required: "Please enter fees",
       },
-      c_available_from: {
-        required: "Please enter 'From' availability day",
-      },
-      c_available_to: {
-        required: "Please enter 'To' availability day",
-      },
+      // c_available_from: {
+      //   required: "Please enter 'From' availability day",
+      // },
+      // c_available_to: {
+      //   required: "Please enter 'To' availability day",
+      // },
       c_qualification: {
         required: "Please enter qualification",
       },
+      c_available_days:{
+        required: "Please enter 'To' availability day",
+      }
     },
   });
 
@@ -311,6 +319,9 @@ $(document).ready(function () {
     e.preventDefault();
 
     var formData = new FormData(this);
+    
+  
+  formData.append("selectedItem",selectedItem);
 
     $.ajax({
       type: "POST",

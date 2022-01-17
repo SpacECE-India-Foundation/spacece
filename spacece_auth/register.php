@@ -122,7 +122,7 @@ function get_consultant_categories($conn)
                 <label for="c_fee">Fees</label>
                 <input type="text" class="form-control" placeholder="Enter Fees" id="c_fee" name="c_fee" />
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="c_available_from">Availability From</label>
                 <select name="c_available_from" id="c_available_from">
                     <option value="Monday">Monday</option>
@@ -145,10 +145,10 @@ function get_consultant_categories($conn)
                     <option value="Saturday">Saturday</option>
                     <option value="Sunday">Sunday</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="c_available_to">Availability Days</label>
-                <select name="c_available_days" id="c_available_days" multiple>
+            </div> -->
+            <div class="form-group select">
+                <label for="c_available_days">Available Days</label>
+                <select name="c_available_days" class=" btn form-control btn-sm selectpicker " id="c_available_days" multiple data-selected-text-format="count > 2" style="background-color: white;">
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
                     <option value="Wednesday">Wednesday</option>
@@ -174,6 +174,9 @@ function get_consultant_categories($conn)
 </div>
 
 <?php include_once '../common/footer_module.php'; ?>
-
+<script>
+    
+   
+    </script>
 
 
