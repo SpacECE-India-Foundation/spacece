@@ -166,7 +166,7 @@ if (mysqli_num_rows($run) > 0) {
 			<div class="col-lg-4 col-md-6 blog-item">
 				<!-- //bug id-0000076 -->
 				<a href="cdetails.php?category=<?php echo $row['cat_name'];?>">
-					<img src="../img/consult_category/<?php echo $row['cat_img'];  ?>" alt="" width="500" height="200"></a>
+					<img src="../img/consult_category/<?php echo $row['cat_img'];?>" alt="" width="500" height="200"></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
 					<!--<span><i class="fa fa-user"></i>Manas Sinkar</span>
@@ -179,59 +179,7 @@ if (mysqli_num_rows($run) > 0) {
 	die();
 	}
 	?>
-			<!-- <div class="col-lg-4 col-md-6 blog-item">
-				<a href="cdetails.php?category=Psychiatrist">
-					<img src="../img/d3.jpg" alt=""></a>
-				<h5><a href="#"> </a></h5>
-				<div class="blog-meta">
-					<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
-				</div>
-				<p> </p>
-			</div>
-			<div class="col-lg-4 col-md-6 blog-item">
-				<a href="cdetails.php?category=Physical Health">
-					<img src="../img/d4.jpg" alt=""></a>
-				<h5><a href="#"> </a></h5>
-				<div class="blog-meta">
-					<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
-				</div>
-				<p> </p>
-			</div>
-			<div class="col-lg-4 col-md-6 blog-item">
-				<a href="cdetails.php?category=Mental Health">
-					<img src="../img/d5.jpg" alt=""></a>
-				<h5><a href="#"> </a></h5>
-				<div class="blog-meta">
-					<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
-				</div>
-				<p> </p>
-			</div>
-
-			<div class="col-lg-4 col-md-6 blog-item">
-				<a href="cdetails.php?category=Nutritionist">
-					<img src="../img/d6.jpg" alt=""></a>
-				<h5><a href="#"> </a></h5>
-				<div class="blog-meta">
-				-<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
-				</div>
-				<p> </p>
-			</div>
-			<div class="col-lg-4 col-md-6 blog-item">
-				<a href="cdetails.php?category=all">
-					<img src="https://www.jupiterhospital.com/uploadedfiles/gallery/1584610523_male-dummy.jpg" alt="" width="500" height="200"></a>
-				<h5><a href="#"> </a></h5>
-				<div class="blog-meta">
-					<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
-				</div>
-				<p> </p>
-			</div> -->
-
-
+			
 		</div>
 	</div>
 </section>
