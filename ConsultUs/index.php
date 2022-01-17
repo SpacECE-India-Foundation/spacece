@@ -144,10 +144,29 @@ include_once '../common/header_module.php';
 			<p>Connect with India's top doctor consultant for your child</p>
 		</div>
 		<div class="row">
+		<?php
+
+ $servername = "3.109.14.4";
+$username = "ostechnix";
+$password = "Password123#@!";
+$dbname = "consultant_app";
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$check = "SELECT * FROM consultant_category ";
+$run = mysqli_query($conn, $check);
+
+if (mysqli_num_rows($run) > 0) {
+   while($row=mysqli_fetch_assoc($run)){
+
+  ?>
+ 
 			<div class="col-lg-4 col-md-6 blog-item">
 				<!-- //bug id-0000076 -->
-				<a href="cdetails.php?category=Paediatrician">
-					<img src="../img/d1.jpg" alt=""></a>
+				<a href="cdetails.php?category=<?php echo $row['cat_name'];?>">
+					<img src="../img/consult_category/<?php echo $row['cat_img'];  ?>" alt="" width="500" height="200"></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
 					<!--<span><i class="fa fa-user"></i>Manas Sinkar</span>
@@ -155,13 +174,18 @@ include_once '../common/header_module.php';
 				</div>
 				<p> </p>
 			</div>
-			<div class="col-lg-4 col-md-6 blog-item">
+	<?php	}
+	}else{
+	die();
+	}
+	?>
+			<!-- <div class="col-lg-4 col-md-6 blog-item">
 				<a href="cdetails.php?category=Psychiatrist">
 					<img src="../img/d3.jpg" alt=""></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
-					<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
+					<span><i class="fa fa-user"></i>Parth Thosani</span>
+						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
 				</div>
 				<p> </p>
 			</div>
@@ -170,8 +194,8 @@ include_once '../common/header_module.php';
 					<img src="../img/d4.jpg" alt=""></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
-					<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
+					<span><i class="fa fa-user"></i>Parth Thosani</span>
+						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
 				</div>
 				<p> </p>
 			</div>
@@ -180,8 +204,8 @@ include_once '../common/header_module.php';
 					<img src="../img/d5.jpg" alt=""></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
-					<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
+					<span><i class="fa fa-user"></i>Parth Thosani</span>
+						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
 				</div>
 				<p> </p>
 			</div>
@@ -191,8 +215,8 @@ include_once '../common/header_module.php';
 					<img src="../img/d6.jpg" alt=""></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
-					<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
+				-<span><i class="fa fa-user"></i>Parth Thosani</span>
+						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
 				</div>
 				<p> </p>
 			</div>
@@ -201,11 +225,11 @@ include_once '../common/header_module.php';
 					<img src="https://www.jupiterhospital.com/uploadedfiles/gallery/1584610523_male-dummy.jpg" alt="" width="500" height="200"></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
-					<!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
+					<span><i class="fa fa-user"></i>Parth Thosani</span>
+						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
 				</div>
 				<p> </p>
-			</div>
+			</div> -->
 
 
 		</div>
@@ -441,7 +465,7 @@ include_once '../common/header_module.php';
 </script>
 <script type="text/javascript" src="js/custom.js"></script>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(document).ready(function() {
 
 
@@ -466,7 +490,7 @@ include_once '../common/header_module.php';
 		}, 5800);
 
 	})
-</script>
+</script> -->
 
 
 <?php
