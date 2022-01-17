@@ -53,7 +53,7 @@ if ($res) {
 
 }
 $c_id=$_GET['cid'];
-$sql1="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'"; $res1 = mysqli_query($conn1, $sql1);
+$sql1="SELECT consultant.c_from_time,consultant.c_to_time,consultant.c_aval_days FROM users join consultant WHERE users.u_id=consultant.u_id AND users.u_id='$c_id'"; $res1 = mysqli_query($conn1, $sql1);
 
 
 
@@ -67,6 +67,7 @@ $sql1="SELECT consultant.c_from_time,consultant.c_to_time FROM users join consul
         
         $c_from_time=$row['c_from_time'];
         $c_to_time=$row['c_to_time'];
+        $c_aval_days=$row['c_aval_days'];
         }
     }
  }else{
@@ -255,6 +256,8 @@ a {
     </p>
     <h5>Available Time(From):<?php echo $c_from_time; ?></h5>
     <h5>Available Time(To):<?php echo $c_to_time; ?></h5>
+    <br>
+    <h5>Available Days: <?php echo $c_aval_days; ?></h5>
     <hr>
     <label for="userid"><b>Booking Id</b></label>
     <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>
