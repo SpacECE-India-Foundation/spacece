@@ -43,8 +43,8 @@ if (mysqli_num_rows($run) > 0) {
 
         $last_id = mysqli_insert_id($conn);
 
-        $query = "INSERT INTO consultant (u_id, c_category, c_office, c_from_time, c_to_time, c_language, c_fee, c_available_from, c_available_to, c_qualification) 
-      VALUES ($last_id, $c_categories, '$c_office', '$c_from_time', '$c_to_time', '$c_language', '$c_fee', '$c_available_from', '$c_available_to', '$c_qualification')";
+        $query = "INSERT INTO consultant (u_id, c_category, c_office, c_from_time, c_to_time, c_language, c_fee, c_available_from, c_available_to, c_qualification,c_aval_days) 
+      VALUES ($last_id, $c_categories, '$c_office', '$c_from_time', '$c_to_time', '$c_language', '$c_fee', '$c_available_from', '$c_available_to', '$c_qualification','$c_available_days')";
     } else if ($type == 'customer') {
         $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image')";
         $redirectUrl = '../index.php';

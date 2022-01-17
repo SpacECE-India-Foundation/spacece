@@ -83,6 +83,10 @@ $(document).ready(function () {
       c_qualification: {
         required: true,
       },
+      c_available_days:{
+        required: true,
+      }
+
     },
     messages: {
       name: {
@@ -143,6 +147,9 @@ $(document).ready(function () {
       c_qualification: {
         required: "Please enter qualification",
       },
+      c_available_days:{
+        required: "Please enter 'To' availability day",
+      }
     },
   });
 

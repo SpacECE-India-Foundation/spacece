@@ -148,7 +148,7 @@ function get_consultant_categories($conn)
             </div>
             <div class="form-group">
                 <label for="c_available_to">Availability Days</label>
-                <select name="c_available_to" id="c_available_to" multiple>
+                <select name="c_available_days" id="c_available_days" multiple>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
                     <option value="Wednesday">Wednesday</option>
