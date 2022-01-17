@@ -1,11 +1,11 @@
 <?php
 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-$servername = "3.109.14.4";
-$username = "ostechnix";
-$password = "Password123#@!";
+$servername = "localhost";
+$username = "root";
+$password = "";
+// $servername = "3.109.14.4";
+// $username = "ostechnix";
+// $password = "Password123#@!";
 $dbname = "spaceece";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -29,16 +29,16 @@ $check = "SELECT * FROM consultant_category WHERE cat_name = '$cat_name'";
 $run = mysqli_query($conn, $check);
 
 if (mysqli_num_rows($run) > 0) {
-    echo "Exists";
+    return "Exists";
    // echo json_encode(array('status' => 'error', "message" => "Email already exists!"));
    // die();
 } else {
     $sql="INSERT INTO consultant_category (cat_name,cat_slug,cat_img)VALUES('$cat_name','$cat_slug','$image')";
     $count = mysqli_query($conn, $sql);
     if(mysqli_num_rows($count)>0){
-        echo "Added";
+        return "Added";
     }else{
-        echo "Error";
+        return "Error";
     }
 
 }
