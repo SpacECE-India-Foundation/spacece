@@ -146,7 +146,18 @@ function get_consultant_categories($conn)
                     <option value="Sunday">Sunday</option>
                 </select>
             </div>
-           
+            <div class="form-group">
+                <label for="c_available_to">Availability To</label>
+                <select name="c_available_to" id="c_available_to" multiple>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+            </div>
               
                
          
