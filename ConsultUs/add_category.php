@@ -9,6 +9,8 @@ include '../common/header_module.php';
   
     </head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+   
+   
     <body>
     <div class="container col-lg-12 mt-3 d-flex justify-content-center">
     <div class="row mb-3">
@@ -66,9 +68,10 @@ include '../common/footer_module.php';
 
 <script>
 $(document).ready(function(){
-$('#category').on('submit',function(){
+$('#category').on('submit',function(e){
   
     var form_data = new FormData(this);  
+    e.preventDefault();
     var file_data = $('#image').prop('files')[0];   
              
      form_data.append('file', file_data);
@@ -82,14 +85,16 @@ $('#category').on('submit',function(){
       cache: false,
       contentType: false,
       processData: false,
-      success: function (response) {
-         if(response==="Exists"){
+      success:function(response) {
+         
+          const data = JSON.parse(response);
+         if(data==="Exists"){
             swal("Exists","Entered Data Alredy Exists" , "Error");
          }
-        if(response==="Error"){
+        if(data==="Error"){
             swal("Error","Invalid data Format" , "Error");
          }
-         if(response==="Added"){
+         if(data==="Added"){
             swal("Success","Data Added Successfully" , "Success");
          }
 
