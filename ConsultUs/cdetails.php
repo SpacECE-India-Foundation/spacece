@@ -167,9 +167,9 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 
                          
                                ?>
-                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $channelName;?>');" class="btn btn-secondary"> Call Counsultants</a>
+                        <a id="link" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="redirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $channelName;?>');" class="btn btn-primary"> Call Counsultants</a>
                        
-                        <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $con_name;?>');" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#SheduleleModal" >Schedule call</a>  
+                        <a id="link1" class=" btn btn-secondary btn-sm" data-id="<?php echo $consult_id;?>" onclick="scheduleredirectTo('<?php echo $consult_id;?>','<?php echo $user_id;?>','<?php echo $user_name;?>','<?php echo $con_name;?>');" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SheduleleModal" >Schedule call</a>  
                            
                            <?php 
                         }
