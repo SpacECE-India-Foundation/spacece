@@ -30,6 +30,7 @@ $getDate=date($adate);
 
 //  $_SESSION['add']= "Consultant Un available";
  }else{
+  echo "Inside";
   $time3 = strtotime(date($atime));
 $startTime = date("H:i:s", strtotime('-10 minutes', $time3));
 $endTime = strtotime(date("H:i:s", strtotime('+10 minutes', $atime)));
@@ -81,7 +82,7 @@ else{
 
 //}
  }else{
-  
+  echo "Inside2";
   $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
   $res= mysqli_query($conn,$sql);

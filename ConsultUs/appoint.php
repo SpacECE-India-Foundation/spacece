@@ -332,7 +332,7 @@ var c_id=<?php  echo $c_id; ?>;
 var b_id=$('#userid').val();
 var adate=$('#adate').val();
 var atime=$('#atime').val();
-alert(atime);
+
 var fullname=$('#fullname').val();
 var cname=$('#cname').val();
 var mobile=$('#mobile').val();
