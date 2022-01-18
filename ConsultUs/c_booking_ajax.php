@@ -37,7 +37,7 @@ $endTime = strtotime(date("H:i:s", strtotime('+10 minutes', $atime)));
 
 
   $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$getDate'";
-
+echo $sql2;
  $res2= mysqli_query($conn,$sql2);
 
 
