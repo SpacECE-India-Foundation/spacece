@@ -31,13 +31,13 @@ $getDate=date($adate);
 //  $_SESSION['add']= "Consultant Un available";
  }else{
   echo "Inside";
-  $time3 = strtotime(date($atime));
-$startTime = date("H:i:s", strtotime('-10 minutes', $time3));
-$endTime = strtotime(date("H:i:s", strtotime('+10 minutes', $atime)));
+//   $time3 = strtotime(date($atime));
+// $startTime = date("H:i:s", strtotime('-10 minutes', $time3));
+// $endTime = strtotime(date("H:i:s", strtotime('+10 minutes', $atime)));
 
 
 
-  $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$getDate'";
+  $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$adate'";
 echo $sql2;
 //  $res2= mysqli_query($conn,$sql2);
 
