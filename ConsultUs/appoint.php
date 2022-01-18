@@ -324,7 +324,7 @@ include_once '../common/footer_module.php';
 
 
  $('#appoint').on('submit', function(e) {
-        e.preventDefault();
+      
 
 var c_from_time="<?php echo $c_from_time; ?>";
 var c_to_time="<?php echo $c_to_time; ?>";
@@ -336,6 +336,7 @@ var fullname=$('#fullname').val();
 var cname=$('#cname').val();
 var mobile=$('#mobile').val();
 var email=$('#email').val();
+e.preventDefault();
 $.ajax({
   method:'post',
   data:{
