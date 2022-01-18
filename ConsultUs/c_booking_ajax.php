@@ -23,7 +23,7 @@ var_dump($_POST);
 $c_from_time=$_POST['c_from_time'];
 $c_to_time=$_POST['c_to_time'];
 $getDate=date($adate);
- $time= date("H:i", strtotime($atime));
+ $time= date("H:i:s", strtotime($atime));
  $time1=strtotime($time);
  if(strtotime($c_from_time) > $time1 || strtotime($c_to_time) < $time1){
   echo 'Unavailable';
