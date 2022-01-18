@@ -338,7 +338,7 @@ var mobile=$('#mobile').val();
 var email=$('#email').val();
 e.preventDefault();
 $.ajax({
-  method:'post',
+  method:'POST',
   data:{
     b_id:b_id,
     adate:adate,
