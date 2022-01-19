@@ -50,7 +50,7 @@ $getDate=date($adate);
     if( ($booked_time > $time3) ||  ($booked_time < $time3)){
 
     
-      //  if(($booked_time < $time3) || ($booked_time < $endTime)){
+        if(($booked_time < $time3) || ($booked_time < $endTime)){
        
         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
@@ -62,7 +62,7 @@ $res= mysqli_query($conn,$sql);
     
       $res1= mysqli_query($conn,$sql1);
       $row=mysqli_fetch_assoc($res1);
-       // echo json_encode($row);
+        echo json_encode($row);
       
 
     }
@@ -74,10 +74,12 @@ $res= mysqli_query($conn,$sql);
         echo 'Invalid';
       }
 
+    }else{
+      echo 'Invalid';
     }
-  
+  }
       }else{
-        echo "Inside2";
+        
         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
         $res= mysqli_query($conn,$sql);
