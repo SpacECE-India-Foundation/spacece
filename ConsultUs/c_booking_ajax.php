@@ -32,71 +32,71 @@ $getDate=date($adate);
  }else{
   echo "Inside";
    $time3 = strtotime(date($atime));
- $startTime = date("H:i:s", strtotime('-10 minutes', $time3));
-// $endTime = strtotime(date("H:i:s", strtotime('+10 minutes', $atime)));
+//$startTime = date("H:i:s", strtotime('-10 minutes', $time3));
+ $endTime = strtotime("+10 minutes", strtotime( $atime));
 
 
 
   $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$adate'";
-echo $sql2;
-//  $res2= mysqli_query($conn,$sql2);
+
+ $res2= mysqli_query($conn,$sql2);
 
 
-//  if($res2 >1 ){
-//   while( $row=mysqli_fetch_assoc($res2)){
-//     $booked_time=strtotime($row['time_appointment']);
+ if($res2 >1 ){
+  while( $row=mysqli_fetch_assoc($res2)){
+    $booked_time=strtotime($row['time_appointment']);
   
   
-//     if( ($booked_time > $time3) ||  ($booked_time < $time3)){
+    if( ($booked_time > $time3) ||  ($booked_time < $time3)){
 
     
-//       //  if(($booked_time < $time3) || ($booked_time < $endTime)){
+      //  if(($booked_time < $time3) || ($booked_time < $endTime)){
        
-//         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
+        $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
-// $res= mysqli_query($conn,$sql);
+$res= mysqli_query($conn,$sql);
 
 
-//     if($res){
-//       $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
+    if($res){
+      $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
     
-//       $res1= mysqli_query($conn,$sql1);
-//       $row=mysqli_fetch_assoc($res1);
-//         echo json_encode($row);
+      $res1= mysqli_query($conn,$sql1);
+      $row=mysqli_fetch_assoc($res1);
+        echo json_encode($row);
       
 
-//     }
-//     else{
-//         echo 'Invalid';
+    }
+    else{
+        echo 'Invalid';
 
-//     }
-//       }else{
-//         echo 'Invalid';
-//       }
+    }
+      }else{
+        echo 'Invalid';
+      }
 
-//     }
+    }
   
-//       }else{
-//         echo "Inside2";
-//         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
+      }else{
+        echo "Inside2";
+        $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
-//         $res= mysqli_query($conn,$sql);
+        $res= mysqli_query($conn,$sql);
         
         
-//         if($res){
-//           $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
+        if($res){
+          $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
         
-//           $res1= mysqli_query($conn,$sql1);
-//           $row=mysqli_fetch_assoc($res1);
-//             echo json_encode($row);
+          $res1= mysqli_query($conn,$sql1);
+          $row=mysqli_fetch_assoc($res1);
+            echo json_encode($row);
           
         
-//         }
-//         else{
-//             echo 'Invalid';
+        }
+        else{
+            echo 'Invalid';
         
-//         }
-//       }
+        }
+      }
  }
 
 ?>
