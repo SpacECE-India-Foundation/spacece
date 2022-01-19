@@ -121,11 +121,15 @@ class Functions
         //     $field_op = $field_op . "$q_key='$q_value' $op ";
         // }
         // $field_op = rtrim($field_op, "$op ");
-        if ($status != null)
-            $select = "SELECT * FROM  $tbl_name WHERE  title LIKE '%$search%'  ORDER BY $field_id $order LIMIT 5";
-        else
+        if ($status != null){
+            $select = "SELECT * FROM  $tbl_name WHERE  status='$status' OR title LIKE '%$tb_field%'  ORDER BY $field_id $order LIMIT 5";
+        }
+           
+        else{
+
             $select = "SELECT * FROM  $tbl_name WHERE status='$status' OR title LIKE '%$search%'  ORDER BY $field_id $order LIMIT 5";
-        //echo $select;
+        
+        }    //echo $select;
         $query = mysqli_query($this->conn, $select);
         if (mysqli_num_rows($query) > 0) {
             $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);

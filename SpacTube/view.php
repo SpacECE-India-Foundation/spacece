@@ -52,7 +52,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
             </form>
             <br><br>
             <form action="" method="post">
-                <input type="search" name="filterr">
+                <input type="search" name="filterr" id="filterr">
                 <input type="Submit" value="Submit" name="Submit">
 
                 <?php
