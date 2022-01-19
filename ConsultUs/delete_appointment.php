@@ -14,7 +14,7 @@ if($res){
     // redirecting page
     $page = $_SERVER['PHP_SELF'];
     $sec = "10";
-    header("Refresh: $sec; url=$page");
+    header("Location:showmyappointment.php");
 }
 else{
  $_SESSION['delete']= "<div  style='color:red;'> FAILED TO CANCEL APPOINTMENT </div>";         //creating session variable
