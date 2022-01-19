@@ -122,7 +122,7 @@ class Functions
         // }
         // $field_op = rtrim($field_op, "$op ");
         if ($status != null)
-            $select = "SELECT * FROM  $tbl_name WHERE filter='$tb_field' AND status='$status' OR title LIKE '%$tb_field%'  ORDER BY $field_id $order LIMIT 5";
+            $select = "SELECT * FROM  $tbl_name WHERE filter='$tb_field' AND status='$status' OR title LIKE '%$search%'  ORDER BY $field_id $order LIMIT 5";
         else
             $select = "SELECT * FROM  $tbl_name WHERE status='$status' OR title LIKE '%$search%'  ORDER BY $field_id $order LIMIT 5";
         //echo $select;
