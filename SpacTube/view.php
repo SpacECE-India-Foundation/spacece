@@ -59,7 +59,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                 $status = 'free';
                 $abc = $_POST['filterr'];
                 $filter_videos = $Fun_call->filter_video('videos', null, $status, 'v_id', 'DESC', $abc);
-
+                    var_dump($filter_videos);
                 ?>
             </form>
             <br><br>
