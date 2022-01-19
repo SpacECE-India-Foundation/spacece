@@ -14,12 +14,13 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
 <link rel="stylesheet" href="css/share.css" class="real">
 <div class="container-fluid">
 
-    <div class="container"><br>
-        <?php include 'menu.php'; ?>
-    </div>
+   
 
 
     <div class="container">
+    <div class="container"><br>
+        <?php include 'menu.php'; ?>
+    </div>
         <div class="ins-box">
             <div class="container">
                 <ul class="nav justify-content-center bg-dark">
