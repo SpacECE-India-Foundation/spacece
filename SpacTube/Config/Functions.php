@@ -131,6 +131,7 @@ class Functions
         
         }    //echo $select;
         $query = mysqli_query($this->conn, $select);
+        var_dump($select);
         if (mysqli_num_rows($query) > 0) {
             $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
             if ($select_fetch) {
