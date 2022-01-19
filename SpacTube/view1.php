@@ -193,7 +193,7 @@ if ($status === true) {
     </div>
 <?php
 } else {
-    echo "Please Subscribe for This Videos";
+    echo "<h5 class='text-center d-flex justify-content-center'>Please Subscribe for This Videos</h5>";
 }
 ?>
 <!-- <div class="container1" >
