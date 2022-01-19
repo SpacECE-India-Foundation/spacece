@@ -203,7 +203,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                 }
                 ?>
             </div>
-            <?php if (!$fetch_video) {
+            <?php if (empty($fetch_video)) {
                 echo "<h1 class='text-center'>Sorry Vidoes Not Found</h1>";
             } ?>
         </div>
