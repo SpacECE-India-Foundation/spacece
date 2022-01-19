@@ -84,7 +84,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                                 </div>
                             <?php
                             }
-                        } else if ($video_data['status'] ==  "free" && $video_data['filter'] == $abc) {
+                        } else if ($video_data['status'] ==  "free" ) {
                             ?>
                             <div class="col mb-4">
                                 <div class="card h-100">
