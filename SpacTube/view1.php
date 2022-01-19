@@ -184,7 +184,7 @@ if ($status === true) {
                     ?>
                 </div>
                 <?php if (!$fetch_video) {
-                    echo "<h1 class='text-center'>Sorry Vidoes Not Found</h1>";
+                    echo "<h1 class='text-center d-flex justify-content-center'>Sorry Vidoes Not Found</h1>";
                 } ?>
             </div>
 
