@@ -33,16 +33,18 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                 <button type="button">Remove Video</button>
             </a> -->
 </div>
+<div class="container">
+            <?php include 'menu.php'; ?>
+        </div>
 <?php
+
 if ($status === true) {
 
 
 ?>
     <div class="container-fluid">
 
-        <div class="container">
-            <?php include 'menu.php'; ?>
-        </div>
+      
 
 
 
