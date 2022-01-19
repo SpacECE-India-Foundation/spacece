@@ -14,8 +14,9 @@ $module_name = "ConsultUs";
 include '../common/header_module.php';
 // include_once '../common/header_module.php'; 
 include('indexDB.php');
-$user = '';
 
+$email = $_SESSION['current_user_email'];
+$user= $_SESSION['current_user_name'];
 
 
  ?>
