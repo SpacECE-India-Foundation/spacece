@@ -65,7 +65,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
             <br><br>
             <div class="row row-cols-1 row-cols-md-3">
                 <?php
-                 var_dump($filter_videos);
+                 //var_dump($filter_videos);
                 if ($filter_videos) {
 
                     foreach ($fetch_video as $video_data) {
