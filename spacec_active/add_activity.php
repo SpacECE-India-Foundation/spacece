@@ -21,15 +21,23 @@ include_once '../common/banner.php';
 
 <div class="container ">
 
-    <div class="card mb-3 d-flex jistify-content-center ">
+    <div class="card d-flex jistify-content-center ">
+    
         <form id="add_activity" name="add_activity" class="  mb-3" method="POST" action="./ajax_add_activity.php">
             <div class="row ">
+                    <h3 class="d-flex justify-content-center">Add Activity
+                  
+                    </h3>
+                    
                 <div class="col-sm-6 d-flex justify-content-center mb-3 ">
-                    <div class="col-sm-10">
+                    <div class="col-sm-10 mb-3">
+                    <div class="mb-3">
                 <lable class="mb-3">Activity Name : </lable>
+                
         <input type="text" name="act_name" class="form-control" id="act_name" placeholder="Activity Name" required>
              
-
+        </div>
+        <div class="mb-3">
                 <lable class="mb-3">Activity Level : </lable>
                 <select class="form-control" id="act_lvl" name="act_lvl" required>
                     <option value="">Select</option>
@@ -38,55 +46,77 @@ include_once '../common/banner.php';
                     <option value="3">Level 3</option>
                     <option value="4">Level 4</option>
                 </select>
-        
-               
+        </div>
+             
+        <div class="mb-3">
                 <lable class="mb-3">Activity Developing Domain  : </lable>
         <input type="text" name="act_dom" class="form-control" id="act_dom" placeholder="Activity Developing Domain" required>
-              
+        </div>
+        <div class="mb-3"> 
                 <lable class="mb-3">Activity objectives  : </lable>
                 <textarea name="act_obj" class="form-control" id="act_obj" cols="30" rows="3" placeholder="Activity objectives" required></textarea>
-      
+        </div>
+        <div class="mb-3">
                 <lable class="mb-3">Activity process : </lable>
       
       <textarea name="act_pro" class="form-control" id="act_pro" cols="30" rows="3" placeholder="Activity process" required></textarea>
+        </div>
+        <div class="mb-3">
       <lable class="mb-3">Playlist  Name : </lable>
         <input type="text" name="pl_name" class="form-control" id="pl_name" placeholder="Youtube Playlist  Name" required>
-                </div>
+           
+        </div>
+        </div>
                 </div>
                 <div class="col-sm-6 ">
                 <div class="col-sm-10">
+                <div class="mb-3">
                 <lable class="mb-3">Activity Key Objectives  : </lable>
         <input type="text" name="act_key" class="form-control" id="act_key" placeholder="Activity Key Objectives" required>
-                <lable class="mb-3">Activity material : </lable>
+        </div>
+        <div class="mb-3">  
+        <lable class="mb-3">Activity material : </lable>
         <input type="text" name="act_mat" class="form-control" id="act_mat" placeholder="Activity material" required>
-               
+        </div>
+        <div class="mb-3">
                 <lable class="mb-3">Activity Assesment : </lable>
                 <textarea name="act_asses" class="form-control" id="act_asses" placeholder="Activity Assesment" cols="30" rows="3" required></textarea>
-           
+        </div>
                 
-
+        <div class="mb-3">
                 <lable class="mb-3">Activity Instructions : </lable>
         
         <textarea name="act_ins" class="form-control" id="act_ins" cols="30" placeholder="Activity Instructions" rows="3" required></textarea>
-              
+        </div>  
+        <div class="mb-3">
                 <lable class="mb-3">Activity Date: </lable>
         <input type="date" name="act_date" class="form-control" id="act_date"  required>
-       
+        </div>
+        <div class="mb-3">
         <lable class="mb-3">Playlist  description: </lable>
         <input type="text" name="pl_desc" class="form-control" id="pl_desc" placeholder="Playlist  description" required>
-
-        <lable class="mb-3">Activity Status : </lable>
+        </div>
+        
+        </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                <div class=" col-sm-6  mb-3 ">
+        <lable class=" mb-3">Activity Status : </lable>
                 <select class="form-control" id="act_type" name="act_type" required>
                     <option value="">Select</option>
                     <option value="Free">Free</option>
                     <option value="Paid">Paid</option>
                    
                 </select>
-        </div>
-        <div class="mb-3">
-        <input type="submit" id="save" name="save" class="mb-3 btn btn-primary">
+                <div class="   mb-3  ">
+        <input type="submit" id="save" name="save" class="  btn btn-primary form-control mt-3">
 
         </div>
+        </div>
+        </div>
+            </div>
+       
+          
        
         
 </div>
@@ -113,12 +143,8 @@ include_once '../common/footer_module.php';
 <!-- <script type="text/javascript" src="js/scriptcall.js"></script> -->
 
 <script>
-        $(document).ready(function(){
-
-     
-
-        
-$("#add_activity").on('submit',function( ){
+        $(document).ready(function(){     
+$("#add_activity").on('submit',function(){
         var act_name=$('#act_name').val();
         var act_lvl=$('#act_lvl').val();
         var act_dom=$('#act_dom').val();
