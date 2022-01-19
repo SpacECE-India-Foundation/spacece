@@ -30,7 +30,7 @@ $getDate=date($adate);
 
 //  $_SESSION['add']= "Consultant Un available";
  }else{
-  echo "Inside";
+ // echo "Inside";
    $time3 = strtotime(date($atime));
 //$startTime = date("H:i:s", strtotime('-10 minutes', $time3));
  $endTime = strtotime("+10 minutes", strtotime( $atime));
@@ -62,7 +62,7 @@ $res= mysqli_query($conn,$sql);
     
       $res1= mysqli_query($conn,$sql1);
       $row=mysqli_fetch_assoc($res1);
-        echo json_encode($row);
+       // echo json_encode($row);
       
 
     }
