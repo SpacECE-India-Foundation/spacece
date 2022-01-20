@@ -1,6 +1,6 @@
 <?php
 require('config.php');
-class Employee extends Dbconfig {	
+class ActivityData extends Dbconfig {	
     protected $hostName;
     protected $userName;
     protected $password;
@@ -11,10 +11,12 @@ class Employee extends Dbconfig {
         if(!$this->dbConnect){ 		
 			//$database = new dbConfig();
 			//var_dump($database);            
-            $this -> hostName = 'localhost';
-		
-            $this -> userName = 'root';
-            $this -> password = '';
+            $this -> hostName = '3.109.14.4';
+            $this -> userName = 'ostechnix';
+            $this -> password = 'Password123#@!';
+			// $this -> hostName = 'localhost';
+            // $this -> userName = 'root';
+            // $this -> password = '';
 			$this -> dbName ='space_active';			
             $conn = new mysqli($this->hostName, $this->userName, $this->password, $this->dbName);
 			

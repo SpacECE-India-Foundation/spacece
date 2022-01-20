@@ -1,5 +1,5 @@
 $(document).ready(function(){	
-	var employeeData = $('#activityList').DataTable({
+	var activityData = $('#activityList').DataTable({
 		"lengthChange": false,
 		"processing":true,
 		"serverSide":true,
@@ -8,7 +8,7 @@ $(document).ready(function(){
 		"ajax":{
 			url:"action.php",
 			type:"POST",
-			data:{action:'listEmployee'},
+			data:{action:'listActivity'},
 			dataType:"json"
 		},
 		"columnDefs":[
@@ -19,16 +19,16 @@ $(document).ready(function(){
 		],
 		"pageLength": 10
 	});		
-	// $('#addActivity').click(function(){
-	// 	$('#activityModal').modal('show');
-	// 	$('#activityForm')[0].reset();
-	// 	$('.modal-title').html("<i class='fa fa-plus'></i> Add Employee");
-	// 	$('#action').val('addEmployee');
-	// 	$('#save').val('Add');
-	// });		
+	$('#addActivity').click(function(){
+		$('#activityModal').modal('show');
+		$('#activityForm')[0].reset();
+		$('.modal-title').html("<i class='fa fa-plus'></i> Add Employee");
+		$('#action').val('addEmployee');
+		$('#save').val('Add');
+	});		
 	$("#activityList").on('click', '.update', function(){
 		var empId = $(this).attr("id");
-		var action = 'getEmployee';
+		var action = 'getActivity';
 		$.ajax({
 			url:'action.php',
 			method:"POST",
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			}
 		})
 	});
-	$("#activityModal").on('submit','#employeeForm', function(event){
+	$("#activityModal").on('submit','#activityForm', function(event){
 		event.preventDefault();
 		$('#save').attr('disabled','disabled');
 		var formData = $(this).serialize();
@@ -57,23 +57,23 @@ $(document).ready(function(){
 			method:"POST",
 			data:formData,
 			success:function(data){				
-				$('#employeeForm')[0].reset();
-				$('#employeeModal').modal('hide');				
+				$('#activityForm')[0].reset();
+				$('#activityModal').modal('hide');				
 				$('#save').attr('disabled', false);
-				employeeData.ajax.reload();
+				activityData.ajax.reload();
 			}
 		})
 	});		
 	$("#activityList").on('click', '.delete', function(){
-		var empId = $(this).attr("id");		
-		var action = "empDelete";
+		var activity_no = $(this).attr("activity_no");		
+		var action = "activityDelete";
 		if(confirm("Are you sure you want to delete this employee?")) {
 			$.ajax({
 				url:"action.php",
 				method:"POST",
-				data:{empId:empId, action:action},
+				data:{activity_no:activity_no, action:action},
 				success:function(data) {					
-					employeeData.ajax.reload();
+					activityData.ajax.reload();
 				}
 			})
 		} else {

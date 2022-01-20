@@ -1,19 +1,19 @@
 <?php
-include('Employee.php');
-$emp = new Employee();
-if(!empty($_POST['action']) && $_POST['action'] == 'listEmployee') {
+include('ActivityData.php');
+$emp = new ActivityData();
+if(!empty($_POST['action']) && $_POST['action'] == 'listActivity') {
 	$emp->activityList();
 }
-if(!empty($_POST['action']) && $_POST['action'] == 'addEmployee') {
+if(!empty($_POST['action']) && $_POST['action'] == 'addActivity') {
 	$emp->addActivity();
 }
-if(!empty($_POST['action']) && $_POST['action'] == 'getEmployee') {
+if(!empty($_POST['action']) && $_POST['action'] == 'getActivity') {
 	$emp->getActivity();
 }
-if(!empty($_POST['action']) && $_POST['action'] == 'updateEmployee') {
+if(!empty($_POST['action']) && $_POST['action'] == 'updateActivity') {
 	$emp->updateActivity();
 }
-if(!empty($_POST['action']) && $_POST['action'] == 'empDelete') {
+if(!empty($_POST['action']) && $_POST['action'] == 'activityDelete') {
 	$emp->deleteActivity();
 }
 ?>
