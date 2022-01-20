@@ -10,11 +10,12 @@ include_once '../common/header_module.php';
 <style>
 
 ul {
+
   list-style-type: none;
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: #fff;
 }
 
 li a {
@@ -26,14 +27,14 @@ li a {
 
 /* Change the link color on hover */
 li a:hover {
-  background-color: #555;
+  background-color: orange;
   color: white;
 }
 </style>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <div class="main-content text-centre" style="background: linear-gradient(to bottom right, #ffcc99 10%, #ffffff 100%);">
-<div id="admin-page">
+<div id="admin-page" class="mt-3">
 <div class="container">
 <nav>
     <ul>
@@ -46,7 +47,8 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
         <li><a href="#"><i class="fas fa-book"></i> Appointmentd </a></li>
         <li><a href="#"><i class="fas fa-users"></i> Profile </a></li>
         <li><a href="#"><i class="fas fa-cogs"></i> Settings </a></li>
-
+        <li><a href="#"><i class="fas fa-plus-circle"></i> Add Activity</a></li>
+        <li><a href="#"><i class="far fa-edit"></i> Edit Activity</a></li>
 
 </ul>
 </nav>
