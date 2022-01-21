@@ -68,6 +68,7 @@ class ActivityData extends Dbconfig {
 					
 		}
 		if(!empty($_POST["order"])){
+			
 			$sqlQuery .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
 		} else {
 			$sqlQuery .= 'ORDER BY activity_no DESC ';
@@ -75,6 +76,7 @@ class ActivityData extends Dbconfig {
 		if($_POST["length"] != -1){
 			$sqlQuery .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 		}	
+		
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		
 		$sqlQuery1 = "SELECT * FROM ".$this->actTable." ";

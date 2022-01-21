@@ -47,8 +47,8 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
         <li><a href="#"><i class="fas fa-book"></i> Appointmentd </a></li>
         <li><a href="#"><i class="fas fa-users"></i> Profile </a></li>
         <li><a href="#"><i class="fas fa-cogs"></i> Settings </a></li>
-        <li><a href="#"><i class="fas fa-plus-circle"></i> Add Activity</a></li>
-        <li><a href="#"><i class="far fa-edit"></i> Edit Activity</a></li>
+        <li><a href="./add_activity.php"><i class="fas fa-plus-circle"></i> Add Activity</a></li>
+        <li><a href="./index1.php"><i class="far fa-edit"></i> Edit Activity</a></li>
 
 </ul>
 </nav>
