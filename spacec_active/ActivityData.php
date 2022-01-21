@@ -11,12 +11,12 @@ class ActivityData extends Dbconfig {
         if(!$this->dbConnect){ 		
 			//$database = new dbConfig();
 			//var_dump($database);            
-            $this -> hostName = '3.109.14.4';
-            $this -> userName = 'ostechnix';
-            $this -> password = 'Password123#@!';
-			// $this -> hostName = 'localhost';
-            // $this -> userName = 'root';
-            // $this -> password = '';
+            // $this -> hostName = '3.109.14.4';
+            // $this -> userName = 'ostechnix';
+            // $this -> password = 'Password123#@!';
+			$this -> hostName = 'localhost';
+            $this -> userName = 'root';
+            $this -> password = '';
 			$this -> dbName ='space_active';			
             $conn = new mysqli($this->hostName, $this->userName, $this->password, $this->dbName);
 			
@@ -102,8 +102,7 @@ class ActivityData extends Dbconfig {
 			$actRows[] = $activity['playlist_name'];	
 			$actRows[] = $activity['playlist_descr'];		
 				
-			$actRows[] = '<button type="button" name="update" id="'.$activity["activity_no"].'" class="btn btn-warning btn-xs update">Update</button>';
-			$actRows[] = '<button type="button" name="delete" id="'.$activity["activity_no"].'" class="btn btn-danger btn-xs delete" >Delete</button>';
+			$actRows[] = '<button type="button" name="update" id="'.$activity["activity_no"].'" class="btn btn-warning btn-xs update">Update</button> <button type="button" name="delete" id="'.$activity["activity_no"].'" class="btn btn-danger btn-xs delete" >Delete</button>';
 			$activityData[] = $actRows;
 		}
 		$output = array(
@@ -118,19 +117,21 @@ class ActivityData extends Dbconfig {
 		if($_POST["activity_no"]) {
 			$sqlQuery = "
 				SELECT * FROM ".$this->actTable." 
-				WHERE id = '".$_POST["activity_no"]."'";
+				WHERE activity_no = '".$_POST["activity_no"]."'";
+				
 			$result = mysqli_query($this->dbConnect, $sqlQuery);	
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			echo json_encode($row);
 		}
 	}
 	public function updateActivity(){
+		var_dump($_POST);
 		if($_POST['activity_no']) {	
 			$updateQuery = "UPDATE ".$this->actTable." 
 			SET activity_name = '".$_POST["activity_name"]."', activity_level = '".$_POST["activity_level"]."', activity_dev_domain = '".$_POST["activity_dev_domain"]."', activity_objectives = '".$_POST["activity_objectives"]."' , activity_key_dev = '".$_POST["activity_key_dev"]."',
 			activity_material = '".$_POST["activity_material"]."', activity_assessment = '".$_POST["activity_assessment"]."', activity_process = '".$_POST["activity_process"]."', activity_instructions = '".$_POST["activity_instructions"]."' , status = '".$_POST["status"]."',
 			activity_date = '".$_POST["activity_date"]."', playlist_id = '".$_POST["playlist_id"]."', playlist_name = '".$_POST["playlist_name"]."', playlist_descr = '".$_POST["playlist_descr"]."'
-			WHERE id ='".$_POST["activity_no"]."'";
+			WHERE activity_no ='".$_POST["activity_no"]."'";
 			$isUpdated = mysqli_query($this->dbConnect, $updateQuery);		
 		}	
 	}
@@ -145,7 +146,7 @@ class ActivityData extends Dbconfig {
 		if($_POST["activity_no"]) {
 			$sqlDelete = "
 				DELETE FROM ".$this->actTable."
-				WHERE id = '".$_POST["activity_no"]."'";		
+				WHERE activity_no = '".$_POST["activity_no"]."'";		
 			mysqli_query($this->dbConnect, $sqlDelete);		
 		}
 	}
