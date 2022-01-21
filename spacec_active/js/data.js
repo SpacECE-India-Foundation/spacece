@@ -89,7 +89,7 @@ $(document).ready(function(){
 				$('#playlist_descr').val(data.playlist_descr);
 				$('#playlist_name').val(data.playlist_name);
 				$('#activity_no').val(data.activity_no);
-				alert(activity_no);
+				
 				$('.modal-title').html("<i class='fa fa-plus'></i> Edit Activity");
 				$('#action').val('updateActivity');
 				$('#save').val('Save');
@@ -113,9 +113,10 @@ $(document).ready(function(){
 		})
 	});		
 	$("#activityList").on('click', '.delete', function(){
-		var activity_no = $(this).attr("activity_no");		
+		var activity_no = $(this).attr("id");
+			
 		var action = "activityDelete";
-		if(confirm("Are you sure you want to delete this employee?")) {
+		if(confirm("Are you sure you want to delete this Activity?")) {
 			$.ajax({
 				url:"action.php",
 				method:"POST",

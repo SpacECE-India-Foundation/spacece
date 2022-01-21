@@ -49,7 +49,7 @@ include_once '../common/banner.php';
 					<th>Playlist descr</th>	
 					<th>Playlist name</th>	
 					<th></th>	
-									
+					<th></th>				
 				</tr>
 			</thead>
 		</table>

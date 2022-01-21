@@ -102,7 +102,8 @@ class ActivityData extends Dbconfig {
 			$actRows[] = $activity['playlist_name'];	
 			$actRows[] = $activity['playlist_descr'];		
 				
-			$actRows[] = '<button type="button" name="update" id="'.$activity["activity_no"].'" class="btn btn-warning btn-xs update">Update</button> <button type="button" name="delete" id="'.$activity["activity_no"].'" class="btn btn-danger btn-xs delete" >Delete</button>';
+			$actRows[] = '<button type="button" name="update" id="'.$activity["activity_no"].'" class="btn btn-warning btn-xs update">Update</button>';
+			$actRows[] =' <button type="button" name="delete" id="'.$activity["activity_no"].'" class="btn btn-danger btn-xs delete" >Delete</button>';
 			$activityData[] = $actRows;
 		}
 		$output = array(
@@ -143,6 +144,7 @@ class ActivityData extends Dbconfig {
 		$isUpdated = mysqli_query($this->dbConnect, $insertQuery);		
 	}
 	public function deleteActivity(){
+		var_dump($_POST);
 		if($_POST["activity_no"]) {
 			$sqlDelete = "
 				DELETE FROM ".$this->actTable."
