@@ -14,9 +14,9 @@ class ActivityData extends Dbconfig {
             $this -> hostName = '3.109.14.4';
             $this -> userName = 'ostechnix';
             $this -> password = 'Password123#@!';
-			// $this -> hostName = 'localhost';
-            // $this -> userName = 'root';
-            // $this -> password = '';
+			//$this -> hostName = 'localhost';
+            //$this -> userName = 'root';
+            //$this -> password = '';
 			$this -> dbName ='space_active';			
             $conn = new mysqli($this->hostName, $this->userName, $this->password, $this->dbName);
 			
@@ -50,23 +50,24 @@ class ActivityData extends Dbconfig {
 		$sqlQuery = "SELECT * FROM ".$this->actTable." ";
 	
 		if(!empty($_POST["search"]["value"])){
-			$sqlQuery .= 'where(activity_no LIKE "%'.$_POST["search"]["value"].'%" ';
+			$sqlQuery .= 'where activity_no LIKE "%'.$_POST["search"]["value"].'%" ';
 			$sqlQuery .= ' OR activity_name LIKE "%'.$_POST["search"]["value"].'%" ';			
 			$sqlQuery .= ' OR activity_level LIKE "%'.$_POST["search"]["value"].'%" ';
 			$sqlQuery .= ' OR activity_dev_domain LIKE "%'.$_POST["search"]["value"].'%" ';
-			$sqlQuery .= ' OR activity_objectives LIKE "%'.$_POST["search"]["value"].'%") ';	
+			$sqlQuery .= ' OR activity_objectives LIKE "%'.$_POST["search"]["value"].'%" ';	
 			$sqlQuery .= ' OR activity_key_dev LIKE "%'.$_POST["search"]["value"].'%" ';			
 			$sqlQuery .= ' OR activity_material LIKE "%'.$_POST["search"]["value"].'%" ';
 			$sqlQuery .= ' OR activity_assessment LIKE "%'.$_POST["search"]["value"].'%" ';
-			$sqlQuery .= ' OR activity_process LIKE "%'.$_POST["search"]["value"].'%") ';	
+			$sqlQuery .= ' OR activity_process LIKE "%'.$_POST["search"]["value"].'%" ';	
 			$sqlQuery .= ' OR activity_instructions LIKE "%'.$_POST["search"]["value"].'%" ';			
 			$sqlQuery .= ' OR status LIKE "%'.$_POST["search"]["value"].'%" ';
 			$sqlQuery .= ' OR activity_date LIKE "%'.$_POST["search"]["value"].'%" ';
-			$sqlQuery .= ' OR playlist_id LIKE "%'.$_POST["search"]["value"].'%") ';	
+			$sqlQuery .= ' OR playlist_id LIKE "%'.$_POST["search"]["value"].'%" ';	
 			$sqlQuery .= ' OR playlist_name LIKE "%'.$_POST["search"]["value"].'%" ';			
 			
-					
+			
 		}
+	
 		if(!empty($_POST["order"])){
 			
 			$sqlQuery .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
@@ -84,10 +85,12 @@ class ActivityData extends Dbconfig {
 		$result1 = mysqli_query($this->dbConnect, $sqlQuery1);
 		$numRows = mysqli_num_rows($result1);
 		
-		$activityData = array();	
+		$activityData = array();
+		$count=0;	
 		while( $activity = mysqli_fetch_assoc($result) ) {	
 			
-			$actRows = array();			
+			$actRows = array();	
+			$actRows[] = $count++;		
 			$actRows[] = $activity['activity_no'];
 			$actRows[] = ucfirst($activity['activity_name']);
 			$actRows[] = $activity['activity_level'];		

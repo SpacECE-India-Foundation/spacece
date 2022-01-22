@@ -5,7 +5,11 @@ $(document).ready(function(){
 		"processing":true,
 		"serverSide":true,
 		"responsive": true,
-		"order":[],
+		"paging":   true,
+   
+    "info":     true,
+		"targets": 1,
+		"order": [],
 		"ajax":{
 			url:"action.php",
 			type:"POST",
@@ -13,8 +17,11 @@ $(document).ready(function(){
 			dataType:"json"
 		},
 		columnDefs: [
-			{
-								targets: [0,1,2,3,4,5,6,7,8,9,10],
+			{ 
+				
+           
+								targets: [1,2,3,4,5,6,7,8,9,10],
+								"orderable": false, 
 										createdCell: function(cell, cellData, rowData, rowIndex, colIndex) {
 										
 											var $cell = $(cell)
