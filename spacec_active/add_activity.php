@@ -14,6 +14,9 @@ include_once '../common/banner.php';
 
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css" integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
+<link rel="stylesheet" href="./js/richtext.min.css">
 
 </head>
 
@@ -54,12 +57,12 @@ include_once '../common/banner.php';
         </div>
         <div class="mb-3"> 
                 <lable class="mb-3">Activity objectives  : </lable>
-                <textarea name="act_obj" class="form-control" id="act_obj" cols="30" rows="3" placeholder="Activity objectives" required></textarea>
+                <textarea name="act_obj" class="form-control content" id="act_obj" cols="30" rows="3" placeholder="Activity objectives" required></textarea>
         </div>
         <div class="mb-3">
                 <lable class="mb-3">Activity process : </lable>
       
-      <textarea name="act_pro" class="form-control" id="act_pro" cols="30" rows="3" placeholder="Activity process" required></textarea>
+      <textarea name="act_pro" class="form-control content" id="act_pro" cols="30" rows="3" placeholder="Activity process" required></textarea>
         </div>
         <div class="mb-3">
       <lable class="mb-3">Playlist  Name : </lable>
@@ -80,13 +83,13 @@ include_once '../common/banner.php';
         </div>
         <div class="mb-3">
                 <lable class="mb-3">Activity Assesment : </lable>
-                <textarea name="act_asses" class="form-control" id="act_asses" placeholder="Activity Assesment" cols="30" rows="3" required></textarea>
+                <textarea name="act_asses" class="form-control content" id="act_asses" placeholder="Activity Assesment" cols="30" rows="3" required></textarea>
         </div>
                 
         <div class="mb-3">
                 <lable class="mb-3">Activity Instructions : </lable>
         
-        <textarea name="act_ins" class="form-control" id="act_ins" cols="30" placeholder="Activity Instructions" rows="3" required></textarea>
+        <textarea name="act_ins" class="form-control content" id="act_ins" cols="30" placeholder="Activity Instructions" rows="3" required></textarea>
         </div>  
         <div class="mb-3">
                 <lable class="mb-3">Activity Date: </lable>
@@ -96,7 +99,7 @@ include_once '../common/banner.php';
         <lable class="mb-3">Playlist  description: </lable>
         <input type="text" name="pl_desc" class="form-control" id="pl_desc" placeholder="Playlist  description" required>
         </div>
-        
+          
         </div>
                 </div>
                 <div class="d-flex justify-content-center">
@@ -144,10 +147,18 @@ include_once '../common/footer_module.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="./js/jquery.richtext.min.js"></script>
 <!-- <script type="text/javascript" src="js/scriptcall.js"></script> -->
 
 <script>
-        $(document).ready(function(){     
+        $(document).ready(function(){   
+                
+                $(document).ready(function() {
+            $('.content').richText();
+        });     
+
+
+
 $("#add_activity").on('submit',function(){
         var act_name=$('#act_name').val();
         var act_lvl=$('#act_lvl').val();
