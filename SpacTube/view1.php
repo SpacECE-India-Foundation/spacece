@@ -33,16 +33,18 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                 <button type="button">Remove Video</button>
             </a> -->
 </div>
+<div class="container">
+            <?php include 'menu.php'; ?>
+        </div>
 <?php
+
 if ($status === true) {
 
 
 ?>
     <div class="container-fluid">
 
-        <div class="container">
-            <?php include 'menu.php'; ?>
-        </div>
+      
 
 
 
@@ -184,7 +186,7 @@ if ($status === true) {
                     ?>
                 </div>
                 <?php if (!$fetch_video) {
-                    echo "<h1 class='text-center'>Sorry Vidoes Not Found</h1>";
+                    echo "<h1 class='text-center d-flex justify-content-center'>Sorry Vidoes Not Found</h1>";
                 } ?>
             </div>
 
@@ -193,7 +195,7 @@ if ($status === true) {
     </div>
 <?php
 } else {
-    echo "Please Subscribe for This Videos";
+    echo "<h5 class='text-center d-flex justify-content-center'>Please Subscribe for This Videos</h5>";
 }
 ?>
 <!-- <div class="container1" >

@@ -52,20 +52,20 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
             </form>
             <br><br>
             <form action="" method="post">
-                <input type="search" name="filterr">
+                <input type="search" name="filterr" id="filterr">
                 <input type="Submit" value="Submit" name="Submit">
 
                 <?php
                 $status = 'free';
                 $abc = $_POST['filterr'];
                 $filter_videos = $Fun_call->filter_video('videos', null, $status, 'v_id', 'DESC', $abc);
-
+                   
                 ?>
             </form>
             <br><br>
             <div class="row row-cols-1 row-cols-md-3">
                 <?php
-
+                 //var_dump($filter_videos);
                 if ($filter_videos) {
 
                     foreach ($fetch_video as $video_data) {
@@ -84,7 +84,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                                 </div>
                             <?php
                             }
-                        } else if ($video_data['status'] ==  "free" && $video_data['filter'] == $abc) {
+                        } else if ($video_data['status'] ==  "free" ) {
                             ?>
                             <div class="col mb-4">
                                 <div class="card h-100">
@@ -169,7 +169,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                                             </a>
                                             <!-- 0000035 -->
                                             <?php echo $video_data['cntdislike']; ?>
-                                            <button name="share" class="btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=" . $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><i class="fas fa-share-alt" style="color:black"></i></button>
+                                            
                                             <button name="share" class="btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=" . $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><i class="fas fa-share-alt" style="color:black"></i></button>
                                         <div class="share-button sharer" style="display: block;">
 <button type="button" class="btn btn-success share-btn">Share</button>
@@ -203,7 +203,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                 }
                 ?>
             </div>
-            <?php if (!$fetch_video) {
+            <?php if (empty($fetch_video)) {
                 echo "<h1 class='text-center'>Sorry Vidoes Not Found</h1>";
             } ?>
         </div>

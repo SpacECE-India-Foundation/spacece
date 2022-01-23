@@ -121,12 +121,17 @@ class Functions
         //     $field_op = $field_op . "$q_key='$q_value' $op ";
         // }
         // $field_op = rtrim($field_op, "$op ");
-        if ($status != null)
-            $select = "SELECT * FROM  $tbl_name WHERE filter='$tb_field' AND status='$status' AND title LIKE '%$search%'  ORDER BY $field_id $order LIMIT 5";
-        else
-            $select = "SELECT * FROM  $tbl_name WHERE status='$status' AND title LIKE '%$search%'  ORDER BY $field_id $order LIMIT 5";
-        //echo $select;
+        if ($status != null){
+            $select = "SELECT * FROM  $tbl_name WHERE  status='$status' AND title LIKE '%$search%'";
+        }
+           
+        else{
+
+            $select = "SELECT * FROM  $tbl_name WHERE status='$status' AND title LIKE '%$search%'";
+        
+        }    //echo $select;
         $query = mysqli_query($this->conn, $select);
+        
         if (mysqli_num_rows($query) > 0) {
             $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
             if ($select_fetch) {
@@ -177,7 +182,7 @@ class Functions
         foreach ($condition as $q_key => $q_value) {
             $field_op = $field_op . "$q_key='$q_value' $op ";
         }
-        $field_op = rtrim($field_op, "$op ");
+        $field_op = rtrim($field_op, "$op");
 
         $update = "UPDATE $tblname SET $field_row WHERE $field_op";
         $update_fire = mysqli_query($this->conn, $update);
