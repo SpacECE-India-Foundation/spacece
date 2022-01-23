@@ -447,6 +447,9 @@ include_once '../common/footer_module.php';
                 $("#progress-bar").width('0%');
                 $('#loader-icon').show();
                 $('#exampleModal').modal('hide');
+                $("#exampleModal").hide();
+                $("#exampleModal").removeClass("in");
+                $(".modal-backdrop").remove();
             },
             error: function() {
                 $('#loader-icon').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
