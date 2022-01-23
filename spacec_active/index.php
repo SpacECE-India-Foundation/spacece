@@ -408,7 +408,7 @@ include_once '../common/footer_module.php';
 
     $('#uploadVideo').on('submit', function(event) {
 
-        $('#exampleModal').modal('hide');
+       
         event.preventDefault();
 
         var fd = new FormData();
@@ -422,7 +422,7 @@ include_once '../common/footer_module.php';
         fd.append("summary", summary);
         fd.append("id", id);
         fd.append("pl_id", pl_id);
-
+        $('#exampleModal').modal('hide');
         $('.progress').show();
 
         $.ajax({
