@@ -60,7 +60,7 @@ let adminPage = (courses) => {
           </table>
 
           <!-- Add course Modal -->
-          <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#addCourseModal">Add Course</a>
+          <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#addCourseModal">Add Course</button>
 
           <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
           <div class="modal-dialog modal-lg">
