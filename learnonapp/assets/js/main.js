@@ -31,7 +31,7 @@ const editCourse = (id) => {
 
 let adminPage = (courses) => {
   return `
-        <button class="btn btn-wide" data-toggle="modal" data-target="#add_course_modal">Add Course</button>
+        <button type="button" class="btn btn-wide" data-toggle="modal" data-target="#add_course_modal">Add Course</button>
           <table id="admin-table">
             <tr>
               <th>ID</th>
