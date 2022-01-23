@@ -1,22 +1,51 @@
 let uid = $("#uid_placeholder").data("uid") || null;
 
-// const addCourse = () => {
-//   $("#admin-table").append(
-//     `<tr>
-//   <td id="td-id-new">New</td>
-//   <td><input type="text" id="title-new"></td>
-//   <td><input type="text" id="description-new"></td>
-//   <td><input type="text" id="duration-new"></td>
-//   <td><input type="text" id="mode-new"></td>
-//   <td><input type="text" id="type-new"></td>
-//   <td><input type="text" id="price-new"></td>
-//   <td>
-//     <button class="btn btn-wide" onclick="addCourseSubmit()">Create</button><br>
-//     <button class="btn btn-wide" onclick="cancelCourse()">Cancel</button>
-//   </td>
-// </tr>`
-//   );
-// };
+// Admin Page Edit Course
+const editCourse = (id) => {
+  $(`#tr-${id}`).html(
+    `<td id="td-id-${id}">${id}</td>
+  <td><input type="text" id="title-${id}" value="${$(
+      `#td-title-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="description-${id}" value="${$(
+      `#td-description-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="duration-${id}" value="${$(
+      `#td-duration-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="mode-${id}" value="${$(
+      `#td-mode-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="type-${id}" value="${$(
+      `#td-type-${id}`
+    ).text()}"></td>
+  <td><input type="text" id="price-${id}" value="${$(
+      `#td-price-${id}`
+    ).text()}"></td>
+  <td>
+    <button class="btn btn-wide" onclick="updateCourse(${id})">Update</button><br>
+    <button class="btn btn-wide" onclick="deleteCourse(${id})">Delete</button>
+  </td>`
+  );
+};
+
+const addCourse = () => {
+  $("#admin-table").append(
+    `<tr>
+  <td id="td-id-new">New</td>
+  <td><input type="text" id="title-new"></td>
+  <td><input type="text" id="description-new"></td>
+  <td><input type="text" id="duration-new"></td>
+  <td><input type="text" id="mode-new"></td>
+  <td><input type="text" id="type-new"></td>
+  <td><input type="text" id="price-new"></td>
+  <td>
+    <button class="btn btn-wide" onclick="addCourseSubmit()">Create</button><br>
+    <button class="btn btn-wide" onclick="cancelCourse()">Cancel</button>
+  </td>
+</tr>`
+  );
+};
 
 const addCourseSubmit = () => {
   let title = $("#title-new").val();
@@ -335,7 +364,7 @@ $(document).ready(function () {
       if (d.status == "success") {
         const courses = d.data;
         $("#admin-page").html(`
-        <button class="btn btn-wide" data-toggle="modal" data-target=".add_course_modal">Add Course</button>
+        <button class="btn btn-wide" onclick="addCourse()">Add Course</button>
           <table id="admin-table">
             <tr>
               <th>ID</th>
@@ -362,54 +391,7 @@ $(document).ready(function () {
                     </td>
               </tr>`;
             })}
-          </table>
-          <div class="modal fade add_course_modal" tabindex="-1" role="dialog" aria-labelledby="addCourse" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-              <div class="modal-header">
-              <h5 class="modal-title" id="addCourse">Add Course</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="title-new">Title</label>
-                  <input type="text" id="title-new">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="description-new">Description</label>
-                  <input type="text" id="description-new">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="duration-new">Duration</label>
-                  <input type="text" id="duration-new">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="mode-new">Mode</label>
-                  <input type="text" id="mode-new">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="type-new">Type</label>
-                  <input type="text" id="type-new">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="price-new">Price</label>
-                  <input type="text" id="price-new">
-                </div>
-              </div>
-              
-              <button class="btn btn-wide" onclick="addCourseSubmit()">Create</button>
-              </div>
-          </div>
-              </div>
-            </div>
-          </div>
-          `);
+          </table>`);
       }
     },
   });
