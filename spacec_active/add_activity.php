@@ -33,7 +33,7 @@ include_once '../common/banner.php';
 
     <div class="card d-flex jistify-content-center ">
     
-        <form id="add_activity" name="add_activity" class="  mb-3" method="POST">
+        <form id="add_activity" name="add_activity" class="  mb-3" method="POST" action="./ajax_add_activity.php">
             <div class="row ">
                     <h3 class="d-flex justify-content-center">Add Activity
                   
@@ -169,7 +169,7 @@ include_once '../common/footer_module.php';
 
 
 
-$("#add_activity").on('submit',function(){
+$("#add_activity").on('submit',function(e){
         var act_name=$('#act_name').val();
         var act_lvl=$('#act_lvl').val();
         var act_dom=$('#act_dom').val();
@@ -188,7 +188,7 @@ $("#add_activity").on('submit',function(){
         var pl_desc=$('#pl_desc').val();
 
        
-        
+        e.preventDefault();
         $.ajax({
 
                 method:'POST',
