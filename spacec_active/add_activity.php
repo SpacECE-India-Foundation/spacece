@@ -211,6 +211,7 @@ $("#add_activity").on('submit',function(e){
                 success:function(result){
                        
                         alert(result);
+                        location.reload();
                 }
         })
         
