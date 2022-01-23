@@ -31,7 +31,7 @@ const editCourse = (id) => {
 
 let adminPage = (courses) => {
   return `
-        <button type="button" class="btn btn-wide" data-toggle="modal" data-target="#add_course_modal">Add Course</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_course_modal">Add Course</button>
           <table id="admin-table">
             <tr>
               <th>ID</th>
@@ -47,7 +47,7 @@ let adminPage = (courses) => {
               return `<tr id="tr-${course.id}">
                     <td id="td-id-${course.id}">${course.id}</td>
                     <td id="td-title-${course.id}">${course.title}</td>
-                    <td id="td-description-${course.id}">${course.description}</td>
+                    <td id="td-description-${course.id}" style="width: 50%;">${course.description}</td>
                     <td id="td-duration-${course.id}">${course.duration}</td>
                     <td id="td-mode-${course.id}">${course.mode}</td>
                     <td id="td-type-${course.id}">${course.type}</td>
@@ -59,6 +59,8 @@ let adminPage = (courses) => {
               </tr>`;
             })}
           </table>
+
+          <!-- Add course Modal -->
           <div class="modal fade" id="add_course_modal" tabindex="-1" role="dialog" aria-labelledby="addCourse" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
