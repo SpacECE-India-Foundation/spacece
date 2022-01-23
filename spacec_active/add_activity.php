@@ -18,6 +18,13 @@ include_once '../common/banner.php';
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
 <link rel="stylesheet" href="./js/richtext.min.css">
 
+|<style>
+.fa {
+    
+  
+    font-size: 0px;
+}
+        </style>
 </head>
 
 <body>
@@ -62,7 +69,7 @@ include_once '../common/banner.php';
         <div class="mb-3">
                 <lable class="mb-3">Activity process : </lable>
       
-      <textarea name="act_pro" class="form-control content" id="act_pro" cols="30" rows="3" placeholder="Activity process" required></textarea>
+      <textarea name="act_pro" class="form-control content1" id="act_pro" cols="30" rows="3" placeholder="Activity process" required></textarea>
         </div>
         <div class="mb-3">
       <lable class="mb-3">Playlist  Name : </lable>
@@ -83,13 +90,13 @@ include_once '../common/banner.php';
         </div>
         <div class="mb-3">
                 <lable class="mb-3">Activity Assesment : </lable>
-                <textarea name="act_asses" class="form-control content" id="act_asses" placeholder="Activity Assesment" cols="30" rows="3" required></textarea>
+                <textarea name="act_asses" class="form-control content2 " id="act_asses" placeholder="Activity Assesment" cols="30" rows="3" required></textarea>
         </div>
                 
         <div class="mb-3">
                 <lable class="mb-3">Activity Instructions : </lable>
         
-        <textarea name="act_ins" class="form-control content" id="act_ins" cols="30" placeholder="Activity Instructions" rows="3" required></textarea>
+        <textarea name="act_ins" class="form-control content3 " id="act_ins" cols="30" placeholder="Activity Instructions" rows="3" required></textarea>
         </div>  
         <div class="mb-3">
                 <lable class="mb-3">Activity Date: </lable>
@@ -153,13 +160,16 @@ include_once '../common/footer_module.php';
 <script>
         $(document).ready(function(){   
                 
-                $(document).ready(function() {
-            $('.content').richText();
-        });     
+        //         $(document).ready(function() {
+        //     $('.content').richText();
+        //     $('.content1').richText();
+        //     $('.content2').richText();
+        //     $('.content3').richText();
+        // });     
 
 
 
-$("#add_activity").on('submit',function(){
+$("#add_activity").on('submit',function(e){
         var act_name=$('#act_name').val();
         var act_lvl=$('#act_lvl').val();
         var act_dom=$('#act_dom').val();
@@ -178,7 +188,7 @@ $("#add_activity").on('submit',function(){
         var pl_desc=$('#pl_desc').val();
 
        
-        
+        e.preventDefault();
         $.ajax({
 
                 method:'POST',
@@ -201,6 +211,7 @@ $("#add_activity").on('submit',function(){
                 success:function(result){
                        
                         alert(result);
+                        location.reload();
                 }
         })
         

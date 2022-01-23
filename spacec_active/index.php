@@ -408,7 +408,7 @@ include_once '../common/footer_module.php';
 
     $('#uploadVideo').on('submit', function(event) {
 
-        $('#exampleModal').modal('hide');
+       
         event.preventDefault();
 
         var fd = new FormData();
@@ -422,7 +422,7 @@ include_once '../common/footer_module.php';
         fd.append("summary", summary);
         fd.append("id", id);
         fd.append("pl_id", pl_id);
-
+        $('#exampleModal').modal('hide');
         $('.progress').show();
 
         $.ajax({
@@ -446,7 +446,10 @@ include_once '../common/footer_module.php';
             beforeSend: function() {
                 $("#progress-bar").width('0%');
                 $('#loader-icon').show();
-                $('#exampleModal').modal('toggle');
+                $('#exampleModal').modal('hide');
+                $("#exampleModal").hide();
+                $("#exampleModal").removeClass("in");
+                $(".modal-backdrop").remove();
             },
             error: function() {
                 $('#loader-icon').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
