@@ -19,10 +19,15 @@ include_once '../common/banner.php';
 <link rel="stylesheet" href="./js/richtext.min.css">
 
 |<style>
-.fa {
-    
-  
-    font-size: 0px;
+
+
+
+/* richtext custom style */
+.richText {
+    margin-top: 40px;
+    -webkit-box-shadow: 0 0 20px 0 #999;
+    -moz-box-shadow: 0 0 20px 0 #999;
+    box-shadow: 0 0 20px 0 #999;
 }
         </style>
 </head>
@@ -160,12 +165,12 @@ include_once '../common/footer_module.php';
 <script>
         $(document).ready(function(){   
                 
-        //         $(document).ready(function() {
-        //     $('.content').richText();
-        //     $('.content1').richText();
-        //     $('.content2').richText();
-        //     $('.content3').richText();
-        // });     
+                $(document).ready(function() {
+            $('.content').richText();
+            $('.content1').richText();
+            $('.content2').richText();
+            $('.content3').richText();
+        });     
 
 
 
