@@ -92,8 +92,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
              
                 // showing admin added from database
                 if ($cat == "all") {
-                    $sql="SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
-                  users.u_image AS u_image ,users.u_mob AS u_mob,
+                    $sql="SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,users.u_image AS u_image ,users.u_mob AS u_mob,
               consultant.c_office AS c_office,consultant.c_from_time As c_from_time, consultant.c_to_time As c_to_time , 
               consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
               consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
