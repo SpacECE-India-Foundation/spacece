@@ -181,7 +181,7 @@ $(document).ready(function () {
       data: $("#login").serialize(),
       success: function (data) {
         console.log(data);
-        exit();
+        // exit();
         if (data.status == "success") {
           window.location.href = "profile.php";
         } else if (data == "cart_login") {

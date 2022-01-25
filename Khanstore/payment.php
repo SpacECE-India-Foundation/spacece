@@ -48,11 +48,11 @@ function paymentInit($name, $email, $mobile, $total)
     $response = curl_exec($ch);
     curl_close($ch);
     // $response = "result:". $response;
-    // $response = json_encode($response);
+    $response = json_decode($response);
     // print_r($response);
 
-    echo $response;
+    // echo $response;
 
-    // header('location:'. $response->payment_request->longurl);
+    header('location:' . $response->payment_request->longurl);
     exit();
 }
