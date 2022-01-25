@@ -57,7 +57,7 @@ if(isset($_GET["code"]))
  }
 }
 else{
-  echo '<a id="google-button" href="'.$google_client->createAuthUrl().'" class="btn btn-block btn-social btn-google
+  echo '<a id="google-button" href="#" class="btn btn-block btn-social btn-google
  "><i class="fa fa-google"></i> Sign in with Google</a>';
 }// //This is for check user has login into system by using Google account, if User not login into system then it will execute if block of code and make code for display Login link for Login using Google account.
 // if(!isset($_SESSION['access_token']))
