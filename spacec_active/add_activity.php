@@ -215,10 +215,12 @@ $("#add_activity").on('submit',function(e){
                 url:'ajax_add_activity.php',
                 success:function(result){
                        if(result==="Success"){
-                       
+                       alert("Success");
                         location.reload();
                        }
-                       
+                       else{
+                        alert("Error");
+                       }
                 }
         })
         
