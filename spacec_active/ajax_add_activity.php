@@ -2,7 +2,7 @@
 
  require_once './Youtube/config.php';
 if(isset($_POST['act_name'])){
-
+var_dump($_POST);
 
  $act_name=$_POST['act_name'];
  $act_lvl=$_POST['act_lvl'];
