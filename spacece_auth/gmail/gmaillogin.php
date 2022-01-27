@@ -27,7 +27,7 @@ if(isset($_GET["code"]))
 
   //Get user profile data from google
   $data = $google_service->userinfo->get();
-
+  $google_client->createAuthUrl();
   //Below you can find Get profile data and store into $_SESSION variable
  // $sql="Insert into social_login (email,name) VALUES('".$data['given_name']."','" .$data['email']."')";
 //   if(!empty($data['given_name']))

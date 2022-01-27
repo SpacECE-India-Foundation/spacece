@@ -38,7 +38,7 @@ include_once '../common/banner.php';
 
     <div class="card d-flex jistify-content-center ">
     
-        <form id="add_activity" name="add_activity" class="  mb-3" method="POST" action="./ajax_add_activity.php">
+        <form id="add_activity" name="add_activity" class="mb-3" enctype= "multipart/form-data" method="POST" action="./ajax_add_activity.php">
             <div class="row ">
                     <h3 class="d-flex justify-content-center">Add Activity
                   
@@ -214,9 +214,13 @@ $("#add_activity").on('submit',function(e){
                 },
                 url:'ajax_add_activity.php',
                 success:function(result){
-                       
-                        alert(result);
+                       if(result==="Success"){
+                       alert("Success");
                         location.reload();
+                       }
+                       else{
+                        alert("Error");
+                       }
                 }
         })
         
