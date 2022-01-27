@@ -24,7 +24,7 @@ error_reporting();
 
 if (isset($_POST['action']) && $_POST['action'] = 'add') {
     $sql = "INSERT INTO learnonapp_courses (title, description, type, mode, duration, price)
-    VALUES ('" . $_POST['title'] . "', '" . $_POST['description'] . "', '" . $_POST['type'] . "', '" . $_POST['mode'] . "', '" . $_POST['duration'] . "', '" . $_POST['price'] . "')";
+    VALUES ('" . $_POST['title-new'] . "', '" . $_POST['description-new'] . "', '" . $_POST['type-new'] . "', '" . $_POST['mode-new'] . "', '" . $_POST['duration-new'] . "', '" . $_POST['price-new'] . "')";
 
     $result = $conn->query($sql);
 
