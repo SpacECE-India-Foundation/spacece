@@ -47,7 +47,7 @@ const addMoreDayContent = () => {
     <div class="form-row">
       <div class="form-group">
         <label for="description-${day}">Description</label>
-        <input type="text" class="form-control" id="description-${day}" placeholder="Description">
+        <textarea class="form-control" id="description-${day}" rows="3" placeholder="Description"></textarea>
       </div>
       <div class="form-group">
         <label for="author-${day}">Author</label>
