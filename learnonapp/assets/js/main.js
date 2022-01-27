@@ -148,9 +148,9 @@ const addCourseSubmit = () => {
   let formData = new FormData($("#add_form_div")[0]);
   formData.append("action", "add");
 
-  for (var pair of formData.entries()) {
-    console.log(pair[0] + ", " + pair[1]);
-  }
+  // for (var pair of formData.entries()) {
+  //   console.log(pair[0] + ", " + pair[1]);
+  // }
 
   $.ajax({
     url: "../api/learnonapp_courses_add.php",
@@ -159,6 +159,8 @@ const addCourseSubmit = () => {
     processData: false,
     contentType: false,
     success: function (d) {
+      console.log(d);
+      exit();
       if (d.status == "success") {
         const courses = d.data;
         $("#admin-page").html(adminPage(courses));
