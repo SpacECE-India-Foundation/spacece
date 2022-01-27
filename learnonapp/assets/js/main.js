@@ -37,21 +37,21 @@ const addMoreDayContent = () => {
     <div class="form-row">
       <div class="form-group">
         <label for="day-${day}">Day</label>
-        <input type="text" class="form-control" id="day-${day}" value="${day}" disabled>
+        <input type="text" class="form-control" id="day-${day}" value="${day}" disabled name="day_${day}">
       </div>
       <div class="form-group">
         <label for="title-${day}">Title</label>
-        <input type="text" class="form-control" id="title-${day}" placeholder="Title">
+        <input type="text" class="form-control" id="title-${day}" placeholder="Title" name="title_${day}">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
         <label for="description-${day}">Description</label>
-        <textarea class="form-control" id="description-${day}" rows="3" placeholder="Description"></textarea>
+        <textarea class="form-control" id="description-${day}" rows="3" placeholder="Description" name="description_${day}"></textarea>
       </div>
       <div class="form-group">
         <label for="author-${day}">Author</label>
-        <input type="text" class="form-control" id="author-${day}" placeholder="Author">
+        <input type="text" class="form-control" id="author-${day}" placeholder="Author" name="author_${day}">
       </div>
     </div>
   `
@@ -105,31 +105,31 @@ let adminPage = (courses) => {
                 <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="title-new">Title</label>
-                  <input type="text" id="title-new">
+                  <input type="text" id="title-new" name="title-new">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="description-new">Description</label>
-                  <input type="text" id="description-new">
+                  <input type="text" id="description-new" name="description-new">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="duration-new">Duration</label>
-                  <input type="text" id="duration-new">
+                  <input type="text" id="duration-new" name="duration-new">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="mode-new">Mode</label>
-                  <input type="text" id="mode-new">
+                  <input type="text" id="mode-new" name="mode-new">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="type-new">Type</label>
-                  <input type="text" id="type-new">
+                  <input type="text" id="type-new" name="type-new">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="price-new">Price</label>
-                  <input type="text" id="price-new">
+                  <input type="text" id="price-new" name="price-new">
                 </div>
               </div>
             </form>
