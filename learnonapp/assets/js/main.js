@@ -1,5 +1,7 @@
 let uid = $("#uid_placeholder").data("uid") || null;
 
+let day = 1;
+
 // Admin Page Edit Course
 const editCourse = (id) => {
   $(`#tr-${id}`).html(
@@ -26,6 +28,33 @@ const editCourse = (id) => {
     <button class="btn btn-wide" onclick="updateCourse(${id})">Update</button><br>
     <button class="btn btn-wide" onclick="window.location.reload();">Cancel</button>
   </td>`
+  );
+};
+
+const addMoreDayContent = () => {
+  $("$add-form-div").append(
+    `
+    <div class="form-row">
+      <div class="form-group">
+        <label for="day-${day}">Day</label>
+        <input type="text" class="form-control" id="day-${day}" value="${day}" disabled>
+      </div>
+      <div class="form-group">
+        <label for="title-${day}">Title</label>
+        <input type="text" class="form-control" id="title-${day}" placeholder="Title">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="description-${day}">Description</label>
+        <input type="text" class="form-control" id="description-${day}" placeholder="Description">
+      </div>
+      <div class="form-group">
+        <label for="author-${day}">Author</label>
+        <input type="text" class="form-control" id="author-${day}" placeholder="Author">
+      </div>
+    </div>
+  `
   );
 };
 
@@ -63,53 +92,54 @@ let adminPage = (courses) => {
           <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#addCourseModal">Add Course</button>
 
           <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="addCourse">Add Course</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addCourse">Add Course</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div id="add-form-div" class="modal-body">
+                <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="title-new">Title</label>
+                  <input type="text" id="title-new">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="description-new">Description</label>
+                  <input type="text" id="description-new">
+                </div>
               </div>
-              <div class="modal-body">
               <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="title-new">Title</label>
-                <input type="text" id="title-new">
+                <div class="form-group col-md-6">
+                  <label for="duration-new">Duration</label>
+                  <input type="text" id="duration-new">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="mode-new">Mode</label>
+                  <input type="text" id="mode-new">
+                </div>
               </div>
-              <div class="form-group col-md-6">
-                <label for="description-new">Description</label>
-                <input type="text" id="description-new">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="duration-new">Duration</label>
-                <input type="text" id="duration-new">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="mode-new">Mode</label>
-                <input type="text" id="mode-new">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="type-new">Type</label>
-                <input type="text" id="type-new">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="price-new">Price</label>
-                <input type="text" id="price-new">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="type-new">Type</label>
+                  <input type="text" id="type-new">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="price-new">Price</label>
+                  <input type="text" id="price-new">
+                </div>
               </div>
             </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="addCourseSubmit()">Create</button>
+            <button type="button" class="btn btn-info" onclick="addMoreDayContent()">Add Day Content</button>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="addCourseSubmit()">Create</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
           `;
 };
 
