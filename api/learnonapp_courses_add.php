@@ -35,14 +35,20 @@ if (isset($_POST['action']) && $_POST['action'] = 'add') {
             if (isset($_POST['title_' . $i])) {
                 $sql = "INSERT INTO learnonapp_subcourses (cid, day, title, description, author)
                 VALUES ('" . $id . "', '" . $_POST['day_' . $i] . "', '" . $_POST['title_' . $i] . "', '" . $_POST['description_' . $i] . "', '" . $_POST['author_' . $i] . "')";
+
+                $result = $conn->query($sql);
+
+                if ($result) {
+                    $sql = "SELECT * FROM `learnonapp_courses`";
+                    $res = mysqli_query($conn, $sql);
+                    header('Content-Type:application/json');
+                } else {
+                    echo json_encode(['status' => 'failure', 'result' => 'Error in adding subcourses']);
+                }
             } else {
                 break;
             }
         }
-
-        $sql = "SELECT * FROM `learnonapp_courses`";
-        $res = mysqli_query($conn, $sql);
-        header('Content-Type:application/json');
     } else {
         echo json_encode(['status' => 'failure', 'result' => 'not found']);
         die();
