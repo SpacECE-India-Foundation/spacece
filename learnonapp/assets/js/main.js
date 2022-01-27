@@ -56,6 +56,7 @@ const addMoreDayContent = () => {
     </div>
   `
   );
+  day++;
 };
 
 let adminPage = (courses) => {
