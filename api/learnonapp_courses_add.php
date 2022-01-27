@@ -27,7 +27,19 @@ if (isset($_POST['action']) && $_POST['action'] = 'add') {
     VALUES ('" . $_POST['title'] . "', '" . $_POST['description'] . "', '" . $_POST['type'] . "', '" . $_POST['mode'] . "', '" . $_POST['duration'] . "', '" . $_POST['price'] . "')";
 
     $result = $conn->query($sql);
+
+    $id = $conn->insert_id;
+
     if ($result) {
+        for ($i = 1; $i <= $_POST; $i++) {
+            if (isset($_POST['title_' . $i])) {
+                $sql = "INSERT INTO learnonapp_subcourses (cid, day, title, description, author)
+                VALUES ('" . $id . "', '" . $_POST['day_' . $i] . "', '" . $_POST['title_' . $i] . "', '" . $_POST['description_' . $i] . "', '" . $_POST['author_' . $i] . "')";
+            } else {
+                break;
+            }
+        }
+
         $sql = "SELECT * FROM `learnonapp_courses`";
         $res = mysqli_query($conn, $sql);
         header('Content-Type:application/json');

@@ -37,7 +37,7 @@ const addMoreDayContent = () => {
     <div class="form-row">
       <div class="form-group">
         <label for="day-${day}">Day</label>
-        <input type="text" class="form-control" id="day-${day}" value="${day}" disabled name="day_${day}">
+        <input type="text" class="form-control" id="day-${day}" name="day_${day}" value="${day}" disabled>
       </div>
       <div class="form-group">
         <label for="title-${day}">Title</label>
@@ -145,20 +145,7 @@ let adminPage = (courses) => {
 };
 
 const addCourseSubmit = () => {
-  // let title = $("#title-new").val();
-  // let description = $("#description-new").val();
-  // let duration = $("#duration-new").val();
-  // let mode = $("#mode-new").val();
-  // let type = $("#type-new").val();
-  // let price = $("#price-new").val();
-
   let formData = new FormData($("#add_form_div")[0]);
-  // formData.append("title", title);
-  // formData.append("description", description);
-  // formData.append("duration", duration);
-  // formData.append("mode", mode);
-  // formData.append("type", type);
-  // formData.append("price", price);
   formData.append("action", "add");
 
   for (var pair of formData.entries()) {
