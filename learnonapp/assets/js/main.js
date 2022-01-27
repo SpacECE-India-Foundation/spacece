@@ -161,7 +161,9 @@ const addCourseSubmit = () => {
   // formData.append("price", price);
   formData.append("action", "add");
 
-  console.log(formData.entries());
+  for (var pair of formData.entries()) {
+    console.log(pair[0] + ", " + pair[1]);
+  }
 
   $.ajax({
     url: "../api/learnonapp_courses_add.php",
