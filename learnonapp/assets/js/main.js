@@ -145,21 +145,23 @@ let adminPage = (courses) => {
 };
 
 const addCourseSubmit = () => {
-  let title = $("#title-new").val();
-  let description = $("#description-new").val();
-  let duration = $("#duration-new").val();
-  let mode = $("#mode-new").val();
-  let type = $("#type-new").val();
-  let price = $("#price-new").val();
+  // let title = $("#title-new").val();
+  // let description = $("#description-new").val();
+  // let duration = $("#duration-new").val();
+  // let mode = $("#mode-new").val();
+  // let type = $("#type-new").val();
+  // let price = $("#price-new").val();
 
-  let formData = new FormData();
-  formData.append("title", title);
-  formData.append("description", description);
-  formData.append("duration", duration);
-  formData.append("mode", mode);
-  formData.append("type", type);
-  formData.append("price", price);
+  let formData = new FormData($("#add_form_div")[0]);
+  // formData.append("title", title);
+  // formData.append("description", description);
+  // formData.append("duration", duration);
+  // formData.append("mode", mode);
+  // formData.append("type", type);
+  // formData.append("price", price);
   formData.append("action", "add");
+
+  console.log(formData);
 
   $.ajax({
     url: "../api/learnonapp_courses_add.php",
