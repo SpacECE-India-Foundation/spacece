@@ -32,7 +32,7 @@ const editCourse = (id) => {
 };
 
 const addMoreDayContent = () => {
-  $("$add-form-div").append(
+  $("#add_form_div").append(
     `
     <div class="form-row">
       <div class="form-group">
@@ -100,7 +100,7 @@ let adminPage = (courses) => {
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div id="add-form-div" class="modal-body">
+                <form id="add_form_div" class="modal-body">
                 <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="title-new">Title</label>
@@ -131,7 +131,7 @@ let adminPage = (courses) => {
                   <input type="text" id="price-new">
                 </div>
               </div>
-            </div>
+            </form>
             <button type="button" class="btn btn-info" onclick="addMoreDayContent()">Add Day Content</button>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
