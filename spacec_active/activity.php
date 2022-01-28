@@ -1,7 +1,7 @@
 <?php
 // include_once('includes/header1.php');
 include('./includes/data.php');
-include('db.php');
+
 
 
 if (function_exists('date_default_timezone_set')) {
@@ -91,9 +91,11 @@ function sendEmail($name, $email, $act_id, $activity_name, $activity_level, $act
     // $is_mail_sent = 0;
 
     if (mail($toEmail, $emailSubject, $emailBody, $headers)) {
-        echo "Mail sent successfully to $toEmail <br>";
+        include('db.php');
+        echo "Mail sent successfully to . $toEmail . <br>";
         $is_mail_sent = 1;
         $sql = mysqli_query($mysqli, "SELECT * from user_activity_mail Where u_id='" . $uid . "'") or die('Sql Query3 Error' . mysqli_error($mysqli));
+
          if (mysqli_num_rows($sql) > 0) {
             while ($result = mysqli_fetch_assoc($sql)) {
 
@@ -106,7 +108,7 @@ function sendEmail($name, $email, $act_id, $activity_name, $activity_level, $act
                 or die('Sql Query4 Error' . mysqli_error($mysqli));
             }
     } else {
-        echo "Mail sending failed to $toEmail <br>";
+        echo "Mail sending failed to . $toEmai . <br>";
     }
 }
     // if (mail($toEmail, $emailSubject, $emailBody, $headers)) {
