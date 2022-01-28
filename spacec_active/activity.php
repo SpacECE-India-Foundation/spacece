@@ -1,7 +1,7 @@
 <?php
 // include_once('includes/header1.php');
-include('./includes/data.php');
 
+include('db.php');
 
 
 if (function_exists('date_default_timezone_set')) {
@@ -41,6 +41,7 @@ while ($result1 = mysqli_fetch_assoc($query)) {
 
 function sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions)
 {
+    include('./includes/data.php');
     $header = "Daily Activities";
     //Email header
     // a random hash will be necessary to send mixed content
@@ -91,7 +92,7 @@ function sendEmail($name, $email, $act_id, $activity_name, $activity_level, $act
     // $is_mail_sent = 0;
 
     if (mail($toEmail, $emailSubject, $emailBody, $headers)) {
-        include('db.php');
+       
         echo "Mail sent successfully to . $toEmail . <br>";
         $is_mail_sent = 1;
         $sql = mysqli_query($mysqli, "SELECT * from user_activity_mail Where u_id='" . $uid . "'") or die('Sql Query3 Error' . mysqli_error($mysqli));
