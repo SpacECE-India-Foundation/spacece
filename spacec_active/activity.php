@@ -1,6 +1,6 @@
 <?php
 include_once('includes/header1.php');
-include('includes/db.php');
+include('./includes/data.php');
 include('db.php');
 
 
@@ -28,7 +28,7 @@ $activity_assessment = $result['activity_assessment'];
 $activity_process = $result['activity_process'];
 $activity_instructions = $result['activity_instructions'];
 
-$query = mysqli_query($mysqli, "Select u_id,u_fname,u_email,u_mob from users") or die('Sql Query1 Error' . mysqli_error($mysqli));
+$query = mysqli_query($mysqli1, "Select spaceece.users.u_id,spaceece.users.u_name,spaceece.users.u_email,spaceece.users.u_mob from spaceece.users JOIN space_active.sub_users WHERE space_active.sub_users.u_id=spaceece.users.u_id") or die('Sql Query1 Error' . mysqli_error($mysqli));
 
 while ($result1 = mysqli_fetch_assoc($query)) {
     $uid[] = $result1['u_id'];
@@ -45,7 +45,7 @@ function sendEmail($name, $email, $act_id, $activity_name, $activity_level, $act
     //Email header
     // a random hash will be necessary to send mixed content
     $separator = md5(time());
-    // carriage return type (RFC)
+    
     $eol = "\r\n";
     // main header (multipart mandatory)
     $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
