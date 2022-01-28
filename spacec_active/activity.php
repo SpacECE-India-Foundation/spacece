@@ -96,7 +96,7 @@ function sendEmail($name, $email, $act_id, $activity_name, $activity_level, $act
         echo "Mail sent successfully to . $toEmail . <br>";
         $is_mail_sent = 1;
         $sql = mysqli_query($mysqli, "SELECT * from user_activity_mail Where u_id='" . $uid . "'") or die('Sql Query3 Error' . mysqli_error($mysqli));
-
+        $act_date = date('Y-m-d');
          if (mysqli_num_rows($sql) > 0) {
             while ($result = mysqli_fetch_assoc($sql)) {
 
