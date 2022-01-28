@@ -12,7 +12,7 @@ if (function_exists('date_default_timezone_set')) {
 $date1 = date('Y-m-d');
 
 
-$query1 = mysqli_query($mysqli1, "Select * from spaceactive_activities WHERE activity_date = '2021-10-22' and space_active = 'active'") or die('Sql Query2 Error');
+$query1 = mysqli_query($mysqli1, "Select * from spaceactive_activities WHERE activity_date = '$date1'") or die('Sql Query2 Error');
 
 $result = mysqli_fetch_assoc($query1);
 
