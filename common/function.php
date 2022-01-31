@@ -1,5 +1,5 @@
 <?php
-echo "Inside";
+
 $DBHOST = '3.109.14.4';
 $DBUSER = 'ostechnix';
 $DBPASS = 'Password123#@!';
@@ -30,7 +30,7 @@ if(isset($_POST['subscribe'])){
    ///var_dump($_POST);
 
                 $sql =  "SELECT * from subscription Where email='$email'";
-                var_dump($sql);
+               
                 $query=mysqli_query($conn,$sql);
                 
                 
@@ -41,11 +41,7 @@ if(isset($_POST['subscribe'])){
                   else {
                    
                 $query3 = mysqli_query($conn, "INSERT into subscription (email) values('$email') ");
-                var_dump($query3);
-
-               
-            
-                echo $email; 
+              
                   
                 $eol = "\r\n";
                 $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
@@ -63,7 +59,7 @@ if(isset($_POST['subscribe'])){
                
                 $emailBody .= "<b>You will receive Notifications and latest updates  this Email</b> <br><br>";
                
-                if (mail($toEmail, $emailSubject, $emailBody, $headers)) {
+                if (mail( $email, $emailSubject, $emailBody, $headers)) {
                     echo "Success";
                 }else{
                     echo "Invalid";
