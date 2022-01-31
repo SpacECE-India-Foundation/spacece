@@ -71,6 +71,14 @@ if (isset($_SESSION['current_user_id'])) {
 <?php include_once '../common/footer_module.php'; ?>
 <script>
   $('#google-button').on("click",function(){
-alert("clicked");
+$.ajax({
+ url:'gmail/gmaillogin.php',
+ method:'POST',
+ data:{gmail:1},
+ success:function(data){
+   alert(data);
+
+ } 
+})
   });
 </script>

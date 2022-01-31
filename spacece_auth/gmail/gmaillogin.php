@@ -27,9 +27,12 @@ if(isset($_GET["code"]))
 
   //Get user profile data from google
   $data = $google_service->userinfo->get();
- // $google_client->createAuthUrl();
-  //Below you can find Get profile data and store into $_SESSION variable
-  $sql="Insert into social_login (email,name) VALUES('".$data['given_name']."','" .$data['email']."')";
+  if(isset($_POST['gmail'])){
+    $google_client->createAuthUrl();
+    //Below you can find Get profile data and store into $_SESSION variable
+    $sql="Insert into social_login (email,name) VALUES('".$data['given_name']."','" .$data['email']."')";
+  }
+ // 
 //   if(!empty($data['given_name']))
 //   {
 //    $_SESSION['user_first_name'] = $data['given_name'];
@@ -57,7 +60,7 @@ if(isset($_GET["code"]))
  }
 }
 else{
-  echo '<a id="google-button" href="./gmail/gmaillogin.php" class="btn btn-block btn-social btn-google
+  echo '<a id="google-button" class="btn btn-block btn-social btn-google
  "><i class="fa fa-google"></i> Sign in with Google</a>';
 }// //This is for check user has login into system by using Google account, if User not login into system then it will execute if block of code and make code for display Login link for Login using Google account.
 // if(!isset($_SESSION['access_token']))
