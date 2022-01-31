@@ -69,7 +69,7 @@ include_once '../common/header_module.php';
 
 
 <!-- Hero section -->
-<div class=" set-bg; output" data-setbg="" style="width:10; border-radius: 1%; ">
+<div class=" set-md output" data-setbg="" style="width:10; border-radius: 1%; ">
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
