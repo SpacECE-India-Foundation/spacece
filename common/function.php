@@ -41,11 +41,11 @@ if(isset($_POST['subscribe'])){
                   else {
                    
                 $query3 = mysqli_query($conn, "INSERT into subscription (email) values('$email') ");
-                //var_dump($query3);
+                var_dump($query3);
 
-                $toEmail = $email; 
+               
             
-                echo $toEmail;
+                echo $email; 
                   
                 $eol = "\r\n";
                 $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
@@ -54,11 +54,11 @@ if(isset($_POST['subscribe'])){
             
               
               
-                $emailSubject = 'Activity';
+                $emailSubject = 'Subscription';
             
             
             
-                $emailBody = "Hello " . $toEmail . ",<br><br>";
+                $emailBody = "Hello " .$email . ",<br><br>";
                 $emailBody .= "Thank You for Subscribing <br><br>";
                
                 $emailBody .= "<b>You will receive Notifications and latest updates  this Email</b> <br><br>";
