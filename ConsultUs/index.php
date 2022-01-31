@@ -73,10 +73,10 @@ include_once '../common/header_module.php';
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class=" " src="../img/d7.jpg" alt="First slide"style="width:100% " >
+				<img class=" " src="../img/d7.jpg" alt="First slide"style="width:80%" >
 			</div>
 			<div class="carousel-item">
-				<img class="d-block" src="../img/d8.jpg" alt="Second slide" style="width:100%;">
+				<img class="d-block" src="../img/d8.jpg" alt="Second slide" style="width:80%;">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
