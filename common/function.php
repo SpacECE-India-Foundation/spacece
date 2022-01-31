@@ -25,8 +25,8 @@ if ($conn) {
 if(isset($_POST['subscribe'])){
 
   
-    $email=$_POST['email'];
-
+   // $email=$_POST['email'];
+   $email='varunmanila@gmail.com';
    ///var_dump($_POST);
 
                 $sql =  "SELECT * from subscription Where email='$email'";
