@@ -44,9 +44,11 @@ if(isset($_POST['subscribe'])){
               
                   
                 $eol = "\r\n";
+               
                 $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
-                $headers  .= 'MIME-Version: 1.0' . "\r\n";
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
                 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            
             
               
               
@@ -54,7 +56,7 @@ if(isset($_POST['subscribe'])){
             
             
             
-                $emailBody = "Hello " .$email . ",<br><br>";
+                $emailBody = "Hello " . $email . ",<br><br>";
                 $emailBody .= "Thank You for Subscribing <br><br>";
                
                 $emailBody .= "<b>You will receive Notifications and latest updates  this Email</b> <br><br>";
