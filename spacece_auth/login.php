@@ -69,3 +69,8 @@ if (isset($_SESSION['current_user_id'])) {
 </div>
 
 <?php include_once '../common/footer_module.php'; ?>
+<script>
+  $('#google-button').on("click",function(){
+alert("clicked");
+  });
+</script>
