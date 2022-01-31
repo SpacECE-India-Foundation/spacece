@@ -20,13 +20,13 @@ if ($conn) {
 } else {
     die("No Connection!");
 }
-$_POST['subscribe']='1';
+//$_POST['subscribe']='1';
 
 if(isset($_POST['subscribe'])){
 
   
-   // $email=$_POST['email'];
-   $email='varunmanila@gmail.com';
+    $email=$_POST['email'];
+  // $email='varunmanila@gmail.com';
    ///var_dump($_POST);
 
                 $sql =  "SELECT * from subscription Where email='$email'";
