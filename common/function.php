@@ -30,7 +30,7 @@ if(isset($_POST['subscribe'])){
    ///var_dump($_POST);
 
                 $sql =  "SELECT * from subscription Where email='$email'";
-                //var_dump($sql);
+                var_dump($sql);
                 $query=mysqli_query($conn,$sql);
                 
                 
