@@ -20,7 +20,7 @@ if ($conn) {
 } else {
     die("No Connection!");
 }
-
+$_POST['subscribe']='1';
 
 if(isset($_POST['subscribe'])){
 
