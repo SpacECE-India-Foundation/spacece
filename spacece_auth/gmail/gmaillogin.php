@@ -93,6 +93,7 @@ else{
 </html> -->
 <?php
 if(isset($_POST['gmail'])){
+  echo "Inside";
     $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
 
     //This condition will check there is any error occur during geting authentication token. If there is no any error occur then it will execute if block of code/
@@ -112,6 +113,6 @@ if(isset($_POST['gmail'])){
 
     $google_client->createAuthUrl();
     //Below you can find Get profile data and store into $_SESSION variable
-    $sql="Insert into social_login (email,name) VALUES('".$data['given_name']."','" .$data['email']."')";
+   // $sql="Insert into social_login (email,name) VALUES('".$data['given_name']."','" .$data['email']."')";
     }
   }
