@@ -45,7 +45,8 @@ if (isset($_SESSION['current_user_id'])) {
 
 
     <?php
-    require_once './gmail/gmaillogin.php';
+    echo '<a id="google-button" class="btn btn-block btn-social btn-google
+    "><i class="fa fa-google"></i> Sign in with Google</a>';
 
     ?>
 
@@ -72,7 +73,7 @@ if (isset($_SESSION['current_user_id'])) {
 <script>
   $('#google-button').on("click",function(){
 $.ajax({
- url:'gmail/gmaillogin.php',
+ url:'./gmail/gmaillogin.php',
  method:'POST',
  data:{gmail:1},
  success:function(data){
