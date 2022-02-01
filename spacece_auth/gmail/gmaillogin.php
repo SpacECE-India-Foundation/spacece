@@ -21,5 +21,5 @@
   //} 
   ?>
   <?php
-    echo '<div align="center">'.$google_login_btn . '</div>';
+    echo $google_login_btn  ;
    ?>
