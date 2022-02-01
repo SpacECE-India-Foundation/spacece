@@ -92,6 +92,7 @@ else{
  </body>
 </html> -->
 <?php
+include './config.php';
 if(isset($_POST['gmail'])){
   echo "Inside";
     $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
