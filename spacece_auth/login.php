@@ -45,7 +45,7 @@ if (isset($_SESSION['current_user_id'])) {
 
 
     <?php
-   include './../spacece_auth/gmail/gmaillogin.php';
+   include './gmail/gmaillogin.php';
 
     ?>
 
