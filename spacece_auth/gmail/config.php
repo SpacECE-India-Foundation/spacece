@@ -10,5 +10,6 @@ $google_client->setRedirectUri('https://spacefoundation.in/');
 //$google_client->setAccessType('offline');
 $google_client->addScope('email');
 $google_client->addScope('profile');
-
- //session_start();
+if(!isset($_SESSION)){
+    session_start();
+}

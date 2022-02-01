@@ -45,8 +45,7 @@ if (isset($_SESSION['current_user_id'])) {
 
 
     <?php
-    echo '<a id="google-button" class="btn btn-block btn-social btn-google
-    "><i class="fa fa-google"></i> Sign in with Google</a>';
+   include './../spacece_auth/gmail/gmaillogin.php';
 
     ?>
 
@@ -70,7 +69,7 @@ if (isset($_SESSION['current_user_id'])) {
 </div>
 
 <?php include_once '../common/footer_module.php'; ?>
-<script>
+<!-- <script>
   $('#google-button').on("click",function(){
 $.ajax({
  url:'./gmail/gmaillogin.php',
@@ -82,4 +81,4 @@ $.ajax({
  } 
 })
   });
-</script>
+</script> -->
