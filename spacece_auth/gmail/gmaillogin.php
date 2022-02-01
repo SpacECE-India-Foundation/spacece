@@ -71,10 +71,10 @@
 ?>
 
 <?php
-//include './config.php';
+
 
  if(isset($_POST['gmail'])){
-   include './../gmail/config.php';
+  include './config.php';
    echo "Inside";
 //     $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
 
