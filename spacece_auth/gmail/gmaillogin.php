@@ -14,12 +14,10 @@
      }else{
        header('Location:../index.php');
      }
-   
+     echo $google_login_btn;
   
    // $sql="Insert into social_login (email,name) VALUES('".$data['given_name']."','" .$data['email']."')";
     
   //} 
   ?>
-  <?php
-    echo $google_login_btn;
-   ?>
+  
