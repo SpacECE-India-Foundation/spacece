@@ -1,5 +1,5 @@
 <?php
-  include './gmail/config.php';
+  include 'config.php';
   
   
     if(!isset($_SESSION['access_token'])) {
