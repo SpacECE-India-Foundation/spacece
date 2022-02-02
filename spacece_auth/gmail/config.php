@@ -1,6 +1,6 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once './vendor/autoload.php';
 
 $google_client=new Google_client();
 $google_client->setClientId('705362367676-tnd53a57sb9qve952d5po7u6sv79jsft.apps.googleusercontent.com');
