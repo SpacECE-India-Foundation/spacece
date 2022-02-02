@@ -45,7 +45,7 @@ if (isset($_SESSION['current_user_id'])) {
 
 
    <?php
-  include '../gmail/index.php';
+  include '../gooogle/index.php';
 
     ?> 
 
