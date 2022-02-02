@@ -21,5 +21,5 @@
   //} 
   ?>
   <?php
-    echo $google_login_btn  ;
+    echo $google_login_btn;
    ?>
