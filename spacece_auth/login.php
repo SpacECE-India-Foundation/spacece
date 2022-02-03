@@ -34,18 +34,12 @@ if (isset($_SESSION['current_user_id'])) {
     </div>
     <button type="submit" name="login">Login</button>
     <br>
-    <!-- bug id -0000114 -->
-    <!-- <a id="google-button" href="https://www.google.com/account/about/" class="btn btn-block btn-social btn-google ">
-        <i class="fa fa-google"></i> Sign in with Google
-      </a>
-      <a id="facebook-button" href="https://www.facebook.com/" class="btn btn-block btn-social btn-facebook">
-        <i class="fa fa-facebook"></i> Sign in with Facebook
-      </a> -->
+
 
 
 
    <?php
-     include '../google/index.php';
+     include './google/index.php';
 
     ?> 
 
@@ -54,12 +48,6 @@ if (isset($_SESSION['current_user_id'])) {
     ?>
 
 
-    <!-- <a id="google-button" class="btn btn-block btn-social btn-google">
-        <i class="fa fa-google"></i> Sign in with Google
-      </a>  -->
-    <!-- <a id="facebook-button" class="btn btn-block btn-social btn-facebook">
-        <i class="fa fa-facebook"></i> Sign in with Facebook
-      </a>  -->
 
     <p class="message">Not registered? <a href="register.php">Create an account</a></p>
 
