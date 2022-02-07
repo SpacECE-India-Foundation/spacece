@@ -12,14 +12,14 @@ $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 
 $phone = trim($_POST['phone']);
-$image = $_FILES['image']['name'];
+$image = $_FILES['fileToUpload']['name'];
 
 
 $destination_path = getcwd() . DIRECTORY_SEPARATOR;
 
-$target_path = $destination_path . '../img/users/' . basename($_FILES["image"]["name"]);
+$target_path = $destination_path . '../img/users/' . basename($_FILES["fileToUpload"]["name"]);
 
-move_uploaded_file($_FILES['image']['tmp_name'], $target_path);
+move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_path);
 if(!empty($_POST['password'])){
     $password = trim($_POST['password']);
     $hashed_password = md5($password);
