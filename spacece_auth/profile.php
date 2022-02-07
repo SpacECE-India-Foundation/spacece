@@ -100,11 +100,12 @@ function get_input_value($row, $input)
         //   document.querySelector('.file-name').textContent = fileNameAndSize;
     });
 </script>
+
+
+<?php include_once '../common/footer_module.php'; ?>
 <script>
 $('#edit').on('submit',function(){
     alert("Submiotted");
 })
 
 </script>
-
-<?php include_once '../common/footer_module.php'; ?>
