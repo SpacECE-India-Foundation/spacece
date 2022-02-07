@@ -106,7 +106,7 @@ $('#update_profile').on('submit',function(e){
  e.preventDefault();    
  $.ajax({
      method:'POST',
-     data:new FormData(this),
+     data:new FormData(this[0]),
      url:'profile_action.php',
         contentType: false,
         processData: false,
