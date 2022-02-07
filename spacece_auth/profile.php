@@ -106,7 +106,7 @@ $('#update_profile').on('submit',function(e){
     var d = $('#fileToUpload')[0].files[0];
 
     formData.append('fileid', d);
-    formData.append('inputname', value);
+    formData.append('fileToUpload', value);
 
  e.preventDefault();    
  $.ajax({
