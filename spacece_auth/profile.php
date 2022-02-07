@@ -22,13 +22,11 @@ function get_input_value($row, $input)
 {
     return $row[$input];
 }
-
-
 ?>
 
 <div class="profile-page">
     <h2>Profile</h2>
-    <form class="profile-form" method="post" autocomplete="off" id="edit">
+    <form class="profile-form" method="post" autocomplete="off">
         <div class="form-group" id="js-pro-pic">
             <img src="<?= '../img/users/' . get_input_value($row, 'u_image'); ?>" alt="<?= get_input_value($row, 'u_name'); ?>">
             <div class="file-input" style="display: none;">
@@ -100,6 +98,5 @@ function get_input_value($row, $input)
         //   document.querySelector('.file-name').textContent = fileNameAndSize;
     });
 </script>
-
 
 <?php include_once '../common/footer_module.php'; ?>
