@@ -107,10 +107,10 @@ $('#update_profile').on('submit',function(e){
  $.ajax({
      method:'POST',
      data:formdata,
-    
+     url:'profile_action.php',
         contentType: false,
         processData: false,
-     url:'profile_action.php',
+     
      success:function(data){
          alert(data);
      }
