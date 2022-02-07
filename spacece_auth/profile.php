@@ -102,11 +102,15 @@ function get_input_value($row, $input)
 <?php include_once '../common/footer_module.php'; ?>
 <script>
 $('#update_profile').on('submit',function(e){
+    var form = $("#update_profile");
+
+// you can't pass Jquery form it has to be javascript form object
+var formData = new FormData(form[0]);
 
  e.preventDefault();    
  $.ajax({
      method:'POST',
-     data:new FormData(this[0]),
+     data:formData,
      url:'profile_action.php',
         contentType: false,
         processData: false,
