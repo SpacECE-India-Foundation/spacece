@@ -15,7 +15,7 @@ $destination_path = getcwd() . DIRECTORY_SEPARATOR;
 $target_path = $destination_path . '../img/users/' . basename($_FILES["image"]["name"]);
 
 move_uploaded_file($_FILES['image']['tmp_name'], $target_path);
-if(isset($_POST['password'])){
+if(!empty($_POST['password'])){
     $password = trim($_POST['password']);
     $hashed_password = md5($password);
     if($_POST['password'] === $_POST['cpassword'] ){
