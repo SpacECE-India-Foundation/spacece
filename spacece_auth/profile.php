@@ -110,6 +110,7 @@ var formData = new FormData(form[0]);
  e.preventDefault();    
  $.ajax({
      method:'POST',
+     enctype: 'multipart/form-data',
      data:formData,
      url:'profile_action.php',
         contentType: false,
