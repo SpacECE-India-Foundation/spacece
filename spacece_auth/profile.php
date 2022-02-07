@@ -102,11 +102,10 @@ function get_input_value($row, $input)
 <?php include_once '../common/footer_module.php'; ?>
 <script>
 $('#update_profile').on('submit',function(e){
-    let formData = new FormData();
-    var d = $('#fileToUpload')[0].files[0];
+    var form = $("#update_profile");
 
-    formData.append('fileid', d);
-    formData.append('fileToUpload', value);
+// you can't pass Jquery form it has to be javascript form object
+var formData = new FormData(form[0]);
 
  e.preventDefault();    
  $.ajax({
