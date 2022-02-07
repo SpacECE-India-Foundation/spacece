@@ -103,7 +103,3 @@ function get_input_value($row, $input)
 
 
 <?php include_once '../common/footer_module.php'; ?>
-<script>
-
-
-</script>
