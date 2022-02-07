@@ -22,11 +22,13 @@ function get_input_value($row, $input)
 {
     return $row[$input];
 }
+
+
 ?>
 
 <div class="profile-page">
     <h2>Profile</h2>
-    <form class="profile-form" method="post" autocomplete="off">
+    <form class="profile-form" method="post" autocomplete="off" id="edit">
         <div class="form-group" id="js-pro-pic">
             <img src="<?= '../img/users/' . get_input_value($row, 'u_image'); ?>" alt="<?= get_input_value($row, 'u_name'); ?>">
             <div class="file-input" style="display: none;">
@@ -97,6 +99,12 @@ function get_input_value($row, $input)
         //   const fileNameAndSize = `${fileName} - ${fileSize}KB`;
         //   document.querySelector('.file-name').textContent = fileNameAndSize;
     });
+</script>
+<script>
+$('#edit').on('submit',function(){
+    alert("Submiotted");
+})
+
 </script>
 
 <?php include_once '../common/footer_module.php'; ?>
