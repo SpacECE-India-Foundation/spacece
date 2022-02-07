@@ -5,6 +5,7 @@ if(!isset($_SESSION['current_user_id'])){
     header('location:login.php');
     exit();
 }
+var_dump($_FILES);
 $id =$_SESSION['current_user_id'];
  if (isset($_POST['name'])) {
 $name = trim($_POST['name']);
