@@ -23,7 +23,7 @@ if(!empty($_POST['password'])){
     $password = trim($_POST['password']);
     $hashed_password = md5($password);
     if($_POST['password'] === $_POST['cpassword'] ){
-        $sql="UPDATE `users` SET u_name='$name', u_email= '$email', u_mob='$phone', u_password='$password' where u_id='$id'";
+        $sql="UPDATE `users` SET u_name='$name', u_email= '$email', u_mob='$phone', u_image='$image',u_password='$password' where u_id='$id'";
      
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
@@ -36,8 +36,8 @@ if(!empty($_POST['password'])){
         echo "Password missmatch";
     }
 }else{
-    $sql="UPDATE `users` SET u_name='$name', u_email= '$email', u_mob='$phone'  where u_id='$id'";
-  
+    $sql="UPDATE `users` SET u_name='$name', u_email= '$email', u_mob='$phone', u_image='$image'  where u_id='$id'";
+  echo $sql;
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             echo "Success";
