@@ -102,7 +102,15 @@ function get_input_value($row, $input)
 <?php include_once '../common/footer_module.php'; ?>
 <script>
 $('#update_profile').on('submit',function(){
-alert("Updated");
+ var formdata=$(this).serialize();
+ $.ajax({
+     method:'POST',
+     data:formdata,
+     url:'profile_action.php',
+     success:function(data){
+         alert(data);
+     }
+ })
 });
 
 
