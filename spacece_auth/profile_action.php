@@ -24,24 +24,28 @@ if(!empty($_POST['password'])){
     $hashed_password = md5($password);
     if($_POST['password'] === $_POST['cpassword'] ){
         $sql="UPDATE users SET u_name='$name' AND u_email= '$email' and u_mob='$phone' and u_password='$password' where u_id='$id'";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            echo "Success";
-        }else{
-            echo "Error ";
-        }
+       echo "Change pass";
+       echo $sql;
+        // $result = mysqli_query($conn, $sql);
+        // if (mysqli_num_rows($result) > 0) {
+        //     echo "Success";
+        // }else{
+        //     echo "Error ";
+        // }
 
     }else{
         echo "Password missmatch";
     }
 }else{
     $sql="UPDATE users SET u_name='$name' AND u_email= '$email' and u_mob='$phone'  where u_id='$id'";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            echo "Success";
-        }else{
-            echo "Error ";
-        }
+    echo $sql;
+    echo "Edit ";
+        // $result = mysqli_query($conn, $sql);
+        // if (mysqli_num_rows($result) > 0) {
+        //     echo "Success";
+        // }else{
+        //     echo "Error ";
+        // }
 
 }
 
