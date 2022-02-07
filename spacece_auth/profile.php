@@ -101,9 +101,9 @@ function get_input_value($row, $input)
 
 <?php include_once '../common/footer_module.php'; ?>
 <script>
-$('#update').on('submit',function(){
-    
-})
+// $('#update').on('submit',function(){
+//     alert("Updated");
+// });
 
 
 </script>
