@@ -1,8 +1,12 @@
 <?php
 session_start();
 include('db.php');
+if(!isset($_SESSION['current_user_id'])){
+    header('location:login.php');
+    exit();
+}
 $id =$_SESSION['current_user_id'];
-// if (isset($_POST['register'])) {
+ if (isset($_POST['name'])) {
 $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 
@@ -41,3 +45,4 @@ if(!empty($_POST['password'])){
 
 }
 
+ }
