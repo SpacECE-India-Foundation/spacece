@@ -143,7 +143,7 @@ $ref = $_GET['user']; ?>
                         <td>
                             <a href="<?php echo SITEURL;?>appoint.php?id=<?php echo $id;?>&ctime=<?php echo $ctime;?>&stime=<?php echo $stime;?>&name=<?php echo $full_name;?>&category=<?php echo $category;?>&conmob=<?php echo $conmob;?>&uid=<?php echo $uid;?>&user_name=<?php echo $user_name;?>&user_email=<?php echo $user_email;?>&user_mob=<?php echo $user_mob;?>" class="btn-second" style="color:black;background-color:lightgreen;">Book Appointment </a>
                             <br><br><br>
- <a href="<?php echo SITEURL;?>instamojo_payment/index2.php?id=<?php echo $id;?>&user=<?php echo $user_email;?>" class="btn-second" style="color:black;background-color:pink;"> Confirm Appointment </a>
+ <!-- <a href="<?php //echo SITEURL;?>instamojo_payment/index2.php?id=<?php echo $id;?>&user=<?php //echo $user_email;?>" class="btn-second" style="color:black;background-color:pink;"> Confirm Appointment </a> -->
                             <br><br><br>
 
                         </td>
