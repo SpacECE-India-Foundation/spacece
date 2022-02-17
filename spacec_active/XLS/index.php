@@ -3,8 +3,8 @@ use Phppot\DataSource;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 require_once 'DataSource.php';
-$db = new DataSource();
-$conn = $db->getConnection();
+//$db = new DataSource();
+//$conn = $db->getConnection();
 require_once ('./vendor/autoload.php');
 
 if (isset($_POST["import"])) {

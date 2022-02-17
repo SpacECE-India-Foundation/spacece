@@ -24,9 +24,9 @@ class DataSource
 
     const USERNAME = 'root';
 
-    const PASSWORD = 'test';
+    const PASSWORD = '';
 
-    const DATABASENAME = 'import_excel';
+    const DATABASENAME = 'test';
 
     private $conn;
 
