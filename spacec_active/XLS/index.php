@@ -4,6 +4,7 @@ include 'vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+if(isset($_POST['submit'])){
 
 if($_FILES["select_excel"]["name"] != '')
 {
@@ -29,7 +30,7 @@ else
 
 echo $message;
 
-
+}
 ?>
 
 <!DOCTYPE html>
