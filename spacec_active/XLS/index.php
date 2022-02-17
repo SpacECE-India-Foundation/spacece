@@ -15,13 +15,12 @@ if (isset($_POST["import"])) {
         $targetPath = 'uploads/' . $_FILES['file']['name'];
         move_uploaded_file($_FILES['file']['tmp_name'], $targetPath);
 
-        $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile( $targetPath );
 
-
-        $spreadSheet = $Reader->load($targetPath);
-        $excelSheet = $spreadSheet->getActiveSheet();
-        $spreadSheetAry = $excelSheet->toArray();
-        $sheetCount = count($spreadSheetAry);
+        // $spreadSheet = $Reader->load($targetPath);
+        // $excelSheet = $spreadSheet->getActiveSheet();
+        // $spreadSheetAry = $excelSheet->toArray();
+        // $sheetCount = count($spreadSheetAry);
 
     }
 }
