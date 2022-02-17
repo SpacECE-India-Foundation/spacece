@@ -1,4 +1,23 @@
+<?php
 
+use Phppot\DataSource;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+require_once ('./vendor/autoload.php');
+if (isset($_POST["import"])) {
+
+    $allowedFileType = [
+        'application/vnd.ms-excel',
+        'text/xls',
+        'text/xlsx',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    ];
+    if (in_array($_FILES["file"]["type"], $allowedFileType)) {
+        echo "Allowd";
+
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
