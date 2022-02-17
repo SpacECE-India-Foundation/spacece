@@ -26,14 +26,15 @@ if (isset($_POST['getDetails'])) {
         <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
         data-toggle="modal" data-target="#editModal" >
         View <i class="fas fa-expand"></i></button>
-    <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
-    Upload video
-</button> <button type="button" class="btn btn-secondary" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
-My Videos
-</button>
-<button type="button" class="btn btn-secondary" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
-View All videos
-</button></td></td>
+//     <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
+//     Upload video
+// </button> <button type="button" class="btn btn-secondary" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+// My Videos
+// </button>
+// <button type="button" class="btn btn-secondary" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+// View All videos
+// </button>
+</td></td>
         </tr>';
                 }
             }else{
