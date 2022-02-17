@@ -109,7 +109,7 @@ div#response.display-block {
     <h2>Import Excel File into MySQL Database using PHP</h2>
 
     <div class="outer-container">
-        <form action="" method="post" name="frmExcelImport"
+        <form action="index.php" method="post" name="frmExcelImport"
             id="frmExcelImport" enctype="multipart/form-data">
             <div>
                 <label>Choose Excel File</label> <input type="file"
