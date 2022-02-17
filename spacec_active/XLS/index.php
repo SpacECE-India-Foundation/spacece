@@ -12,7 +12,15 @@ if (isset($_POST["import"])) {
         'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     ];
     if (in_array($_FILES["file"]["type"], $allowedFileType)) {
-        echo "Allowd";
+        $targetPath = 'uploads/' . $_FILES['file']['name'];
+        move_uploaded_file($_FILES['file']['tmp_name'], $targetPath);
+
+        $Reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+
+        $spreadSheet = $Reader->load($targetPath);
+        $excelSheet = $spreadSheet->getActiveSheet();
+        $spreadSheetAry = $excelSheet->toArray();
+        $sheetCount = count($spreadSheetAry);
 
     }
 }
