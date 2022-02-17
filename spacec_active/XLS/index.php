@@ -1,29 +1,34 @@
 <?php
 
-use Phppot\DataSource;
-use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
-require_once ('./vendor/autoload.php');
-if (isset($_POST["import"])) {
+include 'vendor/autoload.php';
 
-    $allowedFileType = [
-        'application/vnd.ms-excel',
-        'text/xls',
-        'text/xlsx',
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    ];
-    if (in_array($_FILES["file"]["type"], $allowedFileType)) {
-        $targetPath = 'uploads/' . $_FILES['file']['name'];
-        move_uploaded_file($_FILES['file']['tmp_name'], $targetPath);
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
-       // $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile( $targetPath );
-
-        // $spreadSheet = $Reader->load($targetPath);
-        // $excelSheet = $spreadSheet->getActiveSheet();
-        // $spreadSheetAry = $excelSheet->toArray();
-        // $sheetCount = count($spreadSheetAry);
-
-    }
+if($_FILES["select_excel"]["name"] != '')
+{
+ $allowed_extension = array('xls', 'xlsx');
+ $file_array = explode(".", $_FILES['select_excel']['name']);
+ $file_extension = end($file_array);
+ if(in_array($file_extension, $allowed_extension))
+ {
+  $reader = IOFactory::createReader('Xlsx');
+  $spreadsheet = $reader->load($_FILES['select_excel']['tmp_name']);
+  $writer = IOFactory::createWriter($spreadsheet, 'Html');
+  $message = $writer->save('php://output');
+ }
+ else
+ {
+  $message = '<div class="alert alert-danger">Only .xls or .xlsx file allowed</div>';
+ }
 }
+else
+{
+ $message = '<div class="alert alert-danger">Please Select File</div>';
+}
+
+echo $message;
+
 
 ?>
 
