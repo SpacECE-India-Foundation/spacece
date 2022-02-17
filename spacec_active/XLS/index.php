@@ -15,7 +15,8 @@ if (isset($_POST["import"])) {
         $targetPath = 'uploads/' . $_FILES['file']['name'];
         move_uploaded_file($_FILES['file']['tmp_name'], $targetPath);
 
-        $Reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+
 
         $spreadSheet = $Reader->load($targetPath);
         $excelSheet = $spreadSheet->getActiveSheet();
