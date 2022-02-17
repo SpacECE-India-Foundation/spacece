@@ -19,6 +19,9 @@ if($_FILES["select_excel"]["name"] != '')
 
   $writer = IOFactory::createWriter($spreadsheet, 'Html');
   $message = $writer->save('out');
+  $excelSheet = $spreadsheet->getActiveSheet();
+  $spreadSheetAry = $excelSheet->toArray();
+  var_dump($spreadSheetAry);
  }
  else
  {
