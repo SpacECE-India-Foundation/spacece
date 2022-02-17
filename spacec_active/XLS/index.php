@@ -111,7 +111,7 @@ div#response.display-block {
             id="frmExcelImport" enctype="multipart/form-data">
             <div>
                 <label>Choose Excel File</label> <input type="file"
-                    name="file" id="file" accept=".xls,.xlsx">
+                    name="select_excel" id="select_excel" accept=".xls,.xlsx">
                 <button type="submit" id="submit" name="import"
                     class="btn-submit">Import</button>
 
