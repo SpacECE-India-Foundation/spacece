@@ -5,7 +5,7 @@ include 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 if(isset($_POST['submit'])){
-
+    echo "Inside";
 if($_FILES["select_excel"]["name"] != '')
 {
     echo "Inside";
