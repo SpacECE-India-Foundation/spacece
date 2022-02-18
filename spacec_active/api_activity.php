@@ -13,7 +13,9 @@ $date1 = date('Y-m-d');
 
 $query1 = mysqli_query($mysqli1, "Select * from spaceactive_activities") or die('Sql Query2 Error');
 
-$result = mysqli_fetch_assoc($query1);
+while($result = mysqli_fetch_assoc($query1)){
+
+
 if($result){
     echo json_encode($result);
     // $act_date = $result['activity_date'];
@@ -38,4 +40,5 @@ if($result){
     
 //        sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions,$uid);
 //     } 
+}
 }
