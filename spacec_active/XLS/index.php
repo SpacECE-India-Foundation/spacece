@@ -23,7 +23,7 @@ if($_FILES["select_excel"]["name"] != '')
   $spreadSheetAry = $excelSheet->toArray();
   var_dump($spreadSheetAry);
   for ($i = 0; $i <= $sheetCount; $i ++) {
-      var_dump($spreadSheetAry[$i][0]);
+      //var_dump($spreadSheetAry[$i][0]);
       
     // $name = "";
     // if (isset($spreadSheetAry[$i][0])) {
