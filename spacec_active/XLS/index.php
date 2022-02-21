@@ -24,12 +24,7 @@ if($_FILES["select_excel"]["name"] != '')
   $spreadSheetAry = $excelSheet->toArray();
   
   for ($i = 0; $i <= $sheetCount; $i ++) {
-      var_dump($spreadSheetAry[$i][0]);
-
-     
-  
-    
-        
+      var_dump($spreadSheetAry[$i][0]);   
           $arr_token = (array) $db->get_access_token();
           $accessToken = array(
               'access_token' => $arr_token['access_token'],
