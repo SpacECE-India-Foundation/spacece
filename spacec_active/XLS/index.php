@@ -1,6 +1,7 @@
 <?php
 
 include 'vendor/autoload.php';
+require_once '../Youtube/config.php';
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -8,7 +9,7 @@ if(isset($_POST['submit'])){
    
 if($_FILES["select_excel"]["name"] != '')
 {
-    echo "Inside";
+    $client = new Google_Client();
  $allowed_extension = array('xls', 'xlsx');
  $file_array = explode(".", $_FILES['select_excel']['name']);
  $file_extension = end($file_array);
@@ -21,9 +22,43 @@ if($_FILES["select_excel"]["name"] != '')
   $message = $writer->save('out');
   $excelSheet = $spreadsheet->getActiveSheet();
   $spreadSheetAry = $excelSheet->toArray();
-  var_dump($spreadSheetAry);
+  
   for ($i = 0; $i <= $sheetCount; $i ++) {
-      //var_dump($spreadSheetAry[$i][0]);
+      var_dump($spreadSheetAry[$i][0]);
+
+     
+  
+    
+        
+          $arr_token = (array) $db->get_access_token();
+          $accessToken = array(
+              'access_token' => $arr_token['access_token'],
+              'expires_in' => $arr_token['expires_in'],
+          );
+          
+          $client->setAccessToken($accessToken);  
+          $service = new Google_Service_YouTube($client);
+      
+      // Define the $playlist object, which will be uploaded as the request body.
+    //   $playlist = new Google_Service_YouTube_Playlist();
+      
+    //   // Add 'snippet' object to the $playlist object.
+    //   $playlistSnippet = new Google_Service_YouTube_PlaylistSnippet();
+    //   $playlistSnippet->setChannelId('UCt6Ed7f7MRjHf03HyVnXRsw');
+    //   $playlistSnippet->setDescription($pl_desc);
+    //   $playlistSnippet->setTitle($pl_name);
+    //   //  $playlistSnippet->setDescription("Hello");
+    //   //   $playlistSnippet->setTitle("Testing");
+    //   $playlist->setSnippet($playlistSnippet);
+      
+    //   // Add 'status' object to the $playlist object.
+    //   $playlistStatus = new Google_Service_YouTube_PlaylistStatus();
+    //   $playlistStatus->setPrivacyStatus('public');
+    //   $playlist->setStatus($playlistStatus);
+      
+    //   $response = $service->playlists->insert('snippet,status', $playlist);
+    //   //print_r($response->id);
+    //   $playlist_id=$response->id;
       
     // $name = "";
     // if (isset($spreadSheetAry[$i][0])) {
