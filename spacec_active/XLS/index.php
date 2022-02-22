@@ -35,25 +35,25 @@ if($_FILES["select_excel"]["name"] != '')
           $service = new Google_Service_YouTube($client);
       
       // Define the $playlist object, which will be uploaded as the request body.
-    //   $playlist = new Google_Service_YouTube_Playlist();
+      $playlist = new Google_Service_YouTube_Playlist();
       
-    //   // Add 'snippet' object to the $playlist object.
-    //   $playlistSnippet = new Google_Service_YouTube_PlaylistSnippet();
-    //   $playlistSnippet->setChannelId('UCt6Ed7f7MRjHf03HyVnXRsw');
-    //   $playlistSnippet->setDescription($pl_desc);
-    //   $playlistSnippet->setTitle($pl_name);
-    //   //  $playlistSnippet->setDescription("Hello");
-    //   //   $playlistSnippet->setTitle("Testing");
-    //   $playlist->setSnippet($playlistSnippet);
+      // Add 'snippet' object to the $playlist object.
+      $playlistSnippet = new Google_Service_YouTube_PlaylistSnippet();
+      $playlistSnippet->setChannelId('UCt6Ed7f7MRjHf03HyVnXRsw');
+      $playlistSnippet->setDescription($spreadSheetAry[$i][13]);
+      $playlistSnippet->setTitle($spreadSheetAry[$i][12]);
+      //  $playlistSnippet->setDescription($spreadSheetAry[$i][13]);
+      //   $playlistSnippet->setTitle($spreadSheetAry[$i][13]);
+      $playlist->setSnippet($playlistSnippet);
       
-    //   // Add 'status' object to the $playlist object.
-    //   $playlistStatus = new Google_Service_YouTube_PlaylistStatus();
-    //   $playlistStatus->setPrivacyStatus('public');
-    //   $playlist->setStatus($playlistStatus);
+      // Add 'status' object to the $playlist object.
+      $playlistStatus = new Google_Service_YouTube_PlaylistStatus();
+      $playlistStatus->setPrivacyStatus('public');
+      $playlist->setStatus($playlistStatus);
       
-    //   $response = $service->playlists->insert('snippet,status', $playlist);
-    //   //print_r($response->id);
-    //   $playlist_id=$response->id;
+      $response = $service->playlists->insert('snippet,status', $playlist);
+      //print_r($response->id);
+      $playlist_id=$response->id;
       
     // $name = "";
     // if (isset($spreadSheetAry[$i][0])) {
