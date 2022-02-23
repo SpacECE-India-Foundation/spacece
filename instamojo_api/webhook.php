@@ -4,6 +4,12 @@ session_start();
 include('connect.php');
 
 $data = $_POST;
+var_dump($_POST);
+
+
+mail('varunmanila@gmail.com',"Instamojo details",$data);
+
+
 $mac_provided = $data['mac'];  // Get the MAC from the POST data
 unset($data['mac']);  // Remove the MAC key from the data.
 
