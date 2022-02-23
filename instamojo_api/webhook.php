@@ -1,27 +1,9 @@
 <?php
-
-
-$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-$txt = "John Doe\n";
-fwrite($myfile, $txt);
-$txt = "Jane Doe\n";
-fwrite($myfile, $txt);
-fclose($myfile);
-
-mail('varunmanila89@gmail.com',"Instamojo details","this is body");
-echo "<script> alert('sent'); </script>";
 session_start();
 
 include('connect.php');
 
 $data = $_POST;
-
-
-
-
-
-
-
 $mac_provided = $data['mac'];  // Get the MAC from the POST data
 unset($data['mac']);  // Remove the MAC key from the data.
 
@@ -50,14 +32,12 @@ if ($mac_provided == $mac_calculated) {
         $name = $data['buyer_name'];
         $amt = $data['amount'];
     } else {
-        $email=$data['email'];
         $query1 = "SELECT * FROM users WHERE u_email='$email'";
 
         $result = mysqli_query($conn, $query1);
 
         if (!$result) {
-            $query2="Update users set space_active='active' Where u_email='$email'";
-            //$query2 = "INSERT INTO users(u_fname, u_email, u_mob, space_active) VALUES ('$name','$email', '$phone', 'active')";
+            $query2 = "INSERT INTO users(u_fname, u_email, u_mob, space_active) VALUES ('$name','$email', '$phone', 'active')";
             mysqli_query($conn, $query2);
         }
 
