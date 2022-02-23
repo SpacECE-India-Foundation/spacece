@@ -4,7 +4,7 @@ session_start();
 include('connect.php');
 
 $data = $_POST;
-var_dump($_POST);
+
 
 
 mail('varunmanila@gmail.com',"Instamojo details",$data);
@@ -43,7 +43,8 @@ if ($mac_provided == $mac_calculated) {
         $result = mysqli_query($conn, $query1);
 
         if (!$result) {
-            $query2 = "INSERT INTO users(u_fname, u_email, u_mob, space_active) VALUES ('$name','$email', '$phone', 'active')";
+            $query2="Update users set space_active='active' Where u_email='$email'";
+            //$query2 = "INSERT INTO users(u_fname, u_email, u_mob, space_active) VALUES ('$name','$email', '$phone', 'active')";
             mysqli_query($conn, $query2);
         }
 
