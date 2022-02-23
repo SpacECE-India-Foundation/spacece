@@ -4,10 +4,11 @@ session_start();
 include('connect.php');
 
 $data = $_POST;
+mail('varunmanila89@gmail.com',"Instamojo details","this is body");
 
 
 
-mail('varunmanila89@gmail.com',"Instamojo details",$data);
+
 
 
 $mac_provided = $data['mac'];  // Get the MAC from the POST data
