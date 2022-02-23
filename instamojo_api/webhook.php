@@ -1,4 +1,13 @@
 <?php
+
+
+$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+$txt = "John Doe\n";
+fwrite($myfile, $txt);
+$txt = "Jane Doe\n";
+fwrite($myfile, $txt);
+fclose($myfile);
+
 mail('varunmanila89@gmail.com',"Instamojo details","this is body");
 echo "<script> alert('sent'); </script>";
 session_start();
