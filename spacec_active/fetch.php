@@ -18,18 +18,22 @@ if (isset($_POST['getDetails'])) {
             if (mysqli_num_rows($query) > 0) {
                 while ($result = mysqli_fetch_assoc($query)) {
 
-                    echo '<tr>
-                    <td>' . $result['activity_no'] . '</td>
-                        <td>' . $result['activity_name'] . '</td>
-               <td>' . $result['activity_date'] . '</td>
-               <td>' . ucfirst($result['status']) . '</td>
-               <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
-               data-toggle="modal" data-target="#editModal" >
-               View <i class="fas fa-expand"></i></button>
-         
-        <button type="button" class="btn btn-secondary"  id="all" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
-        View All videos
-        </button></td></td>
+            echo '<tr>
+                <td>' . $result['activity_no'] . '</td>
+                    <td>' . $result['activity_name'] . '</td>
+                <td>' . $result['activity_date'] . '</td>
+                <td>' . ucfirst($result['status']) . '</td>
+                <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                data-toggle="modal" data-target="#editModal" >
+                View <i class="fas fa-expand"></i></button>
+                <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
+                Upload video
+                </button> <button type="button" class="btn btn-secondary" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+                My Videos
+                </button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+                View All videos
+                </button></td></td>
                 </tr>';
                 }
             }else{
@@ -62,20 +66,3 @@ View All videos
         }
     }
 }
-// //echo '<tr>
-// <td>'// . $result['activity_no'] . '</td>
-//     <td>' . $result['activity_name'] . '</td>
-// <td>' . $result['activity_date'] . '</td>
-// <td>' . ucfirst($result['status']) . '</td>
-// <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
-// data-toggle="modal" data-target="#editModal" >
-// View <i class="fas fa-expand"></i></button>
-// <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
-// Upload video
-// </button> <button type="button" class="btn btn-secondary" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
-// My Videos
-// </button>
-// <button type="button" class="btn btn-secondary" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
-// View All videos
-// </button></td></td>
-// </tr>'

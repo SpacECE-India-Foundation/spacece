@@ -48,8 +48,8 @@ include_once '../common/banner.php';
         }
     }
 </style>
-<!-- <button onclick="window.location.href = 'https://www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/';" type="button" class="btn-btn" style="background-color:orange;">
-    <h6>Subscribe</h6> -->
+<button onclick="window.location.href = 'https://www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/';" type="button" class="btn-btn" style="background-color:orange;">
+    <h6>Subscribe</h6>
 </button>
 <div class="container" style="margin-top:5%;">
 
