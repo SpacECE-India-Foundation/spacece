@@ -38,6 +38,7 @@ if ($mac_provided == $mac_calculated) {
         $name = $data['buyer_name'];
         $amt = $data['amount'];
     } else {
+        $email=$data['email'];
         $query1 = "SELECT * FROM users WHERE u_email='$email'";
 
         $result = mysqli_query($conn, $query1);
