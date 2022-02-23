@@ -7,7 +7,7 @@ $data = $_POST;
 
 
 
-//mail('varunmanila@gmail.com',"Instamojo details",$data);
+mail('varunmanila89@gmail.com',"Instamojo details",$data);
 
 
 $mac_provided = $data['mac'];  // Get the MAC from the POST data
