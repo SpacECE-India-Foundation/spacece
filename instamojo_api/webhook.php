@@ -1,6 +1,6 @@
 <?php
 mail('varunmanila89@gmail.com',"Instamojo details","this is body");
-echo"<script>alert('sent');</script>";
+echo "<script> alert('sent'); </script>";
 session_start();
 
 include('connect.php');
