@@ -42,7 +42,7 @@ $getDate=date($adate);
  $res2= mysqli_query($conn,$sql2);
 
 
- if($res2 >1 ){
+ if($res2){
   while( $row=mysqli_fetch_assoc($res2)){
     $booked_time=$row['time_appointment'];
   
