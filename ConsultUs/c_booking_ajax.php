@@ -81,7 +81,7 @@ if($row4){
 
     
   }
-     
+}else{
         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
         $res= mysqli_query($conn,$sql);
@@ -101,6 +101,6 @@ if($row4){
         
         }
       }
- }
+    }
 
 ?>
