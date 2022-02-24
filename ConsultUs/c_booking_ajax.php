@@ -33,8 +33,8 @@ $getDate=date($adate);
  // echo "Inside";
    $time3 = strtotime(date($atime));
 //$startTime = date("H:i:s", strtotime('-10 minutes', $time3));
- //$endTime = strtotime("+10 minutes", strtotime( $atime));
- $endTime =date('H:i:s',$atime);
+ $endTime1 = strtotime("+10 minutes", strtotime( $atime));
+ $endTime =date('H:i:s',$endTime1);
 
 
   $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$adate'";
