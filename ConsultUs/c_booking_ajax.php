@@ -33,8 +33,8 @@ $getDate=date($adate);
  // echo "Inside";
    $time3 = strtotime(date($atime));
 //$startTime = date("H:i:s", strtotime('-10 minutes', $time3));
- $endTime = strtotime("+10 minutes", strtotime( $atime));
-
+ //$endTime = strtotime("+10 minutes", strtotime( $atime));
+ $endTime =date('H:i:s',$atime);
 
 
   $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$adate'";
@@ -44,39 +44,37 @@ $getDate=date($adate);
 
  if($res2 >1 ){
   while( $row=mysqli_fetch_assoc($res2)){
-    $booked_time=strtotime($row['time_appointment']);
+    $booked_time=$row['time_appointment'];
   
   
-    if( ($booked_time >= $time3) ){
-if(  $booked_time <= $time3){
-    
+ $sql4="SELECT * from appointment WHERE `cid`='$c_id' and date_appointment='$adate' and time_appointment BETWEEN '$booked_time' AND '$endTime'";
+ $res4= mysqli_query($conn,$sql4);
+if(empty($res4)){
+  $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
+
+  $res= mysqli_query($conn,$sql);
+  
+  
+      if($res){
+        $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
+      
+        $res1= mysqli_query($conn,$sql1);
+        $row=mysqli_fetch_assoc($res1);
+          echo json_encode($row);
+        
+  
+      }
+}
        // if(($booked_time < $time3) || ($booked_time < $endTime)){
        
-        $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
-
-$res= mysqli_query($conn,$sql);
-
-
-    if($res){
-      $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";
-    
-      $res1= mysqli_query($conn,$sql1);
-      $row=mysqli_fetch_assoc($res1);
-        echo json_encode($row);
-      
-
-    }
+        
     else{
         echo 'Invalid';
 
     }
-      }else{
-        echo 'Invalid';
-      }
+      
 
-    }else{
-      echo 'Invalid';
-    }
+    
   }
       }else{
         
