@@ -64,6 +64,10 @@ if(empty($res4)){
         
   
       }
+      else{
+        echo 'Invalid';
+
+    }
 }
        // if(($booked_time < $time3) || ($booked_time < $endTime)){
        
