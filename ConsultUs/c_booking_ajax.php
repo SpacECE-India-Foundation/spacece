@@ -51,7 +51,8 @@ $getDate=date($adate);
  echo  $sql4;
  
  $res4= mysqli_query($conn,$sql4);
-if($res4>0){
+ $row4=mysqli_fetch_assoc($res4);
+if($row4){
   echo "Invalid";
       
 }
