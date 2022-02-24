@@ -47,7 +47,7 @@ $getDate=date($adate);
     $booked_time=$row['time_appointment'];
   
   
- $sql4="SELECT * from appointment WHERE `cid`='$c_id' and date_appointment='$adate' and time_appointment BETWEEN '$booked_time' AND '$endTime'";
+ $sql4="SELECT * from appointment WHERE `cid`='39' and date_appointment='2022-02-25' and time_appointment BETWEEN '16:01:00' AND '16:11:00'";
  echo  $sql4;
  
  $res4= mysqli_query($conn,$sql4);
