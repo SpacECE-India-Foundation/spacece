@@ -20,6 +20,7 @@ if ($conn->connect_error) {
  $status ="inactive";
  $c_id=$_POST['c_id'];
 // // encrypt pass 
+ $valid=false;
 $c_from_time=$_POST['c_from_time'];
 $c_to_time=$_POST['c_to_time'];
 $getDate=date($adate);
@@ -53,7 +54,7 @@ $getDate=date($adate);
  $res4= mysqli_query($conn,$sql4);
  $row4=mysqli_fetch_assoc($res4);
 if($row4){
-  echo "Invalid";
+  $valid=true;
       
 }
 
@@ -101,6 +102,10 @@ if($row4){
         
         }
       }
+    }
+    if($valid){
+      echo "Invalid";
+
     }
 
 ?>
