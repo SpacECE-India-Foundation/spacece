@@ -47,8 +47,8 @@ $getDate=date($adate);
     $booked_time=strtotime($row['time_appointment']);
   
   
-    if( ($booked_time >= $time3) ||  ($booked_time <= $time3)){
-
+    if( ($booked_time >= $time3) ){
+if(  $booked_time <= $time3){
     
        // if(($booked_time < $time3) || ($booked_time < $endTime)){
        
@@ -65,11 +65,11 @@ $res= mysqli_query($conn,$sql);
         echo json_encode($row);
       
 
-    //}
-    // else{
-    //     echo 'Invalid';
+    }
+    else{
+        echo 'Invalid';
 
-    // }
+    }
       }else{
         echo 'Invalid';
       }
