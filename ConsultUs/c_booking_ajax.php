@@ -48,7 +48,7 @@ $getDate=date($adate);
   
   
  $sql4="SELECT * from appointment WHERE `cid`='$c_id' and date_appointment='$adate' and time_appointment BETWEEN '$booked_time' AND '$endTime'";
- echo  $sql4;
+
  
  $res4= mysqli_query($conn,$sql4);
  $row4=mysqli_fetch_assoc($res4);
@@ -81,8 +81,7 @@ if($row4){
 
     
   }
-      }else{
-        echo "Inside2";
+     
         $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
 
         $res= mysqli_query($conn,$sql);
