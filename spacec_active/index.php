@@ -48,9 +48,15 @@ include_once '../common/banner.php';
         }
     }
 </style>
-<button onclick="window.location.href = 'https://www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/';" type="button" class="btn-btn" style="background-color:orange;">
+<?php
+if(!isset($_SESSION['space_active'])){
+    ?>
+    <button onclick="window.location.href = 'https://www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/';" type="button" class="btn-btn" style="background-color:orange;">
     <h6>Subscribe</h6>
 </button>
+    <?php 
+}
+?>
 <div class="container" style="margin-top:5%;">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
