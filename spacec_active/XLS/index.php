@@ -1,7 +1,7 @@
 <?php
 
 include 'vendor/autoload.php';
-//require_once '../Youtube/config.php';
+require_once './Youtube/config.php';
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
