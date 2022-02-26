@@ -55,13 +55,12 @@ if($_SESSION['space_active']==="inactive"){
     <h6>Subscribe</h6>
 </button>
     <?php 
-}if(empty($_SESSION['space_active']))   
-{
+}elseif(!isset($_SESSION['space_active'])){
     ?>
     <button onclick="window.location.href = 'https://www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/';" type="button" class="btn-btn" style="background-color:orange;">
     <h6>Subscribe</h6>
 </button>
-    <?php 
+    <?php
 }
 ?>
 <div class="container" style="margin-top:5%;">
