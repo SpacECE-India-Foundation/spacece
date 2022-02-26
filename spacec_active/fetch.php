@@ -13,7 +13,8 @@ if (isset($_POST['getDetails'])) {
         }
     } else {
         if (isset($_SESSION['current_user_id'])) {
-            $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities ") or die('Sql Query Error');
+            $u_id=$_SESSION['current_user_id'];
+            $query = mysqli_query($mysqli1, "SELECT * FROM space_active.spaceactive_activities JOIN spaceece.users WHERE spaceece.users.u_id=' $u_id' and spaceece.users.space_active='active' ") or die('Sql Query Error');
 
             if (mysqli_num_rows($query) > 0) {
                 while ($result = mysqli_fetch_assoc($query)) {
