@@ -13,7 +13,7 @@ $google_client->setClientId('729562997354-kvfcqnk8ldgdms3nsa42h7sprp2b1s1n.apps.
 $google_client->setClientSecret('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');
 
 //Set the OAuth 2.0 Redirect URI
-$google_client->setRedirectUri('https://spacefoundation.in/test/SpacECE-PHP/index.php');
+$google_client->setRedirectUri('http://spacefoundation.in/test/SpacECE-PHP/index.php');
 $google_client->addScope('email');
 
 $google_client->addScope('profile');
