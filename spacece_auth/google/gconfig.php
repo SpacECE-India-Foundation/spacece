@@ -1,5 +1,5 @@
 <?php
-require_once '../db.php';
+require_once 'db.php';
 //Include Google Client Library for PHP autoload file
 require_once 'vendor/autoload.php';
 
