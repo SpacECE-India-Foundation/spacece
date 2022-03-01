@@ -2,7 +2,7 @@
 
 //Include Google Client Library for PHP autoload file
 require_once 'vendor/autoload.php';
-
+require_once '../db.php';
 //Make object of Google API Client for call Google API
 $google_client = new Google_Client();
 
@@ -17,11 +17,12 @@ $google_client->setRedirectUri('http://spacefoundation.in/test/SpacECE-PHP/index
 $google_client->addScope('email');
 
 $google_client->addScope('profile');
-// $check = "SELECT * FROM users WHERE u_email = '$email'";
+ $check = "SELECT * FROM users WHERE u_email = '$email'";
 
-// $run = mysqli_query($conn, $check);
+ $run = mysqli_query($conn, $check);
 
-// if (mysqli_num_rows($run) > 0) {
+ if (mysqli_num_rows($run) > 0) {
+     echo "Exist";
 //     //echo json_encode(array('status' => 'error', "message" => "Email already exists!"));
 //     //die();
 // } else {
@@ -53,7 +54,7 @@ $google_client->addScope('profile');
 //         die();
 //     }
 
-// }
+}
 
 //start session on web page
 if(empty($_SESSION)){
