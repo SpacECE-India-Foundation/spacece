@@ -1,4 +1,7 @@
 <?php
+if(empty($_SESSION)){//
+    session_start();
+}
 require_once 'db.php';
 //Include Google Client Library for PHP autoload file
 require_once 'vendor/autoload.php';
@@ -17,14 +20,52 @@ $google_client->setRedirectUri('http://spacefoundation.in/test/SpacECE-PHP/index
 $google_client->addScope('email');
 
 $google_client->addScope('profile');
+$data = $google_service->userinfo->get();
+$email= $data['email'];
+
+$name= $data['given_name'];
  $check = "SELECT * FROM users WHERE u_email = '$email'";
 
  $run = mysqli_query($conn, $check);
 
+  
  if (mysqli_num_rows($run) > 0) {
-     echo "Exist";
+    $check1 = "SELECT * FROM users u INNER JOIN consultant c ON u.u_id = c.u_id WHERE u.u_email ='$email'";
+
+    $run1 = mysqli_query($conn, $check1);
+    if (mysqli_num_rows($run1) > 0) {
+        $row1 = mysqli_fetch_assoc($run1);
+        $_SESSION['current_user_id'] = $row1['u_id'];
+    $_SESSION['current_user_email'] = $row1['u_email'];
+    $_SESSION['current_user_name'] = $row1['u_name'];
+    $_SESSION['current_user_mob'] = $row1['u_mob'];
+    $_SESSION['current_user_image'] = $row1['u_image'];
+    $_SESSION['current_user_type'] = $row1['u_type'];
+    $_SESSION['space_active'] = $row1['space_active'];
+
+    $_SESSION["consultant_category"] = $row1['c_category'];
+    $_SESSION["consultant_office"] = $row1['c_office'];
+    $_SESSION["consultant_from_time"] = $row1['c_from_time'];
+    $_SESSION["consultant_to_time"] = $row1['c_to_time'];
+    $_SESSION["consultant_language"] = $row1['c_language'];
+    $_SESSION["consultant_fee"] = $row1['c_fee'];
+    $_SESSION["consultant_available_from"] = $row1['c_available_from'];
+    $_SESSION["consultant_available_to"] = $row1['c_available_to'];
+    $_SESSION["consultant_qualification"] = $row1['c_qualification'];
+     //echo "Exist";
+    }else{
+        $row = mysqli_fetch_assoc($run);
+        $_SESSION['current_user_id'] = $row['u_id'];
+    $_SESSION['current_user_email'] = $row['u_email'];
+    $_SESSION['current_user_name'] = $row['u_name'];
+    $_SESSION['current_user_mob'] = $row['u_mob'];
+    $_SESSION['current_user_image'] = $row['u_image'];
+    $_SESSION['current_user_type'] = $row['u_type'];
+    $_SESSION['space_active'] = $row['space_active'];
+
+    }
 //     //echo json_encode(array('status' => 'error', "message" => "Email already exists!"));
-//     //die();
+//     //die(); 
 // } else {
 //     if ($type == 'consultant') {
 //         $c_categories = $_POST['c_categories'];
@@ -54,11 +95,14 @@ $google_client->addScope('profile');
 //         die();
 //     }
 
+}else{
+    $type="user";
+
+    $sql = "INSERT INTO users (u_name, u_email,  u_type) VALUES ('$name', '$email',  '$type')";
+    $result = mysqli_query($conn, $sql);
 }
 
 //start session on web page
-if(empty($_SESSION)){//
-    session_start();
-}
+
 
 ?>
