@@ -39,12 +39,12 @@ if (isset($_SESSION['current_user_id'])) {
 
 
    <?php
-     include './google/index.php';
+     //include './google/index.php';//Commented because login was not working on server
 
     ?> 
 
     <?php
-    include './facebook/index.php';
+    //include './facebook/index.php';//Commented because login was not working on server
     ?>
 
 
