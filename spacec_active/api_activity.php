@@ -27,6 +27,7 @@ if($result){
                 $arr[$key] = strip_tags($value);
             }
         }
+        echo json_encode(['success' => true, 'data' => $arr]);
         return $arr;
     }
    // return $arr;
@@ -54,5 +55,5 @@ if($result){
 //        sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions,$uid);
 //     } 
 }
-echo json_encode(['success' => true, 'data' => $arr]);
+
 }
