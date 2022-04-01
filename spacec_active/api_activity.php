@@ -17,6 +17,8 @@ while($result = mysqli_fetch_assoc($query1)){
 
 
 if($result){
+
+    $arr[]=$result;
 //    $arr=array(); 
 //     function recursiveStripTags($result) {
 //         foreach ($result as $key => $value) {
@@ -29,8 +31,7 @@ if($result){
 //         }
 //         return $arr;
 //     }
-$data = recursiveStripTags($data);
-echo json_encode(['success' => true, 'data' => $data]);
+
    // return $arr;
    // echo json_encode($result);
     // $act_date = $result['activity_date'];
@@ -56,6 +57,8 @@ echo json_encode(['success' => true, 'data' => $data]);
 //        sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions,$uid);
 //     } 
 }
+$data = recursiveStripTags($arr);
+echo json_encode(['success' => true, 'data' => $data]);
 function recursiveStripTags($data) {
     foreach ($data as $key => $value) {
         if(is_array($value)) {
@@ -65,7 +68,7 @@ function recursiveStripTags($data) {
             $data[$key] = strip_tags($value);
         }
     }
-   
+  
     return $data;
 }
 
