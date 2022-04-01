@@ -110,7 +110,7 @@ $module_name = "Space Tube";
                             <input type="text" class="form-control" id="video_code" name="video_code" placeholder="Enter Youtube Video URL" >
                         </div>
                         <div class="form-group col-sm-12 col-lg-6 mb-0">
-                            <input type="text" class="form-control" name="date" id="date" placeholder="Enter Video Upload Date" >
+                            <input type="date" class="form-control" name="date" id="date" placeholder="Enter Video Upload Date" >
                         </div>
                         <br><br>
                         <div class="form-group col-sm-12 col-lg-6 mb-0">
