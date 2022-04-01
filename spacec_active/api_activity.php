@@ -58,6 +58,7 @@ if($result){
 //     } 
 }
 $data = recursiveStripTags($arr);
+echo json_encode($arr);
 echo json_encode(['success' => true, 'data' => $data]);
 function recursiveStripTags($data) {
     foreach ($data as $key => $value) {
