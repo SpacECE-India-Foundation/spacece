@@ -57,8 +57,9 @@ if($result){
 //        sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions,$uid);
 //     } 
 }
-$data = recursiveStripTags($arr);
 echo json_encode($arr);
+$data = recursiveStripTags($arr);
+
 echo json_encode(['success' => true, 'data' => $data]);
 function recursiveStripTags($data) {
     foreach ($data as $key => $value) {
