@@ -126,14 +126,25 @@ $module_name = "Space Tube";
 			<div class="form-group col-sm-12 col-lg-6 mb-0">
                             <input type="text" class="form-control" name="filter"  id="filter" placeholder="Enter Video Filter" >
                         </div>
-                        <div class="form-group col-sm-12 mb-0">
+                        <div class="form-group col-sm-12 col-lg-6 mb-0">
                             <br>
                             <p>
-                                Select Status: 
-                                <select name="status"  id="status">
-                                <option value="">Select...</option>
+                                
+                                <select name="status"  id="status" class="form-control">
+                                <option value="">Select Status</option>
                                 <option value="free">Free</option>
                                 <option value="created">Created</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="form-group col-sm-12 col-lg-6 mb-0">
+                            <br>
+                            <p>
+                              
+                                <select name="language"  id="language" class="form-control">
+                                <option value="">SelectLanguage</option>
+                                <option value="English">English</option>
+                                <option value="Hindi">Hindi</option>
                                 </select>
                             </p>
                         </div>
@@ -176,6 +187,7 @@ $module_name = "Space Tube";
                                 <option value="free">Free</option>
                                 <option value="created">Created</option>
                                 </select>
+
         <a href="javascript:void(0);" class="add_button" title="Add field"><i class="fa fa-plus"></i></a>
     </div>
 </div>
@@ -318,7 +330,8 @@ if(id){
         var filter=$('#filter').val();
 
         var status=$('#status').val();
-
+        var language=$('#language').val();
+        alert(language);
         //alert($video_url);
                     $('#ins_status').text('');
                     if (video_url != '') {
@@ -333,7 +346,8 @@ if(id){
                                 desc:desc,
                                 length:length,
                                     status:status,
-                                    filter:filter
+                                    filter:filter,
+                                    language:language
                             },
                             success: function(response) {
                                 //$json_res = JSON.parse(response);
@@ -380,6 +394,9 @@ if(id){
      },
      status:{
         required: true,
+     },
+     language:{
+         required:true,
      }
     },
     messages: {

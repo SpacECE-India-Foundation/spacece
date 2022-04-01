@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $length=$_POST['length'];
                 $status=$_POST['status'];
                 $filter=$_POST['filter'];
-
+                $language=$_POST['language'];
             $field['v_url'] = $id;
             //$field['v_date'] = $id;
             $field['status'] = $status;
@@ -32,6 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $field['v_desc'] = $desc;
             $field['length'] = $length;
             $field['v_date'] = date('Y-m-d');
+            $field['language']=$language;
             $field['v_uni_no'] = rand(1000000000000000, 10000000000000000);
             $ins_video = $Fun_call->insert('videos', $field);
 
