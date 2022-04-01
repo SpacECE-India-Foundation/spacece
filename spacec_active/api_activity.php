@@ -17,7 +17,19 @@ while($result = mysqli_fetch_assoc($query1)){
 
 
 if($result){
-    $arr[] = $result; 
+   // $arr[] = strip_tags($result); 
+    function recursiveStripTags($result) {
+        foreach ($result as $key => $value) {
+            if(is_array($value)) {
+                $arr[$key] = recursiveStripTags($value);
+            }
+            else {
+                $arr[$key] = strip_tags($value);
+            }
+        }
+        return $arr;
+    }
+   // return $arr;
    // echo json_encode($result);
     // $act_date = $result['activity_date'];
     // $act_id = $result['activity_no'];
