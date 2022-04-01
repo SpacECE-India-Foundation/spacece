@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $field['title'] = $title;
             $field['desc'] = $desc;
             $field['length'] = $length;
-            $field['v_date'] = date('y-m-d');
+            $field['v_date'] = date('Y-m-d');
             $field['v_uni_no'] = rand(1000000000000000, 10000000000000000);
             $ins_video = $Fun_call->insert('videos', $field);
 
