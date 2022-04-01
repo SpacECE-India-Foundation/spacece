@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $field['status'] = $status;
             $field['filter'] = $filter;
             $field['title'] = $title;
-            $field['desc'] = $desc;
+            $field['v_desc'] = $desc;
             $field['length'] = $length;
             $field['v_date'] = date('Y-m-d');
             $field['v_uni_no'] = rand(1000000000000000, 10000000000000000);
