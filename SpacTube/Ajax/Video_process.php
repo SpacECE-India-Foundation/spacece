@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
         $video_url = $Fun_call->validate($_POST['video_url']);
-	 echo"<script>alert('hello...')</script>";
+	 //echo"<script>alert('hello...')</script>";
         if(!empty($video_url)){
             $id=$_POST['id'];
             $title=$_POST['title'];
