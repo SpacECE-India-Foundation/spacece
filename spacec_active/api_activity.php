@@ -30,6 +30,7 @@ if($result){
 //         return $arr;
 //     }
 $data = recursiveStripTags($data);
+echo json_encode(['success' => true, 'data' => $data]);
    // return $arr;
    // echo json_encode($result);
     // $act_date = $result['activity_date'];
@@ -64,7 +65,7 @@ function recursiveStripTags($data) {
             $data[$key] = strip_tags($value);
         }
     }
-    echo json_encode(['success' => true, 'data' => $data]);
+   
     return $data;
 }
 
