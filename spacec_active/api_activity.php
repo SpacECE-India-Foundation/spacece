@@ -17,7 +17,7 @@ while($result = mysqli_fetch_assoc($query1)){
 
 
 if($result){
-   // $arr[] = strip_tags($result); 
+   $arr=array(); 
     function recursiveStripTags($result) {
         foreach ($result as $key => $value) {
             if(is_array($value)) {
