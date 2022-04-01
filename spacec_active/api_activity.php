@@ -17,19 +17,19 @@ while($result = mysqli_fetch_assoc($query1)){
 
 
 if($result){
-   $arr=array(); 
-    function recursiveStripTags($result) {
-        foreach ($result as $key => $value) {
-            if(is_array($value)) {
-                $arr[$key] = recursiveStripTags($value);
-            }
-            else {
-                $arr[$key] = strip_tags($value);
-            }
-        }
-        echo json_encode(['success' => true, 'data' => $arr]);
-        return $arr;
-    }
+//    $arr=array(); 
+//     function recursiveStripTags($result) {
+//         foreach ($result as $key => $value) {
+//             if(is_array($value)) {
+//                 $arr[$key] = recursiveStripTags($value);
+//             }
+//             else {
+//                 $arr[$key] = strip_tags($value);
+//             }
+//         }
+//         return $arr;
+//     }
+$data = recursiveStripTags($data);
    // return $arr;
    // echo json_encode($result);
     // $act_date = $result['activity_date'];
@@ -54,6 +54,18 @@ if($result){
     
 //        sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions,$uid);
 //     } 
+}
+function recursiveStripTags($data) {
+    foreach ($data as $key => $value) {
+        if(is_array($value)) {
+            $data[$key] = recursiveStripTags($value);
+        }
+        else {
+            $data[$key] = strip_tags($value);
+        }
+    }
+    echo json_encode(['success' => true, 'data' => $data]);
+    return $data;
 }
 
 }
