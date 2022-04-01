@@ -41,9 +41,9 @@ $getDate=date($adate);
   $sql2= "SELECT time_appointment from appointment WHERE `cid`='$c_id' and date_appointment='$adate'";
 
  $res2= mysqli_query($conn,$sql2);
+ $row2=mysqli_fetch_assoc($res2);
 
-
- if($res2){
+ if($row2){
   while( $row=mysqli_fetch_assoc($res2)){
     $booked_time=$row['time_appointment'];
   
