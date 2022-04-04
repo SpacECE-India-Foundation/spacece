@@ -1,5 +1,5 @@
 <?php
-require "constants.php";
+//require "constants.php";
 session_start();
 
  if (isset($_SESSION["uid"])) {
@@ -129,18 +129,19 @@ session_start();
                                 <?php
                             }
                         ?>
-               </i> </a>  <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>SignIn</a>
+               </i> </a>   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>SignIn</a>
             <ul class="dropdown-menu">
               <div style="width:300px;">
                 <div class="panel panel-primary">
                   <div class="panel-heading">Login</div>
                   <div class="panel-heading">
-                    <form onsubmit="return false" id="login">
+                    <form onsubmit="" id="login">
                       <label for="email">Email</label>
                       <input type="email" class="form-control" name="email" id="email" required />
                       <label for="email">Password</label>
                       <input type="password" class="form-control" name="password" id="password" required />
-                      <p><br /></p>
+                      <p><br />
+                    <input type="submit" value="submit"></p>
                       <a href="#" style="color:white; list-style:none;">Forgotten Password</a><input type="submit" class="btn btn-success" style="float:right;">
                     </form>
                   </div>
@@ -148,7 +149,7 @@ session_start();
                 </div>
               </div>
             </ul>
-          </li> -->
+          </li> 
           <li>
             <a href="/Khanstore/customer_registration.php?register=1">
               <span class="glyphicon glyphicon-user"></span>SignUp
@@ -202,7 +203,7 @@ session_start();
           
     <div>
                 <?php
-                $page='space_active';
+                $page='ConsultUs';
                         if(isset($_SESSION['u_id'])){
 
                           if(isset($_SESSION['ConsultUs']) ){

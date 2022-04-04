@@ -1,7 +1,7 @@
 <?php 
 
-include('includes/db.php');
-include('db.php');
+//include('includes/db.php');
+include '../Db_Connection/db_spacece_active.php';
 session_start();
 
 if(isset($_POST['login'])){

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './db.php';
+include '../Db_Connection/db_spacece_active.php';
 
 if (!isset($_SESSION['current_user_id'])) {
     header('Location: ../spacece_auth/login.php');

@@ -80,6 +80,11 @@ if (mysqli_num_rows($result) > 0) {
         $_SESSION["consultant_available_to"] = $row['c_available_to'];
         $_SESSION["consultant_qualification"] = $row['c_qualification'];
     }
+    if($type=='admin'){
+        $_SESSION['admin_id'] = $row['u_id'];
+     
+        $_SESSION['admin_name'] = $row['u_name'];
+    }
 
     $redirect_url = "../index.php";
 

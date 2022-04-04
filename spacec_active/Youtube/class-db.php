@@ -3,7 +3,7 @@ class DB {
     // private $dbHost     = "localhost";
     // private $dbUsername = "root";
     // private $dbPassword = "";
-    private $dbHost     = "3.109.14.4";
+    private $dbHost     = "localhost";
     private $dbUsername = "ostechnix";
     private $dbPassword = "Password123#@!";
      private $dbName     = "space_active";

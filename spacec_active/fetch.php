@@ -1,7 +1,6 @@
 <?php
 session_start();
-include('db.php');
-
+include '../Db_Connection/db_spacece_active.php';
 
 if (isset($_POST['getDetails'])) {
 

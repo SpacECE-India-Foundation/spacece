@@ -43,7 +43,7 @@ class Functions
         $q_data = rtrim($q_data, ",");
 
         $query = "INSERT INTO $tb_name SET $q_data";
-        echo  $query;
+        //echo  $query;
         $insert_fire = mysqli_query($this->conn, $query);
         if ($insert_fire) {
             return $insert_fire;
