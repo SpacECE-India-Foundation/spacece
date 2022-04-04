@@ -96,7 +96,7 @@ if($cat == "spacetube"){
 
     if($pass_word == $pass){
        echo "success";
-        header('Location: http://3.109.14.4/SpacTube/'."?user=$user_name");
+        header('Location: ./'."?user=$user_name");
      }
 else{
   $m = "password or userdetail is incorrect";

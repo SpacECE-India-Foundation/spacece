@@ -13,13 +13,8 @@ $qty=   isset($data['qty']) ? ($data['qty']) : NULL;
 $status=   isset($data['status']) ? ($data['status']) : NULL;
 $exchange_product=  isset($data['exchange_product']) ?($data['exchange_product']): NULL;
 $exchange_price=    isset($data['exchange_price']) ? ($data['exchange_price']) : NULL;
+include '../Db_Connection/db_khanstore.php';
 
-$servername = "3.109.14.4";
-$username = "ostechnix";
-$password = "Password123#@!";
-$dbname = "khanstore";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
 
 $sql= "INSERT INTO cart(qty,status,exchange_product,exchange_price) VALUES ($qty,'$status','$exchange_product','$exchange_price')";
 

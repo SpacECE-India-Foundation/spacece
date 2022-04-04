@@ -146,18 +146,7 @@ include_once '../common/header_module.php';
 		<div class="row">
 		<?php
 
-//  $servername = "3.109.14.4";
-// $username = "ostechnix";
-// $password = "Password123#@!";
- $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "spaceece";
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+include '../Db_Connection/db_spacece.php';
 $check = "SELECT * FROM consultant_category ";
 $run = mysqli_query($conn, $check);
 

@@ -5,17 +5,8 @@ error_reporting();
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
+include '../Db_Connection/db_khanstore.php';
 
-$servername = "3.109.14.4";
-$username = "ostechnix";
-$password = "Password123#@!";
-$dbname = "khanstore";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 ?>
 <?php

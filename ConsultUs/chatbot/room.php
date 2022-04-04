@@ -21,8 +21,8 @@ include_once '../../common/header_module.php';
 $roomname = $_GET['roomname'];
   //session_start();
 
-  define("SITEURL",'http://3.109.14.4//consult/');  
-  include("indexDB.php");
+ 
+  include("../../Db_Connection/indexDB.php");
 
  /*$sql= "SELECT * FROM `chat` WHERE `room_name`='$roomname'";
  $res = mysqli_query($conn,$sql);

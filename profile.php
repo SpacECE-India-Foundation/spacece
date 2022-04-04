@@ -56,21 +56,7 @@ if(!isset($_SESSION['current_user_email']))
 // header('Location:index.php');
 // exit();
 // }
-$servername = "3.109.14.4";
-$username = "ostechnix";
-$password = "Password123#@!";
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-    $dbname = "spaceece";
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error)
-    {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
+include './Db_Connection/db_spacece.php';
   // $email= $_SESSION['current_user_email'];
 $sql= "SELECT * FROM `users` WHERE `u_email`='$email' ";
 

@@ -1,5 +1,5 @@
 <?php
-  define("SITEURL",'http://3.109.14.4//ConsultUs/spac/'); 
+ 
 session_start(); 
   $servername = "localhost";
     $username = "ostechnix";

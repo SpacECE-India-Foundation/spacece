@@ -1,17 +1,7 @@
 <?php
  //echo $_POST;
-include("indexDB.php");
-// $servername = "3.109.14.4";
-// $username = "ostechnix";
-// $password = "Password123#@!";
-// $dbname = "consultant_app";
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// // Check connection
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
-//var_dump($_POST);
+include("../Db_Connection/indexDB.php");
+
  $full_name = $_POST['fullname'];
  $email = $_POST['email'];
  $mob =  $_POST['mobile'];
