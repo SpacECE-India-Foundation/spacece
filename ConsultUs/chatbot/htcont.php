@@ -1,8 +1,8 @@
 <?php
 $room = $_POST['room'];
  session_start();
-  define("SITEURL",'http://3.109.14.4//consult/');  
-  include("../indexDB.php");
+   
+  include("../../Db_Connection/indexDB.php");
 $sql= "SELECT * FROM `msg` WHERE `room`='$room' ORDER BY rtime DESC ";
 // $sql="select * from msg where LIKE '%$getMesg%' ";
 $res= "";

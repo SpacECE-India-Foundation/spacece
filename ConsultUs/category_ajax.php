@@ -1,17 +1,6 @@
 <?php
-include 'index_DB.php';
-// // $servername = "localhost";
-// // $username = "root";
-// // $password = "";
-// // $servername = "3.109.14.4";
-// // $username = "ostechnix";
-// // $password = "Password123#@!";
-// $dbname = "spaceece";
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// // Check connection
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
+include '../Db_Connection/indexDB.php';
+
 if(isset($_POST['cat_name'])){
 
 

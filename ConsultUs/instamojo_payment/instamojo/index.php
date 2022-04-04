@@ -14,9 +14,9 @@ $payload = Array(
     'amount' => '25',                                 // amount of payment
     'phone' => '7668711341',                          // ph.num
     'buyer_name' => 'yashasvi',                      // buyername
-    'redirect_url' => 'http://3.109.14.4/instamojo_payment/success.php?email=parth@gmail.com',       // where to redirect user
+    'redirect_url' => 'https://spaceforece.com/instamojo_payment/success.php?email=parth@gmail.com',       // where to redirect user
     'send_email' => true,                              // sending mail
-    'webhook' => 'http://3.109.14.4/consult/instamojo_payment/webhook2.php',  // ienter your webhook url
+    'webhook' => 'https://spaceforece.com/consult/instamojo_payment/webhook2.php',  // ienter your webhook url
     'send_sms' => true,
     'email' => 'parth@gmail.com',                   // email address
     'allow_repeated_payments' => false

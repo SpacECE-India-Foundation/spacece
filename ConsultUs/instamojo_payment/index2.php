@@ -1,5 +1,5 @@
 <?php
-   include('../indexDB.php');
+include('../../Db_Connection/indexDB.php');
   //1. get the id of user
    $id = $_GET['id'];
    $user = $_GET['user'];
@@ -56,9 +56,9 @@ $payload = Array(
     'amount' => $fees,                                 // amount of payment
     'phone' => $phone,                          // ph.num
     'buyer_name' => $buyer_name,                      // buyername
-    'redirect_url' => 'http://3.109.14.4/consult/instamojo_payment/success.php?email=$email',       // where to redirect user
+    'redirect_url' => 'https://spaceforece.com/consult/instamojo_payment/success.php?email=$email',       // where to redirect user
     'send_email' => true,                              // sending mail
-    'webhook' => 'http://3.109.14.4/consult/instamojo_payment/webhook2.php',  // ienter your webhook url
+    'webhook' => 'https://spaceforece.com/consult/instamojo_payment/webhook2.php',  // ienter your webhook url
     'send_sms' => true,
     'email' => $email,                   // email address
     'allow_repeated_payments' => false

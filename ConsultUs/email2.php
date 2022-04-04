@@ -73,7 +73,7 @@ a {
 </head>
 <body>
 
-<form action="http://3.109.14.4/ConsultUs/email2.php" method="POST">
+<form action="email2.php" method="POST">
   <div class="container">
     <h1>SEND EMAIL</h1>
     <hr>

@@ -2,21 +2,8 @@
 
 include_once './header_local.php';
 include_once '../common/header_module.php';
+include '../Db_Connection/db_spacece.php';
 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-$servername = "3.109.14.4";
-$username = "ostechnix";
-$password = "Password123#@!";
-$dbname = "spaceece";
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
 
 $check = "SELECT * FROM consultant_category ";
 

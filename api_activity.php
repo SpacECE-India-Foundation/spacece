@@ -1,17 +1,6 @@
 <?php
 session_start();
-//site url
-define("SITEURL", 'http://3.109.14.4/spac/');
-$servername = "localhost";
-$username = "ostechnix";
-$password = "Password123#@!";
-$dbname = "activity";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+
 ?>
 <?php
 $a_no = $_GET['ano'];

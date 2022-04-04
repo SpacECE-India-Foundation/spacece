@@ -1,7 +1,7 @@
 <?php
  session_start();
-  define("SITEURL",'http://3.109.14.4//consult/');  
- include("../indexDB.php");
+   
+ include("../../Db_Connection/indexDB.php");
 
 $msg= $_POST['text'];
 $room= $_POST['room'];

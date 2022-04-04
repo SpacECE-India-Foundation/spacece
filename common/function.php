@@ -1,25 +1,6 @@
 <?php
 
-$DBHOST = '3.109.14.4';
-$DBUSER = 'ostechnix';
-$DBPASS = 'Password123#@!';
-// $DBHOST = 'localhost';
-// $DBUSER = 'root';
-// $DBPASS = '';
-
-
-
-$DBNAME = 'spaceece';
-
-
-$conn = mysqli_connect($DBHOST, $DBUSER, $DBPASS, $DBNAME);
-
-
-if ($conn) {
-
-} else {
-    die("No Connection!");
-}
+include '../Db_Connection/db_spacece.php';
 //$_POST['subscribe']='1';
 
 if(isset($_POST['subscribe'])){
