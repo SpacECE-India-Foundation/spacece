@@ -8,7 +8,7 @@ $(document).ready(function(){
 			method : 'POST',
 			data : {GET_PRODUCT:1},
 			success : function(response){
-				//console.log(response);
+				console.log(response);
 				var resp = $.parseJSON(response);
 				if (resp.status == 202) {
 

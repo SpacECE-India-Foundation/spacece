@@ -1,4 +1,4 @@
-<?php include('connect.php')?>
+<?php include("../indexDB.php")?>
 <?php
 echo '<pre>';
 print_r($_POST);

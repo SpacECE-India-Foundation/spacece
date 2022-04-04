@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-include('connect.php');
+include "../../Db_Connection/db_spacece.php";
+//include('connect.php');
 
 $data = $_POST;
 $mac_provided = $data['mac'];  // Get the MAC from the POST data

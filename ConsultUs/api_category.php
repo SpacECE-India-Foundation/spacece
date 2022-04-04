@@ -4,7 +4,7 @@ error_reporting(0);
       $category= $_GET['category'];
   $val=$_GET['val'];
 ?>
-<?php include("./includes/functions.php")?>
+<?php include("indexDB.php")?>
 <?php
 
 if($category == "one"){

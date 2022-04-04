@@ -30,7 +30,7 @@ class ActivityData extends Dbconfig {
 	private function getData($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error in query: '. mysqli_error());
+			die('Error in query: ');
 		}
 		$data= array();
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -41,7 +41,7 @@ class ActivityData extends Dbconfig {
 	private function getNumRows($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error in query: '. mysqli_error());
+			die('Error in query: ');
 		}
 		$numRows = mysqli_num_rows($result);
 		return $numRows;

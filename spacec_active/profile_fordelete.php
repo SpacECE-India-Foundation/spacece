@@ -1,8 +1,8 @@
 <?php
 include_once('includes/header1.php');
 
-include('includes/db.php');
-include('db.php');
+include '../Db_Connection/db_spacece_active.php';
+// include('db.php');
 session_start();
 
 ?>

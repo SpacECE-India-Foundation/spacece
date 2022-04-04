@@ -1,6 +1,6 @@
 <?php
-
-$servername = "3.109.14.4";
+ $servername = "localhost";
+//$servername = "3.109.14.4";
 $username = "ostechnix";
 $password = "Password123#@!";
 

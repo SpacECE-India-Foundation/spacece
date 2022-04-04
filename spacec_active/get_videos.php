@@ -28,11 +28,11 @@ if (isset($_SESSION['current_user_email'])) {
        
 
          
-         echo "<div class='col-md-6'>";
-         echo'<iframe width="250" height="180"
+         echo "<div class='col-md-6'  id='videosList1' name='videosList1' onClick='fullscreen()'>";
+         echo'<div class="col-md-6"  id="videosList2" name="videosList2" onClick="fullscreen()"><iframe width="250" id="videosList"  height="180" 
                 src="https://www.youtube.com/embed/'.$video_id.'"
                 frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-                </iframe> ';
+                </iframe> </div>';
         
          echo "</div>";
          }
@@ -64,11 +64,11 @@ if(isset($_POST['all'])){
 
             
            
-            echo "<div class='col-md-6'>";
-            echo '<iframe width="250" height="180"
+            echo "<div class='col-md-6'  id='videosList1' name='videosList1' onClick='fullscreen()'>";
+            echo '<div class="col-md-6"  id="videosList2" name="videosList2" onClick="fullscreen()"><iframe  id="videosList" width="250" height="180"
                    src="https://www.youtube.com/embed/' .  $video_id . '"
                    frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
-                   </iframe>';
+                   </iframe></div>';
             echo "</div>";
             }
         }else{
@@ -90,12 +90,12 @@ if(isset($_POST['all'])){
         foreach ($videos as $video) {
             $video_id = isset($video['video_id']) ? ($video['video_id']) : NULL;
            
-            echo "<div class='col-md-6'>";
-            echo '<iframe width="250" height="180"
+            echo "<div class='col-md-6'  id='videosList1' name='videosList1' >";
+            echo '<div class="col-md-6"  id="videosList2" name="videosList2" onClick="fullscreen()"><iframe width="250" height="180"  id="videosList"
                    src="https://www.youtube.com/embed/' .  $video_id . '"
-                   frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen>
+                   frameBorder="0" allow="accelerometer";encrypted-media;gyroscope;picture-in-picture"allowfullscreen onClick="fullscreen()">
                    </iframe>';
-            echo "</div>";
+            echo "</div></div>";
             }
         }else{
             echo "No data Found";

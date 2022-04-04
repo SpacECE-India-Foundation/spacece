@@ -1,6 +1,6 @@
 <?php  // this is serverside page === api key ?>
 
-<?php include("./includes/functions.php")?>
+<?php include("indexDB.php")?>
 <?php
 $cat_name='';
 if(isset($_GET['cat'])){

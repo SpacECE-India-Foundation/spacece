@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 //use Google\Service\Script;
 
@@ -14,7 +14,7 @@ include_once '../common/banner.php';
     </button> -->
 
 <!-- Modal -->
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
     .table {
 
@@ -47,6 +47,7 @@ include_once '../common/banner.php';
 
         }
     }
+    
 </style>
 <?php
 if($_SESSION['space_active']==="inactive"){
@@ -331,6 +332,7 @@ if($_SESSION['space_active']==="inactive"){
 <?php
 include_once '../common/footer_module.php';
 ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -338,7 +340,26 @@ include_once '../common/footer_module.php';
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- <script type="text/javascript" src="js/scriptcall.js"></script> -->
 
+<script src="https://www.youtube.com/iframe_api"></script>
 
+<script>
+                        
+                   function fullscreen(){
+                    console.log("full")
+                        }
+                        $(document).ready(function(){
+                            console.log("loading");
+    $("#videoList").on("load", function(){
+        console.log("loaded");
+        $(this).contents().on("mousedown, mouseup, click", function(){
+            console.log("Click detected inside iframe.");
+        });
+    });
+});
+                        
+                       
+
+                    </script>
 <script type="text/javascript">
     $(document).ready(function() {
       
@@ -548,4 +569,7 @@ $.ajax({
                         }
                     })
                 })
+
+                
                     </script>
+                   

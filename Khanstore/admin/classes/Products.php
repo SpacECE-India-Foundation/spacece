@@ -1,25 +1,5 @@
 <?php 
 session_start();
-/**
- * ALTER TABLE products ADD product_qty INT(11) NOT NULL AFTER `product_price`;
- 	UPDATE `products` SET product_qty = 1000 WHERE 1;
-
-	CREATE TABLE `products` (
- `product_id` int(100) NOT NULL AUTO_INCREMENT,
- `product_cat` int(11) NOT NULL,
- `product_brand` int(100) NOT NULL,
- `product_title` varchar(255) NOT NULL,
- `product_price` int(100) NOT NULL,
- `product_qty` int(11) NOT NULL,
- `product_desc` text NOT NULL,
- `product_image` text NOT NULL,
- `product_keywords` text NOT NULL,
-  CONSTRAINT fk_product_cat FOREIGN KEY fk_product_cat (product_cat) REFERENCES categories(cat_id),
-    CONSTRAINT fk_product_brand FOREIGN KEY fk_product_brand (product_brand) REFERENCES brands(brand_id),
- PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
- 	
- */
 class Products
 {
 	

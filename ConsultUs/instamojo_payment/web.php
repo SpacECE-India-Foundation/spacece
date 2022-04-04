@@ -1,4 +1,4 @@
-<?php include('connect.php')?>
+<?php include("../indexDB.php")?>
 <?php
 $data =$_POST ;
 $payment_id = $data['payment_id'];
