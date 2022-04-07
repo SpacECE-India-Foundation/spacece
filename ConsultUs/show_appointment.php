@@ -1,6 +1,6 @@
 <?php
 // include_once './includes/header1.php';
-include('indexDB.php');
+include '../Db_Connection/db_spacece.php';
 session_start();
  if(empty($_SESSION['current_user_email'])){
     header('location:../spacecce_auth/login.php');

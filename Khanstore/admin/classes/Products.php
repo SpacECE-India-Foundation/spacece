@@ -7,7 +7,7 @@ class Products
 
 	function __construct()
 	{
-		include_once("Database.php");
+		include_once("../../../Db_Connection/Database_obj.php");
 		$db = new Database();
 		$this->con = $db->connect();
 	}

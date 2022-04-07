@@ -1,7 +1,7 @@
 <?php
 session_start();
 $ip_add = getenv("REMOTE_ADDR");
-include "db.php";
+include "../Db_Connection/db_khanstore.php";
 
 if (isset($_POST["userSelectProduct"])) {
 	$user = $_SESSION['current_user_id'];

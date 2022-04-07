@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include '../../Db_Connection/db_spacece.php';
 if(isset($_POST['get'])){
   $product=$_POST['product'];
   $result1="";

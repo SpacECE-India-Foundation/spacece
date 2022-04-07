@@ -1,6 +1,6 @@
 <?php
-//require('config.php');
-class ActivityData extends Dbconfig {	
+require('config.php');
+class ActivityData  {	
     protected $hostName;
     protected $userName;
     protected $password;

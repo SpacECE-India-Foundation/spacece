@@ -20,7 +20,7 @@ if (isset($_GET["st"])) {
 
 
 
-		include_once("db.php");
+		include '../Db_Connection/db_khanstore.php';
 		$sql = "SELECT p_id,qty FROM cart WHERE user_id = '$cm_user_id'";
 		$query = mysqli_query($con, $sql);
 		if (mysqli_num_rows($query) > 0) {

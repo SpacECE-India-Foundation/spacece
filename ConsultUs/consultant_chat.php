@@ -1,6 +1,5 @@
 <?php
-
-include('indexDB.php'); 
+include('../Db_Connection/indexDB.php');
 
 
   $sql = "SELECT * FROM `appointment` where `cname`='$nid'";

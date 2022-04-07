@@ -1,4 +1,4 @@
-<?php include('indexDB.php') ?>
+<?php include('../Db_Connection/indexDB.php'); ?>
 <?php $nid=$_GET['id'];
  $user=$_GET['user'];
  ?>

@@ -1,5 +1,5 @@
 <?php  // this is serverside page === api key
-include 'connection.php';
+include '../Db_Connection/db_spaceTube.php'; 
 
  $vid =$_GET["vid"];
  //$uid =$_GET["uid"];

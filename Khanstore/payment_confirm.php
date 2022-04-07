@@ -4,7 +4,7 @@ session_start();
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
-include './db.php';
+include '../Db_Connection/db_khanstore.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);

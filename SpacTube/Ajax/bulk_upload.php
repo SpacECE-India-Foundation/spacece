@@ -1,14 +1,8 @@
 <?php
+include '../../Db_Connection/db_spaceTube.php';
 
 
 
-$mysqli = new mysqli('3.109.14.4','ostechnix' , 'Password123#@!', 'gallery2');
-
-// Check connection
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-  //  exit();
-}
 
 if(isset($_GET['bulk'])){
 

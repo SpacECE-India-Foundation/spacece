@@ -1,12 +1,12 @@
 <?php
 class DB {
-    // private $dbHost     = "localhost";
+    private $dbHost     = "localhost";
     // private $dbUsername = "root";
     // private $dbPassword = "";
-    private $dbHost     = "localhost";
+   // private $dbHost     = "localhost";
     private $dbUsername = "ostechnix";
     private $dbPassword = "Password123#@!";
-     private $dbName     = "space_active";
+      private $dbName     = "space_active";
   
     public function __construct(){
         if(!isset($this->db)){
