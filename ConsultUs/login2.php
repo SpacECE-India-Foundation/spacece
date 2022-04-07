@@ -6,7 +6,7 @@ $msg = $_GET['msg'];
 echo $msg;?>
 
 <?php
-   include("indexDB.php");
+   include '../Db_Connection/db_spacece.php';
    
     if (isset($_POST['submit']))
     {

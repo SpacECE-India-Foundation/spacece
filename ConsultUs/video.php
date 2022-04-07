@@ -1,5 +1,5 @@
 <?php
- include('indexDB.php');
+ include '../Db_Connection/db_spacece.php';
 if(isset($_POST['video'])){
 	$id=$_POST['c_id'];
 	$url=$_POST['link'];

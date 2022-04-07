@@ -1,12 +1,5 @@
-<?php  // this is serverside page === api key?>
-<?php $DBHOST = 'localhost';
-$DBUSER = 'ostechnix';
-$DBPASS = 'Password123#@!';
-$DBNAME = 'gallery2';
-$conn;
+<?php include '../Db_Connection/db_spaceTube.php'; ?>
 
-$conn = mysqli_connect($DBHOST, $DBUSER, $DBPASS, $DBNAME);
-?>
 
 <?php
        

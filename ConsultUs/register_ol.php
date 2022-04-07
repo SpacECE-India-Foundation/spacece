@@ -1,5 +1,5 @@
 <?php
-include('indexDB.php');
+include '../Db_Connection/db_spacece.php';
 $username = $name  = $email = $password = $cpassword = $phone = "" ; 
 
 function test_input($data) {

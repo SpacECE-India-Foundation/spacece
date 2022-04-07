@@ -3,7 +3,7 @@ include_once './header_local.php';
 include_once '../common/header_module.php';
 include_once '../common/banner.php';
 include './placeholder.php';
-include './db.php';
+include '../Db_Connection/db_spacece.php';
 
 $payment_success = false;
 $msg = null;

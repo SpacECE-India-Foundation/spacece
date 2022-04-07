@@ -1,5 +1,5 @@
 <?php
- include("../../indexDB.php");
+ include("../../../Db_Connection/indexDB.php");
 // connecting to database
 
 // getting user message through ajax

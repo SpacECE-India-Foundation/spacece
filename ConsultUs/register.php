@@ -1,7 +1,7 @@
 
 <?php
 include_once './includes/header1.php';
-include('indexDB.php');
+include '../Db_Connection/db_spacece.php';
 $msg = "";
 
 if (isset($_POST['submit'])) {

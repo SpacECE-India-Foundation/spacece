@@ -1,4 +1,4 @@
-<?php include('indexDB.php') ?>
+<?php include '../Db_Connection/db_spacece.php'; ?>
 <?php //error_reporting(0); 
  $ref = $_GET['user']; 
 //$nid = $_GET['id'];?>

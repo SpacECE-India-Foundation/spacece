@@ -1,6 +1,6 @@
 <?php
 
-        include 'connection.php';
+include '../Db_Connection/db_spaceTube.php'; 
             $sql = 'DELETE FROM `videos` WHERE `v_id` IN(' . implode(',', $_POST['videos']) . ')';
 
             $res = mysqli_query($conn, $sql);

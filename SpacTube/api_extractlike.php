@@ -1,27 +1,7 @@
 <?php  // this is serverside page === api key?>
 <?php
 
-$DBHOST = 'localhost';
-$DBUSER = 'ostechnix';
-$DBPASS = 'Password123#@!';
-$DBNAME = 'gallery2';
-$conn;
-
-$conn = mysqli_connect($DBHOST, $DBUSER, $DBPASS, $DBNAME);
-
-if($conn)
-{
-    ?>
-    
-    <?php
-}
-else{
-    die("No Connection!");
-    ?>
-    <script>alert("Could Not Connection!")</script>
-   <?php
-}
-
+include '../Db_Connection/db_spaceTube.php';
 ?>
 <?php
  $vid =$_GET["vid"];

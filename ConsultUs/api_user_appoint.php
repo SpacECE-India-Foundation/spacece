@@ -1,6 +1,6 @@
 <?php  // this is serverside page === api key 
  error_reporting(0);
- include("indexDB.php");
+ include("../Db_Connection/indexDB.php");
 // $user = $_GET['user'];
 
 $status= null;
