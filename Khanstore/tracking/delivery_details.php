@@ -1,6 +1,6 @@
 <?php
 
-include_once('./db.php');
+include_once('../../Db_Connection/db_khanstore.php');
 require_once('geoplugin.class.php');
 
 $geoplugin = new geoPlugin();
@@ -15,7 +15,7 @@ $user_id=$_SESSION['current_user_id'];
 $delivery_id=$_GET['id'];
 $tracking_id=$_GET['tracking_id'];
 $sql="SELECT * from tracking Where user_id=$user_id and is_Active='1' ";
-$res=mysqli_fetch_assoc($conn,$sql);
+$res=mysqli_fetch_assoc($mysqli,$sql);
 
 ?>
 

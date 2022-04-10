@@ -1,6 +1,6 @@
 <?php
 
-include "db.php";
+include "../Db_Connection/constants.php";
 
 session_start();
 

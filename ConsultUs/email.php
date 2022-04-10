@@ -1,4 +1,4 @@
-<?php include('connect.php')?>
+<?php include('../Db_Connection/indexDB.php');?>
 <?php
 
 /*

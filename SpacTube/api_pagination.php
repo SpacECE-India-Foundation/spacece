@@ -1,5 +1,5 @@
 <?php  // this is serverside page === api key
- include 'connection.php';
+include '../Db_Connection/db_spaceTube.php'; 
 	if($_GET["pagenum"])
  	{
 		$pagenum =$_GET["pagenum"];

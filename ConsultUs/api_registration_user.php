@@ -1,6 +1,6 @@
 <?php  // this is serverside page === api key ?>
 
-<?php include("indexDB.php")?>
+<?php include("../Db_Connection/indexDB.php")?>
 <?php
 if(!empty($_GET["username"])){
  $user_name=$_GET["username"];}

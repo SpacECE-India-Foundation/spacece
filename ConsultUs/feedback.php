@@ -9,7 +9,7 @@ if (isset($_COOKIE['error_msg'])) {
         </div>
     ";
 }
- include('indexDB.php');
+include('../Db_Connection/indexDB.php');
 //include("main.php");
 $name = $_POST['fullname'];
 $email = $_POST['email'];

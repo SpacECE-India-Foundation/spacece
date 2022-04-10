@@ -157,6 +157,7 @@ if (mysqli_num_rows($run) > 0) {
  
 			<div class="col-lg-4 col-md-6 blog-item">
 				<!-- //bug id-0000076 -->
+				<h3><?php echo $row['cat_name'];?></h3>
 				<a href="cdetails.php?category=<?php echo $row['cat_name'];?>">
 					<img src="../img/consult_category/<?php echo $row['cat_img'];?>" alt="" width="500" height="200"></a>
 				<h5><a href="#"> </a></h5>

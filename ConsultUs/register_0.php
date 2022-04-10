@@ -1,6 +1,6 @@
 
 <?php
-include('indexDB.php');
+include '../Db_Connection/db_spacece.php';
 $msg = "";
 
 if (isset($_POST['submit'])) {

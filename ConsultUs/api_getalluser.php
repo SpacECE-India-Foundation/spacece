@@ -1,6 +1,6 @@
 <?php  // this is serverside page === api key ?>
 <?php $user = $_GET['user']; ?>
-<?php include("indexDB.php")?>
+<?php include("../Db_Connection/indexDB.php")?>
 <?php
 
 if($user == "all"){

@@ -4,7 +4,7 @@
  $patient = $_GET['user'];
  $type = $_GET['type'];
  ?>
-<?php include("indexDB.php")?>
+<?php include("../Db_Connection/indexDB.php")?>
 <?php
 
         // showing admin added from database

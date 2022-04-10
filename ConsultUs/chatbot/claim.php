@@ -21,7 +21,7 @@ else if(!ctype_alnum($room)){
 }
 
 else{
-    include 'connection.php'; 
+    include '../../Db_Connection/indexDB.php'; 
 }
 // 
 $sql= "SELECT * FROM `chat` WHERE `room_name`='$room'";
