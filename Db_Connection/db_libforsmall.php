@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost";
-$username = "ostechnix";
-$password = "Password123#@!";
-$dbname = "khanstore";
+$servername = "database-spacece.cjnrqpvibfnn.ap-south-1.rds.amazonaws.com";
+$username = "spaceuser";
+$password = "Spaceuser12#";
+$dbname = "libforsmall";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
