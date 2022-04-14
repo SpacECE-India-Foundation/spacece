@@ -1,16 +1,16 @@
 <?php
   // starting session
+  include('../../Db_Connection/constants.php');
   session_start();
   //site url
    define("SITEURL",'http://localhost/razorpay/');
 
-   define('LOCALHOST','localhost');
-    define('DB_USERNAME','root');
-    define('DB_PASSWORD','');
-    define('DB_NAME','emp2');
     // creating connection
-    $conn = mysqli_connect(LOCALHOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
+    $conn = mysqli_connect(DB_HOST_NAME,DB_USER_NAME,DB_USER_PASSWORD,DB_NAME_EMP2);
+
     if(!$conn){
         die("sorry we failed to connect:".mysqli_connect_error());
     }
  ?>
+
+
