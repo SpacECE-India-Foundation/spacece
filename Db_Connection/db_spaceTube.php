@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost','ostechnix' , 'Password123#@!', 'gallery2');
+$mysqli = new mysqli('database-spacece.cjnrqpvibfnn.ap-south-1.rds.amazonaws.com', 'spaceuser' , 'Spaceuser12#', 'spactube');
 
 // Check connection
 if ($mysqli->connect_errno) {
