@@ -1,7 +1,7 @@
 <?php
 
 
-$mysqli1 = new mysqli('localhost', 'ostechnix', 'Password123#@!', 'space_active');
+$mysqli1 = new mysqli('database-spacece.cjnrqpvibfnn.ap-south-1.rds.amazonaws.com', 'spaceuser', 'Spaceuser12#', 'space_active');
  //$mysqli1 = new mysqli('localhost', 'root', '', 'space_active');
 // Check connection
 if ($mysqli1->connect_errno) {
