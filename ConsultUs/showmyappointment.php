@@ -13,7 +13,8 @@ $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 include '../common/header_module.php';
 // include_once '../common/header_module.php'; 
-include '../Db_Connection/db_spacece.php';
+//include '../Db_Connection/db_spacece.php';
+include '../Db_Connection/db_consultus_app.php';
 
 $email = $_SESSION['current_user_email'];
 $user= $_SESSION['current_user_name'];

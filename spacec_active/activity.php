@@ -28,7 +28,7 @@ if($result){
     $activity_process = $result['activity_process'];
     $activity_instructions = $result['activity_instructions'];
     
-    $query = mysqli_query($mysqli1, "Select spaceece.users.u_id,spaceece.users.u_name,spaceece.users.u_email,spaceece.users.u_mob from spaceece.users JOIN space_active.sub_users WHERE space_active.sub_users.u_id=spaceece.users.u_id") or die('Sql Query1 Error' . mysqli_error($mysqli));
+    $query = mysqli_query($mysqli1, "Select spacece.users.u_id,spacece.users.u_name,spacece.users.u_email,spacece.users.u_mob from spacece.users JOIN space_active.sub_users WHERE space_active.sub_users.u_id=spacece.users.u_id") or die('Sql Query1 Error' . mysqli_error($mysqli));
     
     while ($result1 = mysqli_fetch_assoc($query)) {
         $uid = $result1['u_id'];

@@ -1,9 +1,11 @@
 <?php
 include('constants.php');
-define('DB_USER_DATABASE', 'spaceece');
-$conn = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
+
+// Create connection
+$conn = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME_SPACECE);
+
 
 if ($conn) {
 } else {
-    die("Connection failed: " . $conn->connect_error);
+    die("Failed to connect to Database: " . $conn->connect_error);
 }

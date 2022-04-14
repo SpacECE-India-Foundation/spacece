@@ -1,10 +1,11 @@
 <?php
+include('constants.php');
 
+// Create connection
+$mysqli1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME_SPACE_ACTIVE);
 
-$mysqli1 = new mysqli('localhost', 'ostechnix', 'Password123#@!', 'space_active');
- //$mysqli1 = new mysqli('localhost', 'root', '', 'space_active');
 // Check connection
 if ($mysqli1->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+    echo "Failed to connect to Database: " . $mysqli->connect_error;
     exit();
 }

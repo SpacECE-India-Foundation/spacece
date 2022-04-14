@@ -1,24 +1,17 @@
 <?php
 
+include('../Db_Connection/constants.php');
+
 class Functions
 {
-
-    private $DBHOST = 'localhost';
-    private $DBUSER = 'ostechnix';
-    private $DBPASS = 'Password123#@!';
-    //     private $DBHOST = 'localhost';
-    //    private $DBUSER = 'root';
-    //     private $DBPASS = '';
-
-    private $DBNAME = 'gallery2';
     public $conn;
 
     public function __construct()
     {
         try {
-            $this->conn = mysqli_connect($this->DBHOST, $this->DBUSER, $this->DBPASS, $this->DBNAME);
+            $this->conn = mysqli_connect(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME_SPACTUBE);
             if (!$this->conn) {
-                throw new Exception('Connection was Not Established');
+                throw new Exception('Failed to connect to Database:');
             }
         } catch (Exception $e) {
             echo 'Message: ' . $e->getMessage();

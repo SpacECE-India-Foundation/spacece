@@ -1,6 +1,6 @@
 <?php
  //echo $_POST;
-include("../Db_Connection/indexDB.php");
+include("../Db_Connection/db_consultus_app.php");
 
  $full_name = $_POST['fullname'];
  $email = $_POST['email'];

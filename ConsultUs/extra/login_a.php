@@ -1,5 +1,5 @@
 <?php
-   include("indexDB.php");
+   include("db_consultus_app.php");
     function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);

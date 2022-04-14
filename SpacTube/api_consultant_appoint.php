@@ -4,7 +4,7 @@
  $patient = $_GET['user'];
  $type = $_GET['type'];
  ?>
-<?php include("indexDB.php")?>
+<?php include("db_consultus_app.php")?>
 <?php
 
         // showing admin added from database

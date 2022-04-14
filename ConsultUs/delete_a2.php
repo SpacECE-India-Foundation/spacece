@@ -1,4 +1,4 @@
-<?php include('indexDB.php') ?>
+<?php include('db_consultus_app.php') ?>
 <?php $nid=$_GET['id'];
  $user=$_GET['user'];
  ?>

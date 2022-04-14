@@ -1,5 +1,5 @@
 <?php
- include("indexDB.php");
+ include("db_consultus_app.php");
 
  date_default_timezone_set("Asia/Kolkata");
 $u_id=$_POST['u_id'];

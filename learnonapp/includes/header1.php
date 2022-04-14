@@ -76,7 +76,7 @@
           <img src="../img/logo/SpacECELogo.jpg" class=" img img-thumbnail img-circle" style="width:80px; top:0px;">
         </a>
       </div>
-      <a href="/Khanstore" class="navbar-brand">SPAC-ECE</a>
+      <a href="/libforsmall" class="navbar-brand">SPAC-ECE</a>
     </div>
 
     <div class="collapse navbar-collapse" id="collapse1">
@@ -178,7 +178,7 @@
             </ul>
           </li>
           <li>
-             <a href="/Khanstore/customer_registration.php?register=1">
+             <a href="/libforsmall/customer_registration.php?register=1">
               <span class="glyphicon glyphicon-user"></span>SignUp
             </a>
           </li>

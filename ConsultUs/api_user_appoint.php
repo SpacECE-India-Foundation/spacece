@@ -1,6 +1,6 @@
 <?php  // this is serverside page === api key 
  error_reporting(0);
- include("../Db_Connection/indexDB.php");
+ include("../Db_Connection/db_consultus_app.php");
 // $user = $_GET['user'];
 
 $status= null;

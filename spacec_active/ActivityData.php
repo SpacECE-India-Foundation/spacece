@@ -1,5 +1,7 @@
 <?php
 require('config.php');
+include('../Db_Connection/constants.php');
+
 class ActivityData  {	
     protected $hostName;
     protected $userName;
@@ -7,17 +9,14 @@ class ActivityData  {
 	protected $dbName;
 	private $actTable = 'spaceactive_activities';
 	private $dbConnect = false;
+	
     public function __construct(){
         if(!$this->dbConnect){ 		
-			//$database = new dbConfig();
-			//var_dump($database);            
-            // $this -> hostName = '3.109.14.4';
-            // $this -> userName = 'ostechnix';
-            // $this -> password = 'Password123#@!';
-			$this -> hostName = 'localhost';
-            $this -> userName = 'root';
-            $this -> password = '';
-			$this -> dbName ='space_active';			
+
+			$this -> hostName = DB_HOST_NAME;
+            $this -> userName = DB_USER_NAME;
+            $this -> password = DB_USER_PASSWORD;
+			$this -> dbName = DB_NAME_SPACE_ACTIVE;			
             $conn = new mysqli($this->hostName, $this->userName, $this->password, $this->dbName);
 			
             if($conn->connect_error){

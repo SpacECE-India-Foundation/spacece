@@ -4,7 +4,7 @@ error_reporting(0);
       $category= $_GET['category'];
   $val=$_GET['val'];
 ?>
-<?php include("../Db_Connection/indexDB.php")?>
+<?php include("../Db_Connection/db_consultus_app.php")?>
 <?php
 
 if($category == "one"){

@@ -98,7 +98,7 @@
 
 	<!-- Hero section end -->
 	<?php 
-	include('indexDB.php');
+	include('db_consultus_app.php');
 	$loc=$c='';
 	$x1="select distinct location from flat";
 	$x2="select distinct city from flat";

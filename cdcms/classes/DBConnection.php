@@ -4,10 +4,10 @@ if(!defined('DB_SERVER')){
 }
 class DBConnection{
 
-    private $host = DB_SERVER;
-    private $username = DB_USERNAME;
-    private $password = DB_PASSWORD;
-    private $database = DB_NAME;
+    private $host = DB_HOST_NAME;
+    private $username = DB_USER_NAME;
+    private $password = DB_USER_PASSWORD;
+    private $database = DB_NAME_CDCMS;
     
     public $conn;
     

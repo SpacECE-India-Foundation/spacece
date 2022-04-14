@@ -8,6 +8,7 @@ $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 include_once '../common/header_module.php';
+include '../Db_Connection/constants.php';
 
 $email='';
 
@@ -18,10 +19,7 @@ $email=$_SESSION['current_user_email'];
 
 <?php
 //$email=$_SESSION['current_user_email'];
-define('DB_HOST_NAME', 'localhost');
-define('DB_USER_NAME', 'ostechnix');
-define('DB_USER_PASSWORD', 'Password123#@!');
-define('DB_USER_DATABASE', 'spaceece');
+define('DB_USER_DATABASE', 'spacece');
 
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
 $u_name='';
@@ -77,7 +75,8 @@ $sql1="SELECT consultant.c_from_time,consultant.c_to_time,consultant.c_aval_days
 //  echo $category = $_GET['category'];
 //  echo $name = $_GET['name'];
 //   echo $uid =$_GET['uid'];
-include('indexDB.php');
+include('../Db_Connection/db_consultus_app.php');
+
 $c_id=$_GET['cid'];
 $b_id=$_GET['b_id'];
 $con_name=$_GET['con_name'];

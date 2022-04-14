@@ -22,7 +22,7 @@ $roomname = $_GET['roomname'];
   //session_start();
 
  
-  include("../../Db_Connection/indexDB.php");
+  include("../../Db_Connection/db_consultus_app.php");
 
  /*$sql= "SELECT * FROM `chat` WHERE `room_name`='$roomname'";
  $res = mysqli_query($conn,$sql);

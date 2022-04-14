@@ -1,4 +1,4 @@
-<?php include("../indexDB.php")?>
+<?php include("../db_consultus_app.php")?>
 <?php
 echo '<pre>';
 print_r($_POST);

@@ -1,6 +1,6 @@
 <?php  // this is serverside page === api key ?>
 
-<?php include("indexDB.php")?>
+<?php include("db_consultus_app.php")?>
 <?php
  $password =$_GET["password"];
  $user=$_GET["user"];

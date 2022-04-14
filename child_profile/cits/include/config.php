@@ -1,9 +1,9 @@
 <?php
-define('DB_SERVER','localhost');
-define('DB_USER','ostechnix');
-define('DB_PASS' ,'Password123#@!');
-define('DB_NAME', 'cits1');
-$con = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+
+include('../../../Db_Connection/constants.php');
+
+$con = mysqli_connect(DB_HOST_NAME,DB_USER_NAME,DB_USER_PASSWORD,DB_NAME_CITS1);
+
 // Check connection
 if (mysqli_connect_errno())
 {

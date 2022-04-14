@@ -1,7 +1,8 @@
 <?php
 include('constants.php');
 
-$mysqli = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
+// Create connection
+$mysqli = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME_LEARNONAPP);
 
 // Check connection
 if ($mysqli->connect_errno) {

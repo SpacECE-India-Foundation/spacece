@@ -2,7 +2,7 @@
 $room = $_POST['room'];
  session_start();
    
-  include("../../Db_Connection/indexDB.php");
+  include("../../Db_Connection/db_consultus_app.php");
 $sql= "SELECT * FROM `msg` WHERE `room`='$room' ORDER BY rtime DESC ";
 // $sql="select * from msg where LIKE '%$getMesg%' ";
 $res= "";

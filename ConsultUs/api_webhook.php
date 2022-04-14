@@ -1,6 +1,6 @@
 <?php  // this is serverside page === api key ?>
 
-<?php include("../Db_Connection/indexDB.php")?>
+<?php include("../Db_Connection/db_consultus_app.php")?>
 <?php
         // showing admin added from database
         $sql = "SELECT * FROM `webhook` ";

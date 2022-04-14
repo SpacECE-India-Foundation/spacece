@@ -1,5 +1,5 @@
 <?php include_once './includes/header1.php';
-include('../Db_Connection/indexDB.php');?>
+include('../Db_Connection/db_consultus_app.php');?>
 <div class="main-content">
     <div class="wrapper">
         <center><h2>UPDATE PEOFILE</h2></center>

@@ -1,5 +1,5 @@
 <?php
-include('../../Db_Connection/indexDB.php');
+include('../../Db_Connection/db_consultus_app.php');
   //1. get the id of user
    $id = $_GET['id'];
    $user = $_GET['user'];

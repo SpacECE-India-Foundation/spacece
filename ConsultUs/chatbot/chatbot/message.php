@@ -1,5 +1,5 @@
 <?php
- include("../../../Db_Connection/indexDB.php");
+ include("../../../Db_Connection/db_consultus_app.php");
 // connecting to database
 
 // getting user message through ajax

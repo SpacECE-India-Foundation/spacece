@@ -1,1 +1,1 @@
-http://localhost/spacece/khanstore/khanstore_api.php
+http://localhost/spacece/libforsmall/libforsmall_api.php

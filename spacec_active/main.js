@@ -167,10 +167,10 @@ $(document).ready(function () {
   //end
 
   /*
-        Here #login is login form id and this form is available in Khanstore/index page
-        from here input data is sent to Khanstore/login page
-        if you get login_success string from Khanstore/login page means user is logged in successfully and window.location is 
-        used to redirect user from home page to Khanstore/profile page
+        Here #login is login form id and this form is available in libforsmall/index page
+        from here input data is sent to libforsmall/login page
+        if you get login_success string from libforsmall/login page means user is logged in successfully and window.location is 
+        used to redirect user from home page to libforsmall/profile page
     */
   $("#login").on("submit", function (event) {
     event.preventDefault();
@@ -458,7 +458,7 @@ $(document).ready(function () {
         First it will enable php isset($_POST["Common"]) in action page and inside that
         there is two isset funtion which is isset($_POST["getCartItem"]) and another one is isset($_POST["checkOutDetials"])
         getCartItem is used to show the cart item into dropdown menu 
-        checkOutDetails is used to show cart item into Khanstore/Cart page
+        checkOutDetails is used to show cart item into libforsmall/Cart page
     */
   function checkOutDetails() {
     $(".overlay").show();

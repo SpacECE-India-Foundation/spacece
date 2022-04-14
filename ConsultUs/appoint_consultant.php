@@ -1,6 +1,6 @@
 <?php
 include_once './includes/header1.php';
- include('../Db_Connection/indexDB.php'); ?>
+ include('../Db_Connection/db_consultus_app.php'); ?>
 <?php //error_reporting(0); 
 $ref = $_GET['user']; ?>
 <html>

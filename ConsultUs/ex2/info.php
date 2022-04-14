@@ -106,7 +106,7 @@ footer{
 
 
   <?php
-include('indexDB.php');
+include('db_consultus_app.php');
 $x=$_GET["id"];
 $sql = "SELECT * FROM flat natural join sale where flat_id=$x";
 $result = $conn->query($sql);
@@ -190,7 +190,7 @@ $_SESSION["flat_id"]=$x;
 
 
           <?php
-        include('indexDB.php');
+        include('db_consultus_app.php');
         	$x=$_GET["id"];
         	$sql1="SELECT * FROM flat natural join sale where flat_id=$x";
         	$result1 = $conn->query($sql1);
@@ -249,7 +249,7 @@ $_SESSION["flat_id"]=$x;
 						</form>
 
 							<?php
-    include('indexDB.php');
+    include('db_consultus_app.php');
     if(isset($_POST['name']))
     {
    		$name=$_POST['name'];

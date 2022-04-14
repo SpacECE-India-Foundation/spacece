@@ -4,7 +4,7 @@
  $patient = $_GET['user'];
  $type = $_GET['type'];
  ?>
-<?php include("../Db_Connection/indexDB.php")?>
+<?php include("../Db_Connection/db_consultus_app.php")?>
 <?php
 
 if($type != "all"){

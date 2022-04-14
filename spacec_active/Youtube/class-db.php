@@ -1,12 +1,12 @@
 <?php
+
+include('../../Db_Connection/constants.php');
+
 class DB {
-    private $dbHost     = "localhost";
-    // private $dbUsername = "root";
-    // private $dbPassword = "";
-   // private $dbHost     = "localhost";
-    private $dbUsername = "ostechnix";
-    private $dbPassword = "Password123#@!";
-      private $dbName     = "space_active";
+    private $dbHost     = DB_HOST_NAME;
+    private $dbUsername = DB_USER_NAME;
+    private $dbPassword = DB_USER_PASSWORD;
+    private $dbName     = DB_NAME_SPACE_ACTIVE;
   
     public function __construct(){
         if(!isset($this->db)){

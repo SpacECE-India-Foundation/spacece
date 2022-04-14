@@ -1,11 +1,13 @@
 <?php
+
+include('../../Db_Connection/constants.php');
+
 Class Database{
-	public $host   = DB_HOST;
-	public $user   = DB_USER;
-	public $pass   = DB_PASS;
-	public $dbname = DB_NAME;
-	
-	
+	public $host   = DB_HOST_NAME;
+	public $user   = DB_USER_NAME;
+	public $pass   = DB_USER_PASSWORD;
+	public $dbname = DB_NAME_BABYCARE;
+		
 	public $link;
 	public $error;
 	

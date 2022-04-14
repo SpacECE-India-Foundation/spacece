@@ -85,7 +85,7 @@
 
 	<!-- Hero section end -->
 	<?php 
-	include('indexDB.php');
+	include('db_consultus_app.php');
 	$loc=$c='';
 	$x1="select distinct location from flat";
 	$x2="select distinct city from flat";
@@ -206,7 +206,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        include('indexDB.php');
+                        include('db_consultus_app.php');
                         $q="select * from login_builder ";
                         $result = $conn->query($q);
                         while($x=mysqli_fetch_array($result, MYSQLI_ASSOC))

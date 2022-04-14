@@ -285,7 +285,7 @@ include_once './common/header_module.php';
           <p></p>
         </div>
         <div class="col-lg-4 col-md-6 blog-item">
-          <a href="./Khanstore/index.php">
+          <a href="./libforsmall/index.php">
             <img src="img/icon_libforsmalls.jpeg" alt="" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">

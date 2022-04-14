@@ -1,11 +1,12 @@
 <?php
 session_start();
+
 include '../Db_Connection/db_spacece_active.php';
 
 if (isset($_POST['getDetails'])) {
 
     if (isset($_POST['id'])) {
-        $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities where activity_no='" . $_POST['id'] . "' ") or die('Sql Query Error');
+        $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities where activity_no='" . $_POST['id'] . "' ") or die('Sql Query Error1');
         if (mysqli_num_rows($query) > 0) {
             $result = mysqli_fetch_assoc($query);
             echo json_encode($result);
@@ -13,7 +14,8 @@ if (isset($_POST['getDetails'])) {
     } else {
         if (isset($_SESSION['current_user_id'])) {
             $u_id=$_SESSION['current_user_id'];
-            $query = mysqli_query($mysqli1, "SELECT * FROM space_active.spaceactive_activities JOIN spaceece.users WHERE spaceece.users.u_id=' $u_id' and spaceece.users.space_active='active' ") or die('Sql Query Error');
+
+            $query = mysqli_query($mysqli1, "SELECT * FROM space_active.spaceactive_activities JOIN spacece.users WHERE spacece.users.u_id=' $u_id' and spacece.users.space_active='active' ") or die('Sql Query Error2');
 
             if (mysqli_num_rows($query) > 0) {
                 while ($result = mysqli_fetch_assoc($query)) {
@@ -37,7 +39,7 @@ if (isset($_POST['getDetails'])) {
                 </tr>';
                 }
             }else{
-                $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities WHERE status='free' ") or die('Sql Query Error');
+                $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities WHERE status='free' ") or die('Sql Query Error3');
 
                 if (mysqli_num_rows($query) > 0) {
                     while ($result = mysqli_fetch_assoc($query)) {
@@ -62,7 +64,7 @@ if (isset($_POST['getDetails'])) {
                 }
             }
         } else {
-            $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities WHERE status='free' ") or die('Sql Query Error');
+            $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities WHERE status='free' ") or die('Sql Query Error4');
 
             if (mysqli_num_rows($query) > 0) {
                 while ($result = mysqli_fetch_assoc($query)) {

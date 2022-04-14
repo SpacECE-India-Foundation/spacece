@@ -1,6 +1,6 @@
 <?php  // this is serverside page === api key ?>
 <?php $user = $_GET['user']; ?>
-<?php include("../Db_Connection/indexDB.php")?>
+<?php include("../Db_Connection/db_consultus_app.php")?>
 <?php
 
 if($user == "all"){

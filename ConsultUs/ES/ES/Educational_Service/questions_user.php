@@ -171,7 +171,7 @@ span
 
 
 <?php
-include("indexDB.php");
+include("db_consultus_app.php");
 	$q="select * from feedbackuser where val=".$_SESSION['id']."";
 	$r = $conn->query($q);
 //	$x = mysqli_fetch_assoc($r);

@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 // if(empty($_SESSION['current_user_email'])){
 //     header('location:../spacece_auth/login.php');
 //     exit();
@@ -7,18 +9,18 @@ session_start();
 include_once './header_local.php';
 include_once '../common/header_module.php';
 // include_once '../common/banner.php';
-include('../Db_Connection/indexDB.php');
+include('../Db_Connection/db_consultus_app.php');
 include("./php/src/RtcTokenBuilder.php");
 include("./php/src/RtmTokenBuilder.php");
+
 error_reporting(0);
 $ref = $_GET['user'];
 $cat = $_GET['category'];
 
-define('DB_HOST_NAME', 'localhost');
-define('DB_USER_NAME', 'ostechnix');
-define('DB_USER_PASSWORD', 'Password123#@!');
-define('DB_USER_DATABASE', 'spaceece');
-date_default_timezone_set("Asia/Calcutta"); 
+date_default_timezone_set("Asia/Calcutta");
+
+// Create connection
+define('DB_USER_DATABASE', 'spacece');
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
 
 

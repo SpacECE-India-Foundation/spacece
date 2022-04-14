@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('indexDB.php');
+include('db_consultus_app.php');
 $username = $surname = $email = $password = $cpassword = $phone = $lno = $cat2 = $cat3 = $cat4 = "";
 
 function test_input($data) {

@@ -3,7 +3,7 @@ session_start();
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
-include '../Db_Connection/db_khanstore.php';
+include '../Db_Connection/db_libforsmall.php';
 
 ?>
 

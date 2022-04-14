@@ -1,5 +1,5 @@
 <?php
-    include('indexDB.php');
+    include('db_consultus_app.php');
     session_start();
     $n=$_POST['name'];
     $c=$_POST['cno'];

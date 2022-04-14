@@ -9,7 +9,7 @@ if (isset($_COOKIE['error_msg'])) {
         </div>
     ";
 }
-include('../Db_Connection/indexDB.php');
+include('../Db_Connection/db_consultus_app.php');
 //include("main.php");
 $name = $_POST['fullname'];
 $email = $_POST['email'];

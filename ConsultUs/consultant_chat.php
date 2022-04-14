@@ -1,5 +1,5 @@
 <?php
-include('../Db_Connection/indexDB.php');
+include('../Db_Connection/db_consultus_app.php');
 
 
   $sql = "SELECT * FROM `appointment` where `cname`='$nid'";

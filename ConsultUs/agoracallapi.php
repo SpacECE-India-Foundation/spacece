@@ -1,5 +1,5 @@
 <?php
-include_once './indexDB.php';
+include_once './db_consultus_app.php';
 include("./php/src/RtcTokenBuilder.php");
 include("./php/src/RtmTokenBuilder.php");
 if(isset($_POST['consult_id'])){

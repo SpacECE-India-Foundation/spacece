@@ -122,7 +122,7 @@
 
 	<!-- Hero section end -->
 	<?php 
-	include('indexDB.php');
+	include('db_consultus_app.php');
     if($_SESSION['type']=='builder')
     {
         $q="select * from upcoming_projects where bid=".$_SESSION['id']."";

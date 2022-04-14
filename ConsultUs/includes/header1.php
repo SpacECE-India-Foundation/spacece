@@ -376,7 +376,7 @@ document.querySelector('.Navbar__Link-toggle')
           <img src="../img/logo/LibForSmalls.jpeg" class=" img img-thumbnail img-circle" style="width:80px;">
         </a>
       </div>
-      <a href="/Khanstore" class="navbar-brand">Lib for smalls</a>
+      <a href="/libforsmall" class="navbar-brand">Lib for smalls</a>
     </div>
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">
