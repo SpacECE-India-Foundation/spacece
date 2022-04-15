@@ -24,6 +24,13 @@ if (isset($_SESSION['current_user_id'])) {
 </head>
 
 <body>
+    <div style="z-index:999999;display:block;position:absolute;left:50%;right:50%;margin:auto;" id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
     <div class="">
         <div class="header">
             <div class="logo">
