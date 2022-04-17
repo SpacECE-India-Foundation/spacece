@@ -1,6 +1,22 @@
 <?php
 
-include('../../Db_Connection/constants.php');
+//include('../../Db_Connection/constants.php');
+
+//For delete. It should come from above constants.php file
+if(!defined('DB_HOST_NAME'))
+define('DB_HOST_NAME', 'database-spacece.cjnrqpvibfnn.ap-south-1.rds.amazonaws.com');
+
+if(!defined('DB_USER_NAME'))
+define('DB_USER_NAME', 'spaceuser');
+
+if(!defined('DB_USER_PASSWORD'))
+define('DB_USER_PASSWORD', 'Spaceuser12#');
+
+if(!defined('CURRENCY'))
+define('CURRENCY', '₹');
+
+if(!defined('DB_NAME_SPACE_ACTIVE'))
+define('DB_NAME_SPACE_ACTIVE', 'space_active');
 
 class DB {
     private $dbHost     = DB_HOST_NAME;
@@ -25,8 +41,7 @@ class DB {
         //$result->num_rows > 0 ||
         if($result->num_rows) {
             return false;
-        }
-  
+        }  
         return true;
     }
   
@@ -41,9 +56,6 @@ class DB {
     public function upload_video_to_db($video_id, $title, $summary,$category,$user,$act_id,$pl_id){
         if( $this->db->query("INSERT INTO youtube_videos(user_email,video_id,title,v_description,category_id,playlist_id,act_id) VALUES('$user', '$video_id','$title','$summary','$category','$pl_id','$act_id')")){
             echo "Success";
-        
-
-
         }
         else{
             echo "Error";
@@ -60,8 +72,6 @@ class DB {
        }
        
         return $data;
-      
-      
      }
  
      public function get_all_Videos($act_id){
@@ -71,9 +81,8 @@ class DB {
          while($result = $sql->fetch_assoc()){
             $data[]= $result;
          }
-          
-            return $data;
-           
+
+         return $data;
      }
     
 

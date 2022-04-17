@@ -234,7 +234,8 @@ session_start();
 </head>
 
 <body>
-    <?php $main_page = isset($main_page) ? ($main_page) :  NULL ?>
+
+<?php $main_page = isset($main_page) ? ($main_page) :  NULL ?>
 
     <nav class="navbar">
         <div class="logo">
@@ -288,6 +289,16 @@ session_start();
             }
             ?>
         </div>
+
+        <div id="google_translate_element"></div>
+
+        <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+        </script>
+
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     </nav>
 </body>
 <html>
