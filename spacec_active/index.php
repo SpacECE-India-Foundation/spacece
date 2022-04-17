@@ -311,14 +311,10 @@ if($_SESSION['space_active']==="inactive"){
             </div>
             <div class="modal-body">
 
-            
-				
-		
                 <div id="allvideos" name="allvideos" data-title="Landscape" class="t" >
                 
                 </div>
 
-                
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
