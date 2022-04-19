@@ -229,7 +229,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
 
 
 <div class="all-v-btn btn btn-outline-dark">
-    <a href="home.php"><i class="fi-xwluxl-gear-wide fi-2x fi-flip-h"></i></a>
+    <a href="home.html"><i class="fi-xwluxl-gear-wide fi-2x fi-flip-h"></i></a>
 </div>
 
 
