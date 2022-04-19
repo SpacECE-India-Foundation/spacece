@@ -331,7 +331,7 @@ if(id){
 
         var status=$('#status').val();
         var language=$('#language').val();
-        alert(language);
+        //alert(language);
         //alert($video_url);
                     $('#ins_status').text('');
                     if (video_url != '') {
@@ -351,10 +351,11 @@ if(id){
                             },
                             success: function(response) {
                                 //$json_res = JSON.parse(response);
-                                alert(response);
+                                //alert(response);
                                 // if ($json_res.status == 101) {
-                                //    $('#load_videos').load('Ajax/Load_gallery.php');
-                                //    $('#ins_status').text('Successfully Video Added');
+                                //  $('#load_videos').load('Ajax/Load_gallery.php');
+                                    //$('#ins_status').text('Video Added Successfully');
+                                    alert('Video Added Successfully');
                                 //    $("#video-ins").trigger("reset");
                                 // } else {
                                 //     console.log($json_res.msg);
