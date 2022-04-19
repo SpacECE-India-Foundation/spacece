@@ -387,8 +387,8 @@ include_once '../common/footer_module.php';
     });
 
     $(document).on("click", "#edit", function() {
-        // alert("Yes");
-        $('#editModal').modal('toggle');
+        //alert("Yes");
+        //$('#editModal').modal('toggle');
         $('#act_id').empty();
         $('#act_lvl').empty();
         $('#act_domain').empty();
@@ -401,7 +401,7 @@ include_once '../common/footer_module.php';
         $('#act_ins').empty();
         $('#act_date').empty();
         var id = $(this).data('text');
-        /// alert(id);
+        //alert(id);
         $.ajax({
             type: 'POST',
             data: {
