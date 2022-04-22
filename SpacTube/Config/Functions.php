@@ -1,6 +1,6 @@
 <?php
 
-include('../../Db_Connection/constants.php');
+include('../Db_Connection/constants.php');
 
 class Functions
 {
