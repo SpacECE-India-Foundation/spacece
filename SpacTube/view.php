@@ -12,13 +12,20 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
 // include 'Stylesheet/stylesheet.css';
 ?>
 <link rel="stylesheet" href="css/share.css" class="real">
+<link rel="stylesheet" href="./src/ALightBox.css">
 <div class="container-fluid">
-
+<body>
     <div class="container"><br>
         <?php include 'menu.php'; ?>
     </div>
 
-
+<style>
+    img{
+        width:100%;
+       
+        height:auto;
+    }
+</style>
     <div class="container">
         <div class="ins-box">
             <div class="container">
@@ -74,9 +81,12 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                 ?>
                                 <div class="col mb-4">
                                     <div class="card h-100">
-                                        <div class="set-box youtube-video-r">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="set-box youtube-video-r t"  data-title="Landscape">
+                                       
+                                        <a class="alb_item mt-2 d-flex align-content-center" href="https://www.youtube.com/watch?v=<?php echo $video_data['v_url']; ?>">Youtube 2</a>
+                                            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php //echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                        
+                                    </div>
                                         <div class="card-body pt-2 pb-2">
                                             <?php include 'options.php'; ?>
                                         </div>
@@ -88,9 +98,12 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                             ?>
                             <div class="col mb-4">
                                 <div class="card h-100">
-                                    <div class="set-box youtube-video-r">
-                                        <iframe width="460" height="275" src="https://www.youtube.com/embed/<?php echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
+                                <div class="set-box youtube-video-r t d-flex align-content-center"  data-title="Landscape">
+                                    
+                                    <a class="alb_item  mt-2 " href="https://www.youtube.com/watch?v=<?php echo $video_data['v_url']; ?>">Youtube 2</a>
+                                        <!-- <iframe width="460" height="275" src="https://www.youtube.com/embed/<?php // echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    
+                                </div>
                                     <div class="card-body pt-2 pb-2">
                                         <h6 class="card-title">
                                             <?php echo $video_data['title']; ?></h6>
@@ -137,9 +150,12 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                             ?>
                                     <div class="col mb-4">
                                         <div class="card h-100">
-                                            <div class="set-box youtube-video-r">
-                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <div class="set-box youtube-video-r t"  data-title="Landscape">
+                                            
+                                        <a class="alb_item col-sm-3 mt-2 d-flex align-content-center" href="https://www.youtube.com/watch?v=<?php echo $video_data['v_url']; ?>">Youtube 2</a>
+                                                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php // $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                                             </div>
+                                                </div>
                                             <div class="card-body pt-2 pb-2">
                                                 <?php include 'options.php'; ?>
                                             </div>
@@ -152,7 +168,12 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                                 <div class="col mb-4">
                                     <div class="card h-100">
                                         <div class="set-box youtube-video-r">
-                                            <iframe width="460" height="275" src="https://www.youtube.com/embed/<?php echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <div id="myvideos" name="myvideos" data-title="Landscape" class="t col-sm-3">
+               
+              
+                                        <a class="alb_item  mt-2 d-flex align-content-center"  href="https://www.youtube.com/watch?v=<?php echo $video_data['v_url']; ?>">Youtube 2</a>
+                                        </div>
+                                        <!-- <iframe width="460" height="275" src="https://www.youtube.com/embed/<?php //echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                                         </div>
                                         <div class="card-body pt-2 pb-2">
                                             <h6 class="card-title">
@@ -231,7 +252,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
 <div class="all-v-btn btn btn-outline-dark">
     <a href="home.php"><i class="fi-xwluxl-gear-wide fi-2x fi-flip-h"></i></a>
 </div>
-
+</body>
 
 <?php include_once '../common/footer_module.php'; ?>
 <script>
@@ -247,3 +268,11 @@ $( document ).ready(function() {
 });
     </script>
 <!--End - Delete - Modal -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="./src/ALightBox.js"></script>
+	
+		<script type="text/javascript">
+			$('body').ALightBox({
+				showYoutubeThumbnails: true
+			});
+		</script>
