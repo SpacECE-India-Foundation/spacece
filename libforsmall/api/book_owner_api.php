@@ -1,7 +1,7 @@
 <?php
 
 include '../../Db_Connection/db_libforsmall.php';
-$sql = "SELECT spaceece.users.u_name as Name,spaceece.users.u_email as EmailID, spaceece.users.u_mob as MobileNumber, 
+$sql = "SELECT DISTINCT spaceece.users.u_name as Name,spaceece.users.u_email as EmailID, spaceece.users.u_mob as MobileNumber, 
 spaceece.users.City as City, spaceece.users.LocalAddress as LocalAddress,spaceece.users.State as State,
 spaceece.users.Suburban as Suburban from spaceece.users join libforsmall.products
  WHERE spaceece.users.u_id=libforsmall.products.user_id";
@@ -18,13 +18,13 @@ spaceece.users.Suburban as Suburban from spaceece.users join libforsmall.product
                 $bytes = random_bytes(20);
 
 
-              $result[]=  array('Name' => $row['Address'],
-                             'EmailID'=>$row['GrandTotalPrice'],
+              $result[]=  array('Name' => $row['Name'],
+                             'EmailID'=>$row['EmailID'],
                              'MobileNumber'=>$row['MobileNumber'],
-                             'City'=>$row['Name'],
-                             'LocalAddress'=>$row['Note'],
-                             'State'=>$row['Status'],
-                             'Suburban'=>bin2hex($bytes)
+                             'City'=>$row['City'],
+                             'LocalAddress'=>$row['LocalAddress'],
+                             'State'=>$row['State'],
+                             'Suburban'=>$row['Suburban']
                              ); 
                
                 
