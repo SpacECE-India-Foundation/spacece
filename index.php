@@ -316,7 +316,7 @@ include_once './common/header_module.php';
         </div>
          <div class="col-lg-4 col-md-6 blog-item">
           <a href="./BabyCare-master/index.php">
-            <img src="img/logo/children_immu_logo.jpg" alt="CHILLDRENS PROFILE" width="300" height="300" /></a>
+            <img src="img/logo/children_immu_logo.jpg" alt="BABY CARE" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
             <!--<span><i class="fa fa-user"></i>Parth Thosani</span>
