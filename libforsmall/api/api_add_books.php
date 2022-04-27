@@ -24,7 +24,7 @@ move_uploaded_file($_FILES['image']['tmp_name'], $target_path);
 
 $sql = "INSERT INTO `products`(`user_id`, `product_cat`, `product_brand`, `product_title`, `product_price`, `product_qty`, `product_desc`, `product_keywords`, `exchange_price`, `rent_price`, `deposit`,`status`) 
 VALUES ('$user_id','$product_cat','$product_brand','$product_title','$product_price','$product_qty','$product_desc','$product_keywords','$exchange_price','$rent_price','$deposit','$status')";
-  echo $sql; 
+  //echo $sql; 
    
    $res = $conn->query($sql);
 
@@ -40,7 +40,7 @@ VALUES ('$user_id','$product_cat','$product_brand','$product_title','$product_pr
 
         
     } else {
-        echo json_encode(['status' => 'failure', 'result' => 'not found']);
+        echo json_encode(['status' => 'failure', 'result' => 'Error While adding Data']);
     }
 
 
