@@ -28,6 +28,20 @@ if($_POST['action'] == 'delete')
  //$statement->execute();
  echo json_encode($_POST);
 }
+if($_POST['action'] =='update_status'){
+    $query = "UPDATE `orders` SET p_status = '".$_POST["p_status"]."', order_status='".$_POST["status"]."'
+    WHERE order_id = '".$_POST["id"]."'
+    ";
+   
+    $statement = $conn->query($query);
+    if($statement){
+        echo "Success";
+    }else{
+        echo "Error";
+    }
+   
+    
+   }
 
 
 ?>
