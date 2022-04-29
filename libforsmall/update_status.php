@@ -42,6 +42,22 @@ if($_POST['action'] =='update_status'){
    
     
    }
+   if($_POST['action'] =='pic_order'){
+   
+  
 
+    $query = "UPDATE `orders` SET   delivery_boy_id='".$_POST["delivery_boy_id"]."'
+    WHERE order_id = '".$_POST["id"]."'
+    ";
+   
+    $statement = $conn->query($query);
+    if($statement){
+        echo "Success";
+    }else{
+        echo "Error";
+    }
+   
+    
+   }
 
 ?>
