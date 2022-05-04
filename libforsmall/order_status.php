@@ -81,7 +81,7 @@ $sql = "SELECT * from orders where owner_id='55'";
             <td><?php echo $row['qty']; ?></td>
             <td><?php echo $row['trx_id']; ?></td>
             <td>
-            <select name="p_status[]" id="p_status-<?php echo $row['order_id']; ?>" class="form-control">
+            <select name="p_status" id="p_status-<?php echo $row['order_id']; ?>" class="form-control">
             <option value="Ordered" <?php if($row['p_status']=="Ordered") echo 'selected="selected"'; ?> >Ordered</option>
             <option value="Packed" <?php if($row['p_status']=="Packed") echo 'selected="selected"'; ?> >Packed</option>
             <option value="Dispatched" <?php if($row['p_status']=="Dispatched") echo 'selected="selected"'; ?> >Dispatched</option>
@@ -152,17 +152,12 @@ $sql = "SELECT * from orders where owner_id='55'";
                         text: 'Something went wrong!',
                         
                         })
-                                            }
-                 
+                        }    
                 }
             });
    
   }
-})
-
-           
-            
-             
+})     
            })
        })
        </script>
