@@ -10,5 +10,10 @@ foreach( $arr['category'] as $key=> $row ) {
     $age=$_POST['age'][$key];
     $quey="INSERT INTO `parents_questions`(`child_age`, `q_text`, `category`) VALUES ('$age','$q_text','$category')";
     $insert=mysqli_query($con,$quey);
-    echo $insert;
+   // $count=mysqli_num_rows($insert);
+    if($insert ){
+        echo "Success";
+    }else{
+        echo "Error";
+    }
 }
