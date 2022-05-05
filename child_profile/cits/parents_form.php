@@ -1,6 +1,9 @@
 <?php
-session_start();
-$_SESSION['id']='7';
+//session_start();
+//$_SESSION['id']='7';
+<?php include('include/sidenav.html');?>
+
+<?php include('include/head.php');?>
 include("./include/config.php");
 $uid=$_SESSION['id'];
 $sql1="SELECT users.id as user_id,tblchildren.ID as children_id,tblchildren.CreationDate FROM `tblchildren` join users WHERE tblchildren.parentEmail=users.email and users.id='$uid'";
