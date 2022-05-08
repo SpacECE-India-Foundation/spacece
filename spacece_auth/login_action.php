@@ -60,6 +60,7 @@ if (mysqli_num_rows($result) > 0) {
     }
 
     $_SESSION['current_user_id'] = $row['u_id'];
+   
     $_SESSION['current_user_email'] = $row['u_email'];
     $_SESSION['current_user_name'] = $row['u_name'];
     $_SESSION['current_user_mob'] = $row['u_mob'];
@@ -82,10 +83,23 @@ if (mysqli_num_rows($result) > 0) {
     }
     if($type=='admin'){
         $_SESSION['admin_id'] = $row['u_id'];
+        $_SESSION['uid']=$row['u_id'];
      
         $_SESSION['admin_name'] = $row['u_name'];
     }
-
+    if($type=='book_owner'){
+        $_SESSION['current_user_name'] = $row['u_name'];
+        $_SESSION['uid']=$row['u_id'];
+     
+       // $_SESSION['admin_name'] = $row['u_name'];
+    }
+    if($type=='delivery_boy'){
+        $_SESSION['current_user_name'] = $row['u_name'];
+        $_SESSION['delivery_boy_id']=$row['u_id'];
+     
+       // $_SESSION['admin_name'] = $row['u_name'];
+    }
+    
     $redirect_url = "../index.php";
 
     if (isset($_SESSION['redirect_url'])) {

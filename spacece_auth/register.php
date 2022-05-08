@@ -56,6 +56,9 @@ function get_consultant_categories($conn)
             <select name="type" id="user_type">
                 <option value="customer">Customer</option>
                 <option value="consultant">Consultant</option>
+                <option value="admin">Admin</option>
+        <option value="book_owner">Book Owner</option>
+        <option value="delivery_boy">Delivery Boy</option>
             </select>
         </div>
         <div class="consultant_details">

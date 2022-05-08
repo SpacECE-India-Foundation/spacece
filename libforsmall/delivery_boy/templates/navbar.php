@@ -5,7 +5,7 @@
  	<ul class="navbar-nav px-3">
  		<li class="nav-item text-nowrap">
  			<?php
-				if (isset($_SESSION['admin_id'])) {
+				if (isset($_POST["delivery_boy_id"])) {
 				?>
  				<a class="nav-link" href="../../../spacece_auth/logout.php">Sign out</a>
  				<?php

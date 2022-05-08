@@ -14,7 +14,7 @@ class Products
 
 	public function getProducts(){
 		$user=$_SESSION['uid'];	
-		$q = $this->con->query("SELECT p.product_id, p.product_title, p.product_price,p.product_qty, p.product_desc, p.product_image, p.product_keywords, c.cat_title, c.cat_id, b.brand_id, b.brand_title FROM products p JOIN categories c ON c.cat_id = p.product_cat JOIN brands b ON b.brand_id = p.product_brand ");
+		$q = $this->con->query("SELECT p.product_id, p.product_title, p.product_price,p.product_qty, p.product_desc, p.product_image, p.product_keywords, c.cat_title, c.cat_id, b.brand_id, b.brand_title FROM products p JOIN categories c ON c.cat_id = p.product_cat JOIN brands b ON b.brand_id = p.product_brand AND p.user_id='$user'");
 		
 		$products = [];
 		if ($q->num_rows > 0) {
@@ -23,6 +23,7 @@ class Products
 			}
 			//return ['status'=> 202, 'message'=> $ar];
 			$_DATA['products'] = $products;
+
 		}
 
 		$categories = [];
@@ -77,7 +78,7 @@ class Products
 				$uniqueImageName = time()."_".$file['name'];
 				if (move_uploaded_file($file['tmp_name'], "../../product_images/".$uniqueImageName)) {
 					
-					$q = $this->con->query("INSERT INTO `products`(`product_cat`, `product_brand`, `product_title`, `product_qty`, `product_price`, `product_desc`, `product_image`, `product_keywords`,`exchange_price`,`rent_price`,`deposit`) VALUES ('$category_id', '$brand_id', '$product_name', '$product_qty', '$product_price', '$product_desc', '$uniqueImageName', '$product_keywords','$exchange_price','$rent_price','$deposit')");
+					$q = $this->con->query("INSERT INTO `products`(	`user_id`,`product_cat`, `product_brand`, `product_title`, `product_qty`, `product_price`, `product_desc`, `product_image`, `product_keywords`,`exchange_price`,`rent_price`,`deposit`) VALUES ('$user','$category_id', '$brand_id', '$product_name', '$product_qty', '$product_price', '$product_desc', '$uniqueImageName', '$product_keywords','$exchange_price','$rent_price','$deposit')");
 
 					if ($q) {
 						return ['status'=> 202, 'message'=> 'Product Added Successfully..!'];
@@ -326,7 +327,7 @@ class Products
 
 
 if (isset($_POST['GET_PRODUCT'])) {
-	if (isset($_SESSION['admin_id'])) {
+	if (isset($_SESSION['uid'])) {
 		$p = new Products();
 		echo json_encode($p->getProducts());
 		exit();
@@ -457,7 +458,7 @@ if (isset($_POST['GET_CATEGORIES'])) {
 
 if (isset($_POST['DELETE_PRODUCT'])) {
 	$p = new Products();
-	if (isset($_SESSION['admin_id'])) {
+	if (isset($_SESSION['uid'])) {
 		if(!empty($_POST['pid'])){
 			$pid = $_POST['pid'];
 			echo json_encode($p->deleteProduct($pid));

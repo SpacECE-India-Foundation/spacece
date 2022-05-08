@@ -30,6 +30,9 @@ if (isset($_SESSION['current_user_id'])) {
         <option value="customer">Customer</option>
         <option value="consultant">Consultant</option>
         <option value="admin">Admin</option>
+        <option value="book_owner">Book Owner</option>
+        <option value="delivery_boy">Delivery Boy</option>
+        
       </select>
     </div>
     <button type="submit" name="login">Login</button>
