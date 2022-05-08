@@ -49,7 +49,11 @@ if (mysqli_num_rows($run) > 0) {
     } else if ($type == 'customer') {
         $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image')";
         $redirectUrl = '../index.php';
-    } else {
+    }else if ($type == 'admin' ||$type == 'book_owner' ||$type == 'delivery_boy' ) {
+        $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image')";
+        $redirectUrl = '../index.php';
+    }
+     else {
         echo json_encode(array('status' => 'error', 'message' => "Invalid user type!"));
         die();
     }
