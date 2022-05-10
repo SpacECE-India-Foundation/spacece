@@ -50,7 +50,7 @@ echo "<script>window.location.href ='forgot-password.php'</script>";
 				<div class="box-login">
 					<form class="form-login" method="post">
 						<fieldset>
-							<legend style="left: 130px; font=size: 30px; border-radius: 5px;">
+							<legend style="left: 130px; font-size: 30px; border-radius: 5px;">
 								User Password Recovery
 							</legend>
 							<p>

@@ -1,8 +1,11 @@
-<?php //include '../../../common/header_module.php' ?>
+<?php include '../../../common/header_module.php' ?>
 
 <?php
 //session_start();
-
+if(empty($_SESSION['current_user_email'])){
+	header('location:../../../spacece_auth/login.php');
+	exit();
+}
 error_reporting(0);
 include('include/config.php');
 

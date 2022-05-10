@@ -1,5 +1,9 @@
 <?php
 include '../../../common/header_module.php';
+if(empty($_SESSION['admin_id'])){
+	header('location:../../../spacece_auth/login.php');
+	exit();
+}
 //session_start();
 error_reporting(0);
 include('include/config.php');

@@ -1,6 +1,10 @@
 <?php
 //session_start();
 include '../../../common/header_module.php';
+if(empty($_SESSION['current_user_email'])){
+	header('location:../../../spacece_auth/login.php');
+	exit();
+}
 error_reporting(0);
 include("include/config.php");
 //Checking Details for reset password
@@ -51,7 +55,7 @@ echo "<script>window.location.href ='forgot-password.php'</script>";
 				<div class="box-login">
 					<form class="form-login" method="post">
 						<fieldset>
-							<legend style="left: 130px; font=size: 30px; border-radius: 5px;">
+							<legend style="left: 130px; font-size: 30px; border-radius: 5px;">
 								Doctor User Password Recovery
 							</legend>
 							<p>

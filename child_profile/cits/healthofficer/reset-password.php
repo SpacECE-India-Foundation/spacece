@@ -1,6 +1,10 @@
 <?php
 //session_start();
 include '../../../common/header_module.php';
+if(empty($_SESSION['current_user_email'])){
+	header('location:../../../spacece_auth/login.php');
+	exit();
+}
 //error_reporting(0);
 include("include/config.php");
 // Code for updating Password
@@ -60,7 +64,7 @@ return true;
 				<div class="box-login">
 					<form class="form-login" name="passwordreset" method="post" onSubmit="return valid();">
 						<fieldset>
-							<legend style="left: 140px; font=size: 30px; border-radius: 5px;">
+							<legend style="left: 140px; font-size: 30px; border-radius: 5px;">
 								Doctor User Reset Password
 							</legend>
 							<p>

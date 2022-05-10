@@ -2,6 +2,9 @@
 //session_start();
 error_reporting(0);
 include '../../common/header_module.php';
+if(empty($_SESSION['current_user_email'])){
+	header('location:../../../spacece_auth/login.php');
+}
 include('include/config.php');
 // include('include/checklogin.php');
 // check_login();
@@ -63,7 +66,7 @@ include('include/config.php');
 </thead>
 <tbody>
 <?php
-$uid=$_SESSION['id'];
+$uid=$_SESSION['current_user_id'];
 $sql=mysqli_query($con,"select tblchildren.* from tblchildren join users on users.email=tblchildren.ParentEmail where users.id='$uid'");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))

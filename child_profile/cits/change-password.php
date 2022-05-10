@@ -1,9 +1,12 @@
 <?php
 session_start();
+if(empty($_SESSION['current_user_email'])){
+	header('location:../../../spacece_auth/login.php');
+}
 //error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 if(isset($_POST['submit']))

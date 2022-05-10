@@ -1,6 +1,9 @@
 <?php
 //session_start();
 include '../../common/header_module.php';
+if(empty($_SESSION['current_user_email'])){
+	header('location:../../../spacece_auth/login.php');
+}
 error_reporting(0);
 include('include/config.php');
 //include('include/checklogin.php');

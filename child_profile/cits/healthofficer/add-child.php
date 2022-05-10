@@ -63,7 +63,11 @@ error:function (){}
 	</head>
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
-	<?php include('../../../common/header_module.php');?>
+	<?php include('../../../common/header_module.php');
+	if(empty($_SESSION['current_user_email'])){
+		header('location:../../../spacece_auth/login.php');
+		exit();
+	}?>
 
 <section id="page-title">
 <div class="nav" style="margin-top: 5%;">
