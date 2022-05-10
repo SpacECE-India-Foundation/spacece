@@ -1,8 +1,12 @@
+<?php //include '../../../common/header_module.php' ?>
+
 <?php
-session_start();
+//session_start();
+
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
+
+//include('include/checklogin.php');
 if(isset($_POST['submit']))
 {
 $specialization=$_POST['specialization'];
@@ -44,9 +48,9 @@ echo "<script>alert(' Details Successfully Updated');</script>";
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 			
-<?php include('include/sidenav.html');?>
 			
-				<?php include('include/head.php');?>
+			
+				<?php //include '../../../common/header_module.php'?>
 				
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
@@ -58,6 +62,9 @@ echo "<script>alert(' Details Successfully Updated');</script>";
 						</section>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
+						<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
 						<div class="container-fluid container-fullw bg-white">
 							<div class="row">
 								<div class="col-md-12">
@@ -69,10 +76,12 @@ echo "<script>alert(' Details Successfully Updated');</script>";
 													<h5 class="panel-title">Update Details</h5>
 												</div>
 												<div class="panel-body">
-									<?php $sql=mysqli_query($con,"select * from doctors where docEmail='".$_SESSION['dlogin']."'");
+
+									<?php $sql=mysqli_query($con,"select * from doctors where docEmail='".$_SESSION['current_user_email']."'");
 while($data=mysqli_fetch_array($sql))
 {
 ?>
+<?php echo "Inside"; ?>
 <h4><?php echo htmlentities($data['docName']);?>'s Profile</h4>
 <p><b>Profile Reg. Date: </b><?php echo htmlentities($data['creationDate']);?></p>
 <?php if($data['updationDate']){?>
@@ -166,7 +175,7 @@ while($row=mysqli_fetch_array($ret))
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

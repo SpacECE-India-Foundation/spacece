@@ -1,9 +1,10 @@
 <?php
-session_start();
+// session_start();
+include '../../../common/header_module.php';
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 $did=intval($_GET['id']);// get doctor id
 if(isset($_POST['submit']))
 {
@@ -46,10 +47,12 @@ $msg="Details updated Successfully";
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-<?php include('include/sidenav.html');?>
+				<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
 			
 				
-						<?php include('include/head.php');?>
+						<?php //include('include/head.php');?>
 						<!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
 					
 				<!-- end: TOP NAVBAR -->
@@ -181,7 +184,7 @@ while($row=mysqli_fetch_array($ret))
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

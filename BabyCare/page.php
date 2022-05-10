@@ -1,5 +1,5 @@
 <!--Header: site header with title, description & meta content-->
-<?php include 'inc/header.php'; ?>
+<?php include '../includes/header.php'; ?>
 
 <!--MENU: navigation bar-->
 <?php include 'inc/menu.php'; ?>
@@ -11,4 +11,4 @@
 <?php include 'inc/contentsectionpage.php'; ?>	
 
 <!--Footer: footer navigation & social link -->
-<?php include 'inc/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

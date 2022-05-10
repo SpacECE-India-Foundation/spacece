@@ -1,9 +1,10 @@
 <?php
-session_start();
+include '../../../common/header_module.php';
+//session_start();
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 $id=intval($_GET['id']);// get value
 if(isset($_POST['submit']))
 {
@@ -36,16 +37,26 @@ $_SESSION['msg']="Doctor Specialization updated successfully !!";
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-<?php include('include/sidenav.html');?>
-			
 				
-						<?php include('include/head.php');?>
+	
+	
+				
+				
+		<div class="container">
+			<div class="nav " style="margin-top: 5%;">
+			<?php include('include/sidenav.html');?>
+			</div>
+		
+		</div>
 				
 				<!-- end: TOP NAVBAR -->
 				<div class="main-content" >
+				
 					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
+					
 						<section id="page-title">
+					
 							<div class="row">
 								<div class="col-sm-8">
 									<h1 style="padding-left:300px;color: red;" class="mainTitle">Admin | Edit Doctor Specialization</h1>
@@ -53,6 +64,7 @@ $_SESSION['msg']="Doctor Specialization updated successfully !!";
 								
 							</div>
 						</section>
+						
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
 						<div style="padding-left:300px;"class="container-fluid container-fullw bg-skyblue">
@@ -116,7 +128,7 @@ while($row=mysqli_fetch_array($sql))
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

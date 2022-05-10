@@ -1,5 +1,15 @@
 <?php
 session_start();
+//var_dump($_SESSION);
+if(isset($_SESSION['current_user_id'])){
+	$_SESSION['login']=$_SESSION['current_user_email'];
+	$_SESSION['id']=$_SESSION['current_user_id'];
+	header('location:dashboard.php');
+	exit();
+}
+else{
+
+
 error_reporting(0);
 include("include/config.php");
 if(isset($_POST['submit']))
@@ -33,6 +43,7 @@ $host  = $_SERVER['HTTP_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
 exit();
+}
 }
 }
 ?>

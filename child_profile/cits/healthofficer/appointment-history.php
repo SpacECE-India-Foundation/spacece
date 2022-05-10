@@ -1,9 +1,9 @@
 <?php
-session_start();
+include '../../../common/header_module.php';
+//session_start();
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+//check_login();
 if(isset($_GET['cancel']))
 		  {
 mysqli_query($con,"update appointment set docStatus='0' where id ='".$_GET['id']."'");
@@ -33,11 +33,13 @@ mysqli_query($con,"update appointment set docStatus='0' where id ='".$_GET['id']
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-<?php include('include/sidenav.html');?>
+				<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
 			
 				
 
-					<?php include('include/head.php');?>
+					<?php //include('include/head.php');?>
 				<!-- end: TOP NAVBAR -->
 				
 						<!-- start: PAGE TITLE -->
@@ -146,7 +148,7 @@ $cnt=$cnt+1;
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

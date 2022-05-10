@@ -1,9 +1,10 @@
 <?php
-session_start();
+//session_start();
 //error_reporting(0);
+include '../../../common/header_module.php';
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 if(isset($_POST['submit']))
@@ -80,9 +81,11 @@ return true;
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-<?php include('include/sidenav.html');?>
+				<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
 				
-						<?php include('include/head.php');?>
+						<?php //include('include/head.php');?>
 		
 				</header>
 				<!-- end: TOP NAVBAR -->
@@ -169,7 +172,7 @@ return true;
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

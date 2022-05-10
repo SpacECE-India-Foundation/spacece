@@ -1,9 +1,10 @@
 <?php
-session_start();
+//session_start();
 error_reporting(0);
+include '../../common/header_module.php';
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 
 ?>
 <!DOCTYPE html>
@@ -29,9 +30,11 @@ check_login();
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-<?php include('include/sidenav.html');?>
+				<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
 
-<?php include('include/head.php');?>
+<?php //include('include/head.php');?>
 
 <section id="page-title">
 <div class="row">
@@ -93,7 +96,7 @@ $cnt=$cnt+1;
 </div>
 </div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

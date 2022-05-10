@@ -22,7 +22,10 @@
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-<?php if( $_SESSION['current_user_type'] == 'admin'){ ?> 
+          <?php        if(isset($_SESSION['current_user_type'])){
+
+           
+ if( $_SESSION['current_user_type'] == 'admin'){ ?> 
               <li><a href="#" target="_blank">Live Preview</a></li>
               <li><a href="admin.php?id=theme">Theme</a></li>
               <li><a href="admin.php?id=inbox">Inbox(
@@ -62,7 +65,7 @@
                 ?>
               <li><a href="page.php?id=<?php echo $result['id']; ?>"><?php echo $result['name']; ?></a></li>
               
-              <?php } ?>
+              <?php } }?>
                 <li><a href="login.php">Login/Sign In</a></li>
               <?php } ?>
 <?php } ?>

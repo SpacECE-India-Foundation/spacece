@@ -1,9 +1,10 @@
 <?php
-session_start();
-error_reporting(0);
+// session_start();
+// error_reporting(0);
+include '../../../common/header_module.php';
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 if(isset($_POST['submit']))
   {
     
@@ -52,9 +53,11 @@ if(isset($_POST['submit']))
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-<?php include('include/sidenav.html');?>
+        <div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
 
-<?php include('include/head.php');?>
+<?php include('../../../common/footer_submodule.php');?>
 
 						<!-- start: PAGE TITLE -->
 <section id="page-title">

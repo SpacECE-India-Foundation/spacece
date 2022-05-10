@@ -1,8 +1,13 @@
 
 <?php include_once("./templates/top.php"); ?>
-<?php include_once("./templates/navbar.php"); ?>
-<?php session_start(); ?>
-
+<?php include "./../../common/header_module.php";?>
+<?php //session_start(); ?>
+<style>
+	.sidebar{
+    margin-top: 5%;
+    width: 80%;
+  }
+</style>
 <div class="container-fluid">
   <div class="row">
     

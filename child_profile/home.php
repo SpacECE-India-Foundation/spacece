@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+if(isset($_SESSION['current_user_name'])){
+if($_SESSION['current_user_type']=='customer' || $_SESSION['current_user_type']=='delivery_boy' || $_SESSION['current_user_type']=='book_owner'){
+   header('Location:./cits/dashboard.php');
+}elseif($_SESSION['current_user_type']=='admin'){
+   header('Location:./cits/admin/dashboard.php');
+}elseif($_SESSION['current_user_type']=='consultant'){
+   header('Location:./cits/healthofficer/dashboard.php');
+}
+}else{
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +47,11 @@
 </head>
 <body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
-    <div style="padding-left: 100px;padding-right: 100px" class="topnav">
+
+  <?php
+include '../common/header_module.php';
+  ?>
+    <!-- <div style="padding-left: 100px;padding-right: 100px" class="topnav">
   <a style="float: left; font-size: 15pt;color: black;" class="active" href="home.php"><i class="fa fa-child"></i> Child Immunization Tracking System</a>
   <a style="font-size: 15pt;color: black;" href="cits/admin/index.php"><i class="fa fa-sign-in"></i> Admin</a>
   <a style="font-size: 15pt;color: black;" href="cits/healthofficer/index.php"><i class="fa fa-sign-in"></i> Doctor</a>
@@ -39,7 +59,7 @@
   <a style="font-size: 15pt;color: black;" href="about.php"><i class="fa fa-info"></i> About Us</a>
   <a style="font-size: 15pt;color: black;" href="contact.php"><i class="fa fa-envelope"></i> Contact Us</a>
   <a style="font-size: 15pt;color: black;" href="home.php"><i class="fa fa-home"></i> Home</a>
-</div>
+</div> -->
         <marquee direction="up" style="background-color: BLACK;color: lightgreen; height: 20px;text-align: center;" scrollamount="1" onmouseover="this.stop();" onmouseover="this.start();">
 <b><i>CHILD IMMUNIZATION TRACKING  SYSTEM<br>SECURE AND ACCURATE IMMUNIZATION INFORMATION MANAGEMENT!<br>using computerized databases that record all immunization doses administered  to children.</i></b><br>WEAR A MASK!STAY SAFE!!
 </marquee>
@@ -136,8 +156,14 @@
   });
 </script>
                       
-    <div  style="text-align: center;  color: black; font-size: 13pt; padding-left: -100px;" class="copyright">
+    <!-- <div  style="text-align: center;  color: black; font-size: 13pt; padding-left: -100px;" class="copyright">
 						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> 2021 CITS</span>. <span>All rights reserved</span>
-					</div>
+					</div> -->
 </body>
 </html>
+<?php
+}
+?>
+<?php
+include '../common/footer_module.php';
+  ?>

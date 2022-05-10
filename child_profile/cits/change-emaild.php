@@ -1,9 +1,10 @@
 <?php
-session_start();
+//session_start();
 error_reporting(0);
-include('include/config.php');
-include('include/checklogin.php');
-check_login();
+include '../../common/header_module.php';
+//include('include/config.php');
+//include('include/checklogin.php');
+//check_login();
 if(isset($_POST['submit']))
 {
 	$email=$_POST['email'];
@@ -44,7 +45,7 @@ $msg="Your email updated Successfully";
 <?php include('include/sidebar.php');?>
 			<div class="app-content">
 				
-						<?php include('include/header.php');?>
+						<?php //include('include/header.php');?>
 						
 				<!-- end: TOP NAVBAR -->
 				<div class="main-content" >
@@ -128,7 +129,7 @@ $msg="Your email updated Successfully";
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			<!-- start: SETTINGS -->

@@ -315,7 +315,7 @@ include_once './common/header_module.php';
           <p></p>
         </div>
          <div class="col-lg-4 col-md-6 blog-item">
-          <a href="./BabyCare/index.php">
+          <a href="./blog/index.php">
             <img src="img/logo/children_immu_logo.jpg" alt="BABY CARE" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">

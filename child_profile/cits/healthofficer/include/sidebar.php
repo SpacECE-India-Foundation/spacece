@@ -1,4 +1,4 @@
-<div class="sidebar app-aside" id="sidebar">
+<div class="sidebar app-aside" id="sidebar" style="padding-top: 10%;">
 				<div class="sidebar-container perfect-scrollbar">
 
 <nav>

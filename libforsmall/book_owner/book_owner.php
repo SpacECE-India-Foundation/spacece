@@ -4,9 +4,9 @@ include_once '../common/header_module.php';
 //include_once '../common/banner.php';
 //session_start();
 
-if (isset($_SESSION["current_user_name"])) {
-	header("location:profile.php");
-}
+// if (isset($_SESSION["current_user_name"])) {
+// 	header("location:profile.php");
+// }
 ?>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
   

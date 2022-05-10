@@ -1,5 +1,5 @@
 <!--Header: site header with title, description & meta content-->
-<?php include 'inc/header.php'; ?>
+<?php include '../common/header_module.php'; ?>
 
 <!--MENU: navigation bar-->
 <?php include 'inc/menu.php'; ?>
@@ -126,4 +126,4 @@
 
 
 <!--Footer: footer navigation & social link -->
-<?php include 'inc/footer.php'; ?>
+<?php include '../common/footer_module.php'; ?>

@@ -1,16 +1,14 @@
 <?php
-//define('DB_HOST_NAME', 'localhost');
-//define('DB_USER_NAME', 'ostechnix');
-//define('DB_USER_PASSWORD', 'Password123#@!');  
+  
 
 if(!defined('DB_HOST_NAME'))
-//define('DB_HOST_NAME', 'localhost');
+// define('DB_HOST_NAME', 'localhost');
 
-//if(!defined('DB_USER_NAME'))
-//define('DB_USER_NAME', 'root');
+// if(!defined('DB_USER_NAME'))
+// define('DB_USER_NAME', 'root');
 
-//if(!defined('DB_USER_PASSWORD'))
-//define('DB_USER_PASSWORD', '');
+// if(!defined('DB_USER_PASSWORD'))
+// define('DB_USER_PASSWORD', '');
 define('DB_HOST_NAME', 'database-spacece.cjnrqpvibfnn.ap-south-1.rds.amazonaws.com');
 
 if(!defined('DB_USER_NAME'))
@@ -41,7 +39,7 @@ if(!defined('DB_NAME_CONSULTANT_APP'))
 define('DB_NAME_CONSULTANT_APP', 'consultant_app');
 
 if(!defined('DB_NAME_BABYCARE'))
-define("DB_NAME_BABYCARE", "babycare");
+define("DB_NAME_BABYCARE", "blog");
 
 if(!defined('DB_NAME_CDCMS')) 
 define('DB_NAME_CDCMS',"cdcms");

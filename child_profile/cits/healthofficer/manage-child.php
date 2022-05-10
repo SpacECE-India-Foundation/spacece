@@ -1,9 +1,10 @@
 <?php
-session_start();
+//session_start();
+include '../../../common/header_module.php';
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 
 ?>
 <!DOCTYPE html>
@@ -29,13 +30,17 @@ check_login();
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 			
-<?php include('include/sidenav.html');?>
+		
+	
+	
 
-<?php include('include/head.php');?>
+<?php //include('include/head.php');?>
 
 						<!-- start: PAGE TITLE -->
 <section id="page-title">
+<?php include('include/sidenav.html');?>
 <div class="row">
+
 <div class="col-sm-8">
 <h1 style="color: red; padding-left: 350px" class="mainTitle">Doctor | Manage Children Information</h1>
 </div>
@@ -62,7 +67,7 @@ check_login();
 </thead>
 <tbody>
 <?php
-$docid=$_SESSION['id'];
+$docid=$_SESSION['current_user_id'];
 $sql=mysqli_query($con,"select * from tblchildren where Docid='$docid' ");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
@@ -96,7 +101,7 @@ $cnt=$cnt+1;
 </div>
 </div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

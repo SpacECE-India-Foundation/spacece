@@ -1,5 +1,6 @@
 <?php
-session_start();
+//session_start();
+include '../../../common/header_module.php';
 error_reporting(0);
 include("include/config.php");
 //Checking Details for reset password
@@ -86,9 +87,7 @@ echo "<script>window.location.href ='forgot-password.php'</script>";
 						</fieldset>
 					</form>
 
-					<div class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> CITS</span>. <span>All rights reserved</span>
-					</div>
+				<?php include '../../../common/footer_module.php'; ?>
 			
 				</div>
 

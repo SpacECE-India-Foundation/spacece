@@ -2,7 +2,7 @@
 include '../../Db_Connection/db_libforsmall.php';
 include_once '..//header_local.php';
 include_once '../../common/header_module.php';
-
+include_once './templates/sidebar.php';
 //session_start();
 
 // if (empty($_SESSION['uid'])) {
@@ -103,13 +103,15 @@ $sql = "SELECT * from orders where owner_id='55'";
             </td>
             <td><input type="button" id="<?php echo $row['order_id']; ?>" name="edit" value="edit" class="btn btn-sm btn-danger edit"> </td>
         </tr>
-         <?php }
+         <?php
+          }
 
           ?>
                
             </tbody>
         </table>
         </form>
+    </div>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script>
@@ -162,3 +164,4 @@ $sql = "SELECT * from orders where owner_id='55'";
        </script>
 </body>
 </html>
+<?php include_once '../../common/footer_module.php'; ?>

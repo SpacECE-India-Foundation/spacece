@@ -1,18 +1,18 @@
 <?php
 include_once '../header_local.php';
 include_once '../../common/header_module.php';
-//include_once '../common/banner.php';
+include_once './templates/sidebar.php';
 //session_start();
 //$_SESSION['delivery_boy_id'];
 if (isset($_SESSION["current_user_name"])) {
 	header("location:profile.php");
 }
-echo $_SESSION['delivery_boy_id'];
+ $_SESSION['delivery_boy_id'];
 ?>
 
   
 <div class="container-fluid">
-
+<center><h3>My Orders</h3></center>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 

@@ -1,9 +1,10 @@
 <?php
-session_start();
+include '../../../common/header_module.php';
+//session_start();
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 
 if(isset($_GET['del']))
 		  {
@@ -34,15 +35,21 @@ if(isset($_GET['del']))
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 			
-<?php include('include/sidenav.html');?>
+			
 			
 				
-						<?php include('include/head.php');?>
+						<?php //include('include/head.php');?>
 						
 				<!-- end: TOP NAVBAR -->
 				
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
+						<div class="container " style="margin-top:2% ;">
+		<div class="nav">
+		<?php include('include/sidenav.html');?>
+		</div>
+	
+	</div>
 							<div class="row">
 								<div class="col-sm-8">
 									<h1 style="padding-left: 600px; color: red;" class="mainTitle">Admin  | Manage Users</h1>
@@ -52,7 +59,7 @@ if(isset($_GET['del']))
 						</section>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
-						<div style="padding-left: 50px" class="container-fluid container-fullw bg-green">
+						<div style="padding-left: 50px" class="container-fluid container-fullw bg-white">
 						
 
 									<div class="row">
@@ -145,7 +152,7 @@ $cnt=$cnt+1;
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

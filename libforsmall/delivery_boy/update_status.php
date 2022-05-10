@@ -46,7 +46,7 @@ if($_POST['action'] =='update_status'){
    
   
 
-    $query = "UPDATE `orders` SET   delivery_boy_id='".$_POST["delivery_boy_id"]."'
+    $query = "UPDATE `orders` SET   delivery_boy_id='".$_POST["delivery_boy_id"]."',order_status='Picked'
     WHERE order_id = '".$_POST["id"]."'
     ";
    

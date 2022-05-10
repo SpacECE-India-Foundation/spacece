@@ -76,4 +76,4 @@
 	</div><!-- /container -->
 <?php } ?>
 <!--Footer: footer navigation & social link -->
-<?php include 'inc/footer.php'; ?>
+<?php include '../common/footer_module.php'; ?>

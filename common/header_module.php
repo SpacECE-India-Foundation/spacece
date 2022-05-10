@@ -234,7 +234,9 @@ session_start();
 </head>
 
 <body>
+<?php
 
+?>
 <?php $main_page = isset($main_page) ? ($main_page) :  NULL ?>
 
     <nav class="navbar">

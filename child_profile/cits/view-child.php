@@ -1,9 +1,10 @@
 <?php
-session_start();
+//session_start();
+include '../../common/header_module.php';
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+//include('include/checklogin.php');
+//c//heck_login();
 if(isset($_POST['submit']))
   {
     
@@ -202,7 +203,7 @@ while ($row=mysqli_fetch_array($ret)) {
 </div>
 </div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 		</div>

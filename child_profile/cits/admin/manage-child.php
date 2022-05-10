@@ -1,9 +1,10 @@
 <?php
-session_start();
+//session_start();
+include '../../../common/header_module.php';
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 
 ?>
 <!DOCTYPE html>
@@ -29,12 +30,19 @@ check_login();
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 			
-<?php include('include/sidenav.html');?>
+			
+	</div>
 
-<?php include('include/head.php');?>
+<?php //include('include/head.php');?>
 
 						<!-- start: PAGE TITLE -->
 <section id="page-title">
+<div class="container " style="margin-top:2% ;">
+		<div class="nav">
+		<?php include('include/sidenav.html');?>
+		</div>
+	
+	</div>
 <div class="row">
 <div class="col-sm-8">
 <h1 style="padding-left: 350px; color: red;" class="mainTitle">Admin  | View Child Immunization details</h1>
@@ -42,7 +50,7 @@ check_login();
 
 </div>
 </section>
-<div style="padding-left: 50px;" class="container-fluid container-fullw bg-green">
+<div style="padding-left: 50px;" class="container-fluid container-fullw bg-white">
 <div class="row">
 <div class="col-md-12">
 <h5 class="over-title margin-bottom-15">View <span class="text-bold">Children</span></h5>
@@ -94,7 +102,7 @@ $cnt=$cnt+1;
 </div>
 </div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

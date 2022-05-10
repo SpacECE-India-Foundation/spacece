@@ -1,5 +1,6 @@
 <?php
-session_start();
+//session_start();
+include '../../../common/header_module.php';
 include("include/config.php");
 ?>
 <!DOCTYPE html>
@@ -25,8 +26,12 @@ include("include/config.php");
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
         
-        <?php include('include/sidenav.html');?>
-        <?php include('include/head.php');?><br><br><br><br>
+		<div class="mt-3" style="margin-top:5%;">
+		<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
+	</div>
+        <?php //include('include/head.php');?><br><br><br><br>
 
 					
 				<!-- end: TOP NAVBAR -->
@@ -56,7 +61,7 @@ include("include/config.php");
 	</div>
 </div>
                      <!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			<!-- start: SETTINGS -->

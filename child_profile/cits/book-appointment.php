@@ -1,10 +1,10 @@
 <?php
-session_start();
+//session_start();
 //error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
-
+//include('include/checklogin.php');
+//check_login();
+include('../../common/header_module.php');
 if(isset($_POST['submit']))
 {
 $specilization=$_POST['Doctorspecialization'];
@@ -77,10 +77,11 @@ function getfee(val) {
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 	<div id="app">			
-<?php include('include/sidenav.html');?>
+	<div class="mt-3 " style="margin-top: 10%;">
+			<?php include('include/sidenav.html');?>
+			</div>
 			<div style="background-color: beige" class="app-content">
 			
-						<?php include('include/head.php');?>
 				<!-- start: PAGE TITLE -->
 						<section id="page-title">
 							<div class="row">
@@ -201,7 +202,7 @@ while($row=mysqli_fetch_array($ret))
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

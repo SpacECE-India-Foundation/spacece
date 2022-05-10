@@ -48,6 +48,7 @@
 										</a>
 									</li>
 									
+									
 								</ul>
 								</li>
 
@@ -186,6 +187,18 @@
 										</div>
 										<div class="item-inner">
 											<span style="color: black" class="title"> Child info Search </span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="add_questions.php">
+									<div style="background-color: skyblue; color: black"class="item-content">
+										<div class="item-media">
+											<i class="ti-search"></i>
+										</div>
+										<div class="item-inner">
+											<span style="color: black" class="title"> Add Questions </span>
 										</div>
 									</div>
 								</a>

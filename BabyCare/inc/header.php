@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <?php 
-session_start();
+//session_start();
     // include 'lib/Session.php'; 
     // Session::init();
 ?>

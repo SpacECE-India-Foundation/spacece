@@ -2,7 +2,7 @@
 include '../../Db_Connection/db_libforsmall.php';
 include_once '../header_local.php';
 include_once '../../common/header_module.php';
-
+include_once './templates/sidebar.php';
 //session_start();
 
 echo $_SESSION["delivery_boy_id"];

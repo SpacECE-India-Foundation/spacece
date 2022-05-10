@@ -1,9 +1,11 @@
 <?php
-session_start();
+//session_start();
+include '../../common/header_module.php';
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
+
 if(isset($_POST['submit']))
 {
 	$fname=$_POST['fname'];
@@ -40,16 +42,22 @@ $msg="Your Profile updated Successfully";
 		<link rel="stylesheet" href="assets/css/stylesd.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-
+<style>
+.sidebar{
+	margin-top: 10%;
+}
+</style>
 
 	</head>
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
-				
-<?php include('include/sidenav.html');?>
+	<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>			
+
 			<div class="app-content">
 				
-						<?php include('include/head.php');?>
+						<?php //include('include/head.php');?>
 						
 				<!-- end: TOP NAVBAR -->
 				
@@ -171,7 +179,7 @@ while($data=mysqli_fetch_array($sql))
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

@@ -56,3 +56,4 @@ if($res){
 </div>
 </body>
 </html>
+<?php include "../../common/footer_module.php";   ?>

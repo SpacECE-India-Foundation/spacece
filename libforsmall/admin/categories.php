@@ -1,9 +1,14 @@
-<?php session_start(); ?>
+<?php //session_start(); ?>
 <?php include_once("./templates/top.php"); ?>
-<?php include_once("./templates/navbar.php"); ?>
+<?php include "./../../common/header_module.php";?>
 <div class="container-fluid">
   <div class="row">
+  <style>
+	.sidebar{
+    margin-top: 5%;
     
+  }
+</style>
     <?php include "./templates/sidebar.php"; ?>
 
 

@@ -1,19 +1,16 @@
 <!--Header: site header with title, description & meta content-->
-
+<?php include 'inc/header.php'; ?>
+<?php include "../common/header_module.php" ?>
 <?php
-session_start();
-if(!isset($_SESSION['current_user_id'])){
-header('Location:../spacece_auth/login.php');
+//session_start();
 
-}else{
     if($_SESSION['current_user_type']=='admin'){
 
     	header("Location:admin.php?id=index");	
 	 }
-}
+
 ?>
 
-<?php include 'inc/header.php'; ?>
 
 <!--MENU: navigation bar-->
 <?php include 'inc/menu.php'; ?>
@@ -25,4 +22,4 @@ header('Location:../spacece_auth/login.php');
 <?php include 'inc/contentsection.php'; ?>
 
 <!--//Footer: footer navigation & social link -->
-<?php include 'inc/footer.php'; ?>
+<?php include "../common/footer_module.php" ?>

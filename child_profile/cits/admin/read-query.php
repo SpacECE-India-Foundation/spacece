@@ -1,9 +1,10 @@
 <?php
-session_start();
+//session_start();
+include '../../../common/header_module.php';
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
-check_login();
+// include('include/checklogin.php');
+// check_login();
 
 
 if(isset($_GET['del']))
@@ -34,10 +35,12 @@ if(isset($_GET['del']))
 	</head>
 	<body>
 		<div id="app">		
-<?php include('include/sidebar.php');?>
+		<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
 			<div class="app-content">
 				
-						<?php include('include/header.php');?>
+						<?php //include('include/header.php');?>
 					
 				<!-- end: TOP NAVBAR -->
 				<div class="main-content" >
@@ -142,7 +145,7 @@ $cnt=$cnt+1;
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			<!-- start: SETTINGS -->

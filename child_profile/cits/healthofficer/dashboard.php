@@ -1,9 +1,10 @@
 <?php
-session_start();
+include '../../../common/header_module.php';
+//ssion_start();
 error_reporting(0);
-include('include/config.php');
-include('include/checklogin.php');
-check_login();
+//include('include/config.php');
+//include('include/checklogin.php');
+//check_login();
 
 ?>
 <!DOCTYPE html>
@@ -28,16 +29,21 @@ check_login();
 
 
 	</head>
+	<style>
+		.side-nav{
+			margin-top: 5%;
+		}
+	</style>
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-<?php include('include/sidenav.html');?>
+				
 			
 				
-						<?php include('include/head.php');?>
+						<?php // include('include/head.php');?>
 						
 				<!-- end: TOP NAVBAR -->
-				
+			
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
 							<div class="row">
@@ -48,7 +54,9 @@ check_login();
 							</div>
 						</section>
                         <!-- Breadcrumbs-->
-          
+						<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
 							<div style="padding-left: 350px;" class="container-fluid container-fullw bg-skyblue">
@@ -96,7 +104,7 @@ check_login();
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 		</div>

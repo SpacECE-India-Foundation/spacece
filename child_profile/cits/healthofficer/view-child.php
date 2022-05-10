@@ -1,8 +1,9 @@
 <?php
-session_start();
+//session_start();
+include '../../../common/header_module.php';
 error_reporting(0);
 include('include/config.php');
-include('include/checklogin.php');
+//include('include/checklogin.php');
 check_login();
 if(isset($_POST['submit']))
   {
@@ -52,9 +53,11 @@ if(isset($_POST['submit']))
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-<?php include('include/sidenav.html');?>
+        <div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>
 <div class="app-content">
-<?php include('include/head.php');?>
+<?php //include('include/head.php');?>
 
 						<!-- start: PAGE TITLE -->
 <section id="page-title">
@@ -204,7 +207,7 @@ while ($row=mysqli_fetch_array($ret)) {
 </div>
 </div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+	<?php include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			
@@ -237,7 +240,8 @@ while ($row=mysqli_fetch_array($ret)) {
 				FormElements.init();
 			});
 		</script>
-		<!-- end: JavaScript Event Handlers for this page -->
+		<!-- end: JavaScript Event Handlers f
+    or this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>
 </html>
