@@ -76,7 +76,7 @@ exit();
 				<div style="background-color: skyblue;" class="box-login">
 					<form class="form-login" method="post">
 						<fieldset style="border-radius: 5px;">
-							<legend style="left: 150px; font=size: 30px; border-radius: 5px;">
+							<legend style="left: 150px; font-size: 30px; border-radius: 5px;">
 								Sign in to your account
 							</legend>
 							<p>

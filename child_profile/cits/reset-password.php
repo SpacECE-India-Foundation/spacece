@@ -1,5 +1,6 @@
 <?php
 session_start();
+include './header_local.php';
 //error_reporting(0);
 include("include/config.php");
 // Code for updating Password

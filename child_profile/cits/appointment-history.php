@@ -1,4 +1,5 @@
 <?php
+include './header_local.php';
 include('../../common/header_module.php');
 if(empty($_SESSION['current_user_email'])){
 	header('location:../../../spacece_auth/login.php');

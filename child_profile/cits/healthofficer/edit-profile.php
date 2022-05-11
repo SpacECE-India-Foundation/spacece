@@ -1,4 +1,6 @@
-<?php include '../../../common/header_module.php' ?>
+<?php
+include '../header_local.php';
+ include '../../../common/header_module.php'; ?>
 
 <?php
 //session_start();

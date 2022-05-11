@@ -1,6 +1,8 @@
 <?php
-
-session_start();
+include 'header_local.php';
+include '../common/header_module.php';
+ 
+//session_start();
 if(isset($_SESSION['current_user_name'])){
 if($_SESSION['current_user_type']=='customer' || $_SESSION['current_user_type']=='delivery_boy' || $_SESSION['current_user_type']=='book_owner'){
    header('Location:./cits/dashboard.php');
@@ -48,9 +50,7 @@ if($_SESSION['current_user_type']=='customer' || $_SESSION['current_user_type']=
 <body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 
-  <?php
-include '../common/header_module.php';
-  ?>
+  
     <!-- <div style="padding-left: 100px;padding-right: 100px" class="topnav">
   <a style="float: left; font-size: 15pt;color: black;" class="active" href="home.php"><i class="fa fa-child"></i> Child Immunization Tracking System</a>
   <a style="font-size: 15pt;color: black;" href="cits/admin/index.php"><i class="fa fa-sign-in"></i> Admin</a>

@@ -1,5 +1,6 @@
 <?php
 //session_start();
+include './header_local.php';
 include '../../common/header_module.php';
 error_reporting(0);
 include('include/config.php');

@@ -1,6 +1,7 @@
 <?php
 //session_start();
 error_reporting(0);
+include './header_local.php';
 include('include/config.php');
 include '../../common/header_module.php';
 if(empty($_SESSION['current_user_email'])){

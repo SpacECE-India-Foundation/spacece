@@ -4,11 +4,15 @@ error_reporting(0);
 include('include/config.php');
 // include('include/checklogin.php');
 // check_login();
+include '../header_local.php';
 include '../../../common/header_module.php';
-if(empty($_SESSION['admin_id'])){
+var_dump($_SESSION);
+if(!isset($_SESSION['admin_id'])){
 	header('location:../../../spacece_auth/login.php');
 	exit();
-}
+}else{
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -179,7 +183,7 @@ $num_rows22 = mysqli_num_rows($sql);
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('../../../common/footer_module.php');?>
+	<?php } include('../../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
 			

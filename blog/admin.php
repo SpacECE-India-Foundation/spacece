@@ -1,8 +1,15 @@
 <!--Header: site header with title, description & meta content-->
-<?php include '../common/header_module.php'; ?>
-
+<?php  include './header_local.php'; ?>
+<?php  include '../common/header_module.php'; ?>
+<?php include 'config/config.php'; ?>
+<?php include 'lib/Database.php'; ?>
+<?php include 'helpers/Format.php'; ?>
+<?php 
+     $db = new Database();
+     $fm = new Format();
+?>
 <!--MENU: navigation bar-->
-<?php include 'inc/menu.php'; ?>
+<?php //include 'inc/menu.php'; ?>
 
  <!--//Content Field for admin -->
 <?php 
@@ -47,5 +54,5 @@
 ?>
 
 <!-- //Footer: footer navigation & social link -->
-<?php include 'admin/footeradmin.php'; ?>
+<?php //include 'admin/footeradmin.php'; ?>
 <?php include '../common/footer_module.php'; ?>
