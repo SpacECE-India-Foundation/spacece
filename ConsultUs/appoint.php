@@ -277,6 +277,27 @@ a {
 <label for="cname"><b>Consultant Name</b></label>
     <input type="text" value="<?php //echo $con_name ?>" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="cname" id="cname" required>
  -->
+ <label for="cname"><b>Children name</b></label>
+ <select id="child_id" name="child_id" class="form-control">
+ <?php 
+$sql3="SELECT ID,childName from cits1.tblchildren where cits1.tblchildren.parentEmail='$email'";
+$res= mysqli_query($conn,$sql3);
+$count2=mysqli_num_rows($res);
+  if($count2){
+    while($row3=mysqli_fetch_assoc($res)){
+     ?>
+      <option value="<?php echo $row3['ID'];  ?>" ><?php echo $row3['childName'];  ?></Select>
+     <?php
+    }
+  }else{
+    ?>
+ <option value="" >No Data Found</Select>
+    <?php
+  }
+
+ ?>
+ </Select></option></select>
+ <br>
 
     <label for="email"><b>Email</b></label>
     <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
@@ -331,7 +352,7 @@ var c_id=<?php  echo $c_id; ?>;
 var b_id=$('#userid').val();
 var adate=$('#adate').val();
 var atime=$('#atime').val();
-
+var child_id=$('#child_id').val();
 var fullname=$('#fullname').val();
 var cname=$('#cname').val();
 var mobile=$('#mobile').val();
@@ -346,13 +367,15 @@ $.ajax({
     cname:cname,
     mobile:mobile,
     fullname:fullname,
+    child_id:child_id,
     c_id:c_id,
     email:email,
     c_from_time:c_from_time,
     c_to_time:c_to_time
   },url:'./c_booking_ajax.php',
   success:function(data){
-   //alert(data);
+  // alert(data);
+  // console.log(data);
     if(data==="Unavailable"){
       swal("Error","Consultant Un available","error");
     }

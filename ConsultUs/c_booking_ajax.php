@@ -6,6 +6,7 @@ include("../Db_Connection/db_consultus_app.php");
  $email = $_POST['email'];
  $mob =  $_POST['mobile'];
  $bookid =  $_POST['b_id'];
+ $child_id=$_POST['child_id'];
   $atime = $_POST["atime"];
   $adate = $_POST["adate"];
  $status ="inactive";
@@ -53,7 +54,7 @@ if($row4){
        
         
     else{
-      $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
+      $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',mobole='$mob',email='$email',date_appointment='$adate', children_id='$child_id' WHERE bid='$bookid'";
 
       $res= mysqli_query($conn,$sql);
       
@@ -74,7 +75,7 @@ if($row4){
     
   }
 }else{
-        $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',date_appointment='$adate' WHERE bid='$bookid'";
+        $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',mobole='$mob',email='$email',date_appointment='$adate',children_id='$child_id' WHERE bid='$bookid'";
 
         $res= mysqli_query($conn,$sql);
         

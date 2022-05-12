@@ -1,11 +1,14 @@
 <?php
-include 'header_local.php';
-include '../common/header_module.php';
+//include 'header_local.php';
+//include '../common/header_module.php';
  
-//session_start();
+session_start();
+//var_dump($_SESSION);
 if(isset($_SESSION['current_user_name'])){
-if($_SESSION['current_user_type']=='customer' || $_SESSION['current_user_type']=='delivery_boy' || $_SESSION['current_user_type']=='book_owner'){
-   header('Location:./cits/dashboard.php');
+   //echo "Session";
+if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
+   echo "Session";
+   header("Location:./cits/dashboard.php");
 }elseif($_SESSION['current_user_type']=='admin'){
    header('Location:./cits/admin/dashboard.php');
 }elseif($_SESSION['current_user_type']=='consultant'){
