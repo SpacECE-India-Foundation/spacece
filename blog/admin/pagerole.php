@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-lg-2 adminleftmenu">
 		    <!-- Static navbar -->
-		    <div class="navbar navbar-inverse navbar-static-top" >
+		    <div class="sidebar navbar-inverse navbar-static-top" >
 		        <div class="navbar-collapse collapse" style="min-height:480px;">
 		          <ul class="nav navbar-nav navbar-left">
 		              <li><a href="admin.php?id=index">Dashboard</a></li><br/>

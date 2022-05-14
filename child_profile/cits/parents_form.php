@@ -12,13 +12,13 @@ if(empty($_SESSION['current_user_email'])){
 
 include("./include/config.php");
 $uid=$_SESSION['id'];
-$sql1="SELECT users.id as user_id,tblchildren.ID as children_id,tblchildren.CreationDate FROM `tblchildren` join users WHERE tblchildren.parentEmail=users.email and users.id='$uid'";
+$sql1="SELECT users.id as user_id,tblchildren.ID as children_id,tblchildren.childDoB FROM `tblchildren` join users WHERE tblchildren.parentEmail=users.email and users.id='$uid'";
 
 $select1=mysqli_query($con,$sql1);
 if($select1){
 
     while($row1=mysqli_fetch_assoc($select1)){
-        $d1 = new DateTime($row1['CreationDate']);
+        $d1 = new DateTime($row1['childDoB']);
         $d2 = new DateTime();
         $months = 0;
         
@@ -51,6 +51,7 @@ if($select){
 	</div>
         <form id="answer" id="answer" method="POST">
             <h5><?php  echo $row['q_text']; ?></h5>
+            <input type="hidden" id="email" name="email" value="<?php echo $_SESSION['current_user_id'];  ?>"
             <input type="hidden" id="children_id[]" name="children_id[]" value=<?php echo $row1['children_id'];  ?>/>
             <input type="hidden" id="children_age" name="children_age" value=<?php echo $days; ?>/>
             <input type="hidden" id="parent_id" name="parent_id" value=<?php echo $uid; ?>/>

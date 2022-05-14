@@ -2,9 +2,9 @@
 
 
 	<div class="container">
-		<div class="col-lg-2 adminleftmenu">
-		    <!-- Static navbar -->
-		    <div class="navbar navbar-expand-lg navbar-light bg-light" >
+		<div class="col-lg-2 ">
+		    <!-- Static sidebar -->
+		    <div class="sidebar navbar-expand-lg navbar-light bg-light" >
 		        <div class="navbar-collapse collapse" style="">
 		          <ul class="nav navbar-nav navbar-left">
 		              <li><a href="admin.php?id=index">Dashboard</a></li><br/>

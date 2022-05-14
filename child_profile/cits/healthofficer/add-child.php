@@ -16,7 +16,8 @@ $gender=$_POST['gender'];
 $parentaddress=$_POST['parentaddress'];
 $childage=$_POST['childage'];
 $medhis=$_POST['medhis'];
-$sql=mysqli_query($con,"insert into tblchildren(Docid,childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu) values('$docid','$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis')");
+$dob=$_POSt['childob'];
+$sql=mysqli_query($con,"insert into tblchildren(Docid,childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu,childDoB) values('$docid','$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis','$dob')");
 if($sql)
 {
 echo "<script>alert('Patient info added Successfully');</script>";
@@ -138,6 +139,12 @@ Parent Address/Residence
  Child Age
 </label>
 <input type="text" name="childage" class="form-control"  placeholder="Enter the age of the child " required="true">
+</div>
+<div class="form-group">
+<label for="fess">
+ Date of birth
+</label>
+<input type="date" name="childob" class="form-control"  placeholder="Select dob" required="true">
 </div>
 <div class="form-group">
 <label for="fess">

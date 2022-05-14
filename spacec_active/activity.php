@@ -10,37 +10,62 @@ if (function_exists('date_default_timezone_set')) {
 
 // then use the date functions, not the other way around
 $date1 = date('Y-m-d');
-
-
-$query1 = mysqli_query($mysqli1, "Select * from spaceactive_activities WHERE activity_date = '$date1'") or die('Sql Query2 Error');
-
-$result = mysqli_fetch_assoc($query1);
-if($result){
-    $act_date = $result['activity_date'];
-    $act_id = $result['activity_no'];
-    $activity_name = $result['activity_name'];
-    $activity_level = $result['activity_level'];
-    $activity_dev_domain = $result['activity_dev_domain'];
-    $activity_objectives = $result['activity_objectives'];
-    $activity_key_dev = $result['activity_key_dev'];
-    $activity_material = $result['activity_material'];
-    $activity_assessment = $result['activity_assessment'];
-    $activity_process = $result['activity_process'];
-    $activity_instructions = $result['activity_instructions'];
     
-    $query = mysqli_query($mysqli1, "Select spacece.users.u_id,spacece.users.u_name,spacece.users.u_email,spacece.users.u_mob from spacece.users JOIN space_active.sub_users WHERE space_active.sub_users.u_id=spacece.users.u_id") or die('Sql Query1 Error' . mysqli_error($mysqli));
+    $query = mysqli_query($mysqli1, "SELECT spacece.users.u_email,spacece.users.u_name,spacece.users.u_id,cits1.tblchildren.childDob from spacece.users JOIN cits1.tblchildren where spacece.users.u_email=cits1.tblchildren.parentEmail AND spacece.users.space_active='active'") or die('Sql Query1 Error' . mysqli_error($mysqli));
     
     while ($result1 = mysqli_fetch_assoc($query)) {
         $uid = $result1['u_id'];
         $umob = $result1['u_mob'];
         $name = $result1['u_name'];
         $email = $result1['u_email'];
-    
-       sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions,$uid);
+        $dob=$result1['childDob'];
+
+        $d1 = new DateTime($result1['childDoB']);
+        $d2 = new DateTime();
+        $months = 0;
+        
+        $d1->add(new \DateInterval('P1M'));
+        while ($d1 <= $d2){
+            $months ++;
+            $d1->add(new \DateInterval('P1M'));
+        }
+       // echo $months;
+        //print_r($months);
+        $days = array();
+        if($months<2){
+            $days[] =1;
+        }elseif( ($months < 6)){
+            $days[] =2;
+        }elseif( $months<18){
+            $days[] =3;   
+        }elseif( $months<48){
+            $days[] =4;  
+        }
+        getActivity($days,$email,$name,$umob,$uid,$mysqli1);
+    //     $day = implode(', ', $days);
+    //     $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities WHERE activity_level IN ('.$day.') ") or die('Sql Query Error2');
+      // sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions,$uid);
     }
+
+function  getActivity($days,$email,$name,$umob,$uid,$mysqli1){
+    $day = implode(', ', $days);
+         $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities WHERE activity_level IN ('$day') ") or die('Sql Query Error2');
+         $result = mysqli_fetch_assoc($query);
+         if($result){
+             $act_date = $result['activity_date'];
+             $act_id = $result['activity_no'];
+             $activity_name = $result['activity_name'];
+             $activity_level = $result['activity_level'];
+             $activity_dev_domain = $result['activity_dev_domain'];
+             $activity_objectives = $result['activity_objectives'];
+             $activity_key_dev = $result['activity_key_dev'];
+             $activity_material = $result['activity_material'];
+             $activity_assessment = $result['activity_assessment'];
+             $activity_process = $result['activity_process'];
+             $activity_instructions = $result['activity_instructions'];
+             sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions,$uid);
 }
-
-
+}
 
 function sendEmail($name, $email, $act_id, $activity_name, $activity_level, $activity_dev_domain, $activity_objectives, $activity_key_dev, $activity_material, $activity_assessment, $activity_process, $activity_instructions,$uid)
 {

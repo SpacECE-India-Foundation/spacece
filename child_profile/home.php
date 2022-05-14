@@ -1,8 +1,12 @@
 <?php
-//include 'header_local.php';
-//include '../common/header_module.php';
- 
 session_start();
+ if(empty($_SESSION)){
+   include 'header_local.php';
+   include '../common/header_module.php';
+   
+ }
+ 
+
 //var_dump($_SESSION);
 if(isset($_SESSION['current_user_name'])){
    //echo "Session";
