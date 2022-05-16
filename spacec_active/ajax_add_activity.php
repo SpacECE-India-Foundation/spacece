@@ -9,17 +9,22 @@ if(isset($_POST['act_name'])){
 
  $act_dom=$_POST['act_dom'];
  $act_obj=$_POST['act_obj'];
- $pl_name=$_POST['pl_name'];
+ 
  $act_pro=$_POST['act_pro'];
  $act_key=$_POST['act_key'];
  $act_mat=$_POST['act_mat'];
  $act_asses=$_POST['act_asses'];
  $act_ins=$_POST['act_ins'];
  $act_date=$_POST['act_date'];
- $pl_desc=$_POST['pl_desc'];
- $status=$_POST['act_type'];
- 
 
+ $status=$_POST['act_type'];
+ $VUpload=$_POST['VUpload'];
+
+ if($VUpload=='1'){
+    $flag=1;
+ 
+ $pl_name=$_POST['pl_name'];
+ $pl_desc=$_POST['pl_desc'];
   $client = new Google_Client();
   
 $db = new DB();
@@ -57,7 +62,7 @@ $playlist_id=$response->id;
 
 
 if($playlist_id){
-    $AddItems = $db->AddActivity($act_name,$act_lvl,$act_dom,$act_obj,$act_key,$act_mat,$act_asses,$act_pro,$act_ins,$status,$act_date,$playlist_id,$pl_desc,$pl_name);
+    $AddItems = $db->AddActivity($act_name,$act_lvl,$act_dom,$act_obj,$act_key,$act_mat,$act_asses,$act_pro,$act_ins,$status,$act_date,$playlist_id,$pl_desc,$pl_name,$flag);
     // echo $AddItems;
     
 //     if($AddItems ==="Success"){
@@ -72,6 +77,12 @@ if($playlist_id){
 // }else{
 //     echo "Error"; 
 // }
-
+ }else{
+    $flag=0;
+    $playlist_id=null;
+    $pl_desc=null;
+    $pl_name=null;
+    $db->AddActivity($act_name,$act_lvl,$act_dom,$act_obj,$act_key,$act_mat,$act_asses,$act_pro,$act_ins,$status,$act_date,$playlist_id,$pl_desc,$pl_name,$flag);
+ }
 
 }

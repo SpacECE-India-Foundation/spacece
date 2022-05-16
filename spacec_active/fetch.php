@@ -2,7 +2,7 @@
 session_start();
 
 include '../Db_Connection/db_spacece_active.php';
-
+var_dump($_SESSION);
 if (isset($_POST['getDetails'])) {
 
     if (isset($_POST['id'])) {
@@ -12,10 +12,11 @@ if (isset($_POST['getDetails'])) {
             echo json_encode($result);
         }
     } else {
+        var_dump($_SESSION);
         if (isset($_SESSION['current_user_id'])) {
             $u_id=$_SESSION['current_user_id'];
             $u_email=$_SESSION['current_user_email'];
-           
+         
             if($_SESSION['space_active']=='active'){
 
            
@@ -51,7 +52,79 @@ if (isset($_POST['getDetails'])) {
                 if (mysqli_num_rows($query) > 0) {
                     while ($result = mysqli_fetch_assoc($query)) {
     
-                echo '<tr>
+                        if($result['flag']=='1'){
+
+                    
+
+                            echo '<tr>
+                                <td>' . $result['activity_no'] . '</td>
+                                    <td>' . $result['activity_name'] . '</td>
+                                <td>' . $result['activity_date'] . '</td>
+                                <td>' . ucfirst($result['status']) . '</td>
+                                <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                                data-toggle="modal" data-target="#editModal" >
+                                View <i class="fas fa-expand"></i></button>
+                                <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
+                                Upload video
+                                </button> <button type="button" class="btn btn-secondary" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+                                My Videos
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+                                View All videos
+                                </button></td></td>
+                                </tr>';
+                                }
+                                else{
+                                    echo '<tr>
+                                    <td>' . $result['activity_no'] . '</td>
+                                        <td>' . $result['activity_name'] . '</td>
+                                    <td>' . $result['activity_date'] . '</td>
+                                    <td>' . ucfirst($result['status']) . '</td>
+                                    <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                                    data-toggle="modal" data-target="#editModal" >
+                                    View <i class="fas fa-expand"></i></button>
+                                    <button type="button" class="btn btn-secondary" disabled="disabled" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
+                                    Upload video
+                                    </button> <button type="button" class="btn btn-secondary" disabled="disabled" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+                                    My Videos
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" disabled="disabled" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+                                    View All videos
+                                    </button></td></td>
+                                    </tr>';
+                                }
+                    }
+                }
+                }
+            } else{
+                $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities ") or die('Sql Query Error2');
+
+            if (mysqli_num_rows($query) > 0) {
+                while ($result = mysqli_fetch_assoc($query)) {
+                    if($result['flag']=='1'){
+
+                    
+
+            echo '<tr>
+                <td>' . $result['activity_no'] . '</td>
+                    <td>' . $result['activity_name'] . '</td>
+                <td>' . $result['activity_date'] . '</td>
+                <td>' . ucfirst($result['status']) . '</td>
+                <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                data-toggle="modal" data-target="#editModal" >
+                View <i class="fas fa-expand"></i></button>
+                <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
+                Upload video
+                </button> <button type="button" class="btn btn-secondary" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+                My Videos
+                </button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+                View All videos
+                </button></td></td>
+                </tr>';
+                }
+                else{
+                    echo '<tr>
                     <td>' . $result['activity_no'] . '</td>
                         <td>' . $result['activity_name'] . '</td>
                     <td>' . $result['activity_date'] . '</td>
@@ -59,21 +132,20 @@ if (isset($_POST['getDetails'])) {
                     <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
                     data-toggle="modal" data-target="#editModal" >
                     View <i class="fas fa-expand"></i></button>
-                    <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
+                    <button type="button" class="btn btn-secondary" disabled="disabled" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
                     Upload video
-                    </button> <button type="button" class="btn btn-secondary" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
+                    </button> <button type="button" class="btn btn-secondary" disabled="disabled" id="myVideo" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-target="#myVideos">
                     My Videos
                     </button>
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
+                    <button type="button" class="btn btn-secondary" disabled="disabled" data-toggle="modal" id="all" data-text="' . $result['activity_no'] . '" data-target="#allVideos">
                     View All videos
                     </button></td></td>
                     </tr>';
-                    }
                 }
-                }
-            } 
+            }}
+            }
         }else{
-                $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities ") or die('Sql Query Error2');
+                $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities where status='free' ") or die('Sql Query Error2');
     
                 if (mysqli_num_rows($query) > 0) {
                     while ($result = mysqli_fetch_assoc($query)) {

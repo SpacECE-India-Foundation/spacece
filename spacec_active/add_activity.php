@@ -76,9 +76,9 @@ include_once '../common/banner.php';
       
       <textarea name="act_pro" class="form-control content1" id="act_pro" cols="30" rows="3" placeholder="Activity process" required></textarea>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 ytv">
       <lable class="mb-3">Playlist  Name : </lable>
-        <input type="text" name="pl_name" class="form-control" id="pl_name" placeholder="Youtube Playlist  Name" required>
+        <input type="text" name="pl_name" class="form-control" id="pl_name" placeholder="Youtube Playlist  Name" >
            
         </div>
         </div>
@@ -107,15 +107,19 @@ include_once '../common/banner.php';
                 <lable class="mb-3">Activity Date: </lable>
         <input type="date" name="act_date" class="form-control" id="act_date"  required>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 ytv">
         <lable class="mb-3">Playlist  description: </lable>
-        <input type="text" name="pl_desc" class="form-control" id="pl_desc" placeholder="Playlist  description" required>
+        <input type="text" name="pl_desc" class="form-control" id="pl_desc" placeholder="Playlist  description" >
         </div>
           
         </div>
                 </div>
                 <div class="d-flex justify-content-center">
                 <div class=" col-sm-6  mb-3 ">
+                <div class="mb-3">
+                        <label class=" mb-3">Youtube Videos Uploadable</label>
+                <input type="checkbox" id="VUpload" name="VUpload">
+                </div>
         <lable class=" mb-3">Activity Status : </lable>
                 <select class="form-control" id="act_type" name="act_type" required>
                     <option value="">Select</option>
@@ -164,13 +168,27 @@ include_once '../common/footer_module.php';
 
 <script>
         $(document).ready(function(){   
-                
+                $('.ytv').hide();
                 $(document).ready(function() {
             $('.content').richText();
             $('.content1').richText();
             $('.content2').richText();
             $('.content3').richText();
         });     
+        var VUpload=0;
+$('#VUpload').on('click', function(e) {
+       if(e.currentTarget.checked){
+        //alert("Checked");  
+        VUpload=1;
+        $('.ytv').fadeIn("slow");
+       }else{
+        VUpload=0;
+        $('.ytv').hide();
+       }
+
+         
+});
+
 
 
 
@@ -180,7 +198,7 @@ $("#add_activity").on('submit',function(e){
         var act_dom=$('#act_dom').val();
         var act_obj=$('#act_obj').val();
         
-        var pl_name=$('#pl_name').val();
+        
         var act_pro=$('#act_pro').val();
         
         var act_key=$('#act_key').val();
@@ -190,10 +208,25 @@ $("#add_activity").on('submit',function(e){
         var act_ins=$('#act_ins').val();
         var  act_type=$('#act_type').val();
         var act_date=$('#act_date').val();
-        var pl_desc=$('#pl_desc').val();
-
-       
+        
+        var VUpload=0;
+        var pl_name=null;
+        var pl_desc=null;
+        $('#VUpload').on('click', function(e) {
+       if(e.currentTarget.checked){
+        //alert("Checked");  
+        VUpload=1;
+       // $('.ytv').fadeIn("slow");
+        pl_name=$('#pl_name').val();
+         pl_desc=$('#pl_desc').val();
+       }else{
+        VUpload=0;
+        $('.ytv').hide();
+       }
+    });
+      
         e.preventDefault();
+
         $.ajax({
 
                 method:'POST',
@@ -210,7 +243,8 @@ $("#add_activity").on('submit',function(e){
                         act_ins:act_ins,
                         act_date:act_date,
                         pl_desc:pl_desc,
-                        act_type:act_type
+                        act_type:act_type,
+                        VUpload:VUpload
                 },
                 url:'ajax_add_activity.php',
                 success:function(result){

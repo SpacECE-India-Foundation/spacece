@@ -30,7 +30,7 @@
 		</div>
 
 		<!-- body section for admin index -->
-		<div class="col-lg-10 adminrightsection">
+		<div class="col-lg-10 ">
 
 			<div class="col-lg-7">
 				<h3>Unread Message</h3><hr/>

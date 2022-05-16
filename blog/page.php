@@ -12,4 +12,4 @@
 <?php include 'inc/contentsectionpage.php'; ?>	
 
 <!--Footer: footer navigation & social link -->
-<?php include '../includes/footer.php'; ?>
+<?php include '../common/footer_module.php'; ?>
