@@ -1,9 +1,9 @@
 <!--content section for admin-->
 	<div class="row">
-		<div class="col-lg-2 adminleftmenu">
-		    <!-- Static navbar -->
-		    <div class="sidebar navbar-inverse navbar-static-top" >
-		        <div class="navbar-collapse collapse" style="min-height:480px;">
+	<div class="col-lg-2 " style="background-color: orange;">
+		    <!-- Static sidebar -->
+		    <div class="sidebar navbar-expand-lg navbar-light " >
+		        <div class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-left">
 		              <li><a href="admin.php?id=index">Dashboard</a></li><br/>
 		              <li><a href="admin.php?id=profile">Profile</a></li><br/>    
@@ -30,7 +30,6 @@
 		</div>
 
 
-
 		<!-- body section for admin index -->
 		<div class="col-lg-10 adminrightsection">
 			<div class="col-lg-4 theme-table">
@@ -38,23 +37,23 @@
 				<h3>User Profile</h3><hr/>
 <?php /*Site: show site name */
 	$id = $_SESSION['current_user_id'];
-	
-    $query = "SELECT * FROM tb_user WHERE id='$id'";
+	echo $id;
+    $query = "SELECT * FROM spacece.users WHERE spacece.users.u_id='$id'";
     $profile = $db->select($query);
     if($profile){
        $result = $profile->fetch_assoc(); 
 ?>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Username</label>
-				    <input name="name" type="name" class="form-control" id="exampleInputEmail1" value="<?php echo $result['username']; ?>" readonly>
+				    <input name="name" type="name" class="form-control" id="exampleInputEmail1" value="<?php echo $result['u_name']; ?>" readonly>
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Email</label>
-				    <input name="name" type="name" class="form-control" id="exampleInputEmail1" value="<?php echo $result['email']; ?>" readonly>
+				    <input name="name" type="name" class="form-control" id="exampleInputEmail1" value="<?php echo $result['u_email']; ?>" readonly>
 				  </div>
 				  <div class="form-group">
 				  	<label for="exampleInputEmail1">Address</label>
-				    <textarea name="address" name="address" class="form-control" rows="6" readonly><?php echo $result['address']; ?></textarea>
+				    <textarea name="address" name="address" class="form-control" rows="6" readonly><?php echo $result['Suburban']; ?></textarea>
 				    <br>
 				  </div>
 <?php } ?>				

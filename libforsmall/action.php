@@ -344,7 +344,7 @@ if (isset($_POST["Common"])) {
 				$cart_item_id = $row["id"];
 				$qty = $row["qty"];
 				echo '
-					<div class="row">
+					<div class="row cart_row">
 						<div class="col-md-3">' . $n . '</div>
 						<div class="col-md-3"><img class="img-responsive" src="product_images/' . $product_image . '" /></div>
 						<div class="col-md-3">' . $product_title . '</div>

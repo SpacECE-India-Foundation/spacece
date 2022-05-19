@@ -1,7 +1,7 @@
 <!--content section for admin-->
 
 	<div class="row">
-		<div class="col-lg-2 ">
+		<div class="col-lg-2 adminleftmenu " style="background-color: orange;">
 		    <!-- Static navbar -->
 		    <div class="sidebar navbar-inverse navbar-static-top" >
 		        <div class="navbar-collapse collapse" style="min-height:480px;">

@@ -1,11 +1,11 @@
 <!--content section for admin-->
 
 
-	<div class="container">
-		<div class="col-lg-2 ">
+	<div class="container row">
+		<div class="col-lg-2 " style="background-color: orange;">
 		    <!-- Static sidebar -->
-		    <div class="sidebar navbar-expand-lg navbar-light bg-light" >
-		        <div class="navbar-collapse collapse" style="">
+		    <div class="sidebar navbar-expand-lg navbar-light " >
+		        <div class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-left">
 		              <li><a href="admin.php?id=index">Dashboard</a></li><br/>
 		              <li><a href="admin.php?id=profile">Profile</a></li><br/>    

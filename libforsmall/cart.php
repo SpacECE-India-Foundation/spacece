@@ -20,7 +20,7 @@ include "../Db_Connection/db_libforsmall.php";
 			<div class="panel panel-primary">
 				<div class="panel-heading">Cart Checkout</div>
 				<div class="panel-body">
-					<div class="row">
+					<div class="row cart-items">
 						<!--<div class="col-md-2 col-xs-2"><b>Action</b></div>
 							<div class="col-md-1 col-xs-2"><b>Product Image</b></div>
 							<div class="col-md-1 col-xs-2"><b>Product Name</b></div>
@@ -31,7 +31,7 @@ include "../Db_Connection/db_libforsmall.php";
 							<div class="col-md-1 col-xs-2"><b>Product Price</b></div>
 							<div class="col-md-2 col-xs-2"><b>Exchange</b></div>-->
 					</div>
-					<div id="cart_checkout"></div>
+					<div id="cart_checkout" class="cart_checkout"></div>
 					<!--<div class="row">
 							<div class="col-md-2">
 								<div class="btn-group">
