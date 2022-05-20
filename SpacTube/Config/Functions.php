@@ -1,6 +1,11 @@
 <?php
+if(file_exists('../../Db_Connection/constants.php')){
+    include('../../Db_Connection/constants.php');
 
-include('../../Db_Connection/constants.php');
+}else{
+    include('../Db_Connection/constants.php');
+}
+
 
 class Functions
 {
