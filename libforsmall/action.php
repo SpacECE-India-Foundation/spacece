@@ -380,6 +380,7 @@ if (isset($_POST["Common"])) {
 				$rent_price = $row["rent_price"];
 				$cat = $row["product_cat"];
 				echo $status;
+				
 				if ($status == "exchange") {
 					$sql2 = "SELECT * FROM products where product_cat='$cat' ";
 					$query1 = mysqli_query($conn, $sql2);
@@ -406,7 +407,7 @@ if (isset($_POST["Common"])) {
 									<a href="#" update_id=' . $product_id . ' class="btn btn-primary update"><span class="glyphicon glyphicon-ok-sign" return false></span> Save</a>
 								</div>
 							</div>
-								<input type="hidden" name="product_id[]" value=' . $product_id . '/>
+								<input type="hidden" class="product_id" name="product_id[]" value=' . $product_id . '>
 								<input type="hidden" name="" value=' . $cart_item_id . '/>
 								<div class="col-md-2"><img class="img-responsive" src="product_images/' . $product_image . '"></div>
 								<div class="col-md-3"><h4>Product Name: ' . $product_title . '</h4>
@@ -415,17 +416,18 @@ if (isset($_POST["Common"])) {
 								Quantity: <input type="text" class="form-control qty" value=' . $qty . '><br>
 								Product Price: <input type="text" class="form-control price" value=' . $product_price . ' readonly="readonly"><br>
 								<input type="hidden" class="form-control total"  readonly="readonly"><br>
-								Exchange Price:<input type="text" class="form-control " id="exp" value=' . $e_price[0] . ' readonly="readonly"><br>
+								Exchange Price:<input type="text" class="form-control exp" id="exp" value=' . $e_price[0] . ' readonly="readonly"><br>
 								<div>Exchange: <select class="form-control" id="select_user_products">';
 					foreach (array_combine($p_id, $str_arr) as $p_id =>  $str_arr) {
-						//var_dump($str_arr);
-						echo '<option data-id=' . $p_id . '>' . $str_arr . '</option>';
+						var_dump($str_arr);
+						echo '<option value='.$exc_price.' data-id=' . $p_id . '>' . $str_arr . '</option>';
 					}
 
 
 					echo '</select><br></div>';
 				} else if ($status == "rent") {
 					// bug id- 0000004,0000001
+					
 					echo
 					'<div class="row">
 								<div class="col-md-2"><br><br>
@@ -435,20 +437,20 @@ if (isset($_POST["Common"])) {
 								</div>
 							</div>
 							
-								<input type="hidden" name="product_id[]" value=' . $product_id . '/>
+								<input type="hidden" class="product_id"  name="product_id[]" value=' . $product_id . '>
 								<input type="hidden" name="" value=' . $cart_item_id . '/>
 								<div class="col-md-2"><img class="img-responsive" src="product_images/' . $product_image . '"></div>
 								<div class="col-md-3"><h4>Product Name: ' . $product_title . '</h4>
-								Start Date <span style="color:#ff0000">*</span> : <input type="date" class="form-control start_date" value=' . $start_date .'" min="'.  date("Y-m-d") . '" ><br>
+								End Date <span style="color:#ff0000">*</span> : <input type="date" class="form-control end_date" value=' . $end_date .'" min="'.  date("Y-m-d") . '" ><br>
 								
 								Quantity  <span style="color:#ff0000">*</span> : <input type="text" class="form-control qty" value=' . $qty . ' ><br>
-								Product Price(PerDay)  <span style="color:#ff0000">*</span> : <input type="text" class="form-control price" value=' . $rent_price . ' readonly="readonly"><br>
-								Deposit  <span style="color:#ff0000">*</span> : <input type="text" class="form-control deposit" value=' . $deposit . ' readonly="readonly"><br>	
+								Product Price (PerDay)  <span style="color:#ff0000">*</span> : <input type="text" class="form-control price" value=' . $rent_price . ' readonly="readonly"><br>
+								Deposit (Per Quantity) <span style="color:#ff0000">*</span> : <input type="text" class="form-control deposit" value=' . $deposit . ' readonly="readonly"><br>	
 								</div>
 								<input type="hidden" class="form-control total" value=' . $product_price . ' readonly="readonly"><br>
 								<input type="hidden" class="form-control total_duration" value=' . $total_duration . ' readonly="readonly"><br>
-		
-								<input type="hidden" class="form-control statusInfo"  value=' . $status . ' readonly="readonly"><br>
+								<input type="hidden" class="form-control total_deposit" value=' . $deposit . ' readonly="readonly"><br>
+								 <input type="hidden" class="form-control statusInfo"  value=' . $status . ' readonly="readonly"><br>
 								
 								
 							</div><br>';
@@ -485,7 +487,7 @@ if (isset($_POST["Common"])) {
 									<a href="#" update_id="' . $product_id . '" class="btn btn-primary update"><span class="glyphicon glyphicon-ok-sign" return false> Save</span></a>
 								</div>
 							</div>
-								<input type="hidden" name="product_id[]" value="' . $product_id . '"/>
+								<input type="hidden" name="product_id[]" class="p_id" value="' . $product_id . '"/>
 								<input type="hidden" name="" value="' . $cart_item_id . '"/>
 								<div class="col-md-2"><img class="img-responsive" src="product_images/' . $product_image . '"></div>
 								<div class="col-md-3"><h4>Product Name: ' . $product_title . '</h4>
@@ -616,6 +618,58 @@ if (isset($_POST["updateCartItem"])) {
 			$sql = "UPDATE cart SET qty='$qty',exchange_price='$selectItem' WHERE p_id = '$update_id' AND user_id = '$_SESSION[current_user_id]'";
 		} else {
 			$sql = "UPDATE cart SET qty='$qty',exchange_price='$selectItem' WHERE p_id = '$update_id' AND ip_add = '$ip_add'";
+		}
+		if (mysqli_query($conn, $sql)) {
+			echo "<div class='alert alert-info'>
+							<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+							<b>Product is updated</b>
+					</div>";
+			exit();
+		}
+	}
+}
+if (isset($_POST["edit_items"])) {
+	$update_id = $_POST["p_id"];
+	$qty = $_POST["qty"];
+	$statusInfo=$_POST['statusInfo'];
+	if (isset($_POST["end_date"])) {
+	
+		//$end_date = $date();
+	
+		
+		$start = strtotime($start_date);
+		$end = strtotime($end_date);
+		$days_between = ceil(abs($end - $start) / 86400);
+		// if ($start_date == "") {
+		// 	echo "<div class='alert alert-danger'>
+		// 					<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+		// 					<b>Start date is missing</b>
+		// 			</div>";
+		// } else if ($end_date == "") {
+		// 	echo "<div class='alert alert-danger'>
+		// 					<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+		// 					<b>End date is missing </b>
+		// 			</div>";
+		// } else {
+			if (isset($_SESSION["current_user_id"])) {
+				$sql = "UPDATE cart SET qty='$qty', end_date='$end_date',total_duration='$days_between',status='$statusInfo' WHERE p_id = '$update_id' AND user_id = '$_SESSION[current_user_id]'";
+			} else {
+				$sql = "UPDATE cart SET qty='$qty', end_date='$end_date',total_duration='$days_between',status='$statusInfo'	 WHERE p_id = '$update_id' AND ip_add = '$ip_add'";
+				echo $sql;
+			}
+			if (mysqli_query($conn, $sql)) {
+				echo "<div class='alert alert-info'>
+							<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+							<b>Product is updated</b>
+					</div>";
+				exit();
+			}
+		//}
+	} else {
+		if (isset($_SESSION["current_user_id"])) {
+			$sql = "UPDATE cart SET qty='$qty', WHERE p_id = '$update_id',status='$statusInfo' AND user_id = '$_SESSION[current_user_id]'";
+		} else {
+			$sql = "UPDATE cart SET qty='$qty' WHERE p_id = '$update_id',status='$statusInfo' AND ip_add = '$ip_add'";
 		}
 		if (mysqli_query($conn, $sql)) {
 			echo "<div class='alert alert-info'>

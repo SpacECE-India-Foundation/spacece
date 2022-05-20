@@ -516,13 +516,10 @@ $(document).ready(function () {
         selectItem = 0;
       }
       if (statusInfo == "rent") {
-        // alert($('.qty').val());
+         alert($('.qty').val());
         var qty = $(".qty").val();
         if (total_duration > 1) {
-          var total =
-            price * $(".qty").val() * total_duration +
-            parseInt(deposit) -
-            (price * $(".qty").val() * 1 + parseInt(deposit));
+          var total =(price * qty * 1 + (parseInt(deposit)*qty));
           row.find(".total").val(total);
         } else {
           var total =
@@ -561,8 +558,9 @@ $(document).ready(function () {
     //  alert(net_total);
 
     $(document).on("change", ".qty", function () {
-      // alert("tert");
+       ///console.log("called");
       qty = $(".qty").val();
+     // alert(qty);
       var row = $(this).parent().parent();
       var price = row.find(".price").val();
 
@@ -583,26 +581,31 @@ $(document).ready(function () {
         total_duration = diffDays;
       }
 
-      var selectItem = row.find("#selectItemPrice").val();
-
+      var selectItem = row.find("#select_user_products").val();
+      //console.log(selectItem);
       var statusInfo = row.find(".statusInfo").val();
       var deposit = row.find(".deposit").val();
       // $(".deposit").val(deposit);
-      // alert(total_duration);
-      deposit1 = deposit * qty;
+     
+     
       if (total_duration == 0) {
         deposit = 0;
         selectItem = 0;
       }
       if (statusInfo == "rent") {
+        deposit1 = deposit * qty;
+        //alert(deposit1);
+        row.find(".total_deposit").val(deposit1);
+       
         var total =
           price * $(this).val() * total_duration +
-          parseInt(deposit1) -
-          (price * 1 * total_duration + parseInt(deposit));
+          parseInt(deposit1);
         row.find(".total").val(total);
       }
       if (statusInfo == "exchange") {
-        var total = price * $(this).val() * total_duration - selectItem;
+        var exchange_price=row.find(".exp").val();
+        console.log(exchange_price);
+        var total = exchange_price * $(this).val()-exchange_price;
         row.find(".total").val(total);
       }
       if (statusInfo == "sale") {
@@ -614,7 +617,7 @@ $(document).ready(function () {
         var total = 0;
         // row.find(".total").val(total);
       }
-      //alert(total);
+     // alert(total);
       $(".total").each(function () {
         net_total += $(this).val() - 0;
       });
@@ -625,8 +628,31 @@ $(document).ready(function () {
       } else {
         $(".net_total").html("Total  : " + net_total);
         $(".net_total").data("total", net_total);
+        net_total=0;
       }
-    });
+      var p_id=  row.find(".product_id").val();
+    
+      qty = $(".qty").val();
+      console.log(qty)
+      $.ajax({
+        method:"POST",
+        url: "action.php",
+        data: {
+          edit_items:1,
+          p_id:p_id,
+          qty:qty,
+        statusInfo:statusInfo,
+        end_date:end_date
+        },success:function(data){
+          console.log("Updated")
+          console.log(data)
+        }
+
+      })
+     
+     
+      
+  });
 
     $("#select_user_products").on("change", function () {
       var row = $(this).parent().parent();
@@ -690,11 +716,11 @@ $(document).ready(function () {
         selectItem = 0;
       }
       if (statusInfo === "rent") {
-        var total = price * $(this).val() * total_duration + parseInt(deposit);
+        var total = price * $(this).val() * total_duration + (parseInt(deposit)*$(this).val());
         row.find(".total").val(total);
       }
       if (statusInfo === "exchange") {
-        var total = price - exp;
+        var total = exp;
         //alert(price);
         row.find(".total").val(total);
       }
@@ -721,6 +747,7 @@ $(document).ready(function () {
       } else {
         $(".net_total").html("Total  : " + net_total);
         $(".net_total").data("total", net_total);
+        net_total=0;
       }
     });
 
