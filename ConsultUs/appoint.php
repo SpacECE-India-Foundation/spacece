@@ -388,7 +388,7 @@ $.ajax({
 window.location.href="./cdetails.php?category=all";
 //swal("Good job!", data, "success");
   } else{
-    swal("Error","Invalid Data","error");
+    swal("Error","Consultant Not Available in the selected Time-slot","error");
   }
 }
 })

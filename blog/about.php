@@ -2,7 +2,7 @@
 <?php include 'inc/header.php'; ?>
 
 <!--MENU: navigation bar-->
-<?php include 'inc/menu.php'; ?>
+<?php include '../common/header_module.php'; ?>
 
 <!--  Welcome Section -->
 <?php include 'inc/welcomesectionpage.php'; ?>
@@ -50,7 +50,7 @@
 
 			<div class="col-lg-6">
 				<h4>OUR SUCCESS</h4>
-				Babycare
+				Blogs
 				<div class="progress">
 					<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $result['progressbabycare']; ?>%;">
 						<span class="sr-only"><?php echo $result['progressbabycare']; ?>% Complete</span>

@@ -52,3 +52,4 @@ if($res){
 }
 ?>
 
+<?php include '../common/footer_module.php';?>
