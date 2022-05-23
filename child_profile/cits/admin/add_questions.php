@@ -10,9 +10,7 @@ if(empty($_SESSION['admin_id'])){
 integrity="sha384s-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script defer src="https://friconix.com/cdn/friconix.js"> </script>
-<div class="mt-3" style="margin-top:5%;">
-	<?php include('include/sidenav.html');?>
-	</div>
+
 
 
 <div class="container">

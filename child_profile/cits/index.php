@@ -1,12 +1,8 @@
 <?php
-//session_start();
 include './header_local.php';
-include '../../../common/header_module.php';
-if(empty($_SESSION['current_user_email'])){
-	header('location:../../../spacece_auth/login.php');
-	exit();
-}
-error_reporting(0);
+include '../../common/header_module.php';
+//session_start();
+//error_reporting(0);
 include('include/config.php');
 //include('include/checklogin.php');
 //check_login();
@@ -15,7 +11,7 @@ include('include/config.php');
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Doctor | Manage Children Immunization Info</title>
+		<title>Parent  | Dashboard</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -28,112 +24,98 @@ include('include/config.php');
 		<link href="vendor/select2/select2.min.css" rel="stylesheet" media="screen">
 		<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
 		<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
-		<link rel="stylesheet" href="assets/css/styles.css">
+		<link rel="stylesheet" href="assets/css/stylesd.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+
+
 	</head>
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-			
-	
-	
-
-<?php //include('include/head.php');?>
-
+				
+			<div class="app-content">
+				
+						<?php  //include('include/head.php');?>
+						
+				<!-- end: TOP NAVBAR -->
+				
 						<!-- start: PAGE TITLE -->
-<section id="page-title">
-<?php include('include/sidenav.html');?>
-<div class="row">
-<div class="col-sm-8">
-<h1 style="color: red; padding-left: 350px" class="mainTitle">Doctor | Manage Children Immunization Info</h1>
-</div>
-
-
-</div>
-</section>
-<div class="container-fluid container-fullw bg-white">
-<div class="row">
-<div class="col-md-12">
-	<form role="form" method="post" name="search">
-
-<div class="form-group">
-<label for="doctorname">
-Search by Name/Mobile No.
-</label>
-<input type="text" name="searchdata" id="searchdata" class="form-control" value="" required='true'>
-</div>
-
-<button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
-Search
-</button>
-</form>	
-<?php
-if(isset($_POST['search']))
-{ 
-
-$sdata=$_POST['searchdata'];
-  ?>
-<h4 align="center">Result against "<?php echo $sdata;?>" keyword </h4>
-
-<table class="table table-hover" id="sample-table-1">
-<thead>
-<tr>
-<th class="center">#</th>
-<th>Parent Name</th>
-<th>Parent Contact Number</th>
-<th>Child Gender </th>
-<th>Creation Date </th>
-<th>Updation Date </th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<?php
-$sql=mysqli_query($con,"select * from tblchildren where childName like '%$sdata%'|| parentContno like '%$sdata%'");
-$num=mysqli_num_rows($sql);
-if($num>0){
-$cnt=1;
-while($row=mysqli_fetch_array($sql))
-{
-?>
-<tr>
-<td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['childName'];?></td>
-<td><?php echo $row['parentContno'];?></td>
-<td><?php echo $row['childGender'];?></td>
-<td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?>
-</td>
-<td>
-
-<a href="edit-child.php?editid=<?php echo $row['ID'];?>"><i class="fa fa-edit"></i></a> || <a href="view-child.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
-
-</td>
-</tr>
-<?php 
-$cnt=$cnt+1;
-} } else { ?>
-  <tr>
-    <td colspan="8"> No record found against this search</td>
-
-  </tr>
-   
-<?php }} ?></tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+						<section id="page-title">
+							<div class="row">
+								<div class="col-sm-8">
+									<h1 style="color: red; padding-left: 570px"class="mainTitle">User | Dashboard</h1>
+																	</div>
+                                </div>
+						</section>
+                        <!-- Breadcrumbs-->
+						<?php include('include/sidenav.html');?>
+						<!-- end: PAGE TITLE -->
+						<!-- start: BASIC EXAMPLE -->
+							<div class="container-fluid container-fullw bg-skyblue">
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="panel panel-orange no-radius text-center">
+										<div class="panel-body">
+											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i> </span>
+											<h2 style="color: white;" class="StepTitle">My Profile</h2>
+											
+											<p class="links cl-effect-1">
+												<a style="color: white;" href="edit-profile.php">
+													Update Profile
+												</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="panel panel-green no-radius text-center">
+										<div class="panel-body">
+											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i> </span>
+											<h2 style="color: white;" class="StepTitle">My Appointments</h2>
+										
+											<p class="cl-effect-1">
+												<a style="color: white;" href="appointment-history.php">
+													View Appointment History
+												</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="panel panel-yellow no-radius text-center">
+										<div class="panel-body">
+											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-edit fa-stack-1x fa-inverse"></i> </span>
+											<h2 style="color: white;" class="StepTitle"> Book My Appointment</h2>
+											
+											<p class="links cl-effect-1">
+												<a style="color: white;" href="book-appointment.php">
+													Book Appointment
+												</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+			
+					
+					
+						
+						
+					
+						<!-- end: SELECT BOXES -->
+						
+					</div>
+				</div>
+			</div>
 			<!-- start: FOOTER -->
-	<?php include('../../../common/footer_module.php');?>
+	<?php include('../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
-		</div>
+			
+	
+
 		<!-- start: MAIN JAVASCRIPTS -->
 		<script src="vendor/jquery/jquery.min.js"></script>
 		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>

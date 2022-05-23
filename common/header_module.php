@@ -242,7 +242,7 @@ if(isset($thirdpage)){
     <nav class="navbar">
         <div class="logo">
             <div class="org_logo">
-                <a href=<?= $main_page ? "../../index.php" : "../../../index.php" ?>>
+                <a href=<?= $main_page ? "../../index.php" : "./../../index.php" ?>>
                     <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
                     <span>SpaceECE</span>
                 </a>
@@ -275,24 +275,84 @@ if(isset($thirdpage)){
                         <span style="cursor: pointer;">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
                     </button>
                     <div class="dropdown-content">
-                        <a href="<?= isset($main_page) ? "../../spacece_auth/profile.php" : "../../../spacece_auth/profile.php" ?>"><i class="fas fa-user"></i><span>Profile</span></a>
+                        <a href="<?= isset($main_page) ? "../../../spacece_auth/profile.php" : "./../../spacece_auth/profile.php" ?>"><i class="fas fa-user"></i><span>Profile</span></a>
                         <?= isset($extra_profile_links) ? $extra_profile_links : null ?>
-                        <a href=<?= isset($main_page) ? "../../spacece_auth/logout.php" : "../../../spacece_auth/logout.php" ?>><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+                        <a href=<?= isset($main_page) ? "../../../spacece_auth/logout.php" : "./../../spacece_auth/logout.php" ?>><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
                     </div>
                 </div>
             <?php
             } else {
             ?>
-                <a href=<?= isset($main_page) ? "../spacece_auth/register.php" : "../../../spacece_auth/register.php" ?>>
+                <a href=<?= isset($main_page) ? "./../../spacece_auth/register.php" : "./../../spacece_auth/register.php" ?>>
                     <i class="fas fa-user-plus"></i><span>Register</span></a>
-                <a href=<?= isset($main_page) ? "../spacece_auth/login.php" : "../../../spacece_auth/login.php" ?>>
+                <a href=<?= isset($main_page) ? "./../../spacece_auth/login.php" : "./../../spacece_auth/login.php" ?>>
                     <i class="fas fa-sign-in-alt"></i><span>Login</span></a>
             <?php
             }
             ?>
         </div>
         <?php
-}else{
+} else if(isset($fourthpage)){
+    ?>
+    <?php $main_page = isset($main_page) ? ($main_page) :  NULL ?>
+
+    <nav class="navbar">
+        <div class="logo">
+            <div class="org_logo">
+                <a href=<?= $main_page ? "../../../index.php" : "../../../index.php" ?>>
+                    <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
+                    <span>SpaceECE</span>
+                </a>
+            </div>
+            <?php
+            if (isset($module_name)) {
+            ?>
+                <div class="module_logo">
+                    <a href="../index.php">
+                        <img src="<?= isset($module_logo) ? $module_logo : 'Spacece' ?>" alt="Module">
+                        <span><?= isset($module_name) ? $module_name : 'Spacece' ?><span>
+                    </a>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+        <div class="main_nav">
+            <a href="./index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
+            <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
+            <a href="./about.php"><i class="fas fa-address-card"></i><span>About</span></a>
+        </div>
+        <div class="user">
+            <?php
+            if (isset($_SESSION['current_user_id'])) {
+            ?>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <img class="user_avatar" src=<?= !isset($_SESSION['current_user_image']) ? 'https://www.w3schools.com/howto/img_avatar.png' : ($main_page ? '../img/users/' . $_SESSION['current_user_image'] : '../../img/users/' . $_SESSION['current_user_image']) ?> alt="User" />
+                        <span style="cursor: pointer;">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="<?= isset($main_page) ? "../../../spacece_auth/profile.php" : "../../../spacece_auth/profile.php" ?>"><i class="fas fa-user"></i><span>Profile</span></a>
+                        <?= isset($extra_profile_links) ? $extra_profile_links : null ?>
+                        <a href=<?= isset($main_page) ? "../../../spacece_auth/logout.php" : "../../../spacece_auth/logout.php" ?>><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+                    </div>
+                </div>
+            <?php
+            } else {
+            ?>
+                <a href=<?= isset($main_page) ? "./../../spacece_auth/register.php" : "../../../spacece_auth/register.php" ?>>
+                    <i class="fas fa-user-plus"></i><span>Register</span></a>
+                <a href=<?= isset($main_page) ? "./../../spacece_auth/login.php" : "../../../spacece_auth/login.php" ?>>
+                    <i class="fas fa-sign-in-alt"></i><span>Login</span></a>
+            <?php
+            }
+            ?>
+        </div>
+        <?php
+}
+
+
+else{
 
 
 ?>

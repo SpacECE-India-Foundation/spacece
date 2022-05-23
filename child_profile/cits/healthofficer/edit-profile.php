@@ -1,5 +1,5 @@
 <?php
-include '../header_local.php';
+include './header_local.php';
  include '../../../common/header_module.php'; ?>
 
 <?php

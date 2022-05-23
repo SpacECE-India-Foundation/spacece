@@ -38,9 +38,7 @@ if(isset($_GET['cancel']))
 	</head>
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
-	<div class="mt-3" style="margin-top:5%;">
-	<?php include('include/sidenav.html');?>
-	</div>			
+			
 
 			
 				
@@ -52,7 +50,9 @@ if(isset($_GET['cancel']))
 							<div class="row">
 								<div class="col-sm-8">
 									<h1 style="color: red; padding-left: 570px" class="mainTitle">User  | Appointment History</h1>
-																	</div>
+									<div class="nav">
+		<?php include('include/sidenav.html');?>
+		</div>								</div>
 								
 							</div>
 						</section>
@@ -60,10 +60,12 @@ if(isset($_GET['cancel']))
 						<!-- start: BASIC EXAMPLE -->
 						<div class="container-fluid container-fullw bg-white">
 						
-
+					
 									<div class="row">
+
+								
 								<div class="col-md-12">
-									
+								
 									<p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
 								<?php echo htmlentities($_SESSION['msg']="");?></p>	
 									<table class="table table-hover" id="sample-table-1">
@@ -174,7 +176,7 @@ $cnt=$cnt+1;
 	<?php include('../../common/footer_module.php');?>
 			<!-- end: FOOTER -->
 		
-			
+		
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->
 		<script src="vendor/jquery/jquery.min.js"></script>

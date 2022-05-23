@@ -1,5 +1,12 @@
 <?php
 session_start();
+if(isset($_SESSION)){
+header('location:dashboard.php');
+exit();
+}else{
+	header('location:../../../spacece_aoth/login.php');
+	exit();
+}
 error_reporting(0);
 include("include/config.php");
 if(isset($_POST['submit']))

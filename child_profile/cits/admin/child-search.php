@@ -1,6 +1,6 @@
 <?php
 // session_start();
-include '../header_local.php';
+include './header_local.php';
 error_reporting(0);
 include('include/config.php');
 // include('include/checklogin.php');

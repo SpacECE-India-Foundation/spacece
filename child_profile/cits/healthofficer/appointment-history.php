@@ -1,5 +1,5 @@
 <?php
-include '../header_local.php';
+include './header_local.php';
 include '../../../common/header_module.php';
 if(empty($_SESSION['current_user_email'])){
 	header('location:../../../spacece_auth/login.php');
@@ -38,9 +38,7 @@ mysqli_query($con,"update appointment set docStatus='0' where id ='".$_GET['id']
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-				<div class="mt-3" style="margin-top:5%;">
-	<?php include('include/sidenav.html');?>
-	</div>
+			
 			
 				
 
@@ -52,7 +50,9 @@ mysqli_query($con,"update appointment set docStatus='0' where id ='".$_GET['id']
 							<div class="row">
 								<div class="col-sm-8">
 									<h1 style="color: red;padding-left: 570px"class="mainTitle">Doctor  | Appointment History</h1>
-																	</div>
+									<div class="mt-3" style="margin-top:5%;">
+	<?php include('include/sidenav.html');?>
+	</div>								</div>
 								
 							</div>
 						</section>

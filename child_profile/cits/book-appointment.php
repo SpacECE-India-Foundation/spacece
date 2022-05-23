@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 //error_reporting(0);
 include('include/config.php');
 include './header_local.php';
@@ -81,7 +81,7 @@ function getfee(val) {
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 	<div id="app">			
-	<div class="mt-3 " style="margin-top: 10%;">
+	<div class="mt-3 " style="margin-top: 5%;">
 			<?php include('include/sidenav.html');?>
 			</div>
 			<div style="background-color: beige" class="app-content">

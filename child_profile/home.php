@@ -114,7 +114,7 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
                         <p style="color: black" class="card-text"><b>Book for an immunization appointment with the health personnel in just one click.</b></p>
                      </div><br>
                      <div class="card-footer">
-                        <a href="cits/user-login.php" class="btn btn-primary">Sign in as user</a>
+                        <a href="../spacece_auth/login.php" class="btn btn-primary">Sign in as user</a>
                      </div>
                   </div>
                </div>
@@ -128,7 +128,7 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
                         <p style="color: black" class="card-text"><b>All the strain on manual records now at bay.</b></p><br>
                      </div><br>
                      <div class="card-footer">
-                        <a href="cits/healthofficer/index.php" class="btn btn-primary">Health Personnel Log in</a>
+                        <a href="../spacece_auth/login.php" class="btn btn-primary">Health Personnel Log in</a>
                      </div>
                   </div>
                </div>
@@ -143,7 +143,7 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
                         <p style="color: black" class="card-text"><b>Easy and faster access to records for management.</b></p>
                       </div> 
                       <div class="card-footer">
-                        <a href="cits/admin/index.php" class="btn btn-primary">Admin Log in</a>
+                        <a href="../spacece_auth/login.php" class="btn btn-primary">Admin Log in</a>
                      </div> </div> </div></div><br>
                     <div class="clear"> </div><br><br><br><br> <br><br>  
 

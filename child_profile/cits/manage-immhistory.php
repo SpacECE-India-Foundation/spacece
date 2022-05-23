@@ -1,6 +1,7 @@
 <?php
 //session_start();
 error_reporting(0);
+include './header_local.php';
 include '../../common/header_module.php';
 if(empty($_SESSION['current_user_email'])){
 	header('location:../../../spacece_auth/login.php');
@@ -33,14 +34,15 @@ include('include/config.php');
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 				
-				<div class="mt-3" style="margin-top:5%;">
-	<?php include('include/sidenav.html');?>
-	</div>
+				
 
 <?php //include('include/head.php');?>
 
 <section id="page-title">
 <div class="row">
+<div class="nav">
+		<?php include('include/sidenav.html');?>
+		</div>	
 <div class="col-sm-8">
 <h1 style="color: red; padding-left: 570px" class="mainTitle">Users | Immunization History</h1>
 </div>

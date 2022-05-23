@@ -1,13 +1,13 @@
 <?php
-//session_start();
+session_start();
 error_reporting(0);
 include('include/config.php');
 // include('include/checklogin.php');
 // check_login();
-include '../header_local.php';
+include './header_local.php';
 include '../../../common/header_module.php';
-var_dump($_SESSION);
-if(!isset($_SESSION['admin_id'])){
+//var_dump($_SESSION);
+if(!isset($_SESSION)){
 	header('location:../../../spacece_auth/login.php');
 	exit();
 }else{
