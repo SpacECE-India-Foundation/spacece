@@ -101,7 +101,7 @@ if (isset($_POST["getProduct"])) {
 									<img src='product_images/$pro_image' style='width:160px; height:250px;'/>
 									<select class='form-control status'>
 										<option value='Rent'>Rent</option>
-										<option value='Sale'>Sale</option>
+										<option value='Sale'>Purchase</option>
 										<option value='Exchange'>Exchange</option>
 										<option value='Borrow'>Borrow</option>
 									</select>
@@ -379,7 +379,7 @@ if (isset($_POST["Common"])) {
 				$deposit = $row["deposit"];
 				$rent_price = $row["rent_price"];
 				$cat = $row["product_cat"];
-				echo $status;
+				echo "<h5><b>".$status."</b></h5>";
 				
 				if ($status == "exchange") {
 					$sql2 = "SELECT * FROM products where product_cat='$cat' ";

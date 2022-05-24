@@ -516,7 +516,7 @@ $(document).ready(function () {
         selectItem = 0;
       }
       if (statusInfo == "rent") {
-         alert($('.qty').val());
+         //alert($('.qty').val());
         var qty = $(".qty").val();
         if (total_duration > 1) {
           var total =(price * qty * 1 + (parseInt(deposit)*qty));
