@@ -1,5 +1,6 @@
 
 <?php include_once("./templates/top.php"); ?>
+<?php include "./header_local.php";?>
 <?php include "./../../common/header_module.php";?>
 <?php //session_start(); ?>
 <style>

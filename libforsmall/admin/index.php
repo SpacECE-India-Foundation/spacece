@@ -8,6 +8,7 @@
    //include "./templates/top.php"; 
 
 ?>
+<?php include "./header_local.php";?>
 <?php include "./../../common/header_module.php";?>
 
  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/"> -->
