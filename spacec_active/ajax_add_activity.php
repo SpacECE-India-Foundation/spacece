@@ -78,6 +78,7 @@ if($playlist_id){
 //     echo "Error"; 
 // }
  }else{
+    $db = new DB();
     $flag=0;
     $playlist_id=null;
     $pl_desc=null;
