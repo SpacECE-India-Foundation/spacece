@@ -1,6 +1,6 @@
 <!--Header: site header with title, description & meta content-->
 <?php include 'inc/header.php'; ?>
-
+<?php include './header_local.php'; ?>
 <!--MENU: navigation bar-->
 <?php include '../common/header_module.php'; ?>
 
