@@ -1,6 +1,10 @@
 <?php
 
 include 'Config/Functions.php';
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/Space_Tube.jpeg";
+$module_name = "Space Tube";
+    include '../common/header_module.php';
 $Fun_call = new Functions();
 
 $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
@@ -76,14 +80,17 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                     <form>
                    <b> Video to be removed:</b>
                     <select name ="remove">
-                        <option disabled selected>-- Select Video id --</option>
+                        <option class=" col-sm-4" disabled selected>-- Select Video id --</option>
                         <?php
-                            include "connection.php";  // Using database connection file here
-                            $records = mysqli_query($conn, "SELECT `v_id` From `videos` ORDER BY `v_id`");  // Use select query here 
+                           include '../Db_Connection/db_spaceTube.php'; 
+                           
+                             // Using database connection file here
+                            $records = mysqli_query($mysqli, "SELECT `v_id`,`title` From `videos` ORDER BY `v_id`");  // Use select query here 
 
                             while($data = mysqli_fetch_array($records))
                             {
-                                echo "<option value='". $data['v_id'] ."'>" .$data['v_id'] ."</option>";  // displaying data in option menu
+                                var_dump($data);
+                                echo "<option value='". $data['v_id'] ."'>" .$data['title'] ."</option>";  // displaying data in option menu
                             }	
                         ?>  
                     </select>
@@ -102,7 +109,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
 
     <?php
 
-        include 'connection.php';
+include '../Db_Connection/db_spaceTube.php'; 
         
 
         if(isset($_POST['submit']))
@@ -111,7 +118,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
             
             $removequery = "DELETE FROM `videos` WHERE `v_id` = $id ";
 
-            $res = mysqli_query($conn, $removequery);
+            $res = mysqli_query($mysqli, $removequery);
             if($res)
             {
                 ?>

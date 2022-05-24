@@ -248,6 +248,7 @@ $("#add_activity").on('submit',function(e){
                 },
                 url:'ajax_add_activity.php',
                 success:function(result){
+                        console.log(result)
                        if(result==="Success"){
                        alert("Success");
                         location.reload();
