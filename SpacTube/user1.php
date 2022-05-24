@@ -90,7 +90,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                             while($data = mysqli_fetch_array($records))
                             {
                                 var_dump($data);
-                                echo "<option value='". $data['v_id'] ."'>" .$data['title'] ."</option>";  // displaying data in option menu
+                                echo "<option value='". $data['v_id'] ."'>" .$data['v_id'] ."</option>";  // displaying data in option menu
                             }	
                         ?>  
                     </select>
