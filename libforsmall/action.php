@@ -33,7 +33,7 @@ if (isset($_POST["category"])) {
 	$run_query = mysqli_query($conn, $category_query) or die(mysqli_error($con));
 	echo "
 		<div class='nav nav-pills nav-stacked'>
-			<li class='active'><a href='#'><h4>Categories</h4></a></li>
+			<li class='active' ><a href='#' style='background-color: orange;'><h4>Categories</h4></a></li>
 	";
 	if (mysqli_num_rows($run_query) > 0) {
 		while ($row = mysqli_fetch_array($run_query)) {
@@ -50,8 +50,8 @@ if (isset($_POST["brand"])) {
 	$brand_query = "SELECT * FROM brands";
 	$run_query = mysqli_query($conn, $brand_query);
 	echo "
-		<div class='nav nav-pills nav-stacked'>
-			<li class='active'><a href='#'><h4>Brands</h4></a></li>
+		<div class='nav nav-pills nav-stacked' >
+			<li class='active' ><a href='#'  style='background-color: orange;'><h4>Brands</h4></a></li>
 	";
 	if (mysqli_num_rows($run_query) > 0) {
 		while ($row = mysqli_fetch_array($run_query)) {
@@ -95,8 +95,8 @@ if (isset($_POST["getProduct"])) {
 			$pro_image = $row['product_image'];
 			echo "
 				<div class='col-md-4'>
-							<div class='panel panel-info'>
-								<div class='panel-heading'>$pro_title</div>
+							<div class='panel ' style='border:1px solid orange'  >
+								<div class='panel-heading' style='background-color:orange' >$pro_title</div>
 								<div class='panel-body'>
 									<img src='product_images/$pro_image' style='width:160px; height:250px;'/>
 									<select class='form-control status'>
