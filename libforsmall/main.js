@@ -493,16 +493,17 @@ $(document).ready(function () {
 
       var row = $(this).parent().parent();
       var price = row.find(".price").val();
-
-      var start_date = row.find(".start_date").val();
-
+     
+    var start_date=  new Date().toISOString().slice(0, 10);
+      ///var start_date = row.find(".start_date").val();
+    //  var start_date=date('yyyy-mm-dd');
       // alert(start_date);
       const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
       var firstDate = new Date(start_date);
       var secondDate = new Date(end_date);
 
       var diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
-
+//alert(diffDays)
       var selectItem = row.find("#selectItemPrice").val();
       var total_duration = diffDays;
       var statusInfo = row.find(".statusInfo").val();
@@ -519,15 +520,14 @@ $(document).ready(function () {
          //alert($('.qty').val());
         var qty = $(".qty").val();
         if (total_duration > 1) {
-          var total =(price * qty * 1 + (parseInt(deposit)*qty));
+          var total =(price * qty * diffDays + (parseInt(deposit)*qty));
           row.find(".total").val(total);
         } else {
           var total =
-            price * $(".qty").val() * total_duration + parseInt(deposit);
+            price * $(".qty").val() *    + parseInt(deposit);
           row.find(".total").val(total);
         }
 
-        //alert(total);
       }
       if (statusInfo == "exchange") {
         var total = price * $(this).val() * total_duration - selectItem;
@@ -552,7 +552,28 @@ $(document).ready(function () {
       } else {
         $(".net_total").html("Total  : " + net_total);
         $(".net_total").data("total", net_total);
+        net_total=0;  
+
       }
+      var p_id=  row.find(".product_id").val();
+      qty = $(".qty").val();
+      console.log(qty)
+      $.ajax({
+        method:"POST",
+        url: "action.php",
+        data: {
+          edit_items:1,
+          p_id:p_id,
+          qty:qty,
+        statusInfo:statusInfo,
+        total_duration:total_duration,
+        end_date:end_date
+        },success:function(data){
+          console.log("Updated")
+          console.log(data)
+        }
+
+      })
     });
 
     //  alert(net_total);
@@ -628,7 +649,7 @@ $(document).ready(function () {
       } else {
         $(".net_total").html("Total  : " + net_total);
         $(".net_total").data("total", net_total);
-        net_total=0;
+        net_total=0; net_total=0;
       }
       var p_id=  row.find(".product_id").val();
     

@@ -441,7 +441,8 @@ if (isset($_POST["Common"])) {
 								<input type="hidden" name="" value=' . $cart_item_id . '/>
 								<div class="col-md-2"><img class="img-responsive" src="product_images/' . $product_image . '"></div>
 								<div class="col-md-3"><h4>Product Name: ' . $product_title . '</h4>
-								End Date <span style="color:#ff0000">*</span> : <input type="date" class="form-control end_date" value=' . $end_date .'" min="'.  date("Y-m-d") . '" ><br>
+								
+								End  Date <span style="color:#ff0000">*</span> : <input type="date" placeholder="dd-MM-yyyy" class="form-control datepicker end_date"  value=' . date($end_date).'"  ><br>
 								
 								Quantity  <span style="color:#ff0000">*</span> : <input type="text" class="form-control qty" value=' . $qty . ' ><br>
 								Product Price (PerDay)  <span style="color:#ff0000">*</span> : <input type="text" class="form-control price" value=' . $rent_price . ' readonly="readonly"><br>
@@ -634,12 +635,13 @@ if (isset($_POST["edit_items"])) {
 	$statusInfo=$_POST['statusInfo'];
 	if (isset($_POST["end_date"])) {
 	
-		//$end_date = $date();
+		$start = Date('yyyy-mm-dd');
 	
-		
-		$start = strtotime($start_date);
-		$end = strtotime($end_date);
-		$days_between = ceil(abs($end - $start) / 86400);
+		$end_date=$_POST["end_date"];
+		//$start = strtotime($start_date);
+		$end = $end_date;
+		//$days_between = ceil(abs($end - $start) / 86400);
+		$total_duration=$_POST['total_duration'];
 		// if ($start_date == "") {
 		// 	echo "<div class='alert alert-danger'>
 		// 					<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
@@ -651,10 +653,13 @@ if (isset($_POST["edit_items"])) {
 		// 					<b>End date is missing </b>
 		// 			</div>";
 		// } else {
+			echo $ip_add;
 			if (isset($_SESSION["current_user_id"])) {
-				$sql = "UPDATE cart SET qty='$qty', end_date='$end_date',total_duration='$days_between',status='$statusInfo' WHERE p_id = '$update_id' AND user_id = '$_SESSION[current_user_id]'";
+				$sql = "UPDATE cart SET end_date='$end_date',total_duration='$total_duration' WHERE p_id = '$update_id' AND user_id = '$_SESSION[current_user_id]'";
+			
+				echo $sql;	
 			} else {
-				$sql = "UPDATE cart SET qty='$qty', end_date='$end_date',total_duration='$days_between',status='$statusInfo'	 WHERE p_id = '$update_id' AND ip_add = '$ip_add'";
+				$sql = "UPDATE cart SET  end_date='$end_date',total_duration='$total_duration' WHERE p_id = '$update_id' AND ip_add = '$ip_add'";
 				echo $sql;
 			}
 			if (mysqli_query($conn, $sql)) {
