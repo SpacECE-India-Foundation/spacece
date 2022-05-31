@@ -122,7 +122,7 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
                   <div class="card h-100">
                      <h4 class="card-header">All immunization records in one place</h4>
                      <div class="card-img">
-                        <img class="img-fluid" src="S2.jpg" alt="" />
+                        <img class="img-fluid" src="s2.jpg" alt="" />
                      </div>
                      <div class="card-body">
                         <p style="color: black" class="card-text"><b>All the strain on manual records now at bay.</b></p><br>
@@ -137,7 +137,7 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
                   <div class="card h-100">
                      <h4 class="card-header">Manage all records in one store</h4>
                      <div class="card-img">
-                        <img class="img-fluid" src="S3.jpg" alt="" />
+                        <img class="img-fluid" src="./s3.jpg" alt="" />
                      </div>
                      <div class="card-body">
                         <p style="color: black" class="card-text"><b>Easy and faster access to records for management.</b></p>
@@ -148,9 +148,9 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
                     <div class="clear"> </div><br><br><br><br> <br><br>  
 
 <!-- jQuery 3 -->
-<script src="home/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- <script src="home/bower_components/jquery/dist/jquery.min.js"></script> -->
 <!-- Bootstrap 3.3.7 -->
-<script src="home/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- <script src="home/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
 <!-- iCheck -->
 <script src="home/plugins/iCheck/icheck.min.js"></script>
 <script>

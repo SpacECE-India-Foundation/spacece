@@ -314,26 +314,26 @@ include_once './common/header_module.php';
           </div>
           <p></p>
         </div>
-         <div class="col-lg-4 col-md-6 blog-item">
+         <!-- <div class="col-lg-4 col-md-6 blog-item">
           <a href="./blog/index.php">
             <img src="img/logo/children_immu_logo.jpg" alt="BABY CARE" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
-            <!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
+            <span><i class="fa fa-user"></i>Parth Thosani</span>
+						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
           </div>
           <p></p>
-        </div>
-        <div class="col-lg-4 col-md-6 blog-item">
+        </div> -->
+        <!-- <div class="col-lg-4 col-md-6 blog-item">
           <a href="./SpacSMS/index.php">
             <img src="img/logo/preschool.png" alt="Pre School management" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
           <div class="blog-meta">
-            <!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
+            <span><i class="fa fa-user"></i>Parth Thosani</span>
+						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>
           </div>
           <p></p>
-        </div>
+        </div> -->
         
       </div>
     </div>

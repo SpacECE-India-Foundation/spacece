@@ -264,6 +264,8 @@ if(isset($thirdpage)){
             <a href="./index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
             <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
             <a href="./about.php"><i class="fas fa-address-card"></i><span>About</span></a>
+            
+       
         </div>
         <div class="user">
             <?php
@@ -279,7 +281,7 @@ if(isset($thirdpage)){
                         <?= isset($extra_profile_links) ? $extra_profile_links : null ?>
                         <a href=<?= isset($main_page) ? "../../../spacece_auth/logout.php" : "./../../spacece_auth/logout.php" ?>><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
                     </div>
-                </div>
+                    
             <?php
             } else {
             ?>
@@ -290,6 +292,11 @@ if(isset($thirdpage)){
             <?php
             }
             ?>
+            
+                </div>
+                <div><a href="../../blog/index.php">
+            <img src="../../img/logo/children_immu_logo.jpg" class=" img img-circle" alt="BABY CARE" width="50px" height="50px" /> Blog
+        </a></div>
         </div>
         <?php
 } else if(isset($fourthpage)){
@@ -321,6 +328,8 @@ if(isset($thirdpage)){
             <a href="./index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
             <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
             <a href="./about.php"><i class="fas fa-address-card"></i><span>About</span></a>
+            
+       
         </div>
         <div class="user">
             <?php
@@ -347,6 +356,11 @@ if(isset($thirdpage)){
             <?php
             }
             ?>
+            
+                </div>
+                <div><a href="../../../blog/index.php">
+            <img src="../../../img/logo/children_immu_logo.jpg" class=" img img-circle" alt="BABY CARE" width="50px" height="50px" /> Blog
+        </a></div>
         </div>
         <?php
 }
@@ -383,6 +397,7 @@ else{
             <a href="./index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
             <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
             <a href="./about.php"><i class="fas fa-address-card"></i><span>About</span></a>
+            
         </div>
         <div class="user">
             <?php
@@ -409,16 +424,24 @@ else{
             <?php
             }}
             ?>
+            
+                </div>
+                <div><a href="./blog/index.php">
+            <img src="./img/logo/children_immu_logo.jpg" class=" img img-circle" alt="BABY CARE" width="50px" height="50px" /> Blog
+        </a></div>
         </div>
-
+       
+        
         <div id="google_translate_element"></div>
+       
 
         <script type="text/javascript">
         function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
         }
         </script>
-
+        
+          
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     </nav>
 </body>
