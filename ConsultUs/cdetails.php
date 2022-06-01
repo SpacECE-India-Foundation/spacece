@@ -67,8 +67,13 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         </h2>
         <br>
         <!.... BUTTON TO ADD consultant...>
-        <a class="btn btn-sm" style="background-color: orange;" href="showmyappointment.php">SHOW MY APPOINTMENT</a>
+        <?php if(isset($_SESSION['current_user_email'])){
+            ?>
+<a class="btn btn-sm" style="background-color: orange;" href="showmyappointment.php">SHOW MY APPOINTMENT</a>
         <a class="btn btn-sm" style="background-color: orange;" href="myChildrens.php">My Childrens</a>
+            <?php
+        }
+?>        
             <a href="./chatbot/room.php?roomname=global1" class=" btn btn-sm" style="color:black;background-color:orange;float:right;">CHAT GLOBAL</a><br><br>
             <br>
             <br>

@@ -228,6 +228,9 @@ session_start();
         .fileToUpload {
             cursor: pointer;
         }
+        .blog-image{
+            max-width: 50px !important;  
+        }
     </style>
     <!-- BUG ID-0000067 -->
     <title><?= isset($module_name) ? $module_name : 'SpaceECE' ?></title>
@@ -294,9 +297,7 @@ if(isset($thirdpage)){
             ?>
             
                 </div>
-                <div><a href="../../blog/index.php">
-            <img src="../../img/logo/children_immu_logo.jpg" class=" img img-circle" alt="BABY CARE" width="50px" height="50px" /> Blog
-        </a></div>
+                
         </div>
         <?php
 } else if(isset($fourthpage)){
@@ -426,8 +427,8 @@ else{
             ?>
             
                 </div>
-                <div><a href="./blog/index.php">
-            <img src="./img/logo/children_immu_logo.jpg" class=" img img-circle" alt="BABY CARE" width="50px" height="50px" /> Blog
+                <div><a href=<?= isset($main_page) ?"./blog/index.php": "../blog/index.php"?>>
+            <img src=<?= isset($main_page) ?"./img/logo/children_immu_logo.jpg" : "../img/logo/children_immu_logo.jpg" ?> class="img img-circle img-thumbnail blog-image" alt="BLOG"  /> Blog
         </a></div>
         </div>
        

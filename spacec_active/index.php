@@ -368,7 +368,7 @@ include_once '../common/footer_module.php';
                 'getDetails': 1
             },
             success: function(data) {
-             
+            // console.log(data);
                 $('#tablebody').append(data);
             }
 
@@ -410,7 +410,7 @@ include_once '../common/footer_module.php';
             },
             url: 'fetch.php',
             success: function(data1) {
-                // alert(data1);
+                /// console.log(data1);
                 var data2 = JSON.parse(data1);
                 //alert(data2.activity_no);
                 $('#act_id').append(data2.activity_no);

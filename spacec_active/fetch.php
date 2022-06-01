@@ -2,7 +2,7 @@
 session_start();
 
 include '../Db_Connection/db_spacece_active.php';
-var_dump($_SESSION);
+//var_dump($_SESSION);
 if (isset($_POST['getDetails'])) {
 
     if (isset($_POST['id'])) {
@@ -12,7 +12,7 @@ if (isset($_POST['getDetails'])) {
             echo json_encode($result);
         }
     } else {
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
         if (isset($_SESSION['current_user_id'])) {
             $u_id=$_SESSION['current_user_id'];
             $u_email=$_SESSION['current_user_email'];
