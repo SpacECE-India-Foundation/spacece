@@ -297,8 +297,11 @@ if(isset($thirdpage)){
             ?>
             
                 </div>
-                
+                     
         </div>
+        <div><a href="../../blog/index.php">
+            <img src="../../img/logo/children_immu_logo.jpg" class=" img img-circle" alt="BABY CARE" width="50px" height="50px" /> Blog
+        </a></div>
         <?php
 } else if(isset($fourthpage)){
     ?>
@@ -427,9 +430,14 @@ else{
             ?>
             
                 </div>
+                <?php if(empty($thirdpage) &&empty($fourthpage) ){
+                   ?>
+                   
                 <div><a href=<?= isset($main_page) ?"./blog/index.php": "../blog/index.php"?>>
             <img src=<?= isset($main_page) ?"./img/logo/children_immu_logo.jpg" : "../img/logo/children_immu_logo.jpg" ?> class="img img-circle img-thumbnail blog-image" alt="BLOG"  /> Blog
         </a></div>
+        <?php 
+                }  ?>
         </div>
        
         

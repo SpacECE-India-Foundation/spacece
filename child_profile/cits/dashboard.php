@@ -100,7 +100,83 @@ include('include/config.php');
 						</div>
 			
 					
+					<?php
+					//var_dump($_SESSION);
+					$uid=$_SESSION['current_user_id'];
+					$email=$_SESSION['current_user_email'];
+					$sql1="SELECT tblchildren.ID as children_id, tblchildren.childDoB,DATEDIFF(CURDATE(),tblchildren.childDoB) as diff from tblchildren  where parentEmail='$email'";
 					
+
+					$select1=mysqli_query($con,$sql1);
+if($select1){
+
+    while($row1=mysqli_fetch_assoc($select1)){
+		$months=$row1['diff'];
+        $days =0;
+        if($months<2){
+            $days =2;
+        }elseif( $months < 6){
+            $days =6;
+        }elseif( $months<18){
+            $days =18;   
+        }elseif( $months<48){
+            $days =48;  
+        }
+		$children_id=$row1['children_id'];
+		$sql2="SELECT age  FROM `parents_answers` WHERE child_id='$children_id' ORDER by age LIMIT 1" ;
+		$select2=mysqli_query($con,$sql2);
+		$answer_age=0;
+		while($row2=mysqli_fetch_assoc($select2)){
+$answer_age=$row2['age'];
+		}
+      
+		if($days==$answer_age){
+		
+			
+		}else{
+			$sql="SELECT * FROM `parents_questions` WHERE child_age='$days' ORDER BY q_id LIMIT 10";
+			$select=mysqli_query($con,$sql);
+			if($select){
+				while($row=mysqli_fetch_assoc($select)){
+				   
+					?>
+					<div class="container">
+					<div class="mt-3 " style="margin-top:15%;">
+				<?php include('include/sidenav.html');?>
+				</div>
+				
+				<h4 style="display:flex;justify-content: center;">Fill The details</h4>
+					<form id="answer" id="answer" method="POST" >
+				
+						<div class="card" style="display:flex;justify-content: center;">
+						
+						<h5><b><?php  echo $row['q_text']; ?></b></h5>
+						<input type="hidden" id="email" name="email" value="<?php echo $_SESSION['current_user_id'];  ?>">
+						<input type="hidden" id="children_id" name="children_id" value=<?php echo $row1['children_id'];  ?>/>
+						<input type="hidden" id="children_age" name="children_age" value=<?php echo $days; ?>/>
+						<input type="hidden" id="parent_id" name="parent_id" value=<?php echo $uid; ?>/>
+					<input type="hidden" id="q_id[]" name="q_id[]" value=<?php echo $row['q_id'];  ?>/>
+					<div class="form-group col-sm-3">
+						<div class="col">
+					<input type="text" class="form-group" id="answ[]"name="answ[]">
+					</div>
+					<div class="col">
+					<input type="submit"  class="btn brn-sm btn-secondary" value="submit" id="submit">
+					</div>
+					</div>
+					</div>
+					</form>
+					</div>
+					<?php
+					}
+				 }
+echo "else";
+    }
+}
+}else{
+    echo "No Data Found";
+}
+?>
 						
 						
 					
@@ -144,6 +220,21 @@ include('include/config.php');
 				FormElements.init();
 			});
 		</script>
+		<script type="text/javascript">
+    $('#answer').on('submit',function(){
+  
+
+     var form=$("#answer");
+     $.ajax({
+        type:"POST",
+        url:"./answer_ajax.php",
+        data:form.serialize(),
+        success:function(response){
+        alert(response);
+        }
+    });
+})
+</script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>

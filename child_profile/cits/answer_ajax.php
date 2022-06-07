@@ -1,17 +1,16 @@
 <?php
 include("./include/config.php");
 
-//var_dump($_POST);
 
 $arr = $_POST; 
-foreach( $arr['children_id'] as $key=> $row ) {
+foreach( $arr['q_id'] as $key=> $row ) {
    
-    $children_id=$_POST['children_id'][$key];
-    $children_age=$_POST['children_age'][$key];
+    $children_id=$_POST['children_id'];
+    $children_age=$_POST['children_age'];
     $q_id=$_POST['q_id'][$key];
     $answ=$_POST['answ'][$key];
-    $email=$_POST['email'][$key];
-    $parent_id=$_POST['parent_id'][$key];
+    $email=$_POST['email'];
+    $parent_id=$_POST['parent_id'];
     $sql="SELECT * from parents_answers where parent_id='$parent_id' AND child_id='$children_id' AND age='$children_age'";
     $select=mysqli_query($con,$sql);
     $count=mysqli_num_rows($select);

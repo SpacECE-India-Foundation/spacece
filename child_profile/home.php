@@ -11,7 +11,7 @@ session_start();
 if(isset($_SESSION['current_user_name'])){
    //echo "Session";
 if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
-   echo "Session";
+  
    header("Location:./cits/dashboard.php");
 }elseif($_SESSION['current_user_type']=='admin'){
    header('Location:./cits/admin/dashboard.php');
