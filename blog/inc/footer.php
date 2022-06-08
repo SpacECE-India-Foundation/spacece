@@ -42,8 +42,8 @@
 				</div><!-- /col-lg-4 -->
 				
 				<div class="col-lg-3">
-					<h4>About Babycare</h4>
-					<p>Babycare online service for every 1 month to 5 years normal & special childrens. <a href="about.php">Details</a></p>
+					<h4>About Blog</h4>
+					<p>Online service for every 1 month to 5 years normal & special childrens. <a href="about.php">Details</a></p>
 				</div><!-- /col-lg-4 -->
 			
 			</div>

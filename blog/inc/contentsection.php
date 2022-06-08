@@ -14,11 +14,10 @@
 			</div>
 <?php  } } ?>
 			<div class="col-lg-4">
-				<h3>Special Childreans</h3>
+				<h3>Blogs for Childreans</h3>
 				<hr>
 				<p>
-					It is a long established fact that a reader will be distracted by the readable content of a page when 
-					looking at its layout. <a href="about.php">See More</a>
+					Read blogs for children activity and food habits <a href="about.php">See More</a>
 				</p>
 			</div>
 

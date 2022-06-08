@@ -10,7 +10,7 @@
 ?>
 				<div class="col-lg-8 col-lg-offset-2 centered">
 					<img src="assets/img/<?php echo $result['image']; ?>" alt="Stanley">
-					<h1>About BabyCare</h1>
+					<h1>About Blog</h1>
 					<p><?php echo $result['note']; ?></p>					
 				
 				</div><!-- /col-lg-8 -->
