@@ -12,7 +12,7 @@ if(empty($_SESSION['admin_id'])){
 integrity="sha384s-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script defer src="https://friconix.com/cdn/friconix.js"> </script>
-
+<?php include('include/sidenav.html');?>
 <div class="container">
 <table class="table table-bordered table-responsive table-hover table-striped">
     <thead>
@@ -26,6 +26,7 @@ integrity="sha384s-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9I
 
 <?php 
 $query="SELECT * from parents_questions";
+echo $query;
 $insert=mysqli_query($con,$query);
 while($row=mysqli_fetch_assoc($insert)){
    ?>
