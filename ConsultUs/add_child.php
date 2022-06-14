@@ -19,6 +19,9 @@ $parentaddress=$_POST['parentaddress'];
 $childage=$_POST['childage'];
 $medhis=$_POST['medhis'];
 $dob=$_POSt['childob'];
+
+// "insert into cits1.tblchildren(childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu,childDoB) values('$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis','$dob')";
+
 $sql=mysqli_query($con,"insert into cits1.tblchildren(childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu,childDoB) values('$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis','$dob')");
 if($sql)
 {
@@ -48,21 +51,6 @@ header('location:add-child.php');
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 
-	<script>
-function userAvailability() {
-$("#loaderIcon").show();
-jQuery.ajax({
-url: "check_availability.php",
-data:'email='+$("#parentemail").val(),
-type: "POST",
-success:function(data){
-$("#user-availability-status1").html(data);
-$("#loaderIcon").hide();
-},
-error:function (){}
-});
-}
-</script>
 	</head>
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
@@ -74,8 +62,6 @@ error:function (){}
 
 <section id="page-title">
 <div class="nav" style="margin-top: 5%;">
-	<?php include('include/sidenav.html');?>
-	</div>
 <div class="row">
 
 <div class="col-sm-8">
@@ -206,12 +192,7 @@ Register
 		<script src="assets/js/main.js"></script>
 		<!-- start: JavaScript Event Handlers for this page -->
 		<script src="assets/js/form-elements.js"></script>
-		<script>
-			jQuery(document).ready(function() {
-				Main.init();
-				FormElements.init();
-			});
-		</script>
+>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>
