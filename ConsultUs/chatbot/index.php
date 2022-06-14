@@ -1,3 +1,8 @@
+
+<?php  
+header('location:../index.php');
+exit();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,7 +33,7 @@
     </style>
 
     
-    <!-- Custom styles for this template -->
+    
     <link href="signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
@@ -53,4 +58,4 @@
 </main>
 
   </body>
-</html>
+</html> 

@@ -4,6 +4,7 @@ if(empty($_SESSION['current_user_email'])){
   header('location:../spacece_auth/login.php');
   exit();
 }
+
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";

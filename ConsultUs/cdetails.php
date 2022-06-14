@@ -71,6 +71,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
             ?>
 <a class="btn btn-sm" style="background-color: orange;" href="showmyappointment.php">SHOW MY APPOINTMENT</a>
         <a class="btn btn-sm" style="background-color: orange;" href="myChildrens.php">My Childrens</a>
+        <a class="btn btn-sm" style="background-color: orange;" href="add_child.php">Register Childrens</a>
+
             <?php
         }
 ?>        
