@@ -54,7 +54,7 @@ if($row4){
        
         
     else{
-      $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',mobole='$mob',email='$email',date_appointment='$adate', children_id='$child_id' WHERE bid='$bookid'";
+      $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',mobile='$mob',email='$email',date_appointment='$adate', children_id='$child_id' WHERE bid='$bookid'";
 
       $res= mysqli_query($conn,$sql);
       
@@ -75,10 +75,10 @@ if($row4){
     
   }
 }else{
-        $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',mobole='$mob',email='$email',date_appointment='$adate',children_id='$child_id' WHERE bid='$bookid'";
+        $sql= " UPDATE appointment SET  status ='$status',time_appointment='$atime',mobile='$mob',email='$email',date_appointment='$adate',children_id='$child_id' WHERE bid='$bookid'";
 
         $res= mysqli_query($conn,$sql);
-        
+        echo $sql;
         
         if($res){
           $sql1= " SELECT * from appointment WHERE `bid`='$bookid'";

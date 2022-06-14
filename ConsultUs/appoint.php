@@ -375,7 +375,7 @@ $.ajax({
   },url:'./c_booking_ajax.php',
   success:function(data){
   // alert(data);
-  // console.log(data);
+   console.log(data);
     if(data==="Unavailable"){
       swal("Error","Consultant Un available","error");
     }
