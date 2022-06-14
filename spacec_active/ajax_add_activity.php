@@ -20,8 +20,8 @@ if(isset($_POST['act_name'])){
  $status=$_POST['act_type'];
  $VUpload=$_POST['VUpload'];
 
- if($VUpload=='1'){
-    $flag=1;
+ if($VUpload=='Yes'){
+    $flag="Yes";
  
  $pl_name=$_POST['pl_name'];
  $pl_desc=$_POST['pl_desc'];
@@ -79,7 +79,7 @@ if($playlist_id){
 // }
  }else{
     $db = new DB();
-    $flag=0;
+    $flag="No";
     $playlist_id=null;
     $pl_desc=null;
     $pl_name=null;

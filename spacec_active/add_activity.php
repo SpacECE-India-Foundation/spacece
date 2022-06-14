@@ -209,18 +209,18 @@ $("#add_activity").on('submit',function(e){
         var  act_type=$('#act_type').val();
         var act_date=$('#act_date').val();
         
-        var VUpload=0;
+        var VUpload="No";
         var pl_name=null;
         var pl_desc=null;
         $('#VUpload').on('click', function(e) {
        if(e.currentTarget.checked){
         //alert("Checked");  
-        VUpload=1;
+        YTPlaylistActive="Yes";
        // $('.ytv').fadeIn("slow");
         pl_name=$('#pl_name').val();
          pl_desc=$('#pl_desc').val();
        }else{
-        VUpload=0;
+        YTPlaylistActive="No";
         $('.ytv').hide();
        }
     });
