@@ -24,7 +24,11 @@ $childage=$_POST['childage'];
 $medhis=$_POST['medhis'];
 
 $dob=$_POST['childob'];
-$sql=mysqli_query($con,"update tblchildren set childName='$childname',parentContno='$parentcontact',parentEmail='$parentemail',childGender='$gender',parentAdd='$parentaddress',childAge='$childage',childImmu='$medhis' childDoB='$dob' where ID='$eid'");
+$date = DateTime::createFromFormat('m-d-Y', $dob);
+$dob_new = $date->format('Y-m-d');
+
+
+$sql=mysqli_query($con,"update tblchildren set childName='$childname',parentContno='$parentcontact',parentEmail='$parentemail',childGender='$gender',parentAdd='$parentaddress',childAge='$childage',childImmu='$medhis' childDoB='$dob_new' where ID='$eid'");
 if($sql)
 {
 echo "<script>alert('Child info updated Successfully');</script>";
