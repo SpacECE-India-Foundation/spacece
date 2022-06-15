@@ -1,7 +1,7 @@
 <?php
 include './header_local.php';
 include '../../common/header_module.php';
-//session_start();
+session_start();
 //error_reporting(0);
 include('include/config.php');
 //include('include/checklogin.php');
@@ -101,7 +101,7 @@ include('include/config.php');
 			
 					
 					<?php
-					//var_dump($_SESSION);
+					var_dump($_SESSION);
 					$uid=$_SESSION['current_user_id'];
 					$email=$_SESSION['current_user_email'];
 					$sql1="SELECT tblchildren.ID as children_id, tblchildren.childDoB,DATEDIFF(CURDATE(),tblchildren.childDoB) as diff from tblchildren  where parentEmail='$email'";
@@ -111,6 +111,7 @@ include('include/config.php');
 if($select1){
 
     while($row1=mysqli_fetch_assoc($select1)){
+		var_dump($row1);
 		$months=$row1['diff'];
         $days =0;
         if($months<2){
