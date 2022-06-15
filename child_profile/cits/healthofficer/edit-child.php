@@ -13,6 +13,7 @@ if(empty($_SESSION['current_user_email'])){
 
 if(isset($_POST['submit']))
 {	
+	var_dump($_POST);
 	$eid=$_GET['editid'];
 	$childname=$_POST['childname'];
 $parentcontact=$_POST['parentcontact'];
@@ -21,6 +22,7 @@ $gender=$_POST['gender'];
 $parentaddress=$_POST['parentaddress'];
 $childage=$_POST['childage'];
 $medhis=$_POST['medhis'];
+
 $dob=$_POST['childob'];
 $sql=mysqli_query($con,"update tblchildren set childName='$childname',parentContno='$parentcontact',parentEmail='$parentemail',childGender='$gender',parentAdd='$parentaddress',childAge='$childage',childImmu='$medhis' childDoB='$dob' where ID='$eid'");
 if($sql)
@@ -144,7 +146,7 @@ Client Address
 	Dob
 </label>
 
-<input type="date" name="childob" id="childob" class="form-control"  placeholder="Select dob" required="true">
+<input type="date" name="childob" id="childob" value="<?php  echo $row['childDoB'];?>" class="form-control"  placeholder="Select dob" required="true">
 
 </div>
 
