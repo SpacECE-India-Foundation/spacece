@@ -16,7 +16,7 @@ $gender=$_POST['gender'];
 $parentaddress=$_POST['parentaddress'];
 $childage=$_POST['childage'];
 $medhis=$_POST['medhis'];
-$dob=$_POSt['childob'];
+$dob=$_POST['childob'];
 var_dump($_POST);
 echo $dob;
 $sql=mysqli_query($con,"insert into tblchildren(Docid,childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu,childDoB) values('$docid','$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis','$dob')");
