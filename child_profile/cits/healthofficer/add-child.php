@@ -144,7 +144,7 @@ Parent Address/Residence
 <label for="fess">
  Date of birth
 </label>
-<input type="date" name="childob" class="form-control"  placeholder="Select dob" required="true">
+<input type="date" name="childob" id="childob" class="form-control"  placeholder="Select dob" required="true">
 </div>
 <div class="form-group">
 <label for="fess">

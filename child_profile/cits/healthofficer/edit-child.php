@@ -21,7 +21,8 @@ $gender=$_POST['gender'];
 $parentaddress=$_POST['parentaddress'];
 $childage=$_POST['childage'];
 $medhis=$_POST['medhis'];
-$sql=mysqli_query($con,"update tblchildren set childName='$childname',parentContno='$parentcontact',parentEmail='$parentemail',childGender='$gender',parentAdd='$parentaddress',childAge='$childage',childImmu='$medhis' where ID='$eid'");
+$dob=$_POST['childob'];
+$sql=mysqli_query($con,"update tblchildren set childName='$childname',parentContno='$parentcontact',parentEmail='$parentemail',childGender='$gender',parentAdd='$parentaddress',childAge='$childage',childImmu='$medhis' childDoB='$dob' where ID='$eid'");
 if($sql)
 {
 echo "<script>alert('Child info updated Successfully');</script>";
@@ -139,6 +140,14 @@ Client Address
 <textarea type="text" name="medhis" class="form-control"  placeholder="Enter name of the disease to be vaccinated for" required="true"><?php  echo $row['childImmu'];?></textarea>
 </div>	
 <div class="form-group">
+<label for="fess">
+	Dob
+</label>
+
+<input type="date" name="childob" id="childob" class="form-control"  placeholder="Select dob" required="true">
+
+</div>
+
 <label for="fess">
  Creation Date
 </label>
