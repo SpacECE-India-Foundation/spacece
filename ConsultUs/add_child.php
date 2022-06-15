@@ -19,8 +19,9 @@ $parentaddress=$_POST['parentaddress'];
 $childage=$_POST['childage'];
 $medhis=$_POST['medhis'];
 $dob=$_POSt['childob'];
+$date = DateTime::createFromFormat('m-d-Y', $dob);
 
-// "insert into cits1.tblchildren(childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu,childDoB) values('$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis','$dob')";
+"insert into cits1.tblchildren(childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu,childDoB) values('$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis','$dob')";
 
 $sql=mysqli_query($con,"insert into cits1.tblchildren(childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu,childDoB) values('$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis','$dob')");
 if($sql)

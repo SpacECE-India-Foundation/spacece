@@ -8,6 +8,7 @@ include('include/config.php');
 
 if(isset($_POST['submit']))
 {	
+	//var_dump($_POST);
 	$docid=$_SESSION['current_user_id'];
 	$childname=$_POST['childname'];
 $parentcontact=$_POST['parentcontact'];
@@ -17,15 +18,17 @@ $parentaddress=$_POST['parentaddress'];
 $childage=$_POST['childage'];
 $medhis=$_POST['medhis'];
 $dob=$_POST['childob'];
-$date = DateTime::createFromFormat('m-d-Y', $dob);
+
+$timestamp = strtotime($dob);
+
+$new_date = date("Y-m-d", $timestamp);
 
 
-$dob_new = $date->format('Y-m-d');
 
-$sql=mysqli_query($con,"insert into tblchildren(Docid,childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu,childDoB) values('$docid','$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis','$dob_new')");
+$sql=mysqli_query($con,"insert into tblchildren(Docid,childName,parentContno,parentEmail,childGender,parentAdd,childAge,childImmu,childDoB) values('$docid','$childname','$parentcontact','$parentemail','$gender','$parentaddress','$childage','$medhis','$new_date')");
 if($sql)
 {
-echo "<script>alert('Patient info added Successfully');</script>";
+	echo"<script>alert('Patient info added Successfully');</script>";
 header('location:add-child.php');
 
 }
