@@ -30,7 +30,7 @@ if (isset($_POST["getItem"])) {
 }
 if (isset($_POST["category"])) {
 	$category_query = "SELECT * FROM categories";
-	$run_query = mysqli_query($conn, $category_query) or die(mysqli_error($con));
+	$run_query = mysqli_query($conn, $category_query) or die(mysqli_error($conn));
 	echo "
 		<div class='nav nav-pills nav-stacked'>
 			<li class='active' ><a href='#' style='background-color: orange;'><h4>Categories</h4></a></li>
