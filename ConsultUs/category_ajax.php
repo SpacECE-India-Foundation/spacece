@@ -1,5 +1,5 @@
 <?php
-include '../Db_Connection/db_consultus_app.php';
+include '../Db_Connection/db_spacece.php';
 
 if(isset($_POST['cat_name'])){
 
