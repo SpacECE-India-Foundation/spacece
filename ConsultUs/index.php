@@ -146,7 +146,8 @@ include_once '../common/header_module.php';
 		<div class="row">
 		<?php
 
-include '../Db_Connection/db_spacece.php';
+include '../Db_Connection/db_consultus_app.php';
+
 $check = "SELECT * FROM consultant_category ";
 $run = mysqli_query($conn, $check);
 
