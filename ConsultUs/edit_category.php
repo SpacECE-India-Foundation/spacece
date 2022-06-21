@@ -33,15 +33,14 @@ $run = mysqli_query($conn, $check);
         <tbody>
         </tbody>
     <?php 
-    while($row=mysqli_ mysqli_fetch_assoc($run)){
+    while($row= mysqli_fetch_assoc($run)){
     ?>
         <tr>
             
             <td><?php echo $row['cat_name']; ?></td>
             <td><?php echo $row['cat_slug'];?></td>
-            <td><?php echo $row['cat_image'];?></td>
-            <td><input type="submit" class=" btn btn-secondary about edit" id=<?php  echo $row['cat_id']; ?> name="edit" > </td>
-            <td><input type="submit" class=" btn btn-delete about delete" id=<?php  echo $row['cat_id']; ?> name="delete" > </td>
+            <td><?php echo $row['cat_img'];?></td>
+           <td><input type="submit" class=" btn btn-danger btn-delete about delete" id=<?php  echo $row['cat_id']; ?> name="delete" > </td>
 
         </tr>
         <?php
@@ -75,7 +74,7 @@ $run = mysqli_query($conn, $check);
         </div>
 
     </div>-->
-
+    </div>
 
     </body>
 </html>
@@ -104,7 +103,13 @@ include '../common/footer_module.php';
 
 <script>
 $(document).ready(function(){
-//$('#category').on('submit',function(e){
+    
+    $('.edit').on('click',function(){
+        alert($(this).prop('id'));
+
+
+    })
+    //$('#category').on('submit',function(e){
   
    // var form_data = new FormData(this);  
    // e.preventDefault();
@@ -138,8 +143,20 @@ $(document).ready(function(){
     // })
 //})
 
-$('.edit').on('click',function(){
-    alert("clicked");
+$('.delete').on('click',function(){
+    var id=$(this).prop('id');
+    var  action="delete";
+    $.ajax({
+        method:"POST",
+        data:{
+            id:id,
+            action:action
+        },
+        url:"./category_ajax.php",
+        success:function(data){
+            alert(data);
+        }
+    })
 })
 })
 

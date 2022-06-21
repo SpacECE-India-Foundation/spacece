@@ -34,3 +34,13 @@ move_uploaded_file($_FILES['image']['tmp_name'], $target_path);
 
 }
 }
+if(isset($_POST['action'])){
+$id=$_POST['id'];
+$sqli="DELETE from consultant_category where cat_id='$id'";
+$result=mysqli_query($conn,$sqli);
+if($result > 0){
+    echo "Success";
+}else{
+    echo "Error";
+}
+}
