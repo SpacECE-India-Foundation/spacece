@@ -256,7 +256,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
 
 <?php include_once '../common/footer_module.php'; ?>
 <script>
-$( document ).ready(function() {
+$(document).ready(function() {
 	//custom button for homepage
      $( ".share-btn" ).click(function(e) {
      	 $('.networks-5').not($(this).next( ".networks-5" )).each(function(){
@@ -275,4 +275,8 @@ $( document ).ready(function() {
 			$('body').ALightBox({
 				showYoutubeThumbnails: true
 			});
+            $('#alb_icon_close').on('click',function(){
+                $('.video-player').pause();
+            })
 		</script>
+ 
