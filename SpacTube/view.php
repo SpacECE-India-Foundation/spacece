@@ -275,8 +275,7 @@ $(document).ready(function() {
 			$('body').ALightBox({
 				showYoutubeThumbnails: true
 			});
-            $('#alb_icon_close').on('click',function(){
-                $('.video-player').pause();
-            })
+            
 		</script>
+
  
