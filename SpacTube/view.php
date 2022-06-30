@@ -275,7 +275,4 @@ $(document).ready(function() {
 			$('body').ALightBox({
 				showYoutubeThumbnails: true
 			});
-            
 		</script>
-
- 
