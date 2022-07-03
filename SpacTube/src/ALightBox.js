@@ -47,7 +47,7 @@
 			if(tag == 'a' && settings.showYoutubeThumbnails) {
 				var videoID = $(items[i]).attr('href').match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/)[2];
 				
-				$(items[i]).html(`<img src="https://i.ytimg.com/vi/${videoID}/maxresdefault.jpg"/>`)
+				$(items[i]).html(`<img id="thumb" src="https://i.ytimg.com/vi/${videoID}/maxresdefault.jpg"/>`)
 				$('#alb_content').html(`<iframe src="https://www.youtube.com/embed/${videoID}?badge=0&html5=1" width="1280" height="720" frameborder="0" allowfullscreen></iframe>`);
 			}
 		}

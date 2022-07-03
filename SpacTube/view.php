@@ -25,6 +25,10 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
        
         height:auto;
     }
+    img#thumb {
+    
+    height: 180px;
+}
 </style>
     <div class="container">
         <div class="ins-box">
@@ -276,3 +280,14 @@ $(document).ready(function() {
 				showYoutubeThumbnails: true
 			});
 		</script>
+        <script>
+            $('#alb_icon_close').on('click',function(){
+                
+                console.log("Close");
+             //   $('video').trigger('pause');
+             var myVideo = document.getElementsByClassName("video-stream"); 
+
+
+    myVideo.pause(); 
+            })
+            </script>

@@ -12,14 +12,14 @@
   text-align: center;
   text-decoration: none;
   margin: 5px 2px;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .fa:hover {
     opacity: 0.7;
 }
 
-.fa-facebook {
+.fa-facebook-f {
   background: #3B5998;
   color: white;
 }
@@ -45,8 +45,19 @@
 }
 
 .fa-instagram {
-  background: #125688;
-  color: white;
+  display: inline-flex;
+  text-align: center;
+  border-radius: 20%;
+  color: #fff;
+  width: 30px;
+  height: 50px;
+  font-size: 30px;
+  /*line-height: 20px;
+  vertical-align: middle;*/
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+  flex-direction: column;
 }
 
 .fa-pinterest {
@@ -138,6 +149,7 @@
   }
 }
 
+
 @media (min-width: 1025px) and (max-width: 1280px) {
 
   .on-desktop {
@@ -166,7 +178,7 @@
                     </a>
 
             <div class="social">
-                <a href="https://www.facebook.com/SpacECEIn"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.facebook.com/SpacECEIn"><i class="fa fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/spacece.in/"><i class="fa fa-instagram"></i></a>
                 <a href="https://t.me/joinchat/EtMJq_3BKL4zNGE1"><i class="fa fa-telegram" aria-hidden="true"></i></a>
                 <a href="https://www.linkedin.com/company/spacece-co/"><i class="fa fa-linkedin"></i></a>
