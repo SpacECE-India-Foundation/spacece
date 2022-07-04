@@ -90,8 +90,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                     <th>Available from(Time):</th>
                     <th>Available to(Time):</th>
                     <th>Consultant fee:</tho>
-                    <th>Available from(day):</th>
-                    <th>Available To(day):</th>
+                    <th>Available days:</th>
+                    
                     <th>Qualification:</th>
                     <th>Action:</th>
                 </tr>
@@ -101,8 +101,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                 if ($cat == "all") {
                     $sql="SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,users.u_image AS u_image ,users.u_mob AS u_mob,
               consultant.c_office AS c_office,consultant.c_from_time As c_from_time, consultant.c_to_time As c_to_time , 
-              consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
-              consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
+              consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_aval_days As c_aval_days,consultant.c_qualification AS c_qualification ,
               consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
               WHERE users.u_id = consultant.u_id 
               AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant'";
@@ -131,9 +130,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td><?php echo $row['c_from_time']; ?></td>
                         <td><?php echo $row['c_to_time']; ?></td>
                         <td><?php echo $row['c_fee']; ?></td>
-                        <td><?php echo $row["c_available_from"]; ?></td>
+                        <td><?php echo $row["c_aval_days"]; ?></td>
 
-                        <td><?php echo $row['c_available_to']; ?></td>
                         
                        
                         <td><?php echo $row['c_qualification']; ?></td>
@@ -201,8 +199,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                     $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,
                     users.u_image AS u_image ,users.u_mob AS u_mob,
                 consultant.c_office AS c_office,consultant.c_from_time As c_from_time, consultant.c_to_time As c_to_time , 
-                consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_available_from As c_available_from,
-                consultant.c_available_to AS c_available_to ,consultant.c_qualification AS c_qualification ,
+                consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_aval_days As c_aval_days,consultant.c_qualification AS c_qualification ,
                 consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
                 WHERE users.u_id = consultant.u_id AND  consultant_category.cat_name='$cat'
                 AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' ";
@@ -231,9 +228,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         <td><?php echo $row['c_from_time']; ?></td>
                         <td><?php echo $row['c_to_time']; ?></td>
                         <td><?php echo $row['c_fee']; ?></td>
-                        <td><?php echo $row["c_available_from"]; ?></td>
+                        <td><?php echo $row["c_aval_days"]; ?></td>
 
-                        <td><?php echo $row['c_available_to']; ?></td>
                         
                        
                         <td><?php echo $row['c_qualification']; ?></td>
