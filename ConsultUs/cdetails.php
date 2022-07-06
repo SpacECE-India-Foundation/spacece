@@ -79,7 +79,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
             <a href="./chatbot/room.php?roomname=global1" class=" btn btn-sm" style="color:black;background-color:orange;float:right;">CHAT GLOBAL</a><br><br>
             <br>
             <br>
-            <table class=" table table-striped table-hover  table-full table-responsive ">
+            <table class=" table table-striped table-bordered table-hover  table-full table-responsive ">
                 <tr>
                     <th>S.NO.:</th>
                     <th>IMAGE:</th>

@@ -20,6 +20,10 @@ $page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
     <h6>Trending Section</h6>
 </button>
 
+<button <?php if ($page != 'audio_book') { ?> onclick="window.location.href = 'audio_book.php';" <?php } else {
+                                                                                            } ?> name="audio_book" class="btn-btn" <?php if ($page == 'audio_book') { ?> style="background-color:#DCDCDC;" <?php } else { ?> style="background-color:orange;" <?php } ?>>
+    <h6>Audio book Section</h6>
+</button>
 <!-- <button onclick="window.open('https:/www.spacece.co/about-us', '_self')" name = "about" class="btn-btn"style="background-color:orange;"><h6>About Us</h6></button><button onclick="window.open('https:/www.spacece.co/about-us', '_self')" name = "about" class="btn-btn"style="background-color:orange;"><h6>About Us</h6></button> -->
 <button onclick="window.location.href = '../about.php';" name="about" class="btn-btn" style="background-color:orange;">
     <h6>About Us</h6>
