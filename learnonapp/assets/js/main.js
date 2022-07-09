@@ -104,32 +104,56 @@ let adminPage = (courses) => {
                 <form id="add_form_div" class="modal-body">
                 <div class="form-row">
                 <div class="form-group col-md-6">
+                <div class="col-sm-4">
                   <label for="title-new">Title</label>
-                  <input type="text" id="title-new" name="title-new">
+                  </div>
+                  <div class="col-sm-8">
+                  <input type="text" id="title-new" class="form-control" name="title-new" placeholder="Enter Couse Title">
+                </div>
                 </div>
                 <div class="form-group col-md-6">
+                <div class="col-sm-4">
                   <label for="description-new">Description</label>
-                  <input type="text" id="description-new" name="description-new">
+                  </div>
+                  <div class="col-sm-8">
+                  <input type="text" id="description-new" class="form-control col-sm-3" name="description-new" placeholder="Enter Course Description">
+                </div>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+                <div class="col-sm-4">
                   <label for="duration-new">Duration</label>
-                  <input type="text" id="duration-new" name="duration-new">
+                  </div>
+                  <div class="col-sm-8">
+                  <input type="text" id="duration-new" class="form-control col-sm-3" name="duration-new" placeholder="Enter Corse Duration">
+                </div>
                 </div>
                 <div class="form-group col-md-6">
+                <div class="col-sm-4">
                   <label for="mode-new">Mode</label>
-                  <input type="text" id="mode-new" name="mode-new">
+                  </div>
+                  <div class="col-sm-8">
+                  <input type="text" id="mode-new" name="mode-new" placeholder="Enter Mode">
+                </div>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+                <div class="col-sm-4">
                   <label for="type-new">Type</label>
-                  <input type="text" id="type-new" name="type-new">
+                  </div>
+                  <div class="col-sm-8">
+                  <input type="text" id="type-new" class="form-control col-sm-3" name="type-new" placeholder="Enter Corse type">
+                </div>
                 </div>
                 <div class="form-group col-md-6">
+                <div class="col-sm-4">
                   <label for="price-new">Price</label>
-                  <input type="text" id="price-new" name="price-new">
+                  </div>
+                  <div class="col-sm-8">
+                  <input type="text" id="price-new" class="form-control col-sm-3" name="price-new" placeholder="Enter price">
+                </div>
                 </div>
               </div>
             </form>
