@@ -29,7 +29,7 @@ include("include/config.php");
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />	
 	</head>
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
-  " class="hold-transition login-page">
+  " class="hold-transition login-page img-responsive">
         
 		<div class="mt-3" style="margin-top:5%;">
 		<div class="mt-3" style="margin-top:5%;">

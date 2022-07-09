@@ -39,7 +39,7 @@ if(isset($_GET['del']))
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 	</head>
 	<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
-  " class="hold-transition login-page">
+  " class="hold-transition login-page img-responsive">
 				
 		
 			
@@ -58,7 +58,7 @@ if(isset($_GET['del']))
 	</div>
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 style="padding-left:500px;color: red"class="mainTitle">Admin | Manage Officers</h1>
+									<h1 style="color: red"class="mainTitle d-flex justify-content-center">Admin | Manage Officers</h1>
 																	</div>
 								
 							</div>
