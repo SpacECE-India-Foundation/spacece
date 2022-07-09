@@ -64,7 +64,7 @@ include('include/config.php');
 <div class="col-md-12">
 <h5 class="over-title margin-bottom-15">View <span class="text-bold">Children</span></h5>
 	
-<table class="table table-hover" id="sample-table-1">
+<table class="table table-hover table-striped table-responsive" id="sample-table-1">
 <thead>
 <tr>
 <th class="center">#</th>

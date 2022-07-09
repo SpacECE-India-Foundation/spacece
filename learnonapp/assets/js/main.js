@@ -61,7 +61,7 @@ const addMoreDayContent = () => {
 
 let adminPage = (courses) => {
   return `
-        <table id="admin-table">
+        <table id="admin-table" class="table table-responsive table-striped">
             <tr>
               <th>ID</th>
               <th>Title</th>
@@ -113,7 +113,7 @@ let adminPage = (courses) => {
                 </div>
                 <div class="form-group col-md-6">
                 <div class="col-sm-4">
-                  <label for="description-new">Description</label>
+                  <label for="description-new">Description</labFel>
                   </div>
                   <div class="col-sm-8">
                   <input type="text" id="description-new" class="form-control col-sm-3" name="description-new" placeholder="Enter Course Description">

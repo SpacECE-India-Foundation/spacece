@@ -72,7 +72,7 @@ if(isset($_GET['del']))
 									<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Users</span></h5>
 									<p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
 								<?php echo htmlentities($_SESSION['msg']="");?></p>	
-									<table class="table table-hover" id="sample-table-1">
+									<table class="table table-hover table-striped table-responsive" id="sample-table-1">
 										<thead>
 											<tr>
 												<th class="center">#</th>
