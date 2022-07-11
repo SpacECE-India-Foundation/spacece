@@ -179,7 +179,7 @@ if (isset($_POST['getDetails'])) {
                 if (mysqli_num_rows($query) > 0) {
                     while ($result = mysqli_fetch_assoc($query)) {
                        
-    
+                        var_dump($result);
                         echo '<tr>
                 <td>' . $result['activity_no'] . '</td>
                     <td>' . $result['activity_name'] . '</td>
@@ -203,7 +203,7 @@ if (isset($_POST['getDetails'])) {
 
             if (mysqli_num_rows($query) > 0) {
                 while ($result = mysqli_fetch_assoc($query)) {
-                   
+                    var_dump($result);
 
                     echo '<tr>
             <td>' . $result['activity_no'] . '</td>
