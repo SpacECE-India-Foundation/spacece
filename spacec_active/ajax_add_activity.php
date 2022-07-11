@@ -21,7 +21,7 @@ if(isset($_POST['act_name'])){
  $VUpload=$_POST['VUpload'];
 
  if($VUpload=='Yes'){
-    $flag="Yes";
+    $YTPlaylistActive="Yes";
  
  $pl_name=$_POST['pl_name'];
  $pl_desc=$_POST['pl_desc'];
@@ -62,7 +62,7 @@ $playlist_id=$response->id;
 
 
 if($playlist_id){
-    $AddItems = $db->AddActivity($act_name,$act_lvl,$act_dom,$act_obj,$act_key,$act_mat,$act_asses,$act_pro,$act_ins,$status,$act_date,$playlist_id,$pl_desc,$pl_name,$flag);
+    $AddItems = $db->AddActivity($act_name,$act_lvl,$act_dom,$act_obj,$act_key,$act_mat,$act_asses,$act_pro,$act_ins,$status,$act_date,$playlist_id,$pl_desc,$pl_name,$YTPlaylistActive);
     // echo $AddItems;
     
 //     if($AddItems ==="Success"){
@@ -79,11 +79,11 @@ if($playlist_id){
 // }
  }else{
     $db = new DB();
-    $flag="No";
+    $YTPlaylistActive="No";
     $playlist_id=null;
     $pl_desc=null;
     $pl_name=null;
-    $db->AddActivity($act_name,$act_lvl,$act_dom,$act_obj,$act_key,$act_mat,$act_asses,$act_pro,$act_ins,$status,$act_date,$playlist_id,$pl_desc,$pl_name,$flag);
+    $db->AddActivity($act_name,$act_lvl,$act_dom,$act_obj,$act_key,$act_mat,$act_asses,$act_pro,$act_ins,$status,$act_date,$playlist_id,$pl_desc,$pl_name,$YTPlaylistActive);
  }
 
 }
