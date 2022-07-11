@@ -97,8 +97,8 @@ if (isset($_POST["getProduct"])) {
 				<div class='col-md-4'>
 							<div class='panel ' style='border:1px solid orange'  >
 								<div class='panel-heading' style='background-color:orange' >$pro_title</div>
-								<div class='panel-body'>
-									<img src='product_images/$pro_image' style='width:160px; height:250px;'/>
+								<div class='panel-body '>
+									<img src='product_images/$pro_image' style='max-width:100%; height:250px;' class='img img-responsive'/>
 									<select class='form-control status'>
 										<option value='Rent'>Rent</option>
 										<option value='Sale'>Purchase</option>
@@ -139,7 +139,7 @@ if (isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || iss
 				<div class='col-md-4'>
 							<div class='panel panel-info'>
 								<div class='panel-heading'>$pro_title</div>
-								<div class='panel-body'>
+								<div class='panel-body col-sm-3'>
 									<img src='product_images/$pro_image' style='width:160px; height:250px;'/>
 								</div>
 								<div class='panel-heading'>$.$pro_price.00

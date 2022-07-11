@@ -50,7 +50,7 @@
   border-radius: 20%;
   color: #fff;
   width: 30px;
-  height: 50px;
+  height: 35px;
   font-size: 30px;
   /*line-height: 20px;
   vertical-align: middle;*/

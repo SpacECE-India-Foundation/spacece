@@ -1,7 +1,14 @@
 <?php
 
 //include('../../Db_Connection/constants.php');
+// if(!defined('DB_HOST_NAME'))
+// define('DB_HOST_NAME', 'localhost');
 
+// if(!defined('DB_USER_NAME'))
+// define('DB_USER_NAME', 'root');
+
+// if(!defined('DB_USER_PASSWORD'))
+// define('DB_USER_PASSWORD', '');
 //For delete. It should come from above constants.php file
 if(!defined('DB_HOST_NAME'))
 define('DB_HOST_NAME', 'database-spacece.cjnrqpvibfnn.ap-south-1.rds.amazonaws.com');
