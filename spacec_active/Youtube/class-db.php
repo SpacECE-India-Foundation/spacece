@@ -20,7 +20,7 @@ if(!defined('DB_USER_PASSWORD'))
 define('DB_USER_PASSWORD', 'Spaceuser12#');
 
 if(!defined('CURRENCY'))
-// define('CURRENCY', '₹');
+define('CURRENCY', '₹');
 
 if(!defined('DB_NAME_SPACE_ACTIVE'))
 define('DB_NAME_SPACE_ACTIVE', 'space_active');
