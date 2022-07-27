@@ -133,7 +133,7 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
                   </div>
                </div>
                
-               <div style="padding-left: 100px" class="col-lg-4 mb-4">
+               <div  class="col-lg-4 mb-4">
                   <div class="card h-100">
                      <h4 class="card-header">Manage all records in one store</h4>
                      <div class="card-img">
@@ -160,7 +160,7 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
       radioClass: 'iradio_square-blue',
       increaseArea: '20%' // optional
     });
-  });
+  });+
 </script>
                       
     <!-- <div  style="text-align: center;  color: black; font-size: 13pt; padding-left: -100px;" class="copyright">

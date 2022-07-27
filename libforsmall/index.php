@@ -36,6 +36,39 @@ if (isset($_SESSION["current_user_name"])) {
 			<div class="row">
 				<div class="col-md-12 col-xs-12" id="product_msg">
 				</div>
+				<?php
+				if(isset($_SESSION['current_user_name'])){
+						
+					if($_SESSION['current_user_type']=='admin'){
+						?>
+						<a href="./admin/index.php" class="btn btn-warning">Admin Home</a>
+						
+						<?php
+						
+					}
+					if($_SESSION['current_user_type']=='book_owner'){
+						?>
+						<a href="./Book_owner/index.php" class="btn btn-warning">Book Owner</a>
+						
+						<?php	
+					}
+					if($_SESSION['current_user_type']=='delivery_boy'){
+						?>
+						<a href="./delivery_bou/index.php" class="btn btn-warning">Delivery Home</a>
+						
+						<?php
+					}
+					if($_SESSION['current_user_type']=='user'){
+						?>
+						<a href="./user_dash/index.php" class="btn btn-warning">User Books</a>
+				
+
+						<?php
+					}
+
+				}
+
+				?>
 			</div>
 			<div class="panel " style="border:1px solid orange" >
 				<div class="panel-heading d-flex justify-content-center" style ="background-color: orange; ">Products</div>
@@ -60,8 +93,11 @@ if (isset($_SESSION["current_user_name"])) {
 								</div>
 							</div>
 						</div> -->
-				</div>
+				
+					
+			
 				<!-- <div class="panel-footer">&copy; 2016</div> -->
+			</div>
 			</div>
 		</div>
 		<!-- <div class="col-md-1"></div> -->
