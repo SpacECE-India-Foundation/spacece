@@ -58,7 +58,7 @@ if (isset($_SESSION["current_user_name"])) {
 						
 						<?php
 					}
-					if($_SESSION['current_user_type']=='user'){
+					if($_SESSION['current_user_type']=='customer'){
 						?>
 						<a href="./user_dash/index.php" class="btn btn-warning">User Books</a>
 				
