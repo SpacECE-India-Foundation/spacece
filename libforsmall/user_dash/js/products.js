@@ -4,7 +4,8 @@ $(document).ready(function(){
 
 	function getProducts(){
 		$.ajax({
-			url : '../book_owner/classes/Products.php',
+			
+			url : '../admin/classes/Products.php',
 			method : 'POST',
 			data : {GET_PRODUCT:1},
 			success : function(response){
@@ -68,14 +69,13 @@ $(document).ready(function(){
 
 		$.ajax({
 
-			url : '../book_owner/classes/Products.php',
+			url : '../user_dash/classes/Products.php',
 			method : 'POST',
 			data : new FormData($("#add-product-form")[0]),
 			contentType : false,
 			cache : false,
 			processData : false,
 			success : function(response){
-				alert(response);
 				console.log(response);
 				var resp = $.parseJSON(response);
 				if (resp.status == 202) {
@@ -117,7 +117,8 @@ $(document).ready(function(){
 
 		$.ajax({
 
-			url : '../book_owner/classes/Products.php',
+			url : '../user_dash/classes/Products.php',
+
 			method : 'POST',
 			data : new FormData($("#edit-product-form")[0]),
 			contentType : false,
@@ -147,7 +148,8 @@ $(document).ready(function(){
 		if (confirm("Are you sure to delete this item ?")) {
 			$.ajax({
 
-				url : '../book_owner/classes/Products.php',
+				url : '../user_dash/classes/Products.php',
+
 				method : 'POST',
 				data : {DELETE_PRODUCT: 1, pid:pid},
 				success : function(response){

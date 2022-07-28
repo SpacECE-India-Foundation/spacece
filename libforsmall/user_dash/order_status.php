@@ -8,9 +8,10 @@ include_once './templates/sidebar.php';
 // if (empty($_SESSION['uid'])) {
 // 	header("location:index.php");
 // }
+$uid= $_SESSION['current_user_id'];
 if(isset($_POST['submit'])){
     $status=$_POST['status'];
-    $uid= $_SESSION['uid'];
+    
     //echo $status;
     $sql = "SELECT * from orders where owner_id='$uid' and order_status= '$status'";
     $res = $conn->query($sql);
@@ -72,7 +73,9 @@ $sql = "SELECT * from orders where owner_id='$uid'";
             </thead>
             <tbody>
             <?php
-    
+if($res){
+
+
     while($row=mysqli_fetch_assoc($res)){
          ?>
           <tr>
@@ -106,6 +109,9 @@ $sql = "SELECT * from orders where owner_id='$uid'";
         </tr>
          <?php
           }
+        }else{
+            echo "No data Found";
+        }  
 
           ?>
                

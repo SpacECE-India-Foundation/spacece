@@ -21,10 +21,15 @@ include_once '../../common/header_module.php';
 <div class="container">
     <div class="row">
     <?php
-   $uid= $_SESSION['uid'];
+
+   $uid= $_SESSION['current_user_id'];
+   
 $sql = "SELECT * from products where user_id='$uid'";
 $res = $conn->query($sql);
 if($res){
+    $count=mysqli_num_rows($res);
+    
+    if($count>0){
     while($row=mysqli_fetch_assoc($res)){
 ?>
 
@@ -43,10 +48,12 @@ if($res){
 </div>
     
 <?php
-    }
-}else{
-    echo "No data found";
-}
+    }}
+else{
+    ?>
+<h3>No Books Found</h3>
+    <?php
+}}
 
 
 ?>
