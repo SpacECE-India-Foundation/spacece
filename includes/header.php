@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('constants.php');
-//session_start();
+// session_start();
 if (isset($_SESSION['current_user_id'])) {
     // echo"Hello";
 

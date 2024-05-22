@@ -73,10 +73,10 @@ include_once '../common/header_module.php';
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class=" " src="../img/d7.jpg" alt="First slide" >
+				<img class=" " src="../img/d7.jpg" alt="First slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block" src="../img/d8.jpg" alt="Second slide" >
+				<img class="d-block" src="../img/d8.jpg" alt="Second slide">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -144,47 +144,47 @@ include_once '../common/header_module.php';
 			<p>Connect with India's top doctor consultant for your child</p>
 		</div>
 		<div class="row">
-		<?php
+			<?php
 
-include '../Db_Connection/db_consultus_app.php';
+			include '../Db_Connection/db_consultus_app.php';
 
-$check = "SELECT * FROM consultant_category ";
-$run = mysqli_query($conn, $check);
+			$check = "SELECT * FROM consultant_category ";
+			$run = mysqli_query($conn, $check);
 
-if (mysqli_num_rows($run) > 0) {
-   while($row=mysqli_fetch_assoc($run)){
+			if (mysqli_num_rows($run) > 0) {
+				while ($row = mysqli_fetch_assoc($run)) {
 
-  ?>
- 
-			<div class="col-lg-4 col-md-6 blog-item">
+			?>
+
+					<div class="col-lg-4 col-md-6 blog-item">
+						<!-- //bug id-0000076 -->
+						<h3><?php echo $row['cat_name']; ?></h3>
+						<a href="cdetails.php?category=<?php echo $row['cat_name']; ?>">
+							<img src="../img/consult_category/<?php echo $row['cat_img']; ?>" alt="" width="500" height="200"></a>
+						<h5><a href="#"> </a></h5>
+						<div class="blog-meta">
+							<!--<span><i class="fa fa-user"></i>Manas Sinkar</span>
+						<span><i class="fa fa-clock-o"></i>25 Jan 2019</span>-->
+						</div>
+						<p> </p>
+					</div>
+			<?php	}
+			} else {
+				die();
+			}
+			?><div class="col-lg-4 col-md-6 blog-item">
 				<!-- //bug id-0000076 -->
-				<h3><?php echo $row['cat_name'];?></h3>
-				<a href="cdetails.php?category=<?php echo $row['cat_name'];?>">
-					<img src="../img/consult_category/<?php echo $row['cat_img'];?>" alt="" width="500" height="200"></a>
+				<h3>All</h3>
+				<a href="cdetails.php?category=all">
+					<img src="../img/consult_category/all.png" alt="" width="500" height="200"></a>
 				<h5><a href="#"> </a></h5>
 				<div class="blog-meta">
 					<!--<span><i class="fa fa-user"></i>Manas Sinkar</span>
-						<span><i class="fa fa-clock-o"></i>25 Jan 2019</span>-->
+			<span><i class="fa fa-clock-o"></i>25 Jan 2019</span>-->
 				</div>
 				<p> </p>
 			</div>
-	<?php	}
-	}else{
-	die();
-	}
-	?><div class="col-lg-4 col-md-6 blog-item">
-	<!-- //bug id-0000076 -->
-	<h3>All</h3>
-	<a href="cdetails.php?category=all">
-		<img src="../img/consult_category/all.png" alt="" width="500" height="200"></a>
-	<h5><a href="#"> </a></h5>
-	<div class="blog-meta">
-		<!--<span><i class="fa fa-user"></i>Manas Sinkar</span>
-			<span><i class="fa fa-clock-o"></i>25 Jan 2019</span>-->
-	</div>
-	<p> </p>
-</div>
-			
+
 		</div>
 	</div>
 </section>
@@ -260,7 +260,7 @@ if (mysqli_num_rows($run) > 0) {
 
 <!-- fixed bug id 0000100 -->
 <!---offers section-->
-<div class="section col" style="width: 100%; ">
+<!-- <div class="section col" style="width: 100%; ">
 	<div class="text-center">
 		<div class="section-title text-center">
 			<h3>GET THE BEST OFFERS HERE</h3>
@@ -285,7 +285,35 @@ if (mysqli_num_rows($run) > 0) {
 			</a>
 		</div>
 	</div>
+</div> -->
+<!-- new code -->
+<div class="section col" style="width: 100%;">
+	<div class="text-center">
+		<div class="section-title text-center">
+			<h3>GET THE BEST OFFERS HERE</h3>
+			<p></p>
+		</div>
+		<div id="carouselOffersControls" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="d-block w-100" src="../img/o1.jpg" alt="First slide" style="width: 100%; height: 10%;">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="../img/o2.jpg" alt="Second slide" style="width: 100%; height: 30%;">
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselOffersControls" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselOffersControls" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
 </div>
+
 <br><br>
 
 
@@ -394,8 +422,8 @@ if (mysqli_num_rows($run) > 0) {
      </footer> -->
 <!-- <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>                                     -->
 <!--====== Javascripts & Jquery ======-->
-<!-- <script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script> -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 
 <!-- <script type="js/jquery.js"></script> -->
@@ -410,8 +438,8 @@ if (mysqli_num_rows($run) > 0) {
 
 
 <script src='js/masonry.pkgd.min.js'></script>
-	<script src='js/magnific-popup.min.js'></script>
-<script  src='../js/jquery.convform.js'></script>
+<script src='js/magnific-popup.min.js'></script>
+<script src='../js/jquery.convform.js'></script>
 <script src='js/main.js'></script>
 <script src='../js/owl.carousel.min.js'></script>
 <script type="text/javascript" src="js/jquery.convform.js">

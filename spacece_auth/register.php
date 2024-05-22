@@ -28,16 +28,16 @@ function get_consultant_categories($conn)
     <form class="register-form" method="post" autocomplete="off">
         <div class="form-group">
             <label for="name">Name</label>
-            <!-- 0000016 -->
             <input type="text" class="form-control" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" placeholder="Enter Name" id="name" name="name" />
         </div>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter Email" id="email" name="email" />
+            <span id="email-error" style="color: red;"></span>
         </div>
         <div class="form-group">
             <label for="phone">Mobile No.</label>
-            <input type="text" class="form-control" minlength="10" maxlength="10" pattern="[7-9]{1}[0-9]{9}" placeholder="Enter Mobile No." id="phone" name="phone" />
+            <input type="text" class="form-control" minlength="10" maxlength="10" pattern="[6-9]{1}[0-9]{9}" placeholder="Enter Mobile No." id="phone" name="phone" />
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -49,8 +49,9 @@ function get_consultant_categories($conn)
         </div>
         <div class="form-group">
             <label for="image">Upload Image</label>
-            <input type="file" class="form-control" placeholder="Upload Image" id="image" name="image" />
+            <input type="file" class="form-control" placeholder="Upload Image" id="image" name="image" style="height: 50px;" />
         </div>
+
         <div class="form-group">
             <label for="user_type">User Type</label>
             <select name="type" id="user_type">
@@ -175,7 +176,6 @@ function get_consultant_categories($conn)
         <p class="message">Already registered? <a href="login.php">Login</a></p>
     </form>
 </div>
-
 <?php include_once '../common/footer_module.php'; ?>
 <script>
     

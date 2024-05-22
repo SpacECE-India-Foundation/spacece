@@ -2,7 +2,19 @@
 session_start();
 include('../Db_Connection/db_spacece.php');
 
-// if (isset($_POST['register'])) {
+function isValidEmail($email) {
+    // Check if the email has a valid format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+
+    // Extract domain name from email
+    list(, $domain) = explode('@', $email);
+
+    // Check if the domain has a valid MX record (valid email domain)
+    return checkdnsrr($domain, 'MX');
+}
+
 $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 $password = trim($_POST['password']);
@@ -18,8 +30,12 @@ $target_path = $destination_path . '../img/users/' . basename($_FILES["image"]["
 
 move_uploaded_file($_FILES['image']['tmp_name'], $target_path);
 
-$check = "SELECT * FROM users WHERE u_email = '$email'";
+if (!isValidEmail($email)) {
+    echo json_encode(array('status' => 'error', "message" => "Invalid email address or domain!"));
+    die();
+}
 
+$check = "SELECT * FROM users WHERE u_email = '$email'";
 $run = mysqli_query($conn, $check);
 
 if (mysqli_num_rows($run) > 0) {
@@ -33,8 +49,6 @@ if (mysqli_num_rows($run) > 0) {
         $c_to_time = $_POST['c_to_time'];
         $c_language = $_POST['c_language'];
         $c_fee = $_POST['c_fee'];
-        // $c_available_from = $_POST['c_available_from'];
-        // $c_available_to = $_POST['c_available_to'];
         $c_available_days=$_POST['selectedItem'];
         $c_qualification = $_POST['c_qualification'];
         $redirectUrl = '../index.php';
@@ -49,8 +63,7 @@ if (mysqli_num_rows($run) > 0) {
     } else if (($type == 'customer') || ($type == 'admin' )|| ($type == 'book_owner') ||( $type == 'delivery_boy') ) {
         $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
         $redirectUrl = '../index.php';
-    }
-     else {
+    } else {
         echo json_encode(array('status' => 'error', 'message' => "Invalid user type!"));
         die();
     }
@@ -58,12 +71,11 @@ if (mysqli_num_rows($run) > 0) {
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-        // header('location: login.php');
-        echo json_encode(array('status' => 'success', 'message' => "Registration successful! Rediecting to login page...", 'redirectUrl' => $redirectUrl));
+        echo json_encode(array('status' => 'success', 'message' => "Registration successful! Redirecting to login page...", 'redirectUrl' => $redirectUrl));
         die();
     } else {
         echo json_encode(array('status' => 'error', 'message' => "Error while registering user!"));
         die();
     }
 }
-// }
+?>

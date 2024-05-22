@@ -109,7 +109,6 @@ session_start();
             margin: 20px 0 50px;
         }
 
-
         .banner img {
             height: 100%;
             width: 100%;
