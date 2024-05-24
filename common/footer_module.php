@@ -194,41 +194,38 @@
         </p>
         <p style="color: black">Connect with India's top doctors online</p>
       </div>
-      <div class="col-lg-3  footer-widget">
-        <div class="contact-widget">
-          <h5 class="fw-title text-center" style="color: black">
-            CONTACT US
-          </h5>
-          <p style="color: black">
-            <a href="http://www.spacece.in/" style="color: black">
-              <i class="fa fa-map-marker"></i>
-              SPACE-ECE
-            </a>
-          </p>
-          <p style="color: black">
-            <a href="tel: +919096305648" target="_blank" rel="noopener" style="color: black">
-              <i class="fa fa-phone" style="color: black"></i>
-              +91 90963 05648
-            </a>
-            <!-- bug id 0000080-->
-            <!-- <div class="on-mobile">
-                       <a href="tel:+919096305648"  target="_blank" rel="noopener" style="color: black">
-                        <i class="fa fa-phone" style="color: black"></i>919096305648</a>
-                      </div>
-                </p> -->
-          <p style="color: black">
-            <!-- bug id-0000081 -->
-            <a href="mailto: events@spacece.co" target="_blank" rel="noopener" style="color: black">
-              <i class="fa fa-envelope" style="color: black"></i>
-              events@spacece.co
-            </a>
-          </p>
-          <p style="color: black">
-            <i class="fa fa-clock-o" style="color: black"></i>
-            Mon - Sat, 8AM - 6PM
-          </p>
+      <div class="col-lg-3 footer-widget" style="text-align: justify;">
+        <div class="contact-widget" style="color: black;">
+          <h5 class="fw-title" style="color: black; font-size: 16px;">CONTACT US</h5>
+          <div style="display: flex; flex-direction: column; justify-content: space-around;">
+            <p style="margin: 2px 0; font-size: 14px;">
+              <a href="http://www.spacece.in/" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;">
+                <i class="fa fa-map-marker" style="margin-right: 10px; font-size: 18px;"></i>
+                SPACE-ECE
+              </a>
+            </p>
+            <p style="margin: 5px 0; font-size: 14px;">
+              <a href="tel:+919096305648" target="_blank" rel="noopener" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;">
+                <i class="fa fa-phone" style="margin-right: 10px; font-size: 18px;color: black;"></i>
+                +91 90963 05648
+              </a>
+            </p>
+            <p style="margin: 5px 0; font-size: 14px;">
+              <a href="mailto:events@spacece.co" target="_blank" rel="noopener" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;">
+                <i class="fa fa-envelope" style="margin-right: 10px; font-size: 18px;color: black;"></i>
+                events@spacece.co
+              </a>
+            </p>
+            <p style="margin: 5px 0; font-size: 18px; color: black;">
+              <i class="fa fa-clock-o" style="margin-right: 10px; font-size: 18px;"></i>
+              Mon - Sat, 8AM - 6PM
+            </p>
+          </div>
         </div>
       </div>
+
+
+
 
       <div class="col-lg-3  footer-widget">
         <div class="newslatter-widget">
@@ -287,7 +284,7 @@
 
           }
           if (data === 'Invalid') {
-            swal("Error!", "Please Emter a Valid Email!", "error");
+            swal("Error!", "Please Enter a Valid Email!", "error");
           }
 
 
