@@ -85,6 +85,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
             </thead>
             <tbody>
                 <?php
+                $day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
                 // showing admin added from database
                 if ($cat == "all") {
                     $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,users.u_image AS u_image ,users.u_mob AS u_mob,
@@ -115,6 +116,9 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                 <td>
                                     <?php
                                     $available_days = explode(',', $row["c_aval_days"]);
+                                    usort($available_days, function ($a, $b) use ($day_order) {
+                                        return array_search($a, $day_order) - array_search($b, $day_order);
+                                    });
                                     foreach ($available_days as $day) {
                                         echo $day . "<br>";
                                     }
@@ -122,7 +126,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                 </td>
                                 <td><?php echo $row['c_qualification']; ?></td>
                                 <td>
-                                    <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>">Book Appointment</a>
+                                <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>">Book Appointment</a>
                                     <?php
                                     if (isset($_SESSION['current_user_id'])) {
                                         $email = $_SESSION['current_user_email'];
@@ -137,11 +141,24 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                             $con_name = substr($row['u_name'], 0, 4);
                                             $consult_id = $row['u_id'];
                                             $user_id = $_SESSION['current_user_id'];
-                                            $channel_name = $user_id . $con_name;
+                                            // $channel_name = $user_id . $con_name;
+                                            $channel_name = $user_name . $con_name . $consult_id . $user_id;
                                             $appID = "8a0176984cea4e4e8a96c984d149d52f";
                                             $appCertificate = "0bfb49c03978438a8f6723c29f9ccdee";
-                                            $channelName = $user_name . $con_name;
-                                            $time = date('Y-m-d H:i:s');
+                                            $appID_RTM = 'a576fbd69d704ba2a6031f33bb91cf56';
+                                            $appCertificate_RTM = '631d7a8913a24fd59d19f8fc7c112882';
+                                            $uid = 0;
+                                            $uid2 = 0;
+                                            $role = RtcTokenBuilder::RoleAttendee;
+                                            $role2 = RtmTokenBuilder::RoleRtmUser;
+                                            $expireTimeInSeconds = 3600;
+                                            $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
+                                            $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
+                                            $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channel_name, $uid, $role, $privilegeExpiredTs);
+                                            $token_RTM = RtmTokenBuilder::buildToken($appID_RTM, $appCertificate_RTM, $row2['u_email'], $role2, $privilegeExpiredTs);
+                                            $_SESSION['token'] = $token;
+                                            $_SESSION['channel'] = $channel_name;
+                                            $_SESSION['token_rtm'] = $token_RTM;
                                     ?>
                                             <a id="link" class="btn btn-secondary btn-sm" data-id="<?php echo $consult_id; ?>" onclick="redirectTo('<?php echo $consult_id; ?>','<?php echo $user_id; ?>','<?php echo $user_name; ?>','<?php echo $con_name; ?>')">JOIN NOW</a>
                                     <?php

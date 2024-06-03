@@ -1,6 +1,11 @@
 <?php  // this is serverside page === api key ?>
 
-<?php include("../Db_Connection/db_consultus_app.php")?>
+<?php 
+ini_set('display_errors', 1);
+ini_set('startup_errors', 1);
+error_reporting(E_ALL);
+
+include("../Db_Connection/db_consultus_app.php")?>
 <?php
 $cat_name='';
 if(isset($_GET['cat'])){

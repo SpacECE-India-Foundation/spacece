@@ -205,10 +205,10 @@ if (isset($_SESSION['current_user_email'])) {
           <option value="<?php echo $day; ?>"><?php echo $day; ?></option>
         <?php } ?>
       </select>
-      <br><br>
+      <!-- <br><br> -->
       <label for="atime"><b>Select A Time:</b></label>
       <input type="time" id="atime" name="atime" required>
-      <br><br>
+      <!-- <br><br> -->
       <label for="fullname"><b>Fullname</b></label>
       <input type="text" value="<?php echo $u_name ?>" onkeypress="return /[a-z]/i.test(event.key)" name="fullname" id="fullname" required>
       <label for="cname"><b>Consultant Name</b></label>

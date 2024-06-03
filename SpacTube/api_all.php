@@ -11,22 +11,22 @@ include '../Db_Connection/db_spaceTube.php';
 if($type == "all"){
 
     if(isset($_GET["pagenum"]))
- 	{
-		$pagenum =$_GET["pagenum"];
-	}
-	else
-	{
-		$pagenum = 1;
-	}
+        {
+                $pagenum =$_GET["pagenum"];
+        }
+        else
+        {
+                $pagenum = 1;
+        }
 
-	if(isset($_GET["pagelen"]))
- 	{
-		$pagelen = $_GET["pagelen"];
-	}
-	else
-	{
-		$pagelen = 10;//default pagelenght is 10
-	}
+        if(isset($_GET["pagelen"]))
+        {
+                $pagelen = $_GET["pagelen"];
+        }
+        else
+        {
+                $pagelen = 10;//default pagelenght is 10
+        }
 
  $offset = $pagelen*($pagenum-1);
   $len = $offset + $pagelen ;
@@ -34,9 +34,9 @@ if($type == "all"){
 //echo 'pagelen<br> ' . htmlspecialchars($_GET["pagelen"]) . '!';
 
         // showing admin added from database
-        $sql= "SELECT * 
-	FROM `videos`
-	WHERE `v_id`>'$offset' AND `v_id`<= '$len'
+        $sql= "SELECT *
+        FROM `videos`
+        WHERE `v_id`>'$offset' AND `v_id`<= '$len'
         ORDER BY `v_id`";
 
         $res = mysqli_query($conn,$sql);
@@ -51,9 +51,9 @@ if($type == "all"){
                 // we have data in database
                 while($row = mysqli_fetch_assoc($res))
                 {
-                    
+
                     $arr[] = $row;   // making array of data
-                 
+
                 }
 
 $sql3= "SELECT *
@@ -72,10 +72,10 @@ $sql3= "SELECT *
                // we have data in database
                while($row3 = mysqli_fetch_assoc($res3))
                {
-                   
+
 
                    $arr3[] = $row3;   // making array of data
-                
+
                }}}
 
 
@@ -85,7 +85,7 @@ $sql3= "SELECT *
 $today = date('Y-m-d');
 
        // $sql2="SELECT * FROM `videos`, `tbl_recents` WHERE `tbl_recents`.`v_id`=`videos`.`v_id` and `tbl_recents`.`vr_date`='$today' AND `tbl_recents`.`u_no`='$uid' ORDER BY `videos`.`v_id`";;
-       
+
               $sql2="SELECT * FROM `videos`, `tbl_recents` WHERE `tbl_recents`.`v_id`=`videos`.`v_id` and `tbl_recents`.`vr_date`='2021-08-16' AND `tbl_recents`.`u_no`='$uid' ORDER BY `videos`.`v_id`";;
         $res2 = mysqli_query($conn,$sql2);
         header('Content-Type:application/json');   // connecting to database
@@ -99,9 +99,9 @@ $today = date('Y-m-d');
                 // we have data in database
                 while($row2 = mysqli_fetch_assoc($res2))
                 {
-                    
+
                     $arr2[] = $row2;   // making array of data
-                 
+
                 }
             }
             }
@@ -137,10 +137,10 @@ if($type == "free"){
             // we have data in database
             while($row = mysqli_fetch_assoc($res))
             {
-                
+
 
                 $arr[] = $row;   // making array of data
-             
+
             }
            echo json_encode(['status'=>'true','data'=>$arr,'result'=>'found']);   // displaying data
 
@@ -172,10 +172,10 @@ if($type == "paid"){
             // we have data in database
             while($row = mysqli_fetch_assoc($res))
             {
-                
+
 
                 $arr[] = $row;   // making array of data
-             
+
             }
            echo json_encode(['status'=>'true','data'=>$arr,'result'=>'found']);   // displaying data
 
@@ -192,8 +192,8 @@ if($type == "paid"){
 
 ?>
 <?php
-       
-    if($type == "trending"){   
+
+    if($type == "trending"){
        $sql= "SELECT *
        FROM `videos`
        ORDER BY `views` DESC
@@ -210,16 +210,16 @@ if($type == "paid"){
                // we have data in database
                while($row = mysqli_fetch_assoc($res))
                {
-                   
+
 
                    $arr[] = $row;   // making array of data
-                
+
                }
               $uid =$_GET["uid"];
 $today = date('Y-m-d');
 
              // $sql2="SELECT * FROM `videos`, `tbl_recents` WHERE `tbl_recents`.`v_id`=`videos`.`v_id` and `tbl_recents`.`vr_date`='$today' AND `tbl_recents`.`u_no`='$uid' ORDER BY `videos`.`v_id`";;
-       
+
               $sql2="SELECT * FROM `videos`, `tbl_recents` WHERE `tbl_recents`.`v_id`=`videos`.`v_id` and `tbl_recents`.`vr_date`='2021-08-11' AND `tbl_recents`.`u_no`='$uid' ORDER BY `videos`.`v_id`";;
         $res2 = mysqli_query($conn,$sql2);
         header('Content-Type:application/json');   // connecting to database
@@ -233,9 +233,9 @@ $today = date('Y-m-d');
                 // we have data in database
                 while($row2 = mysqli_fetch_assoc($res2))
                 {
-                    
+
                     $arr2[] = $row2;   // making array of data
-                 
+
                 }
             }
             }
@@ -274,9 +274,9 @@ if($type== "recent"){
                 // we have data in database
                 while($row = mysqli_fetch_assoc($res))
                 {
-                    
+
                     $arr[] = $row;   // making array of data
-                 
+
                 }
                echo json_encode(['status'=>'true','data'=>$arr,'result'=>'found']);   // displaying data
 

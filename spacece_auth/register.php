@@ -1,11 +1,11 @@
 <?php
 include('../Db_Connection/db_spacece.php');
-
 include_once './header_local.php';
 include_once '../common/header_module.php';
 
-if (!isset($_SESSION['redirect_url']))
+if (!isset($_SESSION['redirect_url'])) {
     $_SESSION['redirect_url'] = $_SERVER['HTTP_REFERER'];
+}
 
 if (isset($_SESSION['current_user_id'])) {
     header("Location: ../index.php");
@@ -25,7 +25,7 @@ function get_consultant_categories($conn)
 
 <div class="register-page">
     <h2>Register</h2>
-    <form class="register-form" method="post" autocomplete="off">
+    <form class="register-form" method="post" autocomplete="off" action="register_action.php" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" placeholder="Enter Name" id="name" name="name" />
@@ -54,15 +54,15 @@ function get_consultant_categories($conn)
 
         <div class="form-group">
             <label for="user_type">User Type</label>
-            <select name="type" id="user_type">
+            <select name="type" id="user_type" onchange="toggleConsultantFields()">
                 <option value="customer">Customer</option>
                 <option value="consultant">Consultant</option>
                 <option value="admin">Admin</option>
-        <option value="book_owner">Book Owner</option>
-        <option value="delivery_boy">Delivery Boy</option>
+                <option value="book_owner">Book Owner</option>
+                <option value="delivery_boy">Delivery Boy</option>
             </select>
         </div>
-        <div class="consultant_details">
+        <div class="consultant_details" style="display: none;">
             <div class="form-group">
                 <label for="c_categories">Consultant Category</label>
                 <select name="c_categories" id="c_categories">
@@ -150,9 +150,9 @@ function get_consultant_categories($conn)
                     <option value="Sunday">Sunday</option>
                 </select>
             </div> -->
-            <div class="form-group select">
+            <div class="form-group">
                 <label for="c_available_days">Available Days</label>
-                <select name="c_available_days" class=" btn form-control btn-sm selectpicker " id="c_available_days" multiple data-selected-text-format="count > 2" style="background-color: white;">
+                <select name="c_available_days[]" class="form-control" id="c_available_days" multiple>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
                     <option value="Wednesday">Wednesday</option>
@@ -162,10 +162,10 @@ function get_consultant_categories($conn)
                     <option value="Sunday">Sunday</option>
                 </select>
             </div>
-              
-               
-         
-<!-- Note the missing multiple attribute! -->
+
+
+
+            <!-- Note the missing multiple attribute! -->
 
             <div class="form-group">
                 <label for="c_qualification">Qualification</label>
@@ -178,8 +178,13 @@ function get_consultant_categories($conn)
 </div>
 <?php include_once '../common/footer_module.php'; ?>
 <script>
-    
-   
-    </script>
-
-
+    function toggleConsultantFields() {
+        var userType = document.getElementById('user_type').value;
+        var consultantFields = document.querySelector('.consultant_details');
+        if (userType === 'consultant') {
+            consultantFields.style.display = 'block';
+        } else {
+            consultantFields.style.display = 'none';
+        }
+    }
+</script>
