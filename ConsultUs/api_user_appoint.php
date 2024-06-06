@@ -25,8 +25,8 @@ if(isset($u_id)){
 if(empty($c_id) && $status=='All'){
     //echo "inside1";
         // showing admin added from database
-        $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.booking_time , consultant_app.new_apointment.end_time FROM spaceece.users JOIN consultant_app.new_apointment WHERE 
-        consultant_app.new_apointment.c_id=spaceece.users.u_id OR consultant_app.new_apointment.u_id=spaceece.users.u_id";
+        $sql = "SELECT DISTINCT spacece.users.u_name,spacece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.booking_time , consultant_app.new_apointment.end_time FROM spacece.users JOIN consultant_app.new_apointment WHERE 
+        consultant_app.new_apointment.c_id=spacece.users.u_id OR consultant_app.new_apointment.u_id=spacece.users.u_id";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
 
@@ -68,18 +68,18 @@ if($u_id || $c_id && $status==='Active' ){
         // showing admin added from database
        
     if($u_id){
-        $sql="SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,
-        consultant_app.new_apointment.booking_time,concat(consultant_app.new_apointment.b_date, ' ', consultant_app.new_apointment.booking_time) as b_datetime,(SELECT spaceece.users.u_name from spaceece.users WHERE spaceece.users.u_id='$u_id')AS c_name,
-        (SELECT spaceece.users.u_image from spaceece.users where spaceece.users.u_id='$u_id')AS c_image, 
-         consultant_app.new_apointment.end_time FROM spaceece.users 
+        $sql="SELECT DISTINCT spacece.users.u_name,spacece.users.u_image,consultant_app.new_apointment.booking_id,
+        consultant_app.new_apointment.booking_time,concat(consultant_app.new_apointment.b_date, ' ', consultant_app.new_apointment.booking_time) as b_datetime,(SELECT spacece.users.u_name from spacece.users WHERE spacece.users.u_id='$u_id')AS c_name,
+        (SELECT spacece.users.u_image from spacece.users where spacece.users.u_id='$u_id')AS c_image, 
+         consultant_app.new_apointment.end_time FROM spacece.users 
         JOIN consultant_app.new_apointment
-         WHERE spaceece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.u_id ='$u_id'";
+         WHERE spacece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.u_id ='$u_id'";
     }if($c_id){
-        $sql="SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,
-        consultant_app.new_apointment.booking_time,concat(consultant_app.new_apointment.b_date, ' ', consultant_app.new_apointment.booking_time) as b_datetime,(SELECT spaceece.users.u_name from spaceece.users where spaceece.users.u_id='$c_id')AS c_name,
-        (SELECT spaceece.users.u_image from spaceece.users where spaceece.users.u_id='$c_id')AS c_image,  consultant_app.new_apointment.end_time FROM spaceece.users 
+        $sql="SELECT DISTINCT spacece.users.u_name,spacece.users.u_image,consultant_app.new_apointment.booking_id,
+        consultant_app.new_apointment.booking_time,concat(consultant_app.new_apointment.b_date, ' ', consultant_app.new_apointment.booking_time) as b_datetime,(SELECT spacece.users.u_name from spacece.users where spacece.users.u_id='$c_id')AS c_name,
+        (SELECT spacece.users.u_image from spacece.users where spacece.users.u_id='$c_id')AS c_image,  consultant_app.new_apointment.end_time FROM spacece.users 
         JOIN consultant_app.new_apointment
-         WHERE spaceece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.c_id ='$c_id'";
+         WHERE spacece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.c_id ='$c_id'";
     }
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
@@ -137,18 +137,18 @@ if($u_id || $c_id && $status==='Active' ){
        
   
     if($u_id){
-        $sql="SELECT DISTINCT spaceece.users.u_id as c_id,spaceece.users.u_name as c_name,spaceece.users.u_image as c_image,consultant_app.new_apointment.booking_id,
-        consultant_app.new_apointment.booking_time,concat(consultant_app.new_apointment.b_date, ' ', consultant_app.new_apointment.booking_time) as b_datetime, consultant_app.new_apointment.b_date,(SELECT spaceece.users.u_name from spaceece.users WHERE spaceece.users.u_id='$u_id')AS u_name,
-        (SELECT spaceece.users.u_image from spaceece.users where spaceece.users.u_id='$u_id')AS u_image, 
-         consultant_app.new_apointment.end_time FROM spaceece.users 
+        $sql="SELECT DISTINCT spacece.users.u_id as c_id,spacece.users.u_name as c_name,spacece.users.u_image as c_image,consultant_app.new_apointment.booking_id,
+        consultant_app.new_apointment.booking_time,concat(consultant_app.new_apointment.b_date, ' ', consultant_app.new_apointment.booking_time) as b_datetime, consultant_app.new_apointment.b_date,(SELECT spacece.users.u_name from spacece.users WHERE spacece.users.u_id='$u_id')AS u_name,
+        (SELECT spacece.users.u_image from spacece.users where spacece.users.u_id='$u_id')AS u_image, 
+         consultant_app.new_apointment.end_time FROM spacece.users 
         JOIN consultant_app.new_apointment
-         WHERE spaceece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.u_id ='$u_id'";
+         WHERE spacece.users.u_id = consultant_app.new_apointment.c_id AND consultant_app.new_apointment.u_id ='$u_id'";
     }if($c_id){
-        $sql="SELECT DISTINCT  spaceece.users.u_id as c_id,spaceece.users.u_name as c_name ,spaceece.users.u_image as c_image,consultant_app.new_apointment.booking_id,
-        consultant_app.new_apointment.booking_time,concat(consultant_app.new_apointment.b_date, ' ', consultant_app.new_apointment.booking_time) as b_datetime,consultant_app.new_apointment.b_date,(SELECT spaceece.users.u_name from spaceece.users where spaceece.users.u_id='$c_id')AS u_name,
-        (SELECT spaceece.users.u_image from spaceece.users where spaceece.users.u_id='$c_id')AS u_image,  consultant_app.new_apointment.end_time FROM spaceece.users 
+        $sql="SELECT DISTINCT  spacece.users.u_id as c_id,spacece.users.u_name as c_name ,spacece.users.u_image as c_image,consultant_app.new_apointment.booking_id,
+        consultant_app.new_apointment.booking_time,concat(consultant_app.new_apointment.b_date, ' ', consultant_app.new_apointment.booking_time) as b_datetime,consultant_app.new_apointment.b_date,(SELECT spacece.users.u_name from spacece.users where spacece.users.u_id='$c_id')AS u_name,
+        (SELECT spacece.users.u_image from spacece.users where spacece.users.u_id='$c_id')AS u_image,  consultant_app.new_apointment.end_time FROM spacece.users 
         JOIN consultant_app.new_apointment
-         WHERE spaceece.users.u_id = consultant_app.new_apointment.u_id AND consultant_app.new_apointment.c_id ='$c_id'";
+         WHERE spacece.users.u_id = consultant_app.new_apointment.u_id AND consultant_app.new_apointment.c_id ='$c_id'";
     }
     //echo $sql;
              $res = mysqli_query($conn,$sql);
@@ -191,9 +191,9 @@ if($u_id || $c_id && $status==='Active' ){
            
             // echo "inside";
                  // showing admin added from database
-                 $sql = "SELECT DISTINCT spaceece.users.u_name,spaceece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.booking_time ,
+                 $sql = "SELECT DISTINCT spacece.users.u_name,spacece.users.u_image,consultant_app.new_apointment.booking_id,consultant_app.new_apointment.booking_time ,
                  consultant_app.new_apointment.end_time,concat(consultant_app.new_apointment.b_date, ' ', consultant_app.new_apointment.booking_time) as b_datetime,
-                 FROM spaceece.users JOIN consultant_app.new_apointment WHERE spaceece.users.u_id IN('$c_id','$u_id') 
+                 FROM spacece.users JOIN consultant_app.new_apointment WHERE spacece.users.u_id IN('$c_id','$u_id') 
                  AND consultant_app.new_apointment.u_id ='$u_id' AND consultant_app.new_apointment.c_id='$c_id' ";
                  $res = mysqli_query($conn,$sql);
                  header('Content-Type:application/json');
