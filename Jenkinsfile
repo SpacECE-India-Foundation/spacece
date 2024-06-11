@@ -1,13 +1,25 @@
-pipeline{
+pipeline {
     agent any
-    environment{
-        staging_server="44.203.29.146"
-    }
-    stages{
-        stage('Deploy to Remote'){
-            steps{
-                sh 'scp -r ${WORKSPACE} root@${staging_server}:/var/www/html/spaceece-main/'
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone the repository
+                git 'https://github.com/Aditiniphade/ansibleb2.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Run a Maven build
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run tests
+                sh 'mvn test'
             }
         }
     }
-}
