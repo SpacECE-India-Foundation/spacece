@@ -4,7 +4,7 @@ pipeline{
         staging_server="44.203.29.146"
     }
     stages{
-        stage('Deploy to Remote'){
+        stage('Deploy to Remote Server'){
             steps{
                 sh 'scp -r ${WORKSPACE} root@${staging_server}:/var/www/html/spaceece-main/'
             }

@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 //var_dump($_SESSION);
 // if(empty($_SESSION['current_user_email'])){

@@ -56,7 +56,7 @@ include_once './common/header_module.php';
   <link href="img/Favicon.ico" rel="shortcut icon" />
 
   <!-- Google Fonts -->
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
 
   <!-- bug id-0000115 -->
@@ -66,15 +66,64 @@ include_once './common/header_module.php';
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
   <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-  
-  <!-- Stylesheets -->
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- </head> -->
+    <style>
+      .chat_icon_container {
+        position: fixed;
+        bottom: 20px;
+        /* Adjust as needed */
+        right: 20px;
+        /* Adjust as needed */
+        display: inline-block;
+        cursor: pointer;
+        z-index: 9999;
+        /* Ensure the container is on top */
+      }
+
+      .chat_icon {
+        color: black;
+        /* border: 2px solid black; */
+        border-radius: 30px;
+        padding: 10px;
+        /* background-color: white; */
+        /* Ensure the icon is visible */
+      }
+
+      .hover_text {
+        visibility: hidden;
+        width: 120px;
+        background-color: #ffff0087;
+        font-weight: 1000;
+        font-size: larger;
+        color: black;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px 0;
+        position: absolute;
+        z-index: 10000;
+        /* Bring the hover text to the front */
+        bottom: 125%;
+        /* Position above the icon */
+        right: 100%;
+        transform: translateX(-50%);
+        /* Center the text */
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .chat_icon_container:hover .hover_text {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+    <!-- Stylesheets -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/animate.css" />
   <link rel="stylesheet" href="css/owl.carousel.css" />
@@ -90,11 +139,11 @@ include_once './common/header_module.php';
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
   <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
 
-  <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
+  </head>
 
 <body>
   <!-- Page Preloder -->
@@ -251,7 +300,7 @@ include_once './common/header_module.php';
   <section class="blog-section spad">
     <div class="container">
       <div class="section-title text-center">
-        <h3>OUR RECENT PROJECTS</h3>
+        <h3 style="font-weight:bold;font-size:x-large;">OUR RECENT PROJECTS</h3>
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6 blog-item">
@@ -314,7 +363,7 @@ include_once './common/header_module.php';
           </div>
           <p></p>
         </div>
-         <!-- <div class="col-lg-4 col-md-6 blog-item">
+        <!-- <div class="col-lg-4 col-md-6 blog-item">
           <a href="./blog/index.php">
             <img src="img/logo/children_immu_logo.jpg" alt="BABY CARE" width="300" height="300" /></a>
           <h5><a href="#"> </a></h5>
@@ -334,7 +383,7 @@ include_once './common/header_module.php';
           </div>
           <p></p>
         </div> -->
-        
+
       </div>
     </div>
     <!-- Blog section end -->
@@ -471,48 +520,53 @@ include_once './common/header_module.php';
         </a>
       </div>
       <br /><br />
-      </section> 
-      <!---offers close-->
+  </section>
+  <!---offers close-->
 
-      <!-- ChatBot -->
-      <div class="chat_icon">
-        <i class="fa fa-comments" aria-hidden="true" style="color: black; border: 2px solid black;border-radius:15px;"></i>
-      </div>
+  <!-- ChatBot -->
+  <div class="chat_icon_container">
+    <div class="chat_icon">
+      <i class="fa fa-comments" aria-hidden="true"></i>
+    </div>
+    <span class="hover_text">Chat with us</span>
+  </div>
 
-      <div class="chat_box">
-        <div class="my-conv-form-wrapper">
-          <form action="" method="GET" class="hidden">
-            <select data-conv-question="Hello! How can I help you" name="category">
-              <option value="WebDevelopment">Toys Booking ?</option>
-              <option value="DigitalMarketing">Booking Consultants?</option>
-            </select>
 
-            <div data-conv-fork="category">
-              <div data-conv-case="WebDevelopment">
-                <input type="text" name="domainName" data-conv-question="Please, tell me your domain name" />
-              </div>
-              <div data-conv-case="DigitalMarketing" data-conv-fork="first-question2">
-                <input type="text" name="companyName" data-conv-question="Please, enter your company name" />
-              </div>
-            </div>
 
-            <input type="text" name="name" data-conv-question="Please, Enter your name" />
+  <div class="chat_box">
+    <div class="my-conv-form-wrapper">
+      <form action="" method="GET" class="hidden">
+        <select data-conv-question="Hello! How can I help you" name="category">
+          <option value="WebDevelopment">Toys Booking ?</option>
+          <option value="DigitalMarketing">Booking Consultants?</option>
+        </select>
 
-            <input type="text" data-conv-question="Hi {name}, <br> It's a pleasure to meet you." data-no-answer="true" />
-
-            <input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?" />
-
-            <select data-conv-question="Please Conform">
-              <option value="Yes">Conform</option>
-            </select>
-          </form>
+        <div data-conv-fork="category">
+          <div data-conv-case="WebDevelopment">
+            <input type="text" name="domainName" data-conv-question="Please, tell me your domain name" />
+          </div>
+          <div data-conv-case="DigitalMarketing" data-conv-fork="first-question2">
+            <input type="text" name="companyName" data-conv-question="Please, enter your company name" />
+          </div>
         </div>
-      </div>
-      <br>
-      <!--session close-->
 
-      <!-- Footer section -->
-      <!-- <footer class="footer-section set-bg" style="
+        <input type="text" name="name" data-conv-question="Please, Enter your name" />
+
+        <input type="text" data-conv-question="Hi {name}, <br> It's a pleasure to meet you." data-no-answer="true" />
+
+        <input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?" />
+
+        <select data-conv-question="Please Conform">
+          <option value="Yes">Conform</option>
+        </select>
+      </form>
+    </div>
+  </div>
+  <br>
+  <!--session close-->
+
+  <!-- Footer section -->
+  <!-- <footer class="footer-section set-bg" style="
         background-color: orange;
         border-collapse: collapse;
         border: 2px solid navy;
@@ -605,10 +659,10 @@ include_once './common/header_module.php';
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body> -->
 
-      <?php
-      include_once './common/footer_module.php';
-      ?>
-      <script type="text/javascript" src="js/jquery.convform.js"></script>
+  <?php
+  include_once './common/footer_module.php';
+  ?>
+  <script type="text/javascript" src="js/jquery.convform.js"></script>
 </body>
 
 </html>

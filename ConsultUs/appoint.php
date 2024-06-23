@@ -1,5 +1,8 @@
 <?php
 session_start();
+error_reporting(0);
+
+
 if (empty($_SESSION['current_user_email'])) {
   header('location:../spacece_auth/login.php');
   exit();
@@ -234,7 +237,10 @@ if (isset($_SESSION['current_user_email'])) {
       <label for="mobile"><b>Mobile Number:</b></label>
       <input type="text" value="<?php echo $u_mob ?>" minlength="10" maxlength="10" pattern="[0-9]{10}" name="mobile" id="mobile" required><br>
       <hr>
-      <input type="submit" name="submit" id="submit" class="registerbtn">
+      <!-- <input type="submit" name="submit" id="submit" class="registerbtn"> -->
+      <a href="./showmyappointment.php">
+        <button type="submit" name="submit" id="submit" class="registerbtn">Submit</button>
+      </a>
     </div>
 
     <div class="container signin" style="background-color:orange">
