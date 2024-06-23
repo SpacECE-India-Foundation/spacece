@@ -12,7 +12,7 @@ $a_no = $_GET['ano'];
 error_reporting();
 
 $sql = "SELECT * FROM `spaceactive_activities` where activity_no = '$a_no'";
-$res = mysqli_query($conn, $sql);
+$res = mysqli_query($mysqli1, $sql);
 header('Content-Type:application/json');
 
 
