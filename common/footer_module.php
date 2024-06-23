@@ -176,7 +176,7 @@
 
     <div class="row">
       <div class="col-lg-3 footer-widget ">
-        <img src="<?= isset($module_logo) ? $module_logo : './img/logo/SpacECELogo.jpg' ?>" class="img img-fluid img-thumbnail img-circle" alt="" style="width: 150px" /><a href="./index.php">
+        <a href="http://www.spacece.in"><img src="<?= isset($module_logo) ? $module_logo : './img/logo/SpacECELogo.jpg' ?>" class="img img-fluid img-thumbnail img-circle" alt="" style="width: 150px" /></a><a href="./index.php">
 
         </a>
 
@@ -199,7 +199,8 @@
           <h5 class="fw-title" style="color: black; font-size: 16px;">CONTACT US</h5>
           <div style="display: flex; flex-direction: column; justify-content: space-around;">
             <p style="margin: 2px 0; font-size: 14px;">
-              <a href="http://www.spacece.in/" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;">
+              <!-- <a href="http://www.spacece.in/" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;"> -->
+              <a href="https://maps.app.goo.gl/YDb6ZAsN4vQ1KWZE8" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;">
                 <i class="fa fa-map-marker" style="margin-right: 10px; font-size: 18px;"></i>
                 SPACE-ECE
               </a>
@@ -263,35 +264,41 @@
     $('#sub').on('submit', function(e) {
       e.preventDefault();
       var email = $('#email').val();
-      // alert(email);
-
+      
       $.ajax({
         method: "POST",
+        url: "./common/function.php",
         data: {
           subscribe: 1,
           email: email
         },
-        url: "./common/function.php",
         success: function(data) {
-          // alert(data);
-          // console.log(data);
-          if (data === 'Error') {
-            swal("Error!", "You have already subscribed to this site!", "error");
-          }
-
-          if (data === 'Success') {
-            swal("Good job!", "You have subscribed !", "success");
-
-          }
-          if (data === 'Invalid') {
-            swal("Error!", "Please Enter a Valid Email!", "error");
-          }
-
-
+          console.log("Server response:", data); // Log the server response for debugging
+          handleSubscriptionResponse(data);
+        },
+        error: function(xhr, status, error) {
+          swal("Error!", "Something went wrong. Please try again later.", "error");
         }
-      })
-    })
-  })
+      });
+    });
+
+    function handleSubscriptionResponse(data) {
+      switch(data.trim()) { // Use trim() to remove any extra whitespace
+        case 'Error':
+          swal("Error!", "You have already subscribed to this site!", "error");
+          break;
+        case 'Success':
+          swal("Good job!", "You have subscribed!", "success");
+          break;
+        case 'Invalid':
+          swal("Error!", "Please enter a valid email!", "error");
+          break;
+        default:
+          swal("Error!", "Unexpected response from the server.", "error");
+      }
+    }
+  });
 </script>
+
 
 </html>

@@ -1,9 +1,10 @@
 <?php
 //require "config/constants.php";
+error_reporting(0);
 include_once './header_local.php';
 include_once '../common/header_module.php';
 include_once '../common/banner.php';
-//session_start();
+// session_start();
 if (isset($_SESSION["current_user_name"])) {
 	header("location:profile.php");
 }
@@ -60,9 +61,8 @@ if (isset($_SESSION["current_user_name"])) {
 					}
 					if($_SESSION['current_user_type']=='customer'){
 						?>
-						<a href="./user_dash/index.php" class="btn btn-warning">User Books</a>
+						<a href="./user_dash/index.php" class="btn btn-warning" style="margin-top:10px;margin-bottom:10px;margin-left:15px;">User Books</a>
 				
-
 						<?php
 					}
 
