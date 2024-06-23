@@ -1,4 +1,8 @@
 <?php
+error_reporting(E_ERROR | E_PARSE); 
+?>
+
+<?php
 
 require_once 'Config/Functions.php';
 $Fun_call = new Functions();

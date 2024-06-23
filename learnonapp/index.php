@@ -1,4 +1,16 @@
 <?php
+// Turn off all error reporting
+error_reporting(0);
+
+// Report all errors except E_NOTICE
+error_reporting(E_ALL & ~E_NOTICE);
+
+// Optionally, you can also use ini_set to control display errors
+ini_set('display_errors', 'Off');
+ini_set('error_reporting', E_ALL & ~E_NOTICE);
+?>
+
+<?php
 include_once './header_local.php';
 include_once '../common/header_module.php';
 //include_once 'includes/header1.php'
