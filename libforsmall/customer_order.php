@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include_once './header_local.php';
 include_once '../common/header_module.php';
 include_once '../common/banner.php';

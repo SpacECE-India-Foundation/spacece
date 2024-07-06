@@ -69,23 +69,22 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
         <table class="table table-striped table-bordered table-hover table-responsive">
             <thead>
                 <tr>
-                    <th>S.NO.:</th>
-                    <th>IMAGE:</th>
-                    <th>FULL NAME:</th>
-                    <th>CATEGORY:</th>
-                    <th>OFFICE:</th>
-                    <th>LANGUAGE:</th>
-                    <th>Available from(Time):</th>
-                    <th>Available to(Time):</th>
-                    <th>Consultant fee:</th>
-                    <th>Available days:</th>
-                    <th>Qualification:</th>
-                    <th>Action:</th>
+                    <th>S.no.</th>
+                    <th>Image</th>
+                    <th>Full Name</th>
+                    <th>Category</th>
+                    <th>Office</th>
+                    <th>Language</th>
+                    <th>Available from(Time)</th>
+                    <th>Available to(Time)</th>
+                    <th>Consultant fee</th>
+                    <th>Available days</th>
+                    <th>Qualification</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
                 // showing admin added from database
                 if ($cat == "all") {
                     $sql = "SELECT DISTINCT users.u_id AS u_id,users.u_name AS u_name,users.u_image AS u_image ,users.u_mob AS u_mob,
@@ -93,7 +92,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_aval_days As c_aval_days,consultant.c_qualification AS c_qualification ,
                         consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
                         WHERE users.u_id = consultant.u_id 
-                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant'";
+                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' ORDER BY users.u_name";
                     $res = mysqli_query($conn1, $sql);
 
                     //checking whether query is executed or not
@@ -116,9 +115,6 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                 <td>
                                     <?php
                                     $available_days = explode(',', $row["c_aval_days"]);
-                                    usort($available_days, function ($a, $b) use ($day_order) {
-                                        return array_search($a, $day_order) - array_search($b, $day_order);
-                                    });
                                     foreach ($available_days as $day) {
                                         echo $day . "<br>";
                                     }
@@ -126,7 +122,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                 </td>
                                 <td><?php echo $row['c_qualification']; ?></td>
                                 <td>
-                                <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>">Book Appointment</a>
+                                    <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>">Book Appointment</a>
                                     <?php
                                     if (isset($_SESSION['current_user_id'])) {
                                         $email = $_SESSION['current_user_email'];
@@ -141,24 +137,11 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                             $con_name = substr($row['u_name'], 0, 4);
                                             $consult_id = $row['u_id'];
                                             $user_id = $_SESSION['current_user_id'];
-                                            // $channel_name = $user_id . $con_name;
-                                            $channel_name = $user_name . $con_name . $consult_id . $user_id;
+                                            $channel_name = $user_id . $con_name;
                                             $appID = "8a0176984cea4e4e8a96c984d149d52f";
                                             $appCertificate = "0bfb49c03978438a8f6723c29f9ccdee";
-                                            $appID_RTM = 'a576fbd69d704ba2a6031f33bb91cf56';
-                                            $appCertificate_RTM = '631d7a8913a24fd59d19f8fc7c112882';
-                                            $uid = 0;
-                                            $uid2 = 0;
-                                            $role = RtcTokenBuilder::RoleAttendee;
-                                            $role2 = RtmTokenBuilder::RoleRtmUser;
-                                            $expireTimeInSeconds = 3600;
-                                            $currentTimestamp = (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp();
-                                            $privilegeExpiredTs = $currentTimestamp + $expireTimeInSeconds;
-                                            $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channel_name, $uid, $role, $privilegeExpiredTs);
-                                            $token_RTM = RtmTokenBuilder::buildToken($appID_RTM, $appCertificate_RTM, $row2['u_email'], $role2, $privilegeExpiredTs);
-                                            $_SESSION['token'] = $token;
-                                            $_SESSION['channel'] = $channel_name;
-                                            $_SESSION['token_rtm'] = $token_RTM;
+                                            $channelName = $user_name . $con_name;
+                                            $time = date('Y-m-d H:i:s');
                                     ?>
                                             <a id="link" class="btn btn-secondary btn-sm" data-id="<?php echo $consult_id; ?>" onclick="redirectTo('<?php echo $consult_id; ?>','<?php echo $user_id; ?>','<?php echo $user_name; ?>','<?php echo $con_name; ?>')">JOIN NOW</a>
                                     <?php
@@ -179,7 +162,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_aval_days As c_aval_days,consultant.c_qualification AS c_qualification ,
                         consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
                         WHERE users.u_id = consultant.u_id 
-                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' AND consultant_category.cat_name='$cat' ";
+                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' AND consultant_category.cat_name='$cat' ORDER BY users.u_name";
                     $res = mysqli_query($conn1, $sql);
 
                     //checking whether query is executed or not
