@@ -20,7 +20,7 @@ include_once '../common/banner.php';
     .table {
 
 
-        margin: 0 auto;
+        /* margin: 0 auto; */
 
 
     }
@@ -70,7 +70,7 @@ if($_SESSION['space_active']==="inactive"){
 }
 }
 ?>
-<div class="container" style="margin-top:5%;">
+<div class="container" style="margin-top:-5%;">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

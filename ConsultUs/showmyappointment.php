@@ -79,7 +79,7 @@ $user = $_SESSION['current_user_name'];
                 </tr>
                 <?php
                 error_reporting(0);
-                $sql = "SELECT * FROM `appointment` WHERE `username`='$user'";
+                $sql = "SELECT * FROM `appointment` WHERE `username`='$user' ORDER BY `date_appointment` DESC, `time_appointment` DESC";
                 $res = mysqli_query($conn, $sql);
                 if ($res) {
                     $count = mysqli_num_rows($res);

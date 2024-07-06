@@ -162,7 +162,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_aval_days As c_aval_days,consultant.c_qualification AS c_qualification ,
                         consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
                         WHERE users.u_id = consultant.u_id 
-                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' AND consultant_category.cat_name='$cat' ORDER BY users.u_name";
+                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' AND consultant_category.cat_name='$cat'";
                     $res = mysqli_query($conn1, $sql);
 
                     //checking whether query is executed or not

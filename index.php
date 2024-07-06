@@ -60,16 +60,14 @@ include_once './common/header_module.php';
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
 
   <!-- bug id-0000115 -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <!-- <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- </head> -->
@@ -99,8 +97,8 @@ include_once './common/header_module.php';
         visibility: hidden;
         width: 120px;
         background-color: #ffff0087;
-        font-weight: 1000;
-        font-size: larger;
+        font-weight: 800;
+        font-size: small;
         color: black;
         text-align: center;
         border-radius: 6px;
@@ -297,7 +295,7 @@ include_once './common/header_module.php';
   <!-- Services section end -->
   <!-- Blog section -->
   <br /><br /><br /><br />
-  <section class="blog-section spad">
+  <section class="blog-section spad" style="text-align: center;">
     <div class="container">
       <div class="section-title text-center">
         <h3 style="font-weight:bold;font-size:x-large;">OUR RECENT PROJECTS</h3>
@@ -415,7 +413,7 @@ include_once './common/header_module.php';
     <!--Benefits-->
     <div class="container">
       <div class="section-title">
-        <h3 class="text-center">IF YOU REGISTER WITH US : BENEFITS</h3>
+        <h3 style="font-weight:bold;font-size:x-large;" class="text-center">IF YOU REGISTER WITH US : BENEFITS</h3>
         <p></p>
       </div>
       <div class="row">
@@ -473,7 +471,7 @@ include_once './common/header_module.php';
   <section class="hero-section set-bg" data-setbg="" style="width: 100%; height: 90%">
     <div class="container">
       <div class="section-title text-center">
-        <h3>GET THE BEST OFFERS HERE</h3>
+        <h3 style="font-weight:bold;font-size:x-large;">GET THE BEST OFFERS HERE</h3>
         <p></p>
       </div>
       <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

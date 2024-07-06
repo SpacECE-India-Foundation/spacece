@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting(0);
+error_reporting(0);
 include('include/config.php');
 include './header_local.php';
 if (empty($_SESSION['current_user_email'])) {
@@ -366,7 +366,9 @@ if (isset($_POST['submit'])) {
 			<section id="page-title">
 				<div class="row">
 					<div class="col-sm-8">
-						<h1 style="color: red; padding-left: 570px" class="mainTitle">User | Book Appointment</h1>
+						<center>
+						<h1 style="color: red; padding-left: 450px" class="mainTitle">User | Book Appointment</h1>
+						</center>
 					</div>
 
 			</section>

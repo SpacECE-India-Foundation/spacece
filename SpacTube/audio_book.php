@@ -157,7 +157,7 @@ include_once '../common/banner.php';
                 //                 <button name="comment" class="btn"><img src="comments.png" style="justify-content: center; padding-left: 30%; height: 20px; width: 35px"></button>
                 //             </a> -->
 
-                //                         </div>
+                <!-- //                         </div>
                 //                     </div>
                 //                 </div> -->
                  <?php
