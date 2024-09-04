@@ -18,10 +18,10 @@ if(!defined('DB_HOST_NAME'))
 // define('DB_USER_PASSWORD', 'Spaceuser12#');
 
 if (!defined('DB_HOST_NAME'))
-    define('DB_HOST_NAME', 'mysql');  // Use 'localhost' or '127.0.0.1' for local MySQL server
+    define('DB_HOST_NAME', 'mysql-space');  // Use 'localhost' or '127.0.0.1' for local MySQL server
 
 if (!defined('DB_USER_NAME'))
-	define('DB_USER_NAME', 'mysql');  // Replace 'your_local_username' with your MySQL username for the local database
+	define('DB_USER_NAME', 'root');  // Replace 'your_local_username' with your MySQL username for the local database
 
 if (!defined('DB_USER_PASSWORD'))
     define('DB_USER_PASSWORD', 'mysql');
