@@ -28,6 +28,13 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
         img#thumb {
             height: 180px;
         }
+        .video-player-container {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .video-player-container.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -71,6 +78,11 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                 </form>
                 <br><br>
 
+                <!-- Video Player (This will only show when a video is clicked) -->
+                <div class="video-player-container" id="videoPlayerContainer">
+                    <iframe id="videoPlayer" width="100%" height="400" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+
                 <div class="row row-cols-1 row-cols-md-3">
                     <?php
                     $status = 'free';
@@ -91,7 +103,10 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                                 <div class="col mb-4">
                                     <div class="card h-100">
                                         <div class="set-box youtube-video-r t" data-title="Landscape">
-                                            <a class="alb_item mt-2 d-flex align-content-center" href="https://www.youtube.com/watch?v=<?php echo $video_data['v_url']; ?>">Youtube 2</a>
+                                            <!-- Update the href to a custom data attribute for playing the video -->
+                                            <a href="javascript:void(0)" class="play-video-btn" data-url="<?php echo $video_data['v_url']; ?>" data-title="<?php echo $video_data['title']; ?>">
+                                                <img id="thumb" src="https://img.youtube.com/vi/<?php echo $video_data['v_url']; ?>/hqdefault.jpg" alt="Thumbnail">
+                                            </a>
                                         </div>
                                         <div class="card-body pt-2 pb-2">
                                             <h6 class="card-title"><?php echo $video_data['title']; ?></h6>
@@ -131,27 +146,40 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./src/ALightBox.js"></script>
     <script type="text/javascript">
-        $('body').ALightBox({
-            showYoutubeThumbnails: true
-        });
-
         $(document).ready(function() {
-            $(".share-btn").click(function(e) {
-                $('.networks-5').not($(this).next(".networks-5")).each(function(){
-                    $(this).removeClass("active");
-                });
+            $(".play-video-btn").on('click', function() {
+                var videoUrl = $(this).data('url');
+                var videoTitle = $(this).data('title');
+                var iframe = $('#videoPlayer');
+                
+                // Set the video URL with autoplay
+                iframe.attr('src', 'https://www.youtube.com/embed/' + videoUrl + '?autoplay=1');
 
-                $(this).next(".networks-5").toggleClass("active");
-            });
+// Show the video player container
+$('#videoPlayerContainer').addClass('active');
 
-            $('#alb_icon_close').on('click', function(){
-                console.log("Close");
-                var myVideo = document.getElementsByClassName("video-stream"); 
-                for (var i = 0; i < myVideo.length; i++) {
-                    myVideo[i].pause(); 
-                }
-            });
-        });
-    </script>
+// Smooth scroll to the video player container
+$('html, body').animate({
+    scrollTop: $("#videoPlayerContainer").offset().top
+}, 1000);
+});
+
+$(".share-btn").click(function(e) {
+$('.networks-5').not($(this).next(".networks-5")).each(function() {
+    $(this).removeClass("active");
+});
+
+$(this).next(".networks-5").toggleClass("active");
+});
+
+$('#alb_icon_close').on('click', function() {
+console.log("Close");
+var myVideo = document.getElementsByClassName("video-stream"); 
+for (var i = 0; i < myVideo.length; i++) {
+    myVideo[i].pause(); 
+}
+});
+});
+</script>
 </body>
 </html>
