@@ -63,11 +63,22 @@ if (isset($_SESSION['current_user_email'])) {
 
   include('../Db_Connection/db_consultus_app.php');
 
+  // Collect form values for a_date and a_time
+  $adate = $_POST['adate'];  // Appointment Date from the select input
+  $atime = $_POST['atime'];  // Appointment Time from the time input
+  $status = 'Pending';       // Default status is 'Pending'
+  $email = $u_email;         // Email from session data
+  $mobile = $u_mob;          // Mobile number from session data
+
   $c_id = $_GET['cid'];
   $b_id = $_GET['b_id'];
   $con_name = $_GET['con_name'];
   $cat_name = $_GET['cat_name'];
-  $sql = "INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$b_id','$u_mob')";
+  // $sql = "INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$b_id','$u_mob')";
+
+  $sql = "INSERT INTO `appointment`(`cid`, `category`, `username`, `cname`, `a_date`, `status`, `email`, `mobile`, `bid`, `com_mob`, `a_time`) 
+          VALUES ('$c_id', '$cat_name', '$u_name', '$con_name', '$adate', '$status', '$u_email', '$u_mob', '$b_id', '$u_mob', '$atime')";
+
   $res = mysqli_query($conn, $sql);
 
   if (!$res) {
