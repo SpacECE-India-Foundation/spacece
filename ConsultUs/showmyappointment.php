@@ -18,6 +18,7 @@ $email = $_SESSION['current_user_email'];
 $user = $_SESSION['current_user_name'];
 ?>
 <html>
+
 <head>
     <title>Appointment - Home Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
@@ -26,30 +27,38 @@ $user = $_SESSION['current_user_name'];
             margin-top: 20px;
             overflow-x: auto;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+
+        th,
+        td {
             text-align: center;
             padding: 10px;
             border: 1px solid #ddd;
         }
+
         th {
             background-color: #f8f9fa;
             color: #343a40;
         }
+
         td {
             background-color: #fff;
         }
+
         .btn-container {
             display: flex;
             flex-direction: column;
             gap: 5px;
         }
+
         .btn-container a {
             margin: 0 auto;
         }
+
         .container {
             /* background: linear-gradient(to bottom right, #ffcc99 0%, #ffffff 100%); */
             padding: 20px;
@@ -57,6 +66,7 @@ $user = $_SESSION['current_user_name'];
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="table-container">
@@ -97,7 +107,7 @@ $user = $_SESSION['current_user_name'];
                             $mobile = $row['mobile'];
                             $uid = $row['bid'];
                             $status = $row['status'];
-                            ?>
+                ?>
                             <tr>
                                 <td><?php echo $sno++; ?></td>
                                 <td><?php echo $id; ?></td>
@@ -113,11 +123,11 @@ $user = $_SESSION['current_user_name'];
                                 <td><?php echo $uid; ?></td>
                                 <td class="btn-container">
                                     <a href="<?php echo SITEURL; ?>delete_appointment.php?id=<?php echo $uid; ?>&user=<?php echo $user; ?>&email=<?php echo $email; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this appointment?')">DELETE APPOINTMENT</a>
-                                    <a href="./instamojo_payment/index.php?id=<?php echo $id; ?>&user=<?php echo $user; ?>" class="btn btn-sm" style="color:black;background-color:pink"> Confirm Appointment </a>
-                                    <a href="<?php echo SITEURL; ?>chatbot/room.php?roomname=bid<?php echo $uid; ?>" class="btn btn-primary" style="width: 100%" >CHAT</a>
+                                    <a href="./instamojo_payment/index.php?id=<?php echo $id; ?>&user=<?php echo $user; ?>" class="btn btn-sm" style="color:black;background-color:pink" onclick="return confirm('Are you sure you want to confirm this appointment?')"> Confirm Appointment </a>
+                                    <a href="<?php echo SITEURL; ?>chatbot/room.php?roomname=bid<?php echo $uid; ?>" class="btn btn-primary" style="width: 100%">CHAT</a>
                                 </td>
                             </tr>
-                            <?php
+                <?php
                         }
                     } else {
                         echo "<tr><td colspan='13'>Sorry, no appointments found.</td></tr>";
@@ -133,5 +143,5 @@ $user = $_SESSION['current_user_name'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
-</html>
 
+</html>
