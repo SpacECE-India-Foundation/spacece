@@ -1,8 +1,8 @@
 <?php
-session_start();
-error_reporting(0);
-
-
+if(session_status()===PHP_SESSION_NONE)
+{
+  session_start();
+}
 if (empty($_SESSION['current_user_email'])) {
   header('location:../spacece_auth/login.php');
   exit();
@@ -25,6 +25,7 @@ if (isset($_SESSION['current_user_email'])) {
   define('DB_USER_DATABASE', 'spacece');
 
   $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
+
   $u_name = '';
   $u_mob = '';
   $u_email = '';
@@ -200,6 +201,7 @@ if (isset($_SESSION['current_user_email'])) {
       <br>
       <h5>Available Days: <?php echo $c_aval_days; ?></h5>
       <hr>
+      
       <label for="userid"><b>Booking Id</b></label>
       <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>
       <label for="adate"><b>Select Date of Appointment:</b></label>
@@ -209,6 +211,7 @@ if (isset($_SESSION['current_user_email'])) {
         <?php } ?>
       </select>
       <br><br>
+      
       <label for="atime"><b>Select A Time:</b></label>
       <input type="time" id="atime" name="atime" required>
       <br><br>
@@ -238,9 +241,10 @@ if (isset($_SESSION['current_user_email'])) {
       <input type="text" value="<?php echo $u_mob ?>" minlength="10" maxlength="10" pattern="[0-9]{10}" name="mobile" id="mobile" required><br>
       <hr>
       <!-- <input type="submit" name="submit" id="submit" class="registerbtn"> -->
-      <a href="./showmyappointment.php">
-        <button type="submit" name="submit" id="submit" class="registerbtn">Submit</button>
-      </a>
+      
+    <button type="submit" name="submit" id="submit" class="registerbtn">Submit</button>
+
+
     </div>
 
     <div class="container signin" style="background-color:orange">

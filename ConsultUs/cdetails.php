@@ -14,14 +14,15 @@ include('../Db_Connection/db_consultus_app.php');
 include("./php/src/RtcTokenBuilder.php");
 include("./php/src/RtmTokenBuilder.php");
 
-error_reporting(0);
-$ref = $_GET['user'];
+//user is not used so commented
+//$ref = $_GET['user'];
 $cat = $_GET['category'];
 
 date_default_timezone_set("Asia/Calcutta");
 
 // Create connection
 define('DB_USER_DATABASE', 'spacece');
+
 $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
 
 // $sql="SELECT * FROM users WHERE u_email='$email'";
