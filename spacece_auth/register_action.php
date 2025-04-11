@@ -1,8 +1,8 @@
 <?php
 session_start();
 include('../Db_Connection/db_spacece.php');
-
-function isValidEmail($email) {
+function isValidEmail($email)
+{
     // Check if the email has a valid format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return false;
@@ -49,7 +49,7 @@ if (mysqli_num_rows($run) > 0) {
         $c_to_time = $_POST['c_to_time'];
         $c_language = $_POST['c_language'];
         $c_fee = $_POST['c_fee'];
-        $c_available_days=$_POST['selectedItem'];
+        $c_available_days = $_POST['selectedItem'];
         $c_available_from = $_POST['c_available_from'];
         $c_available_to = $_POST['c_available_to'];
         $c_qualification = $_POST['c_qualification'];
@@ -62,15 +62,21 @@ if (mysqli_num_rows($run) > 0) {
 
         $query = "INSERT INTO consultant (u_id, c_category, c_office, c_from_time, c_to_time, c_language, c_fee, c_available_from, c_available_to, c_qualification,c_aval_days) 
       VALUES ($last_id, $c_categories, '$c_office', '$c_from_time', '$c_to_time', '$c_language', '$c_fee', '$c_available_from','$c_available_to','$c_qualification','$c_available_days')";
-    } else if (($type == 'customer') || ($type == 'admin' )|| ($type == 'book_owner') ||( $type == 'delivery_boy') ) {
-        $query = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
+    } else if (($type == 'customer') || ($type == 'admin') || ($type == 'book_owner') || ($type == 'delivery_boy')) {
+        $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME_SPACECE);
+        $query1 = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
+        $result = mysqli_query($conn1, $query1);
+
+        $conn2 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME_CONSULTANT_APP);
+        $query2 = "INSERT INTO `login`(username,name,email,phone) VALUES ('$name','$name', '$email','$phone')";
+        $result = mysqli_query($conn2, $query2);
         $redirectUrl = '../index.php';
     } else {
         echo json_encode(array('status' => 'error', 'message' => "Invalid user type!"));
         die();
     }
 
-    $result = mysqli_query($conn, $query);
+    // $result = mysqli_query($conn, $query);
 
     if ($result) {
         echo json_encode(array('status' => 'success', 'message' => "Registration successful! Redirecting to login page...", 'redirectUrl' => $redirectUrl));
@@ -80,4 +86,3 @@ if (mysqli_num_rows($run) > 0) {
         die();
     }
 }
-?>

@@ -29,6 +29,7 @@ function get_input_value($row, $input)
     <form class="profile-form" method="post" autocomplete="off" id="update_profile">
         <div class="form-group" id="js-pro-pic">
             <img src="<?= '../img/users/' . get_input_value($row, 'u_image'); ?>" alt="<?= get_input_value($row, 'u_name'); ?>">
+            <span><?= get_input_value($row, 'u_name'); ?></span>
             <div class="file-input" style="display: none;">
                 <input type="file" class="fileToUpload" style="padding: 15px 30px;" name="fileToUpload" accept="image/*" id="fileToUpload" />
                 <label for="file">Change Profile Picture
@@ -101,26 +102,24 @@ function get_input_value($row, $input)
 
 <?php include_once '../common/footer_module.php'; ?>
 <script>
-$('#update_profile').on('submit',function(e){
-    var form = $("#update_profile");
+    $('#update_profile').on('submit', function(e) {
+        var form = $("#update_profile");
 
-// you can't pass Jquery form it has to be javascript form object
-var formData = new FormData(form[0]);
+        // you can't pass Jquery form it has to be javascript form object
+        var formData = new FormData(form[0]);
 
- e.preventDefault();    
- $.ajax({
-     method:'POST',
-     enctype: 'multipart/form-data',
-     data:formData,
-     url:'profile_action.php',
-        contentType: false,
-        processData: false,
-     
-     success:function(data){
-         alert(data);
-     }
- })
-});
+        e.preventDefault();
+        $.ajax({
+            method: 'POST',
+            enctype: 'multipart/form-data',
+            data: formData,
+            url: 'profile_action.php',
+            contentType: false,
+            processData: false,
 
-
+            success: function(data) {
+                alert(data);
+            }
+        })
+    });
 </script>
