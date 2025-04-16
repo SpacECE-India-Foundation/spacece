@@ -168,6 +168,7 @@ if(session_status()===PHP_SESSION_NONE)
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            margin-top: 25px;
         }
 
         #js-pro-pic img {

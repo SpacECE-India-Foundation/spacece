@@ -237,13 +237,13 @@
             Subscribe your email to get the latest news and new offer also
             discount
           </p>
-          <form class="footer-newslatter-form" id="sub" name="sub" method="POST">
-            <input type="email" name="email" id="email" placeholder="Email address" required />
-
-            <button type="submit" style="cursor: pointer">
-              <i class="fa fa-send"></i>
-            </button>
+          <form class="footer-newslatter-form" id="sub" name="sub" method="POST" style="display: flex; gap: 5px; align-items: center;">
+          <input type="email" name="email" id="email" placeholder="Email address" required style="flex: 1; padding: 5px; height: 50px;" />
+          <button type="submit" style="padding: 5px 5px; height: 50px; background: white; border: 1px solid black; cursor: pointer;">
+          <i class="fa fa-send"></i>
+          </button>
           </form>
+
         </div>
       </div>
     </div>
