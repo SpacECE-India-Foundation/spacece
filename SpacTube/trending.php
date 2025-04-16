@@ -53,7 +53,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter', 'cntlike', 'DESC');
             <br>
             <form action="trending.php" method="post">
 
-                <select name="filterr" id="filterr" class="col-sm-3">
+                <select name=" filterr" id="filterr" class="col-sm-3" style="height: 38px; font-size: 14px; padding: 6px 12px;">
                     <option value="all" selected>ALL</option>
                     <?php
 
@@ -69,7 +69,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter', 'cntlike', 'DESC');
                     ?>
                 </select>
 
-                <input type="Submit" value="Submit" id="submit" name="Submit">
+                <input type="Submit" value="Submit" id="submit" name="Submit" class="ml-3" style="height: 38px; font-size: 14px; padding: 6px 12px; margin-left: 12px;">
                 <?php
                 if (!$abc) {
                     $abc = "all";
