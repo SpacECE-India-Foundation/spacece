@@ -128,7 +128,7 @@ if (isset($_POST['submit'])) {
         <label class="block">Child Gender</label>
         <div class="clip-radio radio-primary">
           <input type="radio" id="rg-female" name="gender" value="female">
-          <label for="rg-female">Female</label>
+          <label for="rg-female" class="me-3">Female</label>
           <input type="radio" id="rg-male" name="gender" value="male">
           <label for="rg-male">Male</label>
         </div>
@@ -170,4 +170,3 @@ if (isset($_POST['submit'])) {
 </body>
 
 </html>
-
