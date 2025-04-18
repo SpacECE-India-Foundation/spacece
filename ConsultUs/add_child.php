@@ -1,10 +1,9 @@
 <?php
-ob_start();
-session_start();
-if (isset($_SESSION['alert'])) {
-    echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
-    unset($_SESSION['alert']);
-}
+error_reporting(0);
+$main_logo = "../img/logo/SpacECELogo.jpg";
+$module_logo = "../img/logo/ConsultUs.jpeg";
+$module_name = "ConsultUs";
+include_once '../common/header_module.php';
 include '../Db_Connection/constants.php';
 include '../Db_Connection/db_cits1.php';
 
@@ -28,16 +27,10 @@ if (isset($_POST['submit'])) {
     VALUES('$childname', '$parentcontact', '$parentemail', '$gender', '$parentaddress', '$childage', '$medhis', '$dob')");
 
   if ($sql) {
-    $_SESSION['alert'] = "Patient info added Successfully";
-    $redirectUrl = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    header("Location: $redirectUrl");
-    exit;
+    echo "<script>alert('Patient info added Successfully');</script>";
+    header('location:add-child.php');
   }
 }
-$main_logo = "../img/logo/SpacECELogo.jpg";
-$module_logo = "../img/logo/ConsultUs.jpeg";
-$module_name = "ConsultUs";
-include_once '../common/header_module.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -135,8 +128,8 @@ include_once '../common/header_module.php';
         <label class="block">Child Gender</label>
         <div class="clip-radio radio-primary">
           <input type="radio" id="rg-female" name="gender" value="female">
-          <label for="rg-female">Female</label>
-          <input type="radio" id="rg-male" name="gender" value="male" style="margin-left:10px;">
+          <label for="rg-female" class="me-3">Female</label>
+          <input type="radio" id="rg-male" name="gender" value="male">
           <label for="rg-male">Male</label>
         </div>
       </div>
@@ -177,4 +170,3 @@ include_once '../common/header_module.php';
 </body>
 
 </html>
-

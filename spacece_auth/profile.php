@@ -62,7 +62,7 @@ function get_input_value($row, $input)
         </div>
 
         <button type="button" id="edit" name="edit_profile">Edit Profile</button>
-        <button type="submit" id="update" name="update_profile" style="display: none; margin-top : 10px;">Update Profile</button>        
+        <button type="submit" id="update" name="update_profile" style="display: none;">Update Profile</button>
         <br>
 
     </form>

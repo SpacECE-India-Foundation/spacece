@@ -19,11 +19,7 @@ $extra_profile_links = "
 
 $extra_main_nav_links = "
 <div style='display: inline; position: relative;'>
-<a href='#' class='dropdown-toggle' data-toggle='dropdown'>
-  <i class='fas fa-shopping-bag' style='margin-right: 5px;'></i>
-  Cart
-  <span class='badge' style='margin-left: 5px;'>0</span>
-</a>
+<a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='fas fa-shopping-bag'></i>Cart<span class='badge'>0</span></a>
 <div class='dropdown-menu' style='width:400px; position: absolute; top: 30px;'>
   <div class='panel panel-success'>
     <div class='panel-heading'>
