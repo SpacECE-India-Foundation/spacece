@@ -68,60 +68,60 @@ include_once './common/header_module.php';
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- </head> -->
-    <style>
-      .chat_icon_container {
-        position: fixed;
-        bottom: 20px;
-        /* Adjust as needed */
-        right: 20px;
-        /* Adjust as needed */
-        display: inline-block;
-        cursor: pointer;
-        z-index: 9999;
-        /* Ensure the container is on top */
-      }
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- </head> -->
+  <style>
+    .chat_icon_container {
+      position: fixed;
+      bottom: 20px;
+      /* Adjust as needed */
+      right: 20px;
+      /* Adjust as needed */
+      display: inline-block;
+      cursor: pointer;
+      z-index: 9999;
+      /* Ensure the container is on top */
+    }
 
-      .chat_icon {
-        color: black;
-        /* border: 2px solid black; */
-        border-radius: 30px;
-        padding: 10px;
-        /* background-color: white; */
-        /* Ensure the icon is visible */
-      }
+    .chat_icon {
+      color: black;
+      /* border: 2px solid black; */
+      border-radius: 30px;
+      padding: 10px;
+      /* background-color: white; */
+      /* Ensure the icon is visible */
+    }
 
-      .hover_text {
-        visibility: hidden;
-        width: 120px;
-        background-color: #ffff0087;
-        font-weight: 800;
-        font-size: small;
-        color: black;
-        text-align: center;
-        border-radius: 6px;
-        padding: 10px 0;
-        position: absolute;
-        z-index: 10000;
-        /* Bring the hover text to the front */
-        bottom: 125%;
-        /* Position above the icon */
-        right: 100%;
-        transform: translateX(-50%);
-        /* Center the text */
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
+    .hover_text {
+      visibility: hidden;
+      width: 120px;
+      background-color: #ffff0087;
+      font-weight: 800;
+      font-size: small;
+      color: black;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px 0;
+      position: absolute;
+      z-index: 10000;
+      /* Bring the hover text to the front */
+      bottom: 125%;
+      /* Position above the icon */
+      right: 100%;
+      transform: translateX(-50%);
+      /* Center the text */
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
 
-      .chat_icon_container:hover .hover_text {
-        visibility: visible;
-        opacity: 1;
-      }
-    </style>
-    <!-- Stylesheets -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
+    .chat_icon_container:hover .hover_text {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+  <!-- Stylesheets -->
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/animate.css" />
   <link rel="stylesheet" href="css/owl.carousel.css" />
@@ -137,11 +137,11 @@ include_once './common/header_module.php';
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
   <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" /> -->
 
-    <!--[if lt IE 9]>
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
 <body>
   <!-- Page Preloder -->
@@ -300,67 +300,100 @@ include_once './common/header_module.php';
       <div class="section-title text-center">
         <h3 style="font-weight:bold;font-size:x-large;">OUR RECENT PROJECTS</h3>
       </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6 blog-item">
-          <a href="./ConsultUs/index.php?cat=consult">
-            <img src="img/icon_consultus.jpeg" alt="CONSULT US" width="300" height="300" /></a>
-          <h5><a href="#"> </a></h5>
-          <div class="blog-meta">
-            <!--<span><i class="fa fa-user"></i>Manas Sinkar</span>
-						<span><i class="fa fa-clock-o"></i>25 Jan 2019</span>-->
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-img-top" style="height: 150px;"><a href="./ConsultUs/index.php?cat=consult">
+                <img src="img/icon_consultus.jpeg" alt="CONSULT US" width="150" height="150" /></a>
+              <h5><a href="#"> </a></h5>
+            </div>
+            <div class="card-body text-start">
+              <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Consultus</h5>
+              <p class="card-text">
+                Consultus is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
+              </p>
+            </div>
           </div>
-          <p></p>
         </div>
-        <div class="col-lg-4 col-md-6 blog-item">
-          <a href="./SpacTube/view.php?cat=spacetube">
-            <img src="img/icon_spacetube.jpeg" alt="SPACTUBE" width="300" height="300" /></a>
-          <h5><a href="#"> </a></h5>
-          <div class="blog-meta">
-            <!--<span><i class="fa fa-user"></i>Parth Thosani</span>
+
+        <div class="col-md-4">
+          <div class="card h-100 ">
+            <div class="card-img-top" style="height: 150px;"> <a href="./SpacTube/view.php?cat=spacetube">
+                <img src="img/icon_spacetube.jpeg" alt="SPACTUBE" width="150" height="150" /></a>
+              <h5><a href="#"> </a></h5>
+            </div>
+            <div class="card-body text-start">
+              <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Spacetube</h5>
+              <p class="card-text">
+                Spacetube is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-img-top" style="height: 150px;"><a href="./learnonapp/index.php">
+                <img src="img/icon_learnonapp.jpeg" alt="" width="150" height="150" /></a>
+              <h5><a href="#"> </a></h5>
+            </div>
+            <div class="card-body text-start">
+              <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Learn On App</h5>
+              <p class="card-text">
+                Learn On App is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-img-top" style="height: 150px;"><a href="./libforsmall/index.php">
+                <img src="img/icon_libforsmalls.jpeg" alt="" width="150" height="150" /></a>
+              <h5><a href="#"> </a></h5>
+            </div>
+            <div class="card-body text-start">
+              <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Lib For Small</h5>
+              <p class="card-text">
+                Lib For Small is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-img-top" style="height: 150px;"><a href="./spacec_active/index.php">
+                <img src="img/icon_spaceactive.jpeg" alt="TOY LIBRARY" width="150" height="150" /></a>
+              <h5><a href="#"> </a></h5>
+            </div>
+            <div class="card-body text-start">
+              <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Spacactive</h5>
+              <p class="card-text">
+                Spacactive is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-img-top" style="height: 150px;"> <a href="./child_profile/home.php">
+                <img src="img/logo/childprofilemanagement.jpeg" alt="CHILLDRENS PROFILE" width="150" height="150" /></a>
+              <h5><a href="#"> </a></h5>
+            </div>
+            <div class="card-body text-start">
+              <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Child Management</h5>
+              <p class="card-text">
+                Child Management is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--<span><i class="fa fa-user"></i>Parth Thosani</span>
 						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
-          </div>
-          <p></p>
-        </div>
-        <div class="col-lg-4 col-md-6 blog-item">
-          <a href="./learnonapp/index.php">
-            <img src="img/icon_learnonapp.jpeg" alt="" width="300" height="300" /></a>
-          <h5><a href="#"> </a></h5>
-          <div class="blog-meta">
-            <!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
-          </div>
-          <p></p>
-        </div>
-        <div class="col-lg-4 col-md-6 blog-item">
-          <a href="./libforsmall/index.php">
-            <img src="img/icon_libforsmalls.jpeg" alt="" width="300" height="300" /></a>
-          <h5><a href="#"> </a></h5>
-          <div class="blog-meta">
-            <!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
-          </div>
-          <p></p>
-        </div>
-        <div class="col-lg-4 col-md-6 blog-item">
-          <a href="./spacec_active/index.php">
-            <img src="img/icon_spaceactive.jpeg" alt="TOY LIBRARY" width="300" height="300" /></a>
-          <h5><a href="#"> </a></h5>
-          <div class="blog-meta">
-            <!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
-          </div>
-          <p></p>
-        </div>
-        <div class="col-lg-4 col-md-6 blog-item">
-          <a href="./child_profile/home.php">
-            <img src="img/logo/childprofilemanagement.jpeg" alt="CHILLDRENS PROFILE" width="300" height="300" /></a>
-          <h5><a href="#"> </a></h5>
-          <div class="blog-meta">
-            <!--<span><i class="fa fa-user"></i>Parth Thosani</span>
-						<span><i class="fa fa-clock-o"></i>04 Feb 2019</span>-->
-          </div>
-          <p></p>
-        </div>
+
         <!-- <div class="col-lg-4 col-md-6 blog-item">
           <a href="./blog/index.php">
             <img src="img/logo/children_immu_logo.jpg" alt="BABY CARE" width="300" height="300" /></a>
@@ -411,57 +444,50 @@ include_once './common/header_module.php';
     <!-- Clients section end -->
 
     <!--Benefits-->
-    <div class="container">
+    <div class="container mt-5">
       <div class="section-title">
-        <h3 style="font-weight:bold;font-size:x-large;" class="text-center">IF YOU REGISTER WITH US : BENEFITS</h3>
+        <h3 style="font-weight:bold;font-size:x-large;" class="text-center">The Benifits we provide</h3>
         <p></p>
       </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6 blog-item">
-          <p>
-            <i class="fa fa-check-circle" style="color: black"></i>
-            <span>
-              Wide Variety of stuffs, which helps your children to grow
-              physically as well as mentally
-            </span>
-          </p>
+      <div class="row g-4 ">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center border rounded p-3 bg-white h-100" style="min-height: 100px;">
+            <i class="fa-solid fa-shapes fa-2x text-warning me-3"></i>
+            <span class="text-start">A wide variety of offerings that help your children grow.</span>
+          </div>
         </div>
-        <br /><br />
-
-        <div class="col-lg-4 col-md-6 blog-item">
-          <p>
-            <i class="fa fa-check-circle" style="color: black"></i>
-            <span>Access to various specialists</span>
-          </p>
+        <div class="col-md-4">
+          <div class="d-flex align-items-center border rounded p-3 bg-white h-100" style="min-height: 100px;">
+            <i class="fa-solid fa-user-shield fa-2x text-warning me-3"></i>
+            <span class="text-start">Privacy & availability</span>
+          </div>
         </div>
-
-        <div class="col-lg-4 col-md-6 blog-item">
-          <p>
-            <i class="fa fa-check-circle" style="color: black"></i>
-            <span>Privacy & availability</span>
-          </p>
+        <div class="col-md-4">
+          <div class="d-flex align-items-center border rounded p-3 bg-white h-100" style="min-height: 100px;">
+            <i class="fa-solid fa-certificate fa-2x text-warning me-3"></i>
+            <span class="text-start">Reliable and trustworthy</span>
+          </div>
         </div>
-
-        <div class="col-lg-4 col-md-6 blog-item">
-          <p>
-            <i class="fa fa-check-circle" style="color: black"></i>
-            <span>Comfort and Convenience</span>
-          </p>
+        <div class="col-md-4">
+          <div class="d-flex align-items-center border rounded p-3 bg-white h-100" style="min-height: 100px;">
+            <i class="fa-solid fa-stethoscope fa-2x text-warning me-3"></i>
+            <span class="text-start">Access to various specialists</span>
+          </div>
         </div>
-        <div class="col-lg-4 col-md-6 blog-item">
-          <p>
-            <i class="fa fa-check-circle" style="color: black"></i>
-            <span>Cost-effective and Time-saving</span>
-          </p>
+        <div class="col-md-4">
+          <div class="d-flex align-items-center border rounded p-3 bg-white h-100" style="min-height: 100px;">
+            <i class="fa-solid fa-couch fa-2x text-warning me-3"></i>
+            <span class="text-start">Comfort & convenience</span>
+          </div>
         </div>
-
-        <div class="col-lg-4 col-md-6 blog-item">
-          <p>
-            <i class="fa fa-check-circle" style="color: black"></i>
-            <span>Reliable and Trust-worthy</span>
-          </p>
+        <div class="col-md-4">
+          <div class="d-flex align-items-center border rounded p-3 bg-white h-100" style="min-height: 100px;">
+            <i class="fa-solid fa-piggy-bank fa-2x text-warning me-3"></i>
+            <span class="text-start">Cost effective and time efficient</span>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 

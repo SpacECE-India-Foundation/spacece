@@ -1,6 +1,5 @@
 <?php
-if(session_status()===PHP_SESSION_NONE)
-{
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
@@ -27,7 +26,7 @@ if(session_status()===PHP_SESSION_NONE)
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #FFA500;
+            background-color: #ffffff;
             padding: 20px;
             font-size: large;
         }
@@ -243,9 +242,9 @@ if(session_status()===PHP_SESSION_NONE)
     <nav class="navbar">
         <div class="logo">
             <div class="org_logo">
-                <a href=<?= $main_page ? "./index.php" : "../index.php" ?>>
-                    <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
-                    <span>SpaceECE</span>
+                <!-- <a href=<?= $main_page ? "./index.php" : "../index.php" ?>> -->
+                <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
+                <span>SpaceECE Web Portal</span>
                 </a>
             </div>
             <?php
@@ -261,11 +260,7 @@ if(session_status()===PHP_SESSION_NONE)
             }
             ?>
         </div>
-        <div class="main_nav">
-            <a href="./index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
-            <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
-            <a href="./about.php"><i class="fas fa-address-card"></i><span>About</span></a>
-        </div>
+
         <div class="user">
             <?php
             if (isset($_SESSION['current_user_id'])) {
@@ -284,10 +279,13 @@ if(session_status()===PHP_SESSION_NONE)
             <?php
             } else {
             ?>
-                <a href=<?= isset($main_page) ? "./spacece_auth/register.php" : "../spacece_auth/register.php" ?>>
-                    <i class="fas fa-user-plus"></i><span>Register</span></a>
-                <a href=<?= isset($main_page) ? "./spacece_auth/login.php" : "../spacece_auth/login.php" ?>>
-                    <i class="fas fa-sign-in-alt"></i><span>Login</span></a>
+                <div class="main_nav">
+                    <a href="./index.php"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
+                    <a href="./about.php"><i class="fas fa-address-card"></i></a>
+                    <a href="./spacece_auth/register.php"><i class="fas fa-user-plus"></i></a>
+
+                </div>
             <?php
             }
             ?>
