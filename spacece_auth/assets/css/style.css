@@ -89,10 +89,10 @@ input[type="file"].form-control {
   cursor: pointer;
 }
 
-.register-form button:hover,
-.profile-form button:hover {
+/* .register-form button:hover, */
+/* .profile-form button:hover {
   background: #43a047;
-}
+} */
 
 .register-form .message,
 .profile-form .message {
