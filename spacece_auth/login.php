@@ -14,208 +14,112 @@ if (isset($_SESSION['current_user_id'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<ht lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-  <!--bug id  0000115 -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <title>Spaces Web Portal - Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ddd;
+    }
 
-<style>
-    .fa {
-      padding: 2px;
-      font-size: 30px;
-      width: 30px;
+    .icons {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .icons img {
+      width: 24px;
+      cursor: pointer;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    .login-box {
+      background-color: #eee;
+      padding: 40px;
+      width: 500px;
       text-align: center;
+      box-sizing: border-box;
+    }
+
+    .login-box h2 {
+      margin-bottom: 30px;
+    }
+
+    .login-box label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .login-box button {
+      background-color: #f5a400;
+      color: white;
+      border: none;
+      padding: 12px 0;
+      width: 150px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .login-box a {
+      display: block;
+      color: #00aaff;
+      margin: 5px 0;
       text-decoration: none;
-      margin: 5px 2px;
-      border-radius: 20%;
     }
 
-    .fa:hover {
-      opacity: 0.7;
+    .login-box a:last-child {
+      color: black;
     }
 
-    .fa-facebook-f {
-      background: #3B5998;
-      color: white;
+    .login-box a:last-child span {
+      color: #00aaff;
+      margin-left: 5px;
     }
-
-    .fa-twitter {
-      background: #55ACEE;
-      color: white;
-    }
-
-    .fa-google {
-      background: #dd4b39;
-      color: white;
-    }
-
-    .fa-linkedin {
-      background: #007bb5;
-      color: white;
-    }
-
-    .fa-youtube {
-      background: #bb0000;
-      color: white;
-    }
-
-    .fa-instagram {
-      display: inline-flex;
-      text-align: center;
-      border-radius: 20%;
-      color: #fff;
-      width: 30px;
-      height: 35px;
-      font-size: 30px;
-      /*line-height: 20px;
-  vertical-align: middle;*/
-      background: #d6249f;
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      box-shadow: 0px 3px 10px rgba(0, 0, 0, .25);
-      flex-direction: column;
-    }
-
-    .fa-pinterest {
-      background: #cb2027;
-      color: white;
-    }
-
-    .fa-telegram {
-      background: #125688;
-      color: white;
-    }
-
-    .fa-snapchat-ghost {
-      background: #fffc00;
-      color: white;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    }
-
-    .fa-skype {
-      background: #00aff0;
-      color: white;
-    }
-
-    .fa-android {
-      background: #a4c639;
-      color: white;
-    }
-
-    .fa-dribbble {
-      background: #ea4c89;
-      color: white;
-    }
-
-    .fa-vimeo {
-      background: #45bbff;
-      color: white;
-    }
-
-    .fa-tumblr {
-      background: #2c4762;
-      color: white;
-    }
-
-    .fa-vine {
-      background: #00b489;
-      color: white;
-    }
-
-    .fa-foursquare {
-      background: #45bbff;
-      color: white;
-    }
-
-    .fa-stumbleupon {
-      background: #eb4924;
-      color: white;
-    }
-
-    .fa-flickr {
-      background: #f40083;
-      color: white;
-    }
-
-    .fa-yahoo {
-      background: #430297;
-      color: white;
-    }
-
-    .fa-soundcloud {
-      background: #ff5500;
-      color: white;
-    }
-
-    .fa-reddit {
-      background: #ff5700;
-      color: white;
-    }
-
-    .fa-rss {
-      background: #ff6600;
-      color: white;
-    }
-
-    @media only screen and (max-width: 600px) {
-      .on-desktop {
-        display: none;
-      }
-
-      .on-mobile {
-        display: block;
-      }
-    }
-
-
-    @media (min-width: 1025px) and (max-width: 1280px) {
-
-      .on-desktop {
-        display: block;
-      }
-
-      .on-mobile {
-        display: none;
-      }
-
-    }
-</style>
+  </style>
 </head>
 
-<body>
-
-  <div class="login-page">
-    <h2>Login</h2>
-    <form class="login-form" method="post" autocomplete="off">
-      <div class="form-group">
+  <div class="container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form>
         <label for="email">Email</label>
-        <input type="email" class="form-control" placeholder="Enter Email" name="email" required />
-      </div>
-      <div class="form-group">
+        <input type="text" id="email" placeholder="Enter Email">
+
         <label for="password">Password</label>
-        <input type="password" class="form-control" placeholder="Enter Password" name="password" required />
-      </div>
-      <div class="form-group">
-        <label for="type">User Type</label>
-        <select style="padding:5px;" name="type" id="user_type" class="form-control" required>
-          <option value="customer">Customer</option>
-          <option value="consultant">Consultant</option>
-          <option value="admin">Admin</option>
-          <option value="book_owner">Book Owner</option>
-          <option value="delivery_boy">Delivery Boy</option>
-        </select>
-      </div>
-      <button type="submit" name="login" class="btn btn-primary">Login</button>
-      <br>
-      <p class="message"><a href="forgotPass.php">Forgot Password?</a></p>
-      <p class="message">Not registered? <a href="register.php">Create an account</a></p>
-    </form>
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button type="submit">Login</button>
+
+        <p><a href="forgotpass.php">Forgot Password</a></p>
+        <a href="register.php">Not Registered ? <span>Create an Account</span></a>
+      </form>
+    </div>
   </div>
 
   <footer>
@@ -353,5 +257,4 @@ if (isset($_SESSION['current_user_id'])) {
 </script>
 
 </body>
-
 </html>
