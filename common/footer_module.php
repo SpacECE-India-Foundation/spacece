@@ -1,270 +1,210 @@
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-<!--bug id  0000115 -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- SweetAlert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<style>
-  .fa {
-    padding: 2px;
-    font-size: 30px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    border-radius: 20%;
-  }
-
-  .fa:hover {
-    opacity: 0.7;
-  }
-
-  .fa-facebook-f {
-    background: #3B5998;
-    color: white;
-  }
-
-  .fa-twitter {
-    background: #55ACEE;
-    color: white;
-  }
-
-  .fa-google {
-    background: #dd4b39;
-    color: white;
-  }
-
-  .fa-linkedin {
-    background: #007bb5;
-    color: white;
-  }
-
-  .fa-youtube {
-    background: #bb0000;
-    color: white;
-  }
-
-  .fa-instagram {
-    display: inline-flex;
-    text-align: center;
-    border-radius: 20%;
-    color: #fff;
-    width: 30px;
-    height: 35px;
-    font-size: 30px;
-    /*line-height: 20px;
-  vertical-align: middle;*/
-    background: #d6249f;
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, .25);
-    flex-direction: column;
-  }
-
-  .fa-pinterest {
-    background: #cb2027;
-    color: white;
-  }
-
-  .fa-telegram {
-    background: #125688;
-    color: white;
-  }
-
-  .fa-snapchat-ghost {
-    background: #fffc00;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  }
-
-  .fa-skype {
-    background: #00aff0;
-    color: white;
-  }
-
-  .fa-android {
-    background: #a4c639;
-    color: white;
-  }
-
-  .fa-dribbble {
-    background: #ea4c89;
-    color: white;
-  }
-
-  .fa-vimeo {
-    background: #45bbff;
-    color: white;
-  }
-
-  .fa-tumblr {
-    background: #2c4762;
-    color: white;
-  }
-
-  .fa-vine {
-    background: #00b489;
-    color: white;
-  }
-
-  .fa-foursquare {
-    background: #45bbff;
-    color: white;
-  }
-
-  .fa-stumbleupon {
-    background: #eb4924;
-    color: white;
-  }
-
-  .fa-flickr {
-    background: #f40083;
-    color: white;
-  }
-
-  .fa-yahoo {
-    background: #430297;
-    color: white;
-  }
-
-  .fa-soundcloud {
-    background: #ff5500;
-    color: white;
-  }
-
-  .fa-reddit {
-    background: #ff5700;
-    color: white;
-  }
-
-  .fa-rss {
-    background: #ff6600;
-    color: white;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .on-desktop {
-      display: none;
+  <style>
+    .fa {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
     }
 
-    .on-mobile {
+    .fa:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    .fa-facebook-f { background: #3B5998; color: white; }
+    .fa-twitter { background: #55ACEE; color: white; }
+    .fa-linkedin { background: #007bb5; color: white; }
+    .fa-instagram {
+      color: white;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, .25);
+    }
+
+    @media only screen and (max-width: 600px) {
+      .on-desktop { display: none; }
+      .on-mobile { display: block; }
+    }
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      .on-desktop { display: block; }
+      .on-mobile { display: none; }
+    }
+
+    .footer-widget {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .email-label {
       display: block;
-    }
-  }
-
-
-  @media (min-width: 1025px) and (max-width: 1280px) {
-
-    .on-desktop {
-      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #333;
     }
 
-    .on-mobile {
-      display: none;
+    .email-form {
+      display: flex;
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      padding: 6px;
+      background: white;
     }
 
-  }
-</style>
+    .email-form input[type="email"] {
+      flex: 1;
+      min-width: 100px;
+      padding: 16px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .email-form button {
+      padding: 12px 20px;
+      background-color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .email-form button:hover {
+      background-color: rgb(215, 211, 211);
+    }
+  </style>
 </head>
-<div class="container">
-  <footer class="footer-section set-bg" style="
-        background-color: orange;
-        border-collapse: collapse;
-        border: 2px solid navy;
-        opacity: 0.9;
-        padding: 30px 30px;
-      ">
+<body>
 
+<div class="container-fluid" style="padding: 0;">
+  <footer class="footer-section set-bg" style="background-color: white; opacity: 0.9; padding: 30px;">
     <div class="row">
-      <div class="col-lg-3 footer-widget ">
-        <a href="http://www.spacece.in"><img src="<?= isset($module_logo) ? $module_logo : './img/logo/SpacECELogo.jpg' ?>" class="img img-fluid img-thumbnail img-circle" alt="" style="width: 150px" /></a><a href="./index.php">
-
+      
+      <!-- Logo Section -->
+      <div class="col-lg-3 footer-widget">
+        <a href="http://www.spacece.in">
+          <img src="<?= isset($module_logo) ? $module_logo : '/spacece/img/logo/SpacECELogo.jpg' ?>" class="img img-fluid img-thumbnail img-circle" alt="Logo" style="width: 400px; height:300px; border: none; margin-top: -15px;" />
         </a>
-
-        <div class="social">
-          <a href="https://www.facebook.com/SpacECEIn"><i class="fa fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/spacece.in/"><i class="fa fa-instagram"></i></a>
-          <a href="https://t.me/joinchat/EtMJq_3BKL4zNGE1"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-          <a href="https://www.linkedin.com/company/spacece-co/"><i class="fa fa-linkedin"></i></a>
-        </div>
       </div>
 
-      <div class="col-lg-3  footer-widget">
-        <p style="color: black">
-          Still delaying your child's health concerns ?
-        </p>
-        <p style="color: black">Connect with India's top doctors online</p>
-      </div>
-      <div class="col-lg-3 footer-widget" style="text-align: justify;">
+      <!-- Contact Section -->
+      <div class="col-lg-2 footer-widget" style="text-align: justify;">
         <div class="contact-widget" style="color: black;">
-          <h5 class="fw-title" style="color: black; font-size: 16px;">CONTACT US</h5>
-          <div style="display: flex; flex-direction: column; justify-content: space-around;">
-            <p style="margin: 2px 0; font-size: 14px;">
-              <!-- <a href="http://www.spacece.in/" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;"> -->
-              <a href="https://maps.app.goo.gl/YDb6ZAsN4vQ1KWZE8" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;">
-                <i class="fa fa-map-marker" style="margin-right: 10px; font-size: 18px;"></i>
-                SPACE-ECE
-              </a>
-            </p>
+          <h5 class="fw-title" style="color: black; font-size: 25px; text-transform: none; margin-top: 1px; font-weight: normal;">Contact Us</h5>
+          <div style="display: flex; flex-direction: column; justify-content: space-around; margin-top: -15px;">
+            
             <p style="margin: 5px 0; font-size: 14px;">
-              <a href="tel:+919096305648" target="_blank" rel="noopener" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;">
-                <i class="fa fa-phone" style="margin-right: 10px; font-size: 18px;color: black;"></i>
+              <a href="tel:+919096305648" target="_blank" rel="noopener" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 20px;">
+                <i class="fa-solid fa-phone" style="margin-right: 10px; font-size: 22px;color: black;"></i>
                 +91 90963 05648
               </a>
             </p>
+            
             <p style="margin: 5px 0; font-size: 14px;">
-              <a href="mailto:events@spacece.co" target="_blank" rel="noopener" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 18px;">
-                <i class="fa fa-envelope" style="margin-right: 10px; font-size: 18px;color: black;"></i>
+              <a href="mailto:events@spacece.co" target="_blank" rel="noopener" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 20px;">
+              <i class="fa-regular fa-envelope" style="margin-right: 10px; font-size: 22px;color: black;"></i>
                 events@spacece.co
               </a>
             </p>
-            <p style="margin: 5px 0; font-size: 18px; color: black;">
-              <i class="fa fa-clock-o" style="margin-right: 10px; font-size: 18px;"></i>
+
+            <p style="margin: 2px 0; font-size: 14px;">
+            <a href="https://maps.app.goo.gl/YDb6ZAsN4vQ1KWZE8" style="display: flex; align-items: center; color: black; text-decoration: none; font-size: 20px; transform: translateX(-11px);">
+              <i class="fa fa-map-marker" style="font-size: 24px; margin-right: 10px;"></i>
+              <span style="margin-left: -5px;">SPACE-ECE</span>
+            </a>
+          </p>
+
+            
+            <p style="margin: 5px 0; font-size: 20px; color: black;">
+              <i class="fa-regular fa-clock-o" style="margin-right: 10px; font-size: 22px;"></i>
               Mon - Sat, 8AM - 6PM
             </p>
           </div>
         </div>
       </div>
 
+      <!-- Health Message + Social Media -->
+      <div class="col-lg-4 footer-widget">
+        <p style="color: black; transform: translateX(-30px); margin-left: 90px; font-size: 25px; margin-top: 5px;">Still delaying treatment for your child's health concerns?</p><br>
+        <p style="color: black; font-size: 20px; transform: translateX(-30px); margin-left: 90px;">Connect with India's top doctors online, today!</p>
 
+        <div class="social" style="margin-top: 20px;">
+          <p style="color: black; font-size: 21px; transform: translateX(-30px); margin-left: 90px;">Our Socials</p>
+          <div style="display: flex; justify-content: center; gap: 15px; margin-top: 10px;">
+    
+          <div style="transform: translateX(-70px); display: flex; gap: 2px;">
+          <a href="https://www.facebook.com/SpacECEIn" target="_blank">
+            <img src="/spacece/gallery/FACEBOOK.png" alt="Facebook" style="width: 30px; height: 30px;">
+          </a>
+          
+          <a href="https://twitter.com/" target="_blank">
+            <img src="/spacece/gallery/TWITTER.jpg" alt="Twitter" style="width: 30px; height: 30px;">
+          </a>
+          
+          <a href="https://www.linkedin.com/company/spacece-co/" target="_blank">
+            <img src="/spacece/gallery/LINKED_IN.jpg" alt="LinkedIn" style="width: 30px; height: 30px;">
+          </a>
+          
+          <a href="https://www.instagram.com/spacece.in/" target="_blank">
+            <img src="/spacece/gallery/INSTAGRAM.jpg" alt="Instagram" style="width: 30px; height: 30px;">
+          </a>
+        </div>
 
-
-      <div class="col-lg-3  footer-widget">
-        <div class="newslatter-widget">
-          <h5 class="fw-title" style="color: black; text-align: center">
-            NEWSLETTER
-          </h5>
-          <p style="color: black">
-            Subscribe your email to get the latest news and new offer also
-            discount
-          </p>
-          <form class="footer-newslatter-form" id="sub" name="sub" method="POST" style="display: flex; gap: 5px; align-items: center;">
-          <input type="email" name="email" id="email" placeholder="Email address" required style="flex: 1; padding: 5px; height: 50px;" />
-          <button type="submit" style="padding: 5px 5px; height: 50px; background: white; border: 1px solid black; cursor: pointer;">
-          <i class="fa fa-send"></i>
-          </button>
-          </form>
-
+  </div>
         </div>
       </div>
-    </div>
 
+      <!-- Newsletter Section -->
+      <div class="col-lg-3 footer-widget">
+        <div class="newslatter-widget">
+          <h5 class="fw-title" style="color: black; text-transform: none; font-weight: normal;">Subscribe To Our Newsletter</h5>
+          <p style="color: black; font-size: 18px;">Subscribe to our newsletter to get updates, offers and discounts.</p>
+
+          <div class="email-container">
+            <label class="email-label" for="email">Enter your email -</label>
+            <form id="sub" class="email-form">
+              <input type="email" id="email" placeholder="Email here" required />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
 </div>
-</footer>
-<p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px">
+
+<p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;">
   <span style="font-size: 20px"><span class="color_15">&copy;2021 by spaceECE INDIA FOUNDATION</span></span>
 </p>
 
-
-
 <?= isset($extra_scripts) ? $extra_scripts : null ?>
 
-</body>
 <script>
   $(document).ready(function() {
     $('#sub').on('submit', function(e) {
       e.preventDefault();
       var email = $('#email').val();
-      
+
       $.ajax({
         method: "POST",
         url: "./common/function.php",
@@ -273,7 +213,7 @@
           email: email
         },
         success: function(data) {
-          console.log("Server response:", data); // Log the server response for debugging
+          console.log("Server response:", data);
           handleSubscriptionResponse(data);
         },
         error: function(xhr, status, error) {
@@ -283,7 +223,7 @@
     });
 
     function handleSubscriptionResponse(data) {
-      switch(data.trim()) { // Use trim() to remove any extra whitespace
+      switch (data.trim()) {
         case 'Error':
           swal("Error!", "You have already subscribed to this site!", "error");
           break;
@@ -300,5 +240,5 @@
   });
 </script>
 
-
+</body>
 </html>
