@@ -118,7 +118,7 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         body {
-            color: #536482;
+            color:rgb(0, 0, 0);
             background-color: white;
         }
 
@@ -283,7 +283,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <a href="./index.php"><i class="fa fa-home" aria-hidden="true"></i></a>
                     <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
                     <a href="./about.php"><i class="fas fa-address-card"></i></a>
-                    <a href="./spacece_auth/register.php"><i class="fas fa-user-plus"></i></a>
+                    <a href="./spacece_auth/login.php"><i class="fas fa-user-plus"></i></a>
 
                 </div>
             <?php
