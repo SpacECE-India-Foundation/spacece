@@ -3,7 +3,7 @@ ob_start(); // Start output buffering
 
 include_once './header_local.php';
 include_once '../common/header_module.php';
-include_once '../Db_Connection/db_spacece.php'; // Adjust path as per your file structure
+include_once '../Db_Connection/db_spacece.php'; 
 
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,9 +23,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $result->fetch_assoc();
 
         if ($user) {
-            // Email exists for the selected type, show password reset form
-            $showResetForm = true;
-        } else {
+          // Email exists - now send the reset link
+          $subject = "Reset Your Password - Spaces Web Portal";
+          $message = "Hi " . $user['u_name'] . ",\n\n";
+          $message .= "Click the link below to reset your password:\n";
+          $message .= "https://yourdomain.com/reset-password.php?email=" . urlencode($email) . "\n\n";
+          $message .= "If you didn’t request this, just ignore it.\n\nThanks,\nSpaces Team";
+      
+          $headers = "From: no-reply@yourdomain.com";
+      
+          if (mail($email, $subject, $message, $headers)) {
+              echo '<div class="container"><h2>Forgot Password</h2><div class="alert alert-success">Reset link has been sent to your email address.</div></div>';
+          } else {
+              echo '<div class="container"><h2>Forgot Password</h2><div class="alert alert-danger">Failed to send email. Please try again later.</div></div>';
+          }
+      
+          $showResetForm = false; // Don't show the reset form until link is clicked
+        }  else {
             // Email does not exist for the selected type
             echo '<div class="container"><h2>Forgot Password</h2><div class="alert alert-danger">No user found with the provided email and type.</div></div>';
         }
@@ -62,89 +76,126 @@ ob_end_flush(); // Flush (send) the output buffer and turn off output buffering
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body, html {
-            height: 100%;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-        .form-container {
-            width: 100%;
-            max-width: 500px;
-            background: #fff;
-            padding: 30px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-        .btn-custom {
-            background-color: #FFA500;
-            border: none;
-        }
-        .btn-custom:hover {
-            background-color: #e59400;
-        }
-        /* footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 60px;
-            line-height: 60px;
-            background-color: #f1f1f1;
-        } */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forgot Password</title>
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #e3e3e3;
+}
+
+.navbar {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.portal-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-icons i {
+  font-size: 20px;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.card {
+  background-color: #f5f5f5;
+  padding: 50px;
+  border-radius: 8px;
+  width: 600px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  align-self: flex-start;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: #f5a623;
+  color: white;
+  padding: 14px 0;
+  width: 160px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e59500;
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <div class="container">
-        <div class="form-container">
-            <h2 class="text-center">Forgot Password</h2>
-            <?php if (!isset($showResetForm)): ?>
-            <!-- Initial form to enter email and user type -->
-            <form method="post">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="type">User Type</label>
-                    <select class="form-control" id="type" name="type" required>
-                        <option value="customer">customer</option>
-                        <option value="consultant">consultant</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-custom btn-block">Submit</button>
-            </form>
-            <?php else: ?>
-            <!-- Form to reset password -->
-            <form method="post">
-                <div class="form-group">
-                    <label for="password">New Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <input type="hidden" name="email" value="<?php echo htmlspecialchars($email); ?>">
-                <input type="hidden" name="type" value="<?php echo htmlspecialchars($type); ?>">
-                <button type="submit" name="reset_password" class="btn btn-custom btn-block">Reset Password</button>
-            </form>
-            <?php endif; ?>
-        </div>
+  <div class="container">
+    <div class="card">
+      <h2>Forgot Password</h2>
+      <form method="POST">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter Email" required>
+        <button type="submit">Submit</button>
+      </form>      
     </div>
-
-    <!-- Bootstrap JS and dependencies (if needed) -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
+  </div>
     <footer>
         <?php include_once '../common/footer_module.php'; ?>
     </footer>
 </body>
 </html>
-
