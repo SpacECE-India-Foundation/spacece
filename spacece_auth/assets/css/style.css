@@ -12,35 +12,38 @@ input.error {
   color: red;
 }
 
-.login-page,
 .register-page,
 .profile-page {
-  margin: 10% auto;
+  margin: 3px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #e0dcdc;
 }
 
-.login-page h2,
 .register-page h2,
 .profile-page h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  margin-top: 20px;
+  color: black;
 }
 
-.login-form,
 .register-form,
 .profile-form {
   width: 100%;
-  max-width: 400px;
-  padding: 20px;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0px 0px 10px 0px #000;
+  max-width: 800px;
+  padding: 4rem;
+  margin: 2rem;
+  /* border: 8px; */
+  background: rgba(254, 250, 250, 0.707);
+  /* box-shadow: 0px 0px 10px 0px #000; */
+  border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: inherit;
 }
 
 .form-group,
@@ -49,41 +52,48 @@ input.error {
   margin-bottom: 10px;
 }
 
-.login-form input,
 .register-form input,
 .profile-form input,
 .register-form select,
 .login-form select,
 .profile-form select {
   width: 100%;
-  padding: 10px;
+  padding: 25px;
   border: 1px solid #ccc;
   border-radius: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
   font-size: 16px;
 }
+.register-form label {
+  color: black;
+}
+input[type="file"].form-control {
+  padding: 25px; /* match Bootstrap padding */
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+}
 
-.login-form button,
 .register-form button,
 .profile-form button {
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 10px;
-  background: #4caf50;
+  background: #fba111;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
 }
 
-.login-form button:hover,
 .register-form button:hover,
 .profile-form button:hover {
   background: #43a047;
 }
 
-.login-form .message,
 .register-form .message,
 .profile-form .message {
   margin: 15px 0 0;

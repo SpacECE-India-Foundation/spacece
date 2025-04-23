@@ -119,6 +119,30 @@ include_once './common/header_module.php';
       visibility: visible;
       opacity: 1;
     }
+
+    .card-hover-orange:hover * {
+      color: white !important;
+    }
+
+    .card-hover-orange {
+      transition: background-color 0.3s ease;
+      background-color: white;
+    }
+
+    .card-hover-orange h4,
+    .card-hover-orange p {
+      color: black;
+      transition: color 0.3s ease;
+    }
+
+    .card-hover-orange:hover {
+      background-color: orange;
+    }
+
+    .card-hover-orange:hover h4,
+    .card-hover-orange:hover p {
+      color: white;
+    }
   </style>
   <!-- Stylesheets -->
   <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -307,7 +331,7 @@ include_once './common/header_module.php';
                 <img src="img/icon_consultus.jpeg" alt="CONSULT US" width="150" height="150" /></a>
               <h5><a href="#"> </a></h5>
             </div>
-            <div class="card-body text-start">
+            <div class="card-body text-start card-hover-orange">
               <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Consultus</h5>
               <p class="card-text">
                 Consultus is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
@@ -322,7 +346,7 @@ include_once './common/header_module.php';
                 <img src="img/icon_spacetube.jpeg" alt="SPACTUBE" width="150" height="150" /></a>
               <h5><a href="#"> </a></h5>
             </div>
-            <div class="card-body text-start">
+            <div class="card-body text-start card-hover-orange">
               <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Spacetube</h5>
               <p class="card-text">
                 Spacetube is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
@@ -337,7 +361,7 @@ include_once './common/header_module.php';
                 <img src="img/icon_learnonapp.jpeg" alt="" width="150" height="150" /></a>
               <h5><a href="#"> </a></h5>
             </div>
-            <div class="card-body text-start">
+            <div class="card-body text-start card-hover-orange">
               <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Learn On App</h5>
               <p class="card-text">
                 Learn On App is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
@@ -352,7 +376,7 @@ include_once './common/header_module.php';
                 <img src="img/icon_libforsmalls.jpeg" alt="" width="150" height="150" /></a>
               <h5><a href="#"> </a></h5>
             </div>
-            <div class="card-body text-start">
+            <div class="card-body text-start card-hover-orange">
               <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Lib For Small</h5>
               <p class="card-text">
                 Lib For Small is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
@@ -367,7 +391,7 @@ include_once './common/header_module.php';
                 <img src="img/icon_spaceactive.jpeg" alt="TOY LIBRARY" width="150" height="150" /></a>
               <h5><a href="#"> </a></h5>
             </div>
-            <div class="card-body text-start">
+            <div class="card-body text-start card-hover-orange">
               <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Spacactive</h5>
               <p class="card-text">
                 Spacactive is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
@@ -382,7 +406,7 @@ include_once './common/header_module.php';
                 <img src="img/logo/childprofilemanagement.jpeg" alt="CHILLDRENS PROFILE" width="150" height="150" /></a>
               <h5><a href="#"> </a></h5>
             </div>
-            <div class="card-body text-start">
+            <div class="card-body text-start card-hover-orange">
               <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Child Management</h5>
               <p class="card-text">
                 Child Management is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
