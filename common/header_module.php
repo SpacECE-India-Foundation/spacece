@@ -239,12 +239,16 @@ if (session_status() === PHP_SESSION_NONE) {
 <body>
     <?php $main_page = isset($main_page) ? ($main_page) :  NULL ?>
 
-    <nav class="navbar">
+    <nav class="navbar fixed-top">
         <div class="logo">
             <div class="org_logo">
                 <!-- <a href=<?= $main_page ? "./index.php" : "../index.php" ?>> -->
                 <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
                 <span>SpaceECE Web Portal</span>
+                <!-- <span style="<?php $main_page ? '' : 'text-align: center;'; ?>">
+                    SpaceECE Web Portal
+                </span> -->
+
                 </a>
             </div>
             <?php
@@ -280,10 +284,12 @@ if (session_status() === PHP_SESSION_NONE) {
             } else {
             ?>
                 <div class="main_nav">
-                    <a href="./index.php"><i class="fa-solid fa-house"></i></a>
+                    <!-- <a href="../index.php"><i class="fa-solid fa-house"></i></a> -->
+                    <a href="<?= isset($main_page) ? "index.php" : "../index.php" ?>"><i class="fa-solid fa-house"></i></a>
                     <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
                     <a href="./about.php"><i class="fa-solid fa-circle-info"></i></a>
-                    <a href="./spacece_auth/login.php"><i class="fa-regular fa-circle-user"></i></a>
+                    <!-- <a href="./spacece_auth/login.php"><i class="fa-regular fa-circle-user"></i></a> -->
+                    <a href="<?= isset($main_page) ? "./spacece_auth/login.php" : "../spacece_auth/login.php" ?>"><i class="fa-regular fa-circle-user"></i></a>
 
                 </div>
             <?php

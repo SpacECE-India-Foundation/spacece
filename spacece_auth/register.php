@@ -233,7 +233,7 @@ function get_consultant_categories($conn)
                 <input type="file" class="form-control" placeholder="Upload Image" id="image" name="image" />
             </div>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="user_type">User Type</label>
                 <select name="type" id="user_type">
                     <option value="customer">Customer</option>
@@ -242,7 +242,7 @@ function get_consultant_categories($conn)
                     <option value="book_owner">Book Owner</option>
                     <option value="delivery_boy">Delivery Boy</option>
                 </select>
-            </div> -->
+            </div>
             <div class="consultant_details">
                 <div class="form-group">
                     <label for="c_categories">Consultant Category</label>
@@ -331,7 +331,7 @@ function get_consultant_categories($conn)
                     <option value="Sunday">Sunday</option>
                 </select>
             </div> -->
-                <!-- <div class="form-group select">
+                <div class="form-group select">
                     <label for="c_available_days">Available Days</label>
                     <select name="c_available_days" class=" btn form-control btn-sm selectpicker " id="c_available_days" multiple data-selected-text-format="count > 2" style="background-color: white;">
                         <option value="Monday">Monday</option>
@@ -342,7 +342,7 @@ function get_consultant_categories($conn)
                         <option value="Saturday">Saturday</option>
                         <option value="Sunday">Sunday</option>
                     </select>
-                </div> -->
+                </div>
 
 
 
