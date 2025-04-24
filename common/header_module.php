@@ -231,6 +231,10 @@ if (session_status() === PHP_SESSION_NONE) {
         .fileToUpload {
             cursor: pointer;
         }
+
+        .icon-hover:hover {
+            color: orange;
+        }
     </style>
     <!-- BUG ID-0000067 -->
     <title><?= isset($module_name) ? $module_name : 'SpaceECE' ?></title>
@@ -285,11 +289,11 @@ if (session_status() === PHP_SESSION_NONE) {
             ?>
                 <div class="main_nav">
                     <!-- <a href="../index.php"><i class="fa-solid fa-house"></i></a> -->
-                    <a href="<?= isset($main_page) ? "index.php" : "../index.php" ?>"><i class="fa-solid fa-house"></i></a>
+                    <a href="<?= isset($main_page) ? "index.php" : "../index.php" ?>"><i class="fa-solid fa-house icon-hover"></i></a>
                     <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
-                    <a href="./about.php"><i class="fa-solid fa-circle-info"></i></a>
+                    <a href="./about.php"><i class="fa-solid fa-circle-info icon-hover"></i></a>
                     <!-- <a href="./spacece_auth/login.php"><i class="fa-regular fa-circle-user"></i></a> -->
-                    <a href="<?= isset($main_page) ? "./spacece_auth/login.php" : "../spacece_auth/login.php" ?>"><i class="fa-regular fa-circle-user"></i></a>
+                    <a href="<?= isset($main_page) ? "./spacece_auth/login.php" : "../spacece_auth/login.php" ?>"><i class="fa-regular fa-circle-user icon-hover"></i></a>
 
                 </div>
             <?php
