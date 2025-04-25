@@ -14,7 +14,7 @@ if (isset($_SESSION['current_user_id'])) {
 }
 ?>
 <!DOCTYPE html>
-<ht lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,31 @@ if (isset($_SESSION['current_user_id'])) {
       background-color: #ddd;
     }
 
+    header {
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 60px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-container img {
+      width: 90px;
+      height: auto;
+    }
+
+    .logo-container span {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
     .icons {
       display: flex;
       gap: 30px;
@@ -33,7 +58,7 @@ if (isset($_SESSION['current_user_id'])) {
     }
 
     .icons img {
-      width: 24px;
+      width: 30px;
       cursor: pointer;
     }
 
@@ -41,13 +66,15 @@ if (isset($_SESSION['current_user_id'])) {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 30px 0;
+      height: calc(100vh - 140px);
+      margin-top: 110px;
     }
 
     .login-box {
       background-color: #eee;
       padding: 40px;
-      width: 500px;
+      width: 90%;
+      max-width: 500px;
       text-align: center;
       box-sizing: border-box;
     }
@@ -77,122 +104,51 @@ if (isset($_SESSION['current_user_id'])) {
     .login-box button {
       background-color: #f5a400;
       color: white;
+      border: none;
+      padding: 12px 0;
+      width: 150px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 2px;
+      margin-bottom: 20px;
     }
 
-    .fa-android {
-      background: #a4c639;
-      color: white;
+    .login-box a {
+      display: block;
+      color: #00aaff;
+      margin: 5px 0;
+      text-decoration: none;
     }
 
-    .fa-dribbble {
-      background: #ea4c89;
-      color: white;
+    .login-box a:last-child {
+      color: black;
     }
 
-    .fa-vimeo {
-      background: #45bbff;
-      color: white;
-    }
-
-    .fa-tumblr {
-      background: #2c4762;
-      color: white;
-    }
-
-    .fa-vine {
-      background: #00b489;
-      color: white;
-    }
-
-    .fa-foursquare {
-      background: #45bbff;
-      color: white;
-    }
-
-    .fa-stumbleupon {
-      background: #eb4924;
-      color: white;
-    }
-
-    .fa-flickr {
-      background: #f40083;
-      color: white;
-    }
-
-    .fa-yahoo {
-      background: #430297;
-      color: white;
-    }
-
-    .fa-soundcloud {
-      background: #ff5500;
-      color: white;
-    }
-
-    .fa-reddit {
-      background: #ff5700;
-      color: white;
-    }
-
-    .fa-rss {
-      background: #ff6600;
-      color: white;
-    }
-
-    @media only screen and (max-width: 600px) {
-      .on-desktop {
-        display: none;
-      }
-
-      .on-mobile {
-        display: block;
-      }
-    }
-
-
-    @media (min-width: 1025px) and (max-width: 1280px) {
-
-      .on-desktop {
-        display: block;
-      }
-
-      .on-mobile {
-        display: none;
-      }
-
+    .login-box a:last-child span {
+      color: #00aaff;
+      margin-left: 5px;
     }
   </style>
 </head>
-
 <body>
-
-  <div class="login-page">
-    <h2>Login</h2>
-    <form class="login-form" method="post" autocomplete="off">
-      <div class="form-group">
+  <div class="container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form>
         <label for="email">Email</label>
-        <input type="email" class="form-control" placeholder="Enter Email" name="email" required />
-      </div>
-      <div class="form-group">
+        <input type="text" id="email" placeholder="Enter Email">
+
         <label for="password">Password</label>
-        <input type="password" class="form-control" placeholder="Enter Password" name="password" required />
-      </div>
-      <div class="form-group">
-        <label for="type">User Type</label>
-        <select style="padding:5px;" name="type" id="user_type" class="form-control" required>
-          <option value="customer">Customer</option>
-          <option value="consultant">Consultant</option>
-          <option value="admin">Admin</option>
-          <option value="book_owner">Book Owner</option>
-          <option value="delivery_boy">Delivery Boy</option>
-        </select>
-      </div>
-      <button type="submit" name="login" class="btn btn-primary">Login</button>
-      <br>
-      <p class="message"><a href="forgotPass.php">Forgot Password?</a></p>
-      <p class="message">Not registered? <a href="register.php">Create an account</a></p>
-    </form>
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button type="submit" name="login" class="btn btn-primary">Login</button>
+
+        <a href="forgotPass.php">Forgot Password</a>
+        <a href="register.php">Not Registered ? <span>Create an Account</span></a>
+      </form>
+    </div>
   </div>
+</body>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
