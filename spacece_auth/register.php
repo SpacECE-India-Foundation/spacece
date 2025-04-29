@@ -203,10 +203,10 @@ function get_consultant_categories($conn)
 
 
 
-    <div class="register-page">
+    <div class="register-page " style="margin-top: 100px;">
 
         <form class="register-form" method="post" autocomplete="off">
-            <h2>Register</h2>
+            <h2 class="pt-5">Registeration</h2>
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" placeholder="Enter Name" id="name" name="name" />
@@ -357,5 +357,4 @@ function get_consultant_categories($conn)
             <p class="message">Already registered? <a href="login.php">Login</a></p>
         </form>
     </div>
-<?php include_once '../common/footer_module.php';?>
-
+    <?php include_once '../common/footer_module.php'; ?>
