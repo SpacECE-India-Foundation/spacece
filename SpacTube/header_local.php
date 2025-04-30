@@ -1,7 +1,7 @@
 <?php
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/Space_Tube.jpeg";
-$module_name = "SpaceTube";
+$module_name = "spacetube";
 $banner_img = "../img/banner/SpacTube.jpeg";
 
 
