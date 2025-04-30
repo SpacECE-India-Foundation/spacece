@@ -6,84 +6,327 @@ error_reporting(E_ERROR | E_PARSE);
 
 require_once 'Config/Functions.php';
 $Fun_call = new Functions();
+$videos_per_page = 12;
+$current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($current_page - 1) * $videos_per_page;
+$total_videos = count($Fun_call->select_where('videos','status','free'));
+$fetch_video = $Fun_call->select_order_limit_where('videos','v_id','DESC', 'status', 'free', $videos_per_page, $offset);
+$total_pages = ceil($total_videos / $videos_per_page);
+$get_video = $Fun_call->selected_order('videos', 'filter');
 
 include_once './header_local.php';
 include_once '../common/header_module.php';
-include_once '../common/banner.php';
 
-$fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
-$get_video = $Fun_call->selected_order('videos', 'filter');
+
+
 // include 'Stylesheet/stylesheet.css';
 ?>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=filter_alt" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="css/share.css" class="real">
 <link rel="stylesheet" href="./src/ALightBox.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <div class="container-fluid">
 <body>
     <div class="container"><br>
         <?php include 'menu.php'; ?>
     </div>
-
+<?php include_once '../common/banner.php';?>
 <style>
+body {
+    background: #eeeeee;
+    font-family: Arial, sans-serif !important;
+}
+
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 15px 25px;
+    margin-top: 40px;
+    gap: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 100px;
+    margin-bottom: 30px;
+}
+
+.arrow-button {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.arrow-button:hover {
+    background-color: #e2e2e2;
+}
+
+.page-label {
+    font-size: 18px;
+    color: #333;
+}
+
+
+    .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.search-form, .filter-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-box, .filter-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: white;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.search-button i {
+    color: #000;
+    font-size: 16px;
+}
+
+.filter-icon {
+    margin-right: 8px;
+    color: #888;
+    font-size: 16px;
+}
+
+.filter-select {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.search-button i {
+    color: #000;
+    font-size: 16px;
+}
+
+.filter-form {
+    margin: 20px 0;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 6px 12px;
+    width: 280px;
+    position: relative;
+}
+
+.filter-icon {
+    font-size: 16px;
+    margin-right: 8px;
+    color: #888; /* soft gray */
+}
+
+
+.filter-select {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    padding-right: 20px;
+}
+.row {
+    row-gap: 30px; /* Gap between rows */
+    /*column-gap: 0.5px; /* Gap between columns */
+}
+
+
+.search-form {
+    margin: 20px 0;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px 12px;
+    background-color: white;
+    width: 280px; /* or adjust as needed */
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+    color: #333;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000;
+}
+
+.container {
+    display: grid;
+    gap: 20px; 
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+.ins-box {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+.card {
+    padding: 0;
+    border: none;
+}
+
+
     img{
         width:100%;
        
         height:auto;
     }
     img#thumb {
-    
-    height: 180px;
+    margin: 0;          
+    padding: 0;       
+    border: none;        
+    display: block;
+    height: 280px;
 }
+
+
+.heading-title {
+  color: rgb(37, 35, 35);
+  font-family: Arial, sans-serif;
+  font-size: 35px;
+  font-weight: normal;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.no-padding-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 </style>
     <div class="container">
         <div class="ins-box">
             <div class="container">
-                <ul class="nav justify-content-center bg-dark">
-                    <li class="nav-item">
-                        <div class="nav-link heading">Free Videos</div>
-                    </li>
-                </ul>
+                
+            <div class="no-padding-container">
+                <div class="heading-title">Our Free Videos</div>
+            </div>
+                
             </div>
             <br>
-            <form action="" method="post">
-                <select name="filterr">
-                    <option value="all" selected>ALL</option>
-                    <?php
-                    $abc = "all";
-                    if ($get_video) {
-                        foreach ($get_video as $video_data) {
-                            echo "<option value='" . $video_data['filter'] . "'>" . $video_data['filter'] . "</option>";
-                        }
-                    }
-                    $abc = $_POST['filterr'];
-                    ?>
-                </select>
-                <input type="Submit" value="Submit" name="Submit">
+            <div class="top-bar">
+    <form action="" method="post" class="search-form">
+        <div class="search-box">
+            <input type="search" name="filterr" id="filterr" class="search-input" placeholder="Search for videos">
+            <button type="submit" name="Submit" class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <?php
+        $status = 'free';
+        $abc = $_POST['filterr'];
+        $filter_videos = $Fun_call->filter_video('videos', null, $status, 'v_id', 'DESC', $abc);
+        ?>
+    </form>
+    <form action="" method="post" class="filter-form">
+    <div class="filter-box">
+        <!-- Material Symbols filter_alt icon -->
+        <span class="material-symbols-outlined filter-icon" style="color: #333;">filter_alt</span>
+        <select name="filterr" class="filter-select">
+            <option value="all" selected>Filter</option>
+            <?php
+            $abc = "all";
+            if ($get_video) {
+                foreach ($get_video as $video_data) {
+                    echo "<option value='" . $video_data['filter'] . "'>" . $video_data['filter'] . "</option>";
+                }
+            }
+            $abc = $_POST['filterr'];
+            ?>
+        </select>
+    </div>
+    <?php
+    $status = 'free';
+    $filter_videos = $Fun_call->filter_video('videos', $abc, $status, 'v_id', 'DESC', '');
+    ?>
+</form>
+</div>
 
-                <?php
-                $status = 'free';
-                $filter_videos = $Fun_call->filter_video('videos', $abc, $status, 'v_id', 'DESC', '');
+</div>
 
-                ?>
-            </form>
-            <br><br>
-            <form action="" method="post">
-                <input type="search" name="filterr" id="filterr">
-                <input type="Submit" value="Submit" name="Submit">
-
-                <?php
-                $status = 'free';
-                $abc = $_POST['filterr'];
-                $filter_videos = $Fun_call->filter_video('videos', null, $status, 'v_id', 'DESC', $abc);
-                   
-                ?>
-            </form>
-            <br><br>
-            <div class="row row-cols-1 row-cols-md-3">
+            <br>
+            <div class="row row-cols-1 row-cols-md-2 custom-gap">
                 <?php
                  //var_dump($filter_videos);
                 if ($filter_videos) {
 
                     foreach ($fetch_video as $video_data) {
+
                         if ($abc == "all" || $abc == NULL) {
                             if ($video_data['status'] ==  "free") {
                 ?>
@@ -112,23 +355,31 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                                         <!-- <iframe width="460" height="275" src="https://www.youtube.com/embed/<?php // echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                                     
                                 </div>
-                                    <div class="card-body pt-2 pb-2">
-                                        <h6 class="card-title">
-                                            <?php echo $video_data['title']; ?></h6>
-                                        <?php echo $video_data['v_date']; ?><br>
-                                        <a href="likecnt.php?btn=<?php echo $video_data['v_id'] ?>">
-                                            <button name="likecnt" class="btn"><i class="fas fa-thumbs-up" style="color:black"></i></button>
+                                <div class="card-body pt-2 pb-2">
+    <!-- Video Title -->
+    <h6 class="card-title"><?php echo $video_data['title']; ?></h6>
 
-                                        </a>
-                                        <?php echo $video_data['cntlike']; ?>
-                                        <a href="likecnt.php?btn1=<?php echo $video_data['v_id'] ?>">
-                                            <button name="dislikecnt" class="btn"><i class="fas fa-thumbs-down" style="color:black"></i></button>
+    <!-- Likes/Dislikes + Share Row -->
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0;">
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <a href="likecnt.php?btn=<?php echo $video_data['v_id']; ?>" style="text-decoration: none;">
+            <i class="far fa-thumbs-up" style="font-size: 24px; color: black;"></i>
+        </a>
+        
+        <a href="likecnt.php?btn1=<?php echo $video_data['v_id']; ?>" style="text-decoration: none;">
+            <i class="far fa-thumbs-down" style="font-size: 24px; color: black;"></i>
+        </a>
+    </div>
 
-                                        </a>
-                                        <?php echo $video_data['cntdislike']; ?>
-                                       
-                                        <button name="share" class="btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=" . $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><i class="fas fa-share-alt" style="color:black"></i></button>
-                                        <div class="share-button sharer" style="display: block;">
+        <!-- Share Button -->
+        <div class="share-button sharer" style="display: flex; align-items: center;">
+        <button name="share" class="btn" style="background: none; border: none; padding: 0; margin: 0;">
+            <i class="fas fa-share-alt" style="font-size: 24px; color: black;"></i>
+        </button>
+        </div>
+    </div>
+</div>
+
 <button type="button" class="btn btn-success share-btn">Share</button>
 <div class="social top center networks-5 ">
  <!-- Facebook Share Button -->
@@ -145,6 +396,7 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
  </a>
 </div>
 </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -184,23 +436,31 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                                         <!-- <iframe width="460" height="275" src="https://www.youtube.com/embed/<?php //echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                                         </div>
                                         <div class="card-body pt-2 pb-2">
-                                            <h6 class="card-title">
-                                                <?php echo $video_data['title']; ?></h6>
-                                            <?php echo $video_data['v_date']; ?><br>
-                                            <a href="likecnt.php?btn=<?php echo $video_data['v_id'] ?>">
-                                                <button name="likecnt" class="btn"><i class="fas fa-thumbs-up" style="color:black"></i></button>
+    <!-- Video Title -->
+    <h6 class="card-title" style="color: orange !important;"><?php echo $video_data['title']; ?></h6>
 
-                                            </a>
-                                            <?php echo $video_data['cntlike']; ?>
-                                            <a href="likecnt.php?btn1=<?php echo $video_data['v_id'] ?>">
-                                                <button name="dislikecnt" class="btn"><i class="fas fa-thumbs-down" style="color:black"></i></button>
+    <!-- Likes/Dislikes + Share Row -->
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0;">
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <a href="likecnt.php?btn=<?php echo $video_data['v_id']; ?>" style="text-decoration: none;">
+            <i class="far fa-thumbs-up" style="font-size: 24px; color: black;"></i>
+        </a>
+        
+        <a href="likecnt.php?btn1=<?php echo $video_data['v_id']; ?>" style="text-decoration: none;">
+            <i class="far fa-thumbs-down" style="font-size: 24px; color: black;"></i>
+        </a>
+    </div>
 
-                                            </a>
-                                            <!-- 0000035 -->
-                                            <?php echo $video_data['cntdislike']; ?>
-                                            
-                                            <button name="share" class="btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=" . $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><i class="fas fa-share-alt" style="color:black"></i></button>
-                                        <div class="share-button sharer" style="display: block;">
+
+        <!-- Share Button -->
+        <div class="share-button sharer" style="display: flex; align-items: center;">
+        <button name="share" class="btn" style="background: none; border: none; padding: 0; margin: 0;">
+            <i class="fas fa-share-alt" style="font-size: 24px; color: black;"></i>
+        </button>
+        </div>
+    </div>
+</div>
+
 <button type="button" class="btn btn-success share-btn">Share</button>
 <div class="social top center networks-5 ">
  <!-- Facebook Share Button -->
@@ -217,6 +477,8 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
  </a>
 </div>
 </div>
+
+
                                           
                                             <!-- <a href="comment.php">
 
@@ -236,6 +498,21 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
                 echo "<h1 class='text-center'>Sorry Vidoes Not Found</h1>";
             } ?>
         </div>
+        <?php
+        $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $prev_page = max($current_page - 1, 1);
+        $next_page = min($current_page + 1, $total_pages);
+        ?>
+        <div class="custom-pagination">
+        <a href="?page=<?php echo $prev_page; ?>" class="arrow-button">&lt;</a>
+        <span class="page-label">Page <?php echo $current_page; ?> of <?php echo $total_pages; ?></span>
+        <a href="?page=<?php echo $next_page; ?>" class="arrow-button">&gt;</a>
+        </div>
+
+
+        
+
+
         <!-- <div class="container1" >
                 <a href="trending.php">
                     <button type="button">Trending Videos</button>
@@ -250,13 +527,6 @@ $get_video = $Fun_call->selected_order('videos', 'filter');
     </div>
 
 </div>
-
-
-
-
-
-
-
 <div class="all-v-btn btn btn-outline-dark">
     <a href="home.html"><i class="fi-xwluxl-gear-wide fi-2x fi-flip-h"></i></a>
 </div>
@@ -295,4 +565,5 @@ $(document).ready(function() {
     myVideo.pause(); 
             })
             </script>
+
 
