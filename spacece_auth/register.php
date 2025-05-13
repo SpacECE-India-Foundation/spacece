@@ -348,10 +348,10 @@ function get_consultant_categories($conn)
 
                 <!-- Note the missing multiple attribute! -->
 
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="c_qualification">Qualification</label>
                     <input type="text" class="form-control" placeholder="Enter Qualification" id="c_qualification" name="c_qualification" />
-                </div> -->
+                </div>
             </div>
             <button type="submit" id="register" name="register">Register</button>
             <p class="message">Already registered? <a href="login.php">Login</a></p>

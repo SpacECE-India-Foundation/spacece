@@ -26,7 +26,7 @@ function get_input_value($row, $input)
 
 <div class="profile-page">
     <h2>Profile</h2>
-    <form class="profile-form" method="post" autocomplete="off" id="update_profile">
+    <form class="profile-form" style="margin-top: 50px;" method="post" autocomplete="off" id="update_profile">
         <div class="form-group" id="js-pro-pic">
             <img src="<?= '../img/users/' . get_input_value($row, 'u_image'); ?>" alt="<?= get_input_value($row, 'u_name'); ?>">
             <span><?= get_input_value($row, 'u_name'); ?></span>
@@ -50,7 +50,7 @@ function get_input_value($row, $input)
             <input type="text" class="form-control" placeholder="Enter Mobile No." id="phone" minlength="10" maxlength="10" name="phone" pattern="[7-9]{1}[0-9]{9}" value="<?= get_input_value($row, 'u_mob'); ?>" />
         </div>
         <!-- Change Password Functionality -->
-        <button type="button" id="change_password" style="display: none;">Change Password</button>
+        <button type="button" id="change_password" style="display: none;margin-bottom:10px">Change Password</button>
 
         <div class="form-group" id="js-password" style="display: none;">
             <label for="password">Password</label>
