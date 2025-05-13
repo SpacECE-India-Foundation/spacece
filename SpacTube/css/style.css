@@ -12,7 +12,7 @@
 html,
 body {
   height: 100%;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
@@ -985,6 +985,7 @@ ol {
 }
 
 .footer-widget .double-menu-widget ul a:after {
+  font-family: 'Roboto', sans-serif;
   font-family: "FontAwesome";
   content: "\f101";
   position: absolute;

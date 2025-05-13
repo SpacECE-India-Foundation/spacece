@@ -266,7 +266,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="org_logo">
                 <!-- <a href=<?= $main_page ? "./index.php" : "../index.php" ?>> -->
                 <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
-                <span>SpaceECE Web Portal</span>
+                <span>Spaces Web Portal</span>
                 <!-- <span style="<?php $main_page ? '' : 'text-align: center;'; ?>">
                     SpaceECE Web Portal
                 </span> -->
@@ -276,10 +276,9 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php
             if (isset($module_name)) {
             ?>
-                <div class="module_logo">
+                <div class="module_logo" style="margin-top: 15px; margin-left:620px;">
                     <a href="./index.php">
-                        <img src="<?= isset($module_logo) ? $module_logo : 'Spacece' ?>" alt="Module">
-                        <span><?= isset($module_name) ? $module_name : 'Spacece' ?><span>
+                        <span style="color: #ffb300; font-weight: 700;"><?= isset($module_name) ? $module_name : 'Spacece' ?><span>
                     </a>
                 </div>
             <?php
