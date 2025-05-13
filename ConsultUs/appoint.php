@@ -1,4 +1,5 @@
 <?php
+ob_start();
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
@@ -19,6 +20,25 @@ if (isset($_SESSION['current_user_email'])) {
   $email = $_SESSION['current_user_email'];
 
 ?>
+  <?php
+  // Get URL parameters safely
+  $c_id = isset($_GET['cid']) ? $_GET['cid'] : '';
+  $b_id = isset($_GET['b_id']) ? $_GET['b_id'] : '';
+  $con_name = isset($_GET['con_name']) ? $_GET['con_name'] : '';
+  $cat_name = isset($_GET['cat_name']) ? $_GET['cat_name'] : '';
+
+  // Optional: handle session or logged-in user info
+
+  $u_name = isset($_SESSION['u_name']) ? $_SESSION['u_name'] : '';
+  $u_email = isset($_SESSION['u_email']) ? $_SESSION['u_email'] : '';
+  $u_mob = isset($_SESSION['u_mob']) ? $_SESSION['u_mob'] : '';
+
+  // Initialize $c_from_time, $c_to_time, $c_aval_days if not already set
+  $c_from_time = $c_from_time ?? '';
+  $c_to_time = $c_to_time ?? '';
+  $c_aval_days = $c_aval_days ?? '';
+  ?>
+
 
   <?php
   define('DB_USER_DATABASE', 'spacece');
@@ -64,15 +84,32 @@ if (isset($_SESSION['current_user_email'])) {
 
   include('../Db_Connection/db_consultus_app.php');
 
-  $c_id = $_GET['cid'];
-  $b_id = $_GET['b_id'];
-  $con_name = $_GET['con_name'];
-  $cat_name = $_GET['cat_name'];
-  $sql = "INSERT INTO `appointment`( `cid`, `category`,`username`, `cname`,`bid`,`com_mob`) VALUES ('$c_id','$cat_name','$u_name','$con_name','$b_id','$u_mob')";
-  $res = mysqli_query($conn, $sql);
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+    $c_id = $_POST['cid'];
+    $b_id = $_POST['b_id'];
+    $con_name = $_POST['con_name'];
+    $cat_name = $_POST['cat_name'];
+    $appointment_date = $_POST['adate'];
+    $appointment_time = $_POST['atime'];
+    $child_name = $_POST['child_id'];
+    $u_name = $_POST['fullname'];
+    $u_email = $_POST['email'];
+    $u_mob = $_POST['mobile'];
 
-  if (!$res) {
-    echo "<h3 style='color:white;'><center>sorry, unable to connect</center></h3>";
+    $sql = "INSERT INTO appointment 
+        (cid, category, username, cname, bid, com_mob, date_appointment, time_appointment, child_name, email)
+        VALUES 
+        ('$c_id', '$cat_name', '$u_name', '$con_name', '$b_id', '$u_mob', '$appointment_date', '$appointment_time', '$child_name', '$u_email')";
+
+    $res = mysqli_query($conn, $sql);
+
+    if ($res) {
+      header('location:showmyappointment.php');
+      //echo "<h3 style='color:green;'>✔ Appointment booked successfully!</h3>";
+      exit();
+    } else {
+      echo "<h3 style='color:red;'>❌ Error: " . mysqli_error($conn) . "</h3>";
+    }
   }
 
   function getNext7AvailableDays($c_aval_days)
@@ -190,66 +227,75 @@ if (isset($_SESSION['current_user_email'])) {
   </head>
 
   <body>
-    <div class="container" style="width:80%">
-      <h1 style="display: inline-block;">BOOK APPOINTMENT</h1>
-      <div style="float: right;">
-        <a href="./cdetails.php?category=all" class="btn btn-secondary" style="margin-left: 10px; background-color:#04AA6D">View All consultants</a>
-      </div>
+    <div class="container" style="width:80%;margin-top:120px; margin-bottom:100px; background-color:#e0dcdc;">
+      <h3 style="display: inline-block;">BOOK APPOINTMENT</h3>
+
       <p></p>
-      <h5>Available Time (From): <?php echo $c_from_time; ?></h5>
-      <h5>Available Time (To): <?php echo $c_to_time; ?></h5>
+      <h7>Available Time (From): <?php echo $c_from_time; ?></h7><br>
+      <h7>Available Time (To): <?php echo $c_to_time; ?></h7>
       <br>
-      <h5>Available Days: <?php echo $c_aval_days; ?></h5>
+      <h7>Available Days: <?php echo $c_aval_days; ?></h7>
+      <div class="d-flex justify-content-start mb-3 ">
+        <a href="./index.php" class="btn btn-sm me-2 text-white" style="margin-left: 10px; background-color:orange;"> &#8592; Back</a>
+        <a class="btn btn-sm me-2 text-white" style="background-color: orange;" href="showmyappointment.php">Show My Appointments</a>
+        <a href="./cdetails.php?category=all" class="btn btn-sm ml-2 text-white" style="margin-left: 10px; background-color:#5cc4eb;">View All consultants</a>
+      </div>
       <hr>
+      <form method="POST">
+        <!-- Hidden fields to preserve GET values -->
+        <input type="hidden" name="cid" value="<?php echo $c_id; ?>">
+        <input type="hidden" name="b_id" value="<?php echo $b_id; ?>">
+        <input type="hidden" name="con_name" value="<?php echo $con_name; ?>">
+        <input type="hidden" name="cat_name" value="<?php echo $cat_name; ?>">
 
-      <label for="userid"><b>Booking Id</b></label>
-      <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>
-      <label for="adate"><b>Select Date of Appointment:</b></label>
-      <select id="adate" name="adate" required>
-        <?php foreach ($next7Days as $day) { ?>
-          <option value="<?php echo $day; ?>"><?php echo $day; ?></option>
-        <?php } ?>
-      </select>
-      <br><br>
+        <label for="userid"><b>Booking Id</b></label>
+        <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>
+        <label for="adate"><b>Select Date of Appointment:</b></label>
+        <select id="adate" name="adate" required>
+          <?php foreach ($next7Days as $day) { ?>
+            <option value="<?php echo $day; ?>"><?php echo $day; ?></option>
+          <?php } ?>
+        </select>
+        <br><br>
 
-      <label for="atime"><b>Select A Time:</b></label>
-      <input type="time" id="atime" name="atime" required>
-      <br><br>
-      <label for="fullname"><b>Fullname</b></label>
-      <input type="text" value="<?php echo $u_name ?>" onkeypress="return /[a-z]/i.test(event.key)" name="fullname" id="fullname" required>
-      <label for="cname"><b>Consultant Name</b></label>
-      <input type="text" value="<?php echo $con_name ?>" onkeypress="return /[a-z]/i.test(event.key)" name="cname" id="cname" required readonly>
-      <label for="cname"><b>Children name</b></label>
-      <select id="child_id" name="child_id" class="form-control">
-        <?php
-        $sql3 = "SELECT childName FROM cits1.tblchildren WHERE cits1.tblchildren.parentEmail='$email'";
-        $res = mysqli_query($conn, $sql3);
-        $count2 = mysqli_num_rows($res);
-        if ($count2) {
-          while ($row3 = mysqli_fetch_assoc($res)) {
-        ?>
-            <option value="<?php echo $row3['childName']; ?>"><?php echo $row3['childName']; ?></option>
-        <?php
+        <label for="atime"><b>Select A Time:</b></label>
+        <input type="time" id="atime" name="atime" required>
+        <br><br>
+        <label for="fullname"><b>Fullname</b></label>
+        <input type="text" value="<?php echo $u_name ?>" onkeypress="return /[a-z]/i.test(event.key)" name="fullname" id="fullname" required>
+        <label for="cname"><b>Consultant Name</b></label>
+        <input type="text" value="<?php echo $con_name ?>" onkeypress="return /[a-z]/i.test(event.key)" name="cname" id="cname" required readonly>
+        <label for="cname"><b>Children name</b></label>
+        <select id="child_id" name="child_id" class="form-control">
+          <?php
+          $sql3 = "SELECT childName FROM cits1.tblchildren WHERE cits1.tblchildren.parentEmail='$email'";
+          $res = mysqli_query($conn, $sql3);
+          $count2 = mysqli_num_rows($res);
+          if ($count2) {
+            while ($row3 = mysqli_fetch_assoc($res)) {
+          ?>
+              <option value="<?php echo $row3['childName']; ?>"><?php echo $row3['childName']; ?></option>
+          <?php
+            }
           }
-        }
-        ?>
-      </select>
-      <br>
-      <label for="email"><b>Email</b></label>
-      <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
-      <label for="mobile"><b>Mobile Number:</b></label>
-      <input type="text" value="<?php echo $u_mob ?>" minlength="10" maxlength="10" pattern="[0-9]{10}" name="mobile" id="mobile" required><br>
-      <hr>
-      <!-- <input type="submit" name="submit" id="submit" class="registerbtn"> -->
+          ?>
+        </select>
+        <br>
+        <label for="email"><b>Email</b></label>
+        <input type="text" value="<?php echo $u_email ?>" name="email" id="email" required>
+        <label for="mobile"><b>Mobile Number:</b></label>
+        <input type="text" value="<?php echo $u_mob ?>" minlength="10" maxlength="10" pattern="[0-9]{10}" name="mobile" id="mobile" required><br>
+        <hr>
+        <!-- <input type="submit" name="submit" id="submit" class="registerbtn"> -->
 
-      <button type="submit" name="submit" id="submit" class="registerbtn">Submit</button>
-
+        <button type="submit" name="submit" id="submit" class="registerbtn" style="background-color:orange;width: 100px;">Submit</button>
+      </form>
 
     </div>
 
-    <div class="container signin" style="background-color:orange">
+    <!-- <div class="container signin" style="background-color:orange">
       <p>You can check your appointment details, by pressing show appointment button</p>
-    </div>
+    </div> -->
     </form>
 
     <?php include_once '../common/footer_module.php'; ?>
@@ -295,4 +341,5 @@ if (isset($_SESSION['current_user_email'])) {
 
 <?php } else {
   header("Location: ../spacece_auth/login.php");
-} ?>
+}
+ob_end_flush(); ?>

@@ -1,12 +1,12 @@
 <?PHP
 error_reporting(0);
 session_start();
-if(isset($_SESSION['current_user_email'])){
-  $email = $_SESSION['current_user_email'];
-  $user= $_SESSION['current_user_name'];
-} else{
-  header('location:../../spacece_auth/login.php');
-  exit();
+if (isset($_SESSION['current_user_email'])) {
+	$email = $_SESSION['current_user_email'];
+	$user = $_SESSION['current_user_name'];
+} else {
+	header('location:../../spacece_auth/login.php');
+	exit();
 }
 $main_logo = "../../img/logo/SpacECELogo.jpg";
 $module_logo = "../../img/logo/ConsultUs.jpeg";
@@ -20,12 +20,12 @@ $module_name = "ConsultUs";
 
 
 $roomname = $_GET['roomname'];
-  //session_start();
+//session_start();
 
- 
-  include("../../Db_Connection/db_consultus_app.php");
 
- /*$sql= "SELECT * FROM `chat` WHERE `room_name`='$roomname'";
+include("../../Db_Connection/db_consultus_app.php");
+
+/*$sql= "SELECT * FROM `chat` WHERE `room_name`='$roomname'";
  $res = mysqli_query($conn,$sql);
  if($res)
  {
@@ -44,15 +44,16 @@ $roomname = $_GET['roomname'];
  else{
      echo "error:". mysqli_error($conn);
  }*/
- ?>
- <!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<?= isset($extra_styles) ? $extra_styles : null ?>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<?= isset($extra_styles) ? $extra_styles : null ?>
 	<style>
 		body {
 			margin: 0;
@@ -270,60 +271,91 @@ $roomname = $_GET['roomname'];
 	</style>
 	<!-- BUG ID-0000067 -->
 	<title><?= isset($module_name) ? $module_name : 'SpaceECE' ?></title>
-<style>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: Arial, sans-serif;
+		}
 
+		body {
+			background-color: #f0f0f0;
+		}
 
-.wrapper {
-  border: 2px solid black;
-  max-width: 800px;
-  background-color: #DAF7A6;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 20px 0;
-}
+		.container {
+			display: flex;
+			justify-content: center;
+			padding: 20px;
+		}
 
-.darker {
-  border-color: #ccc;
-  background-color: #ddd;
-}
+		.chat-container {
+			width: 100%;
+			max-width: 800px;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
 
-.wrapper::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+		.chat-header {
+			background-color: #f0f0f0;
+			padding: 15px;
+			text-align: center;
+			border-bottom: 1px solid #ddd;
+		}
 
-.wrapper img {
-  float: left;
-  max-width: 60px;
-  width: 100%;
-  margin-right: 20px;
-  border-radius: 50%;
-}
+		.chat-header h2 {
+			margin: 0;
+			font-size: 1.2em;
+		}
 
-.wrapper img.right {
-  float: right;
-  margin-left: 20px;
-  margin-right:0;
-}
+		.chat-messages {
+			background-color: rgb(237, 238, 234);
+			height: 500px;
+			overflow-y: auto;
+			padding: 15px;
+		}
 
-.time-right {
-  float: right;
-  color: #aaa;
-}
+		.chat-input-container {
+			display: flex;
+			border-top: 1px solid #ddd;
+			background-color: #fff;
+			padding: 10px;
+		}
 
-.time-left {
-  float: left;
-  color: #999;
-}
-.anyclass{
-    height:350px;
-    overflow-y: scroll ;
-}
-</style>
+		.chat-input {
+			flex: 1;
+			border: 1px solid #ddd;
+			border-radius: 20px;
+			padding: 10px 15px;
+			outline: none;
+			resize: none;
+			height: 50px;
+			margin-right: 10px;
+		}
+
+		.send-button {
+			background-color: #f0f0f0;
+			border: 1px solid #ddd;
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.send-icon {
+			transform: rotate(90deg);
+			display: inline-block;
+			font-size: 18px;
+		}
+	</style>
 </head>
+
 <body>
-<header>
+	<header>
 		<?php $main_page = isset($main_page) ? ($main_page) :  NULL ?>
 
 		<nav class="navbar">
@@ -381,106 +413,112 @@ $roomname = $_GET['roomname'];
 		</nav>
 	</header>
 
-<div class="container d-flex justify-content-center " >
- <div class="w-50">
-<div class="wrapper">
-<h2><b><center>Chat Messages- <?php echo $roomname ;?></center></b></h2>
-    <div id="anyclass" class="anyclass">
+	<div class="container">
+		<div class="chat-container">
+			<div class="chat-header">
+				<h2>Global Chat - <?php echo $roomname; ?></h2>
+			</div>
+			<div id="anyclass" class="chat-messages">
+				<!-- Messages will be loaded here via AJAX -->
+			</div>
+			<div class="chat-input-container">
+				<textarea class="chat-input" name="usermsg" id="usermsg" placeholder="Type a message..."></textarea>
+				<button class="send-button" name="submit" id="submit">
+					<span class="send-icon">➤</span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<?php
+	include_once '../../common/footer_module.php';
+	?>
+	<script type="text/javascript">
+		// new msg in 1s check
+		// bug id=0000017
+		setInterval(runFunction, 1000);
 
-  </div>
-</div>
-<textarea class="form-control" name="usermsg" id="usermsg" placeholder="Please enter your message..."></textarea>
-<!-- <input type="text" class="form-control" name="usermsg" id="usermsg" placeholder="add msg"><br> -->
-<button style="margin: 10px;" class="btn btn-secondary btn-md" name="submit" id="submit">Send</button>
-</div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<?php
-include_once '../../common/footer_module.php';
-?>
-<script type="text/javascript">
-// new msg in 1s check
-// bug id=0000017
-setInterval(runFunction, 1000);
-function runFunction()
-{
+		function runFunction() {
 
-  $.ajax({
-    method:'POST',
-    data:{room: '<?php echo $roomname ?>'},
-    url:'htcont.php',
-    success:function(data,status)
-    {
-        document.getElementsByClassName('anyclass')[0].innerHTML= data;
-     
-    }
-  })
-    // $.post("htcont.php",{room: '<?php //echo $roomname ?>'},
-    // function(data,status)
-    // {
-    //     document.getElementsByClassName('anyclass')[0].innerHTML= data;
-     
-    // }
-    // )
-}
+			$.ajax({
+				method: 'POST',
+				data: {
+					room: '<?php echo $roomname ?>'
+				},
+				url: 'htcont.php',
+				success: function(data, status) {
+					document.getElementById('anyclass').innerHTML = data;
+					// Auto scroll to bottom for new messages
+					var chatContainer = document.getElementById('anyclass');
+					chatContainer.scrollTop = chatContainer.scrollHeight;
+				}
+			})
+			// $.post("htcont.php",{room: '<?php //echo $roomname 
+											?>'},
+			// function(data,status)
+			// {
+			//     document.getElementsByClassName('anyclass')[0].innerHTML= data;
 
-// submitting on enter:credit w3 school
-var input = document.getElementById("usermsg");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    document.getElementById("submit").click();
-  }
-});
-$("#submit").click(function(e){
+			// }
+			// )
+		}
 
-  var clientmsg =$('#usermsg').val();
- if(clientmsg){
+		// submitting on enter:credit w3 school
+		var input = document.getElementById("usermsg");
+		input.addEventListener("keyup", function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				document.getElementById("submit").click();
+			}
+		});
+		$("#submit").click(function(e) {
 
- 
- $ .ajax({
-    method:'POST',
-    data:{text : clientmsg , room: '<?php echo $roomname ?>' , ip:'<?php echo $_SERVER['REMOTE_ADDR'] ?>'},
-    url:'postmsg.php',
-    success:function(data,status)
-    {
-      $('#anyclass')[0].append(data);
-      //  document.getElementsByClassName('anyclass')[0].innerHTML= data;
-      const messages = document.getElementById('anyclass');
-	const messagesid = document.getElementById('msg');  
-	messages.scrollTop =60;
-    //   var l = document.getElementsByClassName("anyclass").length;
-    //   alert(l);
-     
-    // document.getElementsById("anyclass")[l-1].scrollIntoView();
-     
-    }
-  })
-}
-  //   var clientmsg =$('#usermsg').val();
+			var clientmsg = $('#usermsg').val();
+			if (clientmsg) {
 
-  // $.post("postmsg.php", {text : clientmsg , room: '<?php echo $roomname ?>' , ip:'<?php echo $_SERVER['REMOTE_ADDR'] ?>' },
-  // function(data,status){
-  //     document.getElementsByClassName('anyclass')[0].innerHTML = data;
-  // });
-  $("#usermsg").val("");
-  return false;
-});
-// $("#submit").click(function() {
-//   //document.getElementById('elementtoScrollToID').scrollTop = message.offsetHeight + message.offsetTop; 
-//     $([document.documentElement, document.body]).animate({
-//         scrollTop: $("#elementtoScrollToID").offset().top
-//     }, 200);
-//     //$("#elementtoScrollToID").scrollTop(textdiv.outerHeight());
-// });
 
-</script>
+				$.ajax({
+					method: 'POST',
+					data: {
+						text: clientmsg,
+						room: '<?php echo $roomname ?>',
+						ip: '<?php echo $_SERVER['REMOTE_ADDR'] ?>'
+					},
+					url: 'postmsg.php',
+					success: function(data, status) {
+						$('#anyclass')[0].append(data);
+						//  document.getElementsByClassName('anyclass')[0].innerHTML= data;
+						const messages = document.getElementById('anyclass');
+						const messagesid = document.getElementById('msg');
+						messages.scrollTop = 60;
+						//   var l = document.getElementsByClassName("anyclass").length;
+						//   alert(l);
+
+						// document.getElementsById("anyclass")[l-1].scrollIntoView();
+
+					}
+				})
+			}
+			//   var clientmsg =$('#usermsg').val();
+
+			// $.post("postmsg.php", {text : clientmsg , room: '<?php echo $roomname ?>' , ip:'<?php echo $_SERVER['REMOTE_ADDR'] ?>' },
+			// function(data,status){
+			//     document.getElementsByClassName('anyclass')[0].innerHTML = data;
+			// });
+			$("#usermsg").val("");
+			return false;
+		});
+		// $("#submit").click(function() {
+		//   //document.getElementById('elementtoScrollToID').scrollTop = message.offsetHeight + message.offsetTop; 
+		//     $([document.documentElement, document.body]).animate({
+		//         scrollTop: $("#elementtoScrollToID").offset().top
+		//     }, 200);
+		//     //$("#elementtoScrollToID").scrollTop(textdiv.outerHeight());
+		// });
+	</script>
 </body>
+
 </html>
-
-
-
-

@@ -27,8 +27,10 @@ if (isset($_POST['submit'])) {
     VALUES('$childname', '$parentcontact', '$parentemail', '$gender', '$parentaddress', '$childage', '$medhis', '$dob')");
 
   if ($sql) {
-    echo "<script>alert('Patient info added Successfully');</script>";
-    header('location:add-child.php');
+    echo "<script>
+    alert('Child info added Successfully');
+    window.location.href = './myChildrens.php';
+</script>";
   }
 }
 ?>
@@ -108,12 +110,14 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-  <div class="container">
-    <h1>Doctor | Register Child</h1>
-    <form role="form" method="post">
+  <div class="container" style=" margin-top: 120px; margin-bottom:50px">
+    <h2 class="mb-8 text-start">Register a Child</h2>
+    <a href="./cdetails.php?category=all" class="btn btn-sm me-2 text-white mt-2 pt-2" style="margin-left: 10px; background-color:orange;"> &#8592; Back</a>
+
+    <form role="form" method="post" class="mt-4 pt-4">
       <div class="form-group">
         <label for="childname">Child Name</label>
-        <input type="text" name="childname" class="form-control" placeholder="Enter the name of the Child" required>
+        <input type="text" name="childname" class="form-control" placeholder="Enter the name of the Child" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed">
       </div>
       <div class="form-group">
         <label for="parentcontact">Parent Contact no</label>
@@ -145,7 +149,7 @@ if (isset($_POST['submit'])) {
         <label for="medhis">Disease being sought immunization for</label>
         <textarea name="medhis" class="form-control" placeholder="Enter name of the disease to be vaccinated for" required></textarea>
       </div>
-      <button type="submit" name="submit" class="btn btn-primary">Register</button>
+      <button type="submit" name="submit" class="btn btn-primary" style="background-color:orange;border:navy">Register</button>
     </form>
   </div>
 

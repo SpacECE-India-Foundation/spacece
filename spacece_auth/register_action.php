@@ -50,10 +50,16 @@ if (mysqli_num_rows($run) > 0) {
         $c_language = $_POST['c_language'];
         $c_fee = $_POST['c_fee'];
         $c_available_days = $_POST['selectedItem'];
-        $c_available_from = $_POST['c_available_from'];
-        $c_available_to = $_POST['c_available_to'];
+        // Convert the comma-separated string into an array
+        $days_array = explode(',', $c_available_days);
+
+        // Get the first and last items
+        $c_available_from = $days_array[0]; // Tuesday
+        $c_available_to = end($days_array); // Thursday
+        //$c_available_from = $_POST['c_available_from'];
+        //$c_available_to = $_POST['c_available_to'];
         $c_qualification = $_POST['c_qualification'];
-        $redirectUrl = '../index.php';
+        //$redirectUrl = '../index.php';
         $sql = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
 
         $result = mysqli_query($conn, $sql);
@@ -62,12 +68,16 @@ if (mysqli_num_rows($run) > 0) {
 
         $query = "INSERT INTO consultant (u_id, c_category, c_office, c_from_time, c_to_time, c_language, c_fee, c_available_from, c_available_to, c_qualification,c_aval_days) 
       VALUES ($last_id, $c_categories, '$c_office', '$c_from_time', '$c_to_time', '$c_language', '$c_fee', '$c_available_from','$c_available_to','$c_qualification','$c_available_days')";
+        $result = mysqli_query($conn, $query);
+        $redirectUrl = '../index.php';
     } else if (($type == 'customer') || ($type == 'admin') || ($type == 'book_owner') || ($type == 'delivery_boy')) {
         $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME_SPACECE);
+        // $conn1 = new mysqli('localhost', 'root', '', 'spacece');
         $query1 = "INSERT INTO users (u_name, u_email, u_password, u_mob, u_image, u_type) VALUES ('$name', '$email', '$hashed_password', '$phone', '$image', '$type')";
         $result = mysqli_query($conn1, $query1);
 
         $conn2 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME_CONSULTANT_APP);
+        // $conn2 = new mysqli('localhost', 'root', '', 'consultant_app');
         $query2 = "INSERT INTO `login`(username,name,email,phone) VALUES ('$name','$name', '$email','$phone')";
         $result = mysqli_query($conn2, $query2);
         $redirectUrl = '../index.php';
