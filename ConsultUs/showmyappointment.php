@@ -16,6 +16,8 @@ include '../Db_Connection/db_consultus_app.php';
 
 $email = $_SESSION['current_user_email'];
 $user = $_SESSION['current_user_name'];
+
+
 ?>
 <html>
 
@@ -25,7 +27,7 @@ $user = $_SESSION['current_user_name'];
     <style>
         .table-container {
             margin-top: 20px;
-            overflow-x: auto;
+            /* overflow-x: auto; */
         }
 
         table {
@@ -33,16 +35,15 @@ $user = $_SESSION['current_user_name'];
             border-collapse: collapse;
         }
 
-        th,
-        td {
-            text-align: center;
-            padding: 10px;
-            border: 1px solid #ddd;
+        body {
+            background: #e0dcdc;
         }
 
-        th {
-            background-color: #f8f9fa;
-            color: #343a40;
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
         }
 
         td {
@@ -68,9 +69,17 @@ $user = $_SESSION['current_user_name'];
 </head>
 
 <body>
-    <div class="container">
+
+    <div class="container" style=" margin-top: 80px; margin-bottom:50px">
+        <?php
+        $cat = isset($_GET['category']) ? $_GET['category'] : 'all';
+        $categoryLabel = ($cat === 'all' || empty($cat)) ? 'All Categories' : ucwords(str_replace('_', ' ', $cat));
+        ?>
+        <h2 class="mb-8 text-start">Consultant Details - <?php echo $categoryLabel; ?></h2>
+
+        <a href="./cdetails.php?category=all" class="btn btn-secondary" style="margin-bottom: 15px;background-color:orange;color:white;border:none">View All Consultants</a>
         <div class="table-container">
-            <a href="./cdetails.php?category=all" class="btn btn-secondary" style="margin-bottom: 15px;">View All Consultants</a>
+
             <table class="tb-full" id="booking">
                 <tr>
                     <th>S.NO.</th>
@@ -89,7 +98,15 @@ $user = $_SESSION['current_user_name'];
                 </tr>
                 <?php
                 error_reporting(0);
-                $sql = "SELECT * FROM `appointment` WHERE `username`='$user' ORDER BY `date_appointment` DESC, `time_appointment` DESC";
+                //$sql = "SELECT * FROM `appointment` WHERE `username`='$user' ORDER BY `date_appointment` DESC, `time_appointment` DESC";
+                $cat = isset($_GET['category']) ? $_GET['category'] : 'all';
+
+                if ($cat !== 'all') {
+                    $sql = "SELECT * FROM `appointment` WHERE `username`='$user' AND `category`='$cat' ORDER BY `date_appointment` DESC, `time_appointment` DESC";
+                } else {
+                    $sql = "SELECT * FROM `appointment` WHERE `username`='$user' ORDER BY `date_appointment` DESC, `time_appointment` DESC";
+                }
+
                 $res = mysqli_query($conn, $sql);
                 if ($res) {
                     $count = mysqli_num_rows($res);
@@ -123,8 +140,8 @@ $user = $_SESSION['current_user_name'];
                                 <td><?php echo $uid; ?></td>
                                 <td class="btn-container">
                                     <a href="<?php echo SITEURL; ?>delete_appointment.php?id=<?php echo $uid; ?>&user=<?php echo $user; ?>&email=<?php echo $email; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this appointment?')">DELETE APPOINTMENT</a>
-                                    <a href="./instamojo_payment/index.php?id=<?php echo $id; ?>&user=<?php echo $user; ?>" class="btn btn-sm" style="color:black;background-color:pink" onclick="return confirm('Are you sure you want to confirm this appointment?')"> Confirm Appointment </a>
-                                    <a href="<?php echo SITEURL; ?>chatbot/room.php?roomname=bid<?php echo $uid; ?>" class="btn btn-primary" style="width: 100%">CHAT</a>
+                                    <a href="./instamojo_payment/index.php?id=<?php echo $id; ?>&user=<?php echo $user; ?>" class="btn btn-sm" style="color:white;background-color:orange" onclick="return confirm('Are you sure you want to confirm this appointment?')"> Confirm Appointment </a>
+                                    <a href="<?php echo SITEURL; ?>chatbot/room.php?roomname=bid<?php echo $uid; ?>" class="btn btn-primary" style="width: 100%;rgb(51, 154, 251);">CHAT</a>
                                 </td>
                             </tr>
                 <?php
@@ -135,6 +152,7 @@ $user = $_SESSION['current_user_name'];
                 }
                 ?>
             </table>
+
         </div>
     </div>
     <?php include_once '../common/footer_module.php'; ?>
