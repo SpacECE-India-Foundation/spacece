@@ -18,6 +18,12 @@ include("./php/src/RtmTokenBuilder.php");
 //$ref = $_GET['user'];
 $cat = $_GET['category'];
 
+// Pagination setup
+$limit = 5; // Number of entries per page
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$start_from = ($page - 1) * $limit;
+
+
 date_default_timezone_set("Asia/Calcutta");
 
 // Create connection
@@ -39,6 +45,16 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 //         }
 //     }
 // }
+$sql_total = "SELECT COUNT(DISTINCT users.u_id) AS total 
+    FROM consultant
+    JOIN consultant_category ON consultant.c_category = consultant_category.cat_id
+    JOIN users ON users.u_id = consultant.u_id
+    WHERE users.u_type='consultant'";
+
+$res_total = mysqli_query($conn1, $sql_total);
+$row_total = mysqli_fetch_assoc($res_total);
+$total_records = $row_total['total'];
+$total_pages = ceil($total_records / $limit);
 
 ?>
 <title>Consultant Detail</title>
@@ -54,22 +70,92 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
 <style>
     body {
-        background: linear-gradient(to bottom right, #ffcc99 0%, #ffffff 100%);
+        background: #e0dcdc;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    .category-menu {
+        display: flex;
+        border-bottom: 2px solid #ccc;
+        background-color: #f1f1f1;
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .category-link {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        /* Remove bottom border for tab look */
+        border-radius: 10px 10px 0 0;
+        background-color: white;
+        color: #555;
+        text-decoration: none;
+        margin-right: 5px;
+        display: inline-block;
+        transition: background-color 0.3s ease, font-weight 0.3s ease;
+    }
+
+    .category-link.active {
+        background-color: #ffffff;
+        color: #000;
+        font-weight: bold;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+        /* subtle shadow to lift */
+        position: relative;
+        z-index: 1;
     }
 </style>
-<div class="container my-5">
+<div class="category-menu" style="margin-top: 85px;">
+    <?php
+    $check = "SELECT * FROM consultant_category";
+    $run = mysqli_query($conn, $check);
+
+    $activeCategory = isset($_GET['category']) ? $_GET['category'] : 'Paediatrician'; // Default to Paediatrician
+
+    if (mysqli_num_rows($run) > 0) {
+        while ($row = mysqli_fetch_assoc($run)) {
+            $category = urlencode($row['cat_name']);
+            $isActive = ($row['cat_name'] === $activeCategory) ? ' active' : '';
+
+            echo '<a href="cdetails.php?category=' . $category . '" class="category-link' . $isActive . '">';
+            echo htmlspecialchars($row['cat_name']);
+            echo '</a>';
+        }
+    }
+    ?>
+</div>
+
+<div class="container" id="record-container" style=" margin-top: 80px; margin-bottom:50px">
     <div class="text-center">
-        <h2 class="mb-4"><u>CONSULTANT DETAIL</u></h2>
+        <?php
+        $cat = isset($_GET['category']) ? $_GET['category'] : 'all';
+        $categoryLabel = ($cat === 'all' || empty($cat)) ? 'All Categories' : ucwords(str_replace('_', ' ', $cat));
+        ?>
+        <h2 class="mb-8 text-start">Consultant Details - <?php echo $categoryLabel; ?></h2>
         <?php if (isset($_SESSION['current_user_email'])) { ?>
-            <div class="d-flex justify-content-center mb-3">
-                <a class="btn btn-sm me-2" style="background-color: orange;" href="showmyappointment.php">SHOW MY APPOINTMENT</a>
+            <div class="d-flex justify-content-start mb-3 text-white">
+                <a class="btn btn-sm me-2" style="background-color: orange;" href="showmyappointment.php?category=<?php echo urlencode($cat); ?>">Show My Appointments</a>
                 <a class="btn btn-sm me-2" style="background-color: orange;" href="myChildrens.php">My Childrens</a>
                 <a class="btn btn-sm me-2" style="background-color: orange;" href="add_child.php">Register Childrens</a>
+                <a class="btn btn-sm me-8" style="background-color:rgb(51, 154, 251);" href="./chatbot/room.php?roomname=global1">Chat Global</a>
             </div>
         <?php } ?>
-        <a href="./chatbot/room.php?roomname=global1" class="btn btn-sm mb-4" style="color:black;background-color:orange;">CHAT GLOBAL</a>
-        <table class="table table-striped table-bordered table-hover table-responsive">
-            <thead>
+        <table class="table-bordered table-hover table-responsive table-light">
+            <thead style="background-color:#f0f0f0;">
                 <tr>
                     <th>S.no.</th>
                     <th>Image</th>
@@ -94,7 +180,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_aval_days As c_aval_days,consultant.c_qualification AS c_qualification ,
                         consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
                         WHERE users.u_id = consultant.u_id 
-                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' ORDER BY users.u_name";
+                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' ORDER BY users.u_name  LIMIT $start_from, $limit ";
                     $res = mysqli_query($conn1, $sql);
 
                     //checking whether query is executed or not
@@ -124,7 +210,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                 </td>
                                 <td><?php echo $row['c_qualification']; ?></td>
                                 <td>
-                                    <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>">Book Appointment</a>
+                                    <a class="btn btn-sm me-8" style="background-color:rgb(51, 154, 251);" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>">Book Appointment</a>
                                     <?php
                                     if (isset($_SESSION['current_user_id'])) {
                                         $email = $_SESSION['current_user_email'];
@@ -164,7 +250,8 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                         consultant.c_language AS c_language, consultant.c_fee AS c_fee ,consultant.c_aval_days As c_aval_days,consultant.c_qualification AS c_qualification ,
                         consultant_category.cat_name AS cat_name FROM consultant_category JOIN consultant JOIN users
                         WHERE users.u_id = consultant.u_id 
-                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' AND consultant_category.cat_name='$cat'";
+                        AND consultant.c_category=consultant_category.cat_id AND users.u_type='consultant' AND consultant_category.cat_name='$cat' ORDER BY users.u_name
+    LIMIT $start_from, $limit";
                     $res = mysqli_query($conn1, $sql);
 
                     //checking whether query is executed or not
@@ -194,7 +281,7 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                                 </td>
                                 <td><?php echo $row['c_qualification']; ?></td>
                                 <td>
-                                    <a class="btn btn-secondary" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>">Book Appointment</a>
+                                    <a class="btn btn-sm me-8" style="background-color:rgb(51, 154, 251); color:white;" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>">Book Appointment</a>
                                     <?php
                                     if (isset($_SESSION['current_user_id'])) {
                                         $email = $_SESSION['current_user_email'];
@@ -231,8 +318,21 @@ $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABA
                 ?>
             </tbody>
         </table>
+        <?php if ($total_pages > 1) {
+            echo '<nav aria-label="Page navigation"><ul class="pagination justify-content-center">';
+            for ($i = 1; $i <= $total_pages; $i++) {
+                echo "<li class='page-item" . ($i == $page ? " active" : "") . "'>
+                 <a class='page-link' href='cdetails.php?category=$cat&page=$i'>$i</a>
+              </li>";
+            }
+            echo '</ul></nav>';
+        }
+        ?>
+
     </div>
 </div>
+
+
 <div class="modal fade" id="SheduleleModal" tabindex="-1" aria-labelledby="SheduleleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -293,7 +393,9 @@ include_once '../common/footer_module.php';
         });
     });
 </script>
+<script>
 
+</script>
 
 
 

@@ -31,6 +31,7 @@ if (session_status() === PHP_SESSION_NONE) {
             font-size: large;
         }
 
+
         .navbar .logo {
             display: flex;
         }
@@ -58,11 +59,20 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         .dropbtn {
-            background-color: #FFA500;
-            color: #000;
-            padding: 16px;
+            /* background-color: #FFA500; */
+            /* color: #000; */
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 16px;
             border: none;
+            background-color: transparent;
+            padding: 0;
+            /* Remove padding */
+            margin: 0;
+            height: 100%;
+            box-shadow: none;
+            cursor: pointer;
         }
 
         .dropdown {
@@ -73,18 +83,26 @@ if (session_status() === PHP_SESSION_NONE) {
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f1f1f1;
+            top: 100%;
+            /* Position directly below the button */
+            right: 0;
+            /* Align to the right edge of the parent */
+            background-color: #fff;
             min-width: 160px;
-            right: 10px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            padding: 8px 0;
         }
 
         .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
+            color: #000;
+            padding: 10px 16px;
             text-decoration: none;
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
         }
 
         .dropbtn:focus {
@@ -92,7 +110,7 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         .dropdown-content a:hover {
-            background-color: #ddd;
+            background-color: #f0f0f0;
         }
 
         .dropdown:hover .dropdown-content {
@@ -248,7 +266,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="org_logo">
                 <!-- <a href=<?= $main_page ? "./index.php" : "../index.php" ?>> -->
                 <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
-                <span>SpaceECE Web Portal</span>
+                <span>Spaces Web Portal</span>
                 <!-- <span style="<?php $main_page ? '' : 'text-align: center;'; ?>">
                     SpaceECE Web Portal
                 </span> -->
@@ -258,10 +276,9 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php
             if (isset($module_name)) {
             ?>
-                <div class="module_logo">
+                <div class="module_logo" style="margin-top: 15px; margin-left:620px;">
                     <a href="./index.php">
-                        <img src="<?= isset($module_logo) ? $module_logo : 'Spacece' ?>" alt="Module">
-                        <span><?= isset($module_name) ? $module_name : 'Spacece' ?><span>
+                        <span style="color: #ffb300; font-weight: 700;"><?= isset($module_name) ? $module_name : 'Spacece' ?><span>
                     </a>
                 </div>
             <?php
@@ -275,8 +292,10 @@ if (session_status() === PHP_SESSION_NONE) {
             ?>
                 <div class="dropdown">
                     <button class="dropbtn">
+
                         <img class="user_avatar" src=<?= !isset($_SESSION['current_user_image']) ? 'https://www.w3schools.com/howto/img_avatar.png' : ($main_page ? './img/users/' . $_SESSION['current_user_image'] : '../img/users/' . $_SESSION['current_user_image']) ?> alt="User" />
-                        <span style="cursor: pointer;">Hi, <?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
+
+                        <span style="cursor: pointer;"><?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
                     </button>
                     <div class="dropdown-content">
                         <a href="<?= isset($main_page) ? "./spacece_auth/profile.php" : "../spacece_auth/profile.php" ?>"><i class="fas fa-user"></i><span>Profile</span></a>
