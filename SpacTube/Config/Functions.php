@@ -14,7 +14,7 @@ class Functions
     public function __construct()
     {
         try {
-            $this->conn = mysqli_connect(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME_SPACTUBE);
+            $this->conn = mysqli_connect('localhost','root', 'ha@2006', 'spactube');
             if (!$this->conn) {
                 throw new Exception('Failed to connect to Database:');
             }
@@ -66,6 +66,26 @@ class Functions
             return false;
         }
     }
+    public function select_order_limit_where($table, $order_col, $order = "DESC", $where_col, $where_val, $limit = 12, $offset = 0){
+        $sql = "SELECT * FROM $table WHERE $where_col = '$where_val' ORDER BY $order_col $order LIMIT $limit OFFSET $offset";
+        $result = mysqli_query($this->conn, $sql);
+        $data = [];
+        while($row = mysqli_fetch_assoc($result)){
+            $data[] = $row;
+        }
+        return $data;
+    }
+    
+    public function select_where($table, $col, $val) {
+        $sql = "SELECT * FROM $table WHERE $col = '$val'";
+        $result = mysqli_query($this->conn, $sql);
+        $data = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+    
 
 
     public function select_order($tbl_name, $field_id, $order = 'ASC')
@@ -85,6 +105,18 @@ class Functions
             return false;
         }
     }
+    public function search_and_filter_videos($table, $filter, $search, $orderby = 'views', $order = 'DESC') {
+        $conn = $this->dbConnect();
+        $filter_condition = ($filter == 'all') ? "1" : "filter = '$filter'";
+        $query = "SELECT * FROM $table WHERE $filter_condition AND title LIKE '%$search%' ORDER BY $orderby $order";
+        $result = mysqli_query($conn, $query);
+        $data = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+    
     public function trend_video_cat($tbl_name, $tb_field, $field_id, $order)
     {
         //echo $field_id;
@@ -166,6 +198,7 @@ class Functions
             return false;
         }
     }
+    
 
     public function update($tblname, $field_data, $condition, $op = 'AND')
     {
