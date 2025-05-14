@@ -42,41 +42,125 @@ $extra_scripts = "<script src='./js/jquery-3.2.1.min.js'></script>
 include_once './common/header_module.php';
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ABOUT US</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpaceECE Web Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #2f2f2f;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #1e1e1e;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 0 0 15px 15px;
+    }
+    .header span {
+      color: #f9a825;
+      font-weight: 600;
+    }
+    .content-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      color: #222;
+    }
+    p {
+      line-height: 1.7;
+      text-align: justify;
+    }
+    ul {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    ul li {
+      margin-bottom: 10px;
+	  font-size:18px;
+    }
+    .highlight-footer {
+      color: #f57c00;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 30px;
+	  font-size: 16px;
+	  margin-right:100px;
+    }
+  </style>
 </head>
 <body>
-	
-	<!-- Page Preloder -->
-	<div id="preloder">
-	<div class="loader"></div>
+<div style="margin-right: 50px; margin-top: 140px; text-align: center; color: white; font-size: 32px; font-weight: bold;">
+  About Us
+</div><br><br>
+<div style="
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+">
+
+  <span style="color: #f9a825; font-weight: 600;">SpaceECE Web Portal</span> -
+  <br>
+  <span style="font-size: 18px; color: #333;">
+    Connecting Children to a World of Opportunities.
+  </span>
 </div>
+<div style="height: 20px;"></div>
 
-<div class="about-page">
-	<div class="about-moto center">
-		<h3>Our aim is to encourage children in communication with the world using all of their abilities, capabilities, and language, and to overcome any barriers.</h3>
-	</div>
+<div style="
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+">    <p>At SpaceECE, we believe that every child deserves a strong start — one built on holistic growth, meaningful communication, and joyful learning. Our Web Portal is designed as a one-stop platform, bringing together healthcare support, educational resources, and activity management tailored especially for children between 0 to 8 years of age.</p>
 
-	<div class="about-desc justify">
-		<h3 class="center"><span>ABOUT US</span></h3>
-		<p>SPACE is the acronym of Social, Physical, Aesthetic, Cognitive, and Emotional, which are various crucial child development aspects. Additionally, to communicate our focus on the educational component and children between the ages of 0-8 years, we use the suffix Early Childhood Education.
-			<br /><br />
-			SPACE is based on the foundational thoughts of Samidha, a non-profit organization. Samidha has established learning centers in urban slums and remote rural locations, focused on the overall development of the children. Samidha learning centers contribute as an after-school support facility for children who lack an educational environment at home.
-			<br /><br />
-			Both the proprietors have worked extensively with the Jean Piaget or Maria Montessori of this century, Dr. Sugata Mitra, Professor Emeritus, University of Newcastle, UK. His brainchild, the Hole-in-the-Wall experiment, and TED-winning idea Self-Organized Learning Environment (SOLE) has shaped our thoughts. Samidha SOLE centers established computer labs for the children and youths coming from the slums, which got an encouraging response. It also experimented with the sustainability of such learning centers, which included recruiting and training local facilitators.
-		</p>
-	</div>
-</div>
+    <p><strong>What is the SpaceECE Web Portal?</strong></p>
+
+    <p>The portal integrates <strong>vital services</strong> like:</p>
+    <ul>
+      <li>Consultations with pediatricians, psychiatrists, nutritionists, and wellness experts.</li>
+      <li>Learning Resources including videos, audiobooks, and interactive classes.</li>
+      <li>Activity Tracking to monitor daily child activities and developmental milestones.</li>
+      <li>Child Management Tools for managing profiles, immunization records, appointments, and more.</li>
+      <li>Parent and Educator Communication for a seamless collaborative environment.</li>
+    </ul>
+
+    <p><strong>Our Approach:</strong></p>
+    <ul>
+      <li>SPACE stands for Social, Physical, Aesthetic, Cognitive, and Emotional development — five pillars that are at the heart of every child’s growth journey.</li>
+      <li>Inspired by innovative education models and grounded in real-world needs, we ensure that learning and care are accessible anytime, anywhere.</li>
+    </ul>
+
+    <p><strong>Our Vision:</strong></p>
+	<ul><li>To build a world where every child can grow, learn, and thrive — empowered by the right support systems at their fingertips.</li></ul>
 
 
-<?php
-include_once 'common/footer_module.php';
-?>
+    <p><strong>Our Mission:</strong></p>
+    <ul><li>Through the SpaceECE Web Portal, we aim to bridge gaps between homes, educators, and healthcare, offering a digital ecosystem that nurtures every child’s potential.</li></ul>
+
+    <p class="highlight-footer">Join us in shaping a future where every child's voice is heard, every ability celebrated, and every dream supported.</p>
+  </div>
+<br>
+<br>
+<?php include_once 'common/footer_module.php';?>
 </body>
 </html>
+

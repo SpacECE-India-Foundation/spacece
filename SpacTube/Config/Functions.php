@@ -105,6 +105,18 @@ class Functions
             return false;
         }
     }
+    public function search_and_filter_videos($table, $filter, $search, $orderby = 'views', $order = 'DESC') {
+        $conn = $this->dbConnect();
+        $filter_condition = ($filter == 'all') ? "1" : "filter = '$filter'";
+        $query = "SELECT * FROM $table WHERE $filter_condition AND title LIKE '%$search%' ORDER BY $orderby $order";
+        $result = mysqli_query($conn, $query);
+        $data = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+    
     public function trend_video_cat($tbl_name, $tb_field, $field_id, $order)
     {
         //echo $field_id;
