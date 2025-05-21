@@ -1,83 +1,46 @@
 <?php
-error_reporting(0);
-include_once './header_local.php';
-include_once '../common/header_module.php';
-include_once '../common/banner.php';
 session_start();
-include "../Db_Connection/db_libforsmall.php";
-?>
+header('Content-Type: application/json');
+include '../Db_Connection/db_libforsmall.php';
 
-<div class="container">
-	<div class="row">
+$user_id = $_SESSION['current_user_id'] ?? null;
+$ip_add = $_SERVER['REMOTE_ADDR'];
+$product_id = $_POST['product_id'] ?? null;
 
-		<div class="col-md-12" id="cart_msg">
-			<!--Cart Message-->
-		</div>
-		<div class="col-md-2"></div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="panel panel-primary">
-				<div class="panel-heading">Cart Checkout</div>
-				<div class="panel-body">
-					<div class="row cart-items">
-						<!--<div class="col-md-2 col-xs-2"><b>Action</b></div>
-							<div class="col-md-1 col-xs-2"><b>Product Image</b></div>
-							<div class="col-md-1 col-xs-2"><b>Product Name</b></div>
-							<div class="col-md-2 col-xs-1"><b>Start Date</b></div>
-							<div class="col-md-2 col-xs-1"><b>Return Date</b></div>
-							<div class="col-md-1 col-xs-2"><b>Quantity</b></div>
-							
-							<div class="col-md-1 col-xs-2"><b>Product Price</b></div>
-							<div class="col-md-2 col-xs-2"><b>Exchange</b></div>-->
-					</div>
-					<div id="cart_checkout" class="cart_checkout"></div>
-					<!--<div class="row">
-							<div class="col-md-2">
-								<div class="btn-group">
-									<a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
-									<a href="" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span></a>
-								</div>
-							</div>
-							<div class="col-md-2"><img src='product_images/imges.jpg'></div>
-							<div class="col-md-2">Product Name</div>
-							<div class="col-md-2"><input type='date' class='form-control' value='1' ></div>
-							<div class="col-md-2"><input type='date' class='form-control' value='1' ></div>
-							<div class="col-md-2"><input type='text' class='form-control' value='1' ></div>
-							<div class="col-md-2"><input type='text' class='form-control' value='5000' disabled></div>
-							<div class="col-md-2"><input type='text' class='form-control' value='5000' disabled></div>
-							<div class="col-md-2">Product Name</div>
-						</div> -->
-					<!--<div class="row">
-							<div class="col-md-8"></div>
-							<div class="col-md-4">
-								<b>Total $500000</b>
-							</div> -->
+if (!$product_id) {
+	echo json_encode(['status' => 'error']);
+	exit;
+}
 
-				</div>
-				<!-- <div class="panel-footer"></div> -->
-			</div>
-		</div>
+// Check if product already in cart for this user/ip
+$stmt = $conn->prepare("SELECT qty FROM cart WHERE p_id = ? AND (user_id = ? OR ip_add = ?)");
+$stmt->bind_param("iis", $product_id, $user_id, $ip_add);
+$stmt->execute();
+$result = $stmt->get_result();
 
+if ($result->num_rows > 0) {
+	// If exists, update qty +1
+	$row = $result->fetch_assoc();
+	$new_qty = $row['qty'] + 1;
 
-	</div>
-	
-	<?php
-	include_once '../common/footer_module.php';
-	?>
-	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+	$stmt = $conn->prepare("UPDATE cart SET qty = ? WHERE p_id = ? AND (user_id = ? OR ip_add = ?)");
+	$stmt->bind_param("iiss", $new_qty, $product_id, $user_id, $ip_add);
+	$stmt->execute();
+} else {
+	// Insert new row with qty = 1
+	$qty = 1;
+	$stmt = $conn->prepare("INSERT INTO cart (p_id, ip_add, user_id, qty) VALUES (?, ?, ?, ?)");
+	$stmt->bind_param("isii", $product_id, $ip_add, $user_id, $qty);
+	$stmt->execute();
+}
 
+// Get current total count in cart for user/ip
+$stmt = $conn->prepare("SELECT SUM(qty) as total_qty FROM cart WHERE user_id = ? OR ip_add = ?");
+$stmt->bind_param("is", $user_id, $ip_add);
+$stmt->execute();
+$result = $stmt->get_result();
+$total = $result->fetch_assoc();
+$cart_count = $total['total_qty'] ?? 0;
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
-	<script>
-	$(function () {
-          $('.end_date').datetimepicker({
-			
-              format: 'MM/YYYY'
-          });
-      });
-	
-</script>
+echo json_encode(['status' => 'success', 'cart_count' => $cart_count]);
+exit;

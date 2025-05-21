@@ -140,7 +140,24 @@ $user = $_SESSION['current_user_name'];
                                 <td><?php echo $uid; ?></td>
                                 <td class="btn-container">
                                     <a href="<?php echo SITEURL; ?>delete_appointment.php?id=<?php echo $uid; ?>&user=<?php echo $user; ?>&email=<?php echo $email; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this appointment?')">DELETE APPOINTMENT</a>
-                                    <a href="./instamojo_payment/index.php?id=<?php echo $id; ?>&user=<?php echo $user; ?>" class="btn btn-sm" style="color:white;background-color:orange" onclick="return confirm('Are you sure you want to confirm this appointment?')"> Confirm Appointment </a>
+                                    <!-- <a href="./instamojo_payment/index.php?id=<? //php echo $id; 
+                                                                                    ?>&user=<? //php echo $user; 
+                                                                                            ?>" class="btn btn-sm" style="color:white;background-color:orange" onclick="return confirm('Are you sure you want to confirm this appointment?')"> Confirm Appointment </a> -->
+                                    <!-- Button -->
+                                    <button class="btn btn-sm" style="color:white;background-color:orange" onclick="openCaptchaModal()">Confirm Appointment</button>
+
+                                    <!-- Modal -->
+                                    <div id="captchaModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; border:1px solid #ccc; padding:20px; z-index:9999;">
+                                        <p>Please enter the code from the image:</p>
+                                        <img src="./captcha.php?rand=<?php echo rand(); ?>" id="captchaImage">
+                                        <br><br>
+                                        <input type="text" id="captchaInput" placeholder="Enter code" />
+                                        <br><br>
+                                        <button onclick="submitCaptcha()">Submit</button>
+                                        <button onclick="closeCaptchaModal()">Cancel</button>
+                                    </div>
+
+
                                     <a href="<?php echo SITEURL; ?>chatbot/room.php?roomname=bid<?php echo $uid; ?>" class="btn btn-primary" style="width: 100%;rgb(51, 154, 251);">CHAT</a>
                                 </td>
                             </tr>
@@ -160,6 +177,41 @@ $user = $_SESSION['current_user_name'];
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function openCaptchaModal() {
+            document.getElementById('captchaModal').style.display = 'block';
+            document.getElementById('captchaImage').src = './captcha.php?rand=' + Math.random();
+            document.getElementById('captchaInput').value = '';
+            document.getElementById('captchaInput').focus();
+        }
+
+        function closeCaptchaModal() {
+            document.getElementById('captchaModal').style.display = 'none';
+        }
+
+        function submitCaptcha() {
+            const code = document.getElementById('captchaInput').value;
+
+            fetch('./verify_captcha.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'captchaInput=' + encodeURIComponent(code)
+                })
+                .then(response => response.text())
+                .then(result => {
+                    if (result === 'success') {
+                        alert('Confirmed appointment successfully!');
+                    } else {
+                        alert('Incorrect code, please try again.');
+                    }
+                    closeCaptchaModal();
+                });
+        }
+    </script>
+
+
 </body>
 
 </html>

@@ -59,20 +59,15 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         .dropbtn {
-            /* background-color: #FFA500; */
-            /* color: #000; */
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 16px;
+            justify-content: center;
+            gap: 6px;
             border: none;
-            background-color: transparent;
+            background: none;
             padding: 0;
-            /* Remove padding */
             margin: 0;
-            height: 100%;
-            box-shadow: none;
-            cursor: pointer;
+            line-height: 1;
         }
 
         .dropdown {
@@ -118,10 +113,12 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         .user_avatar {
-            width: 50px;
-            height: 50px;
+            width: 32px;
+            /* Consistent size */
+            height: 32px;
             border-radius: 50%;
-            margin-right: 10px;
+            object-fit: cover;
+            display: block;
         }
 
         .banner {
@@ -264,10 +261,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <nav class="navbar fixed-top">
         <div class="logo">
             <div class="org_logo">
-                <!-- <a href=<?= $main_page ? "./index.php" : "../index.php" ?>> -->
-                <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
-                <span>Spaces Web Portal</span>
-                <!-- <span style="<?php $main_page ? '' : 'text-align: center;'; ?>">
+                <a href=<?= $main_page ? "./index.php" : "../index.php" ?>>
+                    <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" alt="Spacece">
+                    <span>Spaces Web Portal</span>
+                    <!-- <span style="<?php $main_page ? '' : 'text-align: center;'; ?>">
                     SpaceECE Web Portal
                 </span> -->
 
