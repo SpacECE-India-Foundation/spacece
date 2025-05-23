@@ -263,6 +263,10 @@ if (isset($_POST['submit'])) {
 <body>
   <div class="container">
     <h1>Add A Product</h1>
+    <div class="button-row">
+      <a href="Myproducts.php">
+        <button class="button back">← Back</button></a>
+    </div>
     <form action="" method="POST" enctype="multipart/form-data">
       <label>Product Name</label>
       <input type="text" name="product_title" placeholder="Your entry here" required pattern="[A-Za-z0-9 ]+" title="Only letters, numbers, and spaces allowed">
@@ -334,10 +338,7 @@ if (isset($_POST['submit'])) {
         <button type="submit" class="button confirm" name="submit">Confirm & Add Product</button>
       </div>
     </form>
-    <div class="button-row">
-      <a href="Myproducts.php">
-        <button class="button back">← Back</button></a>
-    </div>
+
 
   </div>
 

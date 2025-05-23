@@ -284,6 +284,7 @@ include_once '../common/header_module.php';
       justify-content: flex-end;
       gap: 10px;
       margin-top: 20px;
+      float: right;
     }
 
     .delete-btn {
