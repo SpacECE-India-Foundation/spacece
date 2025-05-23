@@ -139,7 +139,7 @@ $total_pages = ceil($total_records / $limit);
     ?>
 </div>
 
-<div class="container" id="record-container" style=" margin-top: 80px; margin-bottom:50px">
+<div class="container" id="record-container" style=" margin-top: 40px; margin-bottom:50px">
     <div class="text-center">
         <?php
         $cat = isset($_GET['category']) ? $_GET['category'] : 'all';
@@ -148,9 +148,9 @@ $total_pages = ceil($total_records / $limit);
         <h2 class="mb-8 text-start">Consultant Details - <?php echo $categoryLabel; ?></h2>
         <?php if (isset($_SESSION['current_user_email'])) { ?>
             <div class="d-flex justify-content-start mb-3 text-white">
-                <a class="btn btn-sm me-2" style="background-color: orange;" href="showmyappointment.php?category=<?php echo urlencode($cat); ?>">Show My Appointments</a>
-                <a class="btn btn-sm me-2" style="background-color: orange;" href="myChildrens.php">My Childrens</a>
                 <a class="btn btn-sm me-2" style="background-color: orange;" href="add_child.php">Register Childrens</a>
+                <a class="btn btn-sm me-2" style="background-color: orange;" href="myChildrens.php">My Childrens</a>
+                <a class="btn btn-sm me-2" style="background-color: orange;" href="showmyappointment.php?category=<?php echo urlencode($cat); ?>">Show My Appointments</a>
                 <a class="btn btn-sm me-8" style="background-color:rgb(51, 154, 251);" href="./chatbot/room.php?roomname=global1">Chat Global</a>
             </div>
         <?php } ?>

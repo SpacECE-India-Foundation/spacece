@@ -79,7 +79,7 @@ $cart_count = $total['total_qty'] ?? 0;
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-<body>
+<body class="mythology-page">
 
 
   <nav class="nav-bar">
@@ -196,6 +196,16 @@ $cart_count = $total['total_qty'] ?? 0;
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
+    .mythology-page .navbar .logo img {
+      width: 75px;
+      height: auto;
+      max-height: 75px;
+      object-fit: contain;
+      position: absolute;
+      margin-top: 10px;
+
+    }
+
     .no-products-message {
       display: flex;
       justify-content: center;

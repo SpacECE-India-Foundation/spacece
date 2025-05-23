@@ -3,9 +3,17 @@ session_start();
 
 //use Google\Service\Script;
 
-include_once './header_local.php';
-include_once '../common/header_module.php';
+
 include '../Db_Connection/db_libforsmall.php';
+
+if (empty($_SESSION['current_user_id'])) {
+  echo '<script>
+    alert("User must be logged in!!");
+    window.location.href = "../spacece_auth/login.php";
+  </script>';
+  exit;
+}
+
 
 $user_id = $_SESSION['current_user_id'];
 $query = "SELECT product_title, product_price, product_image 
@@ -69,6 +77,9 @@ $stmt->execute();
 $result1 = $stmt->get_result();
 $total = $result1->fetch_assoc();
 $cart_count = $total['total_qty'] ?? 0;
+
+include_once './header_local.php';
+include_once '../common/header_module.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,6 +93,18 @@ $cart_count = $total['total_qty'] ?? 0;
 
 <body>
   <style>
+    .wishlist-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f8f8f8;
+    }
+
     .wishlist-btn i {
       color: black;
       transition: color 0.3s ease;
