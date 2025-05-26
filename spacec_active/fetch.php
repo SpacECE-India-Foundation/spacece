@@ -2,6 +2,7 @@
 // Suppress warnings
 error_reporting(E_ERROR | E_PARSE);
 // ini_set('display_errors', 0);
+
 ?>
 <?php
 session_start();
@@ -65,8 +66,11 @@ if (isset($_POST['getDetails'])) {
                                 <td>' . $result['activity_no'] . '</td>
                                     <td>' . $result['activity_name'] . '</td>
                                 <td>' . $result['activity_date'] . '</td>
+                                <td>13:00:00</td>
                                 <td>' . ucfirst($result['status']) . '</td>
-                                <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                                <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+                                Preview </button></td>
+                                <td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
                                 data-toggle="modal" data-target="#editModal" >
                                 View <i class="fas fa-expand"></i></button>
                                 <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
@@ -84,8 +88,11 @@ if (isset($_POST['getDetails'])) {
                                     <td>' . $result['activity_no'] . '</td>
                                         <td>' . $result['activity_name'] . '</td>
                                     <td>' . $result['activity_date'] . '</td>
+                                    <td>13:00:00</td>
                                     <td>' . ucfirst($result['status']) . '</td>
-                                    <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                                    <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+                                    Preview </button></td>
+                                    <td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
                                     data-toggle="modal" data-target="#editModal" >
                                     View <i class="fas fa-expand"></i></button>
                                     </td>
@@ -108,8 +115,12 @@ if (isset($_POST['getDetails'])) {
                 <td>' . $result['activity_no'] . '</td>
                     <td>' . $result['activity_name'] . '</td>
                 <td>' . $result['activity_date'] . '</td>
+                <td>13:00:00</td>
+
                 <td>' . ucfirst($result['status']) . '</td>
-                <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+Preview</i></button></td>
+<td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
                 data-toggle="modal" data-target="#editModal" >
                 View <i class="fas fa-expand"></i></button>
                 <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
@@ -127,8 +138,11 @@ if (isset($_POST['getDetails'])) {
                     <td>' . $result['activity_no'] . '</td>
                         <td>' . $result['activity_name'] . '</td>
                     <td>' . $result['activity_date'] . '</td>
+                    <td>13:00:00</td>
                     <td>' . ucfirst($result['status']) . '</td>
-                    <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                    <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+Preview </button></td>
+<td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
                     data-toggle="modal" data-target="#editModal" >
                     View <i class="fas fa-expand"></i></button>
                    </td>
@@ -147,8 +161,11 @@ if (isset($_POST['getDetails'])) {
                     <td>' . $result['activity_no'] . '</td>
                         <td>' . $result['activity_name'] . '</td>
                     <td>' . $result['activity_date'] . '</td>
+                    <td>13:00:00</td>
                     <td>' . ucfirst($result['status']) . '</td>
-                    <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                    <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+Preview </button></td>
+<td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
                     data-toggle="modal" data-target="#editModal" >
                     View <i class="fas fa-expand"></i></button>
                     <button type="button" class="btn btn-secondary" id="upload" data-toggle="modal" data-text="' . $result['activity_no'] . '" data-playlist="'. $result['playlist_id'] .'"  data-target="#exampleModal">
@@ -165,8 +182,11 @@ if (isset($_POST['getDetails'])) {
                         <td>' . $result['activity_no'] . '</td>
                             <td>' . $result['activity_name'] . '</td>
                         <td>' . $result['activity_date'] . '</td>
+                        <td>13:00:00</td>
                         <td>' . ucfirst($result['status']) . '</td>
-                        <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+                        <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+Preview </button></td>
+<td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
                         data-toggle="modal" data-target="#editModal" >
                         View <i class="fas fa-expand"></i></button>
                        </td>
@@ -187,8 +207,11 @@ if (isset($_POST['getDetails'])) {
                 <td>' . $result['activity_no'] . '</td>
                     <td>' . $result['activity_name'] . '</td>
            <td>' . $result['activity_date'] . '</td>
+           <td>13:00:00</td>
            <td>' . ucfirst($result['status']) . '</td>
-           <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+           <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+Preview </button></td>
+<td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
            data-toggle="modal" data-target="#editModal" >
            View <i class="fas fa-expand"></i></button>
      
@@ -201,8 +224,11 @@ if (isset($_POST['getDetails'])) {
                 <td>' . $result['activity_no'] . '</td>
                     <td>' . $result['activity_name'] . '</td>
            <td>' . $result['activity_date'] . '</td>
+           <td>13:00:00</td>
            <td>' . ucfirst($result['status']) . '</td>
-           <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+           <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+Preview</button></td>
+<td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
            data-toggle="modal" data-target="#editModal" >
            View <i class="fas fa-expand"></i></button>
      
@@ -225,8 +251,11 @@ if (isset($_POST['getDetails'])) {
             <td>' . $result['activity_no'] . '</td>
                 <td>' . $result['activity_name'] . '</td>
        <td>' . $result['activity_date'] . '</td>
+       <td>13:00:00</td>
        <td>' . ucfirst($result['status']) . '</td>
-       <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+       <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+Preview</button></td>
+<td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
        data-toggle="modal" data-target="#editModal" >
        View <i class="fas fa-expand"></i></button>
  
@@ -239,8 +268,11 @@ View All videos
             <td>' . $result['activity_no'] . '</td>
                 <td>' . $result['activity_name'] . '</td>
        <td>' . $result['activity_date'] . '</td>
+       <td>13:00:00</td>
        <td>' . ucfirst($result['status']) . '</td>
-       <td><button type="submit" class="btn btn-sm btn-secondary" id="edit" data-text="' . $result['activity_no'] . '" 
+       <td><button type="button" class="btn btn-sm btn-warning" id="preview" data-text="' . $result['activity_no'] . '">
+Preview </button></td>
+<td><button type="submit" class="btn btn-sm btn-primary" id="edit" data-text="' . $result['activity_no'] . '" 
        data-toggle="modal" data-target="#editModal" >
        View <i class="fas fa-expand"></i></button>
  </td></td>

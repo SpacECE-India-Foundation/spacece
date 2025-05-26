@@ -17,6 +17,69 @@ include_once '../common/banner.php';
 <link rel="stylesheet" href="./src/ALightBox.css">
 
 <style>
+body { 
+    background-color: #EEEEEE !important;
+    margin: 0; /* Remove any default body margin */
+    padding: 0;
+}
+
+.table-container {
+    background-color: #FFFFFF;
+    padding: 0px; /* Remove extra padding */
+    margin: 40px auto;
+    max-width: 100%; /* You can use 100% or a higher value if needed */
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent white space overflow */
+}
+
+table#activity_table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF !important;
+}
+
+table#activity_table th {
+    background-color: #EEEEEE !important;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    padding: 16px 20px;
+    border: 1px solid #ddd; /* Adds vertical and horizontal lines */
+}
+
+table#activity_table td {
+    padding: 16px 20px;
+    background-color: #FFFFFF !important;
+    white-space: normal;
+    border: 1px solid #ddd; /* Adds vertical and horizontal lines */
+
+}
+
+
+/* Buttons */
+.preview-btn {
+    background-color: #FFA500;
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.action-btn {
+    background-color: #00BFFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
     .table {
 
 
@@ -35,19 +98,23 @@ include_once '../common/banner.php';
     bottom: 25px;
     }
     @media (min-width: 1090px) {
-        #tablediv {
-            display: flex;
-            justify-content: center;
-        }
-
-        .table {
-
-            align-self: center;
-            margin: 0 auto;
-            min-width: 1080px;
-
-        }
+    #tablediv {
+        display: flex;
+        justify-content: center;
     }
+
+    .table-container {
+        width: 90%;
+        max-width: 1080px;
+        margin: auto;
+    }
+
+    .table {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
     
 </style>
 <?php
@@ -140,22 +207,30 @@ if($_SESSION['space_active']==="inactive"){
     </div>
 
 </div>
-
+<br><br>
+<div class="container" style="margin-top:10%;">
+<div style="text-align: center; margin-bottom: 20px;">
+    <button onclick="window.location.href='add_space_activity.php'" class="btn btn-warning" style="padding: 10px 25px; font-size: 16px; border-radius: 8px;">Add New Space Activity</button>
+</div>
 
 <div class="container" style="margin-top:10%;">
     <div class=" col-sm-12 " id="tablediv">
-        <table class="table table-active table-hover table-striped table-bordered ">
+    <div class="table-container">
+        <table id="activity_table" class="table">
             <tr>
                 <th>Activity Id</th>
                 <th>Activity Name</th>
                 <th>Date</th>
+                <th>Time</th>
                 <th>Status</th>
+                <th>Preview</th>
                 <tH>Action</th>
             </tr>
             <tbody id="tablebody">
 
             </tbody>
         </table>
+        </div>
     </div>
     <div class="modal fade  " id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog modal-lg" role="document">
@@ -172,28 +247,28 @@ if($_SESSION['space_active']==="inactive"){
                             <div class="form-inline"><strong><label>Activity Id :</label></strong>
                                 <div id="act_id"> </div>
                             </div>
-                            <hr>
+                            <br>
 
                             <div class="form-inline"><strong> <label>Activity Level : </label></strong>
                                 <div id="act_lvl"></div>
                             </div>
-                            <hr>
+                            <br>
                             <div class="form-inline"><strong><label>Activity Developing Domain : </label></strong>
                                 <div id="act_domain"></div>
                             </div>
-                            <hr>
+                            <br>
                             <div class="form-inline"><strong><label>Activity objectives : </label></strong>
                                 <div id="act_obj"></div>
                             </div>
-                            <hr>
+                            <br>
                             <div class="form-inline"><strong><label>Activity Key Objectives : </label></strong>
                                 <div id="act_key"></div>
                             </div>
-                            <hr>
+                            <br>
                             <div class="form-inline"><strong><label>Activity material : </label></strong>
                                 <div id="act_mat"></div>
                             </div>
-                            <hr>
+                            <br>
 
 
                         </div>
@@ -201,29 +276,34 @@ if($_SESSION['space_active']==="inactive"){
                             <div class="form-inline"><strong><label> Activity Name : </label></strong>
                                 <div id="act_name"></div>
                             </div>
-                            <hr>
+                            <br>
                             <div class="form-inline"><strong><label>Activity Assesment : </label></strong>
                                 <div id="act_assess"></div>
                             </div>
-                            <hr>
+                            <br>
                             <div class="form-inline"><strong><label>Activity process : </label></strong>
                                 <div id="act_pro"></div>
                             </div>
-                            <hr>
+                            <br>
                             <div class="form-inline"><strong><label>Activity Instructions :</label> </strong>
                                 <div id="act_ins"></div>
                             </div>
-                            <hr>
+                            <br>
                             <div class="form-inline"><strong><label>Activity Date :</label></strong>
                                 <div id="act_date"></div>
                             </div>
-                            <hr>
+                            <br>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
+<div class="modal-footer" style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end;">
+                    <button type="button" class="btn" style="background-color: #FFA500; color: white; padding: 10px 20px; border-radius: 8px; border: none;">
+                        Online Activity Registration
+                    </button>
+                    
+                    <button type="button" class="btn" style="background-color: #007BFF; color: white; padding: 10px 20px; border-radius: 8px; border: none; margin-right: 4px;">
+                        In-Person Visit Registration
+                    </button>
                 </div>
             </div>
         </div>
@@ -235,6 +315,7 @@ if($_SESSION['space_active']==="inactive"){
 <!-- <div class="progress mt-5" >
   <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 </div> -->
+
 
 
 
@@ -331,7 +412,7 @@ if($_SESSION['space_active']==="inactive"){
 
 <div class="row">
 
-</div>
+</div><br><br>
 </body>
 
 </html>
@@ -354,8 +435,7 @@ include_once '../common/footer_module.php';
 				showYoutubeThumbnails: true
 			});
 		</script>
-
-             
+          
 <script type="text/javascript">
     $(document).ready(function() {
       
@@ -565,6 +645,47 @@ $.ajax({
                         }
                     })
                 })
+                $(document).ready(function() {
+    var currentPage = 1;
+    var totalPages = 0;
+
+    function loadTable(page) {
+        $.ajax({
+            type: 'POST',
+            url: 'fetch.php',
+            data: {
+                'getDetails': 1,
+                'page': page
+            },
+            success: function(data) {
+                // Parse the response data
+                data = JSON.parse(data);
+                $('#tablebody').html(data.records); // Populate table body
+                totalPages = data.totalPages; // Update total pages
+                $('#currentPage').text('Page ' + currentPage); // Display current page
+                $('#prevPage').prop('disabled', currentPage <= 1); // Disable "Previous" button on first page
+                $('#nextPage').prop('disabled', currentPage >= totalPages); // Disable "Next" button on last page
+            }
+        });
+    }
+
+    loadTable(currentPage); // Load first page initially
+
+    $('#prevPage').click(function() {
+        if (currentPage > 1) {
+            currentPage--;
+            loadTable(currentPage);
+        }
+    });
+
+    $('#nextPage').click(function() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            loadTable(currentPage);
+        }
+    });
+});
+
 
                 
                     </script>

@@ -29,7 +29,7 @@ include_once '../common/header_module.php';
 
 <div class="container-fluid">
 <body>
-    <div class="container"><br>
+    <div class="container" style="margin-top:20px;">
         <?php include 'menu.php'; ?>
     </div>
 <?php include_once '../common/banner.php';?>
