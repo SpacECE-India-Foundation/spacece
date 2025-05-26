@@ -35,7 +35,6 @@ if (empty($_SESSION['current_user_id'])) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <div class="container-fluid">
-
     <body>
         <div class="container"><br>
             <?php include 'menu.php'; ?>
