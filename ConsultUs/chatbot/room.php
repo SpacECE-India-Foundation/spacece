@@ -11,7 +11,9 @@ if (isset($_SESSION['current_user_email'])) {
 $main_logo = "../../img/logo/SpacECELogo.jpg";
 $module_logo = "../../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
-// include_once '../../common/header_module.php';
+$sub_page = true;
+include_once './header_local.php';
+include_once '../../common/header_module.php';
 
 ?>
 
@@ -54,7 +56,7 @@ include("../../Db_Connection/db_consultus_app.php");
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<?= isset($extra_styles) ? $extra_styles : null ?>
-	<style>
+	<!-- <style>
 		body {
 			margin: 0;
 			padding: 0;
@@ -268,7 +270,7 @@ include("../../Db_Connection/db_consultus_app.php");
 		.fileToUpload {
 			cursor: pointer;
 		}
-	</style>
+	</style> -->
 	<!-- BUG ID-0000067 -->
 	<title><?= isset($module_name) ? $module_name : 'SpaceECE' ?></title>
 	<style>
@@ -347,7 +349,6 @@ include("../../Db_Connection/db_consultus_app.php");
 		}
 
 		.send-icon {
-			transform: rotate(90deg);
 			display: inline-block;
 			font-size: 18px;
 		}
@@ -355,7 +356,7 @@ include("../../Db_Connection/db_consultus_app.php");
 </head>
 
 <body>
-	<header>
+	<!-- <header>
 		<?php $main_page = isset($main_page) ? ($main_page) :  NULL ?>
 
 		<nav class="navbar">
@@ -411,9 +412,9 @@ include("../../Db_Connection/db_consultus_app.php");
 				?>
 			</div>
 		</nav>
-	</header>
+	</header> -->
 
-	<div class="container">
+	<div class="container mt-5 pt-5">
 		<div class="chat-container">
 			<div class="chat-header">
 				<h2>Global Chat - <?php echo $roomname; ?></h2>

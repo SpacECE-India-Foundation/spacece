@@ -2,6 +2,14 @@
 include_once './header_local.php';
 include_once '../common/header_module.php';
 // include_once '../common/banner.php';
+$sub_page = true;
+if (empty($_SESSION['current_user_id'])) {
+	echo '<script>
+    alert("User must be logged in!!");
+    window.location.href = "../spacece_auth/login.php";
+  </script>';
+	exit;
+}
 ?>
 
 <!-- Page Preloder -->

@@ -1,23 +1,28 @@
 <?php
-include('../../Db_Connection/db_consultus_app.php');
+include('../../Db_Connection/db_spacece.php');
 
 // Get the consultant ID and user from the URL parameters
 $id = $_GET['id'];
 $user = $_GET['user'];
 
 // Query to fetch consultant details based on ID
-$sql ="SELECT * FROM `consultant` WHERE `c_id`=$id";
+$sql = "SELECT consultant.*, users.u_name  
+        FROM consultant 
+        JOIN users ON consultant.u_id = users.u_id  
+        WHERE consultant.u_id = $id";
 $res = mysqli_query($conn, $sql);
 
-if($res){
+if ($res) {
     $count = mysqli_num_rows($res);
-    if($count == 1) {
+    if ($count == 1) {
         // Fetch consultant details
         $row = mysqli_fetch_assoc($res);
-
-        $full_name = $row['name'];
-        $fees = $row['fee'];
-        $category = $row['category'];
+        // echo '<pre>';
+        // var_dump($row);
+        // echo '</pre>';
+        $full_name = $row['u_name'];
+        $fees = $row['c_fee'];
+        $category = $row['c_category'];
 
         // Calculate total fee including additional charge (50% of fee)
         $additional_charge = 0.5 * $fees; // Assuming 50% additional charge
@@ -26,18 +31,21 @@ if($res){
 }
 
 // Query to fetch user details based on username
-$sql2 ="SELECT * FROM `login` WHERE `username`='$user'";
+$sql2 = "SELECT * FROM `users` WHERE `u_name`='$user'";
 $res2 = mysqli_query($conn, $sql2);
 
-if($res2) {
+if ($res2) {
     $count2 = mysqli_num_rows($res2);
-    if($count2 == 1) {
+    if ($count2 == 1) {
         // Fetch user details
         $row2 = mysqli_fetch_assoc($res2);
+        // echo '<pre>';
+        // var_dump($row2);
+        // echo '</pre>';
 
-        $buyer_name = $row2['name'];
-        $email = $row2['email'];
-        $phone = $row2['phone'];
+        $buyer_name = $row2['u_name'];
+        $email = $row2['u_email'];
+        $phone = $row2['u_mob'];
     }
 }
 
@@ -66,10 +74,8 @@ $payload = array(
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
 $response = curl_exec($ch);
-curl_close($ch); 
+curl_close($ch);
 
 $json_decode = json_decode($response, true);
 $long_url = $json_decode['payment_request']['longurl'];
-header('location:'.$long_url);
-
-?>
+header('location:' . $long_url);
