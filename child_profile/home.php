@@ -1,187 +1,210 @@
 <?php
 session_start();
-if (empty($_SESSION)) {
-   include 'header_local.php';
-   include '../common/header_module.php';
-}
-if (empty($_SESSION['current_user_id'])) {
-   echo '<script>
-    alert("User must be logged in!!");
-    window.location.href = "../spacece_auth/login.php";
-  </script>';
-   exit;
+if(empty($_SESSION)){
+    include 'header_local.php';
+    include '../common/header_module.php';
 }
 
-//var_dump($_SESSION);
-if (isset($_SESSION['current_user_name'])) {
-   //echo "Session";
-   if (($_SESSION['current_user_type'] == 'customer') || ($_SESSION['current_user_type'] == 'delivery_boy') || ($_SESSION['current_user_type'] == 'book_owner')) {
-
-      header("Location:./cits/dashboard.php");
-   } elseif ($_SESSION['current_user_type'] == 'admin') {
-      header('Location:./cits/admin/dashboard.php');
-   } elseif ($_SESSION['current_user_type'] == 'consultant') {
-      header('Location:./cits/healthofficer/dashboard.php');
-   }
-} else {
-
-
+if(isset($_SESSION['current_user_name'])){
+    if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
+        header("Location:./cits/dashboard.php");
+    } elseif($_SESSION['current_user_type']=='admin'){
+        header('Location:./cits/admin/dashboard.php');
+    } elseif($_SESSION['current_user_type']=='consultant'){
+        header('Location:./cits/healthofficer/dashboard.php');
+    }
+}
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Management Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-   <!DOCTYPE html>
-   <html>
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px; 
+}
 
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Child Immunization Tracking System</title>
-      <!-- Tell the browser to be responsive to screen width -->
-      <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-      <!-- Bootstrap 3.3.7 -->
-      <link rel="stylesheet" href="home/bower_components/bootstrap/dist/css/bootstrap.min.css">
-      <!-- Font Awesome -->
-      <link rel="stylesheet" href="home/bower_components/font-awesome/css/font-awesome.min.css">
-      <!-- Ionicons -->
-      <link rel="stylesheet" href="home/bower_components/Ionicons/css/ionicons.min.css">
-      <!-- Theme style -->
-      <link rel="stylesheet" href="home/dist/css/AdminLTE.min.css">
-      <!-- iCheck -->
-      <link rel="stylesheet" href="home/plugins/iCheck/square/blue.css">
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+        .nav-bar {
+            display: flex;
+            gap: 14px;
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            z-index: 1000; 
+        }
 
-      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+        .nav-bar button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+        }
 
-      <!-- Google Font -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-      <script src="home/bower_components/jquery/dist/jquery.min.js"></script>
-      <script src="js/use.js"></script>
-   </head>
+        .nav-bar .active {
+            background-color: #fff7e6;
+            border: 1px solid #f5a623;
+            color: #f5a623 !important;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 6px 18px;
+        }
 
-   <body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
-  " class="hold-transition login-page">
+        .header-banner {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            padding-left: 60px;
+            z-index: 1;
+        }
 
+        .header-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 60px;
+            width: 400px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: absolute;
+            top: 70px;
+            left: 60px;
+            font-size: large;
+        }
 
-      <!-- <div style="padding-left: 100px;padding-right: 100px" class="topnav">
-  <a style="float: left; font-size: 15pt;color: black;" class="active" href="home.php"><i class="fa fa-child"></i> Child Immunization Tracking System</a>
-  <a style="font-size: 15pt;color: black;" href="cits/admin/index.php"><i class="fa fa-sign-in"></i> Admin</a>
-  <a style="font-size: 15pt;color: black;" href="cits/healthofficer/index.php"><i class="fa fa-sign-in"></i> Doctor</a>
-  <a style="font-size: 15pt;color: black;" href="cits/user-login.php"><i class="fa fa-sign-in"></i> Parent</a>
-  <a style="font-size: 15pt;color: black;" href="about.php"><i class="fa fa-info"></i> About Us</a>
-  <a style="font-size: 15pt;color: black;" href="contact.php"><i class="fa fa-envelope"></i> Contact Us</a>
-  <a style="font-size: 15pt;color: black;" href="home.php"><i class="fa fa-home"></i> Home</a>
-</div> -->
-      <marquee direction="up" style="background-color: BLACK;color: lightgreen; height: 20px;text-align: center;" scrollamount="1" onmouseover="this.stop();" onmouseover="this.start();">
-         <b><i>CHILD IMMUNIZATION TRACKING SYSTEM<br>SECURE AND ACCURATE IMMUNIZATION INFORMATION MANAGEMENT!<br>using computerized databases that record all immunization doses administered to children.</i></b><br>WEAR A MASK!STAY SAFE!!
-      </marquee>
-      <style>
-         /* Add a black background color to the top navigation */
-         .topnav {
-            background-color: #87ceeb;
-            overflow: hidden;
-         }
+        .header-card h1 {
+            color: #f90;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
 
-         /* Style the links inside the navigation bar */
-         .topnav a {
-            float: right;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
+        .header-card p {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .header-card a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #f90;
             text-decoration: none;
-            font-size: 17px;
-         }
+            font-weight: 500;
+        }
 
-         /* Change the color of links on hover */
-         .topnav a:hover {
-            background-color: #4ac;
-            color: white;
-         }
+        .section-title {
+            margin: 60px 60px 15px;
+            font-size: 20px;
+            font-weight: 600;
+        }
 
-         /* Add a color to the active/current link */
-         .topnav a.active {
-            color: white;
-         }
-      </style>
-      <div class="clear"> </div>
-      <div class="container">
-         <div class="services-bar">
-            <h1 class="my-4"><b>Our Best Services </b></h1>
-            <!-- Services Section -->
-            <div class="row">
-               <div class="col-lg-4 mb-4">
-                  <div class="card h-100">
-                     <h4 class="card-header">You can now book an appointment</h4>
-                     <div class="card-img">
-                        <img class="img-fluid" src="S1.jpg" alt="" />
-                     </div>
-                     <div class="card-body">
-                        <p style="color: black" class="card-text"><b>Book for an immunization appointment with the health personnel in just one click.</b></p>
-                     </div><br>
-                     <div class="card-footer">
-                        <a href="../spacece_auth/login.php" class="btn btn-primary">Sign in as user</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-4 mb-4">
-                  <div class="card h-100">
-                     <h4 class="card-header">All immunization records in one place</h4>
-                     <div class="card-img">
-                        <img class="img-fluid" src="s2.jpg" alt="" />
-                     </div>
-                     <div class="card-body">
-                        <p style="color: black" class="card-text"><b>All the strain on manual records now at bay.</b></p><br>
-                     </div><br>
-                     <div class="card-footer">
-                        <a href="../spacece_auth/login.php" class="btn btn-primary">Health Personnel Log in</a>
-                     </div>
-                  </div>
-               </div>
+        .children-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 0 60px 40px;
+        }
 
-               <div class="col-lg-4 mb-4">
-                  <div class="card h-100">
-                     <h4 class="card-header">Manage all records in one store</h4>
-                     <div class="card-img">
-                        <img class="img-fluid" src="./s3.jpg" alt="" />
-                     </div>
-                     <div class="card-body">
-                        <p style="color: black" class="card-text"><b>Easy and faster access to records for management.</b></p>
-                     </div>
-                     <div class="card-footer">
-                        <a href="../spacece_auth/login.php" class="btn btn-primary">Admin Log in</a>
-                     </div>
-                  </div>
-               </div>
-            </div><br>
-            <div class="clear"> </div><br><br><br><br> <br><br>
+        .child-card {
+            background: #fff;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 320px;
+            max-width: 300px;
+            height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-            <!-- jQuery 3 -->
-            <!-- <script src="home/bower_components/jquery/dist/jquery.min.js"></script> -->
-            <!-- Bootstrap 3.3.7 -->
-            <!-- <script src="home/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
-            <!-- iCheck -->
-            <script src="home/plugins/iCheck/icheck.min.js"></script>
-            <script>
-               $(function() {
-                  $('input').iCheck({
-                     checkboxClass: 'icheckbox_square-blue',
-                     radioClass: 'iradio_square-blue',
-                     increaseArea: '20%' // optional
-                  });
-               }); +
-            </script>
+        .child-image {
+            height: 300px;
+            background-color: #e0e0e0;
+            background-size: cover;
+            background-position: center;
+        }
 
-            <!-- <div  style="text-align: center;  color: black; font-size: 13pt; padding-left: -100px;" class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> 2021 CITS</span>. <span>All rights reserved</span>
-					</div> -->
-   </body>
+        .child-name {
+            text-align: center;
+            padding: 12px 0;
+            color: #f90;
+            font-weight: 500;
+            font-size: 19px;
+        }
 
-   </html>
-<?php
-}
-?>
-<?php
-include '../common/footer_module.php';
-?>
+        @media (max-width: 900px) {
+            .children-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <button class="active">Dashboard</button>
+        <button>Book Appointment</button>
+        <button>Appointment History</button>
+        <button>Immunization History</button>
+        <button>Search Immunization Info</button>
+    </div>
+
+    <div class="header-banner">
+        <div class="header-card">
+            <h1>Child Management</h1>
+            <p>Users | Dashboard</p>
+            <a href="#">Check Child Management....</a>
+        </div>
+    </div>
+
+    <div class="section-title">Your Children</div>
+
+    <div class="children-grid">
+        <div class="child-card">
+            <div class="child-image"></div>
+            <a href="profile.php">
+                <div class="child-name">Child 1</div>
+            </a>
+        </div>
+        <div class="child-card">
+            <div class="child-image"></div>
+            <a href="profile.php">
+                <div class="child-name">Child 2</div>
+            </a>
+        </div>
+        <div class="child-card">
+            <div class="child-image"></div>
+            <a href="profile.php">
+                <div class="child-name">Child 3</div>
+            </a>
+        </div>
+    </div>
+
+    <?php include_once '../common/footer_module.php'; ?>
+</body>
+</html>
