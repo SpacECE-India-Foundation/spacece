@@ -11,72 +11,15 @@ if (empty($_SESSION['current_user_id'])) {
 	exit;
 }
 ?>
+<!-- Check this -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Page Preloder -->
 <div id="preloder">
 	<div class="loader"></div>
 </div>
-
-
-
 </script>
-<!-- Header section -->
-<!-- <header class="header-section">
-		<div class="header-top" style = "position:absolute; left:850px; top:15px;">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-lg-12 text-lg-right header-top-right">
-						<div class="top-social">
-							
-							<a href="https://www.facebook.com/SpacECEIn"><i class="fa fa-facebook"></i></a>
-							<a href="https://www.instagram.com/spacece.in/"><i class="fa fa-instagram"></i></a>
-							<a href="https://t.me/joinchat/EtMJq_3BKL4zNGE1"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-							<a href="https://www.linkedin.com/company/spacece-co/"><i class="fa fa-linkedin"></i></a>
-							
-						</div>
 
-						<div class="user-panel">
-							
-							<a href="register.php" style="color:orange;"><i class="fa fa-user-circle-o" style="color:black;"></i><b>User</b></a>
-							<a href="reg_builder.php" style="color:orange;"><i class="fa fa-user-circle-o" style="color:black;"></i><b>Consultant</b></a><br>
-							<a href="loginuser.php" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login USER</b></a>
-							<a href="login2.php" style="color:orange;"><i class="fa fa-sign-in" style="color:black;"></i><b>Login Consultant</b></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div >
-			<div class="row">
-				<div >
-					<div >
-						
-						<div style="padding: -30px 20px; " >
-							
-							<i class="fa fa-bars"></i>
-							
-
-						</div>
-						<ul class="main-menu" style="margin-left: 60px;">
-							<img src="img/space.jpg" alt="" style="width:6%; ">
-							<li><a href="http://educationfoundation.space/spacece/c_index.html" style="color:black;"><i class="fa fa-home"></i>HOME</a></li>
-							<li><a href="about.html" style="color:black;"><i class="fa fa-users"></i> ABOUT US</a></li>
-							<li><a href="contact.php" style="color:black;"><i class="fa fa-envelope" style="color:black;"></i> FEEDBACK</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header> -->
-<!-- Header section end -->
-
-
-
-
-
-
-<!-- Hero section -->
 <div class=" " data-setbg="" style=" border-radius: 1%; ">
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
@@ -100,50 +43,6 @@ if (empty($_SESSION['current_user_id'])) {
 </div>
 <br><br><br>
 
-
-
-
-<!-- Hero section end -->
-<!-- Services section -->
-<!--<section class="services-section spad set-bg" data-setbg="img/org.png">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">				
-					<img src="img/service.jpg" alt="">
-				</div>
-				<div class="col-lg-5 offset-lg-1 pl-lg-0">
-					<div class="section-title text-white">
-						<h3>OUR SERVICES</h3>
-						<p>We provide the perfect service for </p>
-					</div>
-					<div class="services">
-						<div class="service-item">
-						<i class="fa fa-comments"></i>
-								<div class="service-text">
-								<h5>Consultant Service</h5>
-								<p>We provide you with the best services which is best for your family and which suits your pocket.</p>
-							</div>
-						</div>
-						<div class="service-item">
-							<i class="fa fa-home"></i>
-							<div class="service-text">
-								<h5>Properties Management</h5>
-								<p>We manage your property considering as our own and give you the best possible solution regarding it.</p>
-							</div>
-						</div>
-						<div class="service-item">
-							<i class="fa fa-briefcase"></i>
-							<div class="service-text">
-								<h5>Renting and Selling</h5>
-								<p>Enjoying various services provided by us without any mid-man, Book your dream home today!.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>-->
-<!-- Services section end -->
 <!-- Blog section --><br><br>
 <section class="blog-section">
 	<div class="container">
@@ -220,34 +119,7 @@ if (empty($_SESSION['current_user_id'])) {
 		</div>
 	</div>
 </section>
-<!-- Blog section end -->
 
-<!-- Clients section -->
-<!--<div class="clients-section" >
-		<div class="container" >
-			<div class="clients-slider owl-carousel" style="background-color: or;">
-				<a href="#">
-					<img src="img/partner/1.png" alt="">
-				</a>
-				<a href="#">
-					<img src="img/partner/2.png" alt="">
-				</a>
-				<a href="#">
-					<img src="img/partner/3.png" alt="">
-				</a>
-				<a href="#">
-					<img src="img/partner/4.png" alt="">
-				</a>
-				<a href="#">
-					<img src="img/partner/5.png" alt="">
-				</a>
-			</div>
-		</div>
-	</div>-->
-<!-- Clients section end -->
-
-
-<!--Benefits-->
 
 <div class="section col" style="width: 100%; ">
 	<div class="container mt-5">
@@ -295,70 +167,10 @@ if (empty($_SESSION['current_user_id'])) {
 		</div>
 	</div>
 
-	<!-- <div class="row">
-		<div class="col-lg-4 col-md-6 blog-item">
-
-			<p><i class="fa fa-check-circle" style="color:black;"></i>Get a second opinion</p>
-		</div>
-
-
-		<div class="col-lg-4 col-md-6 blog-item">
-
-			<p><i class="fa fa-check-circle" style="color:black;"></i>Access to specialists</p>
-		</div>
-
-		<div class="col-lg-4 col-md-6 blog-item">
-
-			<p><i class="fa fa-check-circle" style="color:black;"></i>Privacy & availability</p>
-		</div>
-
-		<div class="col-lg-4 col-md-6 blog-item">
-
-			<p><i class="fa fa-check-circle" style="color:black;"></i>Comfort and convenience</p>
-		</div>
-		<div class="col-lg-4 col-md-6 blog-item">
-			<p><i class="fa fa-check-circle" style="color:black;"></i>Cost-effective and time-saving</p>
-		</div>
-
-		<div class="col-lg-4 col-md-6 blog-item">
-			<p><i class="fa fa-check-circle" style="color:black;"></i>No need to save all the medical reports</p>
-		</div>
-
-
-	</div> -->
+	
+		
 </div>
 
-
-<!---benefits section close-->
-
-<!-- fixed bug id 0000100 -->
-<!---offers section-->
-<!-- <div class="section col" style="width: 100%; ">
-	<div class="text-center">
-		<div class="section-title text-center">
-			<h3>GET THE BEST OFFERS HERE</h3>
-			<p></p>
-		</div>
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="d-block w-100" src="../img/o1.jpg" alt="First slide" style="width: 100%; height: 10%;">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="../img/o2.jpg" alt="Second slide" style="width: 100%; height: 30%;">
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
-</div> -->
 <!-- new code -->
 <div class="section col" style="width: 100%;">
 	<div class="text-center">
@@ -390,22 +202,6 @@ if (empty($_SESSION['current_user_id'])) {
 <br><br>
 
 
-<!---offers close-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ChatBot -->
 <div class="chat_icon">
 	<i class="fa fa-comments" aria-hidden="true" style="color:black ;border:2px solid black	;"></i>
 </div>
@@ -442,59 +238,9 @@ if (empty($_SESSION['current_user_id'])) {
 	</div>
 </div>
 </div>
+</div>
 
 
-<!--session close-->
-
-
-<!-- Footer section -->
-<!-- <footer class="footer-section set-bg" style="background-color:orange;border-collapse: collapse; border: 2px solid navy;opacity:0.7; padding:30px 30px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 footer-widget">
-					<img src="img/logo1.png" alt="" >
-					
-					<div class="social">
-						
-						<a href="https://www.facebook.com/SpacECEIn"><i class="fa fa-facebook"></i></a>
-							<a href="https://www.instagram.com/spacece.in/"><i class="fa fa-instagram"></i></a>
-							<a href="https://t.me/joinchat/EtMJq_3BKL4zNGE1"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-							<a href="https://www.linkedin.com/company/spacece-co/"><i class="fa fa-linkedin"></i></a>
-
-					</div>
-					
-				</div>
-				<div class="col-lg-3 col-md-6 footer-widget">
-					<p style="color:black";>Still delaying your child's health concerns ?</p>
-                     <p style="color:black";>Connect with India's top doctors online</p>
-					</div>
-				<div class="col-lg-3 col-md-6 footer-widget">
-					<div class="contact-widget">
-						<h5 class="fw-title" style="color:black";><center>CONTACT US</center></h5>
-						<p style="color:black";><i class="fa fa-map-marker"></i><a href="http://www.spacece.in/" style="color:black";> SPACE-ECE</a></p>
-						<p style="color:black";><i class="fa fa-phone" style="color:black";></i>+91 90963 05648</p>
-						<p style="color:black";><i class="fa fa-envelope" style="color:black";></i><a href="mailto:events@spacece.co" target="_blank" rel="noopener" style="color:black";>contactus@spacece.co</a></p>
-						<p style="color:black";><i class="fa fa-clock-o"style="color:black";></i>Mon - Sat, 08 AM - 06 PM</p>
-					</div>
-				</div>
-				
-				<div class="col-lg-3 col-md-6  footer-widget" >
-					<div class="newslatter-widget">
-						<h5 class="fw-title" style="color:black";><center>NEWSLETTER</center></h5>
-						<p style="color:black";>Subscribe your email to get the latest news and new offer also discount</p>
-						<form class="footer-newslatter-form">
-							<input type="text" placeholder="Email address">
-							<button><i class="fa fa-send"></i></button>
-						</form>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-     
-     </footer> -->
-<!-- <p class="font_10" style="line-height: 1.8em; text-align: center; font-size: 20px;"><span style="font-size:20px;"><span class="color_15">&copy;2021 by SpacECE INDIA FOUNDATION</span></span></p>                                     -->
-<!--====== Javascripts & Jquery ======-->
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
@@ -540,230 +286,230 @@ if (empty($_SESSION['current_user_id'])) {
 	})
 </script> -->
 
+<div>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- SweetAlert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <style>
+    .fa {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+    }
 
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- SweetAlert -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    .fa:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
 
-<!-- <style>
-	.fa {
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-		padding: 10px;
-		font-size: 20px;
-		width: 40px;
-		height: 40px;
-		margin: 5px;
-		text-align: center;
-		text-decoration: none;
-		border-radius: 50%;
-		transition: transform 0.2s ease;
-	}
+    .fa-facebook-f {
+      background: #3B5998;
+      color: white;
+    }
 
-	.fa:hover {
-		transform: scale(1.1);
-		opacity: 0.8;
-	}
+    .fa-twitter {
+      background: #55ACEE;
+      color: white;
+    }
 
-	.fa-facebook-f {
-		background: #3B5998;
-		color: white;
-	}
+    .fa-linkedin {
+      background: #007bb5;
+      color: white;
+    }
 
-	.fa-twitter {
-		background: #55ACEE;
-		color: white;
-	}
+    .fa-instagram {
+      color: white;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, .25);
+    }
 
-	.fa-linkedin {
-		background: #007bb5;
-		color: white;
-	}
+    @media only screen and (max-width: 600px) {
+      .on-desktop {
+        display: none;
+      }
 
-	.fa-instagram {
-		color: white;
-		background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-		box-shadow: 0px 3px 10px rgba(0, 0, 0, .25);
-	}
+      .on-mobile {
+        display: block;
+      }
+    }
 
-	@media only screen and (max-width: 600px) {
-		.on-desktop {
-			display: none;
-		}
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      .on-desktop {
+        display: block;
+      }
 
-		.on-mobile {
-			display: block;
-		}
-	}
+      .on-mobile {
+        display: none;
+      }
+    }
 
-	@media (min-width: 1025px) and (max-width: 1280px) {
-		.on-desktop {
-			display: block;
-		}
+    .footer-widget {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+    }
 
-		.on-mobile {
-			display: none;
-		}
-	}
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-	.footer-widget {
-		padding-left: 5px !important;
-		padding-right: 5px !important;
-	}
+    .email-label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #333;
+    }
 
-	.email-container {
-		max-width: 600px;
-		margin: 0 auto;
-	}
+    .email-form {
+      display: flex;
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      padding: 6px;
+      background: white;
+    }
 
-	.email-label {
-		display: block;
-		margin-bottom: 10px;
-		font-size: 18px;
-		color: #333;
-	}
+    .email-form input[type="email"] {
+      flex: 1;
+      min-width: 100px;
+      padding: 16px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
 
-	.email-form {
-		display: flex;
-		border: 1px solid #ccc;
-		border-radius: 16px;
-		padding: 6px;
-		background: white;
-	}
+    .email-form button {
+      padding: 12px 20px;
+      background-color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
 
-	.email-form input[type="email"] {
-		flex: 1;
-		min-width: 100px;
-		padding: 16px;
-		border: none;
-		outline: none;
-		font-size: 16px;
-	}
+    .email-form button:hover {
+      background-color: rgb(215, 211, 211);
+    }
+  </style>
+  </head>
 
-	.email-form button {
-		padding: 12px 20px;
-		background-color: #fff;
-		font-weight: bold;
-		font-size: 16px;
-		border: 1px solid #ccc;
-		border-radius: 12px;
-		cursor: pointer;
-		transition: background 0.2s ease;
-	}
-
-	.email-form button:hover {
-		background-color: rgb(215, 211, 211);
-	}
-</style> -->
-</head>
-
-<body>
-
-	<footer class="bg-white border-top mb-5">
-		<div class="container">
-			<div class="row">
-
-				<!-- Logo Section -->
-				<div class="col-md-3 mb-3 mt-5">
-					<a href="http://www.spacece.in">
-						<img src="<?= isset($main_logo) ? $main_logo : '#' ?>" class="img img-fluid img-thumbnail img-circle" alt="Logo" style="width: 240px; height:240px; border:none;" />
-					</a>
-				</div>
-
-				<!-- Contact Section -->
-				<div class="col-md-3 mb-3 mt-5 text-start text-start">
-					<div class="contact-widget" style="color: black;">
-						<h5 style="font-size: 20px;">Contact Us</h5>
-						<p class="mb-3 fs-6"><i class="fa-solid fa-phone text-warning me-2"></i> +91 90963 05648</p>
-						<p class="mb-3 fs-6"><i class="fas fa-envelope text-warning me-2"></i> events@spaceece.co</p>
-						<p class="mb-3 fs-6"><i class="fas fa-map-marker-alt text-warning me-2"></i> SPACE-ECE</p>
-						<p class="mb-3 fs-6"><i class="f as fa-clock text-warning me-2"></i> Mon - Sat 8 AM - 6 PM</p>
-
-					</div>
-				</div>
-
-				<!-- Health Message + Social Media -->
-				<div class="col-md-3 mb-3 mt-5 text-start">
-					<h5 class="text-warning" style="font-size:20px;">Still delaying treatment for your child's health concerns?</h5>
-					<p class="mb-3 fs-6">Connect with India’s top doctors online, today!</p>
-					<h5 style="font-size:20px">Our Socials</h6>
-						<div>
-							<a href="https://www.facebook.com/SpacECEIn" target="_blank" class="text-dark me-3"><i class="fa-brands fa-facebook "></i></a>
-							<a href="https://twitter.com/" target="_blank" class="text-dark me-3"><i class="fa-brands fa-twitter "></i></a>
-							<a href="https://www.linkedin.com/company/spacece-co/" target="_blank" class="text-dark me-3"><i class="fa-brands fa-linkedin "></i></a>
-							<a href="https://www.instagram.com/spacece.in/" target="_blank" class="text-dark"><i class="fa-brands fa-instagram "></i></a>
-						</div>
-
-				</div>
-
-				<!-- Newsletter Section -->
-				<div class="col-md-3 mb-3 mt-5 text-start">
-					<h5 style="font: size 20px;">Subscribe To Our Newsletter</h5>
-					<p class="mb-3 fs-6">Subscribe to our newsletter to get updates, offers and discounts.</p>
-
-					<div class="email-container">
-						<label class="email-label fs-6" for="email">Enter your email -</label>
-						<form id="sub" class="email-form">
-							<input type="email" id="email" placeholder="Email here" required />
-							<button type="submit">Submit</button>
-						</form>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-
-	</footer>
+  <body>
 
 
+    <footer class="bg-white border-top mb-5">
+      <div class="container" style="padding-top: 30px;">
+
+        <div class="row g-5">
 
 
-	<?= isset($extra_scripts) ? $extra_scripts : null ?>
+          <!-- Logo Section -->
+          <div class="col-md-3 mb-3 mt-5">
+            <a href="http://www.spacece.in">
+              <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" class="img img-fluid img-thumbnail img-circle" alt="Logo" style="width: 240px; height:240px; border:none; margin-top:-40px;" />
+            </a>
+          </div>
 
-	<script>
-		$(document).ready(function() {
-			$('#sub').on('submit', function(e) {
-				e.preventDefault();
-				var email = $('#email').val();
+          <!-- Contact Section -->
+          <div class="col-md-3 mb-3 mt-5 text-start text-start">
+            <div class="contact-widget" style="color: black;">
+              <h5 style="font-size: 20px;">Contact Us</h5>
+              <p class="mb-3 fs-6" style="margin-right:120px; color: black;"><i class="fa-solid fa-phone text-warning me-2"></i> +91 90963 05648</p>
+              <p class="mb-3 fs-6"style="margin-right:100px;color: black;"><i class="fas fa-envelope text-warning me-2"></i> events@spaceece.co</p>
+              <p class="mb-3 fs-6"style="margin-right:170px;color: black;"><i class="fas fa-map-marker-alt text-warning me-2"></i> SPACE-ECE</p>
+              <p class="mb-3 fs-6"style="margin-right:120px;color: black;"><i class="f as fa-clock text-warning me-2"></i> Mon - Sat 8 AM - 6 PM</p>
 
-				$.ajax({
-					method: "POST",
-					url: "./common/function.php",
-					data: {
-						subscribe: 1,
-						email: email
-					},
-					success: function(data) {
-						console.log("Server response:", data);
-						handleSubscriptionResponse(data);
-					},
-					error: function(xhr, status, error) {
-						swal("Error!", "Something went wrong. Please try again later.", "error");
-					}
-				});
-			});
+            </div>
+          </div>
 
-			function handleSubscriptionResponse(data) {
-				switch (data.trim()) {
-					case 'Error':
-						swal("Error!", "You have already subscribed to this site!", "error");
-						break;
-					case 'Success':
-						swal("Good job!", "You have subscribed!", "success");
-						break;
-					case 'Invalid':
-						swal("Error!", "Please enter a valid email!", "error");
-						break;
-					default:
-						swal("Error!", "Unexpected response from the server.", "error");
-				}
-			}
-		});
-	</script>
+          <!-- Health Message + Social Media -->
+          <div class="col-md-3 mb-3 mt-5 text-start">
+            <h5 class="text-warning" style="font-size:20px;">Still delaying treatment for your child's health concerns?</h5>
+            <p class="mb-3 fs-6" style="text-align: left;color: black;">Connect with India’s top doctors online, today!</p>
+            <h5 style="font-size:20px">Our Socials</h6>
+              <div>
+                <a href="https://www.facebook.com/SpacECEIn" target="_blank" class="text-dark me-3"><i class="fa-brands fa-facebook "></i></a>
+                <a href="https://twitter.com/" target="_blank" class="text-dark me-3"><i class="fa-brands fa-twitter "></i></a>
+                <a href="https://www.linkedin.com/company/spacece-co/" target="_blank" class="text-dark me-3"><i class="fa-brands fa-linkedin "></i></a>
+                <a href="https://www.instagram.com/spacece.in/" target="_blank" class="text-dark"><i class="fa-brands fa-instagram "></i></a>
+              </div>
 
-</body>
+          </div>
 
-</html>
+          <!-- Newsletter Section -->
+          <div class="col-md-3 mb-3 mt-5 text-start">
+            <h5 style="font: size 20px;">Subscribe To Our Newsletter</h5>
+            <p class="mb-3 fs-6" style="text-align: left;color: black;">Subscribe to our newsletter to get updates, offers and discounts.</p>
+
+            <div class="email-container">
+              <label class="email-label fs-6" for="email">Enter your email -</label>
+              <form id="sub" class="email-form">
+                <input type="email" id="email" placeholder="Email here" required />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </footer>
+
+    <?= isset($extra_scripts) ? $extra_scripts : null ?>
+
+    <script>
+      $(document).ready(function() {
+        $('#sub').on('submit', function(e) {
+          e.preventDefault();
+          var email = $('#email').val();
+
+          $.ajax({
+            method: "POST",
+            url: "./common/function.php",
+            data: {
+              subscribe: 1,
+              email: email
+            },
+            success: function(data) {
+              console.log("Server response:", data);
+              handleSubscriptionResponse(data);
+            },
+            error: function(xhr, status, error) {
+              swal("Error!", "Something went wrong. Please try again later.", "error");
+            }
+          });
+        });
+
+        function handleSubscriptionResponse(data) {
+          switch (data.trim()) {
+            case 'Error':
+              swal("Error!", "You have already subscribed to this site!", "error");
+              break;
+            case 'Success':
+              swal("Good job!", "You have subscribed!", "success");
+              break;
+            case 'Invalid':
+              swal("Error!", "Please enter a valid email!", "error");
+              break;
+            default:
+              swal("Error!", "Unexpected response from the server.", "error");
+          }
+        }
+      });
+    </script>
+
+  </body>
+
+  </html>
+</div>	
