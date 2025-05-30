@@ -125,7 +125,7 @@
           <!-- Logo Section -->
           <div class="col-md-3 mb-3 mt-5">
             <a href="http://www.spacece.in">
-              <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" class="img img-fluid img-thumbnail img-circle" alt="Logo" style="width: 240px; height:240px; border:none;" />
+              <img src="<?= isset($main_logo) ? $main_logo : '#' ?>" class="img img-fluid img-thumbnail img-circle" alt="Logo" style="width: 240px; height:240px; border:none; margin-top:-30px !important;" />
             </a>
           </div>
 
@@ -133,18 +133,18 @@
           <div class="col-md-3 mb-3 mt-5 text-start text-start">
             <div class="contact-widget" style="color: black;">
               <h5 style="font-size: 20px;">Contact Us</h5>
-              <p class="mb-3 fs-6"><i class="fa-solid fa-phone text-warning me-2"></i> +91 90963 05648</p>
-              <p class="mb-3 fs-6"><i class="fas fa-envelope text-warning me-2"></i> events@spaceece.co</p>
-              <p class="mb-3 fs-6"><i class="fas fa-map-marker-alt text-warning me-2"></i> SPACE-ECE</p>
-              <p class="mb-3 fs-6"><i class="f as fa-clock text-warning me-2"></i> Mon - Sat 8 AM - 6 PM</p>
+              <p class="mb-3 fs-6"style="color: black;"><i class="fa-solid fa-phone text-warning me-2"></i> +91 90963 05648</p>
+              <p class="mb-3 fs-6"style="color: black;"><i class="fas fa-envelope text-warning me-2"></i> events@spaceece.co</p>
+              <p class="mb-3 fs-6"style="color: black;"><i class="fas fa-map-marker-alt text-warning me-2"></i> SPACE-ECE</p>
+              <p class="mb-3 fs-6"style="color: black;"><i class="f as fa-clock text-warning me-2"></i> Mon - Sat 8 AM - 6 PM</p>
 
             </div>
           </div>
 
           <!-- Health Message + Social Media -->
-          <div class="col-md-3 mb-3 mt-5 text-start">
+          <div class="col-md-3 mb-3 mt-5 text-start" >
             <h5 class="text-warning" style="font-size:20px;">Still delaying treatment for your child's health concerns?</h5>
-            <p class="mb-3 fs-6">Connect with India’s top doctors online, today!</p>
+            <p class="mb-3 fs-6" style="color: black;">Connect with India’s top doctors online, today!</p>
             <h5 style="font-size:20px">Our Socials</h6>
               <div>
                 <a href="https://www.facebook.com/SpacECEIn" target="_blank" class="text-dark me-3"><i class="fa-brands fa-facebook "></i></a>
@@ -158,7 +158,7 @@
           <!-- Newsletter Section -->
           <div class="col-md-3 mb-3 mt-5 text-start">
             <h5 style="font: size 20px;">Subscribe To Our Newsletter</h5>
-            <p class="mb-3 fs-6">Subscribe to our newsletter to get updates, offers and discounts.</p>
+            <p class="mb-3 fs-6" style="color: black;">Subscribe to our newsletter to get updates, offers and discounts.</p>
 
             <div class="email-container">
               <label class="email-label fs-6" for="email">Enter your email -</label>
