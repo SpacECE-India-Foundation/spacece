@@ -1,26 +1,23 @@
 <?php
 session_start();
- if(empty($_SESSION)){
+ if(!empty($_SESSION)){
    include 'header_local.php';
    include '../common/header_module.php';
    
  }
- 
 
 //var_dump($_SESSION);
-if(isset($_SESSION['current_user_name'])){
+//if(isset($_SESSION['current_user_name'])){
    //echo "Session";
-if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
-  
-   header("Location:./cits/dashboard.php");
-}elseif($_SESSION['current_user_type']=='admin'){
-   header('Location:./cits/admin/dashboard.php');
-}elseif($_SESSION['current_user_type']=='consultant'){
-   header('Location:./cits/healthofficer/dashboard.php');
-}
-}else{
-
-}
+//if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
+//   header("Location:./cits/dashboard.php");
+//}elseif($_SESSION['current_user_type']=='admin'){
+//   header('Location:./cits/admin/dashboard.php');
+//}elseif($_SESSION['current_user_type']=='consultant'){
+//   header('Location:./cits/healthofficer/dashboard.php');
+//}
+//}else{
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,6 +84,13 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
       background-color: #32c5f4;
       color: white;
     }
+    .footer {
+            width: 100%;
+            background: #f8f9fa;
+            padding: 20px 0;
+            border-top: 1px solid #dee2e6;
+            margin-top: auto;
+        }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -117,6 +121,7 @@ if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type
     input[type="checkbox"] {
       transform: scale(1.2);
     }
+  
   </style>
 </head>
 <body>
