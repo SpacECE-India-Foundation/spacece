@@ -1,19 +1,19 @@
 <?php
 session_start();
-if(empty($_SESSION)){
+if(!empty($_SESSION)){
     include 'header_local.php';
     include '../common/header_module.php';
 }
 
-if(isset($_SESSION['current_user_name'])){
-    if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
-        header("Location:./cits/dashboard.php");
-    } elseif($_SESSION['current_user_type']=='admin'){
-        header('Location:./cits/admin/dashboard.php');
-    } elseif($_SESSION['current_user_type']=='consultant'){
-        header('Location:./cits/healthofficer/dashboard.php');
-    }
-}
+//if(isset($_SESSION['current_user_name'])){
+  //  if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
+    //    header("Location:./cits/dashboard.php");
+  //  } elseif($_SESSION['current_user_type']=='admin'){
+   //     header('Location:./cits/admin/dashboard.php');
+    //} elseif($_SESSION['current_user_type']=='consultant'){
+     //   header('Location:./cits/healthofficer/dashboard.php');
+    //}
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -130,14 +130,55 @@ if(isset($_SESSION['current_user_name'])){
       border-radius: 6px;
       font-weight: 600;
     }
-    .content {
+    .contents {
       padding: 40px;
     }
+    /* Add New Height & Weight Data Section */
+.add-data-section {
+  background-color: #f1f1f1;
+  padding: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.add-data-section h2 {
+  color: orange;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.data-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.form-group input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
   </style>
 </head>
 <body>
   <div class="main-wrapper">
-    <div class="content">
+    <div class="contents">
       <!-- Your existing content here -->
       <div style="display: flex; align-items: center; margin-bottom: 20px;">
         <a href="profile.php" style="
@@ -251,7 +292,6 @@ if(isset($_SESSION['current_user_name'])){
       </tr>
     </tbody>
   </table>
-    <?php include_once '../common/footer_module.php'; ?>
 </div>
 
   <script>
@@ -340,5 +380,27 @@ if(isset($_SESSION['current_user_name'])){
       options: chartOptions
     });
   </script>
+  <!-- Add New Height & Weight Data Section -->
+<div class="add-data-section">
+  <h2>Add New Height & Weight Data</h2>
+  <form action="#" method="post" class="data-form">
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="text" id="date" name="date" placeholder="Your entry here">
+    </div>
+    <div class="form-group">
+      <label for="current-age">Current Age</label>
+      <input type="text" id="current-age" name="current-age" placeholder="Your entry here">
+    </div>
+    <div class="form-group">
+      <label for="current-height">Current Height</label>
+      <input type="text" id="current-height" name="current-height" placeholder="Your entry here">
+    </div>
+    <div class="form-group">
+      <label for="current-weight">Current Weight</label>
+      <input type="text" id="current-weight" name="current-weight" placeholder="Your entry here">
+    </div>
+  </form>
+</div>
 </body>
 </html>

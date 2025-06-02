@@ -1,19 +1,19 @@
 <?php
 session_start();
-if(empty($_SESSION)){
+if(!empty($_SESSION)){
     include 'header_local.php';
     include '../common/header_module.php';
 }
 
-if(isset($_SESSION['current_user_name'])){
-    if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
-        header("Location:./cits/dashboard.php");
-    } elseif($_SESSION['current_user_type']=='admin'){
-        header('Location:./cits/admin/dashboard.php');
-    } elseif($_SESSION['current_user_type']=='consultant'){
-        header('Location:./cits/healthofficer/dashboard.php');
-    }
-}
+// if(isset($_SESSION['current_user_name'])){
+//     if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
+//         header("Location:./cits/dashboard.php");
+//     } elseif($_SESSION['current_user_type']=='admin'){
+//         header('Location:./cits/admin/dashboard.php');
+//     } elseif($_SESSION['current_user_type']=='consultant'){
+//         header('Location:./cits/healthofficer/dashboard.php');
+//     }
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -241,15 +241,69 @@ if(isset($_SESSION['current_user_name'])){
             border-top: 1px solid #dee2e6;
             margin-top: auto;
         }
+/* Button Container */
+.btn-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the left */
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+/* Button Group */
+.btn-group {
+    display: flex;
+    gap: 12px; /* Space between buttons */
+    flex-wrap: wrap;
+}
+
+/* Red Button */
+.btn-red {
+    background-color: #FF4D4D;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-red:hover {
+    background-color: #E63939;
+}
+
+/* Blue Button */
+.btn-blue {
+    background-color: #45C4F9;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-blue:hover {
+    background-color: #3AB0E6;
+}
     </style>
 </head>
 <body>
-    <!-- Fixed Header -->
     <div class="nav-bar">
         <button class="active">Dashboard</button>
-        <button>Book Appointment</button>
-        <button>Appointment History</button>
-        <button>Immunization History</button>
+        <a href="ConsultUs/appoint.php">
+        <button>Book Appointment</button></a>
+        <a href="showmyappoint.php">
+        <button>Appointment History</button></a>
+        <a href="immunization.php">
+        <button>Immunization History</button></a>
         <button>Search Immunization Info</button>
     </div>
 
@@ -259,16 +313,14 @@ if(isset($_SESSION['current_user_name'])){
             <h1>Child Profile</h1>
 <div class="btn-group">
 <div class="btn-container">
-    <!-- Left-aligned Orange Buttons -->
     <div class="btn-group">
         <a href="immunization.php" class="btn btn-orange">Immunization Tracker</a>
         <a href="height.php" class="btn btn-orange">Height Chart</a>
         <a href="weight.php" class="btn btn-orange">Weight Chart</a>
     </div>
     
-    <!-- Right-aligned Blue Buttons -->
     <div class="btn-group">
-        <button class="btn btn-blue">Book Pediatrician</button>
+        <button class="btn btn-blue">Book Doctor</button></a>
         <button class="btn btn-blue">Your Appointments</button>
     </div>
 </div>
@@ -354,7 +406,16 @@ if(isset($_SESSION['current_user_name'])){
                     </div>
                 </div>
             </div>
+            <!-- Button Container -->
+<div class="btn-container" style="justify-content: flex-start;">
+    <div class="btn-group">
+        <a href="register.php" class="btn btn-red">Book Doctor</a>
+        <a href="#" class="btn btn-blue">Your Appointments</a>
+    </div>
+</div>
         </div>
+        <div class="content-container">
+    <div class="section"></div>
 
         <div class="section">
             <div class="health-grid">
@@ -374,8 +435,14 @@ if(isset($_SESSION['current_user_name'])){
                         <label>Status</label>
                         <div class="status status-green">Healthy</div>
                     </div>
-                </div>
-
+                                <!-- Button Container -->
+<div class="btn-container" style="justify-content: flex-start;">
+    <div class="btn-group">
+        <a href="register.php" class="btn btn-red">Book Doctor</a>
+        <a href="#" class="btn btn-blue">Your Appointments</a>
+    </div>
+</div>
+</div>                
                 <div>
                     <iframe src="weight_chart.php"></iframe>
                 </div>
