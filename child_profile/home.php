@@ -1,22 +1,30 @@
 <?php
 session_start();
-if(!empty($_SESSION)){
+if (!empty($_SESSION)) {
     include 'header_local.php';
     include '../common/header_module.php';
 }
 
-//if(isset($_SESSION['current_user_name'])){
-    //if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
-   //     header("Location:./cits/dashboard.php");
-  //  } elseif($_SESSION['current_user_type']=='admin'){
-   //     header('Location:./cits/admin/dashboard.php');
-  //  } elseif($_SESSION['current_user_type']=='consultant'){
-    //    header('Location:./cits/healthofficer/dashboard.php');
-  //  }
-//}
+// if(isset($_SESSION['current_user_name'])){
+//     if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
+//         header("Location:./cits/dashboard.php");
+//     } elseif($_SESSION['current_user_type']=='admin'){
+//         header('Location:./cits/admin/dashboard.php');
+//     } elseif($_SESSION['current_user_type']=='consultant'){
+//         header('Location:./cits/healthofficer/dashboard.php');
+//     }
+// }
+if (empty($_SESSION['current_user_id'])) {
+    echo '<script>
+    alert("User must be logged in!!");
+    window.location.href = "../spacece_auth/login.php";
+  </script>';
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,28 +33,25 @@ if(!empty($_SESSION)){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-* {
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-body, h1, h2, h3, p, ul, ol {
-    margin: 0;
-    padding: 0;
-}
-body {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 100px;
-  padding-top: 90px; 
-}
+        body {
+            position: relative;
+            min-height: 100vh;
+            padding-bottom: 100px;
+        }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-}
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+        }
 
         .nav-bar {
             display: flex;
@@ -54,8 +59,8 @@ footer {
             padding: 20px;
             background: #fff;
             border-bottom: 1px solid #ccc;
-            position: sticky;
-            z-index: 1000; 
+            position: relative;
+            z-index: 1000;
         }
 
         .nav-bar button {
@@ -77,29 +82,30 @@ footer {
             padding: 6px 18px;
         }
 
-.header-banner {
-    position: relative;
-    width: 100%;
-    height: auto;
-    background: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    z-index: 1;
-}
+        .header-banner {
+            position: relative;
+            width: 100%;
+            height: auto;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            z-index: 1;
+        }
 
-.header-banner img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+        .header-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .header-card {
             background: #fff;
             border-radius: 18px;
             padding: 60px;
             width: 400px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             position: absolute;
             top: 230px;
             left: 60px;
@@ -173,10 +179,11 @@ footer {
                 align-items: center;
             }
         }
-            .add-child-button {
+
+        .add-child-button {
             display: inline-block;
             padding: 12px 24px;
-            background-color: #f5a623; 
+            background-color: #f5a623;
             color: white;
             text-align: center;
             text-decoration: none;
@@ -190,35 +197,35 @@ footer {
             transition: background-color 0.3s;
             margin-left: 60px;
         }
-    
     </style>
 </head>
+
 <body>
     <div class="nav-bar">
         <button class="active">Dashboard</button>
         <a href="ConsultUs/appoint.php">
-        <button>Book Appointment</button></a>
+            <button>Book Appointment</button></a>
         <a href="showmyappointment.php">
-        <button>Appointment History</button></a>
+            <button>Appointment History</button></a>
         <a href="immunization.php">
-        <button>Immunization History</button></a>
+            <button>Immunization History</button></a>
     </div>
 
-<div class="header-banner">
-    <img src="../img/Child_Management.png" alt="Child Management Banner">
-    <div class="header-card">
-        <h1>Child Management</h1>
-        <p>Users | Dashboard</p>
-        <a href="#">Check Child Management....</a>
+    <div class="header-banner">
+        <img src="../img/Child_Management.png" alt="Child Management Banner">
+        <div class="header-card">
+            <h1>Child Management</h1>
+            <p>Users | Dashboard</p>
+            <a href="#">Check Child Management....</a>
+        </div>
     </div>
-</div>
 
 
     <div class="section-title">Your Children</div>
     <a href="register.php">
-<button class="add-child-button">Add A Child</button></a>
-<br>
-<br>
+        <button class="add-child-button">Add A Child</button></a>
+    <br>
+    <br>
 
     <div class="children-grid">
         <div class="child-card">
@@ -243,7 +250,5 @@ footer {
 
     <?php include_once '../common/footer_module.php'; ?>
 </body>
+
 </html>
-<?php
-include_once '../common/footer_module.php';
-?>

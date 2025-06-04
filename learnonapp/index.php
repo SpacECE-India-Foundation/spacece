@@ -1,6 +1,7 @@
 <?php
 include_once './header_local.php';
 include_once '../common/header_module.php';
+include '../Db_Connection/db_spacece.php';
 if (empty($_SESSION['current_user_id'])) {
   echo '<script>
     alert("User must be logged in!!");
@@ -8,6 +9,136 @@ if (empty($_SESSION['current_user_id'])) {
   </script>';
   exit;
 }
+
+$searchTerm = $_GET['search'] ?? '';
+$level = $_GET['level'] ?? '';
+$category = $_GET['category'] ?? '';
+
+$result1 = null;
+
+if (!empty($searchTerm) || !empty($level) || !empty($category)) {
+  $sql = "SELECT * FROM learnonapp_courses WHERE 1=1";
+  $params = [];
+  $types = "";
+
+  if (!empty($searchTerm)) {
+    $sql .= " AND (title LIKE ? OR description LIKE ?)";
+    $params[] = "%$searchTerm%";
+    $params[] = "%$searchTerm%";
+    $types .= "ss";
+  }
+
+  if (!empty($level)) {
+    $sql .= " AND level = ?";
+    $params[] = $level;
+    $types .= "s";
+  }
+
+  if (!empty($category)) {
+    $sql .= " AND category = ?";
+    $params[] = $category;
+    $types .= "s";
+  }
+
+  $stmt = $conn->prepare($sql);
+
+  if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+  }
+
+  $stmt->execute();
+  $result1 = $stmt->get_result();
+}
+
+$relatedCourses = null;
+
+if (!empty($category)) {
+  $relatedSql = "SELECT * FROM learnonapp_courses WHERE category = ?";
+
+  // Exclude the main course title 
+  if (!empty($searchTerm)) {
+    $relatedSql .= " AND title != ?";
+    $stmt = $conn->prepare($relatedSql);
+    $stmt->bind_param("ss", $category, $searchTerm);
+  } else {
+    $stmt = $conn->prepare($relatedSql);
+    $stmt->bind_param("s", $category);
+  }
+
+  $stmt->execute();
+  $relatedCourses = $stmt->get_result();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESSION['current_user_id'])) {
+  $course_id = intval($_POST['id']);
+  $user_id = intval($_SESSION['current_user_id']);
+
+  // Check if user is already subscribed to any course
+  $currentCourseStmt = $conn->prepare("
+    SELECT cid FROM learnonapp_users_courses 
+    WHERE uid = ?
+  ");
+  $currentCourseStmt->bind_param("i", $user_id);
+  $currentCourseStmt->execute();
+  $currentCourseResult = $currentCourseStmt->get_result();
+
+  if ($currentCourseResult->num_rows > 0) {
+    $row = $currentCourseResult->fetch_assoc();
+    $current_course_id = $row['cid'];
+
+    // Count total videos in current course
+    $videoStmt = $conn->prepare("SELECT COUNT(*) FROM learnonapp_videos WHERE course_id = ?");
+    $videoStmt->bind_param("i", $current_course_id);
+    $videoStmt->execute();
+    $videoStmt->bind_result($total_videos);
+    $videoStmt->fetch();
+    $videoStmt->close();
+
+    // Count watched videos
+    $watchedStmt = $conn->prepare("
+      SELECT COUNT(*) FROM learnonapp_user_video_progress 
+      WHERE user_id = ? AND course_id = ?
+    ");
+    $watchedStmt->bind_param("ii", $user_id, $current_course_id);
+    $watchedStmt->execute();
+    $watchedStmt->bind_result($watched_count);
+    $watchedStmt->fetch();
+    $watchedStmt->close();
+
+    // Check if course is completed
+    if ($total_videos > 0 && $watched_count < $total_videos) {
+      echo "<script>alert('Please complete your current course before subscribing to another.');
+      window.location.href  = 'Mycourse.php';
+      </script>";
+
+      exit;
+    } else {
+      // User has finished course, remove old subscription
+      // $deleteStmt = $conn->prepare("DELETE FROM learnonapp_users_courses WHERE uid = ?");
+      // $deleteStmt->bind_param("i", $user_id);
+      // $deleteStmt->execute();
+      // $deleteStmt->close();
+    }
+  }
+
+  // Now insert new subscription
+  $stmt = $conn->prepare("INSERT INTO learnonapp_users_courses (uid, cid) VALUES (?, ?)");
+  $stmt->bind_param("ii", $user_id, $course_id);
+
+  if ($stmt->execute()) {
+    echo "<script>alert('You are successfully subscribed!');
+     window.location.href = 'Mycourse.php?id=$course_id';
+    </script>";
+  } else {
+    echo "<script>alert('Subscription failed.');</script>";
+  }
+
+  $stmt->close();
+}
+
+
+
+$result = $conn->query("SELECT * FROM learnonapp_courses");
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +161,67 @@ if (empty($_SESSION['current_user_id'])) {
       margin: 0;
       padding: 0;
     }
+
+    .course-box {
+      border: 1px solid #f0e6d6;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #fffaf5;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .course-header {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      justify-content: space-between;
+    }
+
+    .course-thumb {
+      width: 100px;
+      height: auto;
+      margin-right: 20px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .course-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .dropdown-icon {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .course-meta {
+      margin: 4px 0;
+      color: #5c5c5c;
+    }
+
+    .course-detail-box {
+      margin-top: 16px;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .skill-tag {
+      border: 1px solid orange;
+      color: orange;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
 
     .hero-banner-bg {
       background: url('https://th.bing.com/th/id/R.e3c319dc7b3e43d481e4ad0cd8074492?rik=K5Bnv6qeEn3UoQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f07%2fPlain-background-wallpapers-hd-free.jpg&ehk=vey50qFU7FJ4bVXCEzLAUiSzAcyjm8Q9FgJqHxYM%2fDo%3d&risl=&pid=ImgRaw&r=0') no-repeat center center/cover;
@@ -260,6 +452,7 @@ if (empty($_SESSION['current_user_id'])) {
       font-size: 1.3rem;
       border-radius: 8px;
       font-weight: 600;
+
     }
 
     .info-bar {
@@ -729,222 +922,277 @@ if (empty($_SESSION['current_user_id'])) {
   <div class="course-section">
     <h2>Choose from different <br><strong>Courses</strong></h2>
 
-    <div class="course-filters">
-      <div class="filter-row" style="position: relative;">
-        <div class="search-wrapper">
-          <input type="text" id="courseSearchInput" class="search-input" placeholder="What do you want to know?" />
-          <i class="bi bi-search search-icon"></i>
-        </div>
-        <select class="level-select" id="levelSelect">
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
-        </select>
-      </div>
-
-      <div class="category-row">
-        <button class="category-btn" onclick="showDetails('Infant care')">Infant care</button>
-        <button class="category-btn" onclick="showDetails('Child care')">Child care</button>
-        <button class="category-btn" onclick="showDetails('Children education')">Children education</button>
-        <button class="category-btn" onclick="showDetails('Infant hygiene')">Infant hygiene</button>
-      </div>
-    </div>
-
-
-    <div id="course-details" style="display: none;" class="course-detail-box">
-      <div class="back-btn" onclick="hideDetails()">
-        <i class="bi bi-arrow-left-short"></i> Back
-      </div>
-      <div class="course-title-row">
-        <img src="img1.png" alt="course image" class="course-thumb">
-        <div>
-          <h5 class="course-title">
-            Newborn Care Essentials Learn to confidently care for your baby.
-            <i class="bi bi-chevron-down dropdown-icon"></i>
-          </h5>
-          <p class="course-meta">Course 1 &nbsp;&nbsp;•&nbsp;&nbsp;13 hours</p>
-        </div>
-      </div>
-
-      <div class="course-learn-box">
-        <h6>What You'll Learn:</h6>
-        <ul>
-          <li>Identify essential infant needs: feeding, sleep, comfort, and communication cues.</li>
-          <li>Understand basic principles of safe and responsive infant care, including healthy development.</li>
-          <li>Explain the importance of creating a nurturing and stimulating environment for infants.</li>
-        </ul>
-
-        <h6>Skills you will gain</h6>
-        <div class="skills-tags">
-          <span class="skill-tag">Feeding & Soothing</span>
-          <span class="skill-tag">Safe Practices</span>
-          <span class="skill-tag">Developmental Milestones</span>
-          <span class="skill-tag">Interpreting Cues</span>
-        </div>
-      </div>
-
-      <!-- Video Section -->
-      <section class="video-section" id="course-video">
-        <h2>Videos related to <br><strong>course</strong></h2>
-
-        <div class="video-card">
-          <img src="https://wallpapers.com/images/hd/pure-black-background-y8wp2r83b15xxdi6.jpg" alt="Video Thumbnail" class="video-thumbnail">
-
-          <div class="video-icons-left">
-            <i class="bi bi-hand-thumbs-up"></i>
-            <i class="bi bi-hand-thumbs-down"></i>
+    <form method="GET" action="">
+      <div class="course-filters">
+        <div class="filter-row" style="position: relative;">
+          <div class="search-wrapper">
+            <input
+              type="text"
+              name="search"
+              id="courseSearchInput"
+              class="search-input"
+              placeholder="What do you want to know?"
+              value="<?php echo htmlspecialchars($_GET['search'] ?? ''); ?>" />
+            <i class="bi bi-search search-icon"></i>
           </div>
 
-          <i class="bi bi-share-fill video-share-icon"></i>
+          <select class="level-select" name="level" id="levelSelect">
+            <option value="">All Levels</option>
+            <option value="Beginner" <?php if (($_GET['level'] ?? '') === 'Beginner') echo 'selected'; ?>>Beginner</option>
+            <option value="Intermediate" <?php if (($_GET['level'] ?? '') === 'Intermediate') echo 'selected'; ?>>Intermediate</option>
+            <option value="Advanced" <?php if (($_GET['level'] ?? '') === 'Advanced') echo 'selected'; ?>>Advanced</option>
+          </select>
+        </div>
 
-          <button class="video-play-button">
-            <i class="bi bi-play-fill"></i>
-          </button>
+        <div class="category-row">
+          <!-- These will be buttons that set a hidden category input and submit -->
+          <input type="hidden" name="category" id="categoryInput" value="<?php echo htmlspecialchars($_GET['category'] ?? ''); ?>" />
+          <button type="submit" class="category-btn" onclick="document.getElementById('categoryInput').value='Infant care'">Infant care</button>
+          <button type="submit" class="category-btn" onclick="document.getElementById('categoryInput').value='Child care'">Child care</button>
+          <button type="submit" class="category-btn" onclick="document.getElementById('categoryInput').value='Children education'">Children education</button>
+          <button type="submit" class="category-btn" onclick="document.getElementById('categoryInput').value='Infant hygiene'">Infant hygiene</button>
+        </div>
+      </div>
+    </form>
+    <?php
+    if ($result1) {
+      while ($row1 = $result1->fetch_assoc()) {
+    ?>
+        <div class="course-box">
+          <div class="course-header">
+            <img src="<?= $row1['logo'] ? htmlspecialchars($row1['logo']) : 'default-image.jpg' ?>" class="course-thumb" alt="course image">
+            <div class="course-info">
+              <h5 class="course-title">
+                <?= htmlspecialchars($row1['title']) ?>
+              </h5>
+              <p class="course-meta">
+                Course <?= htmlspecialchars($row1['id']) ?> &nbsp;&nbsp;•&nbsp;&nbsp;<?= htmlspecialchars($row1['duration']) ?> hours
+              </p>
+            </div>
+            <div style="text-align: center; margin-top: 30px; ">
+              <a class="btn-join" onclick="event.preventDefault(); document.getElementById('course-id').value = <?= $row1['id'] ?>; document.querySelector('#subscribe-form').submit()" style="padding: 15px 30px; font-size: 1.2rem;color:white">Subscribe Now</a>
+            </div>
+          </div>
+          <div class="course-detail-box">
+            <h6>What You'll Learn:</h6>
+            <p class="learn-description"><?= htmlspecialchars($row1['description']) ?></p>
 
-          <div class="video-dots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+            <ul class="learn-list" style="list-style-type: none;">
+              <?php
+              $descriptionItems = explode('|', $row1['description']);
+              foreach ($descriptionItems as $item) {
+                $trimmedItem = trim($item);
+                if (!empty($trimmedItem)) {
+                  echo '<li>' . htmlspecialchars($trimmedItem) . '</li>';
+                }
+              }
+              ?>
+            </ul>
+
+            <h6>Skills you will gain:</h6>
+            <div class="skills-tags">
+              <?php
+              $skills = explode(',', $row1['skill_gained']);
+              foreach ($skills as $skill) {
+                $trimmedSkill = trim($skill);
+                if (!empty($trimmedSkill)) {
+                  echo '<span class="skill-tag">' . htmlspecialchars($trimmedSkill) . '</span>';
+                }
+              }
+              ?>
+            </div>
           </div>
         </div>
-
-        <div class="video-pagination">
-          <button><i class="bi bi-chevron-left"></i></button>
-          <span>Page 1 of 100</span>
-          <button><i class="bi bi-chevron-right"></i></button>
-        </div>
-      </section>
-      <div style="text-align: center; margin-top: 30px;">
-        <button class="btn-join" style="padding: 15px 30px; font-size: 1.2rem;">Subscribe Now</button>
-      </div>
-
-
-      <div id="course-cards" class="cards-container">
-        <!-- Sample 9 cards -->
+    <?php
+      }
+    } ?>
+    <form action="" id="subscribe-form" class="hidden" method="POST">
+      <input type="hidden" name="id" id="course-id" value="<?= $row1['id'] ?>">
+    </form>
+    <?php
+    if ($relatedCourses && $relatedCourses->num_rows > 0) {
+      echo '<div id="course-cards" class="cards-container">';
+      while ($row = $relatedCourses->fetch_assoc()) {
+    ?>
         <div class="card">
-          <img src="img1.png" alt="Infant Care">
-          <h6>Infant Care</h6>
-          <p>Confidently nurture your baby’s first year.</p>
+          <img src="<?= $row['logo'] ? htmlspecialchars($row['logo']) : 'default-image.jpg' ?>" alt="<?= htmlspecialchars($row['title']) ?>">
+          <h6><?= htmlspecialchars($row['title']) ?></h6>
+          <p><?= htmlspecialchars($row['description'] ?? 'Course overview unavailable.') ?></p>
           <strong>Certificate <i class="bi bi-award"></i></strong>
           <p class="small-text">Get a completion certificate</p>
         </div>
-        <!-- Duplicate the above .card block 8 more times for 9 cards total -->
-        <div class="card"><img src="img2.png" alt="Infant Care">
-          <h6>Infant Care</h6>
-          <p>Care techniques and safety practices.</p><strong>Certificate <i class="bi bi-award"></i></strong>
-          <p class="small-text">Get a completion certificate</p>
+    <?php
+      }
+      echo '</div>';
+    }
+    ?>
+
+
+
+
+    <!-- Video Section -->
+    <section class="video-section" id="course-video">
+      <h2>Videos related to <br><strong>course</strong></h2>
+
+      <div class="video-card">
+        <img src="https://wallpapers.com/images/hd/pure-black-background-y8wp2r83b15xxdi6.jpg" alt="Video Thumbnail" class="video-thumbnail">
+
+        <div class="video-icons-left">
+          <i class="bi bi-hand-thumbs-up"></i>
+          <i class="bi bi-hand-thumbs-down"></i>
         </div>
-        <div class="card"><img src="img3.png" alt="Infant Care">
-          <h6>Infant Care</h6>
-          <p>Handling sleep routines and hygiene.</p><strong>Certificate <i class="bi bi-award"></i></strong>
-          <p class="small-text">Get a completion certificate</p>
-        </div>
-        <div class="card"><img src="img1.png" alt="Infant Care">
-          <h6>Infant Care</h6>
-          <p>Feeding techniques & tips.</p><strong>Certificate <i class="bi bi-award"></i></strong>
-          <p class="small-text">Get a completion certificate</p>
-        </div>
-        <div class="card"><img src="img2.png" alt="Infant Care">
-          <h6>Infant Care</h6>
-          <p>Comfort & emotional bonding.</p><strong>Certificate <i class="bi bi-award"></i></strong>
-          <p class="small-text">Get a completion certificate</p>
-        </div>
-        <div class="card"><img src="img3.png" alt="Infant Care">
-          <h6>Infant Care</h6>
-          <p>Understand developmental cues.</p><strong>Certificate <i class="bi bi-award"></i></strong>
-          <p class="small-text">Get a completion certificate</p>
-        </div>
-        <div class="card"><img src="img1.png" alt="Infant Care">
-          <h6>Infant Care</h6>
-          <p>Common challenges & solutions.</p><strong>Certificate <i class="bi bi-award"></i></strong>
-          <p class="small-text">Get a completion certificate</p>
-        </div>
-        <div class="card"><img src="img2.png" alt="Infant Care">
-          <h6>Infant Care</h6>
-          <p>Routine creation and discipline.</p><strong>Certificate <i class="bi bi-award"></i></strong>
-          <p class="small-text">Get a completion certificate</p>
-        </div>
-        <div class="card"><img src="img3.png" alt="Infant Care">
-          <h6>Infant Care</h6>
-          <p>Baby massage and bath safety.</p><strong>Certificate <i class="bi bi-award"></i></strong>
-          <p class="small-text">Get a completion certificate</p>
+
+        <i class="bi bi-share-fill video-share-icon"></i>
+
+        <button class="video-play-button">
+          <i class="bi bi-play-fill"></i>
+        </button>
+
+        <div class="video-dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
         </div>
       </div>
 
-    </div>
+      <!-- <div class="video-pagination">
+        <button><i class="bi bi-chevron-left"></i></button>
+        <span>Page 1 of 100</span>
+        <button><i class="bi bi-chevron-right"></i></button>
+      </div> -->
+    </section>
+    <!-- <div style="text-align: center; margin-top: 30px;">
+      <button class="btn-join" style="padding: 15px 30px; font-size: 1.2rem;">Subscribe Now</button>
+    </div> -->
 
-    <script>
-      function showDetails(category) {
-        const details = document.getElementById("course-details");
-        const video = document.getElementById("course-video");
-        const cards = document.getElementById("course-cards");
-        const buttons = document.querySelectorAll(".category-btn");
 
-        buttons.forEach(btn => {
-          if (btn.textContent.trim().toLowerCase() === category.toLowerCase()) {
-            btn.classList.add("active");
-          } else {
-            btn.classList.remove("active");
-          }
+
+
+  </div>
+  <div style=" border: 1px solid #ddd;border-radius: 8px;padding: 20px;max-width: 820px;background-color: #fff; margin:30px;">
+    <h3 class="class">
+      other Courses
+    </h3>
+    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+      <div class="course-box">
+        <div class="course-header" onclick="toggleDetails(<?= $row['id'] ?>)">
+          <img src="<?= $row['logo'] ? htmlspecialchars($row['logo']) : 'default-image.jpg' ?>" class="course-thumb" alt="course image">
+          <div>
+            <h5 class="course-title">
+              <?= htmlspecialchars($row['title']) ?>
+              <i id="arrow-<?= $row['id'] ?>" class="bi bi-chevron-down dropdown-icon"></i>
+            </h5>
+            <p class="course-meta">
+              Course <?= htmlspecialchars($row['id']) ?> &nbsp;&nbsp;•&nbsp;&nbsp;<?= htmlspecialchars($row['duration']) ?> hours
+            </p>
+          </div>
+        </div>
+
+        <div id="course-details-<?= $row['id'] ?>" class="course-detail-box" style="display: none;">
+          <h6>What You'll Learn:</h6>
+          <ul style="list-style-type: none;">
+            <?php
+            $descriptionItems = explode('|', $row['description']);
+            foreach ($descriptionItems as $item) {
+              $trimmedItem = trim($item);
+              if (!empty($trimmedItem)) {
+                echo '<li>' . htmlspecialchars($trimmedItem) . '</li>';
+              }
+            }
+            ?>
+          </ul>
+
+          <h6>Skills you will gain:</h6>
+          <div class="skills-tags">
+            <?php
+            $skills = explode(',', $row['skill_gained']);
+            foreach ($skills as $skill) {
+              $trimmedSkill = trim($skill);
+              if (!empty($trimmedSkill)) {
+                echo '<span class="skill-tag">' . htmlspecialchars($trimmedSkill) . '</span>';
+              }
+            }
+            ?>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+
+  <script>
+    let selectedCategory = '';
+
+    function showDetails(category) {
+      selectedCategory = category;
+      fetchCourses();
+    }
+
+    document.getElementById('courseSearchInput').addEventListener('input', fetchCourses);
+    document.getElementById('levelSelect').addEventListener('change', fetchCourses);
+
+    function fetchCourses() {
+      const search = document.getElementById('courseSearchInput').value;
+      const level = document.getElementById('levelSelect').value;
+
+      const params = new URLSearchParams({
+        search: search,
+        level: level,
+        category: selectedCategory
+      });
+
+      fetch('index.php?' + params.toString())
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('courseResults').innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error fetching courses:', error);
         });
+    }
 
-        if (
-          category.toLowerCase().includes("child") ||
-          category.toLowerCase().includes("infant")
-        ) {
-          details.style.display = "block";
-          video.style.display = "block";
-          cards.style.display = "grid";
-        } else {
-          details.style.display = "none";
-          video.style.display = "none";
-          cards.style.display = "none";
-        }
-      }
+    // function hideDetails() {
+    //   document.getElementById("course-details").style.display = "none";
+    //   document.getElementById("course-video").style.display = "none";
+    //   document.getElementById("course-cards").style.display = "none";
 
-      function hideDetails() {
-        document.getElementById("course-details").style.display = "none";
-        document.getElementById("course-video").style.display = "none";
-        document.getElementById("course-cards").style.display = "none";
+    //   const buttons = document.querySelectorAll(".category-btn");
+    //   buttons.forEach(btn => btn.classList.remove("active"));
 
-        const buttons = document.querySelectorAll(".category-btn");
-        buttons.forEach(btn => btn.classList.remove("active"));
+    //   document.getElementById("searchInput").value = "";
+    // }
 
-        document.getElementById("searchInput").value = "";
-      }
+    // // ✅ Updated search logic
+    // document.getElementById("courseSearchInput").addEventListener("input", function() {
+    //   const value = this.value.toLowerCase().trim();
 
-      // ✅ Updated search logic
-      document.getElementById("courseSearchInput").addEventListener("input", function() {
-        const value = this.value.toLowerCase().trim();
+    //   if (value === "infant" || value === "infant care") {
+    //     showDetails("Infant care");
+    //   } else if (value === "child" || value === "child care") {
+    //     showDetails("Child care");
+    //   } else if (value === "education" || value === "children education") {
+    //     showDetails("Children education");
+    //   } else if (value === "hygiene" || value === "infant hygiene") {
+    //     showDetails("Infant hygiene");
+    //   } else {
+    //     hideDetails();
+    //   }
+    // });
 
-        if (value === "infant" || value === "infant care") {
-          showDetails("Infant care");
-        } else if (value === "child" || value === "child care") {
-          showDetails("Child care");
-        } else if (value === "education" || value === "children education") {
-          showDetails("Children education");
-        } else if (value === "hygiene" || value === "infant hygiene") {
-          showDetails("Infant hygiene");
-        } else {
-          hideDetails();
-        }
-      });
+    // document.getElementById("levelSelect").addEventListener("change", function() {
+    //   const value = this.value.toLowerCase();
 
-      document.getElementById("levelSelect").addEventListener("change", function() {
-        const value = this.value.toLowerCase();
-
-        // Optional: customize this logic later
-        if (value === "beginner") {
-          showDetails("Infant care"); // You can link level to any category you want
-        } else if (value === "intermediate") {
-          showDetails("Child care");
-        } else if (value === "advanced") {
-          showDetails("Children education");
-        } else {
-          hideDetails();
-        }
-      });
-    </script>
+    //   // Optional: customize this logic later
+    //   if (value === "beginner") {
+    //     showDetails("Infant care"); // You can link level to any category you want
+    //   } else if (value === "intermediate") {
+    //     showDetails("Child care");
+    //   } else if (value === "advanced") {
+    //     showDetails("Children education");
+    //   } else {
+    //     hideDetails();
+    //   }
+    // });
+  </script>
 
   </div>
   </div>
@@ -1201,6 +1449,19 @@ if (empty($_SESSION['current_user_id'])) {
   ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleDetails(id) {
+      const detailBox = document.getElementById('course-details-' + id);
+      const icon = document.getElementById('arrow-' + id);
+
+      const isVisible = detailBox.style.display === 'block';
+      detailBox.style.display = isVisible ? 'none' : 'block';
+
+      // Optional: rotate icon
+      // icon.classList.toggle('rotated', !isVisible);
+    }
+  </script>
+
 </body>
 
 </html>
