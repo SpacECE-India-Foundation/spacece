@@ -27,7 +27,7 @@ if (session_status() === PHP_SESSION_NONE) {
             justify-content: space-between;
             align-items: center;
             background-color: #ffffff;
-            padding: 20px;
+            padding: 20px 25px;
             font-size: large;
         }
 
@@ -275,7 +275,9 @@ if (session_status() === PHP_SESSION_NONE) {
             ?>
                 <div class="module_logo" style="margin-top: 15px; margin-left:620px;">
                     <a href="./index.php">
-                        <span style="color: #ffb300; font-weight: 700;"><?= isset($module_name) ? $module_name : 'Spacece' ?><span>
+                        <span style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);color: #ffb300;font-weight: 700;">
+                            <?= isset($module_name) ? $module_name : 'Spacece' ?>
+                        </span>
                     </a>
                 </div>
             <?php
@@ -290,15 +292,47 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class="dropdown">
                     <button class="dropbtn">
 
-                        <img class="user_avatar" src=<?= !isset($_SESSION['current_user_image']) ? 'https://www.w3schools.com/howto/img_avatar.png' : ($main_page ? './img/users/' . $_SESSION['current_user_image'] : '../img/users/' . $_SESSION['current_user_image']) ?> alt="User" />
+                        <?php
+                        if (isset($main_page)) {
+                            $img_path = "./img/users/";
+                        } elseif (isset($sub_page)) {
+                            $img_path = "../../img/users/";
+                        } else {
+                            $img_path = "../img/users/";
+                        }
+                        ?>
+                        <img class="user_avatar"
+                            src="<?= !isset($_SESSION['current_user_image'])
+                                        ? 'https://www.w3schools.com/howto/img_avatar.png'
+                                        : $img_path . $_SESSION['current_user_image'] ?>"
+                            alt="User" />
 
                         <span style="cursor: pointer;"><?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
                     </button>
+                    <?php
+                    if (isset($main_page)) {
+                        $auth_path = "./spacece_auth/";
+                    } elseif (isset($sub_page)) {
+                        $auth_path = "../../spacece_auth/";
+                    } else {
+
+                        $auth_path = "../spacece_auth/";
+                    }
+                    ?>
+
                     <div class="dropdown-content">
-                        <a href="<?= isset($main_page) ? "./spacece_auth/profile.php" : "../spacece_auth/profile.php" ?>"><i class="fas fa-user"></i><span>Profile</span></a>
+                        <a href="<?= $auth_path ?>profile.php">
+                            <i class="fas fa-user"></i><span>Profile</span>
+                        </a>
+
                         <?= isset($extra_profile_links) ? $extra_profile_links : null ?>
-                        <a href=<?= isset($main_page) ? "./spacece_auth/logout.php" : "../spacece_auth/logout.php" ?>><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+
+                        <a href="<?= $auth_path ?>logout.php">
+                            <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+                        </a>
                     </div>
+
+
                 </div>
             <?php
             } else {

@@ -2,76 +2,59 @@
 session_start();
 
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Methods: GET, OPTIONS");
-
-
-//site url
+header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Content-Type: application/json");
 
 include '../Db_Connection/db_spacece.php';
-?>
-<?php
 
-error_reporting();
+$input = json_decode(file_get_contents('php://input'), true);
 
-if (isset($_POST['action']) && $_POST['action'] = 'add') {
-    $sql = "INSERT INTO learnonapp_courses (title, description, type, mode, duration, price)
-    VALUES ('" . $_POST['title-new'] . "', '" . $_POST['description-new'] . "', '" . $_POST['type-new'] . "', '" . $_POST['mode-new'] . "', '" . $_POST['duration-new'] . "', '" . $_POST['price-new'] . "')";
+if (isset($input['action']) && $input['action'] === 'add') {
+    // Extract course fields
+    $title = $conn->real_escape_string($input['title'] ?? '');
+    $description = $conn->real_escape_string($input['description'] ?? '');
+    $level = $conn->real_escape_string($input['level'] ?? '');
+    $category = $conn->real_escape_string($input['category'] ?? '');
+    $logo = $conn->real_escape_string($input['logo'] ?? '');
+    $duration = $conn->real_escape_string($input['duration'] ?? '');
+    $skill_gained = $conn->real_escape_string($input['skill_gained'] ?? '');
+    $price = $conn->real_escape_string($input['price'] ?? '');
+
+    // Video list (should be array of objects: [{title, url, sort_order}])
+    $videos = $input['videos'] ?? [];
+
+    // Insert course
+    $sql = "INSERT INTO learnonapp_courses (title, description, level, category, logo, duration, skill_gained, price)
+            VALUES ('$title', '$description', '$level', '$category', '$logo', '$duration', '$skill_gained', '$price')";
 
     $result = $conn->query($sql);
 
-    $id = $conn->insert_id;
-
     if ($result) {
-        $sqlarr = [];
-        $resarr = [];
-        for ($i = 1; $i <= $_POST; $i++) {
-            if (isset($_POST['title_' . $i])) {
-                $sql = "INSERT INTO learnonapp_subcourses (cid, day, title, description, author)
-                VALUES ('" . $id . "', '" . $_POST['day_' . $i] . "', '" . $_POST['title_' . $i] . "', '" . $_POST['description_' . $i] . "', '" . $_POST['author_' . $i] . "')";
+        $course_id = $conn->insert_id;
 
-                $result = $conn->query($sql);
-                array_push($sqlarr, $sql);
-                array_push($resarr, $result);
-            } else {
-                break;
+        // Insert related videos
+        $videoErrors = [];
+        foreach ($videos as $video) {
+            $v_title = $conn->real_escape_string($video['title'] ?? '');
+            $v_url = $conn->real_escape_string($video['url'] ?? '');
+            $v_order = intval($video['sort_order'] ?? 0);
+
+            $videoSql = "INSERT INTO learnonapp_videos (course_id, video_title, video_link, sort_order) 
+                         VALUES ('$course_id', '$v_title', '$v_url', '$v_order')";
+
+            if (!$conn->query($videoSql)) {
+                $videoErrors[] = $conn->error;
             }
         }
 
-        echo json_encode(['status' => 'err', 'data' => $arr, 'sql' => $sqlarr, 'res' => $resarr]);
-        die();
-
-        if ($result) {
-            $sql = "SELECT * FROM `learnonapp_courses`";
-            $res = mysqli_query($conn, $sql);
-            header('Content-Type:application/json');
+        if (empty($videoErrors)) {
+            echo json_encode(['status' => 'success', 'result' => 'Course and videos added successfully']);
         } else {
-            echo json_encode(['status' => 'failure', 'result' => 'Error in adding subcourses']);
+            echo json_encode(['status' => 'partial_success', 'result' => 'Course added but some videos failed', 'errors' => $videoErrors]);
         }
     } else {
-        echo json_encode(['status' => 'failure', 'result' => 'not found']);
-        die();
+        echo json_encode(['status' => 'failure', 'result' => 'Error inserting course', 'error' => $conn->error]);
     }
+} else {
+    echo json_encode(['status' => 'failure', 'result' => 'Invalid or missing action']);
 }
-
-//checking whether query is excuted or not
-if ($res) {
-    // count that data is there or not in database
-    $count = mysqli_num_rows($res);
-    $sno = 1;
-    if ($count > 0) {
-        // we have data in database
-        while ($row = mysqli_fetch_assoc($res)) {
-
-            $arr[] = $row;   // making array of data
-
-        }
-        echo json_encode(['status' => 'success', 'data' => $arr, 'result' => 'found']);
-        //echo json_encode(['status'=>'success','result'=>'found']);
-
-
-    } else {
-        echo json_encode(['status' => 'failure', 'result' => 'not found']);
-    }
-}
-
-?>
