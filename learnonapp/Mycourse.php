@@ -44,6 +44,19 @@ if ($course_id) {
 }
 //for other courses
 $result = $conn->query("SELECT * FROM learnonapp_courses");
+
+// Helper function to convert YouTube links to embed format
+function convertToEmbedUrl($url)
+{
+  if (strpos($url, 'youtube.com') !== false) {
+    parse_str(parse_url($url, PHP_URL_QUERY), $query);
+    return 'https://www.youtube.com/embed/' . $query['v'];
+  } elseif (strpos($url, 'youtu.be') !== false) {
+    $video_id = basename(parse_url($url, PHP_URL_PATH));
+    return 'https://www.youtube.com/embed/' . $video_id;
+  }
+  return $url; // fallback for non-YouTube
+}
 ?>
 
 <!DOCTYPE html>
@@ -569,17 +582,29 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
       <?php foreach ($videos as $video): ?>
         <div class="video-block">
           <p><strong><?= htmlspecialchars($video['video_title']) ?></strong></p>
+
           <?php if (empty($video['video_link'])): ?>
             <p style="color: red;">No video available</p>
+
+          <?php elseif (strpos($video['video_link'], 'youtube.com') !== false || strpos($video['video_link'], 'youtu.be') !== false): ?>
+            <!-- Embed YouTube video -->
+            <iframe width="100%" height="515"
+              src="<?= htmlspecialchars(convertToEmbedUrl($video['video_link'])) ?>"
+              frameborder="0" allowfullscreen></iframe>
+
           <?php else: ?>
+            <!-- Use HTML5 video player for direct video file -->
             <video width="100%" controls>
-              <source src="<?= $video['video_link'] ?>" type="video/mp4">
+              <source src="<?= htmlspecialchars($video['video_link']) ?>" type="video/mp4">
+              Your browser does not support the video tag.
             </video>
-            <?php if (!in_array($video['id'], $watched_videos)): ?>
-              <button onclick="markAsWatched(<?= $video['id'] ?>, <?= $course_id ?>)">Mark as Watched</button>
-            <?php else: ?>
-              <p style="color: green;">Watched ✅</p>
-            <?php endif; ?>
+          <?php endif; ?>
+
+          <!-- Watched / Mark as Watched logic -->
+          <?php if (!in_array($video['id'], $watched_videos)): ?>
+            <button onclick="markAsWatched(<?= $video['id'] ?>, <?= $course_id ?>)">Mark as Watched</button>
+          <?php else: ?>
+            <p style="color: green;">Watched ✅</p>
           <?php endif; ?>
         </div>
       <?php endforeach; ?>
@@ -607,7 +632,7 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
     &nbsp;
     <!-- CERTIFICATE SECTION (UPDATED) -->
     <div class="certificate">
-      <img src="assets/template.jpeg" alt="certificate" />
+      <img src="assets/template.png" alt="certificate" />
       <div class="details">
         <div class="tag">Top Instructor</div>
         <h4>Instructor</h4>
@@ -844,9 +869,6 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
     .email-form button:hover {
       background-color: rgb(215, 211, 211);
     }
-    
-
-
   </style>
   </head>
 
@@ -867,30 +889,30 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
           </div>
 
           <!-- Contact Section -->
-         <div class="col-md-3 mb-3 mt-5 text-start">
-  <div class="contact-widget" style="color: black; margin-left:90px !important;  ">
-    <h5 style="font-size: 20px !important;">Contact Us</h5>
-    
-    <p class="mb-3" style="font-size: 15px !important; ">
-      <i class="fa-solid fa-phone text-warning me-2"></i> +91 90963 05648
-    </p>
-    
-    <p class="mb-3" style="font-size: 15px !important; ">
-      <i class="fas fa-envelope text-warning me-2"></i> events@spaceece.co
-    </p>
-    
-    <p class="mb-3" style="font-size: 15px !important; ">
-      <i class="fas fa-map-marker-alt text-warning me-2"></i> SPACE-ECE
-    </p>
-    
-    <p class="mb-3" style="font-size: 15px !important; ">
-      <i class="fas fa-clock text-warning me-2"></i> Mon - Sat 8 AM - 6 PM
-    </p>
-  </div>
-</div>
+          <div class="col-md-3 mb-3 mt-5 text-start">
+            <div class="contact-widget" style="color: black; margin-left:90px !important;  ">
+              <h5 style="font-size: 20px !important;">Contact Us</h5>
+
+              <p class="mb-3" style="font-size: 15px !important; ">
+                <i class="fa-solid fa-phone text-warning me-2"></i> +91 90963 05648
+              </p>
+
+              <p class="mb-3" style="font-size: 15px !important; ">
+                <i class="fas fa-envelope text-warning me-2"></i> events@spaceece.co
+              </p>
+
+              <p class="mb-3" style="font-size: 15px !important; ">
+                <i class="fas fa-map-marker-alt text-warning me-2"></i> SPACE-ECE
+              </p>
+
+              <p class="mb-3" style="font-size: 15px !important; ">
+                <i class="fas fa-clock text-warning me-2"></i> Mon - Sat 8 AM - 6 PM
+              </p>
+            </div>
+          </div>
 
           <!-- Health Message + Social Media -->
-           
+
           <div class="col-md-3 mb-3 mt-5 text-start" style=" margin-left:-100px !important;  ">
             <h5 class="text-warning" style="font-size:20px; ">Still delaying treatment for your child's health concerns?</h5>
             <p class="mb-3 fs-6" style="text-align: left; font-size:15px !important;">Connect with India’s top doctors online, today!</p>
@@ -906,7 +928,7 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
 
           <!-- Newsletter Section -->
           <div class="col-md-3 mb-3 mt-5 text-start">
-             
+
             <h5 style="font-size:20px !important;">Subscribe To Our Newsletter</h5>
             <p class="mb-3 fs-6" style="text-align: left; font-size:15px !important;">Subscribe to our newsletter to get updates, offers and discounts.</p>
 
@@ -918,8 +940,8 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
               </form>
             </div>
 
-          
-  </div>
+
+          </div>
         </div>
       </div>
 
@@ -973,14 +995,13 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
   </html>
 </div>
 
-  <!-- Everything below stays same as index.php -->
-  <?php
-  // You can add the rest of your course section, cards, JS, etc. here exactly as it was
-  // e.g. include 'course_section.php' if modularized
-  ?>
+<!-- Everything below stays same as index.php -->
+<?php
+// You can add the rest of your course section, cards, JS, etc. here exactly as it was
+// e.g. include 'course_section.php' if modularized
+?>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-
