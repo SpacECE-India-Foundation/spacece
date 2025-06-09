@@ -32,11 +32,11 @@ $course_title = $data['title'];
 $created_at = date("F d, Y", strtotime($data['created_at'])); // Format date
 
 // 3. Generate the certificate (reuse updated certificate code)
-$template_path = __DIR__ . '/assets/template.jpeg';
+$template_path = __DIR__ . '/assets/template.png';
 $font_path = __DIR__ . '/assets/fonts/Poppins-SemiBold.ttf';
-$output_path = __DIR__ . '/certificate/' . $user_name . '_certificate.jpeg';
+$output_path = __DIR__ . '/certificate/' . $user_name . '_certificate.png';
 
-$image = imagecreatefromjpeg($template_path);
+$image = imagecreatefrompng($template_path);
 if (!$image) {
     die("Error: Failed to load background image.");
 }
@@ -48,8 +48,8 @@ $name_size = 40;
 $desc_size = 18;
 $footer_size = 16;
 
-$name_y = 530;
-$desc_y = 650;
+$name_y = 830;
+$desc_y = 950;
 $footer_y = 770;
 
 $image_width = imagesx($image);
@@ -60,7 +60,7 @@ $name_x = ($image_width - ($bbox[2] - $bbox[0])) / 2;
 imagettftext($image, $name_size, 0, $name_x, $name_y, $orange, $font_path, $user_name);
 
 // Description
-$description = "Has Successfully Completed $course_title On $created_at At Center of Language Institute.";
+$description = "Has Successfully Completed $course_title On $created_at At SpacECE INDIA FOUNDATION.";
 
 // Word wrap + center
 function wrapText($image, $text, $max_width, $font, $size)
@@ -94,10 +94,10 @@ foreach ($wrapped_lines as $line) {
     $y += 30;
 }
 
-header('Content-Type: image/jpeg');
-header('Content-Disposition: attachment; filename="' . $user_name . '_certificate.jpeg"');
+header('Content-Type: image/png');
+header('Content-Disposition: attachment; filename="' . $user_name . '_certificate.png"');
 
 // Output the image directly to browser
-imagejpeg($image);
+imagepng($image);
 imagedestroy($image);
 exit;
