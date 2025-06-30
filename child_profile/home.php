@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../Db_Connection/db_cits1.php';
 if (!empty($_SESSION)) {
     include 'header_local.php';
     include '../common/header_module.php';
@@ -21,6 +22,9 @@ if (empty($_SESSION['current_user_id'])) {
   </script>';
     exit;
 }
+
+// children list 
+$result = $conn->query("SELECT ID, childName FROM tblchildren ORDER BY ID DESC LIMIT 3;");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -222,30 +226,20 @@ if (empty($_SESSION['current_user_id'])) {
 
 
     <div class="section-title">Your Children</div>
-    <a href="register.php">
-        <button class="add-child-button">Add A Child</button></a>
+    <a href="register.php" class="add-child-button">Add A Child
+    </a>
     <br>
     <br>
 
     <div class="children-grid">
-        <div class="child-card">
-            <div class="child-image"></div>
-            <a href="profile.php">
-                <div class="child-name">Child 1</div>
-            </a>
-        </div>
-        <div class="child-card">
-            <div class="child-image"></div>
-            <a href="profile.php">
-                <div class="child-name">Child 2</div>
-            </a>
-        </div>
-        <div class="child-card">
-            <div class="child-image"></div>
-            <a href="profile.php">
-                <div class="child-name">Child 3</div>
-            </a>
-        </div>
+        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+            <div class="child-card">
+                <div class="child-image"></div>
+                <a href="profile.php?child_id=<?= $row['ID'] ?>">
+                    <div class="child-name"><?= htmlspecialchars($row['childName']) ?></div>
+                </a>
+            </div>
+        <?php } ?>
     </div>
 
     <?php include_once '../common/footer_module.php'; ?>

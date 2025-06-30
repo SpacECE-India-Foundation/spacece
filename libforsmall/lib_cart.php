@@ -10,7 +10,7 @@ $product_id = $_GET['product_id'] ?? null;
 $user_id = $_SESSION['current_user_id'];
 //var_dump($_GET);
 // Fetch product details
-$product_sql = "SELECT product_title,product_image,product_price, deposit FROM products WHERE product_id = $product_id";
+$product_sql = "SELECT product_title,product_image,product_price,rent_price ,deposit FROM products WHERE product_id = $product_id";
 $product_result = $conn->query($product_sql);
 $product = $product_result->fetch_assoc();
 
@@ -23,6 +23,7 @@ $cart_qty = ($cart_result->num_rows > 0) ? $cart_result->fetch_assoc()['qty'] : 
 $product_title = $product['product_title'];
 $product_img = $product['product_image'];
 $product_price = $product['product_price'];
+$product_rent_price = $product['rent_price'];
 $deposit = $product['deposit'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_product'])) {
@@ -396,9 +397,11 @@ include_once '../common/header_module.php';
           <div class="dropdown-label">
             <h3><?php echo htmlspecialchars($product_title); ?></h3>
           </div>
-          <select class="mode-selector" name="mode">
-            <option value="Rent">Rent</option>
-            <option value="Buy">Buy</option>
+          <select class="price-toggle"
+            data-buy="<?php echo $product_price ?>"
+            data-rent="<?php echo $product_rent_price ?>">
+            <option value="rent">Rent</option>
+            <option value="buy">Buy</option>
           </select>
         </div>
 
@@ -412,7 +415,7 @@ include_once '../common/header_module.php';
             </div>
             <div class="form-group">
               <label class="form-label">Product Price Per Quantity Per Day</label>
-              <input class="input-box rent-price" type="text" value="<?= $product_price ?>" readonly />
+              <input class="input-box rent-price" type="text" value="<?= $product_rent_price ?>" readonly />
             </div>
             <div class="form-group">
               <label class="form-label">Deposit Per Quantity</label>
@@ -440,7 +443,7 @@ include_once '../common/header_module.php';
           </div>
 
           <!-- Buy Fields -->
-          <div class="buy-section">
+          <div class="buy-section" style="display: none;">
             <div class="form-group">
               <label class="form-label">Product Price Per Quantity</label>
               <input class="input-box buy-price" type="text" value="<?= $product_price ?>" readonly />
@@ -489,6 +492,38 @@ include_once '../common/header_module.php';
     </div>
 
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const priceToggle = document.querySelector('.price-toggle');
+      const rentSection = document.querySelector('.rent-section');
+      const buySection = document.querySelector('.buy-section');
+      const rentPriceInput = document.querySelector('.rent-price');
+      const buyPriceInput = document.querySelector('.buy-price');
+
+      function updatePriceSection() {
+        const selected = priceToggle.value;
+        const price = priceToggle.getAttribute('data-' + selected); // gets data-rent or data-buy
+
+        if (selected === 'rent') {
+          rentSection.style.display = 'block';
+          buySection.style.display = 'none';
+          rentPriceInput.value = price;
+        } else {
+          rentSection.style.display = 'none';
+          buySection.style.display = 'block';
+          buyPriceInput.value = price;
+        }
+      }
+
+      // Initialize on page load
+      updatePriceSection();
+
+      // Update on dropdown change
+      priceToggle.addEventListener('change', updatePriceSection);
+    });
+  </script>
+
+
   <script>
     function openCaptchaModal() {
       document.getElementById('captchaModal').style.display = 'block';

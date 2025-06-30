@@ -1,6 +1,7 @@
 <?php
 session_start();
-if(!empty($_SESSION)){
+include '../Db_Connection/db_cits1.php';
+if (!empty($_SESSION)) {
     include 'header_local.php';
     include '../common/header_module.php';
 }
@@ -14,9 +15,117 @@ if(!empty($_SESSION)){
 //         header('Location:./cits/healthofficer/dashboard.php');
 //     }
 // }
+$child_id = isset($_GET['child_id']) ? $_GET['child_id'] : NULL;
+$_SESSION['current_child_id'] = $child_id;
+
+if ($child_id) {
+    $stmt = $conn->prepare("SELECT ID, childName, childDoB, childAge, childGender FROM tblchildren WHERE ID = ?");
+    $stmt->bind_param("i", $child_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $child_detail = $result->fetch_assoc();
+    }
+    $stmt->close();
+}
+
+
+
+if (isset($_POST['submit'])) {
+    $child_name = $_POST['child_name'];
+    $child_dob = $_POST['child_dob'];
+    $child_age = $_POST['child_age'];
+    $child_img = ''; // Will hold image path after upload
+
+    // Ensure child_id exists
+    $child_id = isset($_GET['child_id']) ? $_GET['child_id'] : null;
+
+    if (!$child_id) {
+        echo "<script>alert('No child ID provided.');</script>";
+        exit;
+    }
+
+    // Handle image upload
+    if (isset($_FILES['child_img']) && $_FILES['child_img']['error'] === 0) {
+        $ext = pathinfo($_FILES['child_img']['name'], PATHINFO_EXTENSION);
+        $unique_name = uniqid('img_', true) . '.' . $ext;
+
+        $relative_path = 'child_imgs/' . $unique_name;
+        $absolute_path = getcwd() . DIRECTORY_SEPARATOR . $relative_path;
+
+        if (move_uploaded_file($_FILES["child_img"]["tmp_name"], $absolute_path)) {
+            $child_img = $relative_path;
+
+            // ✅ Only run update if image upload succeeded
+            $update_sql = "UPDATE tblchildren 
+                           SET childName = ?, childDoB = ?, childAge = ?, childImage = ?
+                           WHERE ID = ?";
+            $update_stmt = $conn->prepare($update_sql);
+
+            if ($update_stmt) {
+                $update_stmt->bind_param("ssssi", $child_name, $child_dob, $child_age, $child_img, $child_id);
+
+                if ($update_stmt->execute()) {
+                    echo "<script>alert('Child details updated successfully.');</script>";
+                    // You can add a redirect here if needed
+                } else {
+                    echo "<script>alert('Error updating record.');</script>";
+                }
+
+                $update_stmt->close();
+            } else {
+                echo "<script>alert('Failed to prepare statement: " . $conn->error . "');</script>";
+            }
+        } else {
+            echo "<script>alert('Failed to move uploaded image. Update aborted.');</script>";
+        }
+    } else {
+        echo "<script>alert('Image upload is required to update child.');</script>";
+    }
+}
+
+function getAgeInYearsAndMonths($dob)
+{
+    if (!$dob) {
+        return 'Unknown';
+    }
+
+    try {
+        $dob = new DateTime($dob);
+        $now = new DateTime();
+        $diff = $dob->diff($now);
+
+        $years = $diff->y;
+        $months = $diff->m;
+
+        $result = '';
+        if ($years > 0) {
+            $result .= $years . ' year' . ($years > 1 ? 's' : '');
+        }
+
+        if ($months > 0) {
+            if ($result !== '') $result .= ', ';
+            $result .= $months . ' month' . ($months > 1 ? 's' : '');
+        }
+
+        if ($result === '') {
+            $result = 'Less than a month';
+        }
+
+        return $result;
+    } catch (Exception $e) {
+        return 'Invalid date';
+    }
+}
+
+$childDob = isset($child_detail['childDoB']) ? $child_detail['childDoB'] : null;
+$childDobFormatted = $childDob ? date('d/m/Y', strtotime($childDob)) : '';
+$childAge = getAgeInYearsAndMonths($childDob);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,20 +139,22 @@ if(!empty($_SESSION)){
             margin: 0;
             padding: 0;
         }
-        
-        html, body {
+
+        html,
+        body {
             height: 100%;
             width: 100%;
             overflow-x: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             background-color: #f1f1f1;
-            padding-top: 70px; /* Match header height */
+            padding-top: 70px;
+            /* Match header height */
         }
 
         /* ===== FULL-WIDTH HEADER ===== */
@@ -58,7 +169,7 @@ if(!empty($_SESSION)){
             padding: 20px;
             background: #fff;
             border-bottom: 1px solid #ccc;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .nav-bar button {
@@ -93,79 +204,98 @@ if(!empty($_SESSION)){
             padding: 0 20px 40px;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             font-weight: 600;
             margin-bottom: 20px;
         }
 
-/* ===== BUTTON STYLES ===== */
+        .submit-btn {
+            background-color: #f5a500;
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            float: right;
+            margin-top: -5px;
+        }
 
-.btn-container {
-    display: flex;
-    justify-content: space-between; /* Pushes groups to opposite ends */
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 25px;
-    width: 100%;
-}
-/* Button Groups */
-.btn-group {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
+        /* ===== BUTTON STYLES ===== */
 
-/* Individual Buttons */
-.btn {
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    white-space: nowrap;
-    transition: all 0.2s ease;
-}
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            /* Pushes groups to opposite ends */
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+            width: 100%;
+        }
 
-/* Orange Buttons */
-.btn-orange {
-    background-color: #FFAA00;
-    color: white;
-    box-shadow: 0 2px 4px rgba(255,170,0,0.3);
-}
+        /* Button Groups */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
-.btn-orange:hover {
-    background-color: #E69500;
-}
+        /* Individual Buttons */
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        /* Orange Buttons */
+        .btn-orange {
+            background-color: #FFAA00;
+            color: white;
+            box-shadow: 0 2px 4px rgba(255, 170, 0, 0.3);
+        }
+
+        .btn-orange:hover {
+            background-color: #E69500;
+        }
 
 
-/* Blue Buttons */
-.btn-blue {
-    background-color: #45C4F9;
-    color: white;
-    box-shadow: 0 2px 4px rgba(69,196,249,0.3);
-}
+        /* Blue Buttons */
+        .btn-blue {
+            background-color: #45C4F9;
+            color: white;
+            box-shadow: 0 2px 4px rgba(69, 196, 249, 0.3);
+        }
 
-.btn-blue:hover {
-    background-color: #3AB0E6;
-}
+        .btn-blue:hover {
+            background-color: #3AB0E6;
+        }
 
-/* Responsive Behavior */
-@media (max-width: 768px) {
-    .btn-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .btn-group {
-        width: 100%;
-    }
-    .btn {
-        width: 100%;
-    }
-}
+        /* Responsive Behavior */
+        @media (max-width: 768px) {
+            .btn-container {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-       /* ===== GRID LAYOUTS ===== */
-        .profile-grid, .health-grid {
+            .btn-group {
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* ===== GRID LAYOUTS ===== */
+        .profile-grid,
+        .health-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
@@ -173,7 +303,9 @@ if(!empty($_SESSION)){
         }
 
         @media (max-width: 768px) {
-            .profile-grid, .health-grid {
+
+            .profile-grid,
+            .health-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -192,7 +324,8 @@ if(!empty($_SESSION)){
             color: #444;
         }
 
-        input[type="text"], input[type="file"] {
+        input[type="text"],
+        input[type="file"] {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 6px;
@@ -230,7 +363,7 @@ if(!empty($_SESSION)){
             border: none;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         /* ===== FOOTER STYLES ===== */
@@ -241,69 +374,73 @@ if(!empty($_SESSION)){
             border-top: 1px solid #dee2e6;
             margin-top: auto;
         }
-/* Button Container */
-.btn-container {
-    display: flex;
-    justify-content: flex-start; /* Aligns content to the left */
-    margin-bottom: 25px;
-    width: 100%;
-}
 
-/* Button Group */
-.btn-group {
-    display: flex;
-    gap: 12px; /* Space between buttons */
-    flex-wrap: wrap;
-}
+        /* Button Container */
+        .btn-container {
+            display: flex;
+            justify-content: flex-start;
+            /* Aligns content to the left */
+            margin-bottom: 25px;
+            width: 100%;
+        }
 
-/* Red Button */
-.btn-red {
-    background-color: #FF4D4D;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    display: inline-block;
-}
+        /* Button Group */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            /* Space between buttons */
+            flex-wrap: wrap;
+        }
 
-.btn-red:hover {
-    background-color: #E63939;
-}
+        /* Red Button */
+        .btn-red {
+            background-color: #FF4D4D;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
 
-/* Blue Button */
-.btn-blue {
-    background-color: #45C4F9;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    display: inline-block;
-}
+        .btn-red:hover {
+            background-color: #E63939;
+        }
 
-.btn-blue:hover {
-    background-color: #3AB0E6;
-}
+        /* Blue Button */
+        .btn-blue {
+            background-color: #45C4F9;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-blue:hover {
+            background-color: #3AB0E6;
+        }
     </style>
 </head>
+
 <body>
     <div class="nav-bar">
         <button class="active">Dashboard</button>
         <a href="ConsultUs/appoint.php">
-        <button>Book Appointment</button></a>
+            <button>Book Appointment</button></a>
         <a href="showmyappoint.php">
-        <button>Appointment History</button></a>
+            <button>Appointment History</button></a>
         <a href="immunization.php">
-        <button>Immunization History</button></a>
+            <button>Immunization History</button></a>
         <button>Search Immunization Info</button>
     </div>
 
@@ -311,48 +448,57 @@ if(!empty($_SESSION)){
     <div class="content-container">
         <div class="section">
             <h1>Child Profile</h1>
-<div class="btn-group">
-<div class="btn-container">
-    <div class="btn-group">
-        <a href="immunization.php" class="btn btn-orange">Immunization Tracker</a>
-        <a href="height.php" class="btn btn-orange">Height Chart</a>
-        <a href="weight.php" class="btn btn-orange">Weight Chart</a>
-    </div>
-    
-    <div class="btn-group">
-        <button class="btn btn-blue">Book Doctor</button></a>
-        <button class="btn btn-blue">Your Appointments</button>
-    </div>
-</div>
-</div>
-            
+            <div class="btn-group">
+                <div class="btn-container">
+                    <div class="btn-group">
+                        <a href="immunization.php" class="btn btn-orange">Immunization Tracker</a>
+                        <a href="height.php" class="btn btn-orange">Height Chart</a>
+                        <a href="weight.php" class="btn btn-orange">Weight Chart</a>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-blue">Book Doctor</button></a>
+                        <button class="btn btn-blue">Your Appointments</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="profile-grid">
                 <div class="placeholder-container" id="imagePreviewContainer">
-                    <!-- Image will appear here -->
+                    <?php
+                    $child_img_path = !empty($child_detail['childImage']) ? $child_detail['childImage'] : '';
+                    ?>
+                    <img src="<?= $child_img_path ?>" alt="Child Image" style="max-width: 200px; margin-top: 10px;">
+
                 </div>
                 <div>
-                    <div class="form-control">
-                        <label>Child's Name</label>
-                        <input type="text" value="Child 1">
-                    </div>
-                    <div class="dob-age-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-control">
-                            <label>Child's Date of Birth</label>
-                            <input type="text" value="10 / 12 / 2020">
+                            <label>Child's Name</label>
+                            <input type="text" name="child_name" value="<?= $child_detail['childName'] ?>">
+                        </div>
+                        <div class="dob-age-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-control">
+                                <label>Child's Date of Birth</label>
+                                <input type="text" name="child_dob" value="<?= $childDobFormatted ?>">
+                            </div>
+                            <div class="form-control">
+                                <label>Child's Age</label>
+                                <input type="text" name="child_age" value="<?= $childAge ?>">
+                            </div>
                         </div>
                         <div class="form-control">
-                            <label>Child's Age</label>
-                            <input type="text" value="4 year, 5 Months">
+                            <label>Child's Gender</label>
+                            <input type="text" value="<?= $child_detail['childGender'] ?>">
                         </div>
-                    </div>
-                    <div class="form-control">
-                        <label>Child's Gender</label>
-                        <input type="text" value="Filed Entry">
-                    </div>
-                    <div class="form-control">
-                        <label>Image</label>
-                        <input type="file" id="imageUploadInput" accept="image/*">
-                    </div>
+                        <div class="form-control">
+                            <label>Image</label>
+                            <input type="file" name="child_img" id="imageUploadInput" accept="image/*">
+
+
+                        </div>
+                        <button type="submit" name="submit" class="submit-btn">Update</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -360,22 +506,22 @@ if(!empty($_SESSION)){
         <div class="section">
             <h2>Current Health Updates</h2>
             <div class="btn-group">
-<div class="btn-container">
-    <!-- Left-aligned Orange Buttons -->
-    <div class="btn-group">
-        <a href="immunization.php" class="btn btn-orange">Immunization Tracker</a>
-        <a href="height.php" class="btn btn-orange">Height Chart</a>
-        <a href="weight.php" class="btn btn-orange">Weight Chart</a>
-    </div>
-    
-    <!-- Right-aligned Blue Buttons -->
-    <div class="btn-group">
-        <button class="btn btn-blue">Book Pediatrician</button>
-        <button class="btn btn-blue">Your Appointments</button>
-    </div>
-</div>
+                <div class="btn-container">
+                    <!-- Left-aligned Orange Buttons -->
+                    <div class="btn-group">
+                        <a href="immunization.php" class="btn btn-orange">Immunization Tracker</a>
+                        <a href="height.php" class="btn btn-orange">Height Chart</a>
+                        <a href="weight.php" class="btn btn-orange">Weight Chart</a>
+                    </div>
+
+                    <!-- Right-aligned Blue Buttons -->
+                    <div class="btn-group">
+                        <button class="btn btn-blue">Book Pediatrician</button>
+                        <button class="btn btn-blue">Your Appointments</button>
+                    </div>
+                </div>
             </div>
-            
+
             <div class="health-grid">
                 <div>
                     <div class="form-control">
@@ -407,87 +553,88 @@ if(!empty($_SESSION)){
                 </div>
             </div>
             <!-- Button Container -->
-<div class="btn-container" style="justify-content: flex-start;">
-    <div class="btn-group">
-        <a href="register.php" class="btn btn-red">Book Doctor</a>
-        <a href="#" class="btn btn-blue">Your Appointments</a>
-    </div>
-</div>
+            <div class="btn-container" style="justify-content: flex-start;">
+                <div class="btn-group">
+                    <a href="register.php" class="btn btn-red">Book Doctor</a>
+                    <a href="#" class="btn btn-blue">Your Appointments</a>
+                </div>
+            </div>
         </div>
         <div class="content-container">
-    <div class="section"></div>
+            <div class="section"></div>
 
-        <div class="section">
-            <div class="health-grid">
-                <div>
-                    <iframe src="height_chart.php"></iframe>
-                </div>
-                <div>
-                    <div class="form-control">
-                        <label>Last Height Measurement</label>
-                        <input type="text" value="110 cm">
+            <div class="section">
+                <div class="health-grid">
+                    <div>
+                        <iframe src="height_chart.php"></iframe>
                     </div>
-                    <div class="form-control">
-                        <label>Average Height For This Age - Male</label>
-                        <input type="text" value="105 cm">
+                    <div>
+                        <div class="form-control">
+                            <label>Last Height Measurement</label>
+                            <input type="text" value="110 cm">
+                        </div>
+                        <div class="form-control">
+                            <label>Average Height For This Age - Male</label>
+                            <input type="text" value="105 cm">
+                        </div>
+                        <div class="form-control">
+                            <label>Status</label>
+                            <div class="status status-green">Healthy</div>
+                        </div>
+                        <!-- Button Container -->
+                        <div class="btn-container" style="justify-content: flex-start;">
+                            <div class="btn-group">
+                                <a href="register.php" class="btn btn-red">Book Doctor</a>
+                                <a href="#" class="btn btn-blue">Your Appointments</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-control">
-                        <label>Status</label>
-                        <div class="status status-green">Healthy</div>
+                    <div>
+                        <iframe src="weight_chart.php"></iframe>
                     </div>
-                                <!-- Button Container -->
-<div class="btn-container" style="justify-content: flex-start;">
-    <div class="btn-group">
-        <a href="register.php" class="btn btn-red">Book Doctor</a>
-        <a href="#" class="btn btn-blue">Your Appointments</a>
-    </div>
-</div>
-</div>                
-                <div>
-                    <iframe src="weight_chart.php"></iframe>
-                </div>
-                <div>
-                    <div class="form-control">
-                        <label>Last Weight Measurement</label>
-                        <input type="text" value="14 kgs">
-                    </div>
-                    <div class="form-control">
-                        <label>Average Weight For This Age - Male</label>
-                        <input type="text" value="14 kgs">
-                    </div>
-                    <div class="form-control">
-                        <label>Status</label>
-                        <div class="status status-green">Healthy</div>
+                    <div>
+                        <div class="form-control">
+                            <label>Last Weight Measurement</label>
+                            <input type="text" value="14 kgs">
+                        </div>
+                        <div class="form-control">
+                            <label>Average Weight For This Age - Male</label>
+                            <input type="text" value="14 kgs">
+                        </div>
+                        <div class="form-control">
+                            <label>Status</label>
+                            <div class="status status-green">Healthy</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <?php include_once '../common/footer_module.php'; ?>
+        <!-- Footer -->
+        <?php include_once '../common/footer_module.php'; ?>
 
-    <script>
-        // Image Upload Preview
-        document.getElementById('imageUploadInput').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            const container = document.getElementById('imagePreviewContainer');
-            container.innerHTML = '';
+        <script>
+            // Image Upload Preview
+            document.getElementById('imageUploadInput').addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                const container = document.getElementById('imagePreviewContainer');
+                container.innerHTML = '';
 
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.style.objectFit = 'cover';
-                    img.style.borderRadius = '6px';
-                    container.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.style.width = '100%';
+                        img.style.height = '100%';
+                        img.style.objectFit = 'cover';
+                        img.style.borderRadius = '6px';
+                        container.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
 </body>
+
 </html>
