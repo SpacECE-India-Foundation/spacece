@@ -399,6 +399,8 @@ if(!empty($_SESSION)){
     <div class="form-group">
       <label for="current-weight">Current Weight</label>
       <input type="text" id="current-weight" name="current-weight" placeholder="Your entry here">
+      <br>
+      <button class="add-btn">Submit</button>
     </div>
   </form>
 </div>

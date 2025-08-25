@@ -162,8 +162,14 @@ session_start();
           <td>2025-01-20 13:00:00</td>
           <td>2025-02-20</td>
           <td>SPECE101</td>
-          <td>Completed</td>
-          <td><input type="checkbox"> Pending <input type="checkbox"></td>
+          <td>
+  <label>
+    <input type="radio" name="status1" value="Completed"> Completed
+  </label>
+  <label>
+    <input type="radio" name="status1" value="Pending"> Pending
+  </label>
+</td>
           <td><button>Book Pediatrician</button></td>
         </tr>
         <tr>
@@ -174,8 +180,14 @@ session_start();
           <td>2025-01-20 13:00:00</td>
           <td>2025-02-20</td>
           <td>SPECE101</td>
-          <td>Completed</td>
-          <td><input type="checkbox"> Pending <input type="checkbox"></td>
+          <td>
+  <label>
+    <input type="radio" name="status2" value="Completed"> Completed
+  </label>
+  <label>
+    <input type="radio" name="status2" value="Pending"> Pending
+  </label>
+</td>
           <td><button>Book Pediatrician</button></td>
         </tr>
         <tr>
@@ -186,8 +198,14 @@ session_start();
           <td>2025-01-20 13:00:00</td>
           <td>2025-02-20</td>
           <td>SPECE101</td>
-          <td>Completed</td>
-          <td><input type="checkbox"> Pending <input type="checkbox"></td>
+          <td>
+  <label>
+    <input type="radio" name="status3" value="Completed"> Completed
+  </label>
+  <label>
+    <input type="radio" name="status3" value="Pending"> Pending
+  </label>
+</td>
           <td><button>Book Pediatrician</button></td>
         </tr>
       </tbody>
