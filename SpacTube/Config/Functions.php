@@ -14,7 +14,7 @@ class Functions
     public function __construct()
     {
         try {
-            $this->conn = mysqli_connect('localhost','root', 'ha@2006', 'spactube');
+            $this->conn = mysqli_connect('localhost','root', '', 'spactube');
             if (!$this->conn) {
                 throw new Exception('Failed to connect to Database:');
             }

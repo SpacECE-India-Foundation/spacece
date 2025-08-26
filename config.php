@@ -8,6 +8,10 @@ session_start();
 // 0000092,0000065,0000048
 require_once './vendor/autoload.php';
 
+//site url issue no 0000530.comment the following line and uncomment  the next tothat\
+$siteurl='http://localhost/spacece';
+//    //https://hustle-7c68d043.mileswebhosting.com/spacece'
+
 //Make object of Google API Client for call Google API
 $google_client = new Google_Client();
 

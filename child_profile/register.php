@@ -152,7 +152,7 @@ if (!empty($_SESSION)) {
                     <span>Hepatitis B birth dose</span>
                     <label><input type="radio" name="hepb" id="hepb_notreceived" value="Not Received"> Not Received</label>
                 </div>
-                <div class="vaccine-group">
+               <div class="vaccine-group">
                     <label><input type="radio" name="opv1" id="opv1_received" value="Received"> Received</label>
                     <span>OPV-1, Pentavalent-1</span>
                     <label><input type="radio" name="opv1" id="opv1_notreceived" value="Not Received"> Not Received</label>
@@ -211,7 +211,37 @@ function validateForm(event) {
     }
 
     alert("Form submitted successfully!");
-    form.submit();
+    document.forms['childForm'].action='../ConsultUs/add_child.php';
+    document.forms['childForm'].submit();
+
+    //ajax functionto insert child record'
+    alert("http://localhost/spacece/ConsultUs/src/add_child.php");
+      $.ajax({
+    url:"http://localhost/spacece/ConsultUs/src/add_child.php",
+        dataType:"jsonp",
+    data:{
+        childname:childname,
+        contact:contact,
+        email:email,
+        address:address,
+        dob:dob,
+        age:age,
+    },
+    contentType:false,
+    processData:false,
+    crossDomain:false,
+    crossOrigin:false,
+    method:"post",
+    success:function(data,status,jqXHR)  {
+      alert("success"+jqXHR.status);
+    },
+    error:function(jqXHR,exception)
+    {
+       alert('error' + jqXHR.status);
+    }
+  } );  //end ajax
+
+    //form.submit();
     return true;
 }
 </script>

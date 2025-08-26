@@ -1,8 +1,15 @@
 <?php
+include('../includes/constants.php');
+// Updated upstream
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+$siteurl='http://localhost/spacece/';
 
+if (!isset($_SESSION)){
+session_start();
+}
+// Stashed changes
 ?>
 
 <!DOCTYPE html>
@@ -300,6 +307,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         } else {
                             $img_path = "../img/users/";
                         }
+                        $siteurl=$siteurl.'about.php';
                         ?>
                         <img class="user_avatar"
                             src="<?= !isset($_SESSION['current_user_image'])
@@ -310,13 +318,18 @@ if (session_status() === PHP_SESSION_NONE) {
                         <span style="cursor: pointer;"><?= isset($_SESSION['current_user_name']) ? $_SESSION['current_user_name'] : 'Guest' ?></span>
                     </button>
                     <?php
+                    
                     if (isset($main_page)) {
+                   
                         $auth_path = "./spacece_auth/";
                     } elseif (isset($sub_page)) {
                         $auth_path = "../../spacece_auth/";
+                   
                     } else {
 
                         $auth_path = "../spacece_auth/";
+                   
+
                     }
                     ?>
 
@@ -341,7 +354,10 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- <a href="../index.php"><i class="fa-solid fa-house"></i></a> -->
                     <a href="<?= isset($main_page) ? "index.php" : "../index.php" ?>"><i class="fa-solid fa-house icon-hover"></i></a>
                     <?= isset($extra_main_nav_links) ? $extra_main_nav_links : null ?>
-                    <a href="./about.php"><i class="fa-solid fa-circle-info icon-hover"></i></a>
+                
+                    
+                   <?php $siteurl='http://localhost/spacece/';?>
+                    <a href='<?=$siteurl.'about.php';?>'><i class="fa-solid fa-circle-info icon-hover"></i></a>
                     <!-- <a href="./spacece_auth/login.php"><i class="fa-regular fa-circle-user"></i></a> -->
                     <a href="<?= isset($main_page) ? "./spacece_auth/login.php" : "../spacece_auth/login.php" ?>"><i class="fa-regular fa-circle-user icon-hover"></i></a>
 

@@ -5,7 +5,7 @@ include('../Db_Connection/db_spacece.php');
 // if (isset($_POST['login'])) {
 // Email login and md5 hashed password login
 $email = trim($_POST['email']);
-$password = md5(trim($_POST['password']));
+$password = $_POST['password']; //md5(trim($_POST['password']));
 $type = $_POST['type'];
 
 if ($type == "consultant") {

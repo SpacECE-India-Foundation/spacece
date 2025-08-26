@@ -5,8 +5,9 @@ $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 include_once '../common/header_module.php';
 include '../Db_Connection/constants.php';
-include '../Db_Connection/db_cits1.php';
-
+$conn=include '../Db_Connection/db_cits1.php';
+echo 'checking';
+print_r($_POST);
 if (isset($_POST['submit'])) {
   $docid = $_SESSION['current_user_id'];
   $childname = $_POST['childname'];
@@ -23,9 +24,9 @@ if (isset($_POST['submit'])) {
   $interval = $today->diff($birthdate);
   $childage = $interval->y;
 
-  $sql = mysqli_query($conn, "INSERT INTO cits1.tblchildren(childName, parentContno, parentEmail, childGender, parentAdd, childAge, childImmu, childDoB) 
+  $sql = mysqli_query($conn, "INSERT INTO cits.tblchildren(childName, parentContno, parentEmail, childGender, parentAdd, childAge, childImmu, childDoB) 
     VALUES('$childname', '$parentcontact', '$parentemail', '$gender', '$parentaddress', '$childage', '$medhis', '$dob')");
-
+echo $sql;
   if ($sql) {
     echo "<script>
     alert('Child info added Successfully');
@@ -114,7 +115,7 @@ if (isset($_POST['submit'])) {
     <h2 class="mb-8 text-start">Register a Child</h2>
     <a href="./cdetails.php?category=all" class="btn btn-sm me-2 text-white mt-2 pt-2" style="margin-left: 10px; background-color:orange;"> &#8592; Back</a>
 
-    <form role="form" method="post" class="mt-4 pt-4">
+    <form role="form" method="post" class="mt-4 pt-4" enctype="multipart/form-data">
       <div class="form-group">
         <label for="childname">Child Name</label>
         <input type="text" name="childname" class="form-control" placeholder="Enter the name of the Child" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed">
@@ -137,6 +138,12 @@ if (isset($_POST['submit'])) {
           <label for="rg-male">Male</label>
         </div>
       </div>
+      <!--adding the fields for childphoto photo issue 0000533 -->
+      <div class="form-group">
+        <label class="block">Child Photo</label>
+        <input type="file" name ="cphoto" id="cphoto">
+      </div>
+      <!--end addition-->
       <div class="form-group">
         <label for="parentaddress">Parent Address/Residence</label>
         <textarea name="parentaddress" class="form-control" placeholder="Enter parent address and area of residence" required></textarea>

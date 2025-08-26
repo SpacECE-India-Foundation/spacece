@@ -22,7 +22,7 @@ $phone = trim($_POST['phone']);
 $image = $_FILES['image']['name'];
 $type = $_POST['type'];
 
-$hashed_password = md5($password);
+$hashed_password = $password;  // md5($password);
 
 $destination_path = getcwd() . DIRECTORY_SEPARATOR;
 

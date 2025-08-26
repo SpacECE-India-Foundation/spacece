@@ -82,15 +82,18 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                     <select name ="remove">
                         <option class=" col-sm-4" disabled selected>-- Select Video id --</option>
                         <?php
-                           include '../Db_Connection/db_spaceTube.php'; 
+                           $conn=include('../Db_Connection/db_spaceTube.php'); 
                            
                              // Using database connection file here
-                            $records = mysqli_query($mysqli, "SELECT `v_id`,`title` From `videos` ORDER BY `v_id`");  // Use select query here 
+                           //  $conn = new mysqli('localhost', 'root', '', 'spactube');
 
+                            $records = mysqli_query($conn, "SELECT `v_id`,`title` From `videos` ORDER BY `v_id`");  // Use select query here 
+                            
+                            
                             while($data = mysqli_fetch_array($records))
                             {
                                 var_dump($data);
-                                echo "<option value='". $data['v_id'] ."'>" .$data['v_id'] ."</option>";  // displaying data in option menu
+                                echo "<option value='". $data['v_id'] ."'>" .$data['title'] ."</option>";  // displaying data in option menu
                             }	
                         ?>  
                     </select>

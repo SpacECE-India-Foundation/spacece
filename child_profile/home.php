@@ -218,37 +218,52 @@ if (empty($_SESSION['current_user_id'])) {
             <p>Users | Dashboard</p>
             <a href="#">Check Child Management....</a>
         </div>
+    <div class="section-title">Your Children
+    <a href="../ConsultUs/add_child.php">
+        <button class="add-child-button">Add A Child</button></a>
+    </div>
+        
     </div>
 
 
-    <div class="section-title">Your Children</div>
-    <a href="register.php">
-        <button class="add-child-button">Add A Child</button></a>
-    <br>
-    <br>
-
+    
+<?php
+ $conn=include('../Db_Connection/db_cits1.php');
+ $records = mysqli_query($conn, "SELECT `ID`,`childName`,`childGender`,`childDoB`,`childPhoto` From `tblchildren` ORDER BY `ID`");  // Use select query here 
+                            print_r($records);
+                            $i=0;
+                            while($row = mysqli_fetch_object($records))
+                            {
+                            print_r($row);
+?>
     <div class="children-grid">
         <div class="child-card">
             <div class="child-image"></div>
-            <a href="profile.php">
-                <div class="child-name">Child 1</div>
+            <a href="">
+                <div class="child-name"><=$row[1]?></div>
             </a>
         </div>
         <div class="child-card">
             <div class="child-image"></div>
             <a href="profile.php">
-                <div class="child-name">Child 2</div>
+                <div class="child-name"><?=$row[1];?></div>
             </a>
         </div>
         <div class="child-card">
             <div class="child-image"></div>
             <a href="profile.php">
-                <div class="child-name">Child 3</div>
+                <div class="child-name"><?=$data['childName'][$i+2];?></div>
             </a>
         </div>
     </div>
+    <?php 
+    $i=+3;
+    }
+    ?>
 
-    <?php include_once '../common/footer_module.php'; ?>
+    <?php 
+    $conn=include('../Db_Connection/db_spacece.php'); 
+    include_once '../common/footer_module.php'; ?>
 </body>
 
 </html>

@@ -2,10 +2,14 @@
 include('constants.php');
 
 // Create connection
-$conn = new mysqli(DB_HOST_NAME,DB_USER_NAME,DB_USER_PASSWORD,DB_NAME_CITS1);
+$conn = new mysqli('localhost','root','','cits');
+//new mysqli(DB_HOST_NAME,DB_USER_NAME,DB_USER_PASSWORD,DB_NAME_CITS1);
 
 // Check connection
 if ($conn->connect_error) {
    echo("Failed to connect to Database: " . $conn->connect_error);
+   
+} else{
+   return $conn;
 }
 ?>

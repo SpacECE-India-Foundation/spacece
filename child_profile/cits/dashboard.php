@@ -260,7 +260,7 @@ include('include/config.php');
 	</style>
 </head>
 
-<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; background-filter: blur(8px); background-position: center;
+<body style="background-image:url('b1.jpg'); background-repeat: no-repeat; background-size: cover; backdrop-filter: blur(8px); background-position: center;
   " class="hold-transition login-page">
 
 	<header>

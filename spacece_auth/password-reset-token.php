@@ -1,11 +1,13 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
+include 'vendor/PHPMailer';
 
 include_once './header_local.php';
 include_once '../common/header_module.php';
 include_once '../includes/constants.php';
-include_once '../Db_Connection/db_spacece.php';
+//password-token-reset.php
+$conn=include('../Db_Connection/db_spacece.php');
+//**************************** */
 if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
     $protocol = "https";
 } else {
@@ -55,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $update_stmt->bind_param('sss', $token, $expiry_date, $email);
             $update_stmt->execute();
             // require_once 'vendor/autoload.php';
-            require_once __DIR__ . '/../vendor/autoload.php';
+            require_once '/../vendor/autoload.php';
 
 
             $mail = new PHPMailer();

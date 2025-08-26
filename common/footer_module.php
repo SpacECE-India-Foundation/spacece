@@ -163,7 +163,7 @@
             <div class="email-container">
               <label class="email-label fs-6" for="email">Enter your email -</label>
               <form id="sub" class="email-form">
-                <input type="email" id="email" placeholder="Email here" required />
+                <input type="emailsub" id="emailsub" placeholder="Email here" required />
                 <button type="submit">Submit</button>
               </form>
             </div>
@@ -179,23 +179,25 @@
 
     <script>
       $(document).ready(function() {
+        
         $('#sub').on('submit', function(e) {
           e.preventDefault();
-          var email = $('#email').val();
-
+          var email = $('#emailsub').val();
+  alert(email);
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email
             },
             success: function(data) {
+              alert(data);
               console.log("Server response:", data);
               handleSubscriptionResponse(data);
             },
             error: function(xhr, status, error) {
-              swal("Error!", "Something went wrong. Please try again later.", "error");
+              swal("Error!", "Something went wrong. Please try again later.");
             }
           });
         });
