@@ -320,9 +320,9 @@ if(!empty($_SESSION)){
 <div class="btn-group">
 <div class="btn-container">
     <div class="btn-group">
-        <a href="immunization.php" class="btn btn-orange">Immunization Tracker</a>
-        <a href="height.php" class="btn btn-orange">Height Chart</a>
-        <a href="weight.php" class="btn btn-orange">Weight Chart</a>
+        <a href="immunization.php?id=<?=$id;?>" class="btn btn-orange">Immunization Tracker</a>
+        <a href="height.php?id=<?=$id;?>" class="btn btn-orange">Height Chart</a>
+        <a href="weight.php?id=<?=$id;?>" class="btn btn-orange">Weight Chart</a>
     </div>
     
     <div class="btn-group">

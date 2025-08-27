@@ -212,7 +212,7 @@ if (empty($_SESSION['current_user_id'])) {
     </div>
 
     <div class="header-banner">
-        <img src="../img/Child_Management.png" alt="Child Management Banner">
+        <img src="../includes/img/Child_Management.png" alt="Child Management Banner">
         <div class="header-card">
             <h1>Child Management</h1>
             <p>Users | Dashboard</p>
@@ -248,36 +248,50 @@ if (empty($_SESSION['current_user_id'])) {
                             }
     for($i=0;$i<count($childName);$i+=3)  
         {                     
-         
+       if(($i >=0) &&($i < count($childName)))
+            {
+        
+        
 ?>
     <div class="children-grid">
         <div class="child-card">
-            <div class="child-image"></div>
+            <div class="child-image"><img src="<?=$childPhoto[$i];?>" alt='noimage'/></div>
             <a href="profile.php?id=<?=$childID[$i];?>">
                 <div class="child-name"><?=$childName[$i];?></div>
             </a>
         </div>
-           
+        <? }
+
+        if((($i+1 )>=0) && (($i+1) < count($childName)))
+            {
+        
+        ?>
         <div class="child-card">
-            <div class="child-image"></div>
+            <div class="child-image"><img src="<?=$childPhoto[$i+1];?>" alt='noimage'/></div>
             <a href="profile.php?id=<?=$childID[$i+1];?>" >
                 <div class="child-name"><?=$childName[$i+1];?></div>
             </a>
         </div>
+        <? }
         
+        if((($i+2) >=0) &&(($i+2) < count($childName)))
+            {
+        
+        ?>  
         <div class="child-card">
-            <div class="child-image"></div>
+            <div class="child-image"><img src="<?=$childPhoto[$i+2];?>" alt='noimage'/></div>
             <a href="profile.php?id=<?=$childID[$i+2];?>" >
                 <div class="child-name"><?=$childName[$i+2];?></div>
             </a>
         </div>
     </div>
     <?php 
-    
+            
     }
     ?>
 
     <?php 
+        }
     $conn=include('../Db_Connection/db_spacece.php'); 
     include_once '../common/footer_module.php'; ?>
 </body>

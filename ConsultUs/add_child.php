@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-$main_logo = "../img/logo/SpacECELogo.jpg";
+$main_logo = "/includes/img/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
 include_once('../common/header_module.php');
@@ -73,7 +73,7 @@ echo $target_file;
   if ($sql) {
     echo "<script>
     alert('Child info added Successfully');
-    //window.location.href = './myChildrens.php';
+    window.location.href = './myChildrens.php';
 </script>";
   }
 }

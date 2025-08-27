@@ -1,6 +1,6 @@
 <?php
 //  
-$main_logo = "./img/logo/SpacECELogo.jpg";
+$main_logo = "./includes/img/logo/SpacECELogo.jpg";
 $module_logo = null;
 $module_name = null;
 $main_page = true;
