@@ -31,7 +31,7 @@ CREATE TABLE `Dose` (
   PRIMARY KEY (`dose_id`),
   KEY `vaccine_id` (`vaccine_id`),
   CONSTRAINT `Dose_ibfk_1` FOREIGN KEY (`vaccine_id`) REFERENCES `Vaccine` (`vaccine_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +50,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `User_vaccination_record`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `User_vaccination_record` (
   `u_id` int NOT NULL,
   `vaccine_id` int NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE `User_vaccination_record` (
   `age` varchar(50) DEFAULT NULL,
   `status` int DEFAULT NULL,
   PRIMARY KEY (`u_id`,`vaccine_id`,`dose_number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,14 +77,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Vaccine`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8*/;
 CREATE TABLE `Vaccine` (
   `vaccine_id` int NOT NULL AUTO_INCREMENT,
   `vaccine_name` varchar(100) NOT NULL,
   `protects_against` varchar(200) DEFAULT NULL,
   `info` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`vaccine_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `growth_result`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `growth_result` (
   `u_id` int NOT NULL,
   `date` date NOT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE `growth_result` (
   `day` text,
   `average` double DEFAULT NULL,
   PRIMARY KEY (`u_id`,`date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

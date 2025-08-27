@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8*/;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,14 +21,14 @@
 
 DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `admin` (
   `AdminID` int NOT NULL AUTO_INCREMENT,
   `admin_pwd` varchar(30) NOT NULL,
   `name` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   UNIQUE KEY `AdminID` (`AdminID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `agora_call`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `agora_call` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` varchar(50) NOT NULL,
@@ -55,10 +55,10 @@ CREATE TABLE `agora_call` (
   `channel_name` varchar(20) NOT NULL,
   `token` varchar(200) NOT NULL,
   `call_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `joining_url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `joining_url` text CHARACTER SET utf8  NOT NULL,
   `c_time` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `agora_scheduled_call`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8*/;
 CREATE TABLE `agora_scheduled_call` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` varchar(50) NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE `agora_scheduled_call` (
   `datetime` varchar(50) NOT NULL,
   `joining_url` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `appointment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8*/;
 CREATE TABLE `appointment` (
   `cid` int unsigned NOT NULL,
   `category` varchar(100) NOT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE `appointment` (
   `time_appointment` time DEFAULT NULL,
   `com_mob` varchar(20) NOT NULL,
   PRIMARY KEY (`bid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +136,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `consultant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `consultant` (
   `c_id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -149,13 +149,13 @@ CREATE TABLE `consultant` (
   `stime` time NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `img` longblob,
-  `lang` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'English',
+  `lang` varchar(100) CHARACTER SET utf8  NOT NULL DEFAULT 'English',
   `fee` int NOT NULL DEFAULT '100',
-  `available_from` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'monday',
+  `available_from` varchar(30) CHARACTER SET utf8 NOT NULL DEFAULT 'monday',
   `available_to` varchar(30) NOT NULL DEFAULT 'saturday',
-  `qualification` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'bachelor degree ',
+  `qualification` varchar(500) CHARACTER SET utf8 NOT NULL DEFAULT 'bachelor degree ',
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,14 +174,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `consultant_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `consultant_category` (
   `cat_id` int NOT NULL AUTO_INCREMENT,
   `cat_name` varchar(100) NOT NULL,
   `cat_slug` varchar(100) NOT NULL,
   `cat_img` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`cat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +200,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `description`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `description` (
   `X` int NOT NULL,
   `descID` int NOT NULL,
@@ -211,7 +211,7 @@ CREATE TABLE `description` (
   PRIMARY KEY (`X`),
   KEY `descpatientID` (`descID`),
   KEY `descDoctorID` (`doctorIDdesc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,12 +230,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `feedback`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `feedback` (
   `user_name` varchar(100) NOT NULL,
   `feedback` varchar(200) NOT NULL,
   `email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,7 +254,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `login`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `login` (
   `UID` int NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
@@ -284,7 +284,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `msg`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8*/;
 CREATE TABLE `msg` (
   `sno` int NOT NULL AUTO_INCREMENT,
   `msg` text NOT NULL,
@@ -293,7 +293,7 @@ CREATE TABLE `msg` (
   `rtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `u_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`sno`)
-) ENGINE=InnoDB AUTO_INCREMENT=210 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=210 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -312,7 +312,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `new_apointment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `new_apointment` (
   `booking_id` int NOT NULL,
   `u_id` int NOT NULL,
@@ -322,7 +322,7 @@ CREATE TABLE `new_apointment` (
   `booking_time` time DEFAULT NULL,
   `b_id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`b_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -341,7 +341,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `webhook`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `webhook` (
   `imojo` varchar(200) NOT NULL,
   `payment_id` varchar(200) NOT NULL,
@@ -350,13 +350,13 @@ CREATE TABLE `webhook` (
   `phone` varchar(20) NOT NULL,
   `purpose` varchar(100) NOT NULL,
   `date_of_purchase` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `buyer_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `amount` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `track_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `buyer_name` varchar(100) CHARACTER SET utf8  NOT NULL,
+  `amount` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `track_id` varchar(100) CHARACTER SET utf8  DEFAULT NULL,
   `order_status` varchar(100) NOT NULL DEFAULT 'order placed',
   `consultant_id` int NOT NULL,
   `expiry_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

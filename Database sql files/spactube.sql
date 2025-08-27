@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,14 +21,14 @@
 
 DROP TABLE IF EXISTS `comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `comment` (
   `u_id` varchar(100) NOT NULL,
   `v_id` varchar(100) NOT NULL,
   `comment` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `login`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `login` (
   `UID` int NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
@@ -76,7 +76,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_comments` (
   `id` int NOT NULL AUTO_INCREMENT,
   `u_no` int DEFAULT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `tbl_comments` (
   `u_comment` varchar(1000) DEFAULT NULL,
   `Date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,13 +103,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_dislike`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_dislike` (
   `u_id` varchar(100) NOT NULL,
   `v_id` varchar(200) NOT NULL,
   `dislike` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`u_id`,`v_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,13 +128,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_like`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_like` (
   `u_id` varchar(200) NOT NULL,
   `v_id` varchar(200) NOT NULL,
   `like_status` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`u_id`,`v_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,14 +153,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_recents`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_recents` (
   `u_no` int NOT NULL,
   `v_id` int NOT NULL,
   `v_time` time DEFAULT NULL,
   `vr_date` date DEFAULT NULL,
   `v_url` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +179,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `videos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `videos` (
   `v_id` int NOT NULL AUTO_INCREMENT,
   `v_url` varchar(250) NOT NULL,
@@ -198,7 +198,7 @@ CREATE TABLE `videos` (
   `language` varchar(20) NOT NULL,
   PRIMARY KEY (`v_id`),
   UNIQUE KEY `v_uni_no` (`v_uni_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,7 +217,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `webhook`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `webhook` (
   `imojo` varchar(50) NOT NULL,
   `payment_id` varchar(32) NOT NULL,
@@ -227,7 +227,7 @@ CREATE TABLE `webhook` (
   `purpose` varchar(100) NOT NULL,
   `date_of_purchase` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `end_subs` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

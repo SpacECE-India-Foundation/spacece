@@ -3,12 +3,13 @@ error_reporting(0);
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
 $module_name = "ConsultUs";
-include_once '../common/header_module.php';
-include '../Db_Connection/constants.php';
-$conn=include '../Db_Connection/db_cits1.php';
+include_once('../common/header_module.php');
+include ('../Db_Connection/constants.php');
+$conn=include ('../Db_Connection/db_cits1.php');
+//include('upload.php');
 echo 'checking';
 print_r($_POST);
-if (isset($_POST['submit'])) {
+if (isset($_POST)){
   $docid = $_SESSION['current_user_id'];
   $childname = $_POST['childname'];
   $parentcontact = $_POST['parentcontact'];
@@ -17,6 +18,48 @@ if (isset($_POST['submit'])) {
   $parentaddress = $_POST['parentaddress'];
   $dob = $_POST['childob'];
   $medhis = $_POST['medhis'];
+//*********************************
+// file uploaded[childPhoto]
+// **********************************
+$file=$_FILES['cphoto']['name'];
+echo $file;
+    $target_dir = "uploads/"; // Specify the directory where the file will be saved
+    $target_file = $target_dir . basename($_FILES["cphoto"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    // Check if file already exists (optional)
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Check file size (optional)
+    if ($_FILES["cphoto"]["size"] > 500000) { // Example: 500KB limit
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats (optional)
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["cphoto"]["tmp_name"], $target_file)) {
+            echo "The file ". htmlspecialchars( basename( $_FILES["cphoto"]["name"])). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+
+echo $target_file;
 
   // Calculate age from date of birth
   $today = new DateTime();
@@ -24,16 +67,17 @@ if (isset($_POST['submit'])) {
   $interval = $today->diff($birthdate);
   $childage = $interval->y;
 
-  $sql = mysqli_query($conn, "INSERT INTO cits.tblchildren(childName, parentContno, parentEmail, childGender, parentAdd, childAge, childImmu, childDoB) 
-    VALUES('$childname', '$parentcontact', '$parentemail', '$gender', '$parentaddress', '$childage', '$medhis', '$dob')");
-echo $sql;
+  $sql = mysqli_query($conn, "INSERT INTO cits.tblchildren(childName, parentContno, parentEmail, childGender, parentAdd, childAge, childImmu, childDoB,childPhoto) 
+    VALUES('$childname', '$parentcontact', '$parentemail', '$gender', '$parentaddress', '$childage', '$medhis', '$dob','$target_file')");
+//echo $sql;
   if ($sql) {
     echo "<script>
     alert('Child info added Successfully');
-    window.location.href = './myChildrens.php';
+    //window.location.href = './myChildrens.php';
 </script>";
   }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,7 +200,8 @@ echo $sql;
         <label for="medhis">Disease being sought immunization for</label>
         <textarea name="medhis" class="form-control" placeholder="Enter name of the disease to be vaccinated for" required></textarea>
       </div>
-      <button type="submit" name="submit" class="btn btn-primary" style="background-color:orange;border:navy">Register</button>
+      <button type="submit" name="submit" class="btn btn-primary" style="background-color:orange;border:navy">
+        Register</button>
     </form>
   </div>
 

@@ -230,34 +230,50 @@ if (empty($_SESSION['current_user_id'])) {
 <?php
  $conn=include('../Db_Connection/db_cits1.php');
  $records = mysqli_query($conn, "SELECT `ID`,`childName`,`childGender`,`childDoB`,`childPhoto` From `tblchildren` ORDER BY `ID`");  // Use select query here 
-                            print_r($records);
+                           // print_r($records);
                             $i=0;
-                            while($row = mysqli_fetch_object($records))
+                            $childName = [];
+                            $childGender = [];
+                            $childDoB = [];
+                            $childPhoto = [];
+
+                            while($row = mysqli_fetch_assoc($records))
                             {
-                            print_r($row);
+                                $childID[$i]=$row['ID'];
+                             $childName[$i]=$row['childName'];
+                            $childGender[$i]=$row['childGender'];
+                            $childDoB[$i]=$row['childDoB'];
+                            $childPhoto[$i]=$row['childPhoto'];
+                            $i++;
+                            }
+    for($i=0;$i<count($childName);$i+=3)  
+        {                     
+         
 ?>
     <div class="children-grid">
         <div class="child-card">
             <div class="child-image"></div>
-            <a href="">
-                <div class="child-name"><=$row[1]?></div>
+            <a href="profile.php?id=<?=$childID[$i];?>">
+                <div class="child-name"><?=$childName[$i];?></div>
             </a>
         </div>
+           
         <div class="child-card">
             <div class="child-image"></div>
-            <a href="profile.php">
-                <div class="child-name"><?=$row[1];?></div>
+            <a href="profile.php?id=<?=$childID[$i+1];?>" >
+                <div class="child-name"><?=$childName[$i+1];?></div>
             </a>
         </div>
+        
         <div class="child-card">
             <div class="child-image"></div>
-            <a href="profile.php">
-                <div class="child-name"><?=$data['childName'][$i+2];?></div>
+            <a href="profile.php?id=<?=$childID[$i+2];?>" >
+                <div class="child-name"><?=$childName[$i+2];?></div>
             </a>
         </div>
     </div>
     <?php 
-    $i=+3;
+    
     }
     ?>
 

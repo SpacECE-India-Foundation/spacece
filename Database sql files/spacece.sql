@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `consultant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `consultant` (
   `c_id` int NOT NULL AUTO_INCREMENT,
   `u_id` int NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `consultant` (
   KEY `consultant_ibfk_1` (`u_id`),
   CONSTRAINT `consultant_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `users` (`u_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `consultant_ibfk_2` FOREIGN KEY (`c_category`) REFERENCES `consultant_category` (`cat_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,14 +59,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `consultant_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `consultant_category` (
   `cat_id` int NOT NULL AUTO_INCREMENT,
   `cat_name` varchar(100) NOT NULL,
   `cat_slug` varchar(100) NOT NULL,
   `cat_img` varchar(50) NOT NULL,
   PRIMARY KEY (`cat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `courier`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `courier` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE `courier` (
   KEY `order_id` (`order_id`),
   CONSTRAINT `courier_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`u_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `courier_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `libforsmall`.`orders` (`order_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,18 +126,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `learnonapp_courses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `learnonapp_courses` (
   `id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `logo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `logo` varchar(100) CHARACTER SET utf8  DEFAULT NULL,
   `type` varchar(255) NOT NULL,
   `mode` enum('Online','Offline') NOT NULL,
   `duration` smallint NOT NULL,
   `price` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +156,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `learnonapp_messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `learnonapp_messages` (
   `id` int NOT NULL AUTO_INCREMENT,
   `no_of_day` smallint NOT NULL,
@@ -164,7 +164,7 @@ CREATE TABLE `learnonapp_messages` (
   `header` varchar(255) NOT NULL,
   `message` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +183,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `learnonapp_subcourses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `learnonapp_subcourses` (
   `id` int NOT NULL AUTO_INCREMENT,
   `cid` int NOT NULL,
@@ -195,7 +195,7 @@ CREATE TABLE `learnonapp_subcourses` (
   PRIMARY KEY (`id`),
   KEY `learnonapp_subcourses_ibfk_1` (`cid`),
   CONSTRAINT `learnonapp_subcourses_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `learnonapp_courses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +213,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `learnonapp_users_courses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `learnonapp_users_courses` (
   `id` int NOT NULL AUTO_INCREMENT,
   `uid` int NOT NULL,
@@ -226,7 +226,7 @@ CREATE TABLE `learnonapp_users_courses` (
   KEY `cid` (`cid`),
   CONSTRAINT `learnonapp_users_courses_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`u_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `learnonapp_users_courses_ibfk_2` FOREIGN KEY (`cid`) REFERENCES `learnonapp_courses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,7 +245,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `notifications`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `notifications` (
   `ntfID` int NOT NULL AUTO_INCREMENT,
   `ntfTitle` text,
@@ -253,7 +253,7 @@ CREATE TABLE `notifications` (
   `ntfProduct` varchar(50) DEFAULT NULL,
   `ntfTimeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ntfID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -272,13 +272,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `products` (
   `p_id` int NOT NULL AUTO_INCREMENT,
   `p_name` varchar(255) NOT NULL,
   PRIMARY KEY (`p_id`),
   UNIQUE KEY `p_name` (`p_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,13 +296,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `subscription`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `subscription` (
   `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,7 +321,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_activity_mail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `user_activity_mail` (
   `id` int NOT NULL AUTO_INCREMENT,
   `u_id` int NOT NULL,
@@ -350,7 +350,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_notification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `user_notification` (
   `noti_id` int NOT NULL,
   `id` int NOT NULL AUTO_INCREMENT,
@@ -378,7 +378,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `u_id` int NOT NULL AUTO_INCREMENT,
   `u_name` varchar(200) DEFAULT NULL,
@@ -394,7 +394,7 @@ CREATE TABLE `users` (
   `u_createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`u_id`),
   UNIQUE KEY `u_email` (`u_email`)
-) ENGINE=InnoDB AUTO_INCREMENT=393 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=393 DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -413,7 +413,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `webhook`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `webhook` (
   `imojo_id` varchar(255) NOT NULL,
   `payment_id` varchar(255) NOT NULL,
@@ -427,7 +427,7 @@ CREATE TABLE `webhook` (
   PRIMARY KEY (`imojo_id`),
   KEY `u_email` (`u_email`),
   KEY `p_name` (`p_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

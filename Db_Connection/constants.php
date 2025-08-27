@@ -1,11 +1,11 @@
 <?php
   
 
-if(!defined('DB_HOST_NAME'))
- define('DB_HOST_NAME', 'localhost:3306');
+//if(!defined('DB_HOST_NAME'))
+ ///define('DB_HOST_NAME', 'localhost:3306');
 
- if(!defined('DB_USER_NAME'))
- define('DB_USER_NAME', 'root');
+// if(!defined('DB_USER_NAME'))
+ //define('DB_USER_NAME', 'root');
 
  if(!defined('DB_USER_PASSWORD'))
 // Updated upstream
@@ -38,7 +38,7 @@ if(!defined('DB_NAME_LEARNONAPP'))
 define('DB_NAME_LEARNONAPP', 'api_learnonapp');
 
 if(!defined('DB_NAME_CONSULTANT_APP'))
-define('DB_NAME_CONSULTANT_APP', 'consultant_app');
+define('DB_NAME_CONSULTANT_APP', 'cits');
 
 if(!defined('DB_NAME_GROWTH_TRACKER'))
 define('DB_NAME_GROWTH_TRACKER', 'gallery_tracker');

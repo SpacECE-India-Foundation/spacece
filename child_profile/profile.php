@@ -1,4 +1,10 @@
 <?php
+$id=$_GET['id'];
+$conn=include('../Db_connection/db_cits1.php');
+$query = "SELECT  * FROM `tblchildren` WHERE  ID=".$id;
+$sql = mysqli_query($conn, $query);
+$res=mysqli_fetch_object($sql);
+
 session_start();
 if(!empty($_SESSION)){
     include 'header_local.php';
@@ -328,26 +334,26 @@ if(!empty($_SESSION)){
             
             <div class="profile-grid">
                 <div class="placeholder-container" id="imagePreviewContainer">
-                    <!-- Image will appear here -->
+                    <img src='../../SpacECE/ConsultUs/uploads/'<?=$res->childPhoto;?> />
                 </div>
                 <div>
                     <div class="form-control">
                         <label>Child's Name</label>
-                        <input type="text" value="Child 1">
+                        <input type="text" value="<?=$res->childName;?>">
                     </div>
                     <div class="dob-age-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="form-control">
                             <label>Child's Date of Birth</label>
-                            <input type="text" value="10 / 12 / 2020">
+                            <input type="text" value="<?=$res->childDoB;?>">
                         </div>
                         <div class="form-control">
                             <label>Child's Age</label>
-                            <input type="text" value="4 year, 5 Months">
+                            <input type="text" value="<?=$res->childAge;?>">
                         </div>
                     </div>
                     <div class="form-control">
                         <label>Child's Gender</label>
-                        <input type="text" value="Filed Entry">
+                        <input type="text" value="<?=$res->childGender;?>">
                     </div>
                     <div class="form-control">
                         <label>Image</label>

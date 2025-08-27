@@ -13,3 +13,4 @@ $conn = new mysqli('localhost', 'root', '', 'consultant_app');
 if ($conn->connect_error) {
   die("Failed to connect to Database: " . $conn->connect_error);
 }
+return $conn;
