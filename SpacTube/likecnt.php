@@ -23,12 +23,12 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
    
     <?php
 
-        include 'connection.php';
+        include '../Db_Connection/db_spaceTube.php';
         
         if(!empty($_GET['btn'])) 
         {
             $id = $_GET['btn'];
-            $incquery = "UPDATE `videos` SET `cntlike` = `cntlike`+ 1 WHERE `v_id` = $id ";
+            $incquery = "UPDATE videos SET cntlike = cntlike+ 1 WHERE v_id = $id ";
             $res = mysqli_query($conn, $incquery);
             if($res)
             {}
@@ -37,15 +37,15 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                 <script> alert("Connection lost!"); </script> 
                 <?php
             }
-            header('location: view.php');
+            header('location: audio_book.php');
             exit();
 
-        }
+        }   
 
         if(!empty($_GET['btn1'])) 
         {
             $id = $_GET['btn1'];
-            $incquery = "UPDATE `videos` SET `cntdislike` = `cntdislike`+ 1 WHERE `v_id` = $id ";
+            $incquery = "UPDATE videos SET cntdislike = cntdislike+ 1 WHERE v_id = $id ";
             $res = mysqli_query($conn, $incquery);
             if($res)
             {}
@@ -54,7 +54,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                 <script> alert("Connection lost!"); </script> 
                 <?php
             }
-            header('location: view.php');
+            header('location:audio_book.php');
             exit();
 
         }
@@ -64,7 +64,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
         // {
         //     $id = $_POST['remove'];
             
-            // $removequery = "DELETE FROM `videos` WHERE `v_id` = $id ";
+            // $removequery = "DELETE FROM videos WHERE v_id = $id ";
 
         //     $res = mysqli_query($conn, $removequery);
         //     if($res)
@@ -89,3 +89,4 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
     
 </body>
 </html>
+
