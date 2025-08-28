@@ -1,3 +1,6 @@
+//525, 526, 527, 528, 529 
+
+
 <?php
 
 include_once './header_local.php';
@@ -22,7 +25,7 @@ date_default_timezone_set("Asia/Calcutta");
 // Create connection
 define('DB_USER_DATABASE', 'spacece');
 
-$conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
+$conn1 = new mysqli('localhost', 'root', '', 'spacece');
 
 $sql_total = "SELECT COUNT(DISTINCT users.u_id) AS total 
     FROM consultant
@@ -193,7 +196,7 @@ $total_pages = ceil($total_records / $limit);
                                     <?php
                                     if (isset($_SESSION['current_user_id'])) {
                                         $email = $_SESSION['current_user_email'];
-                                        $sql = "SELECT * FROM `webhook` WHERE email='$email'";
+                                        $sql = "SELECT * FROM webhook WHERE email='$email'";
                                         $user_id = $_SESSION['current_user_id'];
                                         $res2 = mysqli_query($conn, $sql);
                                         $row2 = mysqli_fetch_assoc($res2);
@@ -264,7 +267,7 @@ $total_pages = ceil($total_records / $limit);
                                     <?php
                                     if (isset($_SESSION['current_user_id'])) {
                                         $email = $_SESSION['current_user_email'];
-                                        $sql = "SELECT * FROM `webhook` WHERE email='$email'";
+                                        $sql = "SELECT * FROM webhook WHERE email='$email'";
                                         $user_id = $_SESSION['current_user_id'];
                                         $res2 = mysqli_query($conn, $sql);
                                         $row2 = mysqli_fetch_assoc($res2);
@@ -552,7 +555,7 @@ $total_pages = ceil($total_records / $limit);
 
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email

@@ -14,7 +14,7 @@ class Functions
     public function __construct()
     {
         try {
-            $this->conn = mysqli_connect('localhost','root', 'ha@2006', 'spactube');
+            $this->conn = mysqli_connect('localhost','root', '', 'spactube');
             if (!$this->conn) {
                 throw new Exception('Failed to connect to Database:');
             }
@@ -105,6 +105,12 @@ class Functions
             return false;
         }
     }
+
+    // Added this function
+    public function dbConnect() {
+    $conn = mysqli_connect("localhost", "root", "", "spactube");
+    return $conn;
+}
     public function search_and_filter_videos($table, $filter, $search, $orderby = 'views', $order = 'DESC') {
         $conn = $this->dbConnect();
         $filter_condition = ($filter == 'all') ? "1" : "filter = '$filter'";
