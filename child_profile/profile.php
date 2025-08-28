@@ -1,10 +1,12 @@
 <?php
+if(isset($_GET['id'])){
 $id=$_GET['id'];
+
 $conn=include('../Db_connection/db_cits1.php');
 $query = "SELECT  * FROM `tblchildren` WHERE  ID=".$id;
 $sql = mysqli_query($conn, $query);
 $res=mysqli_fetch_object($sql);
-
+};
 session_start();
 if(!empty($_SESSION)){
     include 'header_local.php';

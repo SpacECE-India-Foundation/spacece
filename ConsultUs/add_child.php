@@ -9,7 +9,7 @@ $conn=include ('../Db_Connection/db_cits1.php');
 //include('upload.php');
 echo 'checking';
 print_r($_POST);
-if (isset($_POST)){
+if (isset($_POST['submit'])){
   $docid = $_SESSION['current_user_id'];
   $childname = $_POST['childname'];
   $parentcontact = $_POST['parentcontact'];
