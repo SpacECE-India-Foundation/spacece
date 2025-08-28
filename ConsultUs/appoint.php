@@ -43,8 +43,7 @@ if (isset($_SESSION['current_user_email'])) {
   <?php
   define('DB_USER_DATABASE', 'spacece');
 
-  $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
-  //$conn1 = new mysqli('localhost', 'root', '', 'spacece');
+  $conn1 = new mysqli('localhost', 'root', '', 'spacece');
 
   $u_name = '';
   $u_mob = '';
@@ -343,3 +342,8 @@ if (isset($_SESSION['current_user_email'])) {
   header("Location: ../spacece_auth/login.php");
 }
 ob_end_flush(); ?>
+
+
+
+
+
