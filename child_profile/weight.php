@@ -47,8 +47,8 @@ session_start();
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       margin-bottom: 40px;
-      text-align: center;
     }
+    .chart-container h1
 
     .chart-container img {
       max-width: 100%;
@@ -147,20 +147,20 @@ session_start();
   border-radius: 6px;
   font-size: 16px;
 }
-    .footer {
-            width: 100%;
-            background: #f8f9fa;
-            padding: 20px 0;
-            border-top: 1px solid #dee2e6;
-            margin-top: auto;
-        }
+.footer {
+  width: 100%;
+  background: #f8f9fa;
+  padding: 20px 0;
+  border-top: 1px solid #dee2e6;
+  margin-top: auto;
+}
 
   </style>
 </head>
 <body>
   <div class="contents">
 
-<div style="display: flex; align-items: center; margin-bottom: 20px;">
+<div style="display: flex; align-items: center; margin-bottom: 20px;margin:55px;">
   <a href="profile.php" style="
     background-color: orange;
     color: white;
@@ -380,6 +380,19 @@ session_start();
       <label for="current-weight">Current Weight</label>
       <input type="text" id="current-weight" name="current-weight" placeholder="Your entry here">
     </div>
+
+    <a href="#" style="
+          background-color: orange;
+          color: white;
+          font-weight: bold;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 6px;
+          margin-right: 20px;
+          margin: auto;
+          margin-top: 10px;
+          border: none;
+    ">Submit</a>
   </form>
 </div>
 </div>
