@@ -22,6 +22,10 @@ if(!empty($_SESSION)){
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Height-for-age BOYS</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
   <style>
     /* ===== CORE RESET ===== */
     * {
@@ -79,7 +83,10 @@ if(!empty($_SESSION)){
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       margin-bottom: 40px;
     }
-
+    .chart-container h1{
+      color: blue;
+      font-size: 30px;
+    }
     canvas {
       width: 100% !important;
       max-height: 500px;
@@ -173,14 +180,21 @@ if(!empty($_SESSION)){
   border-radius: 6px;
   font-size: 16px;
 }
+.footer {
+  width: 100%;
+  background: #f8f9fa;
+  padding: 20px 0;
+  border-top: 1px solid #dee2e6;
+  margin-top: auto;
+}
 
   </style>
 </head>
 <body>
   <div class="main-wrapper">
-    <div class="contents">
+    <div class="contents" style="margin:55px;">
       <!-- Your existing content here -->
-      <div style="display: flex; align-items: center; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; margin-bottom: 20px; margin-left: 30px;">
         <a href="profile.php" style="
           background-color: orange;
           color: white;
@@ -400,7 +414,24 @@ if(!empty($_SESSION)){
       <label for="current-weight">Current Weight</label>
       <input type="text" id="current-weight" name="current-weight" placeholder="Your entry here">
     </div>
+  
+    <button  style="
+          background-color: orange;
+          color: white;
+          font-weight: bold;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 6px;
+          margin-right: 20px;
+          margin: auto;
+          margin-top: 10px;
+          border: none">submit</button>
   </form>
 </div>
+
+<?php
+  include_once "../common/footer_module.php";
+  ?>
+
 </body>
 </html>
