@@ -135,6 +135,21 @@ session_start();
   flex-direction: column;
 }
 
+
+.add-btn {
+  padding: 10px 25px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  width: fit-content;          
+  margin: 0 auto; 
+}
+
 .form-group label {
   font-size: 14px;
   margin-bottom: 8px;
@@ -379,6 +394,9 @@ session_start();
     <div class="form-group">
       <label for="current-weight">Current Weight</label>
       <input type="text" id="current-weight" name="current-weight" placeholder="Your entry here">
+    </div>
+    <div class="form-group full-width">
+      <button type="submit" class="add-btn">Submit</button>
     </div>
   </form>
 </div>
