@@ -482,7 +482,8 @@ body {
 <body>
 <div class="main-section hero-banner-bg">
     <div class="top-header">
-      <img src="./img/logo/SpacECELogo.jpg" alt="icon" width="28" class="me-2"> Learn On App
+      <img src="../img/logo/LearnOnApp.jpeg" alt="Logo" style="height: 18px; vertical-align: middle; margin-right: 6px;">
+      Learn On Ap
     </div>
     <div class="main-title">Infant Care</div>
     <div class="subtitle">
