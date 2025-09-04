@@ -903,7 +903,7 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
   <!-- Hero Section Styled like about.php -->
   <section class="hero-section hero-banner-bg">
     <h5>
-      <img src="./img/logo/SpacECELogo.jpg" alt="Logo" style="height: 18px; vertical-align: middle; margin-right: 6px;">
+      <img src="../img/logo/LearnOnApp.jpeg" alt="Logo" style="height: 18px; vertical-align: middle; margin-right: 6px;">
       Learn On App
     </h5>
     <h1>Learn without Limit</h1>

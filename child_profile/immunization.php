@@ -162,14 +162,23 @@ session_start();
           <td>2025-01-20 13:00:00</td>
           <td>2025-02-20</td>
           <td>SPECE101</td>
-          <td>
-  <label>
-    <input type="radio" name="status1" value="Completed"> Completed
-  </label>
-  <label>
-    <input type="radio" name="status1" value="Pending"> Pending
-  </label>
-</td>
+          <!-- Selecting one checkbox should deselect another one. -->
+          <td>Completed</td>
+          <td><input type="checkbox" class="status"> Pending <input type="checkbox" class="status"></td>
+          <td><button>Book Pediatrician</button></td>
+
+        </tr>
+        <tr>
+          <td>#</td>
+          <td>Utkarsh</td>
+          <td>Polio</td>
+          <td>2025-01-15</td>
+          <td>2025-01-20 13:00:00</td>
+          <td>2025-02-20</td>
+          <td>SPECE101</td>
+          <!-- Selecting one checkbox should deselect another one. -->
+        <td>Completed</td>
+          <td><input type="checkbox" class="status"> Pending <input type="checkbox" class="status"></td>
           <td><button>Book Pediatrician</button></td>
         </tr>
         <tr>
@@ -180,36 +189,28 @@ session_start();
           <td>2025-01-20 13:00:00</td>
           <td>2025-02-20</td>
           <td>SPECE101</td>
-          <td>
-  <label>
-    <input type="radio" name="status2" value="Completed"> Completed
-  </label>
-  <label>
-    <input type="radio" name="status2" value="Pending"> Pending
-  </label>
-</td>
-          <td><button>Book Pediatrician</button></td>
-        </tr>
-        <tr>
-          <td>#</td>
-          <td>Utkarsh</td>
-          <td>Polio</td>
-          <td>2025-01-15</td>
-          <td>2025-01-20 13:00:00</td>
-          <td>2025-02-20</td>
-          <td>SPECE101</td>
-          <td>
-  <label>
-    <input type="radio" name="status3" value="Completed"> Completed
-  </label>
-  <label>
-    <input type="radio" name="status3" value="Pending"> Pending
-  </label>
-</td>
+          <!-- Selecting one checkbox should deselect another one. -->
+          <td>Completed</td>
+          <td><input type="checkbox" class="status"> Pending <input type="checkbox" class="status"></td>
           <td><button>Book Pediatrician</button></td>
         </tr>
       </tbody>
     </table>
   </div>
+  <!--Selecting one checkbox should deselect another one. -->
+  <script>
+document.querySelectorAll("td").forEach(td => {
+  const checkboxes = td.querySelectorAll(".status");
+  checkboxes.forEach(cb => {
+    cb.addEventListener("change", () => {
+      if (cb.checked) {
+        checkboxes.forEach(other => {
+          if (other !== cb) other.checked = false;
+        });
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>

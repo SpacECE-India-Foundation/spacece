@@ -559,7 +559,8 @@ function convertToEmbedUrl($url)
 
   <div class="container">
     <div class="top-header">
-      <img src="./img/logo/SpacECELogo.jpg" alt="icon" width="28" class="me-2"> Learn On App
+      <img src="../img/logo/LearnOnApp.jpeg" alt="Logo" style="height: 18px; vertical-align: middle; margin-right: 6px;">
+      Learn On App
     </div>
     <div class="main-heading">Infant Care</div>
     <p class="description">Learn vital skills for your baby's first year, covering feeding, sleep, health, safety, and early development. Gain confidence in providing the best care.</p>
