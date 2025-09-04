@@ -130,7 +130,7 @@
           </div>
 
           <!-- Contact Section -->
-          <div class="col-md-3 mb-3 mt-5 text-start text-start">
+          <div class="col-md-3 mb-3 mt-5 text-start">
             <div class="contact-widget" style="color: black;">
               <h5 style="font-size: 20px;">Contact Us</h5>
               <p class="mb-3 fs-6"style="color: black;"><i class="fa-solid fa-phone text-warning me-2"></i> +91 90963 05648</p>
