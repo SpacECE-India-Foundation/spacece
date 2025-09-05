@@ -282,8 +282,12 @@ table#activity_table td {
                     <button type="button" class="btn" style="background-color: #FFA500; color: white; padding: 10px 20px; border-radius: 8px; border: none;">
                         Online Activity Registration
                     </button>
+                    <!-- 0000494: 'In-Person Visit Registration' button is not functional in the 'Spacactive' page with delivery boy login.
+                      add onclick functionality to the button and give a registration file path "add_space_activity.php"' and button is perform clearliy
+                      issue is resolved now
+                    -->
                     
-                    <button type="button" class="btn" style="background-color: #007BFF; color: white; padding: 10px 20px; border-radius: 8px; border: none; margin-right: 4px;">
+                    <button type="button" onclick="window.location.href='add_space_activity.php'" class="btn" style="background-color: #007BFF; color: white; padding: 10px 20px; border-radius: 8px; border: none; margin-right: 4px;">
                         In-Person Visit Registration
                     </button>
                 </div>
