@@ -168,8 +168,9 @@ $total_pages = ceil($total_records / $limit);
                     if ($count > 0) {
                         while ($row = mysqli_fetch_assoc($res)) {
                             $app_id = rand(0000000, 9999999);
-                ?>
-                            <tr>
+                ?>  
+                    <!-- bug no 0000509: Doctor profile images not loading in the Psychiatrist listing page ,to solve this i created own jpg file replace those images in the img folder ../img/users/ -->
+                            <tr> 
                                 <td><?php echo $sno++; ?></td>
                                 <td><img src="<?php echo "../img/users/" . $row['u_image']; ?>" width="100" height="100"></td>
                                 <td><?php echo $row['u_name']; ?></td>

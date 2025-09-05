@@ -329,6 +329,7 @@ if (isset($_SESSION['current_user_id'])) {
         </div>
 
         <!-- Health Message + Social Media -->
+         <!-- login footer soical media icon dose not seen so i added this image in /spacece/gallery/FACEBOOK.png path-->
         <div class="col-lg-4 footer-widget">
           <p style="color: black; transform: translateX(-30px); margin-left: 90px; font-size: 25px; margin-top: 5px;">Still delaying treatment for your child's health concerns?</p><br>
           <p style="color: black; font-size: 20px; transform: translateX(-30px); margin-left: 90px;">Connect with India's top doctors online, today!</p>
@@ -358,6 +359,14 @@ if (isset($_SESSION['current_user_id'])) {
             </div>
           </div>
         </div>
+
+        <!-- <div>
+                  <a href="https://www.facebook.com/SpacECEIn" target="_blank" class="text-dark me-3"><i class="fa-brands fa-facebook "></i></a>
+                  <a href="https://twitter.com/" target="_blank" class="text-dark me-3"><i class="fa-brands fa-twitter "></i></a>
+                  <a href="https://www.linkedin.com/company/spacece-co/" target="_blank" class="text-dark me-3"><i class="fa-brands fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/spacece.in/" target="_blank" class="text-dark"><i class="fa-brands fa-instagram "></i></a>
+        </div>   -->
+
 
         <!-- Newsletter Section -->
         <div class="col-lg-3 footer-widget">
