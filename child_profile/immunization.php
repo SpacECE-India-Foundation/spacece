@@ -26,6 +26,8 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vaccination Records</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <style>
     * {
       margin: 0;
@@ -39,7 +41,7 @@ session_start();
       padding: 0;
     }
     .contents {
-      padding: 40px;
+      padding: 80px;
     }
     .nav-bar {
       display: flex;
@@ -85,12 +87,12 @@ session_start();
       color: white;
     }
     .footer {
-            width: 100%;
-            background: #f8f9fa;
-            padding: 20px 0;
-            border-top: 1px solid #dee2e6;
-            margin-top: auto;
-        }
+      width: 100%;
+      background: #f8f9fa;
+      padding: 20px 0;
+      border-top: 1px solid #dee2e6;
+      margin-top: auto;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -135,7 +137,7 @@ session_start();
 
     <div class="buttons">
       <button class="book-btn">Book Pediatrician</button>
-      <button class="appointment-btn">Your Appointments</button>
+      <a href="cits/appointment-history.php"><button class="appointment-btn">Your Appointments</button></a>
     </div>
 
     <table>
@@ -163,7 +165,7 @@ session_start();
           <td>2025-02-20</td>
           <td>SPECE101</td>
           <td>Completed</td>
-          <td><input type="checkbox"> Pending <input type="checkbox"></td>
+          <td><input type="radio" name="option"> Pending <input type="radio" name="option"></td>
           <td><button>Book Pediatrician</button></td>
         </tr>
         <tr>
@@ -175,7 +177,7 @@ session_start();
           <td>2025-02-20</td>
           <td>SPECE101</td>
           <td>Completed</td>
-          <td><input type="checkbox"> Pending <input type="checkbox"></td>
+          <td><input type="radio" name="option1"> Pending <input type="radio" name="option1"></td>
           <td><button>Book Pediatrician</button></td>
         </tr>
         <tr>
@@ -187,11 +189,18 @@ session_start();
           <td>2025-02-20</td>
           <td>SPECE101</td>
           <td>Completed</td>
-          <td><input type="checkbox"> Pending <input type="checkbox"></td>
+          <td><input type="radio" name="option2"> Pending <input type="radio" name="option2"></td>
           <td><button>Book Pediatrician</button></td>
         </tr>
       </tbody>
     </table>
   </div>
+
+<?php
+
+include '../common/footer_module.php'
+
+?>
+
 </body>
 </html>
