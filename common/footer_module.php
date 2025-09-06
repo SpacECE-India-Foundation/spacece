@@ -2,6 +2,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- SweetAlert -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous"> 
   <style>
     .fa {
       display: inline-flex;
@@ -185,13 +187,14 @@
 
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            // Bug No.-> 482 -> (https://mantis.spacece.co.in/view.php?id=482)  , 483, 484, 485, 486, 487 ----   Update the url path 
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email
             },
             success: function(data) {
-              console.log("Server response:", data);
+              console.log("Server response:", data);  
               handleSubscriptionResponse(data);
             },
             error: function(xhr, status, error) {
@@ -217,6 +220,9 @@
         }
       });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
   </body>
 
