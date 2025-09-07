@@ -22,6 +22,11 @@ if(!empty($_SESSION)){
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Height-for-age BOYS</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- footer css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
   <style>
     /* ===== CORE RESET ===== */
     * {
@@ -159,6 +164,21 @@ if(!empty($_SESSION)){
   flex: 1 1 45%;
   display: flex;
   flex-direction: column;
+}
+
+
+.add-btn {
+  padding: 10px 25px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  width: fit-content;         
+  margin: 0 auto;
 }
 
 .form-group label {
@@ -399,8 +419,30 @@ if(!empty($_SESSION)){
     <div class="form-group">
       <label for="current-weight">Current Weight</label>
       <input type="text" id="current-weight" name="current-weight" placeholder="Your entry here">
+      <br>
+      <!-- <button class="add-btn">Submit</button> -->
     </div>
+    <!-- <div class="form-group full-width">
+      <button type="submit" class="add-btn">Submit</button>
+    </div> -->
+
+     <!-- Bug No. -> 545 , 546 (https://mantis.spacece.co.in/view.php?id=545) Add Submit Button -->
+
+        <button  style="
+          background-color: orange;
+          color: white;
+          font-weight: bold;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 6px;
+          margin-right: 20px;
+          margin: auto;
+          margin-top: 10px;
+          border: none" class="add-btn">Submit</button>
   </form>
 </div>
+
+<!-- Footer -->
+    <?php include_once '../common/footer_module.php'; ?>
 </body>
 </html>

@@ -22,8 +22,10 @@ date_default_timezone_set("Asia/Calcutta");
 // Create connection
 define('DB_USER_DATABASE', 'spacece');
 
-$conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
+//$conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
 
+// Bug No. -> 525, 526, 527, 528, 529  -> Establish the correct connection to database
+$conn1 = new mysqli('localhost', 'root', '', 'spacece');
 $sql_total = "SELECT COUNT(DISTINCT users.u_id) AS total 
     FROM consultant
     JOIN consultant_category ON consultant.c_category = consultant_category.cat_id
@@ -168,8 +170,9 @@ $total_pages = ceil($total_records / $limit);
                     if ($count > 0) {
                         while ($row = mysqli_fetch_assoc($res)) {
                             $app_id = rand(0000000, 9999999);
-                ?>
-                            <tr>
+                ?>  
+                    <!-- bug no 0000509: Doctor profile images not loading in the Psychiatrist listing page ,to solve this i created own jpg file replace those images in the img folder ../img/users/ -->
+                            <tr> 
                                 <td><?php echo $sno++; ?></td>
                                 <td><img src="<?php echo "../img/users/" . $row['u_image']; ?>" width="100" height="100"></td>
                                 <td><?php echo $row['u_name']; ?></td>
@@ -552,7 +555,8 @@ $total_pages = ceil($total_records / $limit);
 
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            // Give the correct path.
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email
