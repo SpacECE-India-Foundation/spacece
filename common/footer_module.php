@@ -185,7 +185,8 @@
 
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            // Update the url path for footer section in immunization. 
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email

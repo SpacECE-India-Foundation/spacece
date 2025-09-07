@@ -217,5 +217,11 @@ document.querySelectorAll("tr").forEach(row => {
   });
 });
 </script>
+
+<!-- Bug No. -> 543 (https://mantis.spacece.co.in/view.php?id=543) Include the footer section -->
+<?php
+include '../common/footer_module.php'
+?>
+
 </body>
 </html>
