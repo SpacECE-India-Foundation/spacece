@@ -163,8 +163,9 @@ session_start();
           <td>2025-02-20</td>
           <td>SPECE101</td>
           <!-- Selecting one checkbox should deselect another one. -->
-          <td>Completed</td>
-          <td><input type="checkbox" class="status"> Pending <input type="checkbox" class="status"></td>
+           <!-- Bug No. -> 542 (https://mantis.spacece.co.in/view.php?id=542) -> Give the checkboxes in individual td  -->
+          <td>Completed <input type="checkbox" class="status"></td>
+          <td> Pending <input type="checkbox" class="status"></td>
           <td><button>Book Pediatrician</button></td>
 
         </tr>
@@ -177,8 +178,8 @@ session_start();
           <td>2025-02-20</td>
           <td>SPECE101</td>
           <!-- Selecting one checkbox should deselect another one. -->
-        <td>Completed</td>
-          <td><input type="checkbox" class="status"> Pending <input type="checkbox" class="status"></td>
+        <td>Completed <input type="checkbox" class="status"></td>
+          <td> Pending <input type="checkbox" class="status"></td>
           <td><button>Book Pediatrician</button></td>
         </tr>
         <tr>
@@ -190,22 +191,26 @@ session_start();
           <td>2025-02-20</td>
           <td>SPECE101</td>
           <!-- Selecting one checkbox should deselect another one. -->
-          <td>Completed</td>
-          <td><input type="checkbox" class="status"> Pending <input type="checkbox" class="status"></td>
+          <td>Completed <input type="checkbox" class="status"></td>
+          <td> Pending <input type="checkbox" class="status"></td>
           <td><button>Book Pediatrician</button></td>
         </tr>
       </tbody>
     </table>
   </div>
   <!--Selecting one checkbox should deselect another one. -->
-  <script>
-document.querySelectorAll("td").forEach(td => {
-  const checkboxes = td.querySelectorAll(".status");
+<script>
+
+  // Update the queryselector from 'td' to  'tr' to deselect one when selecting another
+document.querySelectorAll("tr").forEach(row => {
+  const checkboxes = row.querySelectorAll(".status");
   checkboxes.forEach(cb => {
     cb.addEventListener("change", () => {
       if (cb.checked) {
         checkboxes.forEach(other => {
-          if (other !== cb) other.checked = false;
+          if (other !== cb) {
+            other.checked = false;
+          }
         });
       }
     });
