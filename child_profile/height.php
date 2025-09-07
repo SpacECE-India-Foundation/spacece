@@ -422,9 +422,23 @@ if(!empty($_SESSION)){
       <br>
       <!-- <button class="add-btn">Submit</button> -->
     </div>
-    <div class="form-group full-width">
+    <!-- <div class="form-group full-width">
       <button type="submit" class="add-btn">Submit</button>
-    </div>
+    </div> -->
+
+     <!-- Bug No. -> 545 , 546 (https://mantis.spacece.co.in/view.php?id=545) Add Submit Button -->
+
+        <button  style="
+          background-color: orange;
+          color: white;
+          font-weight: bold;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 6px;
+          margin-right: 20px;
+          margin: auto;
+          margin-top: 10px;
+          border: none" class="add-btn">Submit</button>
   </form>
 </div>
 
