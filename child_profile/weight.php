@@ -403,6 +403,19 @@ session_start();
     <div class="form-group full-width">
       <button type="submit" class="add-btn">Submit</button>
     </div>
+     <!-- Bug No. -> 548 (https://mantis.spacece.co.in/view.php?id=548) Add Submit Button -->
+
+        <button  style="
+          background-color: orange;
+          color: white;
+          font-weight: bold;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 6px;
+          margin-right: 20px;
+          margin: auto;
+          margin-top: 10px;
+          border: none" class="add-btn">Submit</button>
   </form>
 </div>
 </div>
