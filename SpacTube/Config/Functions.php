@@ -106,6 +106,12 @@ class Functions
         }
     }
     
+         //Bug No. -> 519 -> (https://mantis.spacece.co.in/view.php?id=519) Add this function to make search box functionable.
+    public function dbConnect() {
+    $conn = mysqli_connect("localhost", "root", "", "spactube");
+    return $conn;
+} 
+
     public function search_and_filter_videos($table, $filter, $search, $orderby = 'views', $order = 'DESC') {
         $conn = $this->dbConnect();
         $filter_condition = ($filter == 'all') ? "1" : "filter = '$filter'";
@@ -117,11 +123,7 @@ class Functions
         }
         return $data;
     }
-         //Bug No. -> 519 -> (https://mantis.spacece.co.in/view.php?id=519) Add this function to make search box functionable.
-    public function dbConnect() {
-    $conn = mysqli_connect("localhost", "root", "", "spactube");
-    return $conn;
-} 
+
     public function trend_video_cat($tbl_name, $tb_field, $field_id, $order)
     {
         //echo $field_id;
