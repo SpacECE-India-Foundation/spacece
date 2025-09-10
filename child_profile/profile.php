@@ -320,7 +320,7 @@ if(!empty($_SESSION)){
     </div>
     
     <div class="btn-group">
-        <button class="btn btn-blue">Book Doctor</button></a>
+        <a href="register.php" class="btn btn-blue">Book Doctor</a>
         <button class="btn btn-blue">Your Appointments</button>
     </div>
 </div>
