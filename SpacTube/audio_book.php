@@ -432,7 +432,8 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
 
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            //Bug No. -> 520 (https://mantis.spacece.co.in/view.php?id=520) Give the correct path in url
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email

@@ -420,11 +420,15 @@ if(!empty($_SESSION)){
       <label for="current-weight">Current Weight</label>
       <input type="text" id="current-weight" name="current-weight" placeholder="Your entry here">
       <br>
-      <!-- <button class="add-btn">Submit</button> -->
+      <button class="add-btn">Submit</button>
     </div>
-    <div class="form-group full-width">
+    <!-- <div class="form-group full-width">
       <button type="submit" class="add-btn">Submit</button>
-    </div>
+    </div> -->
+
+     <!-- Bug No. -> 545 , 546 (https://mantis.spacece.co.in/view.php?id=545) Add Submit Button -->
+
+        
   </form>
 </div>
 
