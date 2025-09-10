@@ -370,7 +370,7 @@ if(!empty($_SESSION)){
     
     <!-- Right-aligned Blue Buttons -->
     <div class="btn-group">
-        <button class="btn btn-blue">Book Pediatrician</button>
+        <a href="register.php" class="btn btn-blue">Book Pediatrician</a>
         <a href="cits/appointment-history.php" class="btn btn-blue">Your Appointments</a>
     </div>
 </div>
