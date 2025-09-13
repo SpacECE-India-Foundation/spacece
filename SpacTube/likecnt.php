@@ -23,8 +23,10 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
    
     <?php
 
-        include 'connection.php';
-        
+       // include 'connection.php';
+    //    Bug No-> 521 (https://mantis.spacece.co.in/view.php?id=521) -> Include correct path of database.   
+         include '../Db_Connection/db_spaceTube.php';
+
         if(!empty($_GET['btn'])) 
         {
             $id = $_GET['btn'];
@@ -37,7 +39,8 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                 <script> alert("Connection lost!"); </script> 
                 <?php
             }
-            header('location: view.php');
+            // Give location to 'audio_book.php' so that when we like the video, it redirect to the same page.
+            header('location: audio_book.php');
             exit();
 
         }
@@ -54,7 +57,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                 <script> alert("Connection lost!"); </script> 
                 <?php
             }
-            header('location: view.php');
+            header('location: audio_book.php');
             exit();
 
         }

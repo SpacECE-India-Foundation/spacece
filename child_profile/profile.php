@@ -320,8 +320,8 @@ if(!empty($_SESSION)){
     </div>
     
     <div class="btn-group">
-        <button class="btn btn-blue">Book Doctor</button></a>
-        <button class="btn btn-blue">Your Appointments</button>
+        <a href="register.php" class="btn btn-blue">Book Doctor</a>
+        <a href="cits/appointment-history.php" class="btn btn-blue">Your Appointments</a>
     </div>
 </div>
 </div>
@@ -370,8 +370,8 @@ if(!empty($_SESSION)){
     
     <!-- Right-aligned Blue Buttons -->
     <div class="btn-group">
-        <button class="btn btn-blue">Book Pediatrician</button>
-        <button class="btn btn-blue">Your Appointments</button>
+        <a href="register.php" class="btn btn-blue">Book Pediatrician</a>
+        <a href="cits/appointment-history.php" class="btn btn-blue">Your Appointments</a>
     </div>
 </div>
             </div>
@@ -410,7 +410,7 @@ if(!empty($_SESSION)){
 <div class="btn-container" style="justify-content: flex-start;">
     <div class="btn-group">
         <a href="register.php" class="btn btn-red">Book Doctor</a>
-        <a href="#" class="btn btn-blue">Your Appointments</a>
+        <a href="cits/appointment-history.php" class="btn btn-blue">Your Appointments</a>
     </div>
 </div>
         </div>
@@ -439,7 +439,7 @@ if(!empty($_SESSION)){
 <div class="btn-container" style="justify-content: flex-start;">
     <div class="btn-group">
         <a href="register.php" class="btn btn-red">Book Doctor</a>
-        <a href="#" class="btn btn-blue">Your Appointments</a>
+        <a href="cits/appointment-history.php" class="btn btn-blue">Your Appointments</a>
     </div>
 </div>
 </div>                
