@@ -163,7 +163,7 @@
             <div class="email-container">
               <label class="email-label fs-6" for="email">Enter your email -</label>
               <form id="sub" class="email-form">
-                <input type="email" id="email" placeholder="Email here" required />
+                <input type="email" id="email" placeholder="Email here"  required />
                 <button type="submit">Submit</button>
               </form>
             </div>
@@ -185,8 +185,8 @@
 
           $.ajax({
             method: "POST",
-            // Update the url path for footer section in immunization. 
-            url: "../common/function.php",
+            // Bug No. -> 490, 491, 495, 496 Update the url path for footer section. 
+            url:  "../common/function.php",
             data: {
               subscribe: 1,
               email: email
