@@ -149,6 +149,20 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
             <div class="search-container">
                 <input type="text" name="search_query" placeholder="Search for videos" />
                 <i class="fas fa-search"></i>
+  <!-- Bug No. 522 -> (https://mantis.spacece.co.in/view.php?id=522) Fixed the search box -->
+                              <?php $search_query = $_POST['search_query'] ?? '';
+
+if (!empty($search_query)) {
+    $stmt = $Fun_call->conn->prepare("SELECT * FROM videos WHERE title LIKE ? OR filter LIKE ? ORDER BY cntlike DESC");
+    $like = "%$search_query%";
+    $stmt->bind_param("ss", $like, $like);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $trend_video = $result->fetch_all(MYSQLI_ASSOC);
+} else {
+    $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
+} ?>
+
             </div>
 
             <!-- Filter Dropdown -->

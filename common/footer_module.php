@@ -163,7 +163,7 @@
             <div class="email-container">
               <label class="email-label fs-6" for="email">Enter your email -</label>
               <form id="sub" class="email-form">
-                <input type="email" id="email" placeholder="Email here" required />
+                <input type="email" id="email" placeholder="Email here"  required />
                 <button type="submit">Submit</button>
               </form>
             </div>
@@ -189,6 +189,8 @@
             // Bug No.-> 482 -> (https://mantis.spacece.co.in/view.php?id=482)  , 483, 484, 485, 486, 487 ----   Update the url path 
 
             url: "../common/function.php",
+            // Bug No. -> 490, 491, 495, 496 Update the url path for footer section. 
+          
             data: {
               subscribe: 1,
               email: email

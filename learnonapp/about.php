@@ -511,6 +511,10 @@ body {
         <div><i class="bi bi-check2"></i> Gain knowledge of basic infant health and safety guidelines.</div>
       </div>
 
+
+      <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
+      <div id="extraContent" style="display:none;">
+
       <div class="details">
         <i class="bi bi-calendar-event"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
@@ -528,7 +532,10 @@ body {
         <li><strong>Ensuring Health and Safety:</strong> Understand basic infant hygiene practices, learn about common infant health concerns, and gain knowledge of essential safety measures to protect your baby.</li>
         <li><strong>Fostering Early Development:</strong> Explore ways to engage with your baby to support their sensory exploration, cognitive growth, and early communication skills through play and interaction.</li>
       </ul>
-      <a href="#" class="read-less">Read Less</a>
+      </div>
+      <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
+      <button class="read-less" id="toggleBtn">Read Less</button>
+
     </div>
 
 	<section class="video-section">
@@ -614,6 +621,23 @@ body {
       <div class="carousel-dot"></div>
     </div>
   </section>
+
+
+  <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
+<script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const extraContent = document.getElementById("extraContent");
+
+  toggleBtn.addEventListener("click", function () {
+    if (extraContent.style.display === "none") {
+      extraContent.style.display = "block";
+      toggleBtn.textContent = "Read Less";
+    } else {
+      extraContent.style.display = "none";
+      toggleBtn.textContent = "Read More";
+    }
+  });
+</script>
 
   <script>
     const track = document.querySelector('.carousel-track');
