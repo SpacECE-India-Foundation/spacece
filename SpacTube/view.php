@@ -737,7 +737,8 @@ $next_page = min($current_page + 1, $total_pages);
             <div class="email-container">
               <label class="email-label fs-6" style="text-align: left; font-size:15px !important;" for="email">Enter your email -</label>
               <form id="sub" class="email-form">
-                <input type="email" id="email" placeholder="Email here" required />
+                <!--  Added pattern for proper email validation -->
+                <input type="email" id="email" placeholder="Email here" required  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email (e.g. abc@gmail.com)" />
                 <button type="submit">Submit</button>
               </form>
             </div>
@@ -759,7 +760,9 @@ $next_page = min($current_page + 1, $total_pages);
 
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+          // Previously this was "./common/function.php"
+          // Changed to "../common/function.php" because the current file
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email
