@@ -164,7 +164,12 @@ if (!empty($search_query)) {
 } ?>
 
             </div>
-
+            <!-- Bug No. 522 ->  Also add this to make the search icon clickable. -->
+<script>
+    document.getElementById("searchIcon").addEventListener("click", function() {
+       document.querySelector("form").submit();
+  });
+</script>
             <!-- Filter Dropdown -->
             <div class="custom-select-wrapper">
             <span class="material-symbols-outlined custom-select-icon">filter_alt</span>
