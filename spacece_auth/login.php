@@ -136,7 +136,7 @@ if (isset($_SESSION['current_user_id'])) {
   <div class="container">
     <div class="login-box">
       <h2>Login</h2>
-      <form method="post" class="login-form">
+      <form method="post" id="formlogin" name="formlogin" class="login-form" action="login_action">
         <label for="email">Email</label>
         <input type="text" id="email" name="email" placeholder="Enter Email">
 
@@ -152,7 +152,7 @@ if (isset($_SESSION['current_user_id'])) {
           <option value="delivery_boy">Delivery Boy</option>
         </select>
 
-        <button type="submit" name="login" class="btn btn-primary">Login</button>
+        <button type="button" name="login" class="btn btn-primary" onclick="formlogin.submit()">Login</button>
 
         <a href="forgotPass.php">Forgot Password</a>
         <a href="register.php">Not Registered ? <span>Create an Account</span></a>
@@ -325,7 +325,7 @@ if (isset($_SESSION['current_user_id'])) {
                 Mon - Sat, 8AM - 6PM
               </p>
             </div>
-          </div>
+          </d-iv>
         </div>
 
         <!-- Health Message + Social Media -->
@@ -399,7 +399,7 @@ if (isset($_SESSION['current_user_id'])) {
       $('#sub').on('submit', function(e) {
         e.preventDefault();
         var email = $('#email').val();
-
+alert(email);
         $.ajax({
           method: "POST",
           url: "./common/function.php",
@@ -433,6 +433,32 @@ if (isset($_SESSION['current_user_id'])) {
         }
       }
     });
+
+
+    // addedby geetagem for login. it wasnot logging in soi added this function
+    // remove if not needed
+    $(document).on('submit','#formLogin',function(){
+      alert('login');
+  var email=$('#email').val();
+  var password=$('#password').val();
+  alert(email);
+ $.ajax({
+  'method':'POST',
+  'data':{
+      email:email,
+      password:password
+  },'url':'login_action.php',
+  success:function(data){
+      alert(data);
+      if(data ==="Success"){
+         window.location.href='profile.php';
+      }else{
+          //alert("Error");
+          $('#error').append('Invalid Username Or Password');
+      }
+  }
+ });
+
   </script>
 
 </body>
