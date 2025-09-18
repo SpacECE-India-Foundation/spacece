@@ -538,6 +538,19 @@ body {
 
     </div>
 
+     <!--bug no:- 0000468 New Skills Section -->
+      <!-- A list or section showing new skills related to the Infant Care course should appear below the button. -->
+<div id="newSkillsSection" style="display:none; margin-top:30px;">
+  <h3>New Skills You’ll Gain</h3>
+  <ul class="section-list">
+    <li><i class="bi bi-check2"></i> Advanced soothing techniques for fussy infants</li>
+    <li><i class="bi bi-check2"></i> Building safe sleep routines</li>
+    <li><i class="bi bi-check2"></i> Introduction to early learning and sensory play</li>
+    <li><i class="bi bi-check2"></i> Emergency response basics for parents</li>
+    <li><i class="bi bi-check2"></i> Nutrition tips for healthy infant growth</li>
+  </ul>
+</div>
+
 	<section class="video-section">
 		<h2>Videos related to course</h2>
 
@@ -621,6 +634,23 @@ body {
       <div class="carousel-dot"></div>
     </div>
   </section>
+
+  <script>
+  // New Skills Toggle
+  // bug no:- 0000468 New Skills Section
+  const newSkillsBtn = document.getElementById("newSkillsBtn");
+  const newSkillsSection = document.getElementById("newSkillsSection");
+
+  newSkillsBtn.addEventListener("click", () => {
+    if (newSkillsSection.style.display === "none") {
+      newSkillsSection.style.display = "block";
+      newSkillsBtn.textContent = "Hide Skills";
+    } else {
+      newSkillsSection.style.display = "none";
+      newSkillsBtn.textContent = "New Skills";
+    }
+  });
+</script>
 
 
   <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
