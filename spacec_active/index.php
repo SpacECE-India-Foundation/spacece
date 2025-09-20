@@ -605,7 +605,7 @@ table#activity_table td {
 
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email
