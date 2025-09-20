@@ -279,7 +279,8 @@ table#activity_table td {
                     </div>
                 </div>
 <div class="modal-footer" style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end;">
-                    <button type="button" class="btn" style="background-color: #FFA500; color: white; padding: 10px 20px; border-radius: 8px; border: none;">
+                    <!-- Bug no. 493 (https://mantis.spacece.co.in/view.php?id=493) Give the path of Registration form in button -->
+                    <button type="button" onclick="window.location.href='add_activity.php'" class="btn" style="background-color: #FFA500; color: white; padding: 10px 20px; border-radius: 8px; border: none;">
                         Online Activity Registration
                     </button>
                     <!-- 0000494: 'In-Person Visit Registration' button is not functional in the 'Spacactive' page with delivery boy login.
@@ -815,6 +816,12 @@ table#activity_table td {
 
 });
 
+// Bug No. 492 ->(https://mantis.spacece.co.in/view.php?id=492) Add this function for preview button.
+
+$(document).on("click", "#preview", function() {
+    $('#editModal').modal('show');
+   var id = $(this).data('text');
+});
 
     $('#playlist').on('click', function() {
 
