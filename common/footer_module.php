@@ -182,6 +182,14 @@
         $('#sub').on('submit', function(e) {
           e.preventDefault();
           var email = $('#email').val();
+          
+          // Bug No. -> 482 -> Regex for email validation 
+          var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+          if (!emailPattern.test(email)) {
+            swal("Error!", "Please enter a valid email address!", "error");
+            return; 
+          }
 
           $.ajax({
             method: "POST",
