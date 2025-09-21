@@ -13,6 +13,23 @@ $total_videos = count($Fun_call->select_where('videos', 'status', 'free'));
 $fetch_video = $Fun_call->select_order_limit_where('videos', 'v_id', 'DESC', 'status', 'free', $videos_per_page, $offset);
 $total_pages = ceil($total_videos / $videos_per_page);
 $get_video = $Fun_call->selected_order('videos', 'filter');
+//Add filtering logic here
+$status = 'free'; // Only fetch free videos
+$search_term = isset($_POST['search_term']) ? trim($_POST['search_term']) : '';
+$filter_option = isset($_POST['filter_option']) ? $_POST['filter_option'] : 'all';
+//User typed something in the search bar
+if (!empty($search_term)) {
+    // Search by keyword
+    $filter_videos = $Fun_call->filter_video('videos', null, $status, 'v_id', 'DESC', $search_term);
+} elseif ($filter_option !== "all") {
+    // Filter by dropdown
+    $filter_videos = $Fun_call->filter_video('videos', $filter_option, $status, 'v_id', 'DESC', '');
+} else {
+    // Default (pagination)
+    $filter_videos = $fetch_video;
+}
+
+
 
 include_once './header_local.php';
 include_once '../common/header_module.php';
@@ -296,41 +313,30 @@ if (empty($_SESSION['current_user_id'])) {
                 </div>
                 <br>
                 <div class="top-bar">
-                    <form action="" method="post" class="search-form">
-                        <div class="search-box">
-                            <input type="search" name="filterr" id="filterr" class="search-input" placeholder="Search for videos">
-                            <button type="submit" name="Submit" class="search-button">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                        <?php
-                        $status = 'free';
-                        $abc = $_POST['filterr'];
-                        $filter_videos = $Fun_call->filter_video('videos', null, $status, 'v_id', 'DESC', $abc);
-                        ?>
-                    </form>
-                    <form action="" method="post" class="filter-form">
-                        <div class="filter-box">
-                            <!-- Material Symbols filter_alt icon -->
-                            <span class="material-symbols-outlined filter-icon" style="color: #333;">filter_alt</span>
-                            <select name="filterr" class="filter-select">
-                                <option value="all" selected>Filter</option>
-                                <?php
-                                $abc = "all";
-                                if ($get_video) {
-                                    foreach ($get_video as $video_data) {
-                                        echo "<option value='" . $video_data['filter'] . "'>" . $video_data['filter'] . "</option>";
-                                    }
-                                }
-                                $abc = $_POST['filterr'];
-                                ?>
-                            </select>
-                        </div>
-                        <?php
-                        $status = 'free';
-                        $filter_videos = $Fun_call->filter_video('videos', $abc, $status, 'v_id', 'DESC', '');
-                        ?>
-                    </form>
+                  <form action="" method="post" class="search-form">
+                    <div class="search-box">
+                        <input type="search" name="search_term" id="search_term" class="search-input" placeholder="Search for videos">
+                        <button type="submit" name="search_submit" class="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                  </form>
+                  <form action="" method="post" class="filter-form">
+                      <div class="filter-box">
+                          <span class="material-symbols-outlined filter-icon" style="color: #333;">filter_alt</span>
+                          <select name="filter_option" class="filter-select">
+                              <option value="all" selected>Filter</option>
+                              <?php
+                              if ($get_video) {
+                                  foreach ($get_video as $video_data) {
+                                      echo "<option value='" . $video_data['filter'] . "'>" . $video_data['filter'] . "</option>";
+                                  }
+                              }
+                              ?>
+                          </select>
+                          <button type="submit" name="filter_submit" style="display:none;"></button>
+                      </div>
+                  </form>
                 </div>
 
             </div>
@@ -341,9 +347,9 @@ if (empty($_SESSION['current_user_id'])) {
                 //var_dump($filter_videos);
                 if ($filter_videos) {
 
-                    foreach ($fetch_video as $video_data) {
+                    foreach ($filter_videos as $video_data) {
 
-                        if ($abc == "all" || $abc == NULL) {
+                        if ($filter_option == "all" || empty($filter_option)) {
                             if ($video_data['status'] ==  "free") {
                 ?>
                                 <div class="col mb-4">
@@ -731,7 +737,8 @@ $next_page = min($current_page + 1, $total_pages);
             <div class="email-container">
               <label class="email-label fs-6" style="text-align: left; font-size:15px !important;" for="email">Enter your email -</label>
               <form id="sub" class="email-form">
-                <input type="email" id="email" placeholder="Email here" required />
+                <!--  Added pattern for proper email validation -->
+                <input type="email" id="email" placeholder="Email here" required  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email (e.g. abc@gmail.com)" />
                 <button type="submit">Submit</button>
               </form>
             </div>
@@ -753,7 +760,9 @@ $next_page = min($current_page + 1, $total_pages);
 
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+          // Previously this was "./common/function.php"
+          // Changed to "../common/function.php" because the current file
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email
