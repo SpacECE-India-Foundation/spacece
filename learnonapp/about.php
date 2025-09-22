@@ -469,12 +469,27 @@ body {
         <li class="nav-item"><a class="nav-link active" href="about.php">About</a></li>
         <li class="nav-item"><a class="nav-link" href="Mycourse.php">My Courses</a></li>
       </ul>
-	          <form class="d-flex align-items-center search-form">
-          <div class="search-wrapper">
-            <input class="form-control search-input" type="search" placeholder="What do you want to Know?">
-            <i class="bi bi-search search-icon"></i>
-          </div>
-        </form>
+
+
+<!-- bug no. 0000464  solved:-  The site should show results or pages related to the typed keyword.-->
+	 <!-- Fixed Search Bar -->
+<form class="d-flex align-items-center search-form" id="searchForm">
+  <div class="search-wrapper position-relative w-100">
+    <input 
+      class="form-control search-input pe-5" 
+      type="search" 
+      id="searchInput" 
+      placeholder="What do you want to Know?" 
+      required
+    >
+    <!-- Icon placed inside input (clickable as button) -->
+    <button type="submit" class="btn border-0 bg-transparent position-absolute top-50 end-0 translate-middle-y pe-2">
+      <i class="bi bi-search search-icon"></i>
+    </button>
+  </div>
+</form>
+
+
     </div>
   </div>
 </nav>
@@ -537,6 +552,19 @@ body {
       <button class="read-less" id="toggleBtn">Read Less</button>
 
     </div>
+
+     <!--bug no:- 0000468 New Skills Section -->
+      <!-- A list or section showing new skills related to the Infant Care course should appear below the button. -->
+<div id="newSkillsSection" style="display:none; margin-top:30px;">
+  <h3>New Skills You’ll Gain</h3>
+  <ul class="section-list">
+    <li><i class="bi bi-check2"></i> Advanced soothing techniques for fussy infants</li>
+    <li><i class="bi bi-check2"></i> Building safe sleep routines</li>
+    <li><i class="bi bi-check2"></i> Introduction to early learning and sensory play</li>
+    <li><i class="bi bi-check2"></i> Emergency response basics for parents</li>
+    <li><i class="bi bi-check2"></i> Nutrition tips for healthy infant growth</li>
+  </ul>
+</div>
 
 	<section class="video-section">
 		<h2>Videos related to course</h2>
@@ -621,6 +649,60 @@ body {
       <div class="carousel-dot"></div>
     </div>
   </section>
+
+
+  
+  <!-- bug no. 0000464 solved  -->
+   <!-- Fixed Search Bar -->
+   <script>
+  const searchForm = document.getElementById("searchForm");
+  const searchInput = document.getElementById("searchInput");
+
+  // Add your keywords and target pages here
+  const pages = {
+    "my course": "Mycourse.php",
+    "course": "Mycourse.php",
+    "about": "about.php",
+    "contact": "contact.php",
+    "services": "services.php",
+    "help": "help.php"
+  };
+
+  searchForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // stop default reload
+    const query = searchInput.value.trim().toLowerCase();
+
+    let found = false;
+    for (let key in pages) {
+      if (query.includes(key)) {
+        window.location.href = pages[key];
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      alert("No matching page found for: " + query);
+    }
+  });
+</script>
+
+  <script>
+  // New Skills Toggle
+  // bug no:- 0000468 New Skills Section
+  const newSkillsBtn = document.getElementById("newSkillsBtn");
+  const newSkillsSection = document.getElementById("newSkillsSection");
+
+  newSkillsBtn.addEventListener("click", () => {
+    if (newSkillsSection.style.display === "none") {
+      newSkillsSection.style.display = "block";
+      newSkillsBtn.textContent = "Hide Skills";
+    } else {
+      newSkillsSection.style.display = "none";
+      newSkillsBtn.textContent = "New Skills";
+    }
+  });
+</script>
 
 
   <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
