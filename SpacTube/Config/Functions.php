@@ -6,7 +6,7 @@ $conn=include('../../Db_Connection/db_spaceTube.php');
     include('../Db_Connection/constants.php');
     $conn=include('../Db_Connection/db_spaceTube.php');
 }
-       echo $field_id;
+ if(isset($field_id)) { echo $field_id;}
 
 
 class Functions
@@ -30,6 +30,14 @@ class Functions
 
     public function validate($string)
     {
+                if(file_exists('../../Db_Connection/constants.php')){
+      include('../../Db_Connection/constants.php');
+      $conn=include('../../Db_Connection/db_spaceTube.php');      
+    }else{
+      include('../Db_Connection/constants.php');
+      $conn=include('../Db_Connection/db_spaceTube.php'); 
+}
+
         $string_vali = mysqli_real_escape_string($conn, trim(strip_tags($string)));
         $string_vali = urldecode($string_vali);
         return $string_vali;
@@ -127,6 +135,15 @@ class Functions
 
     public function select_order($tbl_name, $field_id, $order = 'ASC')
     {
+
+        if(file_exists('../../Db_Connection/constants.php')){
+      include('../../Db_Connection/constants.php');
+      $conn=include('../../Db_Connection/db_spaceTube.php');      
+    }else{
+      include('../Db_Connection/constants.php');
+      $conn=include('../Db_Connection/db_spaceTube.php'); 
+}
+
 
         $select = "SELECT * FROM $tbl_name ORDER BY $field_id $order";
 

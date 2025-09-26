@@ -161,7 +161,7 @@
             <p class="mb-3 fs-6" style="color: black;">Subscribe to our newsletter to get updates, offers and discounts.</p>
 
             <div class="email-container">
-              <label class="email-label fs-6" for="email">Enter your email -</label>
+              <label class="email-label fs-6" for="email" onblur="validateEmail(this.email.value)">Enter your email -</label>
               <form id="sub" class="email-form">
                 <input type="email" id="email" placeholder="Email here"  required />
                 <button type="submit">Submit</button>
@@ -217,6 +217,13 @@
           }
         }
       });
+
+
+      function validateEmail(email) {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+}
+
     </script>
 
   </body>
