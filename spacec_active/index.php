@@ -219,7 +219,10 @@ table#activity_table td {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModal">View Activity</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!-- Bug no. 492 -> close bitton was not functional because Here we used data-dismiss, that works only for bootstrap4
+                    So added data-bs-dismiss that works for bootstrap5 to close a model. 
+                    -->
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
