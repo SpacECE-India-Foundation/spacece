@@ -1,3 +1,8 @@
+
+<?php print_r($_POST);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +112,7 @@ main {
     <main>
       <div class="form-card">
         <h2>Add New Space Activity</h2>
-        <form id="activityForm" action="save_space_activity.php" method="POST" novalidate>
+        <form id="activityForm" name="activityForm"  method="POST" action="save_space_activity.php" novalidate>
           <div class="form-group" id="group-activity_id">
             <label for="activity_id">Activity ID</label>
             <input type="number" id="activity_id" name="activity_id" required placeholder=" ">
@@ -148,7 +153,7 @@ main {
         </div>
 
           <br>
-          <button type="submit" class="submit-btn">Submit</button>
+          <button type="click" id = "btn" name ="btn" class="submit-btn">Submit</button>
         </form>
       </div>
     </main>
@@ -161,7 +166,8 @@ main {
   const form = document.getElementById('activityForm');
   const fields = ['activity_id', 'activity_name', 'date', 'time', 'status'];
 
-  form.addEventListener('submit', function (e) {
+  btn.addEventListener('click', function (e) {
+    alert('in func');
     let valid = true;
 
     fields.forEach(id => {
@@ -187,8 +193,10 @@ main {
         if(invalidMsg) invalidMsg.style.display = 'none';
       }
     });
-
+    thisform.action="save_space_activity.php";
+    //thisform.submit();
     if (!valid) e.preventDefault();
+    
   });
   </script>
 
