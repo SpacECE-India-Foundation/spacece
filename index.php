@@ -377,7 +377,8 @@ include_once './common/header_module.php';
               <h5><a href="#"> </a></h5>
             </div>
             <div class="card-body text-start card-hover-orange">
-              <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Lib For Small</h5>
+              <!-- Bug No.-> 481 (https://mantis.spacece.co.in/view.php?id=481) ---- Update the name here.  -->
+              <h5 class="card-title" style="font-weight:bold;font-size:x-large;">Lib For Smalls</h5>
               <p class="card-text">
                 Lib For Small is a web-based tool that allows guardians to book appointments with childcare experts such as pediatricians, child psychologists, nutritionists, etc.
               </p>

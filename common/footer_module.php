@@ -182,11 +182,23 @@
         $('#sub').on('submit', function(e) {
           e.preventDefault();
           var email = $('#email').val();
+          
+          // Bug No. -> 482 -> Regex for email validation 
+          var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+          if (!emailPattern.test(email)) {
+            swal("Error!", "Please enter a valid email address!", "error");
+            return; 
+          }
 
           $.ajax({
             method: "POST",
+            // Update the url path for footer section in immunization. 
+            // Bug No.-> 482 -> (https://mantis.spacece.co.in/view.php?id=482)  , 483, 484, 485, 486, 487 ----   Update the url path 
+
+            url: "../common/function.php",
             // Bug No. -> 490, 491, 495, 496 Update the url path for footer section. 
-            url:  "../common/function.php",
+          
             data: {
               subscribe: 1,
               email: email

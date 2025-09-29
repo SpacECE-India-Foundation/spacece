@@ -204,7 +204,8 @@ $cart_count = $total['total_qty'] ?? 0;
       object-fit: contain;
       position: absolute;
       margin-top: 10px;
-
+ /* Bug No -> 489 Give the margin to display the full name */
+      margin:-70px;
     }
 
     .no-products-message {

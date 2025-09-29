@@ -471,12 +471,27 @@ body {
         <li class="nav-item"><a class="nav-link active" href="about.php">About</a></li>
         <li class="nav-item"><a class="nav-link" href="my_courses.php">My Courses</a></li>
       </ul>
-	          <form class="d-flex align-items-center search-form">
-          <div class="search-wrapper">
-            <input class="form-control search-input" type="search" placeholder="What do you want to Know?">
-            <i class="bi bi-search search-icon"></i>
-          </div>
-        </form>
+
+
+<!-- bug no. 0000464  solved:-  The site should show results or pages related to the typed keyword.-->
+	 <!-- Fixed Search Bar -->
+<form class="d-flex align-items-center search-form" id="searchForm">
+  <div class="search-wrapper position-relative w-100">
+    <input 
+      class="form-control search-input pe-5" 
+      type="search" 
+      id="searchInput" 
+      placeholder="What do you want to Know?" 
+      required
+    >
+    <!-- Icon placed inside input (clickable as button) -->
+    <button type="submit" class="btn border-0 bg-transparent position-absolute top-50 end-0 translate-middle-y pe-2">
+      <i class="bi bi-search search-icon"></i>
+    </button>
+  </div>
+</form>
+
+
     </div>
   </div>
 </nav>
@@ -512,6 +527,10 @@ body {
         <div><i class="bi bi-check2"></i> Recognize infant cues and respond effectively to their needs.</div>
         <div><i class="bi bi-check2"></i> Gain knowledge of basic infant health and safety guidelines.</div>
       </div>
+
+
+      <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
+      <div id="extraContent" style="display:none;">
 
       <div class="details">
         <i class="bi bi-calendar-event"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -617,6 +636,77 @@ body {
     </div>
   </section>
 
+
+  
+  <!-- bug no. 0000464 solved  -->
+   <!-- Fixed Search Bar -->
+   <script>
+  const searchForm = document.getElementById("searchForm");
+  const searchInput = document.getElementById("searchInput");
+
+  // Add your keywords and target pages here
+  const pages = {
+    "my course": "Mycourse.php",
+    "course": "Mycourse.php",
+    "about": "about.php",
+    "contact": "contact.php",
+    "services": "services.php",
+    "help": "help.php"
+  };
+
+  searchForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // stop default reload
+    const query = searchInput.value.trim().toLowerCase();
+
+    let found = false;
+    for (let key in pages) {
+      if (query.includes(key)) {
+        window.location.href = pages[key];
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      alert("No matching page found for: " + query);
+    }
+  });
+</script>
+
+  <script>
+  // New Skills Toggle
+  // bug no:- 0000468 New Skills Section
+  const newSkillsBtn = document.getElementById("newSkillsBtn");
+  const newSkillsSection = document.getElementById("newSkillsSection");
+
+  newSkillsBtn.addEventListener("click", () => {
+    if (newSkillsSection.style.display === "none") {
+      newSkillsSection.style.display = "block";
+      newSkillsBtn.textContent = "Hide Skills";
+    } else {
+      newSkillsSection.style.display = "none";
+      newSkillsBtn.textContent = "New Skills";
+    }
+  });
+</script>
+
+
+  <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
+<script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const extraContent = document.getElementById("extraContent");
+
+  toggleBtn.addEventListener("click", function () {
+    if (extraContent.style.display === "none") {
+      extraContent.style.display = "block";
+      toggleBtn.textContent = "Read Less";
+    } else {
+      extraContent.style.display = "none";
+      toggleBtn.textContent = "Read More";
+    }
+  });
+</script>
+
   <script>
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
@@ -651,9 +741,11 @@ body {
     });
     function lessText(elemid){
      var elem=document.getElementById(elemid);
-     if (less="1")[
+     if (less="1"){
+      less=0;
      elem.innerText.append('jo'); 
      else{
+      less=1;
       elem.innerText.append("hello");
      }
     }
