@@ -14,11 +14,12 @@ include_once '../common/header_module.php';
 include_once '../common/banner.php';
 include './placeholder.php';
 
-
+/*
 if (!isset($_SESSION['current_user_id'])) {
   echo "<script type='text/javascript'> document.location = '../spacece_auth/login.php'; </script>";
   exit();
 }
+  */
 $conn = new mysqli('localhost', 'root', '', 'api_learnonapp');
 $sql="select * from instructor order by id";
 //echo $sql;
@@ -35,8 +36,10 @@ or die("error")
 
 <div class="my_course_container">
   <div id="topinst">
-    <table id="tbl" class="table table-hover  table-light table-bordered table-striped'> 
-      <thead class="thead-dark" ><tr>
+    <table id="tbl"  class="table table-hover  table-light table-bordered table-striped'> 
+      <thead class="thead-dark" >
+        <tr><td colspan="4" align="center"><h2> Top Instructors</h2></td></tr>
+        <tr>
       <td>Id</td> 
       <td>Name</td>
       <td>Course</td>
@@ -47,7 +50,7 @@ or die("error")
     $conn=include('../Db_Connection/db_learnonapp.php');
  $sql="select  c.id,b.title,c.name,b.rating from learnon_courses b ,instructor c where ";
   $sql.="b.instructor=c.id " ;
-  echo($sql);
+  //echo($sql);
 $cur=mysqli_query($conn,$sql)
  or die(mysqli_error($conn));
 
