@@ -506,7 +506,7 @@ body {
     <div class="subtitle">
       Learn vital skills for your baby's first year, covering feeding, sleep, health, safety, and early development. Gain confidence in providing the best care.
     </div>
-    <a href="Mycourse.php"><button class="btn btn-primary-custom">Enroll for Free</button></a>
+    <a href="enroll.php?cat=Infant Care"><button class="btn btn-primary-custom">Enroll for Free</button></a>
     <div class="tag-box">
       <div class="tag"><A href="topinst.php">Top Instructors</a></div>
       <div class="tag">New Skills</div>
