@@ -517,7 +517,8 @@ body {
      ?>
      <table class="table table_dark" width="100%"  cellborder="1" cellpadding="1" cellspacing="1">
       <thead><tr><td colspan="5" align = "center"  <?=$row->category?></td></tr></thead>
-      <tr><td>Title</td><td>Skills</td><td>Description</td><td>Price</td><td>duration</td></tr>
+      <tr><td colspan="5" align = "center" ><h3>Click on title to pay and enroll</h3></td></tr>
+      <tr><td>Title</td><td>Skills</td><td>Description</td><td>Price</td><td>duration</td></tr></thead>
       <?php while($row=mysqli_fetch_assoc($query)){?>
         <tr>
           <??>
