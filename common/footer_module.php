@@ -184,7 +184,8 @@
           var email = $('#email').val();
           
           // Bug No. -> 482 -> Regex for email validation 
-          var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+          // Exact Validation as QA wants.
+             var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
 
           if (!emailPattern.test(email)) {
             swal("Error!", "Please enter a valid email address!", "error");
