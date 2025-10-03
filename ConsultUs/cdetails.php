@@ -9,6 +9,7 @@ include('../Db_Connection/db_consultus_app.php');
 include("./php/src/RtcTokenBuilder.php");
 include("./php/src/RtmTokenBuilder.php");
 
+
 //user is not used so commented
 //$ref = $_GET['user'];
 $cat = $_GET['category'];
@@ -22,43 +23,10 @@ $start_from = ($page - 1) * $limit;
 date_default_timezone_set("Asia/Calcutta");
 
 // Create connection
-//define('DB_USER_DATABASE', 'spacece');
+define('DB_USER_DATABASE', 'spacece');
 
-//$conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
-//$conn1 = new mysqli('localhost', 'root', '', 'spacece');
+$conn1 = new mysqli('localhost', 'root', '', 'spacece');
 
-//include '../Db_Connection/constants.php';
-
-// if (!defined('DB_NAME')) {
-//     define('DB_NAME', "DB_NAME_SPACECE");
-// }
-
-
-// if (!isset($db_users[DB_NAME])) {
-//   die("No DB user defined for DB_NAME: " . DB_NAME);
-// }
-function getDbConnection($dbName) {
-    //include('../Db_Connection/db_spacece.php');
-    global $db_users;
-
-    if (!isset($db_users[$dbName])) {
-        die("No DB user defined for DB_NAME: " . $dbName);
-    }
-
-    $username = $db_users[$dbName];
-    $password = DB_USER_PASSWORD; // your common password for all DBs
-    $host = DB_HOST_NAME;
-
-    $conn = new mysqli($host, $username, $password, $dbName);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    return $conn;
-}
-
-// Create connection
-$conn1 = getDbConnection(DB_NAME_SPACECE);
 $sql_total = "SELECT COUNT(DISTINCT users.u_id) AS total 
     FROM consultant
     JOIN consultant_category ON consultant.c_category = consultant_category.cat_id
@@ -71,6 +39,7 @@ $total_records = $row_total['total'];
 $total_pages = ceil($total_records / $limit);
 
 ?>
+
 <title>Consultant Detail</title>
 <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
