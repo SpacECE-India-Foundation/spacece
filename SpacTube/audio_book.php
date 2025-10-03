@@ -69,7 +69,7 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
     transform: translateY(-50%);
     color: #333;
     font-size: 18px;
-    pointer-events: none;
+        pointer-events: auto;
   }
 
   .custom-select-wrapper {
@@ -148,7 +148,7 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
             <!-- Search Box -->
             <div class="search-container">
                 <input type="text" name="search_query" placeholder="Search for videos" />
-                <i class="fas fa-search"></i>
+                <i id="searchIcon" class="fas fa-search"></i>                
   <!-- Bug No. 522 -> (https://mantis.spacece.co.in/view.php?id=522) Fixed the search box -->
                               <?php $search_query = $_POST['search_query'] ?? '';
 
@@ -164,7 +164,7 @@ if (!empty($search_query)) {
 } ?>
 
             </div>
-            <!-- Bug No. 522 ->  Also add this to make the search icon clickable. -->
+            <!-- Bug No. 522 ->  Also add this to make the search icon clickable and give the id=searchIcon to the search button-->
 <script>
     document.getElementById("searchIcon").addEventListener("click", function() {
        document.querySelector("form").submit();

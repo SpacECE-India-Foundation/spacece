@@ -4,7 +4,7 @@ include 'Config/Functions.php';
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/Space_Tube.jpeg";
 $module_name = "Space Tube";
-    include '../common/header_module.php';
+ include '../common/header_module.php';
 $Fun_call = new Functions();
 
 $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
@@ -82,15 +82,15 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                     <select name ="remove">
                         <option class=" col-sm-4" disabled selected>-- Select Video id --</option>
                         <?php
-                           include '../Db_Connection/db_spaceTube.php'; 
+                          $conn= include( '../Db_Connection/db_spaceTube.php'); 
                            
                              // Using database connection file here
-                            $records = mysqli_query($mysqli, "SELECT `v_id`,`title` From `videos` ORDER BY `v_id`");  // Use select query here 
+                            $records = mysqli_query($conn, "SELECT `v_id`,`title` From `videos` ORDER BY `v_id`");  // Use select query here 
 
                             while($data = mysqli_fetch_array($records))
                             {
                                 var_dump($data);
-                                echo "<option value='". $data['v_id'] ."'>" .$data['v_id'] ."</option>";  // displaying data in option menu
+                                echo "<option value='". $data['v_id'] ."'>" .$data['title'] ."</option>";  // displaying data in option menu
                             }	
                         ?>  
                     </select>
@@ -113,12 +113,20 @@ include '../Db_Connection/db_spaceTube.php';
         
 
         if(isset($_POST['submit']))
-        {
+  {            if(file_exists('../../Db_Connection/constants.php')){
+      include('../../Db_Connection/constants.php');
+      $conn=include('../../Db_Connection/db_spaceTube.php');      
+    }else{
+      include('../Db_Connection/constants.php');
+      $conn=include('../Db_Connection/db_spaceTube.php'); 
+}
+
+
             $id = $_POST['remove'];
             
             $removequery = "DELETE FROM `videos` WHERE `v_id` = $id ";
 
-            $res = mysqli_query($mysqli, $removequery);
+            $res = mysqli_query($conn, $removequery);
             if($res)
             {
                 ?>
