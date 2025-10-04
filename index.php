@@ -472,7 +472,11 @@ include_once './common/header_module.php';
     <div class="container mt-5">
       <div class="section-title">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <h3 style="font-weight:bold;font-size:x-large;" class="text-center">THE BENEFITS WE PROVIDE</h3>
+=======
+        <h3 style="font-weight:bold;font-size:x-large;" class="text-center">The Benefits we provide</h3>
+>>>>>>> 2cfc2e42e4f3c0f80368a11e2458c666f724aaeb
 =======
         <h3 style="font-weight:bold;font-size:x-large;" class="text-center">The Benefits we provide</h3>
 >>>>>>> 2cfc2e42e4f3c0f80368a11e2458c666f724aaeb
