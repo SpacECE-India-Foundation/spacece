@@ -1,21 +1,26 @@
 <?php
 if(file_exists('../../Db_Connection/constants.php')){
     include('../../Db_Connection/constants.php');
-
+$conn=include('../../Db_Connection/db_spaceTube.php');      
 }else{
     include('../Db_Connection/constants.php');
+    $conn=include('../Db_Connection/db_spaceTube.php');
 }
+ if(isset($field_id)) { echo $field_id;}
 
 
 class Functions
 {
+
+   
     public $conn;
 
     public function __construct()
     {
+
         try {
-            $this->conn = mysqli_connect('localhost','root', '', 'spactube');
-            if (!$this->conn) {
+            $conn = mysqli_connect('localhost','root', '', 'spacetube');
+            if (!$conn) {
                 throw new Exception('Failed to connect to Database:');
             }
         } catch (Exception $e) {
@@ -25,13 +30,28 @@ class Functions
 
     public function validate($string)
     {
-        $string_vali = mysqli_real_escape_string($this->conn, trim(strip_tags($string)));
+                if(file_exists('../../Db_Connection/constants.php')){
+      include('../../Db_Connection/constants.php');
+      $conn=include('../../Db_Connection/db_spaceTube.php');      
+    }else{
+      include('../Db_Connection/constants.php');
+      $conn=include('../Db_Connection/db_spaceTube.php'); 
+}
+
+        $string_vali = mysqli_real_escape_string($conn, trim(strip_tags($string)));
         $string_vali = urldecode($string_vali);
         return $string_vali;
     }
 
     public function insert($tb_name, $tb_field)
     {
+        if(file_exists('../../Db_Connection/constants.php')){
+      include('../../Db_Connection/constants.php');
+      $conn=include('../../Db_Connection/db_spaceTube.php');      
+    }else{
+      include('../Db_Connection/constants.php');
+      $conn=include('../Db_Connection/db_spaceTube.php'); 
+}
 
         $q_data = "";
 
@@ -42,7 +62,7 @@ class Functions
 
         $query = "INSERT INTO $tb_name SET $q_data";
         //echo  $query;
-        $insert_fire = mysqli_query($this->conn, $query);
+        $insert_fire = mysqli_query($conn, $query);
         if ($insert_fire) {
             return $insert_fire;
         } else {
@@ -52,9 +72,16 @@ class Functions
 
     public function selected_order($tbl_name, $field_id)
     {
+        if(file_exists('../../Db_Connection/constants.php')){
+      include('../../Db_Connection/constants.php');
+      $conn=include('../../Db_Connection/db_spaceTube.php');      
+    }else{
+      include('../Db_Connection/constants.php');
+      $conn=include('../Db_Connection/db_spaceTube.php'); 
+}
 
         $select = "SELECT DISTINCT $field_id FROM $tbl_name";
-        $query = mysqli_query($this->conn, $select);
+        $query = mysqli_query($conn, $select);
         if (mysqli_num_rows($query) > 0) {
             $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
             if ($select_fetch) {
@@ -67,8 +94,16 @@ class Functions
         }
     }
     public function select_order_limit_where($table, $order_col, $order = "DESC", $where_col, $where_val, $limit = 12, $offset = 0){
+                if(file_exists('../../Db_Connection/constants.php')){
+      include('../../Db_Connection/constants.php');
+      $conn=include('../../Db_Connection/db_spaceTube.php');      
+    }else{
+      include('../Db_Connection/constants.php');
+      $conn=include('../Db_Connection/db_spaceTube.php'); 
+}
+
         $sql = "SELECT * FROM $table WHERE $where_col = '$where_val' ORDER BY $order_col $order LIMIT $limit OFFSET $offset";
-        $result = mysqli_query($this->conn, $sql);
+        $result = mysqli_query($conn, $sql);
         $data = [];
         while($row = mysqli_fetch_assoc($result)){
             $data[] = $row;
@@ -77,8 +112,18 @@ class Functions
     }
     
     public function select_where($table, $col, $val) {
-        $sql = "SELECT * FROM $table WHERE $col = '$val'";
-        $result = mysqli_query($this->conn, $sql);
+        if(file_exists('../../Db_Connection/constants.php')){
+      include('../../Db_Connection/constants.php');
+      $conn=include('../../Db_Connection/db_spaceTube.php');      
+    }else{
+      include('../Db_Connection/constants.php');
+      $conn=include('../Db_Connection/db_spaceTube.php'); 
+}
+
+
+        $sql = "SELECT * FROM ". $table." WHERE ". $col."='". $val."'";
+        //echo $sql;;
+        $result = mysqli_query($conn, $sql);
         $data = [];
         while ($row = mysqli_fetch_assoc($result)) {
             $data[] = $row;
@@ -91,9 +136,18 @@ class Functions
     public function select_order($tbl_name, $field_id, $order = 'ASC')
     {
 
+        if(file_exists('../../Db_Connection/constants.php')){
+      include('../../Db_Connection/constants.php');
+      $conn=include('../../Db_Connection/db_spaceTube.php');      
+    }else{
+      include('../Db_Connection/constants.php');
+      $conn=include('../Db_Connection/db_spaceTube.php'); 
+}
+
+
         $select = "SELECT * FROM $tbl_name ORDER BY $field_id $order";
 
-        $query = mysqli_query($this->conn, $select);
+        $query = mysqli_query($conn, $select);
         if (mysqli_num_rows($query) > 0) {
             $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
             if ($select_fetch) {

@@ -1,6 +1,8 @@
 <?php
+error_reporting(1);
 include_once './header_local.php';
 include_once '../common/header_module.php';
+//include_once('includes/header1.php');
 ?>
 
 <!DOCTYPE html>
@@ -238,7 +240,7 @@ include_once '../common/header_module.php';
   color: #F5A100;
   font-size: 28px;
   cursor: pointer;
-  border:none
+  border:none;
   padding: 0;
   background-color: transparent;
   transition: transform 0.2s ease;
@@ -467,7 +469,7 @@ body {
       <ul class="navbar-nav d-flex flex-row mb-0 gap-4">
         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
         <li class="nav-item"><a class="nav-link active" href="about.php">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="Mycourse.php">My Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="my_courses.php">My Courses</a></li>
       </ul>
 
 
@@ -504,9 +506,9 @@ body {
     <div class="subtitle">
       Learn vital skills for your baby's first year, covering feeding, sleep, health, safety, and early development. Gain confidence in providing the best care.
     </div>
-    <a href="Mycourse.php"><button class="btn btn-primary-custom">Enroll for Free</button></a>
+    <a href="enroll.php?cat=Infant Care"><button class="btn btn-primary-custom">Enroll for Free</button></a>
     <div class="tag-box">
-      <div class="tag">Top Instructors</div>
+      <div class="tag"><A href="topinst.php">Top Instructors</a></div>
       <div class="tag">New Skills</div>
     </div>
 
@@ -540,31 +542,15 @@ body {
       </p>
 
       <h5 style="color:#f5a100; font-weight:700; margin-top:30px;">What You'll Learn:</h5>
-      <ul class="section-list">
+      <ul class="section-list" id="ulTxt'>
         <li><strong>Understanding Your Baby's Needs:</strong> Learn to recognize and interpret your baby's cues related to hunger, sleep, comfort, and interaction. Develop a deeper understanding of their developmental milestones.</li>
         <li><strong>Mastering Essential Care Techniques:</strong> Gain hands-on knowledge of safe and effective feeding practices, including recognizing feeding cues and different feeding methods. Learn about establishing healthy sleep routines and creating a safe sleep environment.</li>
         <li><strong>Promoting Comfort and Soothing:</strong> Discover various techniques to soothe a fussy baby, including swaddling, rocking, and understanding common reasons for discomfort.</li>
         <li><strong>Ensuring Health and Safety:</strong> Understand basic infant hygiene practices, learn about common infant health concerns, and gain knowledge of essential safety measures to protect your baby.</li>
         <li><strong>Fostering Early Development:</strong> Explore ways to engage with your baby to support their sensory exploration, cognitive growth, and early communication skills through play and interaction.</li>
       </ul>
-      </div>
-      <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
-      <button class="read-less" id="toggleBtn">Read Less</button>
-
+      <a href=" lessText()" class="read-less">Read Less</a>
     </div>
-
-     <!--bug no:- 0000468 New Skills Section -->
-      <!-- A list or section showing new skills related to the Infant Care course should appear below the button. -->
-<div id="newSkillsSection" style="display:none; margin-top:30px;">
-  <h3>New Skills You’ll Gain</h3>
-  <ul class="section-list">
-    <li><i class="bi bi-check2"></i> Advanced soothing techniques for fussy infants</li>
-    <li><i class="bi bi-check2"></i> Building safe sleep routines</li>
-    <li><i class="bi bi-check2"></i> Introduction to early learning and sensory play</li>
-    <li><i class="bi bi-check2"></i> Emergency response basics for parents</li>
-    <li><i class="bi bi-check2"></i> Nutrition tips for healthy infant growth</li>
-  </ul>
-</div>
 
 	<section class="video-section">
 		<h2>Videos related to course</h2>
@@ -753,6 +739,16 @@ body {
         updateSlide(currentSlide);
       });
     });
+    function lessText(elemid){
+     var elem=document.getElementById(elemid);
+     if (less="1"){
+      less=0;
+     elem.innerText.append('jo'); 
+     else{
+      less=1;
+      elem.innerText.append("hello");
+     }
+    }
   </script>
   </div>
 </body>

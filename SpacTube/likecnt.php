@@ -39,7 +39,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                 <script> alert("Connection lost!"); </script> 
                 <?php
             }
-            // Give location to 'audio_book.php' so that when we like the video, it redirect to the same page.
+            // Give to  change location  'audio_book.php' so that when we like the video, it redirect to the same page.
             header('location: audio_book.php');
             exit();
 
@@ -57,6 +57,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                 <script> alert("Connection lost!"); </script> 
                 <?php
             }
+            // Give to change location 'audio_book.php' so that when we like the video, it redirect to the same page.
             header('location: audio_book.php');
             exit();
 

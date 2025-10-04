@@ -197,7 +197,7 @@ Preview </button></td>
         }
         
     else{
-                $query = mysqli_query($mysqli1, "SELECT * FROM spaceactive_activities WHERE status='free' ") or die('Sql Query Error3');
+                $query = mysqli_query($conn, "SELECT * FROM spaceactive_activities WHERE status='free' ") or die('Sql Query Error3');
 
                 if (mysqli_num_rows($query) > 0) {
                     while ($result = mysqli_fetch_assoc($query)) {

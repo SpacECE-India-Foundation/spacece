@@ -1,6 +1,10 @@
 <?php
+error_reporting(1);
 include_once './header_local.php';
 include_once '../common/header_module.php';
+//include_once 'includes/header1.php';
+include_once '../common/banner.php';
+include './placeholder.php';
 include '../Db_Connection/db_spacece.php';
 if (empty($_SESSION['current_user_id'])) {
   echo '<script>
@@ -137,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESS
 }
 
 
-
+$conn=new mysqli('localhost','root','','spacece');
 $result = $conn->query("SELECT * FROM learnonapp_courses");
 ?>
 
@@ -894,7 +898,7 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
         <ul class="navbar-nav d-flex flex-row mb-0 gap-4">
           <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="Mycourse.php">My Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="my_courses.php?user=<?=$_SESSION['current_user_id']?>">"My Courses</a></li>
         </ul>
       </div>
     </div>
@@ -908,7 +912,7 @@ $result = $conn->query("SELECT * FROM learnonapp_courses");
     </h5>
     <h1>Learn without Limit</h1>
     <p>Gain the confidence and skills to nurture and guide young children. Explore our range of courses designed for parents and beginners, covering everything from understanding infant needs to fostering early childhood development.</p>
-    <a href="Mycourse.php"><button class="btn btn-primary-custom">Browse Courses</button></a>
+    <a href="my_courses.php"><button class="btn btn-primary-custom">Browse Courses</button></a>
   </section>
 
   <!-- Info Bar -->
