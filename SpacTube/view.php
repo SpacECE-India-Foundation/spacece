@@ -422,20 +422,21 @@ if (empty($_SESSION['current_user_id'])) {
                 ?>   
                                 <div class="col mb-4">
                                     <div class="card h-100">
-                                      <!--0000510: In the Spacetube section, under "Our Free Videos," clicking on interactive buttons like Like, Dislike, or Share immediately cau-->
-                                        <div class="set-box youtube-video-r t" data-title="Landscape">
-                                            <div class="youtube-video-container">
-                                                <a class="alb_item mt-2 d-flex align-content-center" href="https://www.youtube.com/watch?v=<?php echo htmlspecialchars($video_id); ?>">
-                                                    <img src="https://img.youtube.com/vi/<?php echo htmlspecialchars($video_id); ?>/maxresdefault.jpg" 
-                                                         alt="<?php echo htmlspecialchars($video_data['title']); ?>" 
-                                                         class="youtube-thumbnail"
-                                                         onerror="this.src='https://img.youtube.com/vi/<?php echo htmlspecialchars($video_id); ?>/hqdefault.jpg';">
-                                                </a>
-                                            </div>
+                                      <!-- 0000511: Clicking any video always opens the same (first) video in the popup. -->
+                                      <div class="set-box youtube-video-r t" data-title="Landscape">
+                                        <div class="youtube-video-container">
+                                          <a class="alb_item mt-2 d-flex align-content-center" href="https://www.youtube.com/watch?v=<?php echo htmlspecialchars($video_id); ?>">
+                                            <img src="https://img.youtube.com/vi/<?php echo htmlspecialchars($video_id); ?>/maxresdefault.jpg" 
+                                            alt="<?php echo htmlspecialchars($video_data['title']); ?>" 
+                                            class="youtube-thumbnail"
+                                            onerror="this.src='https://img.youtube.com/vi/<?php echo htmlspecialchars($video_id); ?>/hqdefault.jpg';">
+                                          </a>
                                         </div>
-                                        <div class="card-body pt-2 pb-2">
-                                            <!-- Video Title -->
-                                            <h6 class="card-title"><?php echo htmlspecialchars($video_data['title']); ?></h6>
+                                      </div>
+                                      <div class="card-body pt-2 pb-2">
+                                        <!-- Video Title -->
+                                        <h6 class="card-title"><?php echo htmlspecialchars($video_data['title']); ?></h6>
+                                        <!--0000510: In the Spacetube section, under "Our Free Videos," clicking on interactive buttons like Like, Dislike, or Share immediately cau-->
 
                                             <!-- Likes/Dislikes + Share Row -->
                                             <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0;">
