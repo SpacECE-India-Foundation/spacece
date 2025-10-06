@@ -572,7 +572,8 @@ include_once '../common/header_module.php';
             <div class="product-footer">
               <span class="price">₹ 10</span>
               <?php if ($i == 2) { ?>
-                <button class="add-cart" style="background-color:#f44336">Delivered</button>
+                <!-- Bug No.-> 477 -> Give the same color to both buttons to have a consistent color. -->
+                <button class="add-cart" style="background-color:#4caf50">Delivered</button>
               <?php } else { ?>
                 <button class="add-cart" style="background-color:#4caf50">Delivered</button>
               <?php } ?>

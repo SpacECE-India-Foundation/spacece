@@ -1,8 +1,8 @@
 <?php
 session_start();
-include('../Db_Connection/db_spacece.php');
+$conn=include('../Db_Connection/db_spacece.php');
 
-// if (isset($_POST['login'])) {
+if (isset($_POST['login'])) {
 // Email login and md5 hashed password login
 $email = trim($_POST['email']);
 $password = md5(trim($_POST['password']));
@@ -60,7 +60,7 @@ if (mysqli_num_rows($result) > 0) {
     }
 
     $_SESSION['current_user_id'] = $row['u_id'];
-   
+echo $_SESSION['current_user_id'];   
     $_SESSION['current_user_email'] = $row['u_email'];
     $_SESSION['current_user_name'] = $row['u_name'];
     $_SESSION['current_user_mob'] = $row['u_mob'];
@@ -72,7 +72,7 @@ if (mysqli_num_rows($result) > 0) {
 
     if ($type == "consultant") {
         $_SESSION["consultant_category"] = $row['c_category'];
-        $_SESSION["consultant_office"] = $row['c_office'];
+       $_SESSION["consultant_office"] = $row['c_office'];
         $_SESSION["consultant_from_time"] = $row['c_from_time'];
         $_SESSION["consultant_to_time"] = $row['c_to_time'];
         $_SESSION["consultant_language"] = $row['c_language'];
@@ -106,11 +106,11 @@ if (mysqli_num_rows($result) > 0) {
         $redirect_url = $_SESSION['redirect_url'];
         unset($_SESSION['redirect_url']);
     }
-    // header('location: index.php');
+     header("location:index.php");
     echo json_encode(array('status' => 'success', 'redirect_url' => $redirect_url));
     die();
 } else {
     echo json_encode(array('status' => 'error', "message" => "Invalid email or password"));
     die();
 }
-// }
+}
