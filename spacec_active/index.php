@@ -643,7 +643,13 @@ alert(this.frmlogin);
         $('#sub').on('submit', function(e) {
           e.preventDefault();
           var email = $('#email').val();
+          // Bug No. 491 -> Email submission is now working fine. 
+               var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
 
+          if (!emailPattern.test(email)) {
+            swal("Error!", "Please enter a valid email address!", "error");
+            return; 
+          }
           $.ajax({
             method: "POST",
             url: "../common/function.php",
