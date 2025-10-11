@@ -421,7 +421,7 @@ if (empty($_SESSION['current_user_id'])) {
                                 }
                 ?>   
                                 <div class="col mb-4">
-                                    <div class="card h-100">
+                                    <div class="card h-10">
                                       <!-- 0000511: Clicking any video always opens the same (first) video in the popup. -->
                                       <div class="set-box youtube-video-r t" data-title="Landscape">
                                         <div class="youtube-video-container">
