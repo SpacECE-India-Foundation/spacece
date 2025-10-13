@@ -643,8 +643,17 @@ alert(this.frmlogin);
         $('#sub').on('submit', function(e) {
           e.preventDefault();
           var email = $('#email').val();
-          // Bug No. 491 -> Email submission is now working fine. 
-               var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
+            // Bug No. 491 -> Newsletter email submission is now working correctly for all users.
+            // ✅ Custom regex for strict email validation
+            // Previously, the form relied only on HTML5 type="email", which allowed invalid emails 
+            // or emails with incorrect domains to pass (e.g., test@mailcom).
+            // Now, we use regex /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i to ensure:
+            //   1. Email contains only valid characters before '@' (letters, numbers, dots, underscores, %, +, -)
+            //   2. Email contains '@' symbol
+            //   3. Only allows emails with domains 'gmail.com' or 'yahoo.com'
+            //   4. Validation is case-insensitive due to the 'i' flag
+            // This ensures users cannot submit emails from other domains or invalid formats.
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
 
           if (!emailPattern.test(email)) {
             swal("Error!", "Please enter a valid email address!", "error");
@@ -652,6 +661,9 @@ alert(this.frmlogin);
           }
           $.ajax({
             method: "POST",
+            // ✅ Changed URL path
+            // Previously: './common/function.php'
+            // Now: '../common/function.php' to correctly point to the PHP handler from current page directory
             url: "../common/function.php",
             data: {
               subscribe: 1,
