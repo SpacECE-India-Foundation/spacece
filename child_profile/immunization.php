@@ -134,7 +134,7 @@ session_start();
     </div>
 
     <div class="buttons">
-      <button class="book-btn">Book Pediatrician</button>
+      <a href="register.php"><button class="book-btn">Book Pediatrician</button></a>
       <button class="appointment-btn">Your Appointments</button>
     </div>
 
@@ -166,7 +166,7 @@ session_start();
            <!-- Bug No. -> 542 (https://mantis.spacece.co.in/view.php?id=542) -> Give the checkboxes in individual td  -->
           <td>Completed <input type="checkbox" class="status"></td>
           <td> Pending <input type="checkbox" class="status"></td>
-          <td><button>Book Pediatrician</button></td>
+          <td><a href="register.php"><button class="book-btn">Book Pediatrician</button></a></td>
 
         </tr>
         <tr>
@@ -180,7 +180,7 @@ session_start();
           <!-- Selecting one checkbox should deselect another one. -->
         <td>Completed <input type="checkbox" class="status"></td>
           <td> Pending <input type="checkbox" class="status"></td>
-          <td><button>Book Pediatrician</button></td>
+          <td><a href="register.php"><button class="book-btn">Book Pediatrician</button></a></td>
         </tr>
         <tr>
           <td>#</td>
@@ -193,7 +193,7 @@ session_start();
           <!-- Selecting one checkbox should deselect another one. -->
           <td>Completed <input type="checkbox" class="status"></td>
           <td> Pending <input type="checkbox" class="status"></td>
-          <td><button>Book Pediatrician</button></td>
+          <td><a href="register.php"><button class="book-btn">Book Pediatrician</button></a></td>
         </tr>
       </tbody>
     </table>
