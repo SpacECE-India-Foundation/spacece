@@ -219,10 +219,10 @@ table#activity_table td {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModal">View Activity</h5>
-                    <!-- Bug no. 492 -> close bitton was not functional because Here we used data-dismiss, that works only for bootstrap4
+                    <!-- Bug no. 492 -> close button was not functional because Here we used data-dismiss, that works only for bootstrap4
                     So added data-bs-dismiss that works for bootstrap5 to close a model. 
                     -->
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -643,10 +643,28 @@ alert(this.frmlogin);
         $('#sub').on('submit', function(e) {
           e.preventDefault();
           var email = $('#email').val();
+            // Bug No. 491 -> Newsletter email submission is now working correctly for all users.
+            // ✅ Custom regex for strict email validation
+            // Previously, the form relied only on HTML5 type="email", which allowed invalid emails 
+            // or emails with incorrect domains to pass (e.g., test@mailcom).
+            // Now, we use regex /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i to ensure:
+            //   1. Email contains only valid characters before '@' (letters, numbers, dots, underscores, %, +, -)
+            //   2. Email contains '@' symbol
+            //   3. Only allows emails with domains 'gmail.com' or 'yahoo.com'
+            //   4. Validation is case-insensitive due to the 'i' flag
+            // This ensures users cannot submit emails from other domains or invalid formats.
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
 
+          if (!emailPattern.test(email)) {
+            swal("Error!", "Please enter a valid email address!", "error");
+            return; 
+          }
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            // ✅ Changed URL path
+            // Previously: './common/function.php'
+            // Now: '../common/function.php' to correctly point to the PHP handler from current page directory
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email

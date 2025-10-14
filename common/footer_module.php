@@ -178,6 +178,7 @@
     <?= isset($extra_scripts) ? $extra_scripts : null ?>
 
     <script>
+
       $(document).ready(function() {
         $('#sub').on('submit', function(e) {
           e.preventDefault();
@@ -185,8 +186,8 @@
           
           // Bug No. -> 482 -> Regex for email validation 
           // Exact Validation as QA wants.
-             var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
-
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
+          // 0000475: : Newsletter Subscription Not Working on All Pages of "Lib for Small"
           if (!emailPattern.test(email)) {
             swal("Error!", "Please enter a valid email address!", "error");
             return; 

@@ -586,7 +586,7 @@ $trend_video_call = array_slice($all_videos, $offset, $videos_per_page);
 
           
           //Bug No.->516->Email is now submitted successfully, added Regex for email validation
-          var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+          var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
 
           if (!emailPattern.test(email)) {
             swal("Error!", "Please enter a valid email address!", "error");

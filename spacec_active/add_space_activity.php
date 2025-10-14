@@ -132,7 +132,7 @@ main {
 
           <div class="form-group" id="group-date">
             <label for="date">Date</label>
-            <input type="date" id="date" name="date" required>
+            <input type="date" id="date" name="date" max="2028-12-31" required>
             <div class="error-message empty-message">Please fill out this field.</div>
           </div>
 
@@ -197,6 +197,16 @@ main {
     //thisform.submit();
     if (!valid) e.preventDefault();
     
+  });
+        // Bug No.-> 498 -> Add this function to stop taking invalid, if date exceeds 2028, It will show an error message as pop-up ...
+     $("#date").on("input change", function () {
+    const maxDate = new Date($(this).attr("max"));
+    const inputDate = new Date($(this).val());
+
+    if (inputDate > maxDate) {
+      alert(" Please enter a valid date !");
+      $(this).val("");
+    }
   });
   </script>
 
