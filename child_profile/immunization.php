@@ -135,7 +135,7 @@ session_start();
 
     <div class="buttons">
       <a href="register.php"><button class="book-btn">Book Pediatrician</button></a>
-      <button class="appointment-btn">Your Appointments</button>
+      <a href="cits/appointment-history.php"><button class="appointment-btn">Your Appointments</button></a>
     </div>
 
     <table>

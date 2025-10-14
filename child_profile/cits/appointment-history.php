@@ -1,8 +1,10 @@
 <?php
-include './header_local.php';
-include('../../common/header_module.php');
+session_start();
+
+include 'header_local.php';
+include '../common/header_module.php';
 if(empty($_SESSION['current_user_email'])){
-	header('location:../../../spacece_auth/login.php');
+	header('location:../../../child_profile/login.php');
 }
 //session_start();
 error_reporting(0);
