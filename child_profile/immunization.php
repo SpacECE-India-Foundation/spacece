@@ -176,8 +176,9 @@ session_start();
           <td>SPECE101</td>
           <!-- Selecting one checkbox should deselect another one. -->
            <!-- Bug No. -> 542 (https://mantis.spacece.co.in/view.php?id=542) -> Give the checkboxes in individual td  -->
-          <td>Completed <input type="checkbox" class="status"></td>
-          <td> Pending <input type="checkbox" class="status"></td>
+          <td>Completed </td>
+           <input type="radio" name="status1" value="pending"> Pending
+    <input type="radio" name="status1" value="done"> Done
           <td><a href="register.php"><button class="book-btn">Book Pediatrician</button></a></td>
 
         </tr>
@@ -190,8 +191,9 @@ session_start();
           <td>2025-02-20</td>
           <td>SPECE101</td>
           <!-- Selecting one checkbox should deselect another one. -->
-        <td>Completed <input type="checkbox" class="status"></td>
-          <td> Pending <input type="checkbox" class="status"></td>
+        <td>Completed </td>
+          <input type="radio" name="status2" value="pending"> Pending
+    <input type="radio" name="status2" value="done"> Done
           <td><a href="register.php"><button class="book-btn">Book Pediatrician</button></a></td>
         </tr>
         <tr>
@@ -203,8 +205,9 @@ session_start();
           <td>2025-02-20</td>
           <td>SPECE101</td>
           <!-- Selecting one checkbox should deselect another one. -->
-          <td>Completed <input type="checkbox" class="status"></td>
-          <td> Pending <input type="checkbox" class="status"></td>
+          <td>Completed </td>
+           <input type="radio" name="status3" value="pending"> Pending
+    <input type="radio" name="status3" value="done"> Done
           <td><a href="register.php"><button class="book-btn">Book Pediatrician</button></a></td>
         </tr>
       </tbody>
