@@ -134,7 +134,13 @@ session_start();
     </div>
 
     <div class="buttons">
-      <a href="register.php"><button class="book-btn">Book Pediatrician</button></a>
+      <!--  Bug Number 0000557 : Redirects the user to the 'book-appointment' page -->
+      <button class="book-btn"  onclick="redirectToAppointments()">Book Pediatrician</button>
+      <script>
+        function redirectToAppointments() {
+          window.location.href = 'book-appointment.php'; // correct page
+        }
+      </script>
       <a href="cits/appointment-history.php"><button class="appointment-btn">Your Appointments</button></a>
     </div>
 
