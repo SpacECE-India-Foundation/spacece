@@ -2,7 +2,7 @@
   
 
 if(!defined('DB_HOST_NAME'))
- define('DB_HOST_NAME', 'localhost:3306');
+ define('DB_HOST_NAME', 'localhost');
 
  if(!defined('DB_USER_NAME'))
  define('DB_USER_NAME', 'root');
@@ -27,7 +27,7 @@ if(!defined('DB_NAME_SPACECE'))
 define('DB_NAME_SPACECE', 'spacece');
 
 if(!defined('DB_NAME_SPACTUBE'))
-define('DB_NAME_SPACTUBE', 'spactube');
+define('DB_NAME_SPACTUBE', 'spacetube');
 
 if(!defined('DB_NAME_LIBFORSMALL'))
 define('DB_NAME_LIBFORSMALL', 'libforsmall');

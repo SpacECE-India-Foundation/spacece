@@ -1,6 +1,8 @@
 <?php
+error_reporting(1);
 include_once './header_local.php';
 include_once '../common/header_module.php';
+//include_once('includes/header1.php');
 ?>
 
 <!DOCTYPE html>
@@ -238,7 +240,7 @@ include_once '../common/header_module.php';
   color: #F5A100;
   font-size: 28px;
   cursor: pointer;
-  border:none
+  border:none;
   padding: 0;
   background-color: transparent;
   transition: transform 0.2s ease;
@@ -467,14 +469,29 @@ body {
       <ul class="navbar-nav d-flex flex-row mb-0 gap-4">
         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
         <li class="nav-item"><a class="nav-link active" href="about.php">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="Mycourse.php">My Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="my_courses.php">My Courses</a></li>
       </ul>
-	          <form class="d-flex align-items-center search-form">
-          <div class="search-wrapper">
-            <input class="form-control search-input" type="search" placeholder="What do you want to Know?">
-            <i class="bi bi-search search-icon"></i>
-          </div>
-        </form>
+
+
+<!-- bug no. 0000464  solved:-  The site should show results or pages related to the typed keyword.-->
+	 <!-- Fixed Search Bar -->
+<form class="d-flex align-items-center search-form" id="searchForm">
+  <div class="search-wrapper position-relative w-100">
+    <input 
+      class="form-control search-input pe-5" 
+      type="search" 
+      id="searchInput" 
+      placeholder="What do you want to Know?" 
+      required
+    >
+    <!-- Icon placed inside input (clickable as button) -->
+    <button type="submit" class="btn border-0 bg-transparent position-absolute top-50 end-0 translate-middle-y pe-2">
+      <i class="bi bi-search search-icon"></i>
+    </button>
+  </div>
+</form>
+
+
     </div>
   </div>
 </nav>
@@ -489,9 +506,9 @@ body {
     <div class="subtitle">
       Learn vital skills for your baby's first year, covering feeding, sleep, health, safety, and early development. Gain confidence in providing the best care.
     </div>
-    <a href="Mycourse.php"><button class="btn btn-primary-custom">Enroll for Free</button></a>
+    <a href="enroll.php?cat=Infant Care"><button class="btn btn-primary-custom">Enroll for Free</button></a>
     <div class="tag-box">
-      <div class="tag">Top Instructors</div>
+      <div class="tag"><A href="topinst.php">Top Instructors</a></div>
       <div class="tag">New Skills</div>
     </div>
 
@@ -511,6 +528,10 @@ body {
         <div><i class="bi bi-check2"></i> Gain knowledge of basic infant health and safety guidelines.</div>
       </div>
 
+
+      <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
+      <div id="extraContent" style="display:none;">
+
       <div class="details">
         <i class="bi bi-calendar-event"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
@@ -521,14 +542,14 @@ body {
       </p>
 
       <h5 style="color:#f5a100; font-weight:700; margin-top:30px;">What You'll Learn:</h5>
-      <ul class="section-list">
+      <ul class="section-list" id="ulTxt'>
         <li><strong>Understanding Your Baby's Needs:</strong> Learn to recognize and interpret your baby's cues related to hunger, sleep, comfort, and interaction. Develop a deeper understanding of their developmental milestones.</li>
         <li><strong>Mastering Essential Care Techniques:</strong> Gain hands-on knowledge of safe and effective feeding practices, including recognizing feeding cues and different feeding methods. Learn about establishing healthy sleep routines and creating a safe sleep environment.</li>
         <li><strong>Promoting Comfort and Soothing:</strong> Discover various techniques to soothe a fussy baby, including swaddling, rocking, and understanding common reasons for discomfort.</li>
         <li><strong>Ensuring Health and Safety:</strong> Understand basic infant hygiene practices, learn about common infant health concerns, and gain knowledge of essential safety measures to protect your baby.</li>
         <li><strong>Fostering Early Development:</strong> Explore ways to engage with your baby to support their sensory exploration, cognitive growth, and early communication skills through play and interaction.</li>
       </ul>
-      <a href="#" class="read-less">Read Less</a>
+      <a href=" lessText()" class="read-less">Read Less</a>
     </div>
 
 	<section class="video-section">
@@ -615,6 +636,77 @@ body {
     </div>
   </section>
 
+
+  
+  <!-- bug no. 0000464 solved  -->
+   <!-- Fixed Search Bar -->
+   <script>
+  const searchForm = document.getElementById("searchForm");
+  const searchInput = document.getElementById("searchInput");
+
+  // Add your keywords and target pages here
+  const pages = {
+    "my course": "Mycourse.php",
+    "course": "Mycourse.php",
+    "about": "about.php",
+    "contact": "contact.php",
+    "services": "services.php",
+    "help": "help.php"
+  };
+
+  searchForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // stop default reload
+    const query = searchInput.value.trim().toLowerCase();
+
+    let found = false;
+    for (let key in pages) {
+      if (query.includes(key)) {
+        window.location.href = pages[key];
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      alert("No matching page found for: " + query);
+    }
+  });
+</script>
+
+  <script>
+  // New Skills Toggle
+  // bug no:- 0000468 New Skills Section
+  const newSkillsBtn = document.getElementById("newSkillsBtn");
+  const newSkillsSection = document.getElementById("newSkillsSection");
+
+  newSkillsBtn.addEventListener("click", () => {
+    if (newSkillsSection.style.display === "none") {
+      newSkillsSection.style.display = "block";
+      newSkillsBtn.textContent = "Hide Skills";
+    } else {
+      newSkillsSection.style.display = "none";
+      newSkillsBtn.textContent = "New Skills";
+    }
+  });
+</script>
+
+
+  <!-- 0000465: "Read Less" Button Redirects to About Page Instead of Collapsing Content -->
+<script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const extraContent = document.getElementById("extraContent");
+
+  toggleBtn.addEventListener("click", function () {
+    if (extraContent.style.display === "none") {
+      extraContent.style.display = "block";
+      toggleBtn.textContent = "Read Less";
+    } else {
+      extraContent.style.display = "none";
+      toggleBtn.textContent = "Read More";
+    }
+  });
+</script>
+
   <script>
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
@@ -647,6 +739,16 @@ body {
         updateSlide(currentSlide);
       });
     });
+    function lessText(elemid){
+     var elem=document.getElementById(elemid);
+     if (less="1"){
+      less=0;
+     elem.innerText.append('jo'); 
+     else{
+      less=1;
+      elem.innerText.append("hello");
+     }
+    }
   </script>
   </div>
 </body>

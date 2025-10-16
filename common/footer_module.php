@@ -161,9 +161,9 @@
             <p class="mb-3 fs-6" style="color: black;">Subscribe to our newsletter to get updates, offers and discounts.</p>
 
             <div class="email-container">
-              <label class="email-label fs-6" for="email">Enter your email -</label>
+              <label class="email-label fs-6" for="email" onblur="validateEmail(this.email.value)">Enter your email -</label>
               <form id="sub" class="email-form">
-                <input type="email" id="email" placeholder="Email here" required />
+                <input type="email" id="email" placeholder="Email here"  required />
                 <button type="submit">Submit</button>
               </form>
             </div>
@@ -178,15 +178,29 @@
     <?= isset($extra_scripts) ? $extra_scripts : null ?>
 
     <script>
+
       $(document).ready(function() {
         $('#sub').on('submit', function(e) {
           e.preventDefault();
           var email = $('#email').val();
+          
+          // Bug No. -> 482 -> Regex for email validation 
+          // Exact Validation as QA wants.
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
+          // 0000475: : Newsletter Subscription Not Working on All Pages of "Lib for Small"
+          if (!emailPattern.test(email)) {
+            swal("Error!", "Please enter a valid email address!", "error");
+            return; 
+          }
 
           $.ajax({
             method: "POST",
             // Update the url path for footer section in immunization. 
+            // Bug No.-> 482 -> (https://mantis.spacece.co.in/view.php?id=482)  , 483, 484, 485, 486, 487 ----   Update the url path 
+
             url: "../common/function.php",
+            // Bug No. -> 490, 491, 495, 496 Update the url path for footer section. 
+          
             data: {
               subscribe: 1,
               email: email
@@ -217,6 +231,13 @@
           }
         }
       });
+
+
+      function validateEmail(email) {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+}
+
     </script>
 
   </body>

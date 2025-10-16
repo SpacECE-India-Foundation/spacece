@@ -1,3 +1,8 @@
+
+<?php print_r($_POST);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +112,7 @@ main {
     <main>
       <div class="form-card">
         <h2>Add New Space Activity</h2>
-        <form id="activityForm" action="save_space_activity.php" method="POST" novalidate>
+        <form id="activityForm" name="activityForm"  method="POST" action="save_space_activity.php" novalidate>
           <div class="form-group" id="group-activity_id">
             <label for="activity_id">Activity ID</label>
             <input type="number" id="activity_id" name="activity_id" required placeholder=" ">
@@ -127,7 +132,7 @@ main {
 
           <div class="form-group" id="group-date">
             <label for="date">Date</label>
-            <input type="date" id="date" name="date" required>
+            <input type="date" id="date" name="date" max="2028-12-31" required>
             <div class="error-message empty-message">Please fill out this field.</div>
           </div>
 
@@ -148,7 +153,7 @@ main {
         </div>
 
           <br>
-          <button type="submit" class="submit-btn">Submit</button>
+          <button type="click" id = "btn" name ="btn" class="submit-btn">Submit</button>
         </form>
       </div>
     </main>
@@ -161,7 +166,8 @@ main {
   const form = document.getElementById('activityForm');
   const fields = ['activity_id', 'activity_name', 'date', 'time', 'status'];
 
-  form.addEventListener('submit', function (e) {
+  btn.addEventListener('click', function (e) {
+    alert('in func');
     let valid = true;
 
     fields.forEach(id => {
@@ -187,8 +193,20 @@ main {
         if(invalidMsg) invalidMsg.style.display = 'none';
       }
     });
-
+    thisform.action="save_space_activity.php";
+    //thisform.submit();
     if (!valid) e.preventDefault();
+    
+  });
+        // Bug No.-> 498 -> Add this function to stop taking invalid, if date exceeds 2028, It will show an error message as pop-up ...
+     $("#date").on("input change", function () {
+    const maxDate = new Date($(this).attr("max"));
+    const inputDate = new Date($(this).val());
+
+    if (inputDate > maxDate) {
+      alert(" Please enter a valid date !");
+      $(this).val("");
+    }
   });
   </script>
 

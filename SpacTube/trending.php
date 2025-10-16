@@ -584,9 +584,19 @@ $trend_video_call = array_slice($all_videos, $offset, $videos_per_page);
           e.preventDefault();
           var email = $('#email').val();
 
+          
+          //Bug No.->516->Email is now submitted successfully, added Regex for email validation
+          var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
+
+          if (!emailPattern.test(email)) {
+            swal("Error!", "Please enter a valid email address!", "error");
+            return; 
+          }
+
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            // Give the correct path
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email

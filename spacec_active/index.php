@@ -219,7 +219,10 @@ table#activity_table td {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModal">View Activity</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!-- Bug no. 492 -> close button was not functional because Here we used data-dismiss, that works only for bootstrap4
+                    So added data-bs-dismiss that works for bootstrap5 to close a model. 
+                    -->
+                    <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -282,12 +285,8 @@ table#activity_table td {
                     <button type="button" class="btn" style="background-color: #FFA500; color: white; padding: 10px 20px; border-radius: 8px; border: none;">
                         Online Activity Registration
                     </button>
-                    <!-- 0000494: 'In-Person Visit Registration' button is not functional in the 'Spacactive' page with delivery boy login.
-                      add onclick functionality to the button and give a registration file path "add_activity.php"' and button is perform clearliy
-                      issue is resolved now
-                    -->
                     
-                    <button type="button" onclick="window.location.href='add_activity.php'" class="btn" style="background-color: #007BFF; color: white; padding: 10px 20px; border-radius: 8px; border: none; margin-right: 4px;">
+                    <button type="button" class="btn" style="background-color: #007BFF; color: white; padding: 10px 20px; border-radius: 8px; border: none; margin-right: 4px;">
                         In-Person Visit Registration
                     </button>
                 </div>
@@ -396,6 +395,44 @@ table#activity_table td {
     <div id="progress-bar" class="progress-bar progress-bar-striped" role="progressbar" style="width:10px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
 </div>
 
+
+
+<!-- modal form for preview button click-->
+ <!--modified by Geeta -->
+ <!-- end -->
+
+  <div class="modal fade"  id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="previewModal">Pre-View video</h5>
+                    
+                    <video controls width="400" height="400" autoplay='true' >
+                   <source src="https://youtu.be/M9DoUszVCFc?si=s5jUiIdIfRwXEcjd" type="video/ogg"/>
+                   <source src="https://www.youtube.com/shorts/lueQ5me03Ds" type="video/mp4" />
+                   <source src="https://youtube.com/shorts/6K4Ea6_ft6c?feature=share" type="video/mp4' />  
+                    </video>
+
+
+
+
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+         </div>
+    </div>
+    </div>
+  <!-- end of preview modal form-->
+
+
+
+
+
+
+
+
 <div class="row">
 
 </div><br><br>
@@ -493,6 +530,8 @@ table#activity_table td {
       padding: 6px;
       background: white;
     }
+
+
 
     .email-form input[type="email"] {
       flex: 1;
@@ -599,13 +638,33 @@ table#activity_table td {
 
     <script>
       $(document).ready(function() {
+alert('infunction');
+alert(this.frmlogin);
         $('#sub').on('submit', function(e) {
           e.preventDefault();
           var email = $('#email').val();
+            // Bug No. 491 -> Newsletter email submission is now working correctly for all users.
+            // ✅ Custom regex for strict email validation
+            // Previously, the form relied only on HTML5 type="email", which allowed invalid emails 
+            // or emails with incorrect domains to pass (e.g., test@mailcom).
+            // Now, we use regex /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i to ensure:
+            //   1. Email contains only valid characters before '@' (letters, numbers, dots, underscores, %, +, -)
+            //   2. Email contains '@' symbol
+            //   3. Only allows emails with domains 'gmail.com' or 'yahoo.com'
+            //   4. Validation is case-insensitive due to the 'i' flag
+            // This ensures users cannot submit emails from other domains or invalid formats.
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
 
+          if (!emailPattern.test(email)) {
+            swal("Error!", "Please enter a valid email address!", "error");
+            return; 
+          }
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+            // ✅ Changed URL path
+            // Previously: './common/function.php'
+            // Now: '../common/function.php' to correctly point to the PHP handler from current page directory
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email
@@ -921,7 +980,54 @@ $.ajax({
         }
     });
 });
+<!--
+//added by geetagem . thisis pop up for he preview buttons in the table
+//Plays the videoinapop up form
+-->
+/*
+$(document).on("click", "#preview", function() {
+        alert("Yes");
+        $('#previewModal').modal('toggle');
+        $('#act_id').empty();
+        
+        var id = $(this).data('text');
+        //alert(id);    
+             $.ajax({
+            type: 'POST',
+            data: {
+                'getDetails': 1,
+                'id': id
+            },
+            url: 'fetch.php',
+            success: function(data1) {
+                /// console.log(data1);
+                var data2 = JSON.parse(data1);
+                //alert(data2.activity_no);
+                $('#act_id').append(data2.activity_no);
+                $('#act_lvl').append(data2.activity_level);
+                $('#act_domain').append(data2.activity_dev_domain);
+                $('#act_obj').append(data2.activity_objectives);
+                $('#act_key').append(data2.activity_key_dev);
+                $('#act_mat').append(data2.activity_material);
+                $('#act_name').append(data2.activity_name);
+                $('#act_assess').append(data2.activity_assessment);
+                $('#act_pro').append(data2.activity_process);
+                $('#act_ins').append(data2.activity_instructions);
+                $('#act_date').append(data2.activity_date);
 
+            }
+        });
+    });
+
+*/
+
+//this function is delegated to the click  function of preview button -->
+   $(document).delegate('#preview', 'click', function(e) {
+    alert('in');
+    //    e.preventDefault();
+        const id = $(this).attr('id');
+             $("#previewModal").modal('show');
+      });
 
                 
                     </script>

@@ -1,4 +1,9 @@
 <?php
+
+
+session_start();
+
+
 error_reporting(0);
 $main_logo = "../img/logo/SpacECELogo.jpg";
 $module_logo = "../img/logo/ConsultUs.jpeg";
@@ -7,11 +12,19 @@ include_once '../common/header_module.php';
 include '../Db_Connection/constants.php';
 include '../Db_Connection/db_cits1.php';
 
+//bug no: 506
+
+// The registered child’s details (name, DOB, gender, etc.) should be clearly visible — either displayed on the same page, listed in a dashboard, or stored in a viewable format for verification.
+
+// The user should be able to confirm that the submitted data is saved and viewable.
+
+
 if (isset($_POST['submit'])) {
   $docid = $_SESSION['current_user_id'];
   $childname = $_POST['childname'];
   $parentcontact = $_POST['parentcontact'];
-  $parentemail = $_POST['parentemail'];
+  $parentemail = $_SESSION['current_user_email'];
+
   $gender = $_POST['gender'];
   $parentaddress = $_POST['parentaddress'];
   $dob = $_POST['childob'];
@@ -23,8 +36,17 @@ if (isset($_POST['submit'])) {
   $interval = $today->diff($birthdate);
   $childage = $interval->y;
 
-  $sql = mysqli_query($conn, "INSERT INTO cits1.tblchildren(childName, parentContno, parentEmail, childGender, parentAdd, childAge, childImmu, childDoB) 
-    VALUES('$childname', '$parentcontact', '$parentemail', '$gender', '$parentaddress', '$childage', '$medhis', '$dob')");
+  $sql_query = "INSERT INTO tblchildren(childName, parentContno, parentEmail, childGender, parentAdd, childAge, childImmu, childDoB) 
+VALUES('$childname', '$parentcontact', '$parentemail', '$gender', '$parentaddress', '$childage', '$medhis', '$dob')";
+
+if(mysqli_query($conn, $sql_query)){
+    echo "<script>
+    alert('Child info added Successfully');
+    window.location.href = './myChildrens.php';
+    </script>";
+} else {
+    echo "Error: " . mysqli_error($conn);
+}
 
   if ($sql) {
     echo "<script>
@@ -34,6 +56,8 @@ if (isset($_POST['submit'])) {
   }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
