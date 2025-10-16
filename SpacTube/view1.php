@@ -411,7 +411,9 @@ if ($status === true) {
 
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+          // Bug Number 0000515 : Previously this was "./common/function.php"
+          // Changed to "../common/function.php" because the current file
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email
