@@ -1,5 +1,4 @@
 <?php
-echo "details 16";
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 include_once './header_local.php';
@@ -554,16 +553,10 @@ $total_pages = ceil($total_records / $limit);
         $('#sub').on('submit', function(e) {
           e.preventDefault();
           var email = $('#email').val();
-          // Regex for email validation
-           var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
 
-          if (!emailPattern.test(email)) {
-            swal("Error!", "Please enter a valid email address!", "error");
-            return; 
-          }
           $.ajax({
             method: "POST",
-            url: "../common/function.php",
+            url: "./common/function.php",
             data: {
               subscribe: 1,
               email: email
