@@ -2,7 +2,12 @@
 ob_start();
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
+
+
 }
+
+
+
 if (empty($_SESSION['current_user_email'])) {
   header('location:../spacece_auth/login.php');
   exit();
@@ -43,10 +48,45 @@ if (isset($_SESSION['current_user_email'])) {
   <?php
   define('DB_USER_DATABASE', 'spacece');
 
-//  $conn1 = new mysqli(DB_HOST_NAME, DB_USER_NAME, DB_USER_PASSWORD, DB_USER_DATABASE);
+  $conn1 = new mysqli('localhost', 'root', '', 'spacece');
+  //$conn1 = new mysqli('localhost', 'root', '', 'spacece');
 
-//Bug No. -> 523,524-> Give the correct database 
-$conn1 = new mysqli('localhost', 'root', '', 'spacece');
+
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    ob_clean(); // clear buffered HTML
+    header('Content-Type: text/plain');
+
+    $c_id = $_POST['cid'];
+    $b_id = $_POST['b_id'];
+    $con_name = $_POST['con_name'];
+    $cat_name = $_POST['cat_name'];
+    $appointment_date = $_POST['adate'];
+    $appointment_time = $_POST['atime'];
+    $child_name = $_POST['child_id'];
+    $u_name = $_POST['fullname'];
+    $u_email = $_POST['email'];
+    $u_mob = $_POST['mobile'];
+
+    $stmt = $conn1->prepare("INSERT INTO appointment 
+        (cid, category, username, cname, bid, com_mob, date_appointment, time_appointment, child_name, email, mobile)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    
+    // use all strings unless you are 100% sure cid/bid are int
+    $stmt->bind_param("sssssssssss", 
+        $c_id, $cat_name, $u_name, $con_name, $b_id, $u_mob, 
+        $appointment_date, $appointment_time, $child_name, $u_email, $u_mob
+    );
+
+    if ($stmt->execute()) {
+        echo "success";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+    $stmt->close();
+    exit();
+}
+
 
   $u_name = '';
   $u_mob = '';
@@ -84,35 +124,12 @@ $conn1 = new mysqli('localhost', 'root', '', 'spacece');
     }
   }
 
-  include('../Db_Connection/db_consultus_app.php');
+  //include('../Db_Connection/db_consultus_app.php'
+//);
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-    $c_id = $_POST['cid'];
-    $b_id = $_POST['b_id'];
-    $con_name = $_POST['con_name'];
-    $cat_name = $_POST['cat_name'];
-    $appointment_date = $_POST['adate'];
-    $appointment_time = $_POST['atime'];
-    $child_name = $_POST['child_id'];
-    $u_name = $_POST['fullname'];
-    $u_email = $_POST['email'];
-    $u_mob = $_POST['mobile'];
 
-    $sql = "INSERT INTO appointment 
-        (cid, category, username, cname, bid, com_mob, date_appointment, time_appointment, child_name, email)
-        VALUES 
-        ('$c_id', '$cat_name', '$u_name', '$con_name', '$b_id', '$u_mob', '$appointment_date', '$appointment_time', '$child_name', '$u_email')";
 
-    $res = mysqli_query($conn, $sql);
 
-    if ($res) {
-      header('location:showmyappointment.php');
-      //echo "<h3 style='color:green;'>✔ Appointment booked successfully!</h3>";
-      exit();
-    } else {
-      echo "<h3 style='color:red;'>❌ Error: " . mysqli_error($conn) . "</h3>";
-    }
-  }
 
   function getNext7AvailableDays($c_aval_days)
   {
@@ -243,15 +260,18 @@ $conn1 = new mysqli('localhost', 'root', '', 'spacece');
         <a href="./cdetails.php?category=all" class="btn btn-sm ml-2 text-white" style="margin-left: 10px; background-color:#5cc4eb;">View All consultants</a>
       </div>
       <hr>
-      <form method="POST">
+      <form id="appoint" method="POST">
+
+
         <!-- Hidden fields to preserve GET values -->
         <input type="hidden" name="cid" value="<?php echo $c_id; ?>">
-        <input type="hidden" name="b_id" value="<?php echo $b_id; ?>">
+        <!-- <input type="hidden" name="b_id" value="<?php echo $b_id; ?>"> -->
         <input type="hidden" name="con_name" value="<?php echo $con_name; ?>">
         <input type="hidden" name="cat_name" value="<?php echo $cat_name; ?>">
 
         <label for="userid"><b>Booking Id</b></label>
-        <input type="text" value="<?php echo $b_id ?>" name="userid" id="userid" required readonly>
+        <input type="text" value="<?php echo $b_id ?>" name="b_id" id="b_id" required readonly>
+
         <label for="adate"><b>Select Date of Appointment:</b></label>
         <select id="adate" name="adate" required>
           <?php foreach ($next7Days as $day) { ?>
@@ -271,7 +291,7 @@ $conn1 = new mysqli('localhost', 'root', '', 'spacece');
         <select id="child_id" name="child_id" class="form-control">
           <?php
           $sql3 = "SELECT childName FROM cits1.tblchildren WHERE cits1.tblchildren.parentEmail='$email'";
-          $res = mysqli_query($conn, $sql3);
+          $res = mysqli_query($conn1, $sql3);
           $count2 = mysqli_num_rows($res);
           if ($count2) {
             while ($row3 = mysqli_fetch_assoc($res)) {
@@ -290,8 +310,9 @@ $conn1 = new mysqli('localhost', 'root', '', 'spacece');
         <hr>
         <!-- <input type="submit" name="submit" id="submit" class="registerbtn"> -->
 
-        <button type="submit" name="submit" id="submit" class="registerbtn" style="background-color:orange;width: 100px;">Submit</button>
-      </form>
+        <!-- Remove name="submit" and id="submit" -->
+<button type="submit" class="registerbtn" style="background-color:orange;width: 100px;">Submit</button>
+
 
     </div>
 
@@ -307,13 +328,15 @@ $conn1 = new mysqli('localhost', 'root', '', 'spacece');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  </body>
 
-  <script>
-    $(document).ready(function() {
-      $('#appoint').on('submit', function(e) {
-        var c_from_time = "<?php echo $c_from_time; ?>";
-        var c_to_time = "<?php echo $c_to_time; ?>";
+
+ <script>
+$(document).ready(function() {
+    $('#appoint').on('submit', function(e) {
+        e.preventDefault(); // prevent default form submission
+
+        var c_from_time = "<?= $c_from_time ?>";
+        var c_to_time = "<?= $c_to_time ?>";
         var atime = $('#atime').val();
 
         var timePattern = /^([0-9]{2}):([0-9]{2})$/;
@@ -321,23 +344,49 @@ $conn1 = new mysqli('localhost', 'root', '', 'spacece');
         var toTimeMatch = c_to_time.match(timePattern);
         var aTimeMatch = atime.match(timePattern);
 
+        if (!aTimeMatch) {
+            swal("Error", "Invalid time format.", "error");
+            return false;
+        }
+
         var fromTimeDate = new Date();
         fromTimeDate.setHours(parseInt(fromTimeMatch[1]), parseInt(fromTimeMatch[2]));
-
         var toTimeDate = new Date();
         toTimeDate.setHours(parseInt(toTimeMatch[1]), parseInt(toTimeMatch[2]));
-
         var aTimeDate = new Date();
         aTimeDate.setHours(parseInt(aTimeMatch[1]), parseInt(aTimeMatch[2]));
 
         if (aTimeDate < fromTimeDate || aTimeDate > toTimeDate) {
-          swal("Error", "Selected time is outside of available hours.", "error");
-          e.preventDefault();
-          return false;
+            swal("Error", "Selected time is outside of available hours.", "error");
+            return false;
         }
-      });
+
+        // Corrected AJAX URL to post to the same page
+        $.ajax({
+            type: 'POST',
+            url: window.location.href.split('?')[0], // ensures GET parameters do not break POST
+            data: $(this).serialize(),
+            success: function(response) {
+                console.log("Server response:", response);
+                if (response.toLowerCase().includes("success")) {
+                    swal("Success", "Appointment booked successfully!", "success")
+                        .then(() => window.location.href = "showmyappointment.php");
+                } else {
+                    swal("Error", response, "error");
+                }
+            },
+            error: function(xhr, status, error) {
+                swal("Error", "AJAX error: " + error, "error");
+            }
+        });
+
     });
-  </script>
+});
+</script>
+
+
+
+  </body>
 
   </html>
 
