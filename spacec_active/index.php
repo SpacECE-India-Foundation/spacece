@@ -653,8 +653,10 @@ alert(this.frmlogin);
             //   3. Only allows emails with domains 'gmail.com' or 'yahoo.com'
             //   4. Validation is case-insensitive due to the 'i' flag
             // This ensures users cannot submit emails from other domains or invalid formats.
-            var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
 
+            
+        // Regex for email validation
+          var emailPattern = /[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
           if (!emailPattern.test(email)) {
             swal("Error!", "Please enter a valid email address!", "error");
             return; 
