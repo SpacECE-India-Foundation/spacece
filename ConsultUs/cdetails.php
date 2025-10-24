@@ -192,7 +192,7 @@ $total_pages = ceil($total_records / $limit);
                   ?>
                 </td>
                 <td><?php echo $row['c_qualification']; ?></td>
-                <td>
+               <td>
                   <a class="btn btn-sm me-8" style="background-color:rgb(51, 154, 251);" href="./appoint.php?cid=<?php echo $row['u_id']; ?>&b_id=<?php echo $app_id; ?>&cat_name=<?php echo $row['cat_name']; ?>&con_name=<?php echo $row['u_name']; ?>">Book Appointment</a>
                   <?php
                   if (isset($_SESSION['current_user_id'])) {
