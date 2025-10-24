@@ -212,7 +212,10 @@ a:hover i {
     </div>
     <div class="custom-select-wrapper">
   <span class="material-symbols-outlined custom-select-icon">filter_alt</span>
-  <select class="custom-select" name="filterr" id="filterr" style="appearance: none; width: 100%; padding: 5px 40px 6px 30px; border: 1px solid #ccc; border-radius: 12px; background-color: white; font-size: 14px; color: #666; outline: none;">
+  <!-- Bug ID: 0000518 - Filter dropdown not functional in 'Trending Section' of Spacetube page -->
+  <!-- FIX IMPLEMENTATION : Added onchange="this.form.submit()" to the <select> tag to auto-submit form whenever user changes filter.
+     - This ensures the selected filter is passed to backend and content updates dynamically.  -->
+  <select class="custom-select" name="filterr" id="filterr" onchange="this.form.submit() "style="appearance: none; width: 100%; padding: 5px 40px 6px 30px; border: 1px solid #ccc; border-radius: 12px; background-color: white; font-size: 14px; color: #666; outline: none;">
     <option value="all">Filter</option>
     <?php
     if ($get_video) {

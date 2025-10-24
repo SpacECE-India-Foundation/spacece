@@ -408,10 +408,24 @@ if ($status === true) {
         $('#sub').on('submit', function(e) {
           e.preventDefault();
           var email = $('#email').val();
-
+          // Bug ID: 0000515 -> Fixed Newsletter email submission error in 'Paid Section' page.
+          // FIX IMPLEMENTATION:Added strict REGEX-based email validation to ensure only valid addresses pass.
+          // REGEX DETAILS:
+          // /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i
+          // Allows only valid characters before '@' (letters, numbers, ., _, %, +, -)
+          // Ensures '@' symbol is present.
+          // Allows only 'gmail.com' and 'yahoo.com' domains.
+          //  'i' flag = case-insensitive validation.
+          var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
+          if (!emailPattern.test(email)) {
+            swal("Error!", "Please enter a valid email address!", "error");
+            return; // Stop form submission if invalid email
+          }
           $.ajax({
             method: "POST",
-            url: "./common/function.php",
+          // Bug Number 0000515 : Previously this was "./common/function.php"
+          // Changed to "../common/function.php" because the current file
+            url: "../common/function.php",
             data: {
               subscribe: 1,
               email: email
