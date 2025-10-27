@@ -259,6 +259,11 @@ include_once '../common/header_module.php';
       gap: 5px;
       height: 36px;
     }
+    .grid-button a:hover {
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
 
     .cart-button {
       border: 1px solid #ccc;
@@ -586,10 +591,19 @@ include_once '../common/header_module.php';
     &nbsp;
     &nbsp;
     &nbsp;
+<!-- Bug nu:- 0000478 "To Orders Page" Button Not Functioning on "Library For Small" - Dashboard Page
+Step 1: Located the non-functional "To Orders Page" button in the 'Recent Orders' section.
+Step 2: Identified that the <button> had no link or click event attached.
+Step 3: Wrapped the button inside an <a> tag with href="orders.php" to enable redirection.
+Step 4: Verified that clicking the button now redirects the user correctly.
+Fixed: "To Orders Page" button now redirects properly to 'orders.php' (Bug No. 0000478) -->
+
     <div class="grid-button">
-      <button class="add">To Orders Page</button>
-      &nbsp;
+      <a href="orders.php">
+        <button class="add">To Orders Page</button>
+      </a>
     </div>
+
   </section>
   &nbsp;
   &nbsp;
