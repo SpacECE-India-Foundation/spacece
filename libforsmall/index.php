@@ -599,7 +599,7 @@ Step 4: Verified that clicking the button now redirects the user correctly.
 Fixed: "To Orders Page" button now redirects properly to 'orders.php' (Bug No. 0000478) -->
 
     <div class="grid-button">
-      <a href="orders.php">
+      <a href="libforsmall/Orders.php">
         <button class="add">To Orders Page</button>
       </a>
     </div>
