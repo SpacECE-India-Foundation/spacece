@@ -321,7 +321,8 @@ if(!empty($_SESSION)){
     
     <div class="btn-group">
         <a href="register.php" class="btn btn-blue">Book Doctor</a>
-        <a href="cits/appointment-history.php"><button class="appointment-btn">Your Appointments</button></a>
+        <!-- Bug No. -> 537 -> Give the proper link of appointment-history.php in this button tag. -->
+        <button onclick="window.location.href='cits/appointment-history.php';" class="appointment-btn">Your Appointments</button></a>
     </div>
 </div>
 </div>
