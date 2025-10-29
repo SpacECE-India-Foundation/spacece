@@ -105,7 +105,7 @@ $cart_count = $total['total_qty'] ?? 0;
         <i class="fas fa-shopping-cart"></i>
         <?php if ($cart_count > 0): ?>
           <span class="cart-count" style="position:absolute; top:5px; right:5px; background:red; color:#fff; border-radius:50%; padding:2px 6px; font-size:12px;">
-            <?php echo $cart_count; ?>
+            <?php echo $cart_count -1; ?>
           </span>
         <?php endif; ?>
       </button>
