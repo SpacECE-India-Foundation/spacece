@@ -718,6 +718,19 @@
             showYoutubeThumbnails: true
         });
     </script>
+    <!-- Bug 502 FIX START -->
+    <script>
+        $(document).ready(function() {
+            //custom button for homepage
+            $(".share-btn").click(function(e) {
+                $('.networks-5').not($(this).next(".networks-5")).each(function() {
+                    $(this).removeClass("active");
+                });
+
+                $(this).next(".networks-5").toggleClass("active");
+            });
+        });
+    </script>
     <script>
         $('#alb_icon_close').on('click', function() {
 
@@ -729,3 +742,62 @@
             myVideo.pause();
         })
     </script>
+
+<!--Bug 502  Font Awesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script>
+document.addEventListener("click", function(e) {
+  if (e.target.closest(".fa-share-alt")) {
+    e.preventDefault();
+
+    const url = window.location.href;
+    const text = document.title;
+
+    // Social media share URLs
+    const fb = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+    const tw = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
+    const wa = "https://wa.me/?text=" + encodeURIComponent(text + ' ' + url);
+    const ig = "https://www.instagram.com/?url=" + encodeURIComponent(url);
+    const tg = "https://t.me/share/url?url=" + encodeURIComponent(url) + "&text=" + encodeURIComponent(text);
+
+    // Popup HTML with icons
+    const popup = `
+      <div id="sharePopup" style="
+        position: fixed; inset: 0;
+        background: rgba(0,0,0,0.5);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 9999;">
+        <div style="
+          background: white; 
+          padding: 30px; 
+          border-radius: 12px; 
+          text-align: center; 
+          min-width: 250px;">
+          <h3 style="margin-bottom: 20px;">Share</h3>
+          <div style="display:flex; justify-content: space-around; font-size:24px; margin-bottom:15px;">
+            <a href='${fb}' target='_blank' style="color:#1877F2;"><i class="fab fa-facebook-square"></i></a>
+            <a href='${tw}' target='_blank' style="color:#1DA1F2;"><i class="fab fa-twitter-square"></i></a>
+            <a href='${wa}' target='_blank' style="color:#25D366;"><i class="fab fa-whatsapp-square"></i></a>
+            <a href='${ig}' target='_blank' style="color:#C13584;"><i class="fab fa-instagram-square"></i></a>
+            <a href='${tg}' target='_blank' style="color:#0088CC;"><i class="fab fa-telegram"></i></a>
+          </div>
+          <button id="closeShare" style="
+            margin-top: 10px; 
+            padding: 8px 15px; 
+            border: none; 
+            background: #555; 
+            color: white; 
+            border-radius: 5px; 
+            cursor: pointer;">Cencel</button>
+        </div>
+      </div>`;
+
+    document.body.insertAdjacentHTML('beforeend', popup);
+
+    document.getElementById("closeShare").addEventListener("click", () => {
+      document.getElementById("sharePopup").remove();
+    });
+  }
+});
+</script>
