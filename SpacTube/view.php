@@ -709,7 +709,7 @@
 
 
 
-    <!--End - Delete - Modal -->
+     <!--End - Delete - Modal -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./src/ALightBox.js"></script>
 
@@ -745,7 +745,7 @@
 
 <!--Bug 502  Font Awesome CDN for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script>
 document.addEventListener("click", function(e) {
   if (e.target.closest(".fa-share-alt")) {
@@ -777,7 +777,7 @@ document.addEventListener("click", function(e) {
           <h3 style="margin-bottom: 20px;">Share</h3>
           <div style="display:flex; justify-content: space-around; font-size:24px; margin-bottom:15px;">
             <a href='${fb}' target='_blank' style="color:#1877F2;"><i class="fab fa-facebook-square"></i></a>
-            <a href='${tw}' target='_blank' style="color:#1DA1F2;"><i class="fab fa-twitter-square"></i></a>
+            <a href='${tw}' target='_blank' style="color:#000;"><i class="fa-brands fa-x-twitter"></i></a>
             <a href='${wa}' target='_blank' style="color:#25D366;"><i class="fab fa-whatsapp-square"></i></a>
             <a href='${ig}' target='_blank' style="color:#C13584;"><i class="fab fa-instagram-square"></i></a>
             <a href='${tg}' target='_blank' style="color:#0088CC;"><i class="fab fa-telegram"></i></a>
@@ -789,7 +789,7 @@ document.addEventListener("click", function(e) {
             background: #555; 
             color: white; 
             border-radius: 5px; 
-            cursor: pointer;">Cencel</button>
+            cursor: pointer;">Cancel </button>
         </div>
       </div>`;
 
