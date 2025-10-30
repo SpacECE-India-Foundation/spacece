@@ -321,8 +321,8 @@ if(!empty($_SESSION)){
     
     <div class="btn-group">
         <a href="register.php" class="btn btn-blue">Book Doctor</a>
-        <!-- Bug No. -> 537 -> Give the proper link of appointment-history.php in this button tag. -->
-        <button onclick="window.location.href='cits/appointment-history.php';" class="appointment-btn">Your Appointments</button></a>
+        <!-- bug 0000537 fix : Added onclick event to redirect 'Your Appointments' button to the appointments page -->
+        <button class="btn btn-blue" onclick="location.href='cits/appointment-history.php'">Your Appointments</button>
     </div>
 </div>
 </div>
