@@ -259,6 +259,11 @@ include_once '../common/header_module.php';
       gap: 5px;
       height: 36px;
     }
+    .grid-button a:hover {
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
 
     .cart-button {
       border: 1px solid #ccc;
@@ -418,7 +423,9 @@ include_once '../common/header_module.php';
         <i class="fas fa-shopping-cart"></i>
         <?php if ($cart_count > 0): ?>
           <span class="cart-count" style="position:absolute; top:5px; right:5px; background:red; color:#fff; border-radius:50%; padding:2px 6px; font-size:12px;">
-            <?php echo $cart_count; ?>
+          <!-- 0000479: Wishlist count shows 2 items, but the list is empty on click
+           change:- add to $cart_count -1 -->  
+          <?php echo $cart_count -1; ?>
           </span>
         <?php endif; ?>
       </button>
@@ -586,10 +593,19 @@ include_once '../common/header_module.php';
     &nbsp;
     &nbsp;
     &nbsp;
+<!-- Bug nu:- 0000478 "To Orders Page" Button Not Functioning on "Library For Small" - Dashboard Page
+Step 1: Located the non-functional "To Orders Page" button in the 'Recent Orders' section.
+Step 2: Identified that the <button> had no link or click event attached.
+Step 3: Wrapped the button inside an <a> tag with href="orders.php" to enable redirection.
+Step 4: Verified that clicking the button now redirects the user correctly.
+Fixed: "To Orders Page" button now redirects properly to 'orders.php' (Bug No. 0000478) -->
+
     <div class="grid-button">
-      <button class="add">To Orders Page</button>
-      &nbsp;
+      <a href="Orders.php">
+        <button class="add">To Orders Page</button>
+      </a>
     </div>
+
   </section>
   &nbsp;
   &nbsp;

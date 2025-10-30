@@ -4,11 +4,12 @@ session_start();
 include 'header_local.php';
 include '../common/header_module.php';
 if(empty($_SESSION['current_user_email'])){
-	header('location:../../../child_profile/login.php');
+	header('location:../../../spacece_auth/login.php');
 }
 //session_start();
 error_reporting(0);
-include('include/config.php');
+//  bug no. 537 -> Give the correct connection of config.php 
+include('../config.php');
 
 // include('include/checklogin.php');
 // check_login();
