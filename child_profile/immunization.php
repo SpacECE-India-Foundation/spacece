@@ -1,6 +1,7 @@
 <?php
 session_start();
  if(!empty($_SESSION)){
+  
    include 'header_local.php';
    include '../common/header_module.php';
    
