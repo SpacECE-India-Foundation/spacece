@@ -66,6 +66,35 @@ if (!empty($_SESSION)) {
         .form-group:last-child {
             margin-bottom: 0;
         }
+        /* File Input Styling */
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Style the button part of the file input */
+        .form-group input[type="file"]::-webkit-file-upload-button {
+        background-color: #f5a500;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-right: 10px;
+        font-weight: bold;
+        transition: 0.3s ease;
+        }
+
+        /* Hover effect */
+        .form-group input[type="file"]::-webkit-file-upload-button:hover {
+            background-color: #d88900;
+        }
+
         .vaccine-section label {
             font-weight: bold;
             font-size: 18px;
@@ -103,7 +132,7 @@ if (!empty($_SESSION)) {
         <h1>Register A Child</h1>
         <a href="home.php">
         <button class="back-btn">← Back</button></a>
-        <form name="childForm" onsubmit="return validateForm(event)">
+        <form name="childForm" method="post" enctype="multipart/form-data" action="child_register_action.php" onsubmit="return validateForm(event)">            
             <div class="form-group">
                 <label>Child Name</label>
                 <input type="text" name="child_name" placeholder="Your entry here">
