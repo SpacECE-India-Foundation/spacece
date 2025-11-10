@@ -709,10 +709,9 @@
 
 
 
-     <!--End - Delete - Modal -->
+    <!--End - Delete - Modal -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./src/ALightBox.js"></script>
-
     <script type="text/javascript">
         $('body').ALightBox({
             showYoutubeThumbnails: true
