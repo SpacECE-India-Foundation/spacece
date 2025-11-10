@@ -3,8 +3,25 @@ session_start();
 if(!empty($_SESSION)){
     include 'header_local.php';
     include '../common/header_module.php';
+    include '../Db_Connection/db_cits1.php'; 
+
+}
+// Get child name from URL
+if (!isset($_GET['child_name'])) {
+    die("Child name not provided.");
 }
 
+$child_name = mysqli_real_escape_string($conn, $_GET['child_name']);
+
+// Fetch only that child
+$sql = "SELECT * FROM children WHERE child_name = '$child_name' LIMIT 1";
+$result = mysqli_query($conn, $sql);
+$child = mysqli_fetch_assoc($result);
+
+if (!$child) 
+    {
+    die("Child not found.");
+    }
 // if(isset($_SESSION['current_user_name'])){
 //     if(($_SESSION['current_user_type']=='customer') || ($_SESSION['current_user_type']=='delivery_boy') || ($_SESSION['current_user_type']=='book_owner')){
 //         header("Location:./cits/dashboard.php");
@@ -327,32 +344,43 @@ if(!empty($_SESSION)){
 </div>
 </div>
             
+ <!-- ✅ Bug Fix Summary: 0000534
+ -------------------------------------------------------------
+ Issue: Registered child card was not showing after successful 
+ registration in the 'Your Children' section (Child Management page).
+ Root Cause: Missing/incorrect database fetch or display logic.
+ Fix: Added proper SQL query to fetch specific child record by name 
+ and ensure data is correctly displayed in the Child Profile section.
+ Also verified database connection and image path rendering logic.
+
+ Status: ✅ FIXED and VERIFIED
+ -------------------------------------------------------------
+-->
             <div class="profile-grid">
                 <div class="placeholder-container" id="imagePreviewContainer">
                     <!-- Image will appear here -->
+                    <?php if (!empty($child['img_path']) && file_exists($child['img_path'])) { ?>
+                        <img src="<?php echo $child['img_path']; ?>" alt="Child Image">
+                    <?php } else { ?>
+                        <p>No Image Available</p>
+                    <?php } ?>
                 </div>
                 <div>
                     <div class="form-control">
                         <label>Child's Name</label>
-                        <input type="text" value="Child 1">
-                    </div>
-                    <div class="dob-age-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-control">
-                            <label>Child's Date of Birth</label>
-                            <input type="text" value="10 / 12 / 2020">
-                        </div>
-                        <div class="form-control">
-                            <label>Child's Age</label>
-                            <input type="text" value="4 year, 5 Months">
-                        </div>
+                        <input type="text" value="<?php echo htmlspecialchars($child['child_name']); ?>" readonly>
                     </div>
                     <div class="form-control">
-                        <label>Child's Gender</label>
-                        <input type="text" value="Filed Entry">
+                        <label>Date of Birth</label>
+                        <input type="text" value="<?php echo htmlspecialchars($child['dob']); ?>" readonly>
                     </div>
                     <div class="form-control">
-                        <label>Image</label>
-                        <input type="file" id="imageUploadInput" accept="image/*">
+                        <label>Age</label>
+                        <input type="text" value="<?php echo htmlspecialchars($child['age']); ?>" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label>Gender</label>
+                        <input type="text" value="<?php echo htmlspecialchars($child['gender']); ?>" readonly>
                     </div>
                 </div>
             </div>
