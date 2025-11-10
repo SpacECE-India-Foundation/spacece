@@ -218,9 +218,9 @@ function validateForm(event) {
         return false;
     }
 
-    if (!/^\S+@\S+\.\S+$/.test(email)) {
-        alert("Enter a valid email address.");
-        return false;
+    if (!/^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i.test(email)) {
+    alert("Enter a valid Gmail or Yahoo email address.");
+    return false;
     }
 
     const genderRadios = form["gender"];
