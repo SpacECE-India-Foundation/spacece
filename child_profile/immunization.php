@@ -141,13 +141,8 @@ session_start();
           window.location.href = 'book-appointment.php'; // correct page
         }
       </script>
-      <!--  Bug Number 0000558 : Redirects the user to the 'appointment-history' page -->
-      <button class="book-btn"  onclick="redirectToAppointments()">Your Appointments</button>
-      <script>
-        function redirectToAppointments() {
-          window.location.href = 'appointment-history.php'; // correct page
-        }
-      </script>
+      <!--  Bug Number 0000558 : Redirects the user to the 'Your Appointments' page -->
+      <button class="appointment-btn" onclick="location.href='cits/appointment-history.php'">Your Appointments</button>
     </div>
 
     <table>

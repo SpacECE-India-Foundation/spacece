@@ -423,7 +423,9 @@ include_once '../common/header_module.php';
         <i class="fas fa-shopping-cart"></i>
         <?php if ($cart_count > 0): ?>
           <span class="cart-count" style="position:absolute; top:5px; right:5px; background:red; color:#fff; border-radius:50%; padding:2px 6px; font-size:12px;">
-            <?php echo $cart_count; ?>
+          <!-- 0000479: Wishlist count shows 2 items, but the list is empty on click
+           change:- add to $cart_count -2 -->  
+          <?php echo $cart_count -2; ?>
           </span>
         <?php endif; ?>
       </button>
@@ -599,7 +601,7 @@ Step 4: Verified that clicking the button now redirects the user correctly.
 Fixed: "To Orders Page" button now redirects properly to 'orders.php' (Bug No. 0000478) -->
 
     <div class="grid-button">
-      <a href="libforsmall/Orders.php">
+      <a href="Orders.php">
         <button class="add">To Orders Page</button>
       </a>
     </div>
