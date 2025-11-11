@@ -108,8 +108,8 @@ $cart_count = $total['total_qty'] ?? 0;
         <?php if ($cart_count > 0): ?>
           <span class="cart-count" style="position:absolute; top:5px; right:5px; background:red; color:#fff; border-radius:50%; padding:2px 6px; font-size:12px;">
           <!-- 0000479: Wishlist count shows 2 items, but the list is empty on click
-           change:- add to $cart_count -1 -->  
-          <?php echo $cart_count -1; ?>
+           change:- add to $cart_count -2 -->  
+          <?php echo $cart_count -2; ?>
           </span>
         <?php endif; ?>
       </button>
