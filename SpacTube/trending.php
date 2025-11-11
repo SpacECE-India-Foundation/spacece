@@ -2,25 +2,100 @@
 
 require_once 'Config/Functions.php';
 $Fun_call = new Functions();
-$fetch_video = "";
-$trend_video_call = []; 
+// ✅ ADD THIS FIX CODE BELOW
+// $abc = isset($_GET['filterr']) ? $_GET['filterr'] : 'all';
+// $search_query = isset($_GET['search_query']) ? trim($_GET['search_query']) : '';
+// $videos_per_page = 12;
+// $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+// $offset = ($page - 1) * $videos_per_page;
+
+// ✅ Handle search and filter safely
+// if ($search_query !== '') {
+//     $all_videos = $Fun_call->search_and_filter_videos('videos', $abc, $search_query);
+// } else {
+//     // When filter = 'all', show all videos instead of filtering by 'all'
+//     if ($abc === 'all') {
+//         $all_videos = $Fun_call->select_order('videos', 'views', 'DESC');
+//     } else {
+//         $all_videos = $Fun_call->trend_video_cat('videos', $abc, 'views', 'DESC');
+//     }
+// }
+
+// ✅ Always ensure result is an array
+// if (!is_array($all_videos)) {
+    // $all_videos = [];
+// }
+
+// $total_videos = count($all_videos);
+// $total_pages = ceil($total_videos / $videos_per_page);
+// $trend_video_call = array_slice($all_videos, $offset, $videos_per_page);
+// ✅ END FIX CODE
+
+// $fetch_video = "";
+// $trend_video_call = []; 
 // Set videos per page
-$videos_per_page = 12;
+// $videos_per_page = 12;
 
 // Get current page from URL, default is 1
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+// $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
 // Calculate offset
-$offset = ($page - 1) * $videos_per_page;
+// $offset = ($page - 1) * $videos_per_page;
 
 
 include_once './header_local.php';
 include_once '../common/header_module.php';
 
 
+// Bug 0000519 Fix : Implemented safe search + fallback to default videos when no result found
+//  Get current filter & search query from URL (GET parameters)
+$abc = isset($_GET['filterr']) ? $_GET['filterr'] : 'all';
+$search_query = isset($_GET['search_query']) ? trim($_GET['search_query']) : '';
+// Pagination setup
+$videos_per_page = 12;
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$offset = ($page - 1) * $videos_per_page;
+// Initialize video array
+$all_videos = [];
+
+// If user searched something
+if ($search_query !== '') {
+  // search_and_filter_videos => search by keyword + filter (category)
+    $all_videos = $Fun_call->search_and_filter_videos('videos', $abc, $search_query);
+
+    // If no video found for search → show all videos (fallback)
+    if (empty($all_videos)) {
+        $all_videos = $Fun_call->select_order('videos', 'views', 'DESC');
+    }
+} else {
+    // No search input
+     // If filter = all → show all trending videos
+    if ($abc === 'all') {
+        $all_videos = $Fun_call->select_order('videos', 'views', 'DESC');
+    } else {
+      // Else show only category-wise trending videos
+        $all_videos = $Fun_call->trend_video_cat('videos', $abc, 'views', 'DESC');
+    }
+}
+
+// Safety check — make sure $all_videos is always an array
+if (!is_array($all_videos)) {
+    $all_videos = [];
+}
+// Pagination setup
+$total_videos = count($all_videos);
+$total_pages = ($videos_per_page > 0) ? ceil($total_videos / $videos_per_page) : 1;
+// Get only required videos for the current page
+$trend_video_call = array_slice($all_videos, $offset, $videos_per_page);
+
+
+
 $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
 $get_video = $Fun_call->selected_order('videos', 'filter', 'cntlike', 'DESC');
 
+
+
+  
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=filter_alt" />
@@ -195,42 +270,51 @@ a:hover i {
 
 <div class="container">
   <div class="ins-box" style="border: none; box-shadow: none;">
-  <div class="container">
     <div class="container">
-      <div class="heading-title" style="color: black; text-align: left; margin-left: 0;">Our Free Videos</div>
+      <div class="container">
+        <div class="heading-title" style="color: black; text-align: left; margin-left: 0;">Our Free Videos</div>
+      </div>
     </div>
   </div>
-</div>
-            <br>
-            <div class="top-filter-bar">
+  <br>
+  <div class="top-filter-bar">
   <form action="trending.php" method="post" class="filter-search-form">
     <div class="search-container">
-      <input type="text" name="search_query" placeholder="Search for videos" />
+      <!-- <input type="text" name="search_query" placeholder="Search for videos" /> -->
+        <input type="text" name="search_query" placeholder="Search for videos" 
+           value="<?php echo isset($_GET['search_query']) ? htmlspecialchars($_GET['search_query']) : ''; ?>" />
       <button type="submit" name="Submit">
         <i class="fas fa-search"></i>
       </button>
     </div>
     <div class="custom-select-wrapper">
-  <span class="material-symbols-outlined custom-select-icon">filter_alt</span>
-  <!-- Bug ID: 0000518 - Filter dropdown not functional in 'Trending Section' of Spacetube page -->
-  <!-- FIX IMPLEMENTATION : Added onchange="this.form.submit()" to the <select> tag to auto-submit form whenever user changes filter.
-     - This ensures the selected filter is passed to backend and content updates dynamically.  -->
-  <select class="custom-select" name="filterr" id="filterr" onchange="this.form.submit() "style="appearance: none; width: 100%; padding: 5px 40px 6px 30px; border: 1px solid #ccc; border-radius: 12px; background-color: white; font-size: 14px; color: #666; outline: none;">
-    <option value="all">Filter</option>
-    <?php
-    if ($get_video) {
-        foreach ($get_video as $video_data) {
-            echo "<option value='" . $video_data['filter'] . "'>" . $video_data['filter'] . "</option>";
+      <span class="material-symbols-outlined custom-select-icon">filter_alt</span>
+      <!-- Bug ID: 0000518 - Filter dropdown not functional in 'Trending Section' of Spacetube page -->
+      <!-- FIX IMPLEMENTATION : Added onchange="this.form.submit()" to the <select> tag to auto-submit form whenever user changes filter.
+        - This ensures the selected filter is passed to backend and content updates dynamically.  -->
+      <select class="custom-select" name="filterr" id="filterr" onchange="this.form.submit() "style="appearance: none; width: 100%; padding: 5px 40px 6px 30px; border: 1px solid #ccc; border-radius: 12px; background-color: white; font-size: 14px; color: #666; outline: none;">
+        <option value="all">Filter</option>
+        <?php
+        if ($get_video) {
+            foreach ($get_video as $video_data) {
+                //echo "<option value='" . $video_data['filter'] . "'>" . $video_data['filter'] . "</option>";
+              // Bug 0000519 FIX : Dynamically render each filter category as an option inside the <select> dropdown.
+              // The `$selected` variable ensures correct option remains active.
+              // Check if this filter is currently selected
+              $selected = (isset($_GET['filterr']) && $_GET['filterr'] === $video_data['filter']) ? 'selected' : '';
+              // Display filter options dynamically in <select>
+              echo "<option value='" . $video_data['filter'] . "' $selected>" . $video_data['filter'] . "</option>";
+            }
         }
-    }
-    ?>
-  </select>
+        ?>
+      </select>
     </div>
   </form>
-</div>
+  </div>
 
 
-            <?php $abc = isset($_POST['filterr']) ? $_POST['filterr'] : 'all';
+<?php
+$abc = isset($_POST['filterr']) ? $_POST['filterr'] : 'all';
 $search_query = isset($_POST['search_query']) ? trim($_POST['search_query']) : '';
 $videos_per_page = 12;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -255,6 +339,7 @@ $total_videos = count($all_videos);
 $total_pages = ceil($total_videos / $videos_per_page);
 $trend_video_call = array_slice($all_videos, $offset, $videos_per_page);
 ?>
+
             <br>
             <div class="row row-cols-1 row-cols-md-2">
                 <?php
@@ -374,7 +459,7 @@ $trend_video_call = array_slice($all_videos, $offset, $videos_per_page);
 
 
         </div>
-    </div>
+</div>
 
 
 
@@ -524,26 +609,26 @@ $trend_video_call = array_slice($all_videos, $offset, $videos_per_page);
 
           <!-- Contact Section -->
          <div class="col-md-3 mb-3 mt-5 text-start">
-  <div class="contact-widget" style="color: black;">
-    <h5 style="font-size: 20px !important;">Contact Us</h5>
-    
-    <p class="mb-3" style="font-size: 15px !important; margin-right: 120px !important;">
-      <i class="fa-solid fa-phone text-warning me-2"></i> +91 90963 05648
-    </p>
-    
-    <p class="mb-3" style="font-size: 15px !important; margin-right: 95px !important;">
-      <i class="fas fa-envelope text-warning me-2"></i> events@spaceece.co
-    </p>
-    
-    <p class="mb-3" style="font-size: 15px !important; margin-right: 120px !important;">
-      <i class="fas fa-map-marker-alt text-warning me-2"></i> SPACE-ECE
-    </p>
-    
-    <p class="mb-3" style="font-size: 15px !important; margin-right: 80px !important;">
-      <i class="fas fa-clock text-warning me-2"></i> Mon - Sat 8 AM - 6 PM
-    </p>
-  </div>
-</div>
+          <div class="contact-widget" style="color: black;">
+            <h5 style="font-size: 20px !important;">Contact Us</h5>
+            
+            <p class="mb-3" style="font-size: 15px !important; margin-right: 120px !important;">
+              <i class="fa-solid fa-phone text-warning me-2"></i> +91 90963 05648
+            </p>
+            
+            <p class="mb-3" style="font-size: 15px !important; margin-right: 95px !important;">
+              <i class="fas fa-envelope text-warning me-2"></i> events@spaceece.co
+            </p>
+            
+            <p class="mb-3" style="font-size: 15px !important; margin-right: 120px !important;">
+              <i class="fas fa-map-marker-alt text-warning me-2"></i> SPACE-ECE
+            </p>
+            
+            <p class="mb-3" style="font-size: 15px !important; margin-right: 80px !important;">
+              <i class="fas fa-clock text-warning me-2"></i> Mon - Sat 8 AM - 6 PM
+            </p>
+          </div>
+         </div>
 
           <!-- Health Message + Social Media -->
           <div class="col-md-3 mb-3 mt-5 text-start">
@@ -587,18 +672,28 @@ $trend_video_call = array_slice($all_videos, $offset, $videos_per_page);
           e.preventDefault();
           var email = $('#email').val();
 
-          
-          //Bug No.->516->Email is now submitted successfully, added Regex for email validation
-          var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
-
-          if (!emailPattern.test(email)) {
+            // Bug No. 0000515 -> Newsletter email submission is now working correctly for all users.
+            // ✅ Custom regex for strict email validation
+            // Previously, the form relied only on HTML5 type="email", which allowed invalid emails 
+            // or emails with incorrect domains to pass (e.g., test@mailcom).
+            // Now, we use regex /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i to ensure:
+            // Now, we use regex /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i to ensure:
+            //   1. Email contains only valid characters before '@' (letters, numbers, dots, underscores, %, +, -)
+            //   2. Email contains '@' symbol
+            //   3. Only allows emails with domains 'gmail.com' or 'yahoo.com'
+            //   4. Validation is case-insensitive due to the 'i' flag
+            // This ensures users cannot submit emails from other domains or invalid formats.
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
+                      if (!emailPattern.test(email)) {
             swal("Error!", "Please enter a valid email address!", "error");
-            return; 
+
+@@ -652,6 +661,9 @@ alert(this.frmlogin);
           }
 
           $.ajax({
             method: "POST",
-            // Give the correct path
+            // ✅ Previously this was "./common/function.php"
+            // Changed to "../common/function.php" because the current file
             url: "../common/function.php",
             data: {
               subscribe: 1,
