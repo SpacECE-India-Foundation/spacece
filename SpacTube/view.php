@@ -658,6 +658,7 @@
     </div>
     </body>
 
+    <?php include '../common/footer_module.php' ?>
     <div>
     <!-- jQuery -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
