@@ -63,19 +63,21 @@ if (isset($_SESSION['current_user_email'])) {
     $cat_name = $_POST['cat_name'];
     $appointment_date = $_POST['adate'];
     $appointment_time = $_POST['atime'];
-    $child_name = $_POST['child_id'];
+    // $child_name = $_POST['child_id'];
     $u_name = $_POST['fullname'];
     $u_email = $_POST['email'];
     $u_mob = $_POST['mobile'];
 
+// FIX: #0000507 - Book Appointment was not saving due to missing POST data and incorrect SQL fields.
+
     $stmt = $conn1->prepare("INSERT INTO appointment 
-        (cid, category, username, cname, bid, com_mob, date_appointment, time_appointment, child_name, email, mobile)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        (cid, category, username, cname, bid, com_mob, date_appointment, time_appointment, email, mobile)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     
     // use all strings unless you are 100% sure cid/bid are int
     $stmt->bind_param("sssssssssss", 
         $c_id, $cat_name, $u_name, $con_name, $b_id, $u_mob, 
-        $appointment_date, $appointment_time, $child_name, $u_email, $u_mob
+        $appointment_date, $appointment_time, $u_email, $u_mob
     );
 
     if ($stmt->execute()) {
