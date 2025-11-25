@@ -54,3 +54,48 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2024-07-20 15:53:22
+
+-- ============================================================
+-- ✅ Bug Fix Summary: 0000533 & 0000534
+-- ------------------------------------------------------------
+-- 0000533: Profile image was not visible in the 'Your Children'
+--           section for Delivery Boy login.
+-- 0000534: Registered child card was not showing after successful
+--           registration in the 'Your Children' section.
+--
+-- Root Cause:
+--   Missing or incomplete 'children' table structure in database,
+--   which caused child details and profile images to not load.
+--
+-- Fix Implemented:
+--   ➤ Created a new 'children' table to properly store child details.
+--   ➤ Added 'img_path' column to store image file path for each child.
+--   ➤ Ensured all required fields (name, DOB, gender, etc.) are included.
+--
+-- Status: ✅ FIXED and VERIFIED
+-- ============================================================
+
+
+-- Table structure for table `children` 
+DROP TABLE IF EXISTS `children`;
+
+CREATE TABLE `children` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `child_name` VARCHAR(100) DEFAULT NULL,
+  `parent_contact` VARCHAR(15) DEFAULT NULL,
+  `parent_email` VARCHAR(100) DEFAULT NULL,
+  `gender` VARCHAR(10) DEFAULT NULL,
+  `parent_address` VARCHAR(255) DEFAULT NULL,
+  `dob` DATE DEFAULT NULL,
+  `age` VARCHAR(10) DEFAULT NULL,
+  `bcg` VARCHAR(20) DEFAULT NULL,
+  `opv0` VARCHAR(20) DEFAULT NULL,
+  `hepb` VARCHAR(20) DEFAULT NULL,
+  `OPV-1` VARCHAR(20) DEFAULT NULL,
+  `RVV-1` VARCHAR(20) DEFAULT NULL,
+  `img_path` VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
