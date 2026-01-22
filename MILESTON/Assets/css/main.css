@@ -1,0 +1,243 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fff4cc !important;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 0px 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* ===============================
+   LOGO
+================================ */
+
+
+.navbar .logo img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.navbar .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+
+.logo img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.logo span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+/* ===============================
+   RIGHT NAV (HOME + PROFILE)
+================================ */
+.user {
+    display: flex;
+    align-items: center;
+    gap: 14px; /* home & profile spacing */
+}
+
+/* HOME ICON */
+
+
+.icon-link {
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.icon-link i {
+  font-size: 18px;
+}
+
+.icon-link:hover {
+  color: #f6a609;
+}
+
+
+.home-icon {
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.home-icon:hover {
+    color: #f6a609;
+}
+
+/* ===============================
+   PROFILE MENU
+================================ */
+.profile-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* PROFILE IMAGE */
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+    border: 2px solid #f6a609;
+}
+
+/* ===============================
+   DROPDOWN
+================================ */
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 240px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+    overflow: hidden;
+    animation: fadeIn 0.25s ease;
+    z-index: 999;
+}
+
+.profile-dropdown.show {
+    display: block;
+}
+
+/* ===============================
+   DROPDOWN HEADER
+================================ */
+.profile-header {
+    background: #fff4dc;
+    padding: 14px;
+    text-align: center;
+}
+
+.profile-header strong {
+    display: block;
+    font-size: 15px;
+    color: #333;
+}
+
+.profile-header small {
+    font-size: 12px;
+    color: #777;
+    text-transform: capitalize;
+}
+
+/* ===============================
+   DROPDOWN LINKS
+================================ */
+.profile-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.profile-dropdown a i {
+    font-size: 15px;
+    color: #555;
+}
+
+.profile-dropdown a:hover {
+    background: #f6f6f6;
+}
+
+/* ===============================
+   LOGOUT
+================================ */
+.profile-dropdown .logout {
+    color: #e74c3c;
+    font-weight: 500;
+}
+
+.profile-dropdown .logout i {
+    color: #e74c3c;
+}
+
+/* ===============================
+   ICON HOVER (GUEST)
+================================ */
+.icon-hover {
+    font-size: 18px;
+    color: #000;
+    transition: color 0.2s ease;
+}
+
+.icon-hover:hover {
+    color: #ffb300;
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+
+    .logo span {
+        display: none;
+    }
+
+    .navbar {
+        padding: 14px 20px;
+    }
+
+    .profile-dropdown {
+        width: 210px;
+    }
+}
