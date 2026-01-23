@@ -19,12 +19,29 @@ body{
   background:#fff7da;
   overflow-x:hidden;
 }
+.hero-image{
+  width: 50%;
+  padding: 0px 15px;
+}
 
+.navbar .logo img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.navbar .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
 /* WRAPPER */
 .wrapper{
   max-width:1100px;
   margin:auto;
-  padding: 150px 15px 30px 15px;
+  padding:150px 15px 30px 15px;
 }
 
 /* ================= CHILD SELECTOR ================= */
@@ -353,6 +370,5 @@ body{
 <!-- footer include -->
 <div id="footer"></div>
 <script src="../layout/layout.js"></script>
-
 </body>
 </html>

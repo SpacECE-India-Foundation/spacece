@@ -7,13 +7,31 @@
 
 body {
     min-height: 100vh;
-    /* background: linear-gradient(180deg, #fdf3e2, #ffd6a5); */
-    background-color: #fff4cc !important;
+    background: linear-gradient(180deg, #fdf3e2, #ffd6a5);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     overflow-x: hidden;
+}
+
+.hero-image{
+  width: 50%;
+  padding: 0px 15px;
+}
+
+.navbar .logo img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.navbar .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
 }
 
 /* Layout */

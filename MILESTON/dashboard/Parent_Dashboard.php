@@ -34,7 +34,7 @@
 
 .hero{
   background: linear-gradient(135deg, #ffe9b3, #fff3d6);
-  padding:150px 0 60px;
+  padding:140px 0 60px;
   box-shadow: 0px 4px 4px 0px #00000040;
 }
 
@@ -59,7 +59,6 @@
   border-radius:20px;
   font-size:13px;
   font-family:'Poppins',sans-serif;
-  margin-bottom: 20px
 }
 
 .hero-content h1{
@@ -79,7 +78,9 @@
   line-height:1.6;
 }
 
-/* .hero-btn{
+
+
+.hero-btn{
   display:inline-block;
   background: linear-gradient(106.58deg, #F98C01 53.83%, #935301 133.12%);
   box-shadow: 0px 3.89px 3.89px 0px #00000040;
@@ -90,61 +91,34 @@
   text-decoration:none;
   font-family:'Poppins',sans-serif;
   transition:0.3s;
-} */
-
-.hero-btn {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    background: linear-gradient(106.58deg, #F98C01 53.83%, #935301 133.12%);
-    box-shadow: 0px 3.89px 3.89px rgba(0, 0, 0, 0.25);
-    color: #fff;
-    padding: 12px 26px;
-    border-radius: 8px;
-    font-weight: 500;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-
-/* SHINE EFFECT */
-.hero-btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 70%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255, 210, 120, 0.9) 45%,
-        rgba(255, 255, 255, 0.8) 50%,
-        rgba(255, 210, 120, 0.9) 55%,
-        transparent 100%
-    );
-    filter: blur(1px);
-    transition: left 0.7s ease-in-out;
-}
-
-/* HOVER */
-.hero-btn:hover::before {
-    left: 150%;
-}
-
-.hero-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
-}
-
-
-
-
 
 
 .hero-image{
   width: 50%;
   padding: 0px 15px;
+}
+
+.navbar .logo img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.navbar .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+
+.logo img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    display: block;
 }
 
 .hero-image img {
@@ -282,7 +256,7 @@
  width:90%;
  max-width:950px;
  margin:25px auto;
- padding: 18px 50px 30px 20px;
+ padding:18px;
  border-radius:10px;
  background:linear-gradient(135deg,#ff9800);
  color:#fff;
@@ -294,12 +268,12 @@
 .tag{
  background:#ffe9b3;
  color:#ff9800;
- padding:5px 10px;
+ padding:4px 10px;
  border-radius:20px;
  font-size:11px;
  font-weight:700;
  display:inline-block;
-  margin: 5px 0px 10px 0px;
+ margin-top:5px;
 }
 
 .game-box{
@@ -433,12 +407,8 @@ body{
 .growth-card{
   background:#fff;
   border-radius:20px;
-  padding: 25px 30px 50px 30px;
+  padding:25px;
   border:2px solid #ffcc33;
-}
-
-.growth-card h3{
-  margin-bottom: 20px;
 }
 
 .chart{
@@ -692,7 +662,9 @@ body{
     font-size: 20px;
   }
 }
-
+body {
+    background-color: #fff4cc !important;
+}
 
 
 </style>
@@ -813,187 +785,39 @@ body{
         on developing his cognitive skills”
     </div>
 </section>
+<!-- ================== REAL GROWTH CHART (HEIGHT + WEIGHT) ================== -->
 <section class="growth-section">
-
   <h2 class="section-title">Growth Progress</h2>
 
   <div class="growth-wrapper">
 
-    <!-- HEIGHT CARD -->
+    <!-- HEIGHT CHART -->
     <div class="growth-card">
       <h3>🙂 Children Height Growth</h3>
-
-      <div class="chart">
-        <div class="y-axis">
-          <span>110</span>
-          <span>80</span>
-          <span>50</span>
-          <span>0</span>
-        </div>
-
-        <div class="graph-area">
-          <div class="line"></div>
-
-          <div class="points">
-            <span data-x="5"  data-value="April : 50 cm"  style="left:5%;  bottom:40%"></span>
-            <span data-x="25" data-value="May : 60 cm"    style="left:25%; bottom:55%"></span>
-            <span data-x="45" data-value="June : 65 cm"   style="left:45%; bottom:60%"></span>
-            <span data-x="65" data-value="July : 78 cm"   style="left:65%; bottom:70%"></span>
-            <span data-x="85" data-value="August : 90 cm" style="left:85%; bottom:80%"></span>
-          </div>
-
-          <div class="months">
-            <span>Apr</span>
-            <span>May</span>
-            <span>Jun</span>
-            <span>Jul</span>
-            <span>Aug</span>
-          </div>
-        </div>
-      </div>
+      <canvas id="heightChart"></canvas>
     </div>
 
-    <!-- WEIGHT CARD -->
+    <!-- WEIGHT CHART -->
     <div class="growth-card">
       <h3>🙂 Children Weight Growth</h3>
-
-      <div class="chart">
-        <div class="y-axis">
-          <span>20</span>
-          <span>16</span>
-          <span>12</span>
-          <span>0</span>
-        </div>
-
-        <div class="graph-area">
-          <div class="line"></div>
-
-          <div class="points">
-            <span data-x="5"  data-value="April : 10 kg"  style="left:5%;  bottom:35%"></span>
-            <span data-x="25" data-value="May : 12 kg"    style="left:25%; bottom:45%"></span>
-            <span data-x="45" data-value="June : 13 kg"   style="left:45%; bottom:50%"></span>
-            <span data-x="65" data-value="July : 16 kg"   style="left:65%; bottom:65%"></span>
-            <span data-x="85" data-value="August : 18 kg" style="left:85%; bottom:75%"></span>
-          </div>
-
-          <div class="months">
-            <span>Apr</span>
-            <span>May</span>
-            <span>Jun</span>
-            <span>Jul</span>
-            <span>Aug</span>
-          </div>
-        </div>
-      </div>
+      <canvas id="weightChart"></canvas>
     </div>
 
   </div>
 </section>
 
+
+
+
 <!-- Tooltip -->
 <div id="tooltip"></div>
 
 
-
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../Assets/js/dashboard.js"></script>
-
-<!-- <script>
-function updateData(){
- let h = document.getElementById("heightInput").value;
- let w = document.getElementById("weightInput").value;
-
- if(h === "" || w === ""){
-   alert("Please enter Height and Weight");
-   return;
- }
-
- document.getElementById("displayData").innerHTML =
-   "Height: " + h + "cm | Weight: " + w + "kg";
-
- // 👉 Input clear after submit
- document.getElementById("heightInput").value = "";
- document.getElementById("weightInput").value = "";
-}
-</script>
-<script>
-// Company / backend thi score automatic aavse
-// Ahiya example score data attribute mathi lese
-
-document.querySelectorAll(".progress-card").forEach(card=>{
-    
-    let score = parseInt(card.getAttribute("data-score"));
-    let circle = card.querySelector(".circle");
-    let text = card.querySelector(".circle span");
-
-    if(score >= 85){
-        text.innerText = "Perfect";
-        circle.style.borderTopColor = "#04c85a";
-    }
-    else if(score >= 70){
-        text.innerText = "Excellent";
-        circle.style.borderTopColor = "#00d0c4";
-    }
-    else if(score >= 50){
-        text.innerText = "Good";
-        circle.style.borderTopColor = "#ffb400";
-    }
-    else{
-        text.innerText = "Developing";
-        circle.style.borderTopColor = "#ff3b3b";
-    }
-});
-</script>
-<script>
-    const tooltip = document.getElementById("tooltip");
-
-function showTip(x,y,text){
-  tooltip.innerText = text;
-  tooltip.style.left = x + "px";
-  tooltip.style.top = y - 35 + "px";
-  tooltip.style.display = "block";
-}
-
-// Point hover & click
-document.querySelectorAll(".points span").forEach(point=>{
-  point.addEventListener("mouseenter",e=>{
-    showTip(e.pageX, e.pageY, point.dataset.value);
-  });
-
-  point.addEventListener("click",e=>{
-    showTip(e.pageX, e.pageY, point.dataset.value);
-  });
-});
-
-// Line / graph ANYWHERE hover
-document.querySelectorAll(".graph-area").forEach(graph=>{
-  const points = [...graph.querySelectorAll(".points span")];
-
-  graph.addEventListener("mousemove",e=>{
-    const rect = graph.getBoundingClientRect();
-    const percentX = ((e.clientX - rect.left) / rect.width) * 100;
-
-    let nearest = points.reduce((a,b)=>{
-      return Math.abs(b.dataset.x - percentX) <
-             Math.abs(a.dataset.x - percentX) ? b : a;
-    });
-
-    showTip(e.pageX, e.pageY, nearest.dataset.value);
-  });
-
-  graph.addEventListener("mouseleave",()=>{
-    tooltip.style.display = "none";
-  });
-});
-
-</script> -->
-
-
+<script src="../Assets/js/growth.js"></script>
 <!-- footer include -->
 <div id="footer"></div>
 <script src="../layout/layout.js"></script>
-
-
 </body>
 </html>
-  

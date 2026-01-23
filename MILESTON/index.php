@@ -14,8 +14,6 @@
 </head>
 <body>
 
-<div id="header"></div>
-
 <div class="container hero">
 
     <!-- LEFT CONTENT -->
@@ -63,24 +61,16 @@
         </div>
 
         <a href="auth/login.php" class="btn">Get Started</a>
-        <!-- OPTIONAL REDIRECT MESSAGE (can be controlled via JS) -->
         <p class="redirect-text">Redirecting to login...</p>
 
     </div>
 
-       <!-- ====================== RIGHT SIDE IMAGE Visual representation of parents & child learning  ================= -->
+    <!-- RIGHT IMAGE -->
     <div class="hero-right">
         <img src="assets/img/family-greeting.png" alt="Parent and Child Learning">
     </div>
 
 </div>
-
-
-<!-- footer include -->
-<div id="footer"></div>
-<script src="../layout/layout.js"></script>
-
-
 
 <!-- JS -->
 <script src="assets/js/main.js"></script>
