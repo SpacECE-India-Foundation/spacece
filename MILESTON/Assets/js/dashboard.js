@@ -1,179 +1,147 @@
-/*******************************
- CONFIG
-********************************/
+/* ============================================
+   BASE URL
+============================================ */
 const BASE_URL = "https://hustle-7c68d043.mileswebhosting.com/spacece/api";
-const userId = localStorage.getItem("user_id") || 18;
 
-let selectedChildId = null;
-
-/*******************************
- LOAD CHILDREN
-********************************/
+/* ============================================
+   LOAD CHILD LIST ON DASHBOARD
+============================================ */
 async function loadChildren() {
-  try {
-    const res = await fetch(`${BASE_URL}/getAllChild.php?userId=${userId}`);
-    const data = await res.json();
+    try {
+        let userId = localStorage.getItem("user_id");
 
-    const childSwitch = document.getElementById("childSwitch"); // ✅ ADD THIS
-    if (!childSwitch) return;
+        const res = await fetch(`${BASE_URL}/api_get_child.php?userId=${userId}`);
+        const data = await res.json();
 
-    childSwitch.innerHTML = `<a href="../child/add_child.php" class="add-child">+</a>`;
+        if (data.status !== 200) return;
 
-    if (!data.status || !data.data || !data.data.children.length) {
-      document.getElementById("childNameAge").innerText = "No children added";
-      return;
+        const children = data.data;
+        const container = document.getElementById("childSwitch");
+
+        container.innerHTML = "";
+
+        children.forEach((child, index) => {
+            let btn = document.createElement("img");
+            btn.src = child.child_image || "../Assets/img/user.png";
+            btn.style.cursor = "pointer";
+
+            btn.onclick = () =>
+                switchChild(child.id, child.name, child.age, child.center);
+
+            container.appendChild(btn);
+
+            // 👉 AUTO SELECT FIRST CHILD
+            if (index === 0 && !localStorage.getItem("child_id")) {
+                switchChild(child.id, child.name, child.age, child.center);
+            }
+        });
+
+    } catch (err) {
+        console.log("Child Load Error:", err);
+    }
+}
+
+
+/* ============================================
+   SWITCH CHILD
+============================================ */
+function switchChild(id, name, age, center) {
+    localStorage.setItem("child_id", id);
+    localStorage.setItem("child_name", name);
+    localStorage.setItem("child_age", age);
+    localStorage.setItem("child_center", center);
+
+    document.dispatchEvent(new Event("child_switched"));
+
+    loadChildDetails();
+    loadMilestoneStatus();
+}
+
+/* ============================================
+   LOAD CHILD DETAILS
+============================================ */
+function loadChildDetails() {
+    document.getElementById("childNameAge").innerHTML =
+        `${localStorage.getItem("child_name")} | ${localStorage.getItem("child_age")} Years`;
+
+    document.getElementById("childCenter").innerHTML =
+        `Center: ${localStorage.getItem("child_center")}`;
+}
+
+/* ============================================
+   UPDATE HEIGHT & WEIGHT (Button)
+============================================ */
+document.getElementById("updatePhysicalBtn").addEventListener("click", async () => {
+    let height = document.getElementById("heightInput").value;
+    let weight = document.getElementById("weightInput").value;
+
+    if (!height || !weight) {
+        alert("Please enter height & weight.");
+        return;
     }
 
-    data.data.children.forEach((child, index) => {
-      const img = document.createElement("img");
-
-      // ⭐ FINAL FIX — FULL URL
-      img.src = `${BASE_URL}/${child.image}`;
-      img.alt = child.childName;
-
-      img.onclick = () => selectChild(child);
-
-      childSwitch.prepend(img);
-
-      if (index === 0) selectChild(child);
-    });
-
-
-  } catch (err) {
-    console.error("Child load error", err);
-  }
-}
-loadChildren();
-/*******************************
- SELECT CHILD
-********************************/
-function selectChild(child) {
-
-  // FIX selected child ID
-  selectedChildId = child.childId;
-
-  // FIX DOB format (DD/MM/YYYY → YYYY-MM-DD)
-  let dobFixed = child.dob ? child.dob.split("/").reverse().join("-") : null;
-
-  const age = calculateAge(dobFixed);
-
-  // Show name + age
-  document.getElementById("childNameAge").innerHTML =
-    `<b>${child.childName}</b> | <span class="highlight">${age} Years</span>`;
-
-  // Show center
-  document.getElementById("childCenter").innerText =
-    `Center: ${child.center || "Not Assigned"}`;
-
-  // Show height/weight
-  document.getElementById("displayData").innerText =
-    `Height: ${child.height || "--"} cm | Weight: ${child.weight || "--"} kg`;
-
-  loadGrowthChart(child);
-}
-
-
-/*******************************
- AGE CALCULATION
-********************************/
-function calculateAge(dob) {
-  if (!dob) return "--";
-  const birth = new Date(dob);
-  const today = new Date();
-  let age = today.getFullYear() - birth.getFullYear();
-  const m = today.getMonth() - birth.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
-  return age;
-}
-
-/*******************************
- UPDATE HEIGHT & WEIGHT
-********************************/
-const updateBtn = document.getElementById("updatePhysicalBtn");
-
-if (updateBtn) {
-  updateBtn.addEventListener("click", async () => {
-    const height = document.getElementById("heightInput").value;
-    const weight = document.getElementById("weightInput").value;
-
-    if (!height || !weight || !selectedChildId) {
-      alert("Please select child and enter height & weight");
-      return;
-    }
+    let userId = localStorage.getItem("user_id");
+    let childId = localStorage.getItem("child_id");
 
     const formData = new FormData();
+    formData.append("userId", userId);
+    formData.append("childId", childId);
     formData.append("height", height);
     formData.append("weight", weight);
 
     try {
-      const res = await fetch(
-        `${BASE_URL}/updateChildGrowth_MilesStone.php?userId=${userId}&childId=${selectedChildId}`,
-        {
-          method: "POST",     // REQUIRED
-          body: formData
-        }
-      );
+        const res = await fetch(`${BASE_URL}/api_update_child.php`, {
+            method: "POST",
+            body: formData
+        });
 
-      const data = await res.json();
+        const data = await res.json();
 
-      if (data.status === 200) {   // CORRECT SUCCESS CHECK
-        document.getElementById("displayData").innerText =
-          `Height: ${height} cm | Weight: ${weight} kg`;
-
-        document.getElementById("heightInput").value = "";
-        document.getElementById("weightInput").value = "";
-
-        alert("Updated successfully!");
-      } else {
-        alert(data.message || "Update failed");
-      }
-
+        alert(data.message);
+        loadChildDetails();
 
     } catch (err) {
-      console.error("Update error", err);
+        console.log("Update Physical Error:", err);
     }
-  });
-}
-
-/*******************************
- GROWTH CHART (STATIC DEMO)
-********************************/
-function loadGrowthChart(child) {
-  const container = document.querySelector(".growth-card .points");
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  const heightPoints = [
-    { x: 20, value: "60 cm" },
-    { x: 40, value: "70 cm" },
-    { x: 60, value: "80 cm" },
-    { x: 80, value: (child.height || "--") + " cm" }
-  ];
-
-  heightPoints.forEach(p => {
-    const span = document.createElement("span");
-    span.style.left = p.x + "%";
-    span.style.bottom = "70%";
-    span.title = p.value;
-    container.appendChild(span);
-  });
-}
-
-/*******************************
- DEVELOPMENT SCORE
-********************************/
-document.querySelectorAll(".progress-card").forEach(card => {
-  const score = parseInt(card.dataset.score || 0);
-  const circle = card.querySelector(".circle");
-  if (!circle) return;
-
-  let label = "Developing";
-  if (score >= 85) label = "Perfect";
-  else if (score >= 70) label = "Excellent";
-  else if (score >= 50) label = "Good";
-
-  circle.innerHTML = `<span>${label}</span>`;
 });
 
+/* ============================================
+   LOAD MILESTONE STATUS (MAIN PART)
+============================================ */
+async function loadMilestoneStatus() {
+    try {
+        let userId = localStorage.getItem("user_id");
+        let childId = localStorage.getItem("child_id");
 
+        if (!userId || !childId) return;
+
+        const res = await fetch(`${BASE_URL}/Get_MilesStoneTask.php?userId=${userId}&childId=${childId}`);
+        const data = await res.json();
+
+        console.log("Milestone Dashboard Data:", data);
+
+        if (data.status === 200) {
+            document.getElementById("milestoneCount").innerText = data.data.milestones;
+        }
+
+    } catch (err) {
+        console.log("Milestone Load Error:", err);
+    }
+}
+
+/* ============================================
+   AUTO RELOAD WHEN CHILD SWITCHES
+============================================ */
+document.addEventListener("child_switched", () => {
+    loadChildDetails();
+    loadMilestoneStatus();
+});
+
+/* ============================================
+   FIRST PAGE LOAD
+============================================ */
+document.addEventListener("DOMContentLoaded", () => {
+    loadChildren();
+    loadChildDetails();
+    loadMilestoneStatus();
+});
