@@ -5,6 +5,26 @@
             font-family: 'Poppins', sans-serif;
         }
 
+
+        .hero-image{
+        width: 50%;
+        padding: 0px 15px;
+        }
+
+        .navbar .logo img {
+            width: 100px;
+            height: auto;
+            max-width: 100%;
+            display: block;
+        }
+
+        .navbar .logo a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
         body {
             height: 100vh;
             overflow: hidden;

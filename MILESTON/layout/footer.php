@@ -56,16 +56,37 @@ footer img{
 footer h5{
   font-size:20px;
   margin-bottom:12px;
+  text-align: center;
+}
+.hero-image{
+  width: 50%;
+  padding: 0px 15px;
+}
+
+.navbar .logo img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.navbar .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
 }
 footer p{
   font-size:15px;
   line-height:1.7;
+  text-align: center;
 }
 .text-warning{color:#f4b400;}
 .contact-widget p{
   display:flex;
   gap:10px;
   align-items:center;
+  margin-bottom: 5px;
 }
 
 /* Social icons */

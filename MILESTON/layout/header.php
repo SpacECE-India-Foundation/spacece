@@ -52,12 +52,7 @@
         <a href="../auth/profile.php">
           <i class="fa-regular fa-user"></i>
           <span>My Profile</span>
-        </a>
-
-        <!-- <a href="../auth/update-profile.php">
-          <i class="fa-solid fa-pen"></i>
-          <span>Update Profile</span>
-        </a> -->
+        </a>  
 
         <a href="#" onclick="logout()" class="logout">
           <i class="fa-solid fa-right-from-bracket"></i>
@@ -74,7 +69,6 @@
 <!-- JS -->
 <script src="../Assets/js/header.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 
 </body>
 </html>
