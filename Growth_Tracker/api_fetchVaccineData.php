@@ -1,35 +1,50 @@
 <?php
-// Include the database connection file
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include '../Db_Connection/db_growth_tracker.php';
 
-// Set headers to allow cross-origin requests
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-    // SQL query to fetch all data from the Vaccine table
+$response = array();
+
+try {
+
     $sql = "SELECT vaccine_id, vaccine_name, protects_against, info FROM Vaccine";
     $result = $conn->query($sql);
 
-    // Initialize an array to hold the fetched data
-    $vaccineData = array();
-
-    // Check if there are results and fetch data into the array
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $vaccineData[] = array(
-                'vaccine_id' => $row['vaccine_id'],
-                'vaccine_name' => $row['vaccine_name'],
-                'protects_against' => $row['protects_against'],
-                'info' => $row['info']
-            );
-        }
-    } else {
-        throw new Exception("No data found");
+    if (!$result) {
+        throw new Exception("Query Failed: " . $conn->error);
     }
 
-    // Close the database connection
-    $conn->close();
+    if ($result->num_rows > 0) {
 
-    // Encode the data to JSON format and print it
-    echo json_encode($vaccineData);
+        $vaccineData = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $vaccineData[] = array(
+                "vaccine_id" => $row["vaccine_id"],
+                "vaccine_name" => $row["vaccine_name"],
+                "protects_against" => $row["protects_against"],
+                "info" => $row["info"]
+            );
+        }
+
+        $response["status"] = "success";
+        $response["data"] = $vaccineData;
+
+    } else {
+        $response["status"] = "error";
+        $response["message"] = "No data found";
+    }
+
+} catch (Exception $e) {
+    $response["status"] = "error";
+    $response["message"] = $e->getMessage();
+}
+
+$conn->close();
+
+echo json_encode($response);
 ?>
