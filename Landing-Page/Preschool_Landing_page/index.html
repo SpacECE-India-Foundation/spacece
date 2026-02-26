@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activities Bundle landing page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="SpacECE Logo" class="logo-img" />
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About us</a></li>
+                <li><a href="#subjects">Subjects</a></li>
+                <li class="active"><a href="#activities">Games &amp; activities</a></li>
+                <li><a href="#testimonial">Testimonial</a></li>
+                <li><a href="#waiting">Waiting room</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li class="mobile-enquire-li"><button class="contact-btn mobile-enquire-btn"
+                        onclick="openEnquirePopup()">Enquire Now</button></li>
+            </ul>
+
+            <button class="contact-btn desktop-enquire-btn" onclick="openEnquirePopup()">Enquire Now</button>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+
+
+        <!-- HERO CONTENT -->
+        <div class="hero-container">
+            <div class="hero-content">
+
+                <h1>WELCOME TO <span class="brand-text">SpacECE</span></h1>
+
+                <p>
+                    Empowering Futures Through Early Childhood Excellence <br>
+                    This motto encapsulates the essence of SpacECE's mission: to empower children and their families by
+                    providing quality early childhood education, fostering school readiness, and supporting the
+                    transition
+                    from early childhood to early grade learning.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary bubble-btn">Get Started Now</button>
+                    <button class="btn-watch bubble-btn" id="btnEnjoyClass"><span class="icon"><i
+                                class="fa-solid fa-play"></i></span>
+                        Enjoy
+                        Class</button>
+                </div>
+
+            </div>
+
+            <!-- IMAGE SHAPE WRAPPER -->
+            <div class="hero-image-wrapper">
+                <img src="assets/image1.png" alt="Kids Image" />
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="floating-elements">
+            <div class="float-item rocket"><i class="fa-solid fa-rocket"></i></div>
+            <div class="float-item star-1"><i class="fa-solid fa-star"></i></div>
+            <div class="float-item star-2"><i class="fa-solid fa-star"></i></div>
+            <div class="float-item cloud-1"><i class="fa-solid fa-cloud"></i></div>
+            <div class="float-item cloud-2"><i class="fa-solid fa-cloud"></i></div>
+            <div class="float-item planet-1"><i class="fa-solid fa-earth-americas"></i></div>
+            <div class="float-item moon"><i class="fa-solid fa-moon"></i></div>
+        </div>
+
+        <!-- Bottom Wave -->
+        <div class="bottom-wave"></div>
+
+    </section>
+
+
+    <!-- WHAT WE OFFER SECTION -->
+    <section class="offer-section" id="subjects">
+
+        <!-- Scalloped Border SVG overlay -->
+        <div class="offer-scallop-border"></div>
+
+        <!-- LEFT: Image + Dots -->
+        <div class="offer-image-side">
+            <div class="offer-image-blob">
+                <img src="assets/image2.png" alt="Teacher with kids" id="offerImg" />
+            </div>
+            <div class="offer-dots">
+                <span class="dot" onclick="changeSlide(0)"></span>
+                <span class="dot active" onclick="changeSlide(1)"></span>
+                <span class="dot" onclick="changeSlide(2)"></span>
+                <span class="dot" onclick="changeSlide(3)"></span>
+            </div>
+        </div>
+
+        <!-- RIGHT: Content -->
+        <div class="offer-content">
+            <h2 class="offer-title">WHAT WE OFFER<br>FOR STUDENTS</h2>
+            <p class="offer-subtitle">Our expert designed activities help children grow their minds, build confidence,
+                &amp; fall in love with learning.</p>
+
+            <!-- Pills — organic staggered layout matching screenshot -->
+            <div class="offer-pills-area">
+
+                <!-- Row 1: Green pill (right of center) + avatar girl -->
+                <div class="offer-pill-row row-r1">
+                    <div class="pill pill-green">Interactive Lessons</div>
+                    <div class="pill-avatar pill-avatar-top">
+                        <img src="assets/image3.png" alt="girl" />
+                    </div>
+                </div>
+
+                <!-- Row 2 (indented left): White pill | Orange pill + avatar -->
+                <div class="offer-pill-row row-r2">
+                    <div class="pill pill-white">Progress Tracking For Parents</div>
+                    <div class="pill pill-orange">Safe, Ad-Free Environment</div>
+                    <div class="pill-avatar">
+                        <img src="assets/image4.png" alt="kid" />
+                    </div>
+                </div>
+
+                <!-- Row 3: Teal pill + avatar (bottom) -->
+                <div class="offer-pill-row row-r3">
+                    <div class="pill pill-teal">Learning Games &amp; Quizzes</div>
+                    <div class="pill-avatar">
+                        <img src="assets/image2.png" alt="student" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- DISCOVER SECTION -->
+    <section class="discover-section" id="about">
+
+        <!-- Decorative shapes -->
+        <div class="disc-deco disc-deco-green-dot"></div>
+
+        <!-- LEFT: Text Content -->
+        <div class="discover-content">
+            <h2 class="discover-title">DISCOVER A WORLD OF<br>WONDER &amp; LEARNING</h2>
+            <p class="discover-subtitle">Our lessons are crafted by teachers as well as child development experts to
+                nurture real-world skills as long as boost your child's brainpower ability learn.</p>
+
+            <button class="disc-btn">About Us</button>
+
+            <!-- Stats row -->
+            <div class="disc-stats">
+                <div class="disc-stat">
+                    <span class="disc-stat-num">2001–2025</span>
+                    <span class="disc-stat-label">SpacECE India Foundation Established</span>
+                </div>
+            </div>
+
+            <!-- Student avatars + text -->
+            <div class="disc-students">
+                <div class="disc-avatars">
+                    <div class="disc-avatar"><img src="assets/image3.png" alt="s1" /></div>
+                    <div class="disc-avatar"><img src="assets/image4.png" alt="s2" /></div>
+                    <div class="disc-avatar"><img src="assets/image1.png" alt="s3" /></div>
+                </div>
+                <p class="disc-student-text">Students success by joining to nerd...</p>
+            </div>
+        </div>
+
+        <!-- RIGHT: Main Image -->
+        <div class="discover-image-side">
+            <div class="discover-img-card">
+                <img src="assets/image2.png" alt="Teachers" />
+            </div>
+        </div>
+
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-redesign" id="testimonial">
+        <div class="testi-overlay-glow"></div>
+
+        <!-- Section Header -->
+        <div class="testi-header">
+            <h2 class="testi-title">What Parents Say</h2>
+            <p class="testi-subtitle">Join thousands of happy families who love SpacECE</p>
+        </div>
+
+        <!-- Stack Container -->
+        <div class="testi-stack-container" id="testiStack">
+            <!-- Card 1 -->
+            <div class="testi-card-stack active" data-index="0">
+                <div class="testi-card-inner">
+                    <div class="testi-card-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="testi-quote">"The color characters guy totally loves the app and reads every day now!"</p>
+                    <div class="testi-card-user">
+                        <img src="assets/image3.png" alt="Parent 1" />
+                        <div>
+                            <span class="testi-name">Priya Noure</span>
+                            <span class="testi-role">Doctor, USA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="testi-card-stack" data-index="1">
+                <div class="testi-card-inner">
+                    <div class="testi-card-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="testi-quote">"The math games are amazing. My son thinks it's just for fun!"</p>
+                    <div class="testi-card-user">
+                        <img src="assets/image4.png" alt="Parent 2" />
+                        <div>
+                            <span class="testi-name">James Bond</span>
+                            <span class="testi-role">Businessman, USA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="testi-card-stack" data-index="2">
+                <div class="testi-card-inner">
+                    <div class="testi-card-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="testi-quote">"The kids love reading books and they do it with so much excitement!"</p>
+                    <div class="testi-card-user">
+                        <img src="assets/image1.png" alt="Parent 3" />
+                        <div>
+                            <span class="testi-name">Sofia Carter</span>
+                            <span class="testi-role">Teacher, UK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="testi-card-stack" data-index="3">
+                <div class="testi-card-inner">
+                    <div class="testi-card-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="testi-quote">"SpacECE has transformed how my children learn. Highly recommended!"</p>
+                    <div class="testi-card-user">
+                        <img src="assets/image2.png" alt="Parent 4" />
+                        <div>
+                            <span class="testi-name">David Wilson</span>
+                            <span class="testi-role">Engineer, Canada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="testi-card-stack" data-index="4">
+                <div class="testi-card-inner">
+                    <div class="testi-card-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="testi-quote">"The creativity sparked by these activities is truly wonderful to see."</p>
+                    <div class="testi-card-user">
+                        <img src="assets/image3.png" alt="Parent 5" />
+                        <div>
+                            <span class="testi-name">Emma Thompson</span>
+                            <span class="testi-role">Artist, Australia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pager Dots -->
+        <div class="testi-pager" id="testiPager">
+            <span class="pager-dot active" onclick="jumpToTesti(0)"></span>
+            <span class="pager-dot" onclick="jumpToTesti(1)"></span>
+            <span class="pager-dot" onclick="jumpToTesti(2)"></span>
+            <span class="pager-dot" onclick="jumpToTesti(3)"></span>
+            <span class="pager-dot" onclick="jumpToTesti(4)"></span>
+        </div>
+
+    </section>
+
+
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="activities">
+
+        <!-- Scalloped border top -->
+        <div class="cta-scallop-top"></div>
+
+        <!-- Pink blob / star decoration (left) -->
+        <div class="cta-deco cta-blob-left">
+            <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="55" cy="55" rx="52" ry="48" fill="#c97aaf" opacity="0.55" />
+                <ellipse cx="55" cy="55" rx="35" ry="32" fill="#c97aaf" opacity="0.4" />
+            </svg>
+        </div>
+
+        <!-- Wavy decoration (right) -->
+        <div class="cta-deco cta-wave-right">
+            <svg width="90" height="60" viewBox="0 0 90 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10 Q15 0 30 10 Q45 20 60 10 Q75 0 90 10" stroke="#7c3a8a" stroke-width="4" fill="none" />
+                <path d="M0 30 Q15 20 30 30 Q45 40 60 30 Q75 20 90 30" stroke="#7c3a8a" stroke-width="4" fill="none" />
+                <path d="M0 50 Q15 40 30 50 Q45 60 60 50 Q75 40 90 50" stroke="#7c3a8a" stroke-width="4" fill="none" />
+            </svg>
+        </div>
+
+        <!-- CTA Content -->
+        <div class="cta-content">
+            <h2 class="cta-title">YOUR CHILD'S LEARNING<br>JOURNEY STARTS TODAY!</h2>
+            <p class="cta-subtitle">we turn everyday learning into an exciting journey for kids, join free<br>for 7 days
+                and watch your child fall in love with learning.</p>
+
+            <!-- Buttons & Social Proof Row -->
+            <div class="cta-actions">
+                <button class="cta-btn-primary">Free Admission</button>
+
+                <div class="cta-social-proof">
+                    <div class="cta-avatars">
+                        <div class="cta-avatar"><img src="assets/image3.png" alt="s1" /></div>
+                        <div class="cta-avatar"><img src="assets/image4.png" alt="s2" /></div>
+                        <div class="cta-avatar"><img src="assets/image1.png" alt="s3" /></div>
+                    </div>
+                    <p class="cta-social-text">Already joins <strong>10,000+</strong><br>students for learning</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scalloped border bottom -->
+        <div class="cta-scallop-bottom"></div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+
+            <!-- LEFT: Logo + Social -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="assets/logo.jpg" alt="SpacECE Logo" class="footer-logo-img" />
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/SpacECE/" class="footer-social-icon" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/spac.ece/" class="footer-social-icon" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com/ece_spac" class="footer-social-icon" aria-label="Twitter"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- NAV COLUMNS -->
+            <div class="footer-nav">
+
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Home</h4>
+                    <ul>
+                        <li><a href="#about">About NoBo</a></li>
+                        <li><a href="#subjects">Our Services</a></li>
+                    </ul>
+                    <h4 class="footer-col-title footer-col-title-gap">Why Choose Us</h4>
+                    <ul>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Student Resources</h4>
+                    <ul>
+                        <li><a href="#activities">Monthly Admission</a></li>
+                        <li><a href="#">Faculty Admission</a></li>
+                        <li><a href="#">Daily Routine Guide</a></li>
+                        <li><a href="#">Games &amp; Sports</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: Contact -->
+            <div class="footer-contact">
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon"><i class="fa-solid fa-phone"></i></span>
+                    <div>
+                        <p>+91 93727 44039</p>
+                        <p>+91 93727 44039</p>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon footer-contact-icon--green"><i
+                            class="fa-solid fa-envelope"></i></span>
+                    <div>
+                        <p>hr@spacece.co</p>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon"><i class="fa-solid fa-location-dot"></i></span>
+                    <div>
+                        <p>CHANDRALOK NAGARI,C602, opp <br>Dhayari, Pune, Maharashtra 411041</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p>© 2025 SpacECE India Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- VIDEO MODAL -->
+    <div class="video-modal-overlay" id="videoModal">
+        <div class="video-modal-card">
+            <div class="video-iframe-container">
+                <iframe id="heroVideo" width="560" height="315" src="" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <button class="video-modal-close" id="closeVideoModal"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- ENQUIRE POPUP MODAL -->
+    <div class="enquire-overlay" id="enquireOverlay" onclick="closeEnquirePopup(event)">
+        <div class="enquire-card">
+            <button class="enquire-close" onclick="closeEnquirePopup()">&#10005;</button>
+            <div class="enquire-header">
+                <h3>Enquire Now</h3>
+                <p>Fill in the form below and we'll get back to you shortly.</p>
+            </div>
+            <form class="enquire-form" onsubmit="handleEnquireSubmit(event)">
+                <div class="enquire-field">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your full name" required />
+                </div>
+                <div class="enquire-field">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="Enter your email" required />
+                </div>
+                <div class="enquire-field">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="Enter your phone number" />
+                </div>
+                <div class="enquire-field">
+                    <label>Child's Age</label>
+                    <input type="number" placeholder="e.g. 8" min="1" max="15" />
+                </div>
+                <div class="enquire-field">
+                    <label>Select State</label>
+                    <select>
+                        <option value="" disabled selected>Select State</option>
+                        <option>Andhra Pradesh</option>
+                        <option>Arunachal Pradesh</option>
+                        <option>Assam</option>
+                        <option>Bihar</option>
+                        <option>Chhattisgarh</option>
+                        <option>Goa</option>
+                        <option>Gujarat</option>
+                        <option>Haryana</option>
+                        <option>Himachal Pradesh</option>
+                        <option>Jharkhand</option>
+                        <option>Karnataka</option>
+                        <option>Kerala</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Maharashtra</option>
+                        <option>Manipur</option>
+                        <option>Meghalaya</option>
+                        <option>Mizoram</option>
+                        <option>Nagaland</option>
+                        <option>Odisha</option>
+                        <option>Punjab</option>
+                        <option>Rajasthan</option>
+                        <option>Sikkim</option>
+                        <option>Tamil Nadu</option>
+                        <option>Telangana</option>
+                        <option>Tripura</option>
+                        <option>Uttar Pradesh</option>
+                        <option>Uttarakhand</option>
+                        <option>West Bengal</option>
+                        <option>Delhi</option>
+                        <option>Jammu &amp; Kashmir</option>
+                        <option>Ladakh</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="enquire-field">
+                    <label>Category</label>
+                    <select>
+                        <option value="" disabled selected>Select Category</option>
+                        <option>Interactive Lessons</option>
+                        <option>Learning Games &amp; Quizzes</option>
+                        <option>Reading &amp; Literacy</option>
+                        <option>Mathematics</option>
+                        <option>Science &amp; Discovery</option>
+                        <option>Arts &amp; Creativity</option>
+                        <option>Language Learning</option>
+                        <option>Life Skills</option>
+                        <option>Progress Tracking</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="enquire-field enquire-field-full">
+                    <label>Message</label>
+                    <textarea placeholder="Tell us about your child's learning needs..." rows="3"></textarea>
+                </div>
+                <button type="submit" class="enquire-submit">Send Enquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+
+</body>
+
+</html>
