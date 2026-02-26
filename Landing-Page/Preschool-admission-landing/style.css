@@ -367,14 +367,10 @@ button {
 
 .section--white {
   background-color: var(--c-white);
-  border-top: var(--stroke);
-  border-bottom: var(--stroke);
 }
 
 .section--yellow {
   background-color: var(--c-yellow);
-  border-top: var(--stroke);
-  border-bottom: var(--stroke);
 }
 
 .section-label {
@@ -654,11 +650,13 @@ button {
 }
 
 @keyframes ctaArrowConverge {
+
   0%,
   100% {
     transform: translate(var(--x-out), var(--y-out)) rotate(var(--rot));
     opacity: 0.8;
   }
+
   50% {
     transform: translate(0, 0) rotate(var(--rot));
     opacity: 1;
@@ -666,13 +664,16 @@ button {
 }
 
 @keyframes ctaArrowBoil {
+
   0%,
   100% {
     transform: rotate(0deg) translate(0, 0);
   }
+
   40% {
     transform: rotate(1.8deg) translate(0.9px, -0.7px);
   }
+
   75% {
     transform: rotate(-1.5deg) translate(-0.9px, 0.6px);
   }
@@ -760,7 +761,6 @@ button {
   right: 0;
   height: var(--header-h);
   background: var(--c-white);
-  border-bottom: var(--stroke);
   z-index: 1000;
   transition: var(--transition);
 }
@@ -1064,6 +1064,18 @@ button {
   justify-content: center;
 }
 
+.hero__img-real {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition);
+}
+
+.hero__img-box:hover .hero__img-real {
+  transform: scale(1.05) rotate(-1deg);
+}
+
 /* CSS Art Illustration (Child playing) */
 .css-art {
   width: 100%;
@@ -1340,10 +1352,12 @@ button {
 }
 
 @keyframes teacherFloat {
+
   0%,
   100% {
     transform: rotate(-3deg) translateY(0);
   }
+
   50% {
     transform: rotate(-2deg) translateY(-6px);
   }
@@ -2327,6 +2341,7 @@ button {
 }
 
 @media (max-width: 768px) {
+
   .bg-doodle,
   .doodle-shape,
   .teachers-img-placeholder {
