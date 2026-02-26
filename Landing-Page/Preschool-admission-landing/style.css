@@ -654,11 +654,13 @@ button {
 }
 
 @keyframes ctaArrowConverge {
+
   0%,
   100% {
     transform: translate(var(--x-out), var(--y-out)) rotate(var(--rot));
     opacity: 0.8;
   }
+
   50% {
     transform: translate(0, 0) rotate(var(--rot));
     opacity: 1;
@@ -666,13 +668,16 @@ button {
 }
 
 @keyframes ctaArrowBoil {
+
   0%,
   100% {
     transform: rotate(0deg) translate(0, 0);
   }
+
   40% {
     transform: rotate(1.8deg) translate(0.9px, -0.7px);
   }
+
   75% {
     transform: rotate(-1.5deg) translate(-0.9px, 0.6px);
   }
@@ -760,7 +765,6 @@ button {
   right: 0;
   height: var(--header-h);
   background: var(--c-white);
-  border-bottom: var(--stroke);
   z-index: 1000;
   transition: var(--transition);
 }
@@ -1352,10 +1356,12 @@ button {
 }
 
 @keyframes teacherFloat {
+
   0%,
   100% {
     transform: rotate(-3deg) translateY(0);
   }
+
   50% {
     transform: rotate(-2deg) translateY(-6px);
   }
@@ -2339,6 +2345,7 @@ button {
 }
 
 @media (max-width: 768px) {
+
   .bg-doodle,
   .doodle-shape,
   .teachers-img-placeholder {
