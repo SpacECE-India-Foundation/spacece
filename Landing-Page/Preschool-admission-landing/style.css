@@ -367,14 +367,10 @@ button {
 
 .section--white {
   background-color: var(--c-white);
-  border-top: var(--stroke);
-  border-bottom: var(--stroke);
 }
 
 .section--yellow {
   background-color: var(--c-yellow);
-  border-top: var(--stroke);
-  border-bottom: var(--stroke);
 }
 
 .section-label {
