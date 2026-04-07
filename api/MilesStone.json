@@ -1,0 +1,55 @@
+{
+  "categories": [
+    {
+      "name": "Cognitive Skills",
+      "questions": [
+        {
+          "question": "Which shape fits into the square hole?",
+          "options": ["Circle", "Square", "Triangle"]
+        },
+        {
+          "question": "What comes next in the pattern: Red, Blue, Red, Blue, ___?",
+          "options": ["Red", "Blue", "Green"]
+        },
+        {
+          "question": "How many apples are on the table?",
+          "options": ["2", "4", "3"]
+        }
+      ]
+    },
+    {
+      "name": "Language Skills",
+      "questions": [
+        {
+          "question": "What sound does a cat make?",
+          "options": ["Meow", "Woof", "Moo"]
+        },
+        {
+          "question": "Which word rhymes with 'hat'?",
+          "options": ["Bat", "Dog", "Fish"]
+        },
+        {
+          "question": "Choose the correct word to complete the sentence: 'The sun is very ___.'",
+          "options": ["Hot", "Cold", "Wet"]
+        }
+      ]
+    },
+    {
+      "name": "Motor Skills",
+      "questions": [
+        {
+          "question": "Can the child stack 5 blocks?",
+          "options": ["Yes", "No", "Not sure"]
+        },
+        {
+          "question": "Can the child hold a crayon correctly?",
+          "options": ["Yes", "No", "Sometimes"]
+        },
+        {
+          "question": "Can the child jump with both feet?",
+          "options": ["Yes", "No", "Trying"]
+        }
+      ]
+    }
+  ]
+}

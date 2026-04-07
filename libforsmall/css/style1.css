@@ -1,0 +1,68 @@
+.Navbar {
+    background-color: orange;
+    display: flex;
+    padding: 16px;
+  
+    color: black;
+  }
+  
+  .Navbar__Link {
+    padding-right: 8px;
+  }
+  
+  .Navbar__Link img{
+  width: 60px;
+  max-width: 80px;
+  }
+  
+  
+  .Navbar__Items {
+    display: flex;
+  margin-right: 5%;
+  }
+  
+  .Navbar__Items a{
+   padding-left:5px;
+    padding-right:5px;
+     margin-left:5px;
+    margin-right:5px;
+  
+  
+  }
+  
+  
+  
+  .Navbar__Items--right {
+    margin-left:auto;
+  
+  }
+  
+  .Navbar__Link-toggle {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .Navbar__Items,
+    .Navbar {
+      flex-direction: column;
+    }
+      
+  .Navbar__Items {
+      display:none;
+    }
+      
+  .Navbar__Items--right {
+      margin-left:0;
+    }
+      
+  .Navbar__ToggleShow {
+      display: flex;
+    }
+      
+  .Navbar__Link-toggle {
+      align-self: flex-end;
+      display: initial;
+      position: absolute;
+      cursor: pointer;
+     } 
+  }

@@ -1,0 +1,5 @@
+=IMPORTJSON("http://3.109.14.4/SpacTube/api_getAllVideos","data/1")
+
+
+/before this go to sheets->tools->script-> paste the script-> excute)
+than type above line in sheets to get json data into sheets

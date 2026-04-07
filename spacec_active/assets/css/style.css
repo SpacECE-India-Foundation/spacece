@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: #eee;
+  padding: 0 2rem;
+  box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.header ul {
+  display: flex;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.header li {
+  margin-right: 1rem;
+}
+
+.footer {
+  margin-top: auto;
+  height: 20vh;
+  color: #777;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_form_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 100px;
+}
+
+.login_form_container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2f2f2f;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.login_form input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.login_form button {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  background-color: #2f2f2f;
+  color: #fff;
+  cursor: pointer;
+}
+
+.course_container {
+  display: flex;
+}
+
+#courses {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 80%;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.courses_filter {
+  width: 20%;
+}
+
+#courses .course {
+  width: 30%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+}
+
+#courses .course .card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#courses .course .btn,
+#course_details .btn {
+  background-color: #2f2f2f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+#course_details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 40px;
+  margin-top: 20px;
+}
