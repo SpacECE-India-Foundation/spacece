@@ -1101,7 +1101,8 @@ body {
       Weight: <input type="number" id="weightInput" placeholder="kg">
     </div>
  
-    <button class="submit-btn" id="updatePhysicalBtn">Submit</button>
+    <!-- <button class="submit-btn" id="updatePhysicalBtn">Submit</button> -->
+     <button class="submit-btn" id="updatePhysicalBtn" onclick="submitPhysicalData()">Submit</button>
     </div>
  
     <a href="milestone.php" style="text-decoration:none; color:inherit;">
@@ -1996,3 +1997,13 @@ $(document).ready(function() {
  
                 
   </script>
+  <script>
+document.querySelectorAll('.progress-card').forEach(card => {
+    const score = card.getAttribute('data-score');
+    const circle = card.querySelector('.circle');
+    const span = card.querySelector('.circle span');
+    span.textContent = score + '%';
+    circle.style.border = '8px solid #ffcc00';
+    circle.style.background = `conic-gradient(#ff9800 ${score * 3.6}deg, #eee 0deg)`;
+});
+</script>

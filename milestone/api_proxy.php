@@ -20,7 +20,8 @@ if (!in_array($_SERVER['REQUEST_METHOD'], ['POST', 'GET'])) {
 }
 
 // ── API Base URL ──────────────────────────────────────────
-define('BASE_API_URL', 'http://localhost/spacece-main/api');
+ define('BASE_API_URL', 'http://localhost/spacece-main/api');
+//define('BASE_API_URL', 'http://localhost/spacece-main/api/Parent_GetChildren.php');
 
 // ── Endpoint Mapping ──────────────────────────────────────
 $endpoints = [
@@ -30,7 +31,7 @@ $endpoints = [
 
     // Growth
     'get_growth'       => BASE_API_URL . '/Get_ChildGrowth.php',
-    'update_growth'    => BASE_API_URL . '/Update_ChildGrowth.php', // ✅ FIX ADDED
+    'update_growth'    => BASE_API_URL . '/updateChildGrowth_MilesStone.php', // ✅ FIX ADDED
 
     // Tasks
     'get_tasks'        => BASE_API_URL . '/Get_MilesStoneTask.php',
@@ -64,8 +65,16 @@ $backendURL  = $endpoints[$action];
 $isGetAction = in_array($action, $getActions);
 
 // Merge params
+// $params = array_merge($_GET, $_POST);
+// unset($params['action']);
+
 $params = array_merge($_GET, $_POST);
 unset($params['action']);
+
+// ✅ FIX: remove empty or invalid values
+$params = array_filter($params, function($v) {
+    return $v !== null && $v !== '';
+});
 
 // Debug log
 error_log("[API PROXY] Action: $action | Params: " . json_encode($params));
@@ -82,10 +91,20 @@ if ($isGetAction) {
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_HTTPGET, true);
 
-} else {
+}  else {
     $postData = $params;
 
-    // Handle file uploads
+    if ($action === 'update_growth') {
+        $getParams = http_build_query([
+            'userId'  => $params['userId']  ?? '',
+            'childId' => $params['childId'] ?? ''
+        ]);
+        $finalUrl = $backendURL . '?' . $getParams;
+        unset($postData['userId'], $postData['childId']);
+    } else {
+        $finalUrl = $backendURL;
+    }
+
     foreach ($_FILES as $key => $file) {
         if ($file['error'] === UPLOAD_ERR_OK) {
             $postData[$key] = new CURLFile(
@@ -96,9 +115,9 @@ if ($isGetAction) {
         }
     }
 
-    error_log("[API PROXY] POST → $backendURL");
+    error_log("[API PROXY] POST → $finalUrl");
 
-    curl_setopt($ch, CURLOPT_URL, $backendURL);
+    curl_setopt($ch, CURLOPT_URL, $finalUrl);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
 }

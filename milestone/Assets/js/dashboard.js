@@ -71,17 +71,28 @@ async function loadChildren() {
       switchEl.querySelectorAll('.child-icon-btn').forEach(el => el.remove());
  
       children.forEach(child => {
-        const imgFile = child.image ? child.image.split('/').pop() : null;
-        const isLocal = window.location.hostname === 'localhost';
+       // const imgFile = child.image ? child.image.split('/').pop() : null;
+      //  const imagePath = child.image || null; 
+      //  const isLocal = window.location.hostname === 'localhost';
  
-        // FIX 2: 'btn' was used before being declared — added missing declaration
-        const btn = document.createElement('img');
-        btn.className = 'child-icon-btn';
-        btn.src = imgFile
-          ? isLocal
-            ? `/spacece-main/milestone/uploads/children/${imgFile}`
-            : `${REMOTE_API.replace('/api', '')}/uploads/children/${imgFile}`
-          : '/spacece-main/milestone/Assets/img/default_child.png';
+      //   // FIX 2: 'btn' was used before being declared — added missing declaration
+      //   const btn = document.createElement('img');
+      //   btn.className = 'child-icon-btn';
+      //   btn.src = imgFile
+      //     ? isLocal
+      //       // ? `/spacece-main/milestone/uploads/children/${imgFile}` 
+      //       ? `/spacece-main/uploads/children/${imgFile}`
+      //       : `${REMOTE_API.replace('/api', '')}/uploads/children/${imgFile}`
+      //     : '/spacece-main/milestone/Assets/img/default_child.png';
+      const imagePath = child.image || null;
+
+const btn = document.createElement('img');
+btn.className = 'child-icon-btn';
+
+// 🔥 FIX: use imagePath directly (API already gives correct path)
+btn.src = imagePath
+  ? imagePath.replace('/milestone', '')
+  : '/spacece-main/milestone/Assets/img/default_child.png';
         btn.alt        = child.child_name;
         btn.title      = child.child_name;
         btn.style.cssText = 'width:60px;height:60px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.2);cursor:pointer;';
@@ -153,10 +164,14 @@ document.addEventListener('DOMContentLoaded', () => {
             || Store.get('userId')
             || Store.get('user_id');
  
-  childId = document.getElementById('sessionChildId')?.value
-            || Store.get('childId')
-            || Store.get('child_id');
- 
+  // childId = document.getElementById('sessionChildId')?.value
+  //           || Store.get('childId')
+  //           || Store.get('child_id');
+ childId = document.getElementById('sessionChildId')?.value;
+if (!childId || childId === '0') {
+  childId = Store.get('childId') || Store.get('child_id') || null;
+}
+
   console.log("SESSION USER ID:", userId);
   console.log("SESSION CHILD ID:", childId);
  
@@ -182,7 +197,7 @@ async function submitPhysicalData() {
     alert('Please enter both height and weight.');
     return;
   }
-  if (!userId || !childId) {
+  if (!userId || !childId || childId === '0') {
     alert('No child selected.');
     return;
   }
@@ -206,5 +221,28 @@ async function submitPhysicalData() {
   } catch (err) {
     console.error('[Dashboard] submitPhysicalData failed:', err);
     alert('Network error. Please try again.');
+  }
+}
+async function loadDevelopmentProgress(cId) {
+  try {
+    const res = await fetch(`/spacece-main/milestone/api_proxy.php?action=get_tasks&userId=${userId}&childId=${cId}`);
+    const json = await res.json();
+    if (json.status !== 200 || !json.data) return;
+
+    const acts = json.data.activities || '0/0';
+    const mils = json.data.milestones || '0/0';
+
+    const [aDone, aTotal] = acts.split('/').map(Number);
+    const score = aTotal > 0 ? Math.round((aDone / aTotal) * 100) : 0;
+
+    document.querySelectorAll('.progress-card').forEach(card => {
+      const circle = card.querySelector('.circle');
+      const span   = card.querySelector('.circle span');
+      if (span) span.textContent = score + '%';
+      if (circle) circle.style.background =
+        `conic-gradient(#ff9800 ${score * 3.6}deg, #eee 0deg)`;
+    });
+  } catch(e) {
+    console.error('[Progress] failed:', e);
   }
 }
