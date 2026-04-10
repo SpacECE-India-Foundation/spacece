@@ -1,0 +1,1 @@
+<div id="uid_placeholder" <?= isset($_SESSION['current_user_id']) ? 'data-uid=' . $_SESSION['current_user_id'] : 'data-uid=null' ?>></div>
